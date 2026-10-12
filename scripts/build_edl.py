@@ -113,6 +113,16 @@ def main():
         else:
             print("AVISO: no encontré", card["word"], "en", card["file"])
 
+    # Un clic por toma: en la palabra indicada en la config o en la primera palabra clave del clip.
+    clicks = []
+    for c in cfg["clips"]:
+        target = norm(c["click"]) if c.get("click") else None
+        w = next((w for w in words_tl if w["src"][0] == c["file"]
+                  and (norm(w["text"]) == target if target else w["key"])), None)
+        if w:
+            w["click"] = True
+            clicks.append(w["start"])
+
     # Bloques de subtítulos.
     pages, cur = [], []
     for i, w in enumerate(words_tl):
@@ -122,16 +132,16 @@ def main():
         brk = (nxt is None or nxt["src"][0] != w["src"][0] or len(cur) >= 3 or w["text"][-1:] in ".,?!" or nxt["start"] - w["end"] > 0.25 * FPS
                or chars + len(nxt["text"]) > 16)
         if brk:
-            pages.append({"from": cur[0]["start"], "words": [{k: x[k] for k in ("text", "start", "end", "key")} for x in cur]})
+            pages.append({"from": cur[0]["start"], "words": [{"text": x["text"], "start": x["start"], "end": x["end"], "key": x["key"], "click": x.get("click", False)} for x in cur]})
             cur = []
     for i, p in enumerate(pages):
         p["to"] = pages[i + 1]["from"] if i + 1 < len(pages) else p["words"][-1]["end"]
         p["to"] = min(p["to"], p["words"][-1]["end"] + 30)
 
     out = {"fps": FPS, "hook": cfg["hook"], "segments": segs, "clips": clips, "texts": texts,
-           "cards": cards, "pages": pages, "clipsEnd": t}
+           "cards": cards, "pages": pages, "clicks": clicks, "clipsEnd": t}
     json.dump(out, open(f"{ROOT}/src/campaign/vigilante.json", "w"), ensure_ascii=False, indent=1)
-    print(f"{len(segs)} planos, {len(pages)} bloques de subtítulos, {len(cards)} tarjetas, {t / FPS:.1f} s + cierre")
+    print(f"{len(segs)} planos, {len(pages)} bloques de subtítulos, {len(cards)} tarjetas, {len(clicks)} clics, {t / FPS:.1f} s + cierre")
 
 
 if __name__ == "__main__":

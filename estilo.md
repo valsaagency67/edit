@@ -33,11 +33,11 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
   - "deteriorándose" (IMG_1704) → "AÑOS DE DETERIORO" + ícono de puente agrietado.
   - "control político" (IMG_1706) → "CONTROL POLÍTICO" + ícono de lupa.
   - "constitucional" (IMG_1710) → "DEBER LEGAL Y CONSTITUCIONAL" + ícono de balanza (del ⚖ del perfil).
-- Tarjeta: fondo `#141414` con viñeta roja, ícono SVG blanco 360 px, texto Anton 96 px; entra con zoom 1.3 → 1.0 en 8 frames + whoosh.
+- Tarjeta: fondo `#141414` con viñeta roja, ícono SVG blanco 360 px, texto Anton 96 px; entra con zoom 1.3 → 1.0 en 8 frames + sonido de transición.
 - Si el cliente envía fotos del puente del Sesqui, reemplazan a la tarjeta de "AÑOS DE DETERIORO".
 
 ## Transiciones
-- Entre clips: flash blanco 85 % → 0 en 9 frames + sacudida 22 px que decae en 14 frames + whoosh (entra 10 frames antes del corte).
+- Entre clips: flash blanco 85 % → 0 en 9 frames + sacudida 22 px que decae en 14 frames + sonido de transición (campanita en el corte).
 - Jump cuts dentro de un clip: corte seco con pop de zoom (sin flash).
 
 ## Zooms
@@ -51,5 +51,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Sonido
 - Voz original del micrófono de solapa, volumen 1.0.
-- Whoosh (ruido rosa filtrado, 0.45 s) a 0.55 en cambios de clip y tarjetas; pop (seno 180 Hz, 0.18 s) a 0.6 en textos.
+- Transición (`scripts/make_sfx.py`): barrido de aire suave 250–2500 Hz de 0.42 s + campanita Do6/Sol6 (decaimiento 0.28 s), pico −8 dBFS, volumen 0.6; la campanita cae justo en el corte. Se usa en cambios de clip, tarjetas y cierre. (El cliente rechazó el whoosh anterior.)
+- **Clic** (doble clic de mouse, 0.12 s, pico −6 dBFS, volumen 0.8): **uno por toma**, en la primera palabra clave del clip (IMG_1713: "incómodas"). La palabra salta de 1.25× a 1.0× con resorte.
+- Pop (seno 180 Hz, 0.18 s) a 0.6 en textos.
 - Sin música (no hay música con licencia). [SUPOSICIÓN]

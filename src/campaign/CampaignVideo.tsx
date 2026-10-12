@@ -220,6 +220,18 @@ const Captions: React.FC<{ page: Page }> = ({ page }) => {
       >
         {page.words.map((w, i) => {
           const active = g >= w.start && g < w.end;
+          // Palabra con clic: salto de escala 1.25 -> 1 en ~10 frames.
+          const bounce =
+            w.click && g >= w.start
+              ? 1 +
+                0.25 *
+                  (1 -
+                    spring({
+                      frame: g - w.start,
+                      fps,
+                      config: { damping: 10, stiffness: 220 },
+                    }))
+              : 1;
           return (
             <span
               key={i}
@@ -227,7 +239,7 @@ const Captions: React.FC<{ page: Page }> = ({ page }) => {
                 display: "inline-block",
                 margin: "0 20px",
                 color: !w.key && active ? YELLOW : "white",
-                transform: `scale(${active ? 1.08 : 1})`,
+                transform: `scale(${(active ? 1.08 : 1) * bounce})`,
                 WebkitTextStroke: w.key ? undefined : "14px black",
                 paintOrder: "stroke fill",
                 textShadow: "0 6px 0 rgba(0,0,0,0.55)",
@@ -350,7 +362,7 @@ const EndCard: React.FC = () => {
 };
 
 export const CampaignVideo: React.FC = () => {
-  const W = 10; // el whoosh entra 10 frames antes del corte
+  const W = 12; // la campanita de transición suena justo en el corte
   const HOOK = Math.round(2.6 * FPS);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -370,8 +382,8 @@ export const CampaignVideo: React.FC = () => {
           <Sequence from={f} durationInFrames={10}>
             <Flash />
           </Sequence>
-          <Sequence from={f - W} durationInFrames={30}>
-            <Audio src={staticFile("sfx/whoosh.wav")} volume={0.55} />
+          <Sequence from={f - W} durationInFrames={54}>
+            <Audio src={staticFile("sfx/transition.wav")} volume={0.6} />
           </Sequence>
         </React.Fragment>
       ))}
@@ -382,15 +394,15 @@ export const CampaignVideo: React.FC = () => {
         </Sequence>
       ))}
       {edit.cards.map((c, i) => (
-        <Sequence key={`cardsfx-${i}`} from={c.from - 6} durationInFrames={30}>
-          <Audio src={staticFile("sfx/whoosh.wav")} volume={0.5} />
+        <Sequence key={`cardsfx-${i}`} from={c.from - W} durationInFrames={54}>
+          <Audio src={staticFile("sfx/transition.wav")} volume={0.5} />
         </Sequence>
       ))}
 
       <Sequence from={edit.clipsEnd} durationInFrames={END_CARD}>
         <Flash />
         <EndCard />
-        <Audio src={staticFile("sfx/whoosh.wav")} volume={0.6} />
+        <Audio src={staticFile("sfx/transition.wav")} volume={0.6} />
       </Sequence>
 
       <Sequence durationInFrames={edit.clipsEnd}>
@@ -416,6 +428,12 @@ export const CampaignVideo: React.FC = () => {
           durationInFrames={Math.max(1, p.to - p.from)}
         >
           <Captions page={p} />
+        </Sequence>
+      ))}
+
+      {edit.clicks.map((f, i) => (
+        <Sequence key={`click-${i}`} from={f} durationInFrames={12}>
+          <Audio src={staticFile("sfx/click.wav")} volume={0.8} />
         </Sequence>
       ))}
 

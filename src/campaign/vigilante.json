@@ -477,19 +477,22 @@
           "text": "en",
           "start": 12,
           "end": 18,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "un",
           "start": 17,
           "end": 26,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "espacio",
           "start": 26,
           "end": 46,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 46
@@ -501,13 +504,15 @@
           "text": "público",
           "start": 46,
           "end": 70,
-          "key": true
+          "key": true,
+          "click": true
         },
         {
           "text": "donde",
           "start": 70,
           "end": 84,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 84
@@ -519,13 +524,15 @@
           "text": "tenemos",
           "start": 84,
           "end": 108,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "derecho",
           "start": 108,
           "end": 132,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 132
@@ -537,13 +544,15 @@
           "text": "de",
           "start": 132,
           "end": 142,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "libre",
           "start": 142,
           "end": 166,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 166
@@ -555,13 +564,15 @@
           "text": "desarrollo",
           "start": 166,
           "end": 190,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "de",
           "start": 190,
           "end": 199,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 199
@@ -573,13 +584,15 @@
           "text": "personalidad",
           "start": 199,
           "end": 216,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "y",
           "start": 216,
           "end": 233,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 233
@@ -591,13 +604,15 @@
           "text": "de",
           "start": 233,
           "end": 242,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "comunicación",
           "start": 242,
           "end": 275,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 275
@@ -609,7 +624,8 @@
           "text": "hacia",
           "start": 275,
           "end": 306,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 309
@@ -621,19 +637,22 @@
           "text": "Pepo",
           "start": 309,
           "end": 343,
-          "key": true
+          "key": true,
+          "click": true
         },
         {
           "text": "dijo",
           "start": 343,
           "end": 352,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 352,
           "end": 358,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 357
@@ -645,19 +664,22 @@
           "text": "el",
           "start": 357,
           "end": 363,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "puente",
           "start": 362,
           "end": 376,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "del",
           "start": 376,
           "end": 386,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 386
@@ -669,13 +691,15 @@
           "text": "Sesqui",
           "start": 386,
           "end": 420,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "seguía",
           "start": 420,
           "end": 448,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 448
@@ -687,19 +711,22 @@
           "text": "así",
           "start": 448,
           "end": 468,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "porque",
           "start": 468,
           "end": 492,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "de",
           "start": 491,
           "end": 501,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 501
@@ -711,19 +738,22 @@
           "text": "pronto",
           "start": 501,
           "end": 525,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "no",
           "start": 525,
           "end": 534,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "había",
           "start": 534,
           "end": 553,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 553
@@ -735,7 +765,8 @@
           "text": "presupuesto.",
           "start": 553,
           "end": 579,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 582
@@ -747,13 +778,15 @@
           "text": "¿De",
           "start": 582,
           "end": 596,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "pronto,",
           "start": 596,
           "end": 620,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 620
@@ -765,7 +798,8 @@
           "text": "concejal?",
           "start": 620,
           "end": 653,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 656
@@ -777,19 +811,22 @@
           "text": "¿No",
           "start": 656,
           "end": 675,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "es",
           "start": 675,
           "end": 685,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "usted",
           "start": 685,
           "end": 709,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 709
@@ -801,19 +838,22 @@
           "text": "el",
           "start": 709,
           "end": 718,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "encargado",
           "start": 718,
           "end": 747,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "de",
           "start": 747,
           "end": 757,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 757
@@ -825,13 +865,15 @@
           "text": "vigilar",
           "start": 757,
           "end": 785,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "el",
           "start": 785,
           "end": 791,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 790
@@ -843,7 +885,8 @@
           "text": "presupuesto?",
           "start": 790,
           "end": 820,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 850
@@ -855,7 +898,8 @@
           "text": "Concejal,",
           "start": 861,
           "end": 899,
-          "key": true
+          "key": true,
+          "click": true
         }
       ],
       "to": 902
@@ -867,19 +911,22 @@
           "text": "usted",
           "start": 902,
           "end": 931,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "hace",
           "start": 931,
           "end": 950,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "parte",
           "start": 950,
           "end": 964,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 964
@@ -891,13 +938,15 @@
           "text": "de",
           "start": 964,
           "end": 970,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "la",
           "start": 969,
           "end": 975,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 974
@@ -909,13 +958,15 @@
           "text": "corporación",
           "start": 974,
           "end": 1008,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 1008,
           "end": 1017,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1017
@@ -927,13 +978,15 @@
           "text": "aprueba",
           "start": 1017,
           "end": 1046,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "el",
           "start": 1046,
           "end": 1056,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1056
@@ -945,7 +998,8 @@
           "text": "presupuesto.",
           "start": 1056,
           "end": 1077,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 1080
@@ -957,19 +1011,22 @@
           "text": "¿Cómo",
           "start": 1080,
           "end": 1109,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "va",
           "start": 1109,
           "end": 1118,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "a",
           "start": 1118,
           "end": 1124,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1123
@@ -981,19 +1038,22 @@
           "text": "decir",
           "start": 1123,
           "end": 1138,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 1138,
           "end": 1147,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "no",
           "start": 1147,
           "end": 1157,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1157
@@ -1005,19 +1065,22 @@
           "text": "hay",
           "start": 1157,
           "end": 1163,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "plata",
           "start": 1162,
           "end": 1181,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "si",
           "start": 1180,
           "end": 1194,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1194
@@ -1029,13 +1092,15 @@
           "text": "tan",
           "start": 1194,
           "end": 1209,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "siquiera",
           "start": 1209,
           "end": 1238,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1238
@@ -1047,7 +1112,8 @@
           "text": "verificarlo?",
           "start": 1238,
           "end": 1268,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1284
@@ -1059,19 +1125,22 @@
           "text": "Y",
           "start": 1284,
           "end": 1299,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "si",
           "start": 1299,
           "end": 1308,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "de",
           "start": 1308,
           "end": 1318,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1318
@@ -1083,19 +1152,22 @@
           "text": "verdad",
           "start": 1318,
           "end": 1337,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "sos",
           "start": 1337,
           "end": 1356,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "del",
           "start": 1356,
           "end": 1375,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1375
@@ -1107,7 +1179,8 @@
           "text": "sesqui,",
           "start": 1375,
           "end": 1394,
-          "key": true
+          "key": true,
+          "click": true
         }
       ],
       "to": 1394
@@ -1119,19 +1192,22 @@
           "text": "sabes",
           "start": 1394,
           "end": 1413,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 1413,
           "end": 1419,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 1418,
           "end": 1428,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1428
@@ -1143,19 +1219,22 @@
           "text": "da",
           "start": 1428,
           "end": 1437,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "cuenta",
           "start": 1437,
           "end": 1452,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 1452,
           "end": 1461,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1462
@@ -1167,13 +1246,15 @@
           "text": "lleva",
           "start": 1462,
           "end": 1481,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "años",
           "start": 1481,
           "end": 1500,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 1500
@@ -1185,7 +1266,8 @@
           "text": "deteriorándose.",
           "start": 1500,
           "end": 1548,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1559
@@ -1197,19 +1279,22 @@
           "text": "No",
           "start": 1559,
           "end": 1569,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "le",
           "start": 1569,
           "end": 1578,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "puedes",
           "start": 1578,
           "end": 1597,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1597
@@ -1221,19 +1306,22 @@
           "text": "atribuir",
           "start": 1597,
           "end": 1621,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "a",
           "start": 1621,
           "end": 1627,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "una",
           "start": 1626,
           "end": 1636,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1636
@@ -1245,13 +1333,15 @@
           "text": "vandalización",
           "start": 1636,
           "end": 1684,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "un",
           "start": 1688,
           "end": 1694,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1693
@@ -1263,19 +1353,22 @@
           "text": "problema",
           "start": 1693,
           "end": 1707,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "que",
           "start": 1707,
           "end": 1717,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "ya",
           "start": 1717,
           "end": 1726,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1726
@@ -1287,13 +1380,15 @@
           "text": "lleva",
           "start": 1726,
           "end": 1750,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "mucho",
           "start": 1750,
           "end": 1770,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1770
@@ -1305,7 +1400,8 @@
           "text": "tiempo.",
           "start": 1770,
           "end": 1779,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1782
@@ -1317,19 +1413,22 @@
           "text": "Lo",
           "start": 1782,
           "end": 1796,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "mínimo",
           "start": 1796,
           "end": 1825,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "era",
           "start": 1825,
           "end": 1844,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1844
@@ -1341,13 +1440,15 @@
           "text": "preguntar",
           "start": 1844,
           "end": 1873,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "por",
           "start": 1873,
           "end": 1883,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1883
@@ -1359,19 +1460,22 @@
           "text": "qué",
           "start": 1883,
           "end": 1897,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "la",
           "start": 1897,
           "end": 1907,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "alcaldía",
           "start": 1907,
           "end": 1940,
-          "key": true
+          "key": true,
+          "click": true
         }
       ],
       "to": 1940
@@ -1383,19 +1487,22 @@
           "text": "no",
           "start": 1940,
           "end": 1946,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "lo",
           "start": 1945,
           "end": 1955,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "había",
           "start": 1955,
           "end": 1969,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 1969
@@ -1407,7 +1514,8 @@
           "text": "intervenido,",
           "start": 1969,
           "end": 2004,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2008
@@ -1419,13 +1527,15 @@
           "text": "cuántos",
           "start": 2008,
           "end": 2037,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "recursos",
           "start": 2037,
           "end": 2066,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2066
@@ -1437,13 +1547,15 @@
           "text": "habían",
           "start": 2066,
           "end": 2090,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "dispuesto",
           "start": 2090,
           "end": 2123,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2123
@@ -1455,19 +1567,22 @@
           "text": "para",
           "start": 2123,
           "end": 2133,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "ello",
           "start": 2133,
           "end": 2157,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "y",
           "start": 2157,
           "end": 2171,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2171
@@ -1479,13 +1594,15 @@
           "text": "cuándo",
           "start": 2171,
           "end": 2195,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "planeaban",
           "start": 2195,
           "end": 2243,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2243
@@ -1497,7 +1614,8 @@
           "text": "hacerlo.",
           "start": 2243,
           "end": 2263,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2277
@@ -1509,19 +1627,22 @@
           "text": "De",
           "start": 2277,
           "end": 2291,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "eso",
           "start": 2291,
           "end": 2311,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 2311,
           "end": 2320,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2320
@@ -1533,19 +1654,22 @@
           "text": "trata",
           "start": 2320,
           "end": 2339,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "el",
           "start": 2340,
           "end": 2346,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "control",
           "start": 2345,
           "end": 2369,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 2369
@@ -1557,7 +1681,8 @@
           "text": "político.",
           "start": 2369,
           "end": 2399,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 2422
@@ -1569,13 +1694,15 @@
           "text": "Y",
           "start": 2422,
           "end": 2441,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "concejal,",
           "start": 2441,
           "end": 2489,
-          "key": true
+          "key": true,
+          "click": true
         }
       ],
       "to": 2489
@@ -1587,19 +1714,22 @@
           "text": "no",
           "start": 2489,
           "end": 2499,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 2499,
           "end": 2508,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "ofusque",
           "start": 2508,
           "end": 2547,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2547
@@ -1611,19 +1741,22 @@
           "text": "ni",
           "start": 2547,
           "end": 2557,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 2557,
           "end": 2563,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "tome",
           "start": 2561,
           "end": 2581,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2581
@@ -1635,19 +1768,22 @@
           "text": "la",
           "start": 2581,
           "end": 2587,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "crítica",
           "start": 2585,
           "end": 2609,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "como",
           "start": 2609,
           "end": 2624,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2624
@@ -1659,13 +1795,15 @@
           "text": "algo",
           "start": 2624,
           "end": 2643,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "personal.",
           "start": 2643,
           "end": 2670,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2673
@@ -1677,13 +1815,15 @@
           "text": "Hacer",
           "start": 2673,
           "end": 2702,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "control",
           "start": 2702,
           "end": 2726,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 2726
@@ -1695,19 +1835,22 @@
           "text": "político",
           "start": 2726,
           "end": 2769,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "no",
           "start": 2769,
           "end": 2783,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "es",
           "start": 2783,
           "end": 2798,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2798
@@ -1719,19 +1862,22 @@
           "text": "hacer",
           "start": 2798,
           "end": 2812,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "un",
           "start": 2812,
           "end": 2827,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "show.",
           "start": 2827,
           "end": 2843,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2845
@@ -1743,13 +1889,15 @@
           "text": "Hacer",
           "start": 2845,
           "end": 2869,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "control",
           "start": 2869,
           "end": 2888,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 2888
@@ -1761,19 +1909,22 @@
           "text": "político",
           "start": 2888,
           "end": 2927,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "es",
           "start": 2927,
           "end": 2941,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "su",
           "start": 2941,
           "end": 2955,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 2955
@@ -1785,19 +1936,22 @@
           "text": "deber",
           "start": 2955,
           "end": 2974,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "legal",
           "start": 2974,
           "end": 2998,
-          "key": true
+          "key": true,
+          "click": false
         },
         {
           "text": "y",
           "start": 2998,
           "end": 3013,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3013
@@ -1809,7 +1963,8 @@
           "text": "constitucional.",
           "start": 3013,
           "end": 3043,
-          "key": true
+          "key": true,
+          "click": false
         }
       ],
       "to": 3066
@@ -1821,19 +1976,22 @@
           "text": "Si",
           "start": 3066,
           "end": 3080,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "no",
           "start": 3080,
           "end": 3086,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 3085,
           "end": 3095,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3095
@@ -1845,7 +2003,8 @@
           "text": "siente",
           "start": 3095,
           "end": 3119,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3119
@@ -1857,13 +2016,15 @@
           "text": "capacitado",
           "start": 3119,
           "end": 3157,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "para",
           "start": 3157,
           "end": 3167,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3167
@@ -1875,13 +2036,15 @@
           "text": "hacer",
           "start": 3167,
           "end": 3181,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "las",
           "start": 3182,
           "end": 3192,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3192
@@ -1893,7 +2056,8 @@
           "text": "preguntas",
           "start": 3192,
           "end": 3216,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3216
@@ -1905,7 +2069,8 @@
           "text": "incómodas,",
           "start": 3216,
           "end": 3259,
-          "key": false
+          "key": false,
+          "click": true
         }
       ],
       "to": 3259
@@ -1917,19 +2082,22 @@
           "text": "no",
           "start": 3259,
           "end": 3268,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "se",
           "start": 3268,
           "end": 3278,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "sorprenda",
           "start": 3278,
           "end": 3312,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3311
@@ -1941,13 +2109,15 @@
           "text": "cuando",
           "start": 3311,
           "end": 3325,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "un",
           "start": 3325,
           "end": 3331,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3330
@@ -1959,7 +2129,8 @@
           "text": "ciudadano",
           "start": 3330,
           "end": 3359,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3359
@@ -1971,19 +2142,22 @@
           "text": "interesado",
           "start": 3359,
           "end": 3388,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "en",
           "start": 3388,
           "end": 3394,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "su",
           "start": 3393,
           "end": 3402,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3402
@@ -1995,13 +2169,15 @@
           "text": "ciudad",
           "start": 3402,
           "end": 3417,
-          "key": false
+          "key": false,
+          "click": false
         },
         {
           "text": "decide",
           "start": 3420,
           "end": 3458,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3458
@@ -2013,11 +2189,13 @@
           "text": "hacerlas.",
           "start": 3458,
           "end": 3488,
-          "key": false
+          "key": false,
+          "click": false
         }
       ],
       "to": 3488
     }
   ],
+  "clicks": [46, 309, 861, 1375, 1907, 2441, 3216],
   "clipsEnd": 3491
 }
