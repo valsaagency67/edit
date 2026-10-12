@@ -7,3 +7,5 @@ dist
 out
 whisper.cpp
 media/
+public/proxy/
+public/master/

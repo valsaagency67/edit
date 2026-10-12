@@ -31,6 +31,10 @@
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
     "lint": "eslint src && tsc",
-    "create-subtitles": "node sub.mjs"
+    "create-subtitles": "node sub.mjs",
+    "proxies": "scripts/proxies.sh",
+    "master": "scripts/master.sh",
+    "audio": "scripts/extract-audio.sh",
+    "transcribe": "node scripts/transcribe.mjs"
   }
 }
