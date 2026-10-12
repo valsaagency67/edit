@@ -10,3 +10,4 @@ media/
 public/proxy/
 public/master/
 whisper-models/
+__pycache__/
