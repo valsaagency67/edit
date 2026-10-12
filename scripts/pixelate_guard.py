@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
-"""Pixela la cara del vigilante en IMG_1697 (0–6.2 s del master) -> public/master/IMG_1697_pix.mov.
+"""Pixela la cara del vigilante en un master de IMG_1697.
 
 En el material, Juan Felipe le promete al vigilante: "te voy a pixelear". El vigilante
 siempre está a la izquierda de Juan Felipe, así que se toma la cara detectada más a la
 izquierda (Haar frontal + perfil, OpenCV), se suaviza el recorrido y se mantiene la última
 caja cuando la detección falla mientras él sigue en cuadro.
-Uso: python3 scripts/pixelate_guard.py
+Uso: python3 scripts/pixelate_guard.py <master entrada> <salida> <desde_s> <hasta_s>
+     (desde_s: segundo del master en que el vigilante ya está en cuadro)
+Ej.: python3 scripts/pixelate_guard.py IMG_1697_44s IMG_1697_hook 0 16
 """
 import os
 import subprocess
+import sys
 
 import cv2
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = f"{ROOT}/public/master/IMG_1697.mov"
-OUT = f"{ROOT}/public/master/IMG_1697_pix.mov"
-END_S, FPS, W, H = 6.2, 60, 1080, 1920
-GUARD_FROM_S = 3.0  # antes de esto el vigilante no está en cuadro
+SRC = f"{ROOT}/public/master/{sys.argv[1]}.mov"
+OUT = f"{ROOT}/public/master/{sys.argv[2]}.mov"
+GUARD_FROM_S, END_S = float(sys.argv[3]), float(sys.argv[4])
+FPS, W, H = 60, 1080, 1920
 BLOCK = 28  # tamaño del mosaico en px
 
 front = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")

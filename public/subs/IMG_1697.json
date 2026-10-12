@@ -924,388 +924,220 @@
   "confidence": null
  },
  {
-  "text": " no",
-  "startMs": 49010,
-  "endMs": 49090,
-  "timestampMs": 49010,
-  "confidence": null
- },
- {
-  "text": " estamos",
-  "startMs": 49039,
-  "endMs": 49119,
-  "timestampMs": 49039,
-  "confidence": null
- },
- {
-  "text": " en",
-  "startMs": 49068,
-  "endMs": 49148,
-  "timestampMs": 49068,
-  "confidence": null
- },
- {
-  "text": " el",
-  "startMs": 49097,
-  "endMs": 49177,
-  "timestampMs": 49097,
-  "confidence": null
- },
- {
-  "text": " interior.",
-  "startMs": 49126,
-  "endMs": 49206,
-  "timestampMs": 49126,
-  "confidence": null
- },
- {
-  "text": " Lo",
-  "startMs": 49155,
-  "endMs": 49235,
-  "timestampMs": 49155,
-  "confidence": null
- },
- {
-  "text": " que",
-  "startMs": 49184,
-  "endMs": 49264,
-  "timestampMs": 49184,
-  "confidence": null
- },
- {
-  "text": " pasa",
-  "startMs": 49213,
-  "endMs": 49293,
-  "timestampMs": 49213,
-  "confidence": null
- },
- {
-  "text": " es",
-  "startMs": 49242,
-  "endMs": 49322,
-  "timestampMs": 49242,
-  "confidence": null
- },
- {
-  "text": " que",
-  "startMs": 49271,
-  "endMs": 49351,
-  "timestampMs": 49271,
-  "confidence": null
- },
- {
-  "text": " por",
-  "startMs": 49300,
-  "endMs": 49380,
-  "timestampMs": 49300,
-  "confidence": null
- },
- {
-  "text": " seguridad,",
-  "startMs": 49329,
-  "endMs": 49409,
-  "timestampMs": 49329,
-  "confidence": null
- },
- {
-  "text": " eso",
-  "startMs": 49358,
-  "endMs": 49438,
-  "timestampMs": 49358,
-  "confidence": null
- },
- {
-  "text": " es",
-  "startMs": 49387,
-  "endMs": 49467,
-  "timestampMs": 49387,
-  "confidence": null
- },
- {
-  "text": " por",
-  "startMs": 49416,
-  "endMs": 49496,
-  "timestampMs": 49416,
-  "confidence": null
- },
- {
-  "text": " seguridad",
-  "startMs": 49445,
-  "endMs": 49525,
-  "timestampMs": 49445,
-  "confidence": null
- },
- {
-  "text": " digamos",
-  "startMs": 49474,
-  "endMs": 49554,
-  "timestampMs": 49474,
-  "confidence": null
- },
- {
-  "text": " hacia",
-  "startMs": 49503,
-  "endMs": 49583,
-  "timestampMs": 49503,
-  "confidence": null
- },
- {
-  "text": " allá,",
-  "startMs": 49532,
-  "endMs": 49612,
-  "timestampMs": 49532,
-  "confidence": null
- },
- {
-  "text": " no.",
-  "startMs": 49561,
-  "endMs": 49641,
-  "timestampMs": 49561,
-  "confidence": null
- },
- {
-  "text": " Acá",
-  "startMs": 49750,
-  "endMs": 50070,
-  "timestampMs": 49750,
+  "text": " Acá,",
+  "startMs": 49620,
+  "endMs": 50000,
+  "timestampMs": 49620,
   "confidence": null
  },
  {
   "text": " todo",
-  "startMs": 50070,
-  "endMs": 50310,
-  "timestampMs": 50070,
+  "startMs": 50000,
+  "endMs": 50320,
+  "timestampMs": 50000,
   "confidence": null
  },
  {
   "text": " lo",
-  "startMs": 50310,
-  "endMs": 50390,
-  "timestampMs": 50310,
+  "startMs": 50320,
+  "endMs": 50400,
+  "timestampMs": 50320,
   "confidence": null
  },
  {
   "text": " que",
-  "startMs": 50390,
-  "endMs": 50470,
-  "timestampMs": 50390,
+  "startMs": 50400,
+  "endMs": 50480,
+  "timestampMs": 50400,
   "confidence": null
  },
  {
-  "text": " quieran,",
-  "startMs": 50470,
-  "endMs": 51270,
-  "timestampMs": 50470,
+  "text": " quieran:",
+  "startMs": 50480,
+  "endMs": 51280,
+  "timestampMs": 50480,
   "confidence": null
  },
  {
   "text": " la",
-  "startMs": 51510,
-  "endMs": 51670,
-  "timestampMs": 51510,
+  "startMs": 51520,
+  "endMs": 51680,
+  "timestampMs": 51520,
   "confidence": null
  },
  {
   "text": " iglesia,",
-  "startMs": 51670,
-  "endMs": 52150,
-  "timestampMs": 51670,
+  "startMs": 51680,
+  "endMs": 52050,
+  "timestampMs": 51680,
   "confidence": null
  },
  {
   "text": " la",
-  "startMs": 52150,
-  "endMs": 52310,
-  "timestampMs": 52150,
+  "startMs": 52050,
+  "endMs": 52200,
+  "timestampMs": 52050,
   "confidence": null
  },
  {
-  "text": " parada,",
-  "startMs": 52310,
-  "endMs": 52870,
-  "timestampMs": 52310,
+  "text": " parada…",
+  "startMs": 52200,
+  "endMs": 52600,
+  "timestampMs": 52200,
   "confidence": null
  },
  {
   "text": " pero",
-  "startMs": 52870,
-  "endMs": 53030,
-  "timestampMs": 52870,
+  "startMs": 52950,
+  "endMs": 53100,
+  "timestampMs": 52950,
   "confidence": null
  },
  {
   "text": " para",
-  "startMs": 53030,
-  "endMs": 53270,
-  "timestampMs": 53030,
+  "startMs": 53100,
+  "endMs": 53280,
+  "timestampMs": 53100,
   "confidence": null
  },
  {
-  "text": " dentro",
-  "startMs": 53270,
-  "endMs": 53590,
-  "timestampMs": 53270,
+  "text": " adentro,",
+  "startMs": 53280,
+  "endMs": 53600,
+  "timestampMs": 53280,
   "confidence": null
  },
  {
   "text": " por",
-  "startMs": 53590,
-  "endMs": 53750,
-  "timestampMs": 53590,
+  "startMs": 53600,
+  "endMs": 53760,
+  "timestampMs": 53600,
   "confidence": null
  },
  {
-  "text": " seguridad",
-  "startMs": 53750,
-  "endMs": 53940,
-  "timestampMs": 53750,
-  "confidence": null
- },
- {
-  "text": " no",
-  "startMs": 53940,
-  "endMs": 54130,
-  "timestampMs": 53940,
-  "confidence": null
- },
- {
-  "text": " es",
-  "startMs": 54130,
+  "text": " seguridad,",
+  "startMs": 53760,
   "endMs": 54320,
-  "timestampMs": 54130,
+  "timestampMs": 53760,
   "confidence": null
  },
  {
-  "text": " para",
+  "text": " no.",
   "startMs": 54320,
-  "endMs": 54510,
+  "endMs": 54800,
   "timestampMs": 54320,
   "confidence": null
  },
  {
-  "text": " la",
-  "startMs": 54510,
-  "endMs": 54700,
-  "timestampMs": 54510,
-  "confidence": null
- },
- {
-  "text": " seguridad.",
-  "startMs": 54700,
-  "endMs": 54890,
-  "timestampMs": 54700,
-  "confidence": null
- },
- {
   "text": " Es",
-  "startMs": 54890,
-  "endMs": 55080,
-  "timestampMs": 54890,
+  "startMs": 54900,
+  "endMs": 55100,
+  "timestampMs": 54900,
   "confidence": null
  },
  {
   "text": " que",
-  "startMs": 55080,
-  "endMs": 55270,
-  "timestampMs": 55080,
+  "startMs": 55100,
+  "endMs": 55300,
+  "timestampMs": 55100,
   "confidence": null
  },
  {
   "text": " yo",
-  "startMs": 55270,
-  "endMs": 55430,
-  "timestampMs": 55270,
+  "startMs": 55300,
+  "endMs": 55460,
+  "timestampMs": 55300,
   "confidence": null
  },
  {
   "text": " entiendo",
-  "startMs": 55430,
-  "endMs": 55830,
-  "timestampMs": 55430,
+  "startMs": 55460,
+  "endMs": 55780,
+  "timestampMs": 55460,
   "confidence": null
  },
  {
   "text": " que",
-  "startMs": 55830,
-  "endMs": 55990,
-  "timestampMs": 55830,
+  "startMs": 55780,
+  "endMs": 55940,
+  "timestampMs": 55780,
   "confidence": null
  },
  {
   "text": " no",
-  "startMs": 55990,
-  "endMs": 56070,
-  "timestampMs": 55990,
+  "startMs": 55940,
+  "endMs": 56100,
+  "timestampMs": 55940,
   "confidence": null
  },
  {
   "text": " podamos",
-  "startMs": 56070,
-  "endMs": 56390,
-  "timestampMs": 56070,
+  "startMs": 56100,
+  "endMs": 56420,
+  "timestampMs": 56100,
   "confidence": null
  },
  {
   "text": " grabar",
-  "startMs": 56390,
-  "endMs": 56790,
-  "timestampMs": 56390,
+  "startMs": 56420,
+  "endMs": 56820,
+  "timestampMs": 56420,
   "confidence": null
  },
  {
   "text": " en",
-  "startMs": 56790,
-  "endMs": 56870,
-  "timestampMs": 56790,
+  "startMs": 56820,
+  "endMs": 56900,
+  "timestampMs": 56820,
   "confidence": null
  },
  {
   "text": " el",
-  "startMs": 56870,
-  "endMs": 57261,
-  "timestampMs": 56870,
+  "startMs": 56900,
+  "endMs": 57060,
+  "timestampMs": 56900,
   "confidence": null
  },
  {
   "text": " interior,",
-  "startMs": 57261,
-  "endMs": 57652,
-  "timestampMs": 57261,
+  "startMs": 57060,
+  "endMs": 57600,
+  "timestampMs": 57060,
   "confidence": null
  },
  {
   "text": " pero",
-  "startMs": 57652,
-  "endMs": 58044,
-  "timestampMs": 57652,
+  "startMs": 57700,
+  "endMs": 58000,
+  "timestampMs": 57700,
   "confidence": null
  },
  {
   "text": " es",
-  "startMs": 58044,
-  "endMs": 58435,
-  "timestampMs": 58044,
+  "startMs": 58000,
+  "endMs": 58300,
+  "timestampMs": 58000,
   "confidence": null
  },
  {
   "text": " que",
-  "startMs": 58435,
-  "endMs": 58826,
-  "timestampMs": 58435,
+  "startMs": 58300,
+  "endMs": 58600,
+  "timestampMs": 58300,
   "confidence": null
  },
  {
   "text": " estamos",
-  "startMs": 58826,
-  "endMs": 59217,
-  "timestampMs": 58826,
+  "startMs": 58600,
+  "endMs": 59000,
+  "timestampMs": 58600,
   "confidence": null
  },
  {
   "text": " afuera.",
-  "startMs": 59217,
-  "endMs": 59609,
-  "timestampMs": 59217,
+  "startMs": 59000,
+  "endMs": 59500,
+  "timestampMs": 59000,
   "confidence": null
  },
  {

@@ -89,7 +89,8 @@ def main():
                 fa, fb = round(a * FPS), round(b * FPS)
                 if fb - fa < 6:
                     continue
-                segs.append({"file": name, "video": c.get("video", name), "trimBefore": fa, "trimAfter": fb, "from": t, "clipIndex": ci,
+                off = round(c.get("videoOffset", 0) * FPS)  # el master puede empezar en otro segundo
+                segs.append({"file": name, "video": c.get("video", name), "trimBefore": fa - off, "trimAfter": fb - off, "from": t, "clipIndex": ci,
                              "zoom": 1.0,
                              "jump": shot > 0, "grayscale": bool(c.get("grayscale"))})
                 # Palabras que empiezan dentro de este plano -> tiempo en la línea de tiempo.
