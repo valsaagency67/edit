@@ -29,30 +29,15 @@ type Card = (typeof edit.cards)[number];
 
 export const TOTAL = edit.clipsEnd + END_CARD;
 
-const keywordStarts = edit.pages
-  .map((p) => p.words.filter((w) => w.key).map((w) => w.start))
-  .reduce((a, b) => a.concat(b), [] as number[]);
 const clipStarts = edit.clips.slice(1).map((c) => c.from);
 
+// Encuadre fijo: el cliente no quiere zooms que entran y salen.
 const Segment: React.FC<{ s: Seg }> = ({ s }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const len = s.trimAfter - s.trimBefore;
-  const g = s.from + frame;
-  const push = interpolate(frame, [0, len], [0, 0.045]);
-  const pop = s.jump
-    ? 0.06 *
-      (1 - spring({ frame, fps, config: { damping: 14, stiffness: 180 } }))
-    : 0;
-  // Golpe de zoom +8 % sobre cada palabra clave.
-  const k = keywordStarts.find((t) => g - t >= 0 && g - t < 14);
-  const d = k === undefined ? -1 : g - k;
-  const punch = d < 0 ? 0 : 0.08 * (d < 4 ? d / 4 : 1 - (d - 4) / 10);
   const isClipStart = clipStarts.indexOf(s.from) >= 0;
   const shake = isClipStart
     ? interpolate(frame, [0, 14], [22, 0], { extrapolateRight: "clamp" })
     : 0;
-  const originY = s.zoom > 1 ? "35%" : "45%";
   return (
     <AbsoluteFill style={{ overflow: "hidden" }}>
       <OffthreadVideo
@@ -63,8 +48,9 @@ const Segment: React.FC<{ s: Seg }> = ({ s }) => {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          transformOrigin: `50% ${originY}`,
-          transform: `translate(${Math.sin(frame * 2.7) * shake}px, ${Math.cos(frame * 3.1) * shake}px) scale(${s.zoom + push + pop + punch})`,
+          transform: shake
+            ? `translate(${Math.sin(frame * 2.7) * shake}px, ${Math.cos(frame * 3.1) * shake}px) scale(1.03)`
+            : undefined,
           filter: s.grayscale ? "grayscale(1) contrast(1.15)" : undefined,
         }}
       />
@@ -357,7 +343,7 @@ const EndCard: React.FC = () => {
           borderRadius: 60,
         }}
       >
-        SÍGUELO @juanfelipecastano_col
+        SÍGUENOS @juanfelipecastano_col
       </div>
     </AbsoluteFill>
   );

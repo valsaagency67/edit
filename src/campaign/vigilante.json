@@ -20,7 +20,7 @@
       "trimAfter": 259,
       "from": 108,
       "clipIndex": 0,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": true
     },
@@ -53,7 +53,7 @@
       "trimAfter": 259,
       "from": 386,
       "clipIndex": 1,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -75,7 +75,7 @@
       "trimAfter": 445,
       "from": 579,
       "clipIndex": 1,
-      "zoom": 1.16,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -97,7 +97,7 @@
       "trimAfter": 642,
       "from": 747,
       "clipIndex": 1,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -119,7 +119,7 @@
       "trimAfter": 192,
       "from": 899,
       "clipIndex": 2,
-      "zoom": 1.16,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -130,7 +130,7 @@
       "trimAfter": 295,
       "from": 974,
       "clipIndex": 2,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -141,7 +141,7 @@
       "trimAfter": 422,
       "from": 1077,
       "clipIndex": 2,
-      "zoom": 1.16,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -152,7 +152,7 @@
       "trimAfter": 525,
       "from": 1180,
       "clipIndex": 2,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -174,7 +174,7 @@
       "trimAfter": 197,
       "from": 1375,
       "clipIndex": 3,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -196,7 +196,7 @@
       "trimAfter": 446,
       "from": 1556,
       "clipIndex": 3,
-      "zoom": 1.16,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -207,7 +207,7 @@
       "trimAfter": 537,
       "from": 1688,
       "clipIndex": 3,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -229,7 +229,7 @@
       "trimAfter": 266,
       "from": 1897,
       "clipIndex": 4,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -251,7 +251,7 @@
       "trimAfter": 538,
       "from": 2133,
       "clipIndex": 4,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -273,7 +273,7 @@
       "trimAfter": 708,
       "from": 2340,
       "clipIndex": 4,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -295,7 +295,7 @@
       "trimAfter": 320,
       "from": 2547,
       "clipIndex": 5,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -317,7 +317,7 @@
       "trimAfter": 515,
       "from": 2769,
       "clipIndex": 5,
-      "zoom": 1.1,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     },
@@ -339,7 +339,51 @@
       "trimAfter": 756,
       "from": 2955,
       "clipIndex": 5,
-      "zoom": 1.1,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "IMG_1713",
+      "video": "IMG_1713",
+      "trimBefore": 35,
+      "trimAfter": 154,
+      "from": 3063,
+      "clipIndex": 6,
+      "zoom": 1.0,
+      "jump": false,
+      "grayscale": false
+    },
+    {
+      "file": "IMG_1713",
+      "video": "IMG_1713",
+      "trimBefore": 154,
+      "trimAfter": 283,
+      "from": 3182,
+      "clipIndex": 6,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "IMG_1713",
+      "video": "IMG_1713",
+      "trimBefore": 283,
+      "trimAfter": 389,
+      "from": 3311,
+      "clipIndex": 6,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "IMG_1713",
+      "video": "IMG_1713",
+      "trimBefore": 400,
+      "trimAfter": 474,
+      "from": 3417,
+      "clipIndex": 6,
+      "zoom": 1.0,
       "jump": true,
       "grayscale": false
     }
@@ -374,6 +418,11 @@
       "file": "IMG_1710",
       "from": 2419,
       "to": 3063
+    },
+    {
+      "file": "IMG_1713",
+      "from": 3063,
+      "to": 3491
     }
   ],
   "texts": [
@@ -1763,8 +1812,212 @@
           "key": true
         }
       ],
-      "to": 3043
+      "to": 3066
+    },
+    {
+      "from": 3066,
+      "words": [
+        {
+          "text": "Si",
+          "start": 3066,
+          "end": 3080,
+          "key": false
+        },
+        {
+          "text": "no",
+          "start": 3080,
+          "end": 3086,
+          "key": false
+        },
+        {
+          "text": "se",
+          "start": 3085,
+          "end": 3095,
+          "key": false
+        }
+      ],
+      "to": 3095
+    },
+    {
+      "from": 3095,
+      "words": [
+        {
+          "text": "siente",
+          "start": 3095,
+          "end": 3119,
+          "key": false
+        }
+      ],
+      "to": 3119
+    },
+    {
+      "from": 3119,
+      "words": [
+        {
+          "text": "capacitado",
+          "start": 3119,
+          "end": 3157,
+          "key": false
+        },
+        {
+          "text": "para",
+          "start": 3157,
+          "end": 3167,
+          "key": false
+        }
+      ],
+      "to": 3167
+    },
+    {
+      "from": 3167,
+      "words": [
+        {
+          "text": "hacer",
+          "start": 3167,
+          "end": 3181,
+          "key": false
+        },
+        {
+          "text": "las",
+          "start": 3182,
+          "end": 3192,
+          "key": false
+        }
+      ],
+      "to": 3192
+    },
+    {
+      "from": 3192,
+      "words": [
+        {
+          "text": "preguntas",
+          "start": 3192,
+          "end": 3216,
+          "key": false
+        }
+      ],
+      "to": 3216
+    },
+    {
+      "from": 3216,
+      "words": [
+        {
+          "text": "incómodas,",
+          "start": 3216,
+          "end": 3259,
+          "key": false
+        }
+      ],
+      "to": 3259
+    },
+    {
+      "from": 3259,
+      "words": [
+        {
+          "text": "no",
+          "start": 3259,
+          "end": 3268,
+          "key": false
+        },
+        {
+          "text": "se",
+          "start": 3268,
+          "end": 3278,
+          "key": false
+        },
+        {
+          "text": "sorprenda",
+          "start": 3278,
+          "end": 3312,
+          "key": false
+        }
+      ],
+      "to": 3311
+    },
+    {
+      "from": 3311,
+      "words": [
+        {
+          "text": "cuando",
+          "start": 3311,
+          "end": 3325,
+          "key": false
+        },
+        {
+          "text": "un",
+          "start": 3325,
+          "end": 3331,
+          "key": false
+        }
+      ],
+      "to": 3330
+    },
+    {
+      "from": 3330,
+      "words": [
+        {
+          "text": "ciudadano",
+          "start": 3330,
+          "end": 3359,
+          "key": false
+        }
+      ],
+      "to": 3359
+    },
+    {
+      "from": 3359,
+      "words": [
+        {
+          "text": "interesado",
+          "start": 3359,
+          "end": 3388,
+          "key": false
+        },
+        {
+          "text": "en",
+          "start": 3388,
+          "end": 3394,
+          "key": false
+        },
+        {
+          "text": "su",
+          "start": 3393,
+          "end": 3402,
+          "key": false
+        }
+      ],
+      "to": 3402
+    },
+    {
+      "from": 3402,
+      "words": [
+        {
+          "text": "ciudad",
+          "start": 3402,
+          "end": 3417,
+          "key": false
+        },
+        {
+          "text": "decide",
+          "start": 3420,
+          "end": 3458,
+          "key": false
+        }
+      ],
+      "to": 3458
+    },
+    {
+      "from": 3458,
+      "words": [
+        {
+          "text": "hacerlas.",
+          "start": 3458,
+          "end": 3488,
+          "key": false
+        }
+      ],
+      "to": 3488
     }
   ],
-  "clipsEnd": 3063
+  "clipsEnd": 3491
 }

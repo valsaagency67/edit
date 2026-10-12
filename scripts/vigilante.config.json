@@ -6,7 +6,8 @@
     { "file": "IMG_1702", "in": 0.4, "out": 8.75 },
     { "file": "IMG_1704", "in": 0.3, "out": 9.4, "texts": [{ "text": "LIDERAZGO SOCIAL EN PALMIRA", "at": 0.3, "dur": 2.4 }] },
     { "file": "IMG_1706", "in": 0.6, "out": 11.8 },
-    { "file": "IMG_1710", "in": 1.1, "out": 12.6 }
+    { "file": "IMG_1710", "in": 1.1, "out": 12.6 },
+    { "file": "IMG_1713", "in": 0.5, "out": 7.9 }
   ],
   "cards": [
     { "file": "IMG_1696", "word": "presupuesto", "text": "¿Y EL PRESUPUESTO?", "icon": "bill" },

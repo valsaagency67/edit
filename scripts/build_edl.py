@@ -90,7 +90,7 @@ def main():
                 if fb - fa < 6:
                     continue
                 segs.append({"file": name, "video": c.get("video", name), "trimBefore": fa, "trimAfter": fb, "from": t, "clipIndex": ci,
-                             "zoom": (1.16 if shot % 2 else 1.0) if pi == 0 else (1.10 if pi % 2 else 1.0),
+                             "zoom": 1.0,
                              "jump": shot > 0, "grayscale": bool(c.get("grayscale"))})
                 # Palabras que empiezan dentro de este plano -> tiempo en la línea de tiempo.
                 for w in words:

@@ -52,3 +52,7 @@ Whisper large-v3-turbo (texto) + Parakeet TDT v3 (tiempos por palabra). Segundos
 - `  1.20–  5.68` Y concejal, no se ofusque ni se tome la crítica como algo personal.
 - `  5.76–  8.96` Hacer control político no es hacer un show.
 - `  8.96– 12.26` Hacer control político es su deber legal y constitucional.
+
+## IMG_1713
+
+- `  0.64–  7.86` Si no se siente capacitado para hacer las preguntas incómodas, no se sorprenda cuando un ciudadano interesado en su ciudad decide hacerlas.

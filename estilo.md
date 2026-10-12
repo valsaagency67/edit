@@ -8,10 +8,8 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Ritmo de cortes
 - Se elimina **todo silencio > 0.30 s** (detección a −35 dB). Margen: 0.05 s antes y 0.05 s después de cada tramo de voz.
-- Cada corte alterna encuadre: plano abierto **1.00×** ↔ punch-in **1.16×** (origen vertical 35 %).
-- Ningún plano dura más de **2.2 s** sin cambio de encuadre: si un tramo de voz es más largo, se parte en el silencio más corto o, si no hay, en la mitad, alternando 1.00×/1.10×. [SUPOSICIÓN]
-- Empuje continuo dentro de cada plano: +4.5 % de escala a lo largo del plano.
-- Pop de entrada en cada jump cut: +6 % de escala que se asienta con resorte (damping 14, stiffness 180) en ~10 frames.
+- **Encuadre fijo, sin zooms** (el cliente pidió quitar los zooms que entran y salen). El ritmo lo dan los jump cuts.
+- Ningún plano dura más de **2.2 s**: los tramos largos se parten entre palabras (jump cut). [SUPOSICIÓN]
 - Duración objetivo: **< 50 s**. [SUPOSICIÓN]
 
 ## Subtítulos (lo más importante)
@@ -26,7 +24,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Banner fijo superior (centro y = 200 px): "Juan Felipe Castaño" en Anton 74 px rojo `#E30613` sobre caja blanca 92 % y barra de 5 colores (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
 - Gancho 0–2.6 s: "¿NO PODEMOS ESTAR AQUÍ?" en caja amarilla, Anton 80 px, rotación −3°, **debajo de los subtítulos (borde superior y = 1390 px)**: arriba taparía la cara.
 - Credenciales (del perfil de Instagram): "ABOGADO JAVERIANO" al entrar el primer monólogo, "LIDERAZGO SOCIAL EN PALMIRA" en el tercero; caja roja, 60 px, rotación 2°, misma zona que el gancho.
-- Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUELO @juanfelipecastano_col" pulsando.
+- Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUENOS @juanfelipecastano_col" pulsando (pedido del cliente).
 
 ## B-roll / imágenes
 - No hay material de apoyo del tema (las fotos IMG_1718–1720 son de otra escena). Se usan **tarjetas gráficas a pantalla completa de 1.1 s** sobre la voz, disparadas por la palabra exacta: [SUPOSICIÓN]
@@ -43,8 +41,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Jump cuts dentro de un clip: corte seco con pop de zoom (sin flash).
 
 ## Zooms
-- 1.00× / 1.16× alternados por corte; 1.10× en las divisiones de planos largos.
-- Golpe de zoom +8 % en 6 frames sobre cada palabra clave en caja roja. [SUPOSICIÓN]
+- Ninguno sobre el video (pedido del cliente). Solo la sacudida de 14 frames al cambiar de clip.
 
 ## Color
 - Originales HDR HLG → SDR BT.709 (tonemap hable, desat 2) vía LUT 3D.
