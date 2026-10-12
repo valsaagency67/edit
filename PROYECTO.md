@@ -11,8 +11,13 @@ Solo usar textos/datos que dé el cliente o que se digan en los videos.
 
 Carpeta: https://drive.google.com/drive/folders/1C6y3P8qQP_so6O08J0uS0pU4dGGBIAbo
 ("Juan felipe | Material de edición", ~6.4 GB). Descargar con `gdown --folder`
-o por ID con `gdown <id>` a `media/raw/` (ignorado por git), luego convertir a
-proxies 1080x1920 H.264 en `public/clips/`.
+o por ID con `gdown <id>` a `media/raw/` (ignorado por git).
+
+**Calidad máxima (requisito del cliente):** los originales nunca se recomprimen.
+- Los proxies livianos solo sirven para previsualizar en Remotion Studio.
+- El render final usa los archivos originales: 1080x1920 a 30/60 fps (igual al
+  original), H.264 con `--crf=16` o menor (o ProRes como master), audio AAC
+  320 kbps, para luego subir a Reels/TikTok sin pérdida visible.
 
 | Archivo | Tamaño | ID |
 |---|---|---|
