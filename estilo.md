@@ -22,7 +22,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Textos en pantalla
 - **Barra de progreso** arriba de borde a borde: **42 px** de alto (el cliente la pidió 3× más grande), degradado con los 5 colores de campaña sobre fondo negro 35 %.
-- Firma fija **arriba a la izquierda** (x = 110, y = 300 px): no tapa la cabeza, no queda pegada al borde y cae dentro del recorte 4:5 que Instagram muestra en el perfil (y 285–1635): "Juan Felipe Castaño" en Anton 38 px rojo `#E30613` sobre caja blanca 85 % (radio 12) y barra de 5 colores de 6 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
+- Firma fija **arriba a la izquierda** (x = 64, y = 300 px), **sin recuadro** (pedido del cliente): "Juan Felipe Castaño" en Anton **28 px** rojo `#E30613` con halo blanco suave y sombra, y barra de 5 colores de 4 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Dentro del recorte 4:5 de Instagram.
 - Gancho 0–2.6 s: "¿NO PODEMOS ESTAR AQUÍ?" en caja amarilla, Anton 80 px, rotación −3°, **debajo de los subtítulos (borde superior y = 1390 px)**: arriba taparía la cara.
 - Credenciales (del perfil de Instagram): "ABOGADO JAVERIANO" al entrar el primer monólogo, "LIDERAZGO SOCIAL EN PALMIRA" en el tercero; caja roja, 60 px, rotación 2°, misma zona que el gancho.
 - Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUENOS @juanfelipecastano_col" pulsando (pedido del cliente).
@@ -38,11 +38,11 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Si el cliente envía fotos del puente del Sesqui, reemplazan a la tarjeta de "AÑOS DE DETERIORO".
 
 ## Transiciones
-- Entre clips: flash blanco 85 % → 0 en 9 frames + sacudida 22 px que decae en 14 frames.
+- Entre clips: flash blanco 85 % → 0 en 9 frames, **sin sacudida** (pedido del cliente).
 - Jump cuts dentro de un clip: corte seco con pop de zoom (sin flash).
 
 ## Zooms
-- Ninguno sobre el video (pedido del cliente). Solo la sacudida de 14 frames al cambiar de clip.
+- Ninguno sobre el video, y sin sacudidas (pedido del cliente).
 
 ## Color
 - Originales HDR HLG → SDR BT.709 (tonemap hable, desat 2) vía LUT 3D.

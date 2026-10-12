@@ -65,34 +65,22 @@ export const scaleEdit = (fps: number): Edit => {
 export const durationFor = (fps: number) =>
   scaleEdit(fps).clipsEnd + Math.round(END_CARD_S * fps);
 
-// Encuadre fijo: el cliente no quiere zooms que entran y salen.
-const Segment: React.FC<{ s: Seg; isClipStart: boolean }> = ({
-  s,
-  isClipStart,
-}) => {
-  const frame = useCurrentFrame();
-  const shake = isClipStart
-    ? interpolate(frame, [0, 14], [22, 0], { extrapolateRight: "clamp" })
-    : 0;
-  return (
-    <AbsoluteFill style={{ overflow: "hidden" }}>
-      <OffthreadVideo
-        src={staticFile(`master/${s.video}.mov`)}
-        trimBefore={s.trimBefore}
-        trimAfter={s.trimAfter}
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          transform: shake
-            ? `translate(${Math.sin(frame * 2.7) * shake}px, ${Math.cos(frame * 3.1) * shake}px) scale(1.03)`
-            : undefined,
-          filter: s.grayscale ? "grayscale(1) contrast(1.15)" : undefined,
-        }}
-      />
-    </AbsoluteFill>
-  );
-};
+// Encuadre fijo, sin zooms ni sacudidas (pedido del cliente).
+const Segment: React.FC<{ s: Seg }> = ({ s }) => (
+  <AbsoluteFill style={{ overflow: "hidden" }}>
+    <OffthreadVideo
+      src={staticFile(`master/${s.video}.mov`)}
+      trimBefore={s.trimBefore}
+      trimAfter={s.trimAfter}
+      style={{
+        width: "100%",
+        height: "100%",
+        objectFit: "cover",
+        filter: s.grayscale ? "grayscale(1) contrast(1.15)" : undefined,
+      }}
+    />
+  </AbsoluteFill>
+);
 
 const Flash: React.FC = () => {
   const frame = useCurrentFrame();
@@ -121,39 +109,40 @@ const BrandBar: React.FC<{ width: number | string; height: number }> = ({
   </div>
 );
 
-// Firma discreta arriba a la izquierda, dentro de la zona segura 4:5 de Instagram
-// (no se corta en la vista de perfil) y separada del borde.
+// Firma pequeña sin recuadro, arriba a la izquierda, dentro de la zona segura 4:5
+// de Instagram. Sombra oscura para que se lea sobre cualquier fondo.
 const TopBanner: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const x = interpolate(
-    spring({ frame, fps, config: { damping: 18 } }),
-    [0, 1],
-    [-420, 0],
-  );
+  const o = interpolate(frame, [0, Math.round(0.3 * fps)], [0, 1], {
+    extrapolateRight: "clamp",
+  });
   return (
     <div
       style={{
         position: "absolute",
         top: 300,
-        left: 110,
-        transform: `translateX(${x}px)`,
-        backgroundColor: "rgba(255,255,255,0.85)",
-        borderRadius: 12,
-        padding: "8px 16px 10px",
+        left: 64,
+        opacity: o,
         display: "flex",
         flexDirection: "column",
         alignItems: "stretch",
-        gap: 7,
-        boxShadow: "0 4px 14px rgba(0,0,0,0.25)",
+        gap: 5,
       }}
     >
       <div
-        style={{ fontFamily: Anton, fontSize: 38, color: RED, lineHeight: 1 }}
+        style={{
+          fontFamily: Anton,
+          fontSize: 28,
+          color: RED,
+          lineHeight: 1,
+          textShadow:
+            "0 0 2px rgba(255,255,255,0.9), 0 1px 6px rgba(0,0,0,0.55)",
+        }}
       >
         Juan Felipe Castaño
       </div>
-      <BrandBar width={"100%"} height={6} />
+      <BrandBar width={"100%"} height={4} />
     </div>
   );
 };
@@ -409,7 +398,7 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
           durationInFrames={s.trimAfter - s.trimBefore}
           premountFor={30}
         >
-          <Segment s={s} isClipStart={clipStarts.indexOf(s.from) >= 0} />
+          <Segment s={s} />
         </Sequence>
       ))}
 
