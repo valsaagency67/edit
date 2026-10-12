@@ -75,11 +75,13 @@ def main():
                  for w in json.load(open(f"{ROOT}/public/subs/{name}.json"))]
         clip_start = t
         shot = 0
-        runs = speech(name, c["in"], c["out"])
+        # "ranges": tramos sueltos dentro del clip (p. ej. inicio recortado a ~4 s).
+        runs = [r for a_, b_ in c.get("ranges", [[c["in"], c["out"]]]) for r in speech(name, a_, b_)]
         # El detector a -35 dB se come ataques suaves: si una palabra empieza hasta 0.45 s antes
         # del tramo, el tramo arranca 0.05 s antes de esa palabra (sin pisar el tramo anterior).
         for ri, r in enumerate(runs):
-            floor = runs[ri - 1][1] if ri else c["in"]
+            floor = max(runs[ri - 1][1] if ri else c["in"],
+                        next((a_ for a_, b_ in c.get("ranges", []) if a_ <= r[0] < b_), c["in"]))
             early = [w["s"] for w in words if r[0] - 0.45 <= w["s"] < r[0] and w["s"] >= floor]
             if early:
                 r[0] = max(floor, min(early) - 0.05)

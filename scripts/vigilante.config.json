@@ -1,7 +1,7 @@
 {
   "hook": "¿NO PODEMOS ESTAR AQUÍ?",
   "clips": [
-    { "file": "IMG_1697", "video": "IMG_1697_hook", "videoOffset": 44, "in": 49.58, "out": 59.5, "grayscale": true, "click": "seguridad" },
+    { "file": "IMG_1697", "video": "IMG_1697_hook", "videoOffset": 44, "in": 52.66, "out": 59.5, "ranges": [[52.66, 54.86], [57.64, 59.5]], "grayscale": true, "click": "seguridad" },
     { "file": "IMG_1696", "in": 1.2, "out": 10.7, "texts": [{ "text": "ABOGADO JAVERIANO", "at": 0.3, "dur": 2.2 }] },
     { "file": "IMG_1702", "in": 0.4, "out": 8.75 },
     { "file": "IMG_1704", "in": 0.3, "out": 9.4, "texts": [{ "text": "LIDERAZGO SOCIAL EN PALMIRA", "at": 0.3, "dur": 2.4 }] },
