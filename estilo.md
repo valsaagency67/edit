@@ -63,7 +63,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - `npm run render:portada` → `out/portada.png` (1080x1920): IMG_1713 a 0.5 s (expresión seria), "Concejal, / HACER CONTROL POLÍTICO / NO ES UN SHOW" (Montserrat 600/900 + Bebas Neue amarillo) y la firma, dentro del recorte 4:5.
 
 ## Subtítulo base (actual)
-- Montserrat 600, **64 px**, blanco, sin caja, sombra suave, ancho máx. 940 px, **borde superior a y = 1160 px** (el cliente los pidió más grandes y más arriba). Frases de máx. 6 palabras / 30 caracteres.
+- Montserrat 600, **72 px**, blanco, sin caja, sombra suave, ancho máx. 940 px, **borde superior a y = 1160 px** (el cliente los pidió más grandes y más arriba). Frases de máx. 6 palabras / 30 caracteres.
 
 ## Análisis de la referencia (Duvalier, `media/ref/referencia1.mp4`)
 - **Ritmo:** 36 cambios de plano detectados en 152 s (un inserto cada ~4.2 s) más jump cuts dentro del primer plano.

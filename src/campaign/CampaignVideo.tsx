@@ -230,7 +230,7 @@ const BaseCaption: React.FC<{ page: Page }> = ({ page }) => {
           maxWidth: 940,
           fontFamily: Montserrat,
           fontWeight: 600,
-          fontSize: 64,
+          fontSize: 72,
           lineHeight: 1.2,
           color: "white",
           textAlign: "center",
