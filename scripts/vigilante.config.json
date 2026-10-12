@@ -1,0 +1,19 @@
+{
+  "hook": "¿NO PODEMOS ESTAR AQUÍ?",
+  "clips": [
+    { "file": "IMG_1697", "video": "IMG_1697_pix", "in": 1.0, "out": 6.1, "grayscale": true },
+    { "file": "IMG_1696", "in": 1.2, "out": 10.7, "texts": [{ "text": "ABOGADO JAVERIANO", "at": 0.3, "dur": 2.2 }] },
+    { "file": "IMG_1702", "in": 0.4, "out": 8.75 },
+    { "file": "IMG_1704", "in": 0.3, "out": 9.4, "texts": [{ "text": "LIDERAZGO SOCIAL EN PALMIRA", "at": 0.3, "dur": 2.4 }] },
+    { "file": "IMG_1706", "in": 0.6, "out": 11.8 },
+    { "file": "IMG_1710", "in": 1.1, "out": 12.6 }
+  ],
+  "cards": [
+    { "file": "IMG_1696", "word": "presupuesto", "text": "¿Y EL PRESUPUESTO?", "icon": "bill" },
+    { "file": "IMG_1702", "word": "plata", "text": "¿NO HAY PLATA?", "icon": "wallet" },
+    { "file": "IMG_1704", "word": "deteriorándose", "text": "AÑOS DE DETERIORO", "icon": "bridge" },
+    { "file": "IMG_1706", "word": "control", "text": "CONTROL POLÍTICO", "icon": "search" },
+    { "file": "IMG_1710", "word": "constitucional", "text": "DEBER LEGAL Y CONSTITUCIONAL", "icon": "scale" }
+  ],
+  "keywords": ["presupuesto", "plata", "concejal", "pepo", "sesqui", "control", "político", "deber", "legal", "constitucional", "alcaldía", "público", "derecho", "años"]
+}
