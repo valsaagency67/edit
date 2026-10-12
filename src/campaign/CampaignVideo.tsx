@@ -1,7 +1,6 @@
 import React from "react";
 import {
   AbsoluteFill,
-  Html5Audio as Audio,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -85,7 +84,8 @@ const BrandBar: React.FC<{ width: number | string; height: number }> = ({
   </div>
 );
 
-// Firma discreta en la esquina superior izquierda: no tapa la cabeza.
+// Firma discreta arriba a la izquierda, dentro de la zona segura 4:5 de Instagram
+// (no se corta en la vista de perfil) y separada del borde.
 const TopBanner: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -98,8 +98,8 @@ const TopBanner: React.FC = () => {
     <div
       style={{
         position: "absolute",
-        top: 150,
-        left: 40,
+        top: 300,
+        left: 110,
         transform: `translateX(${x}px)`,
         backgroundColor: "rgba(255,255,255,0.85)",
         borderRadius: 12,
@@ -358,7 +358,6 @@ const EndCard: React.FC = () => {
 };
 
 export const CampaignVideo: React.FC = () => {
-  const W = 12; // la campanita de transición suena justo en el corte
   const HOOK = Math.round(2.6 * FPS);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -374,14 +373,9 @@ export const CampaignVideo: React.FC = () => {
       ))}
 
       {clipStarts.map((f) => (
-        <React.Fragment key={f}>
-          <Sequence from={f} durationInFrames={10}>
-            <Flash />
-          </Sequence>
-          <Sequence from={f - W} durationInFrames={54}>
-            <Audio src={staticFile("sfx/transition.wav")} volume={0.6} />
-          </Sequence>
-        </React.Fragment>
+        <Sequence key={f} from={f} durationInFrames={10}>
+          <Flash />
+        </Sequence>
       ))}
 
       {edit.cards.map((c, i) => (
@@ -389,16 +383,10 @@ export const CampaignVideo: React.FC = () => {
           <CardView card={c} />
         </Sequence>
       ))}
-      {edit.cards.map((c, i) => (
-        <Sequence key={`cardsfx-${i}`} from={c.from - W} durationInFrames={54}>
-          <Audio src={staticFile("sfx/transition.wav")} volume={0.5} />
-        </Sequence>
-      ))}
 
       <Sequence from={edit.clipsEnd} durationInFrames={END_CARD}>
         <Flash />
         <EndCard />
-        <Audio src={staticFile("sfx/transition.wav")} volume={0.6} />
       </Sequence>
 
       <Sequence durationInFrames={edit.clipsEnd}>
@@ -407,13 +395,11 @@ export const CampaignVideo: React.FC = () => {
 
       <Sequence from={6} durationInFrames={HOOK}>
         <TopText text={edit.hook} hook dur={HOOK} />
-        <Audio src={staticFile("sfx/pop.wav")} volume={0.7} />
       </Sequence>
 
       {edit.texts.map((t, i) => (
         <Sequence key={`t-${i}`} from={t.from} durationInFrames={t.dur}>
           <TopText text={t.text} hook={false} dur={t.dur} />
-          <Audio src={staticFile("sfx/pop.wav")} volume={0.6} />
         </Sequence>
       ))}
 
@@ -424,12 +410,6 @@ export const CampaignVideo: React.FC = () => {
           durationInFrames={Math.max(1, p.to - p.from)}
         >
           <Captions page={p} />
-        </Sequence>
-      ))}
-
-      {edit.clicks.map((f, i) => (
-        <Sequence key={`click-${i}`} from={f} durationInFrames={12}>
-          <Audio src={staticFile("sfx/click.wav")} volume={0.8} />
         </Sequence>
       ))}
 

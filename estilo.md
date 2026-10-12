@@ -21,7 +21,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Animación de entrada del bloque: escala 0.70 → 1.00 y subida de 24 px con resorte (damping 12) en ~8 frames. Sin animación de salida (corte seco al siguiente bloque).
 
 ## Textos en pantalla
-- Firma fija **en la esquina superior izquierda** (x = 40, y = 150 px; pedido del cliente para no tapar la cabeza): "Juan Felipe Castaño" en Anton 38 px rojo `#E30613` sobre caja blanca 85 % (radio 12) y barra de 5 colores de 6 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
+- Firma fija **arriba a la izquierda** (x = 110, y = 300 px): no tapa la cabeza, no queda pegada al borde y cae dentro del recorte 4:5 que Instagram muestra en el perfil (y 285–1635): "Juan Felipe Castaño" en Anton 38 px rojo `#E30613` sobre caja blanca 85 % (radio 12) y barra de 5 colores de 6 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
 - Gancho 0–2.6 s: "¿NO PODEMOS ESTAR AQUÍ?" en caja amarilla, Anton 80 px, rotación −3°, **debajo de los subtítulos (borde superior y = 1390 px)**: arriba taparía la cara.
 - Credenciales (del perfil de Instagram): "ABOGADO JAVERIANO" al entrar el primer monólogo, "LIDERAZGO SOCIAL EN PALMIRA" en el tercero; caja roja, 60 px, rotación 2°, misma zona que el gancho.
 - Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUENOS @juanfelipecastano_col" pulsando (pedido del cliente).
@@ -33,11 +33,11 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
   - "deteriorándose" (IMG_1704) → "AÑOS DE DETERIORO" + ícono de puente agrietado.
   - "control político" (IMG_1706) → "CONTROL POLÍTICO" + ícono de lupa.
   - "constitucional" (IMG_1710) → "DEBER LEGAL Y CONSTITUCIONAL" + ícono de balanza (del ⚖ del perfil).
-- Tarjeta: fondo `#141414` con viñeta roja, ícono SVG blanco 360 px, texto Anton 96 px; entra con zoom 1.3 → 1.0 en 8 frames + sonido de transición.
+- Tarjeta: fondo `#141414` con viñeta roja, ícono SVG blanco 360 px, texto Anton 96 px; entra con zoom 1.3 → 1.0 en 8 frames.
 - Si el cliente envía fotos del puente del Sesqui, reemplazan a la tarjeta de "AÑOS DE DETERIORO".
 
 ## Transiciones
-- Entre clips: flash blanco 85 % → 0 en 9 frames + sacudida 22 px que decae en 14 frames + sonido de transición (campanita en el corte).
+- Entre clips: flash blanco 85 % → 0 en 9 frames + sacudida 22 px que decae en 14 frames.
 - Jump cuts dentro de un clip: corte seco con pop de zoom (sin flash).
 
 ## Zooms
@@ -50,8 +50,6 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Resto sin gradación extra. [SUPOSICIÓN]
 
 ## Sonido
-- Voz original del micrófono de solapa, volumen 1.0.
-- Transición (`scripts/make_sfx.py`): barrido de aire suave 250–2500 Hz de 0.42 s + campanita Do6/Sol6 (decaimiento 0.28 s), pico −8 dBFS, volumen 0.6; la campanita cae justo en el corte. Se usa en cambios de clip, tarjetas y cierre. (El cliente rechazó el whoosh anterior.)
-- **Clic** (doble clic de mouse, 0.12 s, pico −6 dBFS, volumen 0.8): **uno por toma**, en la primera palabra clave del clip (IMG_1713: "incómodas"). La palabra salta de 1.25× a 1.0× con resorte.
-- Pop (seno 180 Hz, 0.18 s) a 0.6 en textos.
+- **Solo la voz original** del micrófono de solapa, volumen 1.0.
+- **Sin efectos de sonido**: el cliente rechazó el whoosh, la campanita de transición y los clics en palabras ("suenan a Roblox"). `scripts/make_sfx.py` queda por si se quieren reintroducir.
 - Sin música (no hay música con licencia). [SUPOSICIÓN]
