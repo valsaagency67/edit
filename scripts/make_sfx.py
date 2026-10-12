@@ -3,7 +3,8 @@
 
 - transition.wav: barrido de aire suave (ruido filtrado con envolvente seno) + campanita
   Do6/Sol6 con decaimiento exponencial. Reemplaza al whoosh, que el cliente rechazó.
-- click.wav: clic de mouse (presionar + soltar a 55 ms), para palabras clave.
+- click.wav: "tic" único y corto (~10 ms) con brillo en 1.5–3 kHz, medido en la
+  referencia de Duvalier (aparece con cada palabra de la tipografía cinética).
 Uso: python3 scripts/make_sfx.py
 """
 import os
@@ -56,21 +57,18 @@ def transition():
 
 
 def click():
-    dur = 0.12
+    dur = 0.06
     t = np.arange(int(SR * dur)) / SR
-
-    def tick(at, gain, freq):
-        tt = np.clip(t - at, 0, None)
-        env = np.where(t >= at, np.exp(-tt / 0.0022), 0)
-        noise = rng.standard_normal(len(t)) * env
-        body = np.sin(2 * np.pi * freq * tt) * np.where(t >= at, np.exp(-tt / 0.006), 0)
-        return gain * (0.6 * noise + body)
-
-    save("click.wav", tick(0.0, 1.0, 3200) + tick(0.055, 0.55, 2600), -6)
+    env = np.exp(-t / 0.0028)
+    noise = rng.standard_normal(len(t))
+    # Ruido en banda 1.5-3 kHz (diferencia de dos paso bajo) + cuerpo seno a 2.1 kHz.
+    band = lowpass(noise, 3000) - lowpass(noise, 1500)
+    body = np.sin(2 * np.pi * 2100 * t) * np.exp(-t / 0.004)
+    x = (band / np.max(np.abs(band)) * 0.7 + 0.5 * body) * env
+    save("click.wav", lowpass(x, 3500), -8)
 
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    transition()
     click()
-    print("listo: transition.wav, click.wav")
+    print("listo: click.wav")

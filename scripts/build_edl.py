@@ -6,7 +6,9 @@ y media/audio/<clip>.wav (detección de silencios).
 - Corta todo silencio > 0.30 s (-35 dB), con 0.05 s de margen.
 - Ningún plano > 2.2 s sin cambio de encuadre (se parte en el hueco entre palabras más
   cercano a la mitad).
-- Subtítulos: bloques de máx. 3 palabras / 16 caracteres, corte en puntuación o pausa > 0.25 s.
+- Subtítulos base (estilo Duvalier): frases de máx. 6 palabras / 30 caracteres, corte en
+  puntuación o pausa > 0.35 s.
+- Énfasis (tipografía cinética): cada línea aparece en una palabra concreta, con clic.
 Uso: python3 scripts/build_edl.py
 """
 import json
@@ -66,7 +68,6 @@ def norm(w):
 
 def main():
     cfg = json.load(open(f"{ROOT}/scripts/vigilante.config.json"))
-    keywords = {norm(k) for k in cfg["keywords"]}
     segs, words_tl, clips, texts, cards = [], [], [], [], []
     t = 0
     for ci, c in enumerate(cfg["clips"]):
@@ -101,12 +102,12 @@ def main():
                         st = t + round((w["s"] - a) * FPS)
                         en = t + round((min(w["e"], b) - a) * FPS)
                         words_tl.append({"text": w["text"], "start": st, "end": max(en, st + 6),
-                                         "key": norm(w["text"]) in keywords, "src": (name, w["s"])})
+                                         "src": (name, w["s"])})
                 t += fb - fa
                 shot += 1
         clips.append({"file": name, "from": clip_start, "to": t})
-        for x in c.get("texts", []):
-            texts.append({"text": x["text"], "from": clip_start + round(x["at"] * FPS), "dur": round(x["dur"] * FPS)})
+        if c.get("credential"):
+            texts.append({"text": c["credential"], "from": clip_start + round(0.3 * FPS), "dur": round(2.6 * FPS)})
 
     # Tarjetas: en la primera aparición de la palabra en ese clip.
     for card in cfg["cards"]:
@@ -116,35 +117,58 @@ def main():
         else:
             print("AVISO: no encontré", card["word"], "en", card["file"])
 
-    # Un clic por toma: en la palabra indicada en la config o en la primera palabra clave del clip.
-    clicks = []
-    for c in cfg["clips"]:
-        target = norm(c["click"]) if c.get("click") else None
-        w = next((w for w in words_tl if w["src"][0] == c["file"]
-                  and (norm(w["text"]) == target if target else w["key"])), None)
-        if w:
-            w["click"] = True
-            clicks.append(w["start"])
+    # Énfasis: cada línea aparece en la n-ésima palabra "at" del clip (o "atS" s tras el inicio).
+    clip_from = {c["file"]: c["from"] for c in clips}
+    clip_to = {c["file"]: c["to"] for c in clips}
+    emphasis = []
+    for e in cfg.get("emphasis", []):
+        lines = []
+        for ln in e["lines"]:
+            if "atS" in ln:
+                f0 = clip_from[e["file"]] + round(ln["atS"] * FPS)
+            else:
+                cands = [w for w in words_tl if w["src"][0] == e["file"] and norm(w["text"]) == norm(ln["at"])]
+                n = ln.get("n", 1)
+                if len(cands) < n:
+                    print("AVISO: no encontré", ln["at"], "en", e["file"])
+                    continue
+                f0 = cands[n - 1]["start"]
+            lines.append({"text": ln["text"], "font": ln["font"], "color": ln.get("color", "white"), "from": f0})
+        if not lines:
+            continue
+        a = min(l["from"] for l in lines)
+        b = min(max(l["from"] for l in lines) + round(e.get("hold", 1.0) * FPS), clip_to[e["file"]])
+        emphasis.append({"style": e["style"], "from": a, "to": b, "lines": lines})
+    emphasis.sort(key=lambda e: e["from"])
+    for i in range(len(emphasis) - 1):
+        emphasis[i]["to"] = min(emphasis[i]["to"], emphasis[i + 1]["from"])
+    for e in emphasis:
+        for card in cards:  # no pisar las tarjetas gráficas
+            if e["from"] < card["from"] < e["to"]:
+                e["to"] = card["from"]
 
-    # Bloques de subtítulos.
+    # Subtítulos base.
     pages, cur = [], []
     for i, w in enumerate(words_tl):
         cur.append(w)
         nxt = words_tl[i + 1] if i + 1 < len(words_tl) else None
         chars = sum(len(x["text"]) + 1 for x in cur)
-        brk = (nxt is None or nxt["src"][0] != w["src"][0] or len(cur) >= 3 or w["text"][-1:] in ".,?!" or nxt["start"] - w["end"] > 0.25 * FPS
-               or chars + len(nxt["text"]) > 16)
+        brk = (nxt is None or nxt["src"][0] != w["src"][0] or len(cur) >= 6 or w["text"][-1:] in ".?!"
+               or (w["text"][-1:] == "," and len(cur) >= 3) or nxt["start"] - w["end"] > 0.35 * FPS
+               or chars + len(nxt["text"]) > 30)
         if brk:
-            pages.append({"from": cur[0]["start"], "words": [{"text": x["text"], "start": x["start"], "end": x["end"], "key": x["key"], "click": x.get("click", False)} for x in cur]})
+            pages.append({"from": cur[0]["start"], "text": " ".join(x["text"] for x in cur),
+                          "words": [{"text": x["text"], "start": x["start"], "end": x["end"]} for x in cur]})
             cur = []
     for i, p in enumerate(pages):
         p["to"] = pages[i + 1]["from"] if i + 1 < len(pages) else p["words"][-1]["end"]
         p["to"] = min(p["to"], p["words"][-1]["end"] + 30)
 
     out = {"fps": FPS, "hook": cfg["hook"], "segments": segs, "clips": clips, "texts": texts,
-           "cards": cards, "pages": pages, "clicks": clicks, "clipsEnd": t}
+           "cards": cards, "pages": pages, "emphasis": emphasis,
+           "clicks": [l["from"] for e in emphasis for l in e["lines"]], "clipsEnd": t}
     json.dump(out, open(f"{ROOT}/src/campaign/vigilante.json", "w"), ensure_ascii=False, indent=1)
-    print(f"{len(segs)} planos, {len(pages)} bloques de subtítulos, {len(cards)} tarjetas, {len(clicks)} clics, {t / FPS:.1f} s + cierre")
+    print(f"{len(segs)} planos, {len(pages)} bloques de subtítulos, {len(cards)} tarjetas, {len(emphasis)} énfasis, {t / FPS:.1f} s + cierre")
 
 
 if __name__ == "__main__":

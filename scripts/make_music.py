@@ -217,7 +217,7 @@ def section(kind, n):
 
 
 KINDS = {"IMG_1697": "vigilante", "IMG_1696": "bed", "IMG_1702": "bed", "IMG_1704": "bed",
-         "IMG_1706": "bed", "IMG_1710": "climax", "IMG_1713": "suspense"}
+         "IMG_1706": "bed", "NUEVO_DILIAN": "climax", "IMG_1710": "climax", "IMG_1713": "suspense"}
 
 
 def main():

@@ -278,12 +278,111 @@
       "grayscale": false
     },
     {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 69,
+      "trimAfter": 163,
+      "from": 2357,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": false,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 163,
+      "trimAfter": 274,
+      "from": 2451,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 274,
+      "trimAfter": 378,
+      "from": 2562,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 395,
+      "trimAfter": 499,
+      "from": 2666,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 499,
+      "trimAfter": 610,
+      "from": 2770,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 610,
+      "trimAfter": 730,
+      "from": 2881,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 730,
+      "trimAfter": 823,
+      "from": 3001,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 832,
+      "trimAfter": 946,
+      "from": 3094,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
+      "file": "NUEVO_DILIAN",
+      "video": "NUEVO_DILIAN",
+      "trimBefore": 946,
+      "trimAfter": 1062,
+      "from": 3208,
+      "clipIndex": 5,
+      "zoom": 1.0,
+      "jump": true,
+      "grayscale": false
+    },
+    {
       "file": "IMG_1710",
       "video": "IMG_1710",
       "trimBefore": 69,
       "trimAfter": 197,
-      "from": 2357,
-      "clipIndex": 5,
+      "from": 3324,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": false,
       "grayscale": false
@@ -293,8 +392,8 @@
       "video": "IMG_1710",
       "trimBefore": 197,
       "trimAfter": 320,
-      "from": 2485,
-      "clipIndex": 5,
+      "from": 3452,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -304,8 +403,8 @@
       "video": "IMG_1710",
       "trimBefore": 343,
       "trimAfter": 442,
-      "from": 2608,
-      "clipIndex": 5,
+      "from": 3575,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -315,8 +414,8 @@
       "video": "IMG_1710",
       "trimBefore": 442,
       "trimAfter": 515,
-      "from": 2707,
-      "clipIndex": 5,
+      "from": 3674,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -326,8 +425,8 @@
       "video": "IMG_1710",
       "trimBefore": 535,
       "trimAfter": 648,
-      "from": 2780,
-      "clipIndex": 5,
+      "from": 3747,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -337,8 +436,8 @@
       "video": "IMG_1710",
       "trimBefore": 648,
       "trimAfter": 756,
-      "from": 2893,
-      "clipIndex": 5,
+      "from": 3860,
+      "clipIndex": 6,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -348,8 +447,8 @@
       "video": "IMG_1713",
       "trimBefore": 35,
       "trimAfter": 154,
-      "from": 3001,
-      "clipIndex": 6,
+      "from": 3968,
+      "clipIndex": 7,
       "zoom": 1.0,
       "jump": false,
       "grayscale": false
@@ -359,8 +458,8 @@
       "video": "IMG_1713",
       "trimBefore": 154,
       "trimAfter": 283,
-      "from": 3120,
-      "clipIndex": 6,
+      "from": 4087,
+      "clipIndex": 7,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -370,8 +469,8 @@
       "video": "IMG_1713",
       "trimBefore": 283,
       "trimAfter": 389,
-      "from": 3249,
-      "clipIndex": 6,
+      "from": 4216,
+      "clipIndex": 7,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -381,8 +480,8 @@
       "video": "IMG_1713",
       "trimBefore": 400,
       "trimAfter": 474,
-      "from": 3355,
-      "clipIndex": 6,
+      "from": 4322,
+      "clipIndex": 7,
       "zoom": 1.0,
       "jump": true,
       "grayscale": false
@@ -415,26 +514,31 @@
       "to": 2357
     },
     {
-      "file": "IMG_1710",
+      "file": "NUEVO_DILIAN",
       "from": 2357,
-      "to": 3001
+      "to": 3324
+    },
+    {
+      "file": "IMG_1710",
+      "from": 3324,
+      "to": 3968
     },
     {
       "file": "IMG_1713",
-      "from": 3001,
-      "to": 3429
+      "from": 3968,
+      "to": 4396
     }
   ],
   "texts": [
     {
-      "text": "ABOGADO JAVERIANO",
+      "text": "Abogado Javeriano",
       "from": 262,
-      "dur": 132
+      "dur": 156
     },
     {
-      "text": "LIDERAZGO SOCIAL EN PALMIRA",
+      "text": "Liderazgo social en Palmira",
       "from": 1239,
-      "dur": 144
+      "dur": 156
     }
   ],
   "cards": [
@@ -465,1690 +569,1849 @@
     {
       "text": "DEBER LEGAL Y CONSTITUCIONAL",
       "icon": "scale",
-      "from": 2951,
+      "from": 3918,
       "dur": 66
     }
   ],
   "pages": [
     {
       "from": 17,
+      "text": "pero para adentro,",
       "words": [
         {
           "text": "pero",
           "start": 17,
-          "end": 26,
-          "key": false,
-          "click": false
+          "end": 26
         },
         {
           "text": "para",
           "start": 26,
-          "end": 37,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 37
-    },
-    {
-      "from": 37,
-      "words": [
+          "end": 37
+        },
         {
           "text": "adentro,",
           "start": 37,
-          "end": 56,
-          "key": false,
-          "click": false
+          "end": 56
         }
       ],
       "to": 56
     },
     {
       "from": 56,
+      "text": "por seguridad, no.",
       "words": [
         {
           "text": "por",
           "start": 56,
-          "end": 66,
-          "key": false,
-          "click": false
+          "end": 66
         },
         {
           "text": "seguridad,",
           "start": 66,
-          "end": 100,
-          "key": false,
-          "click": true
-        }
-      ],
-      "to": 100
-    },
-    {
-      "from": 100,
-      "words": [
+          "end": 100
+        },
         {
           "text": "no.",
           "start": 100,
-          "end": 128,
-          "key": false,
-          "click": false
+          "end": 128
         }
       ],
       "to": 136
     },
     {
       "from": 136,
+      "text": "pero es que estamos afuera.",
       "words": [
         {
           "text": "pero",
           "start": 136,
-          "end": 154,
-          "key": false,
-          "click": false
+          "end": 154
         },
         {
           "text": "es",
           "start": 154,
-          "end": 172,
-          "key": false,
-          "click": false
+          "end": 172
         },
         {
           "text": "que",
           "start": 172,
-          "end": 190,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 190
-    },
-    {
-      "from": 190,
-      "words": [
+          "end": 190
+        },
         {
           "text": "estamos",
           "start": 190,
-          "end": 214,
-          "key": false,
-          "click": false
+          "end": 214
         },
         {
           "text": "afuera.",
           "start": 214,
-          "end": 244,
-          "key": false,
-          "click": false
+          "end": 244
         }
       ],
       "to": 247
     },
     {
       "from": 247,
+      "text": "Pepo dijo que el puente del",
       "words": [
         {
           "text": "Pepo",
           "start": 247,
-          "end": 281,
-          "key": true,
-          "click": true
+          "end": 281
         },
         {
           "text": "dijo",
           "start": 281,
-          "end": 290,
-          "key": false,
-          "click": false
+          "end": 290
         },
         {
           "text": "que",
           "start": 290,
-          "end": 296,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 295
-    },
-    {
-      "from": 295,
-      "words": [
+          "end": 296
+        },
         {
           "text": "el",
           "start": 295,
-          "end": 301,
-          "key": false,
-          "click": false
+          "end": 301
         },
         {
           "text": "puente",
           "start": 300,
-          "end": 314,
-          "key": false,
-          "click": false
+          "end": 314
         },
         {
           "text": "del",
           "start": 314,
-          "end": 324,
-          "key": false,
-          "click": false
+          "end": 324
         }
       ],
       "to": 324
     },
     {
       "from": 324,
+      "text": "Sesqui seguía así porque de",
       "words": [
         {
           "text": "Sesqui",
           "start": 324,
-          "end": 358,
-          "key": true,
-          "click": false
+          "end": 358
         },
         {
           "text": "seguía",
           "start": 358,
-          "end": 386,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 386
-    },
-    {
-      "from": 386,
-      "words": [
+          "end": 386
+        },
         {
           "text": "así",
           "start": 386,
-          "end": 406,
-          "key": false,
-          "click": false
+          "end": 406
         },
         {
           "text": "porque",
           "start": 406,
-          "end": 430,
-          "key": false,
-          "click": false
+          "end": 430
         },
         {
           "text": "de",
           "start": 429,
-          "end": 439,
-          "key": false,
-          "click": false
+          "end": 439
         }
       ],
       "to": 439
     },
     {
       "from": 439,
+      "text": "pronto no había presupuesto.",
       "words": [
         {
           "text": "pronto",
           "start": 439,
-          "end": 463,
-          "key": false,
-          "click": false
+          "end": 463
         },
         {
           "text": "no",
           "start": 463,
-          "end": 472,
-          "key": false,
-          "click": false
+          "end": 472
         },
         {
           "text": "había",
           "start": 472,
-          "end": 491,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 491
-    },
-    {
-      "from": 491,
-      "words": [
+          "end": 491
+        },
         {
           "text": "presupuesto.",
           "start": 491,
-          "end": 517,
-          "key": true,
-          "click": false
+          "end": 517
         }
       ],
       "to": 520
     },
     {
       "from": 520,
+      "text": "¿De pronto, concejal?",
       "words": [
         {
           "text": "¿De",
           "start": 520,
-          "end": 534,
-          "key": false,
-          "click": false
+          "end": 534
         },
         {
           "text": "pronto,",
           "start": 534,
-          "end": 558,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 558
-    },
-    {
-      "from": 558,
-      "words": [
+          "end": 558
+        },
         {
           "text": "concejal?",
           "start": 558,
-          "end": 591,
-          "key": true,
-          "click": false
+          "end": 591
         }
       ],
       "to": 594
     },
     {
       "from": 594,
+      "text": "¿No es usted el encargado de",
       "words": [
         {
           "text": "¿No",
           "start": 594,
-          "end": 613,
-          "key": false,
-          "click": false
+          "end": 613
         },
         {
           "text": "es",
           "start": 613,
-          "end": 623,
-          "key": false,
-          "click": false
+          "end": 623
         },
         {
           "text": "usted",
           "start": 623,
-          "end": 647,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 647
-    },
-    {
-      "from": 647,
-      "words": [
+          "end": 647
+        },
         {
           "text": "el",
           "start": 647,
-          "end": 656,
-          "key": false,
-          "click": false
+          "end": 656
         },
         {
           "text": "encargado",
           "start": 656,
-          "end": 685,
-          "key": false,
-          "click": false
+          "end": 685
         },
         {
           "text": "de",
           "start": 685,
-          "end": 695,
-          "key": false,
-          "click": false
+          "end": 695
         }
       ],
       "to": 695
     },
     {
       "from": 695,
+      "text": "vigilar el presupuesto?",
       "words": [
         {
           "text": "vigilar",
           "start": 695,
-          "end": 723,
-          "key": false,
-          "click": false
+          "end": 723
         },
         {
           "text": "el",
           "start": 723,
-          "end": 729,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 728
-    },
-    {
-      "from": 728,
-      "words": [
+          "end": 729
+        },
         {
           "text": "presupuesto?",
           "start": 728,
-          "end": 758,
-          "key": true,
-          "click": false
+          "end": 758
         }
       ],
       "to": 788
     },
     {
       "from": 799,
+      "text": "Concejal, usted hace parte de",
       "words": [
         {
           "text": "Concejal,",
           "start": 799,
-          "end": 837,
-          "key": true,
-          "click": true
-        }
-      ],
-      "to": 840
-    },
-    {
-      "from": 840,
-      "words": [
+          "end": 837
+        },
         {
           "text": "usted",
           "start": 840,
-          "end": 869,
-          "key": false,
-          "click": false
+          "end": 869
         },
         {
           "text": "hace",
           "start": 869,
-          "end": 888,
-          "key": false,
-          "click": false
+          "end": 888
         },
         {
           "text": "parte",
           "start": 888,
-          "end": 902,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 902
-    },
-    {
-      "from": 902,
-      "words": [
+          "end": 902
+        },
         {
           "text": "de",
           "start": 902,
-          "end": 908,
-          "key": false,
-          "click": false
-        },
+          "end": 908
+        }
+      ],
+      "to": 907
+    },
+    {
+      "from": 907,
+      "text": "la corporación que aprueba el",
+      "words": [
         {
           "text": "la",
           "start": 907,
-          "end": 913,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 912
-    },
-    {
-      "from": 912,
-      "words": [
+          "end": 913
+        },
         {
           "text": "corporación",
           "start": 912,
-          "end": 946,
-          "key": false,
-          "click": false
+          "end": 946
         },
         {
           "text": "que",
           "start": 946,
-          "end": 955,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 955
-    },
-    {
-      "from": 955,
-      "words": [
+          "end": 955
+        },
         {
           "text": "aprueba",
           "start": 955,
-          "end": 984,
-          "key": false,
-          "click": false
+          "end": 984
         },
         {
           "text": "el",
           "start": 984,
-          "end": 994,
-          "key": false,
-          "click": false
+          "end": 994
         }
       ],
       "to": 994
     },
     {
       "from": 994,
+      "text": "presupuesto.",
       "words": [
         {
           "text": "presupuesto.",
           "start": 994,
-          "end": 1015,
-          "key": true,
-          "click": false
+          "end": 1015
         }
       ],
       "to": 1018
     },
     {
       "from": 1018,
+      "text": "¿Cómo va a decir que no",
       "words": [
         {
           "text": "¿Cómo",
           "start": 1018,
-          "end": 1047,
-          "key": false,
-          "click": false
+          "end": 1047
         },
         {
           "text": "va",
           "start": 1047,
-          "end": 1056,
-          "key": false,
-          "click": false
+          "end": 1056
         },
         {
           "text": "a",
           "start": 1056,
-          "end": 1062,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1061
-    },
-    {
-      "from": 1061,
-      "words": [
+          "end": 1062
+        },
         {
           "text": "decir",
           "start": 1061,
-          "end": 1076,
-          "key": false,
-          "click": false
+          "end": 1076
         },
         {
           "text": "que",
           "start": 1076,
-          "end": 1085,
-          "key": false,
-          "click": false
+          "end": 1085
         },
         {
           "text": "no",
           "start": 1085,
-          "end": 1095,
-          "key": false,
-          "click": false
+          "end": 1095
         }
       ],
       "to": 1095
     },
     {
       "from": 1095,
+      "text": "hay plata si tan siquiera",
       "words": [
         {
           "text": "hay",
           "start": 1095,
-          "end": 1101,
-          "key": false,
-          "click": false
+          "end": 1101
         },
         {
           "text": "plata",
           "start": 1100,
-          "end": 1119,
-          "key": true,
-          "click": false
+          "end": 1119
         },
         {
           "text": "si",
           "start": 1118,
-          "end": 1132,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1132
-    },
-    {
-      "from": 1132,
-      "words": [
+          "end": 1132
+        },
         {
           "text": "tan",
           "start": 1132,
-          "end": 1147,
-          "key": false,
-          "click": false
+          "end": 1147
         },
         {
           "text": "siquiera",
           "start": 1147,
-          "end": 1176,
-          "key": false,
-          "click": false
+          "end": 1176
         }
       ],
       "to": 1176
     },
     {
       "from": 1176,
+      "text": "verificarlo?",
       "words": [
         {
           "text": "verificarlo?",
           "start": 1176,
-          "end": 1206,
-          "key": false,
-          "click": false
+          "end": 1206
         }
       ],
       "to": 1222
     },
     {
       "from": 1222,
+      "text": "Y si de verdad sos del",
       "words": [
         {
           "text": "Y",
           "start": 1222,
-          "end": 1237,
-          "key": false,
-          "click": false
+          "end": 1237
         },
         {
           "text": "si",
           "start": 1237,
-          "end": 1246,
-          "key": false,
-          "click": false
+          "end": 1246
         },
         {
           "text": "de",
           "start": 1246,
-          "end": 1256,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1256
-    },
-    {
-      "from": 1256,
-      "words": [
+          "end": 1256
+        },
         {
           "text": "verdad",
           "start": 1256,
-          "end": 1275,
-          "key": false,
-          "click": false
+          "end": 1275
         },
         {
           "text": "sos",
           "start": 1275,
-          "end": 1294,
-          "key": false,
-          "click": false
+          "end": 1294
         },
         {
           "text": "del",
           "start": 1294,
-          "end": 1313,
-          "key": false,
-          "click": false
+          "end": 1313
         }
       ],
       "to": 1313
     },
     {
       "from": 1313,
+      "text": "sesqui, sabes que se da cuenta",
       "words": [
         {
           "text": "sesqui,",
           "start": 1313,
-          "end": 1332,
-          "key": true,
-          "click": true
-        }
-      ],
-      "to": 1332
-    },
-    {
-      "from": 1332,
-      "words": [
+          "end": 1332
+        },
         {
           "text": "sabes",
           "start": 1332,
-          "end": 1351,
-          "key": false,
-          "click": false
+          "end": 1351
         },
         {
           "text": "que",
           "start": 1351,
-          "end": 1357,
-          "key": false,
-          "click": false
+          "end": 1357
         },
         {
           "text": "se",
           "start": 1356,
-          "end": 1366,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1366
-    },
-    {
-      "from": 1366,
-      "words": [
+          "end": 1366
+        },
         {
           "text": "da",
           "start": 1366,
-          "end": 1375,
-          "key": false,
-          "click": false
+          "end": 1375
         },
         {
           "text": "cuenta",
           "start": 1375,
-          "end": 1390,
-          "key": false,
-          "click": false
-        },
+          "end": 1390
+        }
+      ],
+      "to": 1390
+    },
+    {
+      "from": 1390,
+      "text": "que lleva años deteriorándose.",
+      "words": [
         {
           "text": "que",
           "start": 1390,
-          "end": 1399,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1400
-    },
-    {
-      "from": 1400,
-      "words": [
+          "end": 1399
+        },
         {
           "text": "lleva",
           "start": 1400,
-          "end": 1419,
-          "key": false,
-          "click": false
+          "end": 1419
         },
         {
           "text": "años",
           "start": 1419,
-          "end": 1438,
-          "key": true,
-          "click": false
-        }
-      ],
-      "to": 1438
-    },
-    {
-      "from": 1438,
-      "words": [
+          "end": 1438
+        },
         {
           "text": "deteriorándose.",
           "start": 1438,
-          "end": 1486,
-          "key": false,
-          "click": false
+          "end": 1486
         }
       ],
       "to": 1497
     },
     {
       "from": 1497,
+      "text": "No le puedes atribuir a una",
       "words": [
         {
           "text": "No",
           "start": 1497,
-          "end": 1507,
-          "key": false,
-          "click": false
+          "end": 1507
         },
         {
           "text": "le",
           "start": 1507,
-          "end": 1516,
-          "key": false,
-          "click": false
+          "end": 1516
         },
         {
           "text": "puedes",
           "start": 1516,
-          "end": 1535,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1535
-    },
-    {
-      "from": 1535,
-      "words": [
+          "end": 1535
+        },
         {
           "text": "atribuir",
           "start": 1535,
-          "end": 1559,
-          "key": false,
-          "click": false
+          "end": 1559
         },
         {
           "text": "a",
           "start": 1559,
-          "end": 1565,
-          "key": false,
-          "click": false
+          "end": 1565
         },
         {
           "text": "una",
           "start": 1564,
-          "end": 1574,
-          "key": false,
-          "click": false
+          "end": 1574
         }
       ],
       "to": 1574
     },
     {
       "from": 1574,
+      "text": "vandalización un problema que",
       "words": [
         {
           "text": "vandalización",
           "start": 1574,
-          "end": 1622,
-          "key": false,
-          "click": false
+          "end": 1622
         },
         {
           "text": "un",
           "start": 1626,
-          "end": 1632,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1631
-    },
-    {
-      "from": 1631,
-      "words": [
+          "end": 1632
+        },
         {
           "text": "problema",
           "start": 1631,
-          "end": 1645,
-          "key": false,
-          "click": false
+          "end": 1645
         },
         {
           "text": "que",
           "start": 1645,
-          "end": 1655,
-          "key": false,
-          "click": false
-        },
+          "end": 1655
+        }
+      ],
+      "to": 1655
+    },
+    {
+      "from": 1655,
+      "text": "ya lleva mucho tiempo.",
+      "words": [
         {
           "text": "ya",
           "start": 1655,
-          "end": 1664,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1664
-    },
-    {
-      "from": 1664,
-      "words": [
+          "end": 1664
+        },
         {
           "text": "lleva",
           "start": 1664,
-          "end": 1688,
-          "key": false,
-          "click": false
+          "end": 1688
         },
         {
           "text": "mucho",
           "start": 1688,
-          "end": 1708,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1708
-    },
-    {
-      "from": 1708,
-      "words": [
+          "end": 1708
+        },
         {
           "text": "tiempo.",
           "start": 1708,
-          "end": 1717,
-          "key": false,
-          "click": false
+          "end": 1717
         }
       ],
       "to": 1720
     },
     {
       "from": 1720,
+      "text": "Lo mínimo era preguntar por",
       "words": [
         {
           "text": "Lo",
           "start": 1720,
-          "end": 1734,
-          "key": false,
-          "click": false
+          "end": 1734
         },
         {
           "text": "mínimo",
           "start": 1734,
-          "end": 1763,
-          "key": false,
-          "click": false
+          "end": 1763
         },
         {
           "text": "era",
           "start": 1763,
-          "end": 1782,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1782
-    },
-    {
-      "from": 1782,
-      "words": [
+          "end": 1782
+        },
         {
           "text": "preguntar",
           "start": 1782,
-          "end": 1811,
-          "key": false,
-          "click": false
+          "end": 1811
         },
         {
           "text": "por",
           "start": 1811,
-          "end": 1821,
-          "key": false,
-          "click": false
+          "end": 1821
         }
       ],
       "to": 1821
     },
     {
       "from": 1821,
+      "text": "qué la alcaldía no lo había",
       "words": [
         {
           "text": "qué",
           "start": 1821,
-          "end": 1835,
-          "key": false,
-          "click": false
+          "end": 1835
         },
         {
           "text": "la",
           "start": 1835,
-          "end": 1845,
-          "key": false,
-          "click": false
+          "end": 1845
         },
         {
           "text": "alcaldía",
           "start": 1845,
-          "end": 1878,
-          "key": true,
-          "click": true
-        }
-      ],
-      "to": 1878
-    },
-    {
-      "from": 1878,
-      "words": [
+          "end": 1878
+        },
         {
           "text": "no",
           "start": 1878,
-          "end": 1884,
-          "key": false,
-          "click": false
+          "end": 1884
         },
         {
           "text": "lo",
           "start": 1883,
-          "end": 1893,
-          "key": false,
-          "click": false
+          "end": 1893
         },
         {
           "text": "había",
           "start": 1893,
-          "end": 1907,
-          "key": false,
-          "click": false
+          "end": 1907
         }
       ],
       "to": 1907
     },
     {
       "from": 1907,
+      "text": "intervenido, cuántos recursos",
       "words": [
         {
           "text": "intervenido,",
           "start": 1907,
-          "end": 1942,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 1946
-    },
-    {
-      "from": 1946,
-      "words": [
+          "end": 1942
+        },
         {
           "text": "cuántos",
           "start": 1946,
-          "end": 1975,
-          "key": false,
-          "click": false
+          "end": 1975
         },
         {
           "text": "recursos",
           "start": 1975,
-          "end": 2004,
-          "key": false,
-          "click": false
+          "end": 2004
         }
       ],
       "to": 2004
     },
     {
       "from": 2004,
+      "text": "habían dispuesto para ello y",
       "words": [
         {
           "text": "habían",
           "start": 2004,
-          "end": 2028,
-          "key": false,
-          "click": false
+          "end": 2028
         },
         {
           "text": "dispuesto",
           "start": 2028,
-          "end": 2061,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2061
-    },
-    {
-      "from": 2061,
-      "words": [
+          "end": 2061
+        },
         {
           "text": "para",
           "start": 2061,
-          "end": 2071,
-          "key": false,
-          "click": false
+          "end": 2071
         },
         {
           "text": "ello",
           "start": 2071,
-          "end": 2095,
-          "key": false,
-          "click": false
+          "end": 2095
         },
         {
           "text": "y",
           "start": 2095,
-          "end": 2109,
-          "key": false,
-          "click": false
+          "end": 2109
         }
       ],
       "to": 2109
     },
     {
       "from": 2109,
+      "text": "cuándo planeaban hacerlo.",
       "words": [
         {
           "text": "cuándo",
           "start": 2109,
-          "end": 2133,
-          "key": false,
-          "click": false
+          "end": 2133
         },
         {
           "text": "planeaban",
           "start": 2133,
-          "end": 2181,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2181
-    },
-    {
-      "from": 2181,
-      "words": [
+          "end": 2181
+        },
         {
           "text": "hacerlo.",
           "start": 2181,
-          "end": 2201,
-          "key": false,
-          "click": false
+          "end": 2201
         }
       ],
       "to": 2215
     },
     {
       "from": 2215,
+      "text": "De eso se trata el control",
       "words": [
         {
           "text": "De",
           "start": 2215,
-          "end": 2229,
-          "key": false,
-          "click": false
+          "end": 2229
         },
         {
           "text": "eso",
           "start": 2229,
-          "end": 2249,
-          "key": false,
-          "click": false
+          "end": 2249
         },
         {
           "text": "se",
           "start": 2249,
-          "end": 2258,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2258
-    },
-    {
-      "from": 2258,
-      "words": [
+          "end": 2258
+        },
         {
           "text": "trata",
           "start": 2258,
-          "end": 2277,
-          "key": false,
-          "click": false
+          "end": 2277
         },
         {
           "text": "el",
           "start": 2278,
-          "end": 2284,
-          "key": false,
-          "click": false
+          "end": 2284
         },
         {
           "text": "control",
           "start": 2283,
-          "end": 2307,
-          "key": true,
-          "click": false
+          "end": 2307
         }
       ],
       "to": 2307
     },
     {
       "from": 2307,
+      "text": "político.",
       "words": [
         {
           "text": "político.",
           "start": 2307,
-          "end": 2337,
-          "key": true,
-          "click": false
+          "end": 2337
         }
       ],
       "to": 2360
     },
     {
       "from": 2360,
+      "text": "En lugar de hacer control",
       "words": [
         {
-          "text": "Y",
+          "text": "En",
           "start": 2360,
-          "end": 2379,
-          "key": false,
-          "click": false
+          "end": 2379
         },
         {
-          "text": "concejal,",
+          "text": "lugar",
           "start": 2379,
-          "end": 2427,
-          "key": true,
-          "click": true
-        }
-      ],
-      "to": 2427
-    },
-    {
-      "from": 2427,
-      "words": [
+          "end": 2398
+        },
         {
-          "text": "no",
+          "text": "de",
+          "start": 2398,
+          "end": 2413
+        },
+        {
+          "text": "hacer",
+          "start": 2413,
+          "end": 2427
+        },
+        {
+          "text": "control",
           "start": 2427,
-          "end": 2437,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "se",
-          "start": 2437,
-          "end": 2446,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "ofusque",
-          "start": 2446,
-          "end": 2485,
-          "key": false,
-          "click": false
+          "end": 2451
         }
       ],
-      "to": 2485
+      "to": 2451
     },
     {
-      "from": 2485,
+      "from": 2451,
+      "text": "político, decidió arreglarlo",
       "words": [
         {
-          "text": "ni",
-          "start": 2485,
-          "end": 2495,
-          "key": false,
-          "click": false
+          "text": "político,",
+          "start": 2451,
+          "end": 2489
         },
         {
-          "text": "se",
-          "start": 2495,
-          "end": 2501,
-          "key": false,
-          "click": false
+          "text": "decidió",
+          "start": 2489,
+          "end": 2523
         },
         {
-          "text": "tome",
-          "start": 2499,
-          "end": 2519,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2519
-    },
-    {
-      "from": 2519,
-      "words": [
-        {
-          "text": "la",
-          "start": 2519,
-          "end": 2525,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "crítica",
+          "text": "arreglarlo",
           "start": 2523,
-          "end": 2547,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "como",
-          "start": 2547,
-          "end": 2562,
-          "key": false,
-          "click": false
+          "end": 2561
         }
       ],
       "to": 2562
     },
     {
       "from": 2562,
+      "text": "con su plata y con la",
       "words": [
         {
-          "text": "algo",
+          "text": "con",
           "start": 2562,
-          "end": 2581,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "personal.",
-          "start": 2581,
-          "end": 2608,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2611
-    },
-    {
-      "from": 2611,
-      "words": [
-        {
-          "text": "Hacer",
-          "start": 2611,
-          "end": 2640,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "control",
-          "start": 2640,
-          "end": 2664,
-          "key": true,
-          "click": false
-        }
-      ],
-      "to": 2664
-    },
-    {
-      "from": 2664,
-      "words": [
-        {
-          "text": "político",
-          "start": 2664,
-          "end": 2707,
-          "key": true,
-          "click": false
-        },
-        {
-          "text": "no",
-          "start": 2707,
-          "end": 2721,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "es",
-          "start": 2721,
-          "end": 2736,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2736
-    },
-    {
-      "from": 2736,
-      "words": [
-        {
-          "text": "hacer",
-          "start": 2736,
-          "end": 2750,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "un",
-          "start": 2750,
-          "end": 2765,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "show.",
-          "start": 2765,
-          "end": 2781,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2783
-    },
-    {
-      "from": 2783,
-      "words": [
-        {
-          "text": "Hacer",
-          "start": 2783,
-          "end": 2807,
-          "key": false,
-          "click": false
-        },
-        {
-          "text": "control",
-          "start": 2807,
-          "end": 2826,
-          "key": true,
-          "click": false
-        }
-      ],
-      "to": 2826
-    },
-    {
-      "from": 2826,
-      "words": [
-        {
-          "text": "político",
-          "start": 2826,
-          "end": 2865,
-          "key": true,
-          "click": false
-        },
-        {
-          "text": "es",
-          "start": 2865,
-          "end": 2879,
-          "key": false,
-          "click": false
+          "end": 2572
         },
         {
           "text": "su",
-          "start": 2879,
-          "end": 2893,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2893
-    },
-    {
-      "from": 2893,
-      "words": [
-        {
-          "text": "deber",
-          "start": 2893,
-          "end": 2912,
-          "key": true,
-          "click": false
+          "start": 2572,
+          "end": 2581
         },
         {
-          "text": "legal",
-          "start": 2912,
-          "end": 2936,
-          "key": true,
-          "click": false
+          "text": "plata",
+          "start": 2581,
+          "end": 2605
         },
         {
           "text": "y",
-          "start": 2936,
-          "end": 2951,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 2951
-    },
-    {
-      "from": 2951,
-      "words": [
-        {
-          "text": "constitucional.",
-          "start": 2951,
-          "end": 2981,
-          "key": true,
-          "click": false
-        }
-      ],
-      "to": 3004
-    },
-    {
-      "from": 3004,
-      "words": [
-        {
-          "text": "Si",
-          "start": 3004,
-          "end": 3018,
-          "key": false,
-          "click": false
+          "start": 2605,
+          "end": 2615
         },
         {
-          "text": "no",
-          "start": 3018,
-          "end": 3024,
-          "key": false,
-          "click": false
+          "text": "con",
+          "start": 2615,
+          "end": 2624
+        },
+        {
+          "text": "la",
+          "start": 2624,
+          "end": 2630
+        }
+      ],
+      "to": 2629
+    },
+    {
+      "from": 2629,
+      "text": "de sus amigos.",
+      "words": [
+        {
+          "text": "de",
+          "start": 2629,
+          "end": 2639
+        },
+        {
+          "text": "sus",
+          "start": 2639,
+          "end": 2648
+        },
+        {
+          "text": "amigos.",
+          "start": 2648,
+          "end": 2666
+        }
+      ],
+      "to": 2669
+    },
+    {
+      "from": 2669,
+      "text": "Y qué casualidad que uno de",
+      "words": [
+        {
+          "text": "Y",
+          "start": 2669,
+          "end": 2683
+        },
+        {
+          "text": "qué",
+          "start": 2683,
+          "end": 2698
+        },
+        {
+          "text": "casualidad",
+          "start": 2698,
+          "end": 2741
+        },
+        {
+          "text": "que",
+          "start": 2741,
+          "end": 2755
+        },
+        {
+          "text": "uno",
+          "start": 2755,
+          "end": 2770
+        },
+        {
+          "text": "de",
+          "start": 2770,
+          "end": 2780
+        }
+      ],
+      "to": 2780
+    },
+    {
+      "from": 2780,
+      "text": "sus amigos se encuentre hoy",
+      "words": [
+        {
+          "text": "sus",
+          "start": 2780,
+          "end": 2789
+        },
+        {
+          "text": "amigos",
+          "start": 2789,
+          "end": 2804
         },
         {
           "text": "se",
-          "start": 3023,
-          "end": 3033,
-          "key": false,
-          "click": false
+          "start": 2804,
+          "end": 2818
+        },
+        {
+          "text": "encuentre",
+          "start": 2818,
+          "end": 2852
+        },
+        {
+          "text": "hoy",
+          "start": 2852,
+          "end": 2880
         }
       ],
-      "to": 3033
+      "to": 2881
     },
     {
-      "from": 3033,
+      "from": 2881,
+      "text": "haciendo campaña para la",
       "words": [
         {
-          "text": "siente",
-          "start": 3033,
-          "end": 3057,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 3057
-    },
-    {
-      "from": 3057,
-      "words": [
+          "text": "haciendo",
+          "start": 2881,
+          "end": 2905
+        },
         {
-          "text": "capacitado",
-          "start": 3057,
-          "end": 3095,
-          "key": false,
-          "click": false
+          "text": "campaña",
+          "start": 2905,
+          "end": 2934
         },
         {
           "text": "para",
-          "start": 3095,
-          "end": 3105,
-          "key": false,
-          "click": false
+          "start": 2934,
+          "end": 2943
+        },
+        {
+          "text": "la",
+          "start": 2943,
+          "end": 2958
         }
       ],
-      "to": 3105
+      "to": 2958
     },
     {
-      "from": 3105,
+      "from": 2958,
+      "text": "alcaldía con las banderas del",
       "words": [
         {
-          "text": "hacer",
-          "start": 3105,
-          "end": 3119,
-          "key": false,
-          "click": false
+          "text": "alcaldía",
+          "start": 2958,
+          "end": 3001
+        },
+        {
+          "text": "con",
+          "start": 3001,
+          "end": 3011
         },
         {
           "text": "las",
-          "start": 3120,
-          "end": 3130,
-          "key": false,
-          "click": false
+          "start": 3011,
+          "end": 3017
+        },
+        {
+          "text": "banderas",
+          "start": 3015,
+          "end": 3044
+        },
+        {
+          "text": "del",
+          "start": 3044,
+          "end": 3054
         }
       ],
-      "to": 3130
+      "to": 3054
     },
     {
-      "from": 3130,
+      "from": 3054,
+      "text": "dilianismo.",
       "words": [
         {
-          "text": "preguntas",
-          "start": 3130,
-          "end": 3154,
-          "key": false,
-          "click": false
+          "text": "dilianismo.",
+          "start": 3054,
+          "end": 3095
         }
       ],
-      "to": 3154
+      "to": 3097
     },
     {
-      "from": 3154,
+      "from": 3097,
+      "text": "Y la otra de sus amigas",
       "words": [
         {
-          "text": "incómodas,",
-          "start": 3154,
-          "end": 3197,
-          "key": false,
-          "click": true
+          "text": "Y",
+          "start": 3097,
+          "end": 3111
+        },
+        {
+          "text": "la",
+          "start": 3111,
+          "end": 3117
+        },
+        {
+          "text": "otra",
+          "start": 3116,
+          "end": 3135
+        },
+        {
+          "text": "de",
+          "start": 3135,
+          "end": 3141
+        },
+        {
+          "text": "sus",
+          "start": 3140,
+          "end": 3155
+        },
+        {
+          "text": "amigas",
+          "start": 3155,
+          "end": 3183
         }
       ],
-      "to": 3197
+      "to": 3183
     },
     {
-      "from": 3197,
+      "from": 3183,
+      "text": "es una de sus mayores aliadas",
       "words": [
+        {
+          "text": "es",
+          "start": 3183,
+          "end": 3193
+        },
+        {
+          "text": "una",
+          "start": 3193,
+          "end": 3207
+        },
+        {
+          "text": "de",
+          "start": 3208,
+          "end": 3218
+        },
+        {
+          "text": "sus",
+          "start": 3218,
+          "end": 3232
+        },
+        {
+          "text": "mayores",
+          "start": 3232,
+          "end": 3256
+        },
+        {
+          "text": "aliadas",
+          "start": 3256,
+          "end": 3290
+        }
+      ],
+      "to": 3290
+    },
+    {
+      "from": 3290,
+      "text": "en el concejo.",
+      "words": [
+        {
+          "text": "en",
+          "start": 3290,
+          "end": 3299
+        },
+        {
+          "text": "el",
+          "start": 3299,
+          "end": 3305
+        },
+        {
+          "text": "concejo.",
+          "start": 3304,
+          "end": 3324
+        }
+      ],
+      "to": 3327
+    },
+    {
+      "from": 3327,
+      "text": "Y concejal, no se ofusque ni",
+      "words": [
+        {
+          "text": "Y",
+          "start": 3327,
+          "end": 3346
+        },
+        {
+          "text": "concejal,",
+          "start": 3346,
+          "end": 3394
+        },
         {
           "text": "no",
-          "start": 3197,
-          "end": 3206,
-          "key": false,
-          "click": false
+          "start": 3394,
+          "end": 3404
         },
         {
           "text": "se",
-          "start": 3206,
-          "end": 3216,
-          "key": false,
-          "click": false
+          "start": 3404,
+          "end": 3413
         },
         {
-          "text": "sorprenda",
-          "start": 3216,
-          "end": 3250,
-          "key": false,
-          "click": false
+          "text": "ofusque",
+          "start": 3413,
+          "end": 3452
+        },
+        {
+          "text": "ni",
+          "start": 3452,
+          "end": 3462
         }
       ],
-      "to": 3249
+      "to": 3462
     },
     {
-      "from": 3249,
+      "from": 3462,
+      "text": "se tome la crítica como algo",
       "words": [
         {
-          "text": "cuando",
-          "start": 3249,
-          "end": 3263,
-          "key": false,
-          "click": false
+          "text": "se",
+          "start": 3462,
+          "end": 3468
+        },
+        {
+          "text": "tome",
+          "start": 3466,
+          "end": 3486
+        },
+        {
+          "text": "la",
+          "start": 3486,
+          "end": 3492
+        },
+        {
+          "text": "crítica",
+          "start": 3490,
+          "end": 3514
+        },
+        {
+          "text": "como",
+          "start": 3514,
+          "end": 3529
+        },
+        {
+          "text": "algo",
+          "start": 3529,
+          "end": 3548
+        }
+      ],
+      "to": 3548
+    },
+    {
+      "from": 3548,
+      "text": "personal.",
+      "words": [
+        {
+          "text": "personal.",
+          "start": 3548,
+          "end": 3575
+        }
+      ],
+      "to": 3578
+    },
+    {
+      "from": 3578,
+      "text": "Hacer control político no es",
+      "words": [
+        {
+          "text": "Hacer",
+          "start": 3578,
+          "end": 3607
+        },
+        {
+          "text": "control",
+          "start": 3607,
+          "end": 3631
+        },
+        {
+          "text": "político",
+          "start": 3631,
+          "end": 3674
+        },
+        {
+          "text": "no",
+          "start": 3674,
+          "end": 3688
+        },
+        {
+          "text": "es",
+          "start": 3688,
+          "end": 3703
+        }
+      ],
+      "to": 3703
+    },
+    {
+      "from": 3703,
+      "text": "hacer un show.",
+      "words": [
+        {
+          "text": "hacer",
+          "start": 3703,
+          "end": 3717
         },
         {
           "text": "un",
-          "start": 3263,
-          "end": 3269,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 3268
-    },
-    {
-      "from": 3268,
-      "words": [
-        {
-          "text": "ciudadano",
-          "start": 3268,
-          "end": 3297,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 3297
-    },
-    {
-      "from": 3297,
-      "words": [
-        {
-          "text": "interesado",
-          "start": 3297,
-          "end": 3326,
-          "key": false,
-          "click": false
+          "start": 3717,
+          "end": 3732
         },
         {
-          "text": "en",
-          "start": 3326,
-          "end": 3332,
-          "key": false,
-          "click": false
+          "text": "show.",
+          "start": 3732,
+          "end": 3748
+        }
+      ],
+      "to": 3750
+    },
+    {
+      "from": 3750,
+      "text": "Hacer control político es su",
+      "words": [
+        {
+          "text": "Hacer",
+          "start": 3750,
+          "end": 3774
+        },
+        {
+          "text": "control",
+          "start": 3774,
+          "end": 3793
+        },
+        {
+          "text": "político",
+          "start": 3793,
+          "end": 3832
+        },
+        {
+          "text": "es",
+          "start": 3832,
+          "end": 3846
         },
         {
           "text": "su",
-          "start": 3331,
-          "end": 3340,
-          "key": false,
-          "click": false
+          "start": 3846,
+          "end": 3860
         }
       ],
-      "to": 3340
+      "to": 3860
     },
     {
-      "from": 3340,
+      "from": 3860,
+      "text": "deber legal y constitucional.",
       "words": [
         {
+          "text": "deber",
+          "start": 3860,
+          "end": 3879
+        },
+        {
+          "text": "legal",
+          "start": 3879,
+          "end": 3903
+        },
+        {
+          "text": "y",
+          "start": 3903,
+          "end": 3918
+        },
+        {
+          "text": "constitucional.",
+          "start": 3918,
+          "end": 3948
+        }
+      ],
+      "to": 3971
+    },
+    {
+      "from": 3971,
+      "text": "Si no se siente capacitado",
+      "words": [
+        {
+          "text": "Si",
+          "start": 3971,
+          "end": 3985
+        },
+        {
+          "text": "no",
+          "start": 3985,
+          "end": 3991
+        },
+        {
+          "text": "se",
+          "start": 3990,
+          "end": 4000
+        },
+        {
+          "text": "siente",
+          "start": 4000,
+          "end": 4024
+        },
+        {
+          "text": "capacitado",
+          "start": 4024,
+          "end": 4062
+        }
+      ],
+      "to": 4062
+    },
+    {
+      "from": 4062,
+      "text": "para hacer las preguntas",
+      "words": [
+        {
+          "text": "para",
+          "start": 4062,
+          "end": 4072
+        },
+        {
+          "text": "hacer",
+          "start": 4072,
+          "end": 4086
+        },
+        {
+          "text": "las",
+          "start": 4087,
+          "end": 4097
+        },
+        {
+          "text": "preguntas",
+          "start": 4097,
+          "end": 4121
+        }
+      ],
+      "to": 4121
+    },
+    {
+      "from": 4121,
+      "text": "incómodas, no se sorprenda",
+      "words": [
+        {
+          "text": "incómodas,",
+          "start": 4121,
+          "end": 4164
+        },
+        {
+          "text": "no",
+          "start": 4164,
+          "end": 4173
+        },
+        {
+          "text": "se",
+          "start": 4173,
+          "end": 4183
+        },
+        {
+          "text": "sorprenda",
+          "start": 4183,
+          "end": 4217
+        }
+      ],
+      "to": 4216
+    },
+    {
+      "from": 4216,
+      "text": "cuando un ciudadano interesado",
+      "words": [
+        {
+          "text": "cuando",
+          "start": 4216,
+          "end": 4230
+        },
+        {
+          "text": "un",
+          "start": 4230,
+          "end": 4236
+        },
+        {
+          "text": "ciudadano",
+          "start": 4235,
+          "end": 4264
+        },
+        {
+          "text": "interesado",
+          "start": 4264,
+          "end": 4293
+        }
+      ],
+      "to": 4293
+    },
+    {
+      "from": 4293,
+      "text": "en su ciudad decide hacerlas.",
+      "words": [
+        {
+          "text": "en",
+          "start": 4293,
+          "end": 4299
+        },
+        {
+          "text": "su",
+          "start": 4298,
+          "end": 4307
+        },
+        {
           "text": "ciudad",
-          "start": 3340,
-          "end": 3355,
-          "key": false,
-          "click": false
+          "start": 4307,
+          "end": 4322
         },
         {
           "text": "decide",
-          "start": 3358,
-          "end": 3396,
-          "key": false,
-          "click": false
-        }
-      ],
-      "to": 3396
-    },
-    {
-      "from": 3396,
-      "words": [
+          "start": 4325,
+          "end": 4363
+        },
         {
           "text": "hacerlas.",
-          "start": 3396,
-          "end": 3426,
-          "key": false,
-          "click": false
+          "start": 4363,
+          "end": 4393
         }
       ],
-      "to": 3426
+      "to": 4393
     }
   ],
-  "clicks": [66, 247, 799, 1313, 1845, 2379, 3154],
-  "clipsEnd": 3429
+  "emphasis": [
+    {
+      "style": "combo",
+      "from": 6,
+      "to": 153,
+      "lines": [
+        {
+          "text": "¿no podemos",
+          "font": "serif",
+          "color": "white",
+          "from": 6
+        },
+        {
+          "text": "ESTAR AQUÍ?",
+          "font": "condensed",
+          "color": "white",
+          "from": 33
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 190,
+      "to": 244,
+      "lines": [
+        {
+          "text": "pero es que",
+          "font": "small",
+          "color": "white",
+          "from": 190
+        },
+        {
+          "text": "ESTAMOS AFUERA",
+          "font": "wide",
+          "color": "white",
+          "from": 214
+        }
+      ]
+    },
+    {
+      "style": "select",
+      "from": 247,
+      "to": 313,
+      "lines": [
+        {
+          "text": "Pepo",
+          "font": "select",
+          "color": "white",
+          "from": 247
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 534,
+      "to": 600,
+      "lines": [
+        {
+          "text": "¿de pronto,",
+          "font": "serif",
+          "color": "white",
+          "from": 534
+        },
+        {
+          "text": "CONCEJAL?",
+          "font": "wide",
+          "color": "white",
+          "from": 558
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 955,
+      "to": 1030,
+      "lines": [
+        {
+          "text": "aprueba el",
+          "font": "small",
+          "color": "white",
+          "from": 955
+        },
+        {
+          "text": "presupuesto",
+          "font": "serif",
+          "color": "white",
+          "from": 994
+        }
+      ]
+    },
+    {
+      "style": "big",
+      "from": 1176,
+      "to": 1221,
+      "lines": [
+        {
+          "text": "VERIFICARLO",
+          "font": "condensed",
+          "color": "white",
+          "from": 1176
+        }
+      ]
+    },
+    {
+      "style": "big",
+      "from": 1574,
+      "to": 1628,
+      "lines": [
+        {
+          "text": "VANDALIZACIÓN",
+          "font": "condensed",
+          "color": "white",
+          "from": 1574
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 1655,
+      "to": 1717,
+      "lines": [
+        {
+          "text": "ya lleva",
+          "font": "small",
+          "color": "white",
+          "from": 1655
+        },
+        {
+          "text": "mucho tiempo",
+          "font": "serif",
+          "color": "white",
+          "from": 1688
+        }
+      ]
+    },
+    {
+      "style": "stack",
+      "from": 1821,
+      "to": 2157,
+      "lines": [
+        {
+          "text": "¿POR QUÉ?",
+          "font": "condensed",
+          "color": "white",
+          "from": 1821
+        },
+        {
+          "text": "¿CUÁNTOS RECURSOS?",
+          "font": "condensed",
+          "color": "white",
+          "from": 1946
+        },
+        {
+          "text": "¿CUÁNDO?",
+          "font": "condensed",
+          "color": "white",
+          "from": 2109
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 2489,
+      "to": 2605,
+      "lines": [
+        {
+          "text": "decidió arreglarlo",
+          "font": "small",
+          "color": "white",
+          "from": 2489
+        },
+        {
+          "text": "CON SU PLATA",
+          "font": "condensed",
+          "color": "red",
+          "from": 2581
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 2615,
+      "to": 2684,
+      "lines": [
+        {
+          "text": "y con la de",
+          "font": "small",
+          "color": "white",
+          "from": 2615
+        },
+        {
+          "text": "SUS AMIGOS",
+          "font": "wide",
+          "color": "white",
+          "from": 2648
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 2698,
+      "to": 2752,
+      "lines": [
+        {
+          "text": "qué casualidad",
+          "font": "serif",
+          "color": "white",
+          "from": 2698
+        }
+      ]
+    },
+    {
+      "style": "stack",
+      "from": 2905,
+      "to": 3108,
+      "lines": [
+        {
+          "text": "CAMPAÑA PARA LA ALCALDÍA",
+          "font": "condensed",
+          "color": "white",
+          "from": 2905
+        },
+        {
+          "text": "con las banderas del",
+          "font": "small",
+          "color": "white",
+          "from": 3015
+        },
+        {
+          "text": "DILIANISMO",
+          "font": "select",
+          "color": "white",
+          "from": 3054
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 3193,
+      "to": 3324,
+      "lines": [
+        {
+          "text": "una de sus",
+          "font": "small",
+          "color": "white",
+          "from": 3193
+        },
+        {
+          "text": "MAYORES ALIADAS",
+          "font": "condensed",
+          "color": "red",
+          "from": 3256
+        },
+        {
+          "text": "en el concejo",
+          "font": "serif",
+          "color": "white",
+          "from": 3304
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 3514,
+      "to": 3584,
+      "lines": [
+        {
+          "text": "como algo",
+          "font": "small",
+          "color": "white",
+          "from": 3514
+        },
+        {
+          "text": "personal",
+          "font": "serif",
+          "color": "white",
+          "from": 3548
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 3674,
+      "to": 3780,
+      "lines": [
+        {
+          "text": "no es hacer un",
+          "font": "small",
+          "color": "white",
+          "from": 3674
+        },
+        {
+          "text": "SHOW",
+          "font": "condensed",
+          "color": "white",
+          "from": 3732
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 4097,
+      "to": 4157,
+      "lines": [
+        {
+          "text": "las preguntas",
+          "font": "small",
+          "color": "white",
+          "from": 4097
+        },
+        {
+          "text": "incómodas",
+          "font": "serif",
+          "color": "white",
+          "from": 4121
+        }
+      ]
+    },
+    {
+      "style": "combo",
+      "from": 4235,
+      "to": 4396,
+      "lines": [
+        {
+          "text": "UN CIUDADANO",
+          "font": "wide",
+          "color": "white",
+          "from": 4235
+        },
+        {
+          "text": "interesado en su ciudad",
+          "font": "small",
+          "color": "white",
+          "from": 4264
+        },
+        {
+          "text": "decide hacerlas",
+          "font": "serif",
+          "color": "white",
+          "from": 4325
+        }
+      ]
+    }
+  ],
+  "clicks": [
+    6, 33, 190, 214, 247, 534, 558, 955, 994, 1176, 1574, 1655, 1688, 1821,
+    1946, 2109, 2489, 2581, 2615, 2648, 2698, 2905, 3015, 3054, 3193, 3256,
+    3304, 3514, 3548, 3674, 3732, 4097, 4121, 4235, 4264, 4325
+  ],
+  "clipsEnd": 4396
 }

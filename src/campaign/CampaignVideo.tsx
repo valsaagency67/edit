@@ -10,7 +10,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Anton } from "./font";
+import { Anton, Bebas, Montserrat, Playfair } from "./font";
 import { Icon, IconName } from "./icons";
 import raw from "./vigilante.json";
 
@@ -22,11 +22,13 @@ const END_CARD_S = 3.5;
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const RED = "#E30613";
 const YELLOW = "#FFE600";
+const SHADOW = "0 4px 18px rgba(0,0,0,0.55), 0 0 3px rgba(0,0,0,0.6)";
 
 type Edit = typeof raw;
 type Seg = Edit["segments"][number];
 type Page = Edit["pages"][number];
 type Card = Edit["cards"][number];
+type Emph = Edit["emphasis"][number];
 
 // vigilante.json está en frames a 60 fps. Para el borrador rápido (30 fps) se
 // reescalan todos los tiempos; los planos se recalculan seguidos para no dejar huecos.
@@ -54,6 +56,12 @@ export const scaleEdit = (fps: number): Edit => {
     texts: raw.texts.map((x) => ({ ...x, from: f(x.from), dur: f(x.dur) })),
     cards: raw.cards.map((x) => ({ ...x, from: f(x.from), dur: f(x.dur) })),
     clicks: raw.clicks.map(f),
+    emphasis: raw.emphasis.map((e) => ({
+      ...e,
+      from: f(e.from),
+      to: f(e.to),
+      lines: e.lines.map((l) => ({ ...l, from: f(l.from) })),
+    })),
     pages: raw.pages.map((p) => ({
       ...p,
       from: f(p.from),
@@ -181,108 +189,217 @@ const Progress: React.FC = () => {
   );
 };
 
-// Gancho y credenciales: debajo de los subtítulos (la cara ocupa la zona superior)
-// y encima de la franja inferior de 380 px que tapa la interfaz de TikTok/Reels.
-const TopText: React.FC<{ text: string; hook: boolean; dur: number }> = ({
-  text,
-  hook,
-  dur,
-}) => {
+// Credencial pequeña debajo de la firma ("Abogado Javeriano").
+const Credential: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const s = spring({ frame, fps, config: { damping: 9, stiffness: 160 } });
-  const out = interpolate(frame, [dur - 8, dur], [1, 0], {
+  const o = interpolate(frame, [0, 8, dur - 8, dur], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const wobble = hook ? Math.sin(frame / 6) * 1.5 : 0;
   return (
-    <AbsoluteFill style={{ alignItems: "center", top: 1390 }}>
+    <div
+      style={{
+        position: "absolute",
+        top: 346,
+        left: 64,
+        opacity: o,
+        fontFamily: Montserrat,
+        fontWeight: 600,
+        fontSize: 26,
+        color: "white",
+        textShadow: SHADOW,
+      }}
+    >
+      {text}
+    </div>
+  );
+};
+
+// Subtítulo base estilo Duvalier: frase corta, sans limpia, blanca, sin caja, a ~70 %
+// de la altura. Se oculta mientras hay un énfasis tipográfico en pantalla.
+const BaseCaption: React.FC<{ page: Page }> = ({ page }) => {
+  const frame = useCurrentFrame();
+  const o = interpolate(frame, [0, 4], [0, 1], { extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill
+      style={{ alignItems: "center", justifyContent: "flex-start", top: 1300 }}
+    >
       <div
         style={{
-          transform: `scale(${interpolate(s, [0, 1], [0.4, 1])}) rotate(${(hook ? -3 : 2) + wobble}deg)`,
-          opacity: out,
-          backgroundColor: hook ? YELLOW : RED,
-          color: hook ? "black" : "white",
-          fontFamily: Anton,
-          fontSize: hook ? 80 : 60,
-          lineHeight: 1.05,
+          opacity: o,
+          maxWidth: 860,
+          fontFamily: Montserrat,
+          fontWeight: 600,
+          fontSize: 50,
+          lineHeight: 1.2,
+          color: "white",
           textAlign: "center",
-          padding: "16px 32px",
-          borderRadius: 20,
-          maxWidth: 940,
-          boxShadow: "0 12px 0 rgba(0,0,0,0.85)",
+          textShadow: SHADOW,
         }}
       >
-        {text}
+        {page.text}
       </div>
     </AbsoluteFill>
   );
 };
 
-// Subtítulos palabra por palabra: bloque de hasta 3 palabras, la palabra que
-// suena en amarillo 1.10x y las palabras clave en caja roja.
-const Captions: React.FC<{ page: Page }> = ({ page }) => {
+// Tipografía cinética estilo Duvalier: cada línea aparece en su palabra (desenfoque ->
+// nítido, con un clic) y se combinan sans ancha, condensada, serif cursiva y texto pequeño.
+const LINE_STYLE: Record<string, React.CSSProperties> = {
+  small: {
+    fontFamily: Montserrat,
+    fontWeight: 600,
+    fontSize: 50,
+    lineHeight: 1.15,
+  },
+  wide: {
+    fontFamily: Montserrat,
+    fontWeight: 900,
+    fontSize: 104,
+    lineHeight: 0.98,
+    letterSpacing: -1,
+  },
+  serif: {
+    fontFamily: Playfair,
+    fontStyle: "italic",
+    fontWeight: 400,
+    fontSize: 118,
+    lineHeight: 1.0,
+  },
+  condensed: { fontFamily: Bebas, fontSize: 190, lineHeight: 0.9 },
+};
+
+const SelectBox: React.FC<{ text: string; age: number }> = ({ text, age }) => {
+  // Efecto "texto seleccionado": la caja amarilla se abre de izquierda a derecha,
+  // con manijas redondas y cursor, como en la referencia ("Buenaventura").
+  const w = interpolate(age, [0, 9], [0, 100], { extrapolateRight: "clamp" });
+  const handle = (side: "left" | "right"): React.CSSProperties => ({
+    position: "absolute",
+    [side]: -10,
+    top: side === "left" ? -34 : undefined,
+    bottom: side === "right" ? -34 : undefined,
+    width: 6,
+    height: "calc(100% + 34px)",
+    backgroundColor: YELLOW,
+  });
+  const dot = (side: "left" | "right"): React.CSSProperties => ({
+    position: "absolute",
+    [side]: -27,
+    top: side === "left" ? -54 : undefined,
+    bottom: side === "right" ? -54 : undefined,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: YELLOW,
+  });
+  return (
+    <div style={{ position: "relative", padding: "6px 30px 14px" }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: `${w}%`,
+          backgroundColor: "rgba(255,230,0,0.55)",
+        }}
+      />
+      {w >= 100 && (
+        <>
+          <div style={handle("left")} />
+          <div style={dot("left")} />
+          <div style={handle("right")} />
+          <div style={dot("right")} />
+        </>
+      )}
+      <div
+        style={{
+          position: "relative",
+          fontFamily: Montserrat,
+          fontWeight: 700,
+          fontStyle: "italic",
+          fontSize: 100,
+          color: "white",
+          textShadow: SHADOW,
+        }}
+      >
+        {text}
+      </div>
+      <svg
+        width={54}
+        height={64}
+        viewBox="0 0 18 22"
+        style={{
+          position: "absolute",
+          left: `${Math.min(w, 100) * 0.55}%`,
+          bottom: -46,
+        }}
+      >
+        <path
+          d="M1 1 L1 17 L5.5 13 L8.5 20 L11 19 L8 12 L14 12 Z"
+          fill="white"
+          stroke="black"
+          strokeWidth={1.2}
+        />
+      </svg>
+    </div>
+  );
+};
+
+const EmphasisView: React.FC<{ e: Emph }> = ({ e }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const g = page.from + frame;
-  const enter = spring({ frame, fps, config: { damping: 12 } });
+  const g = e.from + frame;
+  const out = interpolate(frame, [e.to - e.from - 5, e.to - e.from], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const stack = e.style === "stack";
   return (
     <AbsoluteFill
       style={{
         alignItems: "center",
         justifyContent: "center",
-        top: 1220 - 960,
-        transform: `translateY(${interpolate(enter, [0, 1], [24, 0])}px) scale(${interpolate(enter, [0, 1], [0.7, 1])})`,
+        top: stack ? 1180 - 960 : 1240 - 960,
+        opacity: out,
       }}
     >
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          flexDirection: "column",
           alignItems: "center",
-          rowGap: 10,
-          maxWidth: 960,
-          fontFamily: Anton,
-          fontSize: 88,
-          lineHeight: 1,
-          textTransform: "uppercase",
+          maxWidth: 1000,
+          textAlign: "center",
+          gap: stack ? 6 : 0,
         }}
       >
-        {page.words.map((w, i) => {
-          const active = g >= w.start && g < w.end;
-          // Palabra con clic: salto de escala 1.25 -> 1 en ~10 frames.
-          const bounce =
-            w.click && g >= w.start
-              ? 1 +
-                0.25 *
-                  (1 -
-                    spring({
-                      frame: g - w.start,
-                      fps,
-                      config: { damping: 10, stiffness: 220 },
-                    }))
-              : 1;
+        {e.lines.map((l, i) => {
+          const age = g - l.from;
+          if (age < 0) {
+            return null;
+          }
+          if (l.font === "select") {
+            return <SelectBox key={i} text={l.text} age={age} />;
+          }
+          const k = interpolate(age, [0, 6], [0, 1], {
+            extrapolateRight: "clamp",
+          });
+          const base = LINE_STYLE[l.font] ?? LINE_STYLE.small;
+          const size =
+            stack && l.font === "condensed" ? { fontSize: 128 } : undefined;
           return (
-            <span
+            <div
               key={i}
               style={{
-                display: "inline-block",
-                margin: "0 20px",
-                color: !w.key && active ? YELLOW : "white",
-                transform: `scale(${(active ? 1.08 : 1) * bounce})`,
-                WebkitTextStroke: w.key ? undefined : "14px black",
-                paintOrder: "stroke fill",
-                textShadow: "0 6px 0 rgba(0,0,0,0.55)",
-                backgroundColor: w.key ? RED : undefined,
-                padding: w.key ? "4px 14px 8px" : undefined,
-                borderRadius: w.key ? 10 : undefined,
-                boxShadow: w.key && active ? `0 0 0 6px ${YELLOW}` : undefined,
+                ...base,
+                ...size,
+                color: l.color === "red" ? RED : "white",
+                textShadow: SHADOW,
+                opacity: k,
+                filter: `blur(${(1 - k) * 12}px)`,
+                transform: `translateY(${(1 - k) * 18}px) scale(${0.92 + 0.08 * k})`,
               }}
             >
-              {w.text}
-            </span>
+              {l.text}
+            </div>
           );
         })}
       </div>
@@ -396,7 +513,6 @@ const EndCard: React.FC = () => {
 export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   const edit = React.useMemo(() => scaleEdit(fps), [fps]);
   const clipStarts = edit.clips.slice(1).map((c) => c.from);
-  const HOOK = Math.round(2.6 * fps);
   const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -434,23 +550,59 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
         <TopBanner />
       </Sequence>
 
-      <Sequence from={Math.round(0.1 * fps)} durationInFrames={HOOK}>
-        <TopText text={edit.hook} hook dur={HOOK} />
-      </Sequence>
-
       {edit.texts.map((t, i) => (
         <Sequence key={`t-${i}`} from={t.from} durationInFrames={t.dur}>
-          <TopText text={t.text} hook={false} dur={t.dur} />
+          <Credential text={t.text} dur={t.dur} />
         </Sequence>
       ))}
 
-      {edit.pages.map((p, i) => (
+      {edit.pages.map((p, i) => {
+        // El subtítulo base se recorta donde hay énfasis o tarjeta en pantalla.
+        const busy = [
+          ...edit.emphasis.map((e) => [e.from, e.to]),
+          ...edit.cards.map((c) => [c.from, c.from + c.dur]),
+        ];
+        const pieces: [number, number][] = [[p.from, p.to]];
+        for (const [a, b] of busy) {
+          for (let k = pieces.length - 1; k >= 0; k--) {
+            const [x, y] = pieces[k];
+            if (b <= x || a >= y) continue;
+            pieces.splice(
+              k,
+              1,
+              ...(
+                [
+                  [x, a],
+                  [b, y],
+                ] as [number, number][]
+              ).filter(([u, v]) => v - u > 3),
+            );
+          }
+        }
+        return pieces.map(([a, b], j) => (
+          <Sequence key={`p-${i}-${j}`} from={a} durationInFrames={b - a}>
+            <BaseCaption page={p} />
+          </Sequence>
+        ));
+      })}
+
+      {edit.emphasis.map((e, i) => (
         <Sequence
-          key={`p-${i}`}
-          from={p.from}
-          durationInFrames={Math.max(1, p.to - p.from)}
+          key={`e-${i}`}
+          from={e.from}
+          durationInFrames={Math.max(1, e.to - e.from)}
         >
-          <Captions page={p} />
+          <EmphasisView e={e} />
+        </Sequence>
+      ))}
+
+      {edit.clicks.map((f, i) => (
+        <Sequence
+          key={`click-${i}`}
+          from={f}
+          durationInFrames={Math.round(0.2 * fps)}
+        >
+          <Html5Audio src={staticFile("sfx/click.wav")} volume={0.55} />
         </Sequence>
       ))}
 

@@ -1,20 +1,406 @@
 {
-  "hook": "¿NO PODEMOS ESTAR AQUÍ?",
-  "clips": [
-    { "file": "IMG_1697", "video": "IMG_1697_hook", "videoOffset": 44, "in": 52.66, "out": 59.5, "ranges": [[52.66, 54.86], [57.64, 59.5]], "grayscale": true, "click": "seguridad" },
-    { "file": "IMG_1696", "in": 1.2, "out": 10.7, "texts": [{ "text": "ABOGADO JAVERIANO", "at": 0.3, "dur": 2.2 }] },
-    { "file": "IMG_1702", "in": 0.4, "out": 8.75 },
-    { "file": "IMG_1704", "in": 0.3, "out": 9.4, "texts": [{ "text": "LIDERAZGO SOCIAL EN PALMIRA", "at": 0.3, "dur": 2.4 }] },
-    { "file": "IMG_1706", "in": 0.6, "out": 11.8 },
-    { "file": "IMG_1710", "in": 1.1, "out": 12.6 },
-    { "file": "IMG_1713", "in": 0.5, "out": 7.9, "click": "incómodas" }
-  ],
-  "cards": [
-    { "file": "IMG_1696", "word": "presupuesto", "text": "¿Y EL PRESUPUESTO?", "icon": "bill" },
-    { "file": "IMG_1702", "word": "plata", "text": "¿NO HAY PLATA?", "icon": "wallet" },
-    { "file": "IMG_1704", "word": "deteriorándose", "text": "AÑOS DE DETERIORO", "icon": "bridge" },
-    { "file": "IMG_1706", "word": "control", "text": "CONTROL POLÍTICO", "icon": "search" },
-    { "file": "IMG_1710", "word": "constitucional", "text": "DEBER LEGAL Y CONSTITUCIONAL", "icon": "scale" }
-  ],
-  "keywords": ["presupuesto", "plata", "concejal", "pepo", "sesqui", "control", "político", "deber", "legal", "constitucional", "alcaldía", "público", "derecho", "años"]
+ "hook": "¿NO PODEMOS ESTAR AQUÍ?",
+ "clips": [
+  {
+   "file": "IMG_1697",
+   "video": "IMG_1697_hook",
+   "videoOffset": 44,
+   "in": 52.66,
+   "out": 59.5,
+   "ranges": [
+    [
+     52.66,
+     54.86
+    ],
+    [
+     57.64,
+     59.5
+    ]
+   ],
+   "grayscale": true
+  },
+  {
+   "file": "IMG_1696",
+   "in": 1.2,
+   "out": 10.7,
+   "credential": "Abogado Javeriano"
+  },
+  {
+   "file": "IMG_1702",
+   "in": 0.4,
+   "out": 8.75
+  },
+  {
+   "file": "IMG_1704",
+   "in": 0.3,
+   "out": 9.4,
+   "credential": "Liderazgo social en Palmira"
+  },
+  {
+   "file": "IMG_1706",
+   "in": 0.6,
+   "out": 11.8
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "in": 1.1,
+   "out": 17.7
+  },
+  {
+   "file": "IMG_1710",
+   "in": 1.1,
+   "out": 12.6
+  },
+  {
+   "file": "IMG_1713",
+   "in": 0.5,
+   "out": 7.9
+  }
+ ],
+ "cards": [
+  {
+   "file": "IMG_1696",
+   "word": "presupuesto",
+   "text": "¿Y EL PRESUPUESTO?",
+   "icon": "bill"
+  },
+  {
+   "file": "IMG_1702",
+   "word": "plata",
+   "text": "¿NO HAY PLATA?",
+   "icon": "wallet"
+  },
+  {
+   "file": "IMG_1704",
+   "word": "deteriorándose",
+   "text": "AÑOS DE DETERIORO",
+   "icon": "bridge"
+  },
+  {
+   "file": "IMG_1706",
+   "word": "control",
+   "text": "CONTROL POLÍTICO",
+   "icon": "search"
+  },
+  {
+   "file": "IMG_1710",
+   "word": "constitucional",
+   "text": "DEBER LEGAL Y CONSTITUCIONAL",
+   "icon": "scale"
+  }
+ ],
+ "emphasis": [
+  {
+   "file": "IMG_1697",
+   "style": "combo",
+   "atStart": true,
+   "hold": 2.0,
+   "lines": [
+    {
+     "text": "¿no podemos",
+     "font": "serif",
+     "atS": 0.1
+    },
+    {
+     "text": "ESTAR AQUÍ?",
+     "font": "condensed",
+     "atS": 0.55
+    }
+   ]
+  },
+  {
+   "file": "IMG_1697",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "pero es que",
+     "font": "small",
+     "at": "estamos"
+    },
+    {
+     "text": "ESTAMOS AFUERA",
+     "font": "wide",
+     "at": "afuera."
+    }
+   ],
+   "hold": 0.9
+  },
+  {
+   "file": "IMG_1696",
+   "style": "select",
+   "lines": [
+    {
+     "text": "Pepo",
+     "font": "select",
+     "at": "Pepo"
+    }
+   ],
+   "hold": 1.1
+  },
+  {
+   "file": "IMG_1696",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "¿de pronto,",
+     "font": "serif",
+     "at": "pronto,",
+     "n": 2
+    },
+    {
+     "text": "CONCEJAL?",
+     "font": "wide",
+     "at": "concejal?"
+    }
+   ],
+   "hold": 0.7
+  },
+  {
+   "file": "IMG_1702",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "aprueba el",
+     "font": "small",
+     "at": "aprueba"
+    },
+    {
+     "text": "presupuesto",
+     "font": "serif",
+     "at": "presupuesto."
+    }
+   ],
+   "hold": 0.6
+  },
+  {
+   "file": "IMG_1702",
+   "style": "big",
+   "lines": [
+    {
+     "text": "VERIFICARLO",
+     "font": "condensed",
+     "at": "verificarlo?"
+    }
+   ],
+   "hold": 0.9
+  },
+  {
+   "file": "IMG_1704",
+   "style": "big",
+   "lines": [
+    {
+     "text": "VANDALIZACIÓN",
+     "font": "condensed",
+     "at": "vandalización"
+    }
+   ],
+   "hold": 0.9
+  },
+  {
+   "file": "IMG_1704",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "ya lleva",
+     "font": "small",
+     "at": "ya"
+    },
+    {
+     "text": "mucho tiempo",
+     "font": "serif",
+     "at": "mucho"
+    }
+   ],
+   "hold": 0.8
+  },
+  {
+   "file": "IMG_1706",
+   "style": "stack",
+   "lines": [
+    {
+     "text": "¿POR QUÉ?",
+     "font": "condensed",
+     "at": "qué"
+    },
+    {
+     "text": "¿CUÁNTOS RECURSOS?",
+     "font": "condensed",
+     "at": "cuántos"
+    },
+    {
+     "text": "¿CUÁNDO?",
+     "font": "condensed",
+     "at": "cuándo"
+    }
+   ],
+   "hold": 0.8
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "decidió arreglarlo",
+     "font": "small",
+     "at": "decidió"
+    },
+    {
+     "text": "CON SU PLATA",
+     "font": "condensed",
+     "color": "red",
+     "at": "plata"
+    }
+   ],
+   "hold": 0.4
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "y con la de",
+     "font": "small",
+     "at": "con",
+     "n": 2
+    },
+    {
+     "text": "SUS AMIGOS",
+     "font": "wide",
+     "at": "amigos."
+    }
+   ],
+   "hold": 0.6
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "qué casualidad",
+     "font": "serif",
+     "at": "casualidad"
+    }
+   ],
+   "hold": 0.9
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "style": "stack",
+   "lines": [
+    {
+     "text": "CAMPAÑA PARA LA ALCALDÍA",
+     "font": "condensed",
+     "at": "campaña"
+    },
+    {
+     "text": "con las banderas del",
+     "font": "small",
+     "at": "banderas"
+    },
+    {
+     "text": "DILIANISMO",
+     "font": "select",
+     "at": "dilianismo."
+    }
+   ],
+   "hold": 0.9
+  },
+  {
+   "file": "NUEVO_DILIAN",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "una de sus",
+     "font": "small",
+     "at": "una"
+    },
+    {
+     "text": "MAYORES ALIADAS",
+     "font": "condensed",
+     "color": "red",
+     "at": "aliadas"
+    },
+    {
+     "text": "en el concejo",
+     "font": "serif",
+     "at": "concejo."
+    }
+   ],
+   "hold": 0.6
+  },
+  {
+   "file": "IMG_1710",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "como algo",
+     "font": "small",
+     "at": "como"
+    },
+    {
+     "text": "personal",
+     "font": "serif",
+     "at": "personal."
+    }
+   ],
+   "hold": 0.6
+  },
+  {
+   "file": "IMG_1710",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "no es hacer un",
+     "font": "small",
+     "at": "no",
+     "n": 2
+    },
+    {
+     "text": "SHOW",
+     "font": "condensed",
+     "at": "show."
+    }
+   ],
+   "hold": 0.8
+  },
+  {
+   "file": "IMG_1713",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "las preguntas",
+     "font": "small",
+     "at": "preguntas"
+    },
+    {
+     "text": "incómodas",
+     "font": "serif",
+     "at": "incómodas,"
+    }
+   ],
+   "hold": 0.6
+  },
+  {
+   "file": "IMG_1713",
+   "style": "combo",
+   "lines": [
+    {
+     "text": "UN CIUDADANO",
+     "font": "wide",
+     "at": "ciudadano"
+    },
+    {
+     "text": "interesado en su ciudad",
+     "font": "small",
+     "at": "interesado"
+    },
+    {
+     "text": "decide hacerlas",
+     "font": "serif",
+     "at": "decide"
+    }
+   ],
+   "hold": 1.2
+  }
+ ]
 }
