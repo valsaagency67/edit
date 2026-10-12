@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Compone la música de fondo (tensión/amenaza) sintetizada, sin licencias de terceros,
-siguiendo las secciones del video: lee src/campaign/vigilante.json y escribe
-public/music/tension.wav (48 kHz estéreo, normalizada a -30 LUFS para ir bajo la voz).
+"""Compone la música de fondo sintetizada, sin licencias de terceros, siguiendo las
+secciones del video: lee src/campaign/vigilante.json y escribe public/music/tension.wav
+(48 kHz estéreo, -30 LUFS para ir bajo la voz, sin graves por debajo de 120 Hz).
 
-Secciones (por clip, ver estilo.md):
-  vigilante  -> zumbido Re + Mib (segunda menor), latido 66 bpm
-  1696, 1702 -> Re menor, bajo pulsante en corcheas 84 bpm
-  1704, 1706 -> Sib y Sol menor, pulso más marcado
-  1710       -> La (dominante), semicorcheas, clímax
-  1713       -> caída: Re grave sostenido + brillo agudo, latido lento
-  cierre     -> resuelve en Re mayor
+Versión 2 (el cliente rechazó el zumbido grave): base amigable en registro medio-agudo
+(arpegio tipo piano/marimba) y drama solo en momentos clave con cuerdas agudas en trémolo.
+  vigilante  -> cuerdas agudas en trémolo que crecen + pizzicato (drama)
+  1696..1706 -> arpegio suave La menor - Fa - Do - Sol, 100 bpm
+  1710       -> arpegio en semicorcheas + cuerdas que suben (clímax)
+  1713       -> suspenso: acorde agudo sostenido en trémolo, sin arpegio
+  cierre     -> arpegio brillante en Do mayor
 Uso: python3 scripts/make_music.py
 """
 import json
@@ -113,32 +113,80 @@ def noise_bed(n, level=0.05):
     return lp(hp(rng.standard_normal(n), 200), 1200) * level
 
 
+def pluck(midi, n_len, level=1.0):
+    """Nota tipo piano/marimba: fundamental + armónicos con caída exponencial."""
+    t = np.arange(n_len) / SR
+    f = hz(midi)
+    x = (np.sin(2 * np.pi * f * t) * np.exp(-t / 0.45)
+         + 0.35 * np.sin(2 * np.pi * 2 * f * t) * np.exp(-t / 0.18)
+         + 0.12 * np.sin(2 * np.pi * 3 * f * t) * np.exp(-t / 0.08))
+    attack = np.minimum(1, t / 0.012)  # ataque suave: sin "clic" grave al inicio
+    return x * attack * level
+
+
+def arpeggio(n, chords, bpm, sub=2, level=0.5):
+    """Arpegio de 4 notas por acorde; cada acorde dura 2 compases de 4/4."""
+    x = np.zeros(n)
+    step = int(SR * 60 / bpm / sub)
+    per_chord = 16 if sub == 2 else 32
+    note_len = int(0.9 * SR)
+    for i, s0 in enumerate(range(0, n, step)):
+        chord = chords[(i // per_chord) % len(chords)]
+        m = chord[[0, 1, 2, 1, 3, 2, 1, 2][i % 8]]
+        e = min(n, s0 + note_len)
+        x[s0:e] += pluck(m, e - s0, 0.8 if i % 4 == 0 else 0.55)
+    return x * level
+
+
+def strings(notes, n, level=0.3, trem=0.0, swell=(0.8, 0.8), bright=3500):
+    """Cuerdas: sierras desafinadas filtradas, trémolo opcional y envolvente de crecida."""
+    t = np.arange(n) / SR
+    x = sum(saw(hz(m), n, d) for m in notes for d in (-0.004, 0.0, 0.004)) / (3 * len(notes))
+    x = lp(x, bright)
+    if trem:
+        x *= 0.65 + 0.35 * np.sin(2 * np.pi * trem * t)
+    return x * env_fade(n, *swell) * level
+
+
+def pizz(n, notes, bpm, level=0.4):
+    x = np.zeros(n)
+    step = int(SR * 60 / bpm)
+    ln = int(0.25 * SR)
+    for i, s0 in enumerate(range(0, n, step)):
+        e = min(n, s0 + ln)
+        tt = np.arange(e - s0) / SR
+        x[s0:e] += np.sin(2 * np.pi * hz(notes[i % len(notes)]) * tt) * np.exp(-tt / 0.06)
+    return x * level
+
+
+# La menor - Fa - Do - Sol (i - VI - III - VII), registro medio-agudo.
+AM, F, C, G = (57, 60, 64, 69), (53, 57, 60, 65), (55, 60, 64, 67), (55, 59, 62, 67)
+
+
 def section(kind, n):
-    D2, Eb2, G1, A1, Bb1, D3 = 38, 39, 31, 33, 34, 50
+    dur = n / SR
     if kind == "vigilante":
-        return (drone(D2, n, (0, 1, 12), 700) * 0.55 + pad([74, 75], n, 0.3)
-                + thump(n, 66, double=True, level=0.9) + noise_bed(n, 0.06))
-    if kind == "dminor":
-        return (drone(D2, n, (0, 7), 450) * 0.4 + ostinato(D2, n, 84, 2, 0.45)
-                + pad([62, 65, 69], n, 0.22) + thump(n, 84, level=0.5))
-    if kind == "bb":
-        return (drone(Bb1, n, (0, 7), 500) * 0.45 + ostinato(Bb1 + 12, n, 84, 2, 0.5)
-                + pad([58, 62, 65], n, 0.24) + thump(n, 84, double=True, level=0.6))
-    if kind == "gminor":
-        return (drone(G1, n, (0, 7, 12), 520) * 0.45 + ostinato(G1 + 12, n, 84, 2, 0.55)
-                + pad([55, 58, 62, 63], n, 0.26) + thump(n, 84, double=True, level=0.65))
+        # Drama: trémolo agudo que crece (La-Do-Mi + Fa disonante) y pizzicato insistente.
+        return (strings([69, 72, 76, 77], n, 0.5, trem=11, swell=(min(2.5, dur * 0.7), 0.3), bright=4500)
+                + pizz(n, [69, 69, 72, 69], 132, 0.35))
+    if kind == "bed":
+        return arpeggio(n, [AM, F, C, G], 100, 2, 0.55) + strings([69, 72, 76], n, 0.12, swell=(1.0, 1.0))
     if kind == "climax":
-        return (drone(A1, n, (0, 7, 13), 800) * 0.5 + ostinato(A1 + 12, n, 84, 4, 0.55)
-                + pad([69, 73, 76, 70], n, 0.3) + thump(n, 84, double=True, level=0.8) + noise_bed(n, 0.08))
-    if kind == "drop":
-        return drone(D2 - 12, n, (0,), 300) * 0.6 + shimmer(n, [86, 87, 93]) + thump(n, 50, level=0.45)
+        # Drama: arpegio en semicorcheas + cuerdas que suben de Fa a Sol.
+        half = n // 2
+        st = np.concatenate([strings([65, 69, 72, 77], half, 0.35, trem=9, swell=(1.5, 0.2)),
+                             strings([67, 71, 74, 79], n - half, 0.42, trem=11, swell=(0.2, 0.6))])
+        return arpeggio(n, [F, G], 100, 4, 0.45) + st
+    if kind == "suspense":
+        return strings([76, 81, 83, 84], n, 0.35, trem=7, swell=(0.8, 0.6), bright=5000)
     if kind == "resolve":
-        return drone(D2, n, (0, 7, 16), 600) * 0.4 + pad([62, 66, 69, 74], n, 0.35) + shimmer(n, [86, 90, 93], 0.08)
+        CM = (60, 64, 67, 72)
+        return arpeggio(n, [CM], 112, 2, 0.6) + strings([72, 76, 79], n, 0.2, swell=(0.4, 1.2))
     raise ValueError(kind)
 
 
-KINDS = {"IMG_1697": "vigilante", "IMG_1696": "dminor", "IMG_1702": "dminor", "IMG_1704": "bb",
-         "IMG_1706": "gminor", "IMG_1710": "climax", "IMG_1713": "drop"}
+KINDS = {"IMG_1697": "vigilante", "IMG_1696": "bed", "IMG_1702": "bed", "IMG_1704": "bed",
+         "IMG_1706": "bed", "IMG_1710": "climax", "IMG_1713": "suspense"}
 
 
 def main():
@@ -147,6 +195,13 @@ def main():
     bounds = [(KINDS[c["file"]], c["from"] / fps, c["to"] / fps) for c in d["clips"]]
     end = d["clipsEnd"] / fps
     bounds.append(("resolve", end, end + END_CARD_S))
+    merged = []
+    for k, a, b in bounds:
+        if merged and merged[-1][0] == k:
+            merged[-1] = (k, merged[-1][1], b)
+        else:
+            merged.append((k, a, b))
+    bounds = merged
     total = int((end + END_CARD_S) * SR)
     left, right = np.zeros(total), np.zeros(total)
     xf = 0.35  # fundido cruzado entre secciones (s)
@@ -160,6 +215,8 @@ def main():
         # Estéreo: leve desplazamiento del pad/ruido.
         left[s0:s1] += x
         right[s0:s1] += np.roll(x, int(0.011 * SR))
+    for _ in range(2):  # 24 dB/oct: sin graves que retumben
+        left, right = hp(left, 120), hp(right, 120)
     st = np.stack([left, right], 1)
     st /= np.max(np.abs(st)) * 1.05
     os.makedirs(f"{ROOT}/public/music", exist_ok=True)

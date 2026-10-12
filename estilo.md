@@ -53,10 +53,9 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 ## Sonido
 - **Solo la voz original** del micrófono de solapa, volumen 1.0.
 - **Sin efectos de sonido**: el cliente rechazó el whoosh, la campanita de transición y los clics en palabras ("suenan a Roblox"). `scripts/make_sfx.py` queda por si se quieren reintroducir.
-- **Música de fondo de tensión** (pedido del cliente), compuesta por `scripts/make_music.py` (síntesis propia, sin licencias), a **−30 LUFS** (≈ 9 dB bajo la voz), cambia por toma con fundidos de 0.35 s:
-  - Vigilante: zumbido Re + Mib (segunda menor) y latido doble a 66 bpm.
-  - IMG_1696 / 1702: Re menor, bajo pulsante en corcheas a 84 bpm.
-  - IMG_1704: Si bemol. IMG_1706: Sol menor, pulso doble.
-  - IMG_1710: La (dominante), semicorcheas, clímax.
-  - IMG_1713: caída a Re grave sostenido + brillo agudo, latido lento a 50 bpm.
-  - Cierre: resuelve en Re mayor.
+- **Música de fondo** compuesta por `scripts/make_music.py` (síntesis propia, sin licencias), a **−30 LUFS** (≈ 9 dB bajo la voz), **sin graves** (paso alto 120 Hz, 24 dB/oct). Versión 2: el cliente rechazó el zumbido grave y pidió algo más agudo y amigable, con drama solo en momentos clave.
+  - Vigilante (drama): cuerdas agudas en trémolo 11 Hz (La-Do-Mi-Fa) que crecen + pizzicato a 132 bpm.
+  - IMG_1696–1706 (base amigable): arpegio tipo piano/marimba La m – Fa – Do – Sol a 100 bpm en corcheas + colchón de cuerdas suave.
+  - IMG_1710 (clímax): arpegio en semicorcheas Fa → Sol + cuerdas en trémolo que suben.
+  - IMG_1713 (suspenso): acorde agudo sostenido en trémolo, sin arpegio.
+  - Cierre: arpegio brillante en Do mayor a 112 bpm.
