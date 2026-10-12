@@ -21,7 +21,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Animación de entrada del bloque: escala 0.70 → 1.00 y subida de 24 px con resorte (damping 12) en ~8 frames. Sin animación de salida (corte seco al siguiente bloque).
 
 ## Textos en pantalla
-- Banner fijo superior (centro y = 200 px): "Juan Felipe Castaño" en Anton 74 px rojo `#E30613` sobre caja blanca 92 % y barra de 5 colores (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
+- Firma fija **en la esquina superior izquierda** (x = 40, y = 150 px; pedido del cliente para no tapar la cabeza): "Juan Felipe Castaño" en Anton 38 px rojo `#E30613` sobre caja blanca 85 % (radio 12) y barra de 5 colores de 6 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Del perfil/banner del cliente.
 - Gancho 0–2.6 s: "¿NO PODEMOS ESTAR AQUÍ?" en caja amarilla, Anton 80 px, rotación −3°, **debajo de los subtítulos (borde superior y = 1390 px)**: arriba taparía la cara.
 - Credenciales (del perfil de Instagram): "ABOGADO JAVERIANO" al entrar el primer monólogo, "LIDERAZGO SOCIAL EN PALMIRA" en el tercero; caja roja, 60 px, rotación 2°, misma zona que el gancho.
 - Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUENOS @juanfelipecastano_col" pulsando (pedido del cliente).

@@ -66,7 +66,7 @@ const Flash: React.FC = () => {
   return <AbsoluteFill style={{ backgroundColor: "white", opacity: o }} />;
 };
 
-const BrandBar: React.FC<{ width: number; height: number }> = ({
+const BrandBar: React.FC<{ width: number | string; height: number }> = ({
   width,
   height,
 }) => (
@@ -85,43 +85,39 @@ const BrandBar: React.FC<{ width: number; height: number }> = ({
   </div>
 );
 
+// Firma discreta en la esquina superior izquierda: no tapa la cabeza.
 const TopBanner: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const y = interpolate(
-    spring({ frame, fps, config: { damping: 16 } }),
+  const x = interpolate(
+    spring({ frame, fps, config: { damping: 18 } }),
     [0, 1],
-    [-260, 0],
+    [-420, 0],
   );
   return (
-    <AbsoluteFill
+    <div
       style={{
-        alignItems: "center",
-        top: 120,
-        transform: `translateY(${y}px)`,
+        position: "absolute",
+        top: 150,
+        left: 40,
+        transform: `translateX(${x}px)`,
+        backgroundColor: "rgba(255,255,255,0.85)",
+        borderRadius: 12,
+        padding: "8px 16px 10px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        gap: 7,
+        boxShadow: "0 4px 14px rgba(0,0,0,0.25)",
       }}
     >
       <div
-        style={{
-          backgroundColor: "rgba(255,255,255,0.92)",
-          borderRadius: 28,
-          padding: "18px 40px 22px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
-        }}
+        style={{ fontFamily: Anton, fontSize: 38, color: RED, lineHeight: 1 }}
       >
-        <div
-          style={{ fontFamily: Anton, fontSize: 74, color: RED, lineHeight: 1 }}
-        >
-          Juan Felipe Castaño
-        </div>
-        <div style={{ marginTop: 14 }}>
-          <BrandBar width={640} height={16} />
-        </div>
+        Juan Felipe Castaño
       </div>
-    </AbsoluteFill>
+      <BrandBar width={"100%"} height={6} />
+    </div>
   );
 };
 
