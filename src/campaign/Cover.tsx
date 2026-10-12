@@ -3,7 +3,7 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 
 // Portada 1080x1920. El bloque de texto queda dentro del recorte 4:5 que Instagram
-// muestra en la cuadrícula del perfil (y 285–1635). Fondo: IMG_1713 a los 4.6 s.
+// muestra en la cuadrícula del perfil (y 285–1635). Fondo: IMG_1713 a los 0.5 s (expresión seria, pedido del cliente).
 const YELLOW = "#FFE600";
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const SHADOW = "0 4px 18px rgba(0,0,0,0.6), 0 0 3px rgba(0,0,0,0.6)";

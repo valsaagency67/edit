@@ -247,7 +247,7 @@
     {
      "text": "CON SU PLATA",
      "font": "condensed",
-     "color": "red",
+     "color": "yellow",
      "at": "plata"
     }
    ],
@@ -317,7 +317,7 @@
     {
      "text": "MAYORES ALIADAS",
      "font": "condensed",
-     "color": "red",
+     "color": "yellow",
      "at": "aliadas"
     },
     {

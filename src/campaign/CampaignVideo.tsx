@@ -391,7 +391,12 @@ const EmphasisView: React.FC<{ e: Emph }> = ({ e }) => {
               style={{
                 ...base,
                 ...size,
-                color: l.color === "red" ? RED : "white",
+                color:
+                  l.color === "yellow"
+                    ? YELLOW
+                    : l.color === "red"
+                      ? RED
+                      : "white",
                 textShadow: SHADOW,
                 opacity: k,
                 filter: `blur(${(1 - k) * 12}px)`,

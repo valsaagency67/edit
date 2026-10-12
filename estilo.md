@@ -56,6 +56,12 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - **Música de suspenso** (`scripts/make_music.py` v4) con **muestras reales** de violín, chelo, contrabajo y piano (tonejs-instruments, CC-BY 3.0, ver `CREDITOS.md`): Re menor, 96 bpm, Rem–Sib–Solm–La, reverb de sala 2.2 s, **−30 LUFS** (~14 dB bajo la voz). Vigilante: ostinato de chelo + violín agudo. Base: chelo suave + piano. Dilian/1710: clímax con violines y chelo en octavas. IMG_1713: violín y piano. Cierre: Re mayor. (Las versiones 1–3, sintetizadas, fueron rechazadas.)
 - **Clic** (`scripts/make_sfx.py`): "tic" único de ~10 ms, pico 2.1 kHz, centroide 2.7 kHz (medido en la referencia de Duvalier), volumen 0.55, uno por cada línea de la tipografía cinética.
 
+## Énfasis en color
+- Las palabras de acusación ("CON SU PLATA", "MAYORES ALIADAS") van en **amarillo `#FFE600`** (antes rojo; pedido del cliente).
+
+## Portada
+- `npm run render:portada` → `out/portada.png` (1080x1920): IMG_1713 a 0.5 s (expresión seria), "Concejal, / HACER CONTROL POLÍTICO / NO ES UN SHOW" (Montserrat 600/900 + Bebas Neue amarillo) y la firma, dentro del recorte 4:5.
+
 ## Subtítulo base (actual)
 - Montserrat 600, **64 px**, blanco, sin caja, sombra suave, ancho máx. 940 px, **borde superior a y = 1160 px** (el cliente los pidió más grandes y más arriba). Frases de máx. 6 palabras / 30 caracteres.
 

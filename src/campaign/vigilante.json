@@ -2238,7 +2238,7 @@
         {
           "text": "CON SU PLATA",
           "font": "condensed",
-          "color": "red",
+          "color": "yellow",
           "from": 2581
         }
       ]
@@ -2314,7 +2314,7 @@
         {
           "text": "MAYORES ALIADAS",
           "font": "condensed",
-          "color": "red",
+          "color": "yellow",
           "from": 3256
         },
         {
