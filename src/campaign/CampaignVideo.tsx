@@ -11,29 +11,66 @@ import {
 } from "remotion";
 import { Anton } from "./font";
 import { Icon, IconName } from "./icons";
-import edit from "./vigilante.json";
+import raw from "./vigilante.json";
 
 // Valores de estilo.md. La edición (cortes, subtítulos, tarjetas) la genera
 // scripts/build_edl.py en vigilante.json a partir de las transcripciones.
 
 export const FPS = 60;
-const END_CARD = Math.round(3.5 * FPS);
+const END_CARD_S = 3.5;
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const RED = "#E30613";
 const YELLOW = "#FFE600";
 
-type Seg = (typeof edit.segments)[number];
-type Page = (typeof edit.pages)[number];
-type Card = (typeof edit.cards)[number];
+type Edit = typeof raw;
+type Seg = Edit["segments"][number];
+type Page = Edit["pages"][number];
+type Card = Edit["cards"][number];
 
-export const TOTAL = edit.clipsEnd + END_CARD;
+// vigilante.json está en frames a 60 fps. Para el borrador rápido (30 fps) se
+// reescalan todos los tiempos; los planos se recalculan seguidos para no dejar huecos.
+export const scaleEdit = (fps: number): Edit => {
+  const k = fps / raw.fps;
+  const f = (x: number) => Math.round(x * k);
+  let t = 0;
+  const segments = raw.segments.map((s) => {
+    const trimBefore = f(s.trimBefore);
+    const trimAfter = f(s.trimAfter);
+    const out = { ...s, from: t, trimBefore, trimAfter };
+    t += trimAfter - trimBefore;
+    return out;
+  });
+  return {
+    ...raw,
+    fps,
+    segments,
+    clipsEnd: t,
+    clips: raw.clips.map((c, i) => ({
+      ...c,
+      from: segments.find((s) => s.clipIndex === i)?.from ?? f(c.from),
+      to: f(c.to),
+    })),
+    texts: raw.texts.map((x) => ({ ...x, from: f(x.from), dur: f(x.dur) })),
+    cards: raw.cards.map((x) => ({ ...x, from: f(x.from), dur: f(x.dur) })),
+    clicks: raw.clicks.map(f),
+    pages: raw.pages.map((p) => ({
+      ...p,
+      from: f(p.from),
+      to: f(p.to),
+      words: p.words.map((w) => ({ ...w, start: f(w.start), end: f(w.end) })),
+    })),
+  };
+};
 
-const clipStarts = edit.clips.slice(1).map((c) => c.from);
+export const durationFor = (fps: number) =>
+  scaleEdit(fps).clipsEnd + Math.round(END_CARD_S * fps);
 
 // Encuadre fijo: el cliente no quiere zooms que entran y salen.
-const Segment: React.FC<{ s: Seg }> = ({ s }) => {
+const Segment: React.FC<{ s: Seg; isClipStart: boolean }> = ({
+  s,
+  isClipStart,
+}) => {
   const frame = useCurrentFrame();
-  const isClipStart = clipStarts.indexOf(s.from) >= 0;
   const shake = isClipStart
     ? interpolate(frame, [0, 14], [22, 0], { extrapolateRight: "clamp" })
     : 0;
@@ -123,6 +160,7 @@ const TopBanner: React.FC = () => {
 
 const Progress: React.FC = () => {
   const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
   return (
     <div
       style={{
@@ -137,7 +175,7 @@ const Progress: React.FC = () => {
       <div
         style={{
           height: "100%",
-          width: `${(frame / TOTAL) * 100}%`,
+          width: `${(frame / durationInFrames) * 100}%`,
           background: `linear-gradient(90deg, ${BRAND.join(",")})`,
         }}
       />
@@ -357,8 +395,11 @@ const EndCard: React.FC = () => {
   );
 };
 
-export const CampaignVideo: React.FC = () => {
-  const HOOK = Math.round(2.6 * FPS);
+export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
+  const edit = React.useMemo(() => scaleEdit(fps), [fps]);
+  const clipStarts = edit.clips.slice(1).map((c) => c.from);
+  const HOOK = Math.round(2.6 * fps);
+  const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       {edit.segments.map((s, i) => (
@@ -368,7 +409,7 @@ export const CampaignVideo: React.FC = () => {
           durationInFrames={s.trimAfter - s.trimBefore}
           premountFor={30}
         >
-          <Segment s={s} />
+          <Segment s={s} isClipStart={clipStarts.indexOf(s.from) >= 0} />
         </Sequence>
       ))}
 
@@ -393,7 +434,7 @@ export const CampaignVideo: React.FC = () => {
         <TopBanner />
       </Sequence>
 
-      <Sequence from={6} durationInFrames={HOOK}>
+      <Sequence from={Math.round(0.1 * fps)} durationInFrames={HOOK}>
         <TopText text={edit.hook} hook dur={HOOK} />
       </Sequence>
 

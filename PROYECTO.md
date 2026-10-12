@@ -67,6 +67,7 @@ HDR→SDR (`scripts/hdr.sh`; el master usa la misma conversión horneada en una 
 elegido comparando variantes en un fotograma (sin tonemap se ve lavado; mobius
 satura el rojo de la camiseta). El escalado del master es lanczos desde 4K.
 
+Borrador rápido para revisar (540x960, 30 fps, ~3–4 min): `npm run render:borrador` → `out/borrador.mp4`.
 Render final: `npm run render:vigilante` → `out/`
 (H.264 crf 14, BT.709, 60 fps, AAC 320 kbps), leyendo de `public/master/`.
 
