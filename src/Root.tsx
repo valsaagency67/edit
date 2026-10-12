@@ -4,7 +4,7 @@ import {
   CampaignVideo,
   FPS,
 } from "./campaign/CampaignVideo";
-import { VIDEO_CONCEJAL, VIDEO_VIGILANTE } from "./campaign/edl";
+import { VIDEO_VIGILANTE } from "./campaign/edl";
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -20,16 +20,6 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         durationInFrames={1}
         defaultProps={{ edit: VIDEO_VIGILANTE }}
-      />
-      <Composition
-        id="JFC-Concejal"
-        component={CampaignVideo}
-        calculateMetadata={calculateCampaignMetadata}
-        width={1080}
-        height={1920}
-        fps={FPS}
-        durationInFrames={1}
-        defaultProps={{ edit: VIDEO_CONCEJAL }}
       />
     </>
   );

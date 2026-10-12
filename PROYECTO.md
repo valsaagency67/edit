@@ -67,18 +67,15 @@ HDR→SDR (`scripts/hdr.sh`; el master usa la misma conversión horneada en una 
 elegido comparando variantes en un fotograma (sin tonemap se ve lavado; mobius
 satura el rojo de la camiseta). El escalado del master es lanczos desde 4K.
 
-Render final: `npm run render:vigilante` / `npm run render:concejal` → `out/`
+Render final: `npm run render:vigilante` → `out/`
 (H.264 crf 14, BT.709, 60 fps, AAC 320 kbps), leyendo de `public/master/`.
 
 ## Videos (src/campaign/)
 
-Clips usados (los únicos indicados por el cliente): IMG_1696, 1697, 1702, 1704,
-1706, 1710, 1713. La secuencia y los cortes viven en `src/campaign/edl.ts`.
+Clips usados: IMG_1696, 1697, 1702, 1704, 1706, 1710. La secuencia y los cortes viven en `src/campaign/edl.ts`.
 
 - **JFC-Vigilante (65 s):** IMG_1697 0–19 s (el vigilante le dice que no pueden
   estar ahí) → 1696 → 1702 → 1704 → 1706 → 1710 → cierre.
-- **JFC-Concejal (71 s):** 1713 (Juan Felipe atacando al concejal) → 1697
-  19–53 s (discusión) → 1704 → 1706 → 1710 → cierre.
 
 Estímulos: gancho de texto en los primeros 2.6 s, jump cuts quitando cada
 silencio > 0.35 s con encuadre alterno (1.0×/1.16×) y pop de zoom, empuje lento

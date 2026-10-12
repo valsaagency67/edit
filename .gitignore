@@ -9,3 +9,4 @@ whisper.cpp
 media/
 public/proxy/
 public/master/
+whisper-models/

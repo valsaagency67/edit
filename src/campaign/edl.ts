@@ -36,17 +36,6 @@ const C = {
       [6.45, 19.1],
     ],
   },
-  discusion: {
-    file: "IMG_1697",
-    segments: [
-      [19.45, 27.15],
-      [27.5, 31.65],
-      [32.1, 42.55],
-      [42.9, 49.25],
-      [49.6, 52.6],
-    ],
-  },
-  c1713: { file: "IMG_1713", segments: [[0.75, 7.7]] },
   c1696: {
     file: "IMG_1696",
     segments: [
@@ -96,18 +85,6 @@ export const VIDEO_VIGILANTE: Edit = {
     C.c1702,
     { ...C.c1704, texts: [LIDERAZGO] },
     C.c1706,
-    C.c1710,
-  ],
-};
-
-// Video 2: abre con Juan Felipe atacando al concejal de Palmira.
-export const VIDEO_CONCEJAL: Edit = {
-  hook: "PALMIRA, ESCUCHA ESTO",
-  clips: [
-    C.c1713,
-    C.discusion,
-    { ...C.c1704, texts: [ABOGADO] },
-    { ...C.c1706, texts: [LIDERAZGO] },
     C.c1710,
   ],
 };
