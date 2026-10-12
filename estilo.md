@@ -53,4 +53,10 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 ## Sonido
 - **Solo la voz original** del micrófono de solapa, volumen 1.0.
 - **Sin efectos de sonido**: el cliente rechazó el whoosh, la campanita de transición y los clics en palabras ("suenan a Roblox"). `scripts/make_sfx.py` queda por si se quieren reintroducir.
-- Sin música (no hay música con licencia). [SUPOSICIÓN]
+- **Música de fondo de tensión** (pedido del cliente), compuesta por `scripts/make_music.py` (síntesis propia, sin licencias), a **−30 LUFS** (≈ 9 dB bajo la voz), cambia por toma con fundidos de 0.35 s:
+  - Vigilante: zumbido Re + Mib (segunda menor) y latido doble a 66 bpm.
+  - IMG_1696 / 1702: Re menor, bajo pulsante en corcheas a 84 bpm.
+  - IMG_1704: Si bemol. IMG_1706: Sol menor, pulso doble.
+  - IMG_1710: La (dominante), semicorcheas, clímax.
+  - IMG_1713: caída a Re grave sostenido + brillo agudo, latido lento a 50 bpm.
+  - Cierre: resuelve en Re mayor.

@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Html5Audio,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -391,6 +392,8 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
+      {/* Música de tensión compuesta por scripts/make_music.py (-30 LUFS, bajo la voz). */}
+      <Html5Audio src={staticFile("music/tension.wav")} volume={1} />
       {edit.segments.map((s, i) => (
         <Sequence
           key={i}
