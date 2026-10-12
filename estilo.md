@@ -1,7 +1,8 @@
 # Estilo — Video Vigilante (Juan Felipe Castaño)
 
-No hay video de referencia: este estilo lo definió el editor a partir de lo que funciona en
-Reels/TikTok político y de lo que el cliente aprobó en el borrador 1. Todo lo que no viene
+Referencia: un video de Duvalier Sánchez que subió el cliente (`media/ref/referencia1.mp4`, 152 s,
+576x1024, 30 fps), analizado con fotogramas cada 2 s, detección de cambios de plano y análisis de audio
+(ver "Análisis de la referencia" al final). El resto del estilo viene de lo que el cliente fue aprobando. Todo lo que no viene
 del cliente ni del material está marcado como [SUPOSICIÓN].
 
 Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
@@ -51,11 +52,19 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Resto sin gradación extra. [SUPOSICIÓN]
 
 ## Sonido
-- **Solo la voz original** del micrófono de solapa, volumen 1.0.
-- **Sin efectos de sonido**: el cliente rechazó el whoosh, la campanita de transición y los clics en palabras ("suenan a Roblox"). `scripts/make_sfx.py` queda por si se quieren reintroducir.
-- **Música de fondo** compuesta por `scripts/make_music.py` (síntesis propia, sin licencias), a **−30 LUFS** (≈ 9 dB bajo la voz), **sin graves** (paso alto 120 Hz, 24 dB/oct). Versión 2: el cliente rechazó el zumbido grave y pidió algo más agudo y amigable, con drama solo en momentos clave.
-  - Vigilante (drama): cuerdas agudas en trémolo 11 Hz (La-Do-Mi-Fa) que crecen + pizzicato a 132 bpm.
-  - IMG_1696–1706 (base amigable): arpegio tipo piano/marimba La m – Fa – Do – Sol a 100 bpm en corcheas + colchón de cuerdas suave.
-  - IMG_1710 (clímax): arpegio en semicorcheas Fa → Sol + cuerdas en trémolo que suben.
-  - IMG_1713 (suspenso): acorde agudo sostenido en trémolo, sin arpegio.
-  - Cierre: arpegio brillante en Do mayor a 112 bpm.
+- **Voz mejorada** (`scripts/enhance_voice.py`): paso alto 80 Hz → reducción de ruido (afftdn) → −2.5 dB en 250 Hz → +3 dB en 3.2 kHz → de-esser → compresor 3:1 → **−16 LUFS por toma** (antes las tomas iban de −29 a −20 LUFS). La referencia de Duvalier mezclada está en −17 LUFS.
+- **Sin efectos de sonido** (el cliente rechazó whoosh, campanita y clics).
+- **Música** (`scripts/make_music.py`, síntesis propia, sin licencias) a −30 LUFS ≈ **14 dB bajo la voz** (el cliente la pidió más baja). Versión 3, calcada del análisis de la referencia: colchón cálido sostenido **sin batería**, **Mi mayor**, ~95 bpm, centroide ~560 Hz (referencia ~600 Hz), 50 % de la energía entre 300 y 800 Hz, sin nada bajo 120 Hz.
+  - Vigilante: Do# menor + cuerdas en trémolo suave que crecen (drama).
+  - IMG_1696–1706: Mi – Si – Do#m – La (I–V–vi–IV), pad + piano suave, un acorde cada 4 tiempos.
+  - IMG_1710: Do#m – La – Mi – Si con cuerdas que crecen (clímax).
+  - IMG_1713: Do#m add9 sostenido, sin piano (suspenso).
+  - Cierre: Mi mayor.
+
+## Análisis de la referencia (Duvalier, `media/ref/referencia1.mp4`)
+- **Ritmo:** 36 cambios de plano detectados en 152 s (un inserto cada ~4.2 s) más jump cuts dentro del primer plano.
+- **Plano principal:** primer plano a cámara, cara en el tercio superior, fondo neutro.
+- **Subtítulos:** en minúscula, blancos, sin caja, 4–7 palabras en 1–2 líneas a ~75 % de la altura. Las palabras clave sueltas van en **grande** con otra fuente ("AMENAZA", "ICBF", "DISCRIMINATORIO" en serif cursiva, "sin autoridad").
+- **B-roll:** capturas de trinos, noticias y documentos oficiales con el texto clave **resaltado en amarillo**; imágenes de archivo del Senado con banda inferior institucional; un momento en **blanco y negro**; una transición con desenfoque de zoom.
+- **Marca:** logo pequeño "DUVALIER" fijo a media altura en el borde derecho; cierre con tarjeta de marca de colores (naranja/verde) y mapa.
+- **Audio:** −17.2 LUFS mezclado, LRA 5.8 LU. Música ~9–10 dB bajo la voz, colchón sostenido sin batería, tono mayor (Si/Mi), energía en 120–800 Hz, ~95 bpm.

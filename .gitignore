@@ -11,3 +11,4 @@ public/proxy/
 public/master/
 whisper-models/
 __pycache__/
+public/voice/

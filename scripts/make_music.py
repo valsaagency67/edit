@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """Compone la música de fondo sintetizada, sin licencias de terceros, siguiendo las
 secciones del video: lee src/campaign/vigilante.json y escribe public/music/tension.wav
-(48 kHz estéreo, -30 LUFS para ir bajo la voz, sin graves por debajo de 120 Hz).
+(48 kHz estéreo, -30 LUFS antes de mezclar, sin graves por debajo de 120 Hz).
 
-Versión 2 (el cliente rechazó el zumbido grave): base amigable en registro medio-agudo
-(arpegio tipo piano/marimba) y drama solo en momentos clave con cuerdas agudas en trémolo.
-  vigilante  -> cuerdas agudas en trémolo que crecen + pizzicato (drama)
-  1696..1706 -> arpegio suave La menor - Fa - Do - Sol, 100 bpm
-  1710       -> arpegio en semicorcheas + cuerdas que suben (clímax)
-  1713       -> suspenso: acorde agudo sostenido en trémolo, sin arpegio
-  cierre     -> arpegio brillante en Do mayor
+Versión 3, basada en el análisis del video de referencia (Duvalier): colchón cálido y
+sostenido sin batería, tono mayor (Mi mayor), energía entre 120 y 800 Hz, dinámica
+plana, ~95 bpm. Drama solo en momentos clave, con acordes menores y cuerdas que crecen.
+  vigilante  -> Do# menor, cuerdas en trémolo suave que crecen (drama)
+  1696..1706 -> Mi - Si - Do#m - La (I-V-vi-IV), pad cálido + piano suave, un acorde cada 4 tiempos
+  1710       -> Do#m - La - Mi - Si con cuerdas que crecen (clímax)
+  1713       -> suspenso: Do#m add9 sostenido, sin piano
+  cierre     -> Mi mayor, piano + pad abierto
 Uso: python3 scripts/make_music.py
 """
 import json
@@ -49,7 +50,7 @@ def saw(f, n, detune=0.0):
 
 def env_fade(n, fin, fout):
     e = np.ones(n)
-    a, b = int(fin * SR), int(fout * SR)
+    a, b = min(n, int(fin * SR)), min(n, int(fout * SR))
     if a:
         e[:a] = np.linspace(0, 1, a)
     if b:
@@ -159,29 +160,59 @@ def pizz(n, notes, bpm, level=0.4):
     return x * level
 
 
-# La menor - Fa - Do - Sol (i - VI - III - VII), registro medio-agudo.
-AM, F, C, G = (57, 60, 64, 69), (53, 57, 60, 65), (55, 60, 64, 67), (55, 59, 62, 67)
+def warm_pad(chords, n, beat_s, beats_per_chord=4, level=0.4):
+    """Pad cálido: sierras desafinadas filtradas a 1.4 kHz, ataque y relajación lentos por acorde."""
+    x = np.zeros(n)
+    seg = int(beat_s * beats_per_chord * SR)
+    fade = int(0.6 * SR)
+    for i, s0 in enumerate(range(0, n, seg)):
+        e = min(n, s0 + seg + fade)
+        ln = e - s0
+        chord = chords[i % len(chords)]
+        v = sum(saw(hz(m), ln, d) for m in chord for d in (-0.003, 0.003)) / (2 * len(chord))
+        x[s0:e] += lp(v, 1400) * env_fade(ln, 0.5, 0.6)
+    return x * level
+
+
+def soft_piano(chords, n, beat_s, beats_per_chord=4, level=0.3):
+    """Piano suave: acorde al inicio de cada cambio + una nota del acorde a mitad de compás."""
+    x = np.zeros(n)
+    seg = int(beat_s * beats_per_chord * SR)
+    note_len = int(2.2 * SR)
+    for i, s0 in enumerate(range(0, n, seg)):
+        chord = chords[i % len(chords)]
+        for k, (off, notes) in enumerate([(0, chord[1:]), (seg // 2, [chord[-1] + 12])]):
+            a = s0 + off
+            if a >= n:
+                continue
+            e = min(n, a + note_len)
+            tt = np.arange(e - a) / SR
+            for m in notes:
+                f = hz(m)
+                tone = (np.sin(2 * np.pi * f * tt) + 0.25 * np.sin(4 * np.pi * f * tt)) * np.exp(-tt / 0.9)
+                x[a:e] += tone * np.minimum(1, tt / 0.02) * (1.0 if k == 0 else 0.6)
+    return x * level / 3
+
+
+# Mi mayor: I-V-vi-IV; bajo en octava 3 y acorde en octava 4 (centroide ~600 Hz como la referencia).
+E_, B_, Csm, A_ = (52, 64, 68, 71), (47, 63, 66, 71), (49, 64, 68, 73), (45, 61, 64, 69)
+BEAT = 60 / 95
 
 
 def section(kind, n):
-    dur = n / SR
     if kind == "vigilante":
-        # Drama: trémolo agudo que crece (La-Do-Mi + Fa disonante) y pizzicato insistente.
-        return (strings([69, 72, 76, 77], n, 0.5, trem=11, swell=(min(2.5, dur * 0.7), 0.3), bright=4500)
-                + pizz(n, [69, 69, 72, 69], 132, 0.35))
+        return (warm_pad([Csm], n, BEAT, 16, 0.35)
+                + strings([61, 64, 68, 69], n, 0.3, trem=8, swell=(min(2.5, n / SR * 0.7), 0.3), bright=2500))
     if kind == "bed":
-        return arpeggio(n, [AM, F, C, G], 100, 2, 0.55) + strings([69, 72, 76], n, 0.12, swell=(1.0, 1.0))
+        return warm_pad([E_, B_, Csm, A_], n, BEAT, 4, 0.42) + soft_piano([E_, B_, Csm, A_], n, BEAT, 4, 0.3)
     if kind == "climax":
-        # Drama: arpegio en semicorcheas + cuerdas que suben de Fa a Sol.
-        half = n // 2
-        st = np.concatenate([strings([65, 69, 72, 77], half, 0.35, trem=9, swell=(1.5, 0.2)),
-                             strings([67, 71, 74, 79], n - half, 0.42, trem=11, swell=(0.2, 0.6))])
-        return arpeggio(n, [F, G], 100, 4, 0.45) + st
+        prog = [Csm, A_, E_, B_]
+        return (warm_pad(prog, n, BEAT, 4, 0.45) + soft_piano(prog, n, BEAT, 4, 0.32)
+                + strings([64, 68, 71, 73], n, 0.22, trem=6, swell=(n / SR * 0.8, 0.4), bright=2500))
     if kind == "suspense":
-        return strings([76, 81, 83, 84], n, 0.35, trem=7, swell=(0.8, 0.6), bright=5000)
+        return warm_pad([(49, 61, 68, 75, 76)], n, BEAT, 32, 0.38) + strings([73, 75, 76], n, 0.12, swell=(1.0, 0.8), bright=2200)
     if kind == "resolve":
-        CM = (60, 64, 67, 72)
-        return arpeggio(n, [CM], 112, 2, 0.6) + strings([72, 76, 79], n, 0.2, swell=(0.4, 1.2))
+        return warm_pad([E_, (52, 64, 68, 71, 75)], n, BEAT, 4, 0.4) + soft_piano([E_, E_], n, BEAT, 4, 0.35)
     raise ValueError(kind)
 
 

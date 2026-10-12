@@ -66,19 +66,27 @@ export const scaleEdit = (fps: number): Edit => {
 export const durationFor = (fps: number) =>
   scaleEdit(fps).clipsEnd + Math.round(END_CARD_S * fps);
 
-// Encuadre fijo, sin zooms ni sacudidas (pedido del cliente).
+// Encuadre fijo, sin zooms ni sacudidas (pedido del cliente). El audio del video se
+// silencia y se usa la voz mejorada de public/voice (scripts/enhance_voice.py), con los
+// mismos recortes.
 const Segment: React.FC<{ s: Seg }> = ({ s }) => (
   <AbsoluteFill style={{ overflow: "hidden" }}>
     <OffthreadVideo
       src={staticFile(`master/${s.video}.mov`)}
       trimBefore={s.trimBefore}
       trimAfter={s.trimAfter}
+      muted
       style={{
         width: "100%",
         height: "100%",
         objectFit: "cover",
         filter: s.grayscale ? "grayscale(1) contrast(1.15)" : undefined,
       }}
+    />
+    <Html5Audio
+      src={staticFile(`voice/${s.video}.wav`)}
+      trimBefore={s.trimBefore}
+      trimAfter={s.trimAfter}
     />
   </AbsoluteFill>
 );
@@ -392,7 +400,7 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
-      {/* Música de tensión compuesta por scripts/make_music.py (-30 LUFS, bajo la voz). */}
+      {/* Música (scripts/make_music.py, -30 LUFS): ~14 dB bajo la voz mejorada (-16 LUFS). */}
       <Html5Audio src={staticFile("music/tension.wav")} volume={1} />
       {edit.segments.map((s, i) => (
         <Sequence
