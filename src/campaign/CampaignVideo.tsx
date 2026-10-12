@@ -222,15 +222,15 @@ const BaseCaption: React.FC<{ page: Page }> = ({ page }) => {
   const o = interpolate(frame, [0, 4], [0, 1], { extrapolateRight: "clamp" });
   return (
     <AbsoluteFill
-      style={{ alignItems: "center", justifyContent: "flex-start", top: 1300 }}
+      style={{ alignItems: "center", justifyContent: "flex-start", top: 1160 }}
     >
       <div
         style={{
           opacity: o,
-          maxWidth: 860,
+          maxWidth: 940,
           fontFamily: Montserrat,
           fontWeight: 600,
-          fontSize: 50,
+          fontSize: 64,
           lineHeight: 1.2,
           color: "white",
           textAlign: "center",
@@ -516,6 +516,9 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
+      {/* Música de suspenso con muestras reales (scripts/make_music.py, CC-BY 3.0,
+          ver CREDITOS.md), -30 LUFS: ~14 dB bajo la voz mejorada (-16 LUFS). */}
+      <Html5Audio src={staticFile("music/suspenso.wav")} />
       {edit.segments.map((s, i) => (
         <Sequence
           key={i}
