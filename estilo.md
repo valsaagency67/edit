@@ -53,7 +53,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Sonido
 - **Voz mejorada** (`scripts/enhance_voice.py`): paso alto 80 Hz → reducción de ruido (afftdn) → −2.5 dB en 250 Hz → +3 dB en 3.2 kHz → de-esser → compresor 3:1 → **−16 LUFS por toma** (antes las tomas iban de −29 a −20 LUFS). La referencia de Duvalier mezclada está en −17 LUFS.
-- **Música de suspenso** (`scripts/make_music.py` v4) con **muestras reales** de violín, chelo, contrabajo y piano (tonejs-instruments, CC-BY 3.0, ver `CREDITOS.md`): Re menor, 96 bpm, Rem–Sib–Solm–La, reverb de sala 2.2 s, **−30 LUFS** (~14 dB bajo la voz). Vigilante: ostinato de chelo + violín agudo. Base: chelo suave + piano. Dilian/1710: clímax con violines y chelo en octavas. IMG_1713: violín y piano. Cierre: Re mayor. (Las versiones 1–3, sintetizadas, fueron rechazadas.)
+- **Música de suspenso** (`scripts/make_music.py` v4) con **muestras reales** de violín, chelo, contrabajo y piano (tonejs-instruments, CC-BY 3.0, ver `CREDITOS.md`): Re menor, 96 bpm, Rem–Sib–Solm–La, reverb de sala 2.2 s, −30 LUFS en el archivo y **volumen 0.6 en el video (≈ −34.5 LUFS, ~18 dB bajo la voz)**; el cliente la pidió más baja. Vigilante: ostinato de chelo + violín agudo. Base: chelo suave + piano. Dilian/1710: clímax con violines y chelo en octavas. IMG_1713: violín y piano. Cierre: Re mayor. (Las versiones 1–3, sintetizadas, fueron rechazadas.)
 - **Clic** (`scripts/make_sfx.py`): "tic" único de ~10 ms, pico 2.1 kHz, centroide 2.7 kHz (medido en la referencia de Duvalier), volumen 0.55, uno por cada línea de la tipografía cinética.
 
 ## Énfasis en color

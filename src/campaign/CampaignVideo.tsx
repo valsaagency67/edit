@@ -522,8 +522,8 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       {/* Música de suspenso con muestras reales (scripts/make_music.py, CC-BY 3.0,
-          ver CREDITOS.md), -30 LUFS: ~14 dB bajo la voz mejorada (-16 LUFS). */}
-      <Html5Audio src={staticFile("music/suspenso.wav")} />
+          ver CREDITOS.md), -30 LUFS x 0.6 (-4.4 dB, pedido del cliente): ~18 dB bajo la voz. */}
+      <Html5Audio src={staticFile("music/suspenso.wav")} volume={0.6} />
       {edit.segments.map((s, i) => (
         <Sequence
           key={i}
