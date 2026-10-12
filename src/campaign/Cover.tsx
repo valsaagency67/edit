@@ -32,7 +32,7 @@ export const Cover: React.FC = () => (
         style={{
           fontFamily: Montserrat,
           fontWeight: 600,
-          fontSize: 58,
+          fontSize: 70,
           color: "white",
           textShadow: SHADOW,
         }}
@@ -43,9 +43,8 @@ export const Cover: React.FC = () => (
         style={{
           fontFamily: Montserrat,
           fontWeight: 900,
-          fontSize: 64,
+          fontSize: 88,
           lineHeight: 0.98,
-          whiteSpace: "nowrap",
           letterSpacing: -1,
           color: "white",
           textShadow: SHADOW,
@@ -79,7 +78,7 @@ export const Cover: React.FC = () => (
         <div
           style={{
             fontFamily: Anton,
-            fontSize: 56,
+            fontSize: 64,
             lineHeight: 1,
             color: "white",
             textShadow: SHADOW,
