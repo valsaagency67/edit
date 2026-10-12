@@ -7,8 +7,11 @@ izquierda (Haar frontal + perfil, OpenCV), se suaviza el recorrido y se mantiene
 caja cuando la detección falla mientras él sigue en cuadro.
 Uso: python3 scripts/pixelate_guard.py <master entrada> <salida> <desde_s> <hasta_s>
      (desde_s: segundo del master en que el vigilante ya está en cuadro)
-Ej.: python3 scripts/pixelate_guard.py IMG_1697_44s IMG_1697_hook 0 16
+     [puntos.json]  opcional: posiciones marcadas a mano (cuando el detector pierde la
+     cara de perfil); se interpolan linealmente y reemplazan a la detección.
+Ej.: python3 scripts/pixelate_guard.py IMG_1697_44s IMG_1697_hook 0 16 scripts/guard_keyframes.json
 """
+import json
 import os
 import subprocess
 import sys
@@ -52,6 +55,23 @@ def main():
         frames.append(np.frombuffer(buf, np.uint8).reshape(H, W, 3).copy())
     n = len(frames)
     first = int(GUARD_FROM_S * FPS)
+    if len(sys.argv) > 5:
+        kf = json.load(open(sys.argv[5]))
+        bw, bh = kf["size"]
+        ts = [p[0] for p in kf["points"]]
+        boxes = []
+        for i in range(n):
+            t = i / FPS
+            if t < ts[0] or t > ts[-1]:
+                boxes.append(None)
+                continue
+            cx = float(np.interp(t, ts, [p[1] for p in kf["points"]]))
+            cy = float(np.interp(t, ts, [p[2] for p in kf["points"]]))
+            # Caja (x, y, w, h) tal que el recuadro final (1.7x, ver abajo) mida bw x bh.
+            s_ = max(bw, bh) / 1.7
+            boxes.append((cx - s_ / 2, cy - s_ / 2, s_, s_))
+        write(frames, boxes)
+        return
     raw = [None] * n
     for i in range(first, n, 2):
         raw[i] = detect(cv2.cvtColor(frames[i], cv2.COLOR_BGR2GRAY))
@@ -76,6 +96,10 @@ def main():
         for i in range(first, n):
             win = [boxes[j] for j in range(max(first, i - k), min(n, i + k + 1)) if boxes[j]]
             boxes[i] = tuple(np.mean(win, axis=0))
+    write(frames, boxes)
+
+
+def write(frames, boxes):
     enc = subprocess.Popen(
         ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
          "-i", SRC, "-map", "0:v", "-map", "1:a", "-t", str(END_S), "-c:v", "libx264", "-preset", "fast", "-crf", "10",
