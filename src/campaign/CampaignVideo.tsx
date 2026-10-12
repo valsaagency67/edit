@@ -516,8 +516,6 @@ export const CampaignVideo: React.FC<{ fps: number }> = ({ fps }) => {
   const END_CARD = Math.round(END_CARD_S * fps);
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
-      {/* Música (scripts/make_music.py, -30 LUFS): ~14 dB bajo la voz mejorada (-16 LUFS). */}
-      <Html5Audio src={staticFile("music/tension.wav")} volume={1} />
       {edit.segments.map((s, i) => (
         <Sequence
           key={i}

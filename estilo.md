@@ -53,13 +53,8 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Sonido
 - **Voz mejorada** (`scripts/enhance_voice.py`): paso alto 80 Hz → reducción de ruido (afftdn) → −2.5 dB en 250 Hz → +3 dB en 3.2 kHz → de-esser → compresor 3:1 → **−16 LUFS por toma** (antes las tomas iban de −29 a −20 LUFS). La referencia de Duvalier mezclada está en −17 LUFS.
-- **Sin efectos de sonido** (el cliente rechazó whoosh, campanita y clics).
-- **Música** (`scripts/make_music.py`, síntesis propia, sin licencias) a −30 LUFS ≈ **14 dB bajo la voz** (el cliente la pidió más baja). Versión 3, calcada del análisis de la referencia: colchón cálido sostenido **sin batería**, **Mi mayor**, ~95 bpm, centroide ~560 Hz (referencia ~600 Hz), 50 % de la energía entre 300 y 800 Hz, sin nada bajo 120 Hz.
-  - Vigilante: Do# menor + cuerdas en trémolo suave que crecen (drama).
-  - IMG_1696–1706: Mi – Si – Do#m – La (I–V–vi–IV), pad + piano suave, un acorde cada 4 tiempos.
-  - IMG_1710: Do#m – La – Mi – Si con cuerdas que crecen (clímax).
-  - IMG_1713: Do#m add9 sostenido, sin piano (suspenso).
-  - Cierre: Mi mayor.
+- **Sin música dentro del archivo.** El cliente rechazó las tres músicas sintetizadas: no se parecen a la canción producida que usa Duvalier. La canción se agrega al publicar, desde la biblioteca licenciada de TikTok/Instagram, a volumen bajo (referencia: música 9–10 dB por debajo de la voz). Si el cliente entrega un MP3 con derechos, se mezcla aquí con ducking bajo la voz. `scripts/make_music.py` queda en el repo.
+- **Clic** (`scripts/make_sfx.py`): "tic" único de ~10 ms, pico 2.1 kHz, centroide 2.7 kHz (medido en la referencia de Duvalier), volumen 0.55, uno por cada línea de la tipografía cinética.
 
 ## Análisis de la referencia (Duvalier, `media/ref/referencia1.mp4`)
 - **Ritmo:** 36 cambios de plano detectados en 152 s (un inserto cada ~4.2 s) más jump cuts dentro del primer plano.
