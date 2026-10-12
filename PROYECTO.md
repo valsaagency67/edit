@@ -60,17 +60,33 @@ Por eso hay dos derivados, siempre generados desde `media/raw/` (que nunca se to
 | Derivado | Script | Formato | Uso |
 |---|---|---|---|
 | Proxy | `npm run proxies` → `public/proxy/` | 540x960, 30 fps, H.264 crf 26 | Solo Remotion Studio |
-| Master | `npm run master -- IMG_XXXX.MOV [inicio dur]` → `public/master/` | 1080x1920, 60 fps CFR, ProRes 422 HQ 10-bit, PCM 48 kHz | Render final |
+| Master | `npm run master -- IMG_XXXX.MOV [inicio dur]` → `public/master/` | 1080x1920, 60 fps CFR, ProRes 422 HQ 10-bit (`prores_aw`), PCM 48 kHz | Render final |
 | Audio | `npm run audio` → `media/audio/` | WAV 16 kHz mono | Whisper |
 
-HDR→SDR (`scripts/hdr.sh`): zscale a lineal + tonemap hable (desat=2) a BT.709,
+HDR→SDR (`scripts/hdr.sh`; el master usa la misma conversión horneada en una LUT 3D, `media/lut/`, 40 dB PSNR vs. el filtro directo y ~2× más rápido): zscale a lineal + tonemap hable (desat=2) a BT.709,
 elegido comparando variantes en un fotograma (sin tonemap se ve lavado; mobius
 satura el rojo de la camiseta). El escalado del master es lanczos desde 4K.
 
-Render final: los componentes usan `public/master/` en vez de `public/proxy/`,
-y se exporta con `npx remotion render ... --codec=h264 --crf=14
---audio-codec=aac --audio-bitrate=320k` a 60 fps (o `--codec=prores
---prores-profile=hq` como master de entrega).
+Render final: `npm run render:vigilante` / `npm run render:concejal` → `out/`
+(H.264 crf 14, BT.709, 60 fps, AAC 320 kbps), leyendo de `public/master/`.
+
+## Videos (src/campaign/)
+
+Clips usados (los únicos indicados por el cliente): IMG_1696, 1697, 1702, 1704,
+1706, 1710, 1713. La secuencia y los cortes viven en `src/campaign/edl.ts`.
+
+- **JFC-Vigilante (65 s):** IMG_1697 0–19 s (el vigilante le dice que no pueden
+  estar ahí) → 1696 → 1702 → 1704 → 1706 → 1710 → cierre.
+- **JFC-Concejal (71 s):** 1713 (Juan Felipe atacando al concejal) → 1697
+  19–53 s (discusión) → 1704 → 1706 → 1710 → cierre.
+
+Estímulos: gancho de texto en los primeros 2.6 s, jump cuts quitando cada
+silencio > 0.35 s con encuadre alterno (1.0×/1.16×) y pop de zoom, empuje lento
+continuo, flash + sacudida + whoosh en cada cambio de clip, textos pop con
+sonido ("Abogado Javeriano", "Liderazgo social en Palmira" — del perfil de
+Instagram), banner fijo con el nombre y la barra de 5 colores, barra de progreso
+y cierre con "¡Súmate a construir una Palmira mejor!" + @juanfelipecastano_col.
+Sin subtítulos palabra por palabra mientras no haya transcripción.
 
 ## Transcripciones
 

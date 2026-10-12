@@ -1,24 +1,36 @@
-import { Composition, staticFile } from "remotion";
+import { Composition } from "remotion";
 import {
-  CaptionedVideo,
-  calculateCaptionedVideoMetadata,
-  captionedVideoSchema,
-} from "./CaptionedVideo";
+  calculateCampaignMetadata,
+  CampaignVideo,
+  FPS,
+} from "./campaign/CampaignVideo";
+import { VIDEO_CONCEJAL, VIDEO_VIGILANTE } from "./campaign/edl";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
-    <Composition
-      id="CaptionedVideo"
-      component={CaptionedVideo}
-      calculateMetadata={calculateCaptionedVideoMetadata}
-      schema={captionedVideoSchema}
-      width={1080}
-      height={1920}
-      defaultProps={{
-        src: staticFile("sample-video.mp4"),
-      }}
-    />
+    <>
+      <Composition
+        id="JFC-Vigilante"
+        component={CampaignVideo}
+        calculateMetadata={calculateCampaignMetadata}
+        width={1080}
+        height={1920}
+        fps={FPS}
+        durationInFrames={1}
+        defaultProps={{ edit: VIDEO_VIGILANTE }}
+      />
+      <Composition
+        id="JFC-Concejal"
+        component={CampaignVideo}
+        calculateMetadata={calculateCampaignMetadata}
+        width={1080}
+        height={1920}
+        fps={FPS}
+        durationInFrames={1}
+        defaultProps={{ edit: VIDEO_CONCEJAL }}
+      />
+    </>
   );
 };
