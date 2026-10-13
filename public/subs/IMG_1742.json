@@ -1,0 +1,79 @@
+[
+ {
+  "text": " La",
+  "startMs": 480,
+  "endMs": 800,
+  "timestampMs": 480,
+  "confidence": null
+ },
+ {
+  "text": " información",
+  "startMs": 800,
+  "endMs": 1360,
+  "timestampMs": 800,
+  "confidence": null
+ },
+ {
+  "text": " pública",
+  "startMs": 1360,
+  "endMs": 2000,
+  "timestampMs": 1360,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 2000,
+  "endMs": 2240,
+  "timestampMs": 2000,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 2240,
+  "endMs": 2480,
+  "timestampMs": 2240,
+  "confidence": null
+ },
+ {
+  "text": " todos.",
+  "startMs": 2480,
+  "endMs": 3040,
+  "timestampMs": 2480,
+  "confidence": null
+ },
+ {
+  "text": " Síganme",
+  "startMs": 3040,
+  "endMs": 3600,
+  "timestampMs": 3040,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 3600,
+  "endMs": 3760,
+  "timestampMs": 3600,
+  "confidence": null
+ },
+ {
+  "text": " vean",
+  "startMs": 3760,
+  "endMs": 4160,
+  "timestampMs": 3760,
+  "confidence": null
+ },
+ {
+  "text": " qué",
+  "startMs": 4160,
+  "endMs": 4400,
+  "timestampMs": 4160,
+  "confidence": null
+ },
+ {
+  "text": " responden.",
+  "startMs": 4400,
+  "endMs": 4900,
+  "timestampMs": 4400,
+  "confidence": null
+ }
+]
