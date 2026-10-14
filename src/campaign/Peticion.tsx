@@ -400,6 +400,47 @@ const VOICE = staticFile("policia/peticion-voz.wav");
 const GRAY = "grayscale(1) contrast(1.12) brightness(0.98)";
 const FILL: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
 const LAST = raw.ranges[raw.ranges.length - 1];
+// Fin de la parte en gris (recuerdo del video anterior), en cuadros.
+const GRAY_END = Math.max(...raw.ranges.filter((r) => r.gray).map((r) => r.out + r.outDur));
+
+// Letrero «Anteriormente en el otro video…» sobre la parte en gris (pedido del cliente), para
+// que se entienda que es un recuerdo del video anterior. Arriba, entre la barra y la firma, sin
+// tapar la cara. Los tres puntos aparecen uno por uno; entra y sale dentro de su tiempo.
+const Anteriormente: React.FC<{ dur: number }> = ({ dur }) => {
+  const frame = useCurrentFrame();
+  const o = interpolate(frame, [0, 5, dur - 5, dur], [0, 1, 1, 0], clamp);
+  const dots = Math.min(3, Math.max(0, Math.floor((frame - 6) / 5) + 1));
+  return (
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 72, opacity: o }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          padding: "12px 26px",
+          background: "rgba(0,0,0,0.55)",
+          borderLeft: `8px solid ${RED}`,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: Montserrat,
+            fontWeight: 700,
+            fontStyle: "italic",
+            fontSize: 44,
+            letterSpacing: 1,
+            color: "white",
+            textShadow: SHADOW,
+            whiteSpace: "nowrap",
+          }}
+        >
+          Anteriormente en el otro video
+          <span style={{ display: "inline-block", width: 48, textAlign: "left" }}>{".".repeat(dots)}</span>
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
 
 // Un tramo conservado de la base (los cortes de pausas quedan entre tramos), acelerado a `speed`
 // (la introducción va más rápida que el resto; el audio usa atempo: el tono no cambia). `dur` son
@@ -490,6 +531,10 @@ export const Peticion: React.FC = () => (
         <EvidenceView img={e.img} title={e.title} quote={e.quote} dur={Math.max(1, f(e.to) - f(e.from))} />
       </Sequence>
     ))}
+
+    <Sequence durationInFrames={GRAY_END}>
+      <Anteriormente dur={GRAY_END} />
+    </Sequence>
 
     <Sequence  durationInFrames={peticionDuration}>
       <Firma />
