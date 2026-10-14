@@ -85,7 +85,10 @@
         "lo que significa",
         "que apenas recibieron",
         "la solicitud."
-      ]
+      ],
+      "keepIn": 0.93,
+      "wordsIn": 0.6,
+      "speed": 1.2
     },
     {
       "clip": "IMG_1741",

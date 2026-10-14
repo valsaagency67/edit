@@ -1,12 +1,12 @@
 {
  "fps": 30,
  "speed": 1.07,
- "videoFrames": 1299,
- "duration": 45.1,
+ "videoFrames": 1232,
+ "duration": 42.867,
  "cuts": [
   3.467,
   19.133,
-  32.867
+  30.633
  ],
  "ranges": [
   {
@@ -137,63 +137,63 @@
   },
   {
    "seg": 4,
-   "base": 720,
-   "dur": 100,
+   "base": 747,
+   "dur": 73,
    "out": 574,
-   "outDur": 93,
-   "speed": 1.07,
+   "outDur": 61,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 4,
    "base": 825,
    "dur": 61,
-   "out": 667,
-   "outDur": 57,
-   "speed": 1.07,
+   "out": 635,
+   "outDur": 51,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 4,
    "base": 890,
    "dur": 81,
-   "out": 724,
-   "outDur": 76,
-   "speed": 1.07,
+   "out": 686,
+   "outDur": 68,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 4,
    "base": 974,
    "dur": 67,
-   "out": 800,
-   "outDur": 63,
-   "speed": 1.07,
+   "out": 754,
+   "outDur": 56,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 4,
    "base": 1050,
    "dur": 32,
-   "out": 863,
-   "outDur": 30,
-   "speed": 1.07,
+   "out": 810,
+   "outDur": 27,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 4,
    "base": 1084,
    "dur": 99,
-   "out": 893,
-   "outDur": 93,
-   "speed": 1.07,
+   "out": 837,
+   "outDur": 82,
+   "speed": 1.2,
    "gray": false
   },
   {
    "seg": 5,
    "base": 1244,
    "dur": 39,
-   "out": 986,
+   "out": 919,
    "outDur": 36,
    "speed": 1.07,
    "gray": false
@@ -202,7 +202,7 @@
    "seg": 5,
    "base": 1287,
    "dur": 117,
-   "out": 1022,
+   "out": 955,
    "outDur": 109,
    "speed": 1.07,
    "gray": false
@@ -211,7 +211,7 @@
    "seg": 5,
    "base": 1412,
    "dur": 113,
-   "out": 1131,
+   "out": 1064,
    "outDur": 106,
    "speed": 1.07,
    "gray": false
@@ -220,7 +220,7 @@
    "seg": 5,
    "base": 1530,
    "dur": 55,
-   "out": 1237,
+   "out": 1170,
    "outDur": 51,
    "speed": 1.07,
    "gray": false
@@ -229,7 +229,7 @@
    "seg": 5,
    "base": 1595,
    "dur": 12,
-   "out": 1288,
+   "out": 1221,
    "outDur": 11,
    "speed": 1.07,
    "gray": false
@@ -552,7 +552,7 @@
   },
   {
    "from": 17.465,
-   "to": 19.133,
+   "to": 19.113,
    "pieces": [
     {
      "t": "14 ",
@@ -581,8 +581,8 @@
    ]
   },
   {
-   "from": 19.775,
-   "to": 21.475,
+   "from": 19.133,
+   "to": 20.469,
    "pieces": [
     {
      "t": "Tienen ",
@@ -603,8 +603,8 @@
    ]
   },
   {
-   "from": 21.495,
-   "to": 22.276,
+   "from": 20.489,
+   "to": 21.203,
    "pieces": [
     {
      "t": "para ",
@@ -617,8 +617,8 @@
    ]
   },
   {
-   "from": 22.296,
-   "to": 23.024,
+   "from": 21.223,
+   "to": 21.869,
    "pieces": [
     {
      "t": "Ya ",
@@ -631,8 +631,8 @@
    ]
   },
   {
-   "from": 23.044,
-   "to": 24.113,
+   "from": 21.889,
+   "to": 22.847,
    "pieces": [
     {
      "t": "más ",
@@ -653,8 +653,8 @@
    ]
   },
   {
-   "from": 24.133,
-   "to": 25.366,
+   "from": 22.867,
+   "to": 23.964,
    "pieces": [
     {
      "t": "y ",
@@ -679,8 +679,8 @@
    ]
   },
   {
-   "from": 25.386,
-   "to": 26.647,
+   "from": 23.984,
+   "to": 25.113,
    "pieces": [
     {
      "t": "me ",
@@ -701,8 +701,8 @@
    ]
   },
   {
-   "from": 26.667,
-   "to": 27.077,
+   "from": 25.133,
+   "to": 25.533,
    "pieces": [
     {
      "t": "Sin ",
@@ -715,8 +715,8 @@
    ]
   },
   {
-   "from": 27.097,
-   "to": 27.974,
+   "from": 25.517,
+   "to": 26.297,
    "pieces": [
     {
      "t": "no ",
@@ -741,8 +741,8 @@
    ]
   },
   {
-   "from": 27.994,
-   "to": 28.747,
+   "from": 26.317,
+   "to": 26.98,
    "pieces": [
     {
      "t": "de ",
@@ -755,8 +755,8 @@
    ]
   },
   {
-   "from": 28.767,
-   "to": 29.89,
+   "from": 27.0,
+   "to": 28.008,
    "pieces": [
     {
      "t": "fue ",
@@ -777,8 +777,8 @@
    ]
   },
   {
-   "from": 29.91,
-   "to": 30.787,
+   "from": 28.028,
+   "to": 28.808,
    "pieces": [
     {
      "t": "lo ",
@@ -795,8 +795,8 @@
    ]
   },
   {
-   "from": 30.807,
-   "to": 32.133,
+   "from": 28.828,
+   "to": 30.008,
    "pieces": [
     {
      "t": "que ",
@@ -813,8 +813,8 @@
    ]
   },
   {
-   "from": 32.153,
-   "to": 32.867,
+   "from": 30.028,
+   "to": 30.633,
    "pieces": [
     {
      "t": "la ",
@@ -827,8 +827,8 @@
    ]
   },
   {
-   "from": 32.947,
-   "to": 33.395,
+   "from": 30.714,
+   "to": 31.161,
    "pieces": [
     {
      "t": "Por ",
@@ -841,8 +841,8 @@
    ]
   },
   {
-   "from": 33.415,
-   "to": 34.078,
+   "from": 31.181,
+   "to": 31.844,
    "pieces": [
     {
      "t": "no ",
@@ -859,8 +859,8 @@
    ]
   },
   {
-   "from": 34.098,
-   "to": 35.049,
+   "from": 31.864,
+   "to": 32.816,
    "pieces": [
     {
      "t": "entonces ",
@@ -877,8 +877,8 @@
    ]
   },
   {
-   "from": 35.069,
-   "to": 35.469,
+   "from": 32.836,
+   "to": 33.236,
    "pieces": [
     {
      "t": "presencialmente",
@@ -887,8 +887,8 @@
    ]
   },
   {
-   "from": 35.481,
-   "to": 36.744,
+   "from": 33.247,
+   "to": 34.511,
    "pieces": [
     {
      "t": "a ",
@@ -909,8 +909,8 @@
    ]
   },
   {
-   "from": 36.764,
-   "to": 37.68,
+   "from": 34.531,
+   "to": 35.447,
    "pieces": [
     {
      "t": "derecho ",
@@ -927,8 +927,8 @@
    ]
   },
   {
-   "from": 37.7,
-   "to": 38.751,
+   "from": 35.467,
+   "to": 36.518,
    "pieces": [
     {
      "t": "pero ",
@@ -949,8 +949,8 @@
    ]
   },
   {
-   "from": 38.771,
-   "to": 40.022,
+   "from": 36.538,
+   "to": 37.789,
    "pieces": [
     {
      "t": "sobre ",
@@ -971,8 +971,8 @@
    ]
   },
   {
-   "from": 40.042,
-   "to": 41.225,
+   "from": 37.809,
+   "to": 38.992,
    "pieces": [
     {
      "t": "sobre ",
@@ -997,8 +997,8 @@
    ]
   },
   {
-   "from": 41.245,
-   "to": 42.347,
+   "from": 39.012,
+   "to": 40.114,
    "pieces": [
     {
      "t": "y ",
@@ -1023,8 +1023,8 @@
    ]
   },
   {
-   "from": 42.367,
-   "to": 42.957,
+   "from": 40.134,
+   "to": 40.723,
    "pieces": [
     {
      "t": "conocen,",
@@ -1033,8 +1033,8 @@
    ]
   },
   {
-   "from": 42.977,
-   "to": 43.377,
+   "from": 40.743,
+   "to": 41.143,
    "pieces": [
     {
      "t": "el ",
@@ -1076,8 +1076,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 19.663,
-   "to": 22.233,
+   "from": 19.133,
+   "to": 21.167,
    "icon": "clock",
    "kicker": "Plazo para responder",
    "text": "15 días hábiles",
@@ -1085,8 +1085,8 @@
    "fx": "thud"
   },
   {
-   "from": 22.296,
-   "to": 24.133,
+   "from": 21.223,
+   "to": 22.867,
    "icon": "calendar",
    "kicker": "",
    "text": "Más de 3 semanas",
@@ -1094,8 +1094,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 32.882,
-   "to": 34.378,
+   "from": 30.649,
+   "to": 32.145,
    "icon": "mail",
    "kicker": "",
    "text": "Por correo no responden",
@@ -1103,8 +1103,8 @@
    "fx": "thud"
   },
   {
-   "from": 35.032,
-   "to": 37.7,
+   "from": 32.799,
+   "to": 35.467,
    "icon": "doc",
    "kicker": "Presencialmente",
    "text": "Segundo derecho de petición",
@@ -1112,8 +1112,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 40.005,
-   "to": 41.638,
+   "from": 37.772,
+   "to": 39.405,
    "icon": "city",
    "kicker": "",
    "text": "El futuro de Palmira",
@@ -1121,8 +1121,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 42.933,
-   "to": 45.1,
+   "from": 40.7,
+   "to": 42.867,
    "icon": "city",
    "kicker": "Muy pocos lo conocen",
    "text": "¿Qué es el POT?",
@@ -1148,8 +1148,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 28.767,
-   "to": 32.602,
+   "from": 27.0,
+   "to": 30.428,
    "img": 2,
    "title": "Solo un radicado",
    "quote": "Radicado N.º 20260525051",
