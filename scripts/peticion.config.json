@@ -1,7 +1,8 @@
 {
   "_nota": "Video completo de la petición. 'phrases': subtítulos por toma, en orden y con el mismo número de palabras que la transcripción (public/subs); una palabra con * va en amarillo. Tarjetas: 'at' y 'dur' en segundos de la toma ORIGINAL (relativos a 'in'); build_peticion.py las pasa a la línea de tiempo con los cortes de pausas. 'toEnd' alarga la tarjeta hasta el final del video. 'gray': toma en escala de grises. 'corrections': arreglos de la transcripción (texto exacto de la palabra).",
   "tail": 1.8,
-  "pause": {"threshold": 0.3, "minSilence": 0.22, "padBefore": 0.07, "padAfter": 0.07, "minCut": 0.08},
+  "speed": 1.07,
+  "pause": {"threshold": 0.35, "minSilence": 0.14, "padBefore": 0.05, "padAfter": 0.05, "minCut": 0.06},
   "corrections": {"FOT.": "POT."},
   "segments": [
     {"clip": "IMG_1698", "in": 15.55, "out": 28.4, "gray": true,

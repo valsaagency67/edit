@@ -285,28 +285,35 @@ const GRAY = "grayscale(1) contrast(1.12) brightness(0.98)";
 const FILL: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
 const LAST = raw.ranges[raw.ranges.length - 1];
 
-// Un tramo conservado de la base (los cortes de pausas quedan entre tramos). La voz lleva un
-// fundido de 1 cuadro en cada borde para que los cortes no hagan clic.
-const Tramo: React.FC<{ base: number; dur: number; gray: boolean }> = ({ base, dur, gray }) => (
+// Un tramo conservado de la base (los cortes de pausas quedan entre tramos), acelerado a
+// raw.speed (el audio usa atempo: el tono no cambia). `dur` son cuadros de la base y `outDur` los
+// que ocupa en el video. La voz lleva un fundido de 1 cuadro en cada borde para que no haga clic.
+const Tramo: React.FC<{ base: number; dur: number; outDur: number; gray: boolean }> = ({
+  base,
+  dur,
+  outDur,
+  gray,
+}) => (
   <>
-    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} muted
+    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} playbackRate={raw.speed} muted
       style={{ ...FILL, filter: gray ? GRAY : undefined }} />
-    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur}
-      volume={(fr) => interpolate(fr, [0, 1, dur - 1, dur], [0, 1, 1, 0], clamp)} />
+    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur} playbackRate={raw.speed}
+      volume={(fr) => interpolate(fr, [0, 1, outDur - 1, outDur], [0, 1, 1, 0], clamp)} />
   </>
 );
 
 export const Peticion: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
-    {/* Música de muestras reales (CC-BY 3.0, ver CREDITOS.md), -18 LUFS x 0.35: ~11 dB bajo la voz. */}
-    <Html5Audio src={staticFile("policia/peticion-drama.wav")} volume={0.35} />
+    {/* Música propia de esta pieza (piano en Fa menor, muestras CC-BY 3.0, ver CREDITOS.md).
+        -18 LUFS x 0.18 (-15 dB): ~17 dB bajo la voz, como pidió el cliente. */}
+    <Html5Audio src={staticFile("policia/peticion-drama.wav")} volume={0.18} />
     {/* Foley sintético alineado con subtítulos, tarjetas y cortes. */}
-    <Html5Audio src={staticFile("policia/peticion-foley.wav")} volume={0.9} />
+    <Html5Audio src={staticFile("policia/peticion-foley.wav")} volume={0.8} />
 
     {/* Imagen y voz (cada toma a -16 LUFS con la cadena de enhance_voice.py), tramo por tramo. */}
     {raw.ranges.map((r) => (
-      <Sequence key={r.out} from={r.out} durationInFrames={r.dur} premountFor={15}>
-        <Tramo base={r.base} dur={r.dur} gray={r.gray} />
+      <Sequence key={r.out} from={r.out} durationInFrames={r.outDur} premountFor={15}>
+        <Tramo base={r.base} dur={r.dur} outDur={r.outDur} gray={r.gray} />
       </Sequence>
     ))}
     <Sequence from={VIDEO_FRAMES} durationInFrames={peticionDuration - VIDEO_FRAMES}>

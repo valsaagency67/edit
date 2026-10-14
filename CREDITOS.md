@@ -22,9 +22,10 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
 
 ## Video de la petición (`out/peticion-completa.mp4`)
 
-- **Música** (`public/policia/peticion-drama.wav` y `public/policia/dramatico.wav`): compuesta con
-  `scripts/build_peticion.py` y `scripts/make_drama.py` con las mismas muestras de
-  **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0). Mismo texto de crédito que arriba.
+- **Música** (`public/policia/peticion-drama.wav`): pieza propia, distinta de la del video de campaña
+  (piano en Fa menor con violín, sin chelo), compuesta con `scripts/build_peticion.py` con muestras
+  de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0). Mismo texto de crédito que arriba.
+  `public/policia/dramatico.wav` (pieza corta de la censura, `scripts/make_drama.py`) usa las mismas muestras.
 - **Foley** (`public/policia/peticion-foley.wav` y `public/policia/foley.wav`): sintetizado para este
   proyecto (`scripts/make_foley.py`, `scripts/build_peticion.py`); no usa grabaciones de terceros.
 - **Íconos** de las tarjetas: dibujados a mano en SVG para este proyecto (`src/campaign/Peticion.tsx`).

@@ -40,6 +40,8 @@ CFG = json.load(open(f"{ROOT}/scripts/peticion.config.json", encoding="utf-8"))
 SEGS = CFG["segments"]
 TAIL = CFG.get("tail", 0.0)
 PAUSE = CFG["pause"]
+# Velocidad de la voz e imagen (atempo en Remotion: el tono no cambia).
+SPEED = CFG.get("speed", 1.0)
 FIX = CFG.get("corrections", {})
 OUT = f"{ROOT}/public/policia"
 
@@ -187,6 +189,18 @@ def keep_ranges(starts):
             t = max(t, b)
         if last > t:
             keep.append((t, last))
+        # Un tramo de menos de 0.3 s se vería como un parpadeo: se une con el vecino (se deja la
+        # pausa entre los dos) en vez de quitarlo, porque puede llevar una palabra corta.
+        merged = True
+        while merged and len(keep) > 1:
+            merged = False
+            for k, (a, b) in enumerate(keep):
+                if b - a < 0.3:
+                    j = k - 1 if k == len(keep) - 1 or (k > 0 and a - keep[k - 1][1] < keep[k + 1][0] - b) else k + 1
+                    lo, hi = min(k, j), max(k, j)
+                    keep[lo:hi + 1] = [(keep[lo][0], keep[hi][1])]
+                    merged = True
+                    break
         for a, b in keep:
             fa, fb = round((b0 + a) * FPS), round((b0 + b) * FPS)
             if fb - fa >= 3:
@@ -196,7 +210,8 @@ def keep_ranges(starts):
     t = 0
     for r in ranges:
         r["out"] = t
-        t += r["dur"]
+        r["outDur"] = max(1, round(r["dur"] / SPEED))
+        t += r["outDur"]
     return ranges, t
 
 
@@ -210,8 +225,8 @@ def mapper(ranges, starts):
             if fb < r["base"]:
                 return r["out"] / FPS
             if fb <= r["base"] + r["dur"]:
-                return (r["out"] + fb - r["base"]) / FPS
-        return (mine[-1]["out"] + mine[-1]["dur"]) / FPS
+                return (r["out"] + (fb - r["base"]) / SPEED) / FPS
+        return (mine[-1]["out"] + mine[-1]["outDur"]) / FPS
     return to_out
 
 
@@ -222,7 +237,7 @@ def captions(to_out, ranges):
     for i, s in enumerate(SEGS):
         words = seg_words(s)
         mine = [r for r in ranges if r["seg"] == i]
-        seg_end = (mine[-1]["out"] + mine[-1]["dur"]) / FPS
+        seg_end = (mine[-1]["out"] + mine[-1]["outDur"]) / FPS
         k = 0
         for phrase in s["phrases"]:
             toks = phrase.split()
@@ -302,10 +317,13 @@ def foley(length, caps, cds, clip_cuts):
     return buf
 
 
-def drama(length, a_end, c_start, final):
-    """Música en tres secciones (Re menor): tensión en la censura (toma en gris), fondo bajo mientras
-    explica los datos (para no competir con la voz) y subida hasta el golpe de «¿Qué es el POT?»."""
+def musica(length, a_end, c_start, final):
+    """Música propia de esta pieza, distinta de la del video de campaña (aquella es Re menor con
+    ostinato de chelo; esta es Fa menor llevada por PIANO, sin chelo): un pulso grave de piano tipo
+    latido, acordes espaciados mientras explica los datos y un violín que sube hasta el golpe de
+    «¿Qué es el POT?». Muestras reales de tonejs-instruments (CC-BY 3.0)."""
     buf = np.zeros(int((length + 0.5) * mm.SR))
+    p = lambda inst, n, d, g, a=0.005, r=0.4: mm.note(inst, n, d, g, a, r)  # noqa: E731
 
     def every(step, t0, t1, fn):
         t = t0
@@ -313,24 +331,35 @@ def drama(length, a_end, c_start, final):
             fn(t)
             t += step
 
-    # A. Censura: chelo en corcheas, contrabajo sostenido y violín agudo que se abre.
-    every(0.25, 0, a_end, lambda t: mm.place(buf, mm.note("cello", "Ds3", 0.22, 0.42, 0.005, 0.15), t))
-    every(2.0, 0, a_end, lambda t: mm.place(buf, mm.note("contrabass", "D2", 1.9, 0.85, 0.03, 0.5), t))
-    mm.place(buf, mm.note("violin", "A5", a_end - 2.0, 0.38, 1.6, 0.8), 2.0)
+    def latido(t, g):
+        mm.place(buf, p("piano", "F1", 0.5, g), t)
+        mm.place(buf, p("piano", "F2", 0.5, g * 0.8), t)
+        mm.place(buf, p("piano", "F1", 0.45, g * 0.6), t + 0.22)
 
-    # B. Datos: chelo en negras suave, contrabajo cada 4 s y notas de piano agudo espaciadas.
-    every(0.5, a_end, c_start, lambda t: mm.place(buf, mm.note("cello", "D3", 0.45, 0.2, 0.01, 0.2), t))
-    every(4.0, a_end, c_start, lambda t: mm.place(buf, mm.note("contrabass", "D2", 3.6, 0.55, 0.05, 1.0), t))
-    for k, t in enumerate(np.arange(a_end + 1.0, c_start, 2.0)):
-        mm.place(buf, mm.note("piano", ["A5", "F5", "D5", "E5"][k % 4], 1.6, 0.16, 0.005, 0.8), t)
+    # A. Censura (toma en gris): latido grave cada 1.2 s, notas altas que rozan (Do6 / Do#6)
+    #    y un violín agudo que entra despacio.
+    every(1.2, 0, a_end, lambda t: latido(t, 0.75))
+    for k, t in enumerate(np.arange(0.6, a_end, 2.4)):
+        mm.place(buf, p("piano", ["C6", "Cs6"][k % 2], 2.0, 0.13, 0.005, 1.2), t)
+    mm.place(buf, p("violin", "F5", a_end - 1.0, 0.22, 2.0, 1.0), 1.0)
+    mm.place(buf, p("contrabass", "F1", a_end, 0.45, 0.4, 1.0), 0.0)
 
-    # C. Cierre: vuelve la corchea, contrabajo cada 1 s y violín que sube hasta el golpe final.
-    every(0.25, c_start, final, lambda t: mm.place(buf, mm.note("cello", "Ds3", 0.22, 0.38, 0.005, 0.15), t))
-    every(1.0, c_start, final, lambda t: mm.place(buf, mm.note("contrabass", "D2", 0.9, 0.75, 0.02, 0.3), t))
-    mm.place(buf, mm.note("violin", "A5", final - c_start, 0.32, 3.0, 0.4), c_start)
-    for name, inst, g in (("D2", "contrabass", 0.9), ("D3", "cello", 0.6), ("A3", "cello", 0.5), ("D5", "violin", 0.3)):
-        mm.place(buf, mm.note(inst, name, length - final + 0.3, g, 0.01, 1.6), final)
-    return mm.reverb(buf, secs=1.8, wet=0.2)
+    # B. Datos: acordes de piano espaciados (Fam - Reb - Lab - Mib) y un latido suave cada 2.4 s.
+    chords = [("F3", "Gs3", "C4"), ("Cs3", "F3", "Gs3"), ("Gs2", "C3", "Ds3"), ("Ds3", "G3", "As3")]
+    for k, t in enumerate(np.arange(a_end, c_start, 2.4)):
+        for n in chords[k % 4]:
+            mm.place(buf, p("piano", n, 2.3, 0.16, 0.01, 1.2), t)
+        mm.place(buf, p("piano", "F1", 0.5, 0.35), t)
+
+    # C. Cierre: el latido se acelera (cada 0.6 s), violín que sube Fa -> Lab -> Do hasta el golpe.
+    every(0.6, c_start, final, lambda t: latido(t, 0.7))
+    span = final - c_start
+    for k, n in enumerate(("F5", "Gs5", "C6")):
+        mm.place(buf, p("violin", n, span / 3 + 0.3, 0.22 + 0.04 * k, 0.6, 0.4), c_start + k * span / 3)
+    for n, inst, g in (("F1", "piano", 1.0), ("C2", "piano", 0.8), ("F2", "piano", 0.8), ("Gs2", "piano", 0.6),
+                       ("F1", "contrabass", 0.7), ("F5", "violin", 0.25)):
+        mm.place(buf, p(inst, n, length - final + 0.3, g, 0.005, 1.6), final)
+    return mm.reverb(buf, secs=2.2, wet=0.25)
 
 
 def main():
@@ -346,17 +375,19 @@ def main():
     cds = cards(to_out, length)
     seg_start = {i: min(r["out"] for r in ranges if r["seg"] == i) / FPS for i in range(len(SEGS))}
     clip_cuts = [seg_start[i] for i in range(1, len(SEGS)) if SEGS[i]["clip"] != SEGS[i - 1]["clip"]]
-    gray_end = max((r["out"] + r["dur"]) / FPS for r in ranges if r["gray"]) if any(r["gray"] for r in ranges) \
+    gray_end = max((r["out"] + r["outDur"]) / FPS for r in ranges if r["gray"]) if any(r["gray"] for r in ranges) \
         else seg_start[1]
 
     write_wav(f"{OUT}/peticion-foley.wav", foley(length, caps, cds, clip_cuts))
-    write_wav(f"{OUT}/peticion-drama.wav", drama(length, gray_end, seg_start[len(SEGS) - 1], cds[-1]["from"]))
+    write_wav(f"{OUT}/peticion-drama.wav", musica(length, gray_end, seg_start[len(SEGS) - 1], cds[-1]["from"]))
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{OUT}/peticion-drama.wav", "-af",
                     "loudnorm=I=-18:TP=-1.5:LRA=11", "-ar", "48000", f"{OUT}/peticion-drama.n.wav"], check=True)
     os.replace(f"{OUT}/peticion-drama.n.wav", f"{OUT}/peticion-drama.wav")
 
-    data = {"fps": FPS, "videoFrames": frames, "duration": round(length, 3), "cuts": [round(t, 3) for t in clip_cuts],
-            "ranges": [{"base": r["base"], "dur": r["dur"], "out": r["out"], "gray": r["gray"]} for r in ranges],
+    data = {"fps": FPS, "speed": SPEED, "videoFrames": frames, "duration": round(length, 3),
+            "cuts": [round(t, 3) for t in clip_cuts],
+            "ranges": [{"base": r["base"], "dur": r["dur"], "out": r["out"], "outDur": r["outDur"], "gray": r["gray"]}
+                       for r in ranges],
             "captions": caps, "cards": cds}
     json.dump(data, open(f"{ROOT}/src/campaign/peticion.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"base {base_total:.2f} s -> con cortes {video:.2f} s + cierre {TAIL} s; {len(ranges)} tramos")
