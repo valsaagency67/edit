@@ -1134,24 +1134,6 @@
    "fx": "shutter"
   },
   {
-   "from": 10.9,
-   "to": 14.249,
-   "icon": "calendar",
-   "kicker": "Derecho de petición",
-   "text": "14 de septiembre",
-   "color": "blue",
-   "fx": "thud"
-  },
-  {
-   "from": 16.296,
-   "to": 19.679,
-   "icon": "chart",
-   "kicker": "Le pedí las cifras de",
-   "text": "Homicidios y violencia intrafamiliar",
-   "color": "red",
-   "fx": "whoosh"
-  },
-  {
    "from": 22.954,
    "to": 26.767,
    "icon": "people",
@@ -1177,15 +1159,6 @@
    "text": "Más de 3 semanas",
    "color": "blue",
    "fx": "whoosh"
-  },
-  {
-   "from": 35.467,
-   "to": 39.302,
-   "icon": "doc",
-   "kicker": "Sin los datos de seguridad",
-   "text": "Solo un radicado",
-   "color": "red",
-   "fx": "thud"
   },
   {
    "from": 39.567,
@@ -1222,6 +1195,32 @@
    "text": "¿Qué es el POT?",
    "color": "red",
    "fx": "final"
+  }
+ ],
+ "evidence": [
+  {
+   "from": 10.9,
+   "to": 14.249,
+   "img": 0,
+   "title": "Correo del 14 de septiembre",
+   "quote": "Enviado a la Alcaldía de Palmira",
+   "fx": "whoosh"
+  },
+  {
+   "from": 16.296,
+   "to": 19.679,
+   "img": 1,
+   "title": "Lo que le pedí a la Alcaldía",
+   "quote": "Homicidios y violencia intrafamiliar · 2024 y 2025",
+   "fx": "whoosh"
+  },
+  {
+   "from": 35.467,
+   "to": 39.302,
+   "img": 2,
+   "title": "Solo un radicado",
+   "quote": "Radicado N.º 20260525051",
+   "fx": "thud"
   }
  ]
 }

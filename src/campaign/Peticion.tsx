@@ -3,6 +3,7 @@ import {
   AbsoluteFill,
   Freeze,
   Html5Audio,
+  Img,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -11,6 +12,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { Anton, Montserrat } from "./font";
+import evidencia from "./evidencia.json";
 import raw from "./peticion.json";
 
 // Video completo de la petición (todas las tomas de la lista de la cabina). Solo el primer clip
@@ -225,6 +227,119 @@ const CaptionView: React.FC<{ pieces: { t: string; y: boolean }[]; dur: number }
   );
 };
 
+// Evidencia del derecho de petición: recorte real del correo (scripts/make_evidencia.py) sobre una
+// hoja blanca, con un resaltador amarillo que pasa de izquierda a derecha por las líneas clave.
+// Va a la altura de las tarjetas (anclada abajo en y=1120) para no tapar los subtítulos.
+const EV_W = 1000; // ancho de la hoja
+const EV_PAD = 20;
+const EvidenceView: React.FC<{ img: number; title: string; quote: string; dur: number }> = ({
+  img,
+  title,
+  quote,
+  dur,
+}) => {
+  const frame = useCurrentFrame();
+  const ev = evidencia[img];
+  const o = interpolate(frame, [0, IO, dur - IO, dur], [0, 1, 1, 0], clamp);
+  const blur = interpolate(frame, [0, IO, dur - IO, dur], [12, 0, 0, 12], clamp);
+  const s = (EV_W - 2 * EV_PAD) / ev.w;
+  return (
+    <AbsoluteFill style={{ opacity: o }}>
+      <AbsoluteFill style={{ backgroundColor: "black", opacity: 0.45 }} />
+      <div
+        style={{
+          position: "absolute",
+          left: (1080 - EV_W) / 2,
+          width: EV_W,
+          bottom: 1920 - 1120,
+          display: "flex",
+          flexDirection: "column",
+          gap: 18,
+          filter: `blur(${blur}px)`,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+          <div
+            style={{
+              background: RED,
+              color: "white",
+              fontFamily: Montserrat,
+              fontWeight: 800,
+              fontSize: 30,
+              letterSpacing: 3,
+              padding: "8px 16px",
+              textTransform: "uppercase",
+            }}
+          >
+            Evidencia
+          </div>
+          <div
+            style={{
+              fontFamily: Anton,
+              fontSize: 60,
+              lineHeight: 1,
+              color: "white",
+              textTransform: "uppercase",
+              textShadow: SHADOW,
+            }}
+          >
+            {title}
+          </div>
+        </div>
+        <div
+          style={{
+            position: "relative",
+            background: "white",
+            padding: EV_PAD,
+            borderRadius: 10,
+            boxShadow: "0 18px 40px rgba(0,0,0,0.55)",
+          }}
+        >
+          <Img src={staticFile(ev.src)} style={{ display: "block", width: ev.w * s, height: ev.h * s }} />
+          {ev.marks.map(([x0, y0, x1, y1], i) => {
+            const start = IO + 4 + i * 5;
+            const p = interpolate(frame, [start, start + 9], [0, 1], clamp);
+            return (
+              <div
+                key={i}
+                style={{
+                  position: "absolute",
+                  left: EV_PAD + x0 * s,
+                  top: EV_PAD + y0 * s,
+                  width: (x1 - x0) * s * p,
+                  height: (y1 - y0) * s,
+                  background: "rgba(255, 222, 0, 0.5)",
+                  mixBlendMode: "multiply",
+                  borderRadius: 3,
+                }}
+              />
+            );
+          })}
+        </div>
+        {quote ? (
+          // El dato clave en grande: el texto del correo se ve pequeño en el celular.
+          <div
+            style={{
+              alignSelf: "flex-start",
+              background: YELLOW,
+              color: "#111",
+              fontFamily: Montserrat,
+              fontWeight: 800,
+              fontSize: 40,
+              lineHeight: 1.15,
+              padding: "10px 18px",
+              opacity: interpolate(frame, [IO + 14, IO + 20], [0, 1], clamp),
+              boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+            }}
+          >
+            {quote}
+          </div>
+        ) : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // Destello blanco de 0.2 s en cada cambio de clip (interrupción de patrón, sin zoom ni sacudida).
 const Flash: React.FC = () => {
   const frame = useCurrentFrame();
@@ -346,6 +461,12 @@ export const Peticion: React.FC = () => (
           color={COLORS[c.color]}
           dur={Math.max(1, f(c.to) - f(c.from))}
         />
+      </Sequence>
+    ))}
+
+    {raw.evidence.map((e) => (
+      <Sequence key={e.from} from={f(e.from)} durationInFrames={Math.max(1, f(e.to) - f(e.from))}>
+        <EvidenceView img={e.img} title={e.title} quote={e.quote} dur={Math.max(1, f(e.to) - f(e.from))} />
       </Sequence>
     ))}
 

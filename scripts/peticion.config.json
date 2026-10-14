@@ -21,16 +21,19 @@
     {"seg": 0, "at": 3.05, "dur": 4.55, "icon": "cameraoff", "kicker": "Al parecer", "text": "Prohibido grabar en un escenario público", "color": "red", "fx": "thud"},
     {"seg": 0, "at": 7.66, "dur": 2.38, "icon": "people", "text": "Una zona de todos", "color": "blue", "fx": "whoosh"},
     {"seg": 0, "at": 10.06, "dur": 2.8, "icon": "camera", "kicker": "Solo mostramos", "text": "La fachada", "color": "red", "fx": "shutter"},
-    {"seg": 1, "at": 0.0, "dur": 3.6, "icon": "calendar", "kicker": "Derecho de petición", "text": "14 de septiembre", "color": "blue", "fx": "thud"},
-    {"seg": 2, "at": 2.2, "dur": 3.7, "icon": "chart", "kicker": "Le pedí las cifras de", "text": "Homicidios y violencia intrafamiliar", "color": "red", "fx": "whoosh"},
     {"seg": 2, "at": 9.8, "dur": 4.7, "icon": "people", "kicker": "Víctimas jóvenes", "text": "Entre 14 y 28 años", "color": "blue", "fx": "whoosh"},
     {"seg": 3, "at": 0.6, "dur": 2.9, "icon": "clock", "kicker": "Plazo para responder", "text": "15 días hábiles", "color": "red", "fx": "thud"},
     {"seg": 3, "at": 3.6, "dur": 2.0, "icon": "calendar", "text": "Más de 3 semanas", "color": "blue", "fx": "whoosh"},
-    {"seg": 3, "at": 10.9, "dur": 4.3, "icon": "doc", "kicker": "Sin los datos de seguridad", "text": "Solo un radicado", "color": "red", "fx": "thud"},
     {"seg": 4, "at": 0.3, "dur": 2.2, "icon": "mail", "text": "Por correo no responde", "color": "red", "fx": "thud"},
     {"seg": 4, "at": 4.0, "dur": 2.6, "icon": "doc", "kicker": "Presencialmente", "text": "Segundo derecho de petición", "color": "blue", "fx": "whoosh"},
     {"seg": 4, "at": 8.2, "dur": 2.1, "icon": "city", "text": "El futuro de Palmira", "color": "blue", "fx": "whoosh"},
     {"seg": 4, "at": 12.5, "toEnd": true, "icon": "city", "kicker": "Muy pocos lo conocen", "text": "¿Qué es el POT?", "color": "red", "fx": "final"}
+  ],
+  "_evidencia": "Recortes del correo del derecho de petición (scripts/make_evidencia.py). 'img' es el índice en src/campaign/evidencia.json. Reemplazan a las tarjetas en esos momentos.",
+  "evidence": [
+    {"seg": 1, "at": 0.0, "dur": 3.6, "img": 0, "title": "Correo del 14 de septiembre", "quote": "Enviado a la Alcaldía de Palmira", "fx": "whoosh"},
+    {"seg": 2, "at": 2.2, "dur": 3.7, "img": 1, "title": "Lo que le pedí a la Alcaldía", "quote": "Homicidios y violencia intrafamiliar · 2024 y 2025", "fx": "whoosh"},
+    {"seg": 3, "at": 10.9, "dur": 4.3, "img": 2, "title": "Solo un radicado", "quote": "Radicado N.º 20260525051", "fx": "thud"}
   ],
   "events": []
 }

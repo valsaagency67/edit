@@ -373,12 +373,16 @@ def main():
 
     caps = captions(to_out, ranges)
     cds = cards(to_out, length)
+    # Evidencia del derecho de petición (recortes del correo): mismos tiempos de toma original.
+    evs = [{"from": round(to_out(e["seg"], e["at"]), 3), "to": round(to_out(e["seg"], e["at"] + e["dur"]), 3),
+            "img": e["img"], "title": e["title"], "quote": e.get("quote", ""), "fx": e["fx"]}
+           for e in CFG.get("evidence", [])]
     seg_start = {i: min(r["out"] for r in ranges if r["seg"] == i) / FPS for i in range(len(SEGS))}
     clip_cuts = [seg_start[i] for i in range(1, len(SEGS)) if SEGS[i]["clip"] != SEGS[i - 1]["clip"]]
     gray_end = max((r["out"] + r["outDur"]) / FPS for r in ranges if r["gray"]) if any(r["gray"] for r in ranges) \
         else seg_start[1]
 
-    write_wav(f"{OUT}/peticion-foley.wav", foley(length, caps, cds, clip_cuts))
+    write_wav(f"{OUT}/peticion-foley.wav", foley(length, caps, cds + evs, clip_cuts))
     write_wav(f"{OUT}/peticion-drama.wav", musica(length, gray_end, seg_start[len(SEGS) - 1], cds[-1]["from"]))
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{OUT}/peticion-drama.wav", "-af",
                     "loudnorm=I=-18:TP=-1.5:LRA=11", "-ar", "48000", f"{OUT}/peticion-drama.n.wav"], check=True)
@@ -388,7 +392,7 @@ def main():
             "cuts": [round(t, 3) for t in clip_cuts],
             "ranges": [{"base": r["base"], "dur": r["dur"], "out": r["out"], "outDur": r["outDur"], "gray": r["gray"]}
                        for r in ranges],
-            "captions": caps, "cards": cds}
+            "captions": caps, "cards": cds, "evidence": evs}
     json.dump(data, open(f"{ROOT}/src/campaign/peticion.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"base {base_total:.2f} s -> con cortes {video:.2f} s + cierre {TAIL} s; {len(ranges)} tramos")
     print("subtítulos", len(caps), "tarjetas", len(cds), "cambios de clip", clip_cuts)
