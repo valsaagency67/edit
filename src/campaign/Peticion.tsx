@@ -13,8 +13,9 @@ import {
 import { Anton, Montserrat } from "./font";
 import raw from "./peticion.json";
 
-// Video completo de la petición (todas las tomas de la lista de la cabina), en gris.
-// Tiempos de subtítulos, tarjetas, cortes y duración: scripts/build_peticion.py -> peticion.json.
+// Video completo de la petición (todas las tomas de la lista de la cabina). Solo el primer clip
+// (la censura) va en gris; el resto en color. Se quitan las pausas para que hable de seguido.
+// Tramos, subtítulos, tarjetas y duración: scripts/build_peticion.py -> peticion.json.
 // Sin zoom ni sacudidas: cortes, destello breve en cada cambio de clip, y entrada/salida con desenfoque.
 //
 // Composición vertical (1080x1920):
@@ -276,33 +277,43 @@ const Dim: React.FC = () => {
   return <AbsoluteFill style={{ backgroundColor: "black", opacity: o }} />;
 };
 
-const VIDEO_FRAMES = f(raw.videoDuration);
+const VIDEO_FRAMES = raw.videoFrames;
+const BASE = staticFile("policia/peticion-base.mp4");
+const VOICE = staticFile("policia/peticion-voz.wav");
+// Solo el primer clip va en gris (pedido del cliente); el resto en color.
+const GRAY = "grayscale(1) contrast(1.12) brightness(0.98)";
+const FILL: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
+const LAST = raw.ranges[raw.ranges.length - 1];
+
+// Un tramo conservado de la base (los cortes de pausas quedan entre tramos). La voz lleva un
+// fundido de 1 cuadro en cada borde para que los cortes no hagan clic.
+const Tramo: React.FC<{ base: number; dur: number; gray: boolean }> = ({ base, dur, gray }) => (
+  <>
+    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} muted
+      style={{ ...FILL, filter: gray ? GRAY : undefined }} />
+    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur}
+      volume={(fr) => interpolate(fr, [0, 1, dur - 1, dur], [0, 1, 1, 0], clamp)} />
+  </>
+);
 
 export const Peticion: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
-    {/* Voz mejorada, cada toma a -16 LUFS (scripts/build_peticion.py, cadena de enhance_voice.py). */}
-    <Html5Audio src={staticFile("policia/peticion-voz.wav")} />
     {/* Música de muestras reales (CC-BY 3.0, ver CREDITOS.md), -18 LUFS x 0.35: ~11 dB bajo la voz. */}
     <Html5Audio src={staticFile("policia/peticion-drama.wav")} volume={0.35} />
     {/* Foley sintético alineado con subtítulos, tarjetas y cortes. */}
     <Html5Audio src={staticFile("policia/peticion-foley.wav")} volume={0.9} />
 
-    <Sequence  durationInFrames={VIDEO_FRAMES}>
-      <OffthreadVideo
-        src={staticFile("policia/peticion.mp4")}
-        muted
-        style={{ width: "100%", height: "100%", objectFit: "cover" }}
-      />
-    </Sequence>
+    {/* Imagen y voz (cada toma a -16 LUFS con la cadena de enhance_voice.py), tramo por tramo. */}
+    {raw.ranges.map((r) => (
+      <Sequence key={r.out} from={r.out} durationInFrames={r.dur} premountFor={15}>
+        <Tramo base={r.base} dur={r.dur} gray={r.gray} />
+      </Sequence>
+    ))}
     <Sequence from={VIDEO_FRAMES} durationInFrames={peticionDuration - VIDEO_FRAMES}>
-      {/* trimBefore lleva el video a su último cuadro; Freeze lo deja quieto ahí. */}
+      {/* trimBefore lleva la base a su último cuadro conservado; Freeze lo deja quieto ahí. */}
       <Freeze frame={0}>
-        <OffthreadVideo
-          src={staticFile("policia/peticion.mp4")}
-          trimBefore={VIDEO_FRAMES - 1}
-          muted
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        <OffthreadVideo src={BASE} trimBefore={LAST.base + LAST.dur - 1} muted
+          style={{ ...FILL, filter: LAST.gray ? GRAY : undefined }} />
       </Freeze>
       <Dim />
     </Sequence>
