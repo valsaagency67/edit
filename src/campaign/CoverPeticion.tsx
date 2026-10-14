@@ -4,7 +4,7 @@ import { Anton, Bebas, Montserrat } from "./font";
 
 // Portada del video de la petición (1080x1920), con el mismo diseño de la del video de campaña
 // (Cover.tsx). El texto queda dentro del recorte 4:5 que Instagram muestra en la cuadrícula del
-// perfil (y 285–1635). Fondo: IMG_1724 a los 12.6 s, frente a la catedral, expresión seria.
+// perfil (y 285–1635). Fondo: IMG_1724 a los 17.05 s, frente a la catedral, mirada directa e intensa (elegida por el cliente: ojos abiertos, imponente).
 // Gancho: el contraste entre lo que pidió (cifras de seguridad) y lo que recibió (un radicado).
 const YELLOW = "#FFE600";
 const RED = "#E30613";
