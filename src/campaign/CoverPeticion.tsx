@@ -11,9 +11,9 @@ const RED = "#E30613";
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const SHADOW = "0 4px 18px rgba(0,0,0,0.6), 0 0 3px rgba(0,0,0,0.6)";
 
-export const CoverPeticion: React.FC = () => (
+export const CoverPeticion: React.FC<{ fondo?: string }> = ({ fondo = "cover/peticion-fondo.jpg" }) => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
-    <Img src={staticFile("cover/peticion-fondo.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+    <Img src={staticFile(fondo)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
     <AbsoluteFill
       style={{
         background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.88) 100%)",
