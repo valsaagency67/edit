@@ -88,20 +88,21 @@
       ]
     },
     {
-      "clip": "IMG_1740",
+      "clip": "IMG_1741",
       "in": 0,
-      "out": 13.74,
+      "out": 13.06,
       "phrases": [
         "Por correo",
-        "*no *me *responde,",
-        "así que vengo presencialmente",
+        "*no *me *responden,",
+        "entonces vine hoy",
+        "presencialmente",
         "a radicar un segundo",
         "derecho de petición,",
-        "pero este será sobre algo",
-        "que decidirá",
-        "el futuro de Palmira,",
-        "pero que muy pocos conocen",
-        "de qué se trata,",
+        "pero esta vez será",
+        "sobre algo que decidirá",
+        "sobre el futuro de Palmira",
+        "y que muy pocas personas",
+        "conocen,",
         "el *POT."
       ]
     }
@@ -157,17 +158,17 @@
     },
     {
       "seg": 5,
-      "at": 0.3,
-      "dur": 2.2,
+      "at": 0.55,
+      "dur": 1.75,
       "icon": "mail",
-      "text": "Por correo no responde",
+      "text": "Por correo no responden",
       "color": "red",
       "fx": "thud"
     },
     {
       "seg": 5,
-      "at": 4.0,
-      "dur": 2.6,
+      "at": 3.0,
+      "dur": 3.0,
       "icon": "doc",
       "kicker": "Presencialmente",
       "text": "Segundo derecho de petición",
@@ -176,8 +177,8 @@
     },
     {
       "seg": 5,
-      "at": 8.2,
-      "dur": 2.1,
+      "at": 8.6,
+      "dur": 1.9,
       "icon": "city",
       "text": "El futuro de Palmira",
       "color": "blue",
@@ -185,7 +186,7 @@
     },
     {
       "seg": 5,
-      "at": 12.5,
+      "at": 12.2,
       "toEnd": true,
       "icon": "city",
       "kicker": "Muy pocos lo conocen",

@@ -1,8 +1,8 @@
 {
  "fps": 30,
  "speed": 1.07,
- "videoFrames": 1323,
- "duration": 45.9,
+ "videoFrames": 1299,
+ "duration": 45.1,
  "cuts": [
   3.467,
   19.133,
@@ -191,37 +191,46 @@
   },
   {
    "seg": 5,
-   "base": 1250,
-   "dur": 42,
+   "base": 1244,
+   "dur": 39,
    "out": 986,
-   "outDur": 39,
+   "outDur": 36,
    "speed": 1.07,
    "gray": false
   },
   {
    "seg": 5,
-   "base": 1299,
-   "dur": 111,
-   "out": 1025,
-   "outDur": 104,
+   "base": 1287,
+   "dur": 117,
+   "out": 1022,
+   "outDur": 109,
    "speed": 1.07,
    "gray": false
   },
   {
    "seg": 5,
-   "base": 1423,
-   "dur": 176,
-   "out": 1129,
-   "outDur": 164,
+   "base": 1412,
+   "dur": 113,
+   "out": 1131,
+   "outDur": 106,
    "speed": 1.07,
    "gray": false
   },
   {
    "seg": 5,
-   "base": 1608,
-   "dur": 32,
-   "out": 1293,
-   "outDur": 30,
+   "base": 1530,
+   "dur": 55,
+   "out": 1237,
+   "outDur": 51,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1595,
+   "dur": 12,
+   "out": 1288,
+   "outDur": 11,
    "speed": 1.07,
    "gray": false
   }
@@ -805,7 +814,7 @@
   },
   {
    "from": 32.153,
-   "to": 32.847,
+   "to": 32.867,
    "pieces": [
     {
      "t": "la ",
@@ -818,8 +827,8 @@
    ]
   },
   {
-   "from": 32.867,
-   "to": 33.432,
+   "from": 32.947,
+   "to": 33.395,
    "pieces": [
     {
      "t": "Por ",
@@ -832,8 +841,8 @@
    ]
   },
   {
-   "from": 33.452,
-   "to": 34.147,
+   "from": 33.415,
+   "to": 34.078,
    "pieces": [
     {
      "t": "no ",
@@ -844,27 +853,33 @@
      "y": true
     },
     {
-     "t": "responde,",
+     "t": "responden,",
      "y": true
     }
    ]
   },
   {
-   "from": 34.167,
-   "to": 35.523,
+   "from": 34.098,
+   "to": 35.049,
    "pieces": [
     {
-     "t": "así ",
+     "t": "entonces ",
      "y": false
     },
     {
-     "t": "que ",
+     "t": "vine ",
      "y": false
     },
     {
-     "t": "vengo ",
+     "t": "hoy",
      "y": false
-    },
+    }
+   ]
+  },
+  {
+   "from": 35.069,
+   "to": 35.469,
+   "pieces": [
     {
      "t": "presencialmente",
      "y": false
@@ -872,8 +887,8 @@
    ]
   },
   {
-   "from": 35.543,
-   "to": 36.645,
+   "from": 35.481,
+   "to": 36.744,
    "pieces": [
     {
      "t": "a ",
@@ -894,8 +909,8 @@
    ]
   },
   {
-   "from": 36.665,
-   "to": 37.613,
+   "from": 36.764,
+   "to": 37.68,
    "pieces": [
     {
      "t": "derecho ",
@@ -912,35 +927,39 @@
    ]
   },
   {
-   "from": 37.633,
-   "to": 39.09,
+   "from": 37.7,
+   "to": 38.751,
    "pieces": [
     {
      "t": "pero ",
      "y": false
     },
     {
-     "t": "este ",
+     "t": "esta ",
      "y": false
     },
     {
-     "t": "será ",
+     "t": "vez ",
      "y": false
     },
     {
-     "t": "sobre ",
-     "y": false
-    },
-    {
-     "t": "algo",
+     "t": "será",
      "y": false
     }
    ]
   },
   {
-   "from": 39.11,
-   "to": 39.912,
+   "from": 38.771,
+   "to": 40.022,
    "pieces": [
+    {
+     "t": "sobre ",
+     "y": false
+    },
+    {
+     "t": "algo ",
+     "y": false
+    },
     {
      "t": "que ",
      "y": false
@@ -952,9 +971,13 @@
    ]
   },
   {
-   "from": 39.932,
-   "to": 41.108,
+   "from": 40.042,
+   "to": 41.225,
    "pieces": [
+    {
+     "t": "sobre ",
+     "y": false
+    },
     {
      "t": "el ",
      "y": false
@@ -968,17 +991,17 @@
      "y": false
     },
     {
-     "t": "Palmira,",
+     "t": "Palmira",
      "y": false
     }
    ]
   },
   {
-   "from": 41.128,
-   "to": 42.305,
+   "from": 41.245,
+   "to": 42.347,
    "pieces": [
     {
-     "t": "pero ",
+     "t": "y ",
      "y": false
     },
     {
@@ -990,40 +1013,28 @@
      "y": false
     },
     {
-     "t": "pocos ",
+     "t": "pocas ",
      "y": false
     },
     {
-     "t": "conocen",
+     "t": "personas",
      "y": false
     }
    ]
   },
   {
-   "from": 42.325,
-   "to": 43.08,
+   "from": 42.367,
+   "to": 42.957,
    "pieces": [
     {
-     "t": "de ",
-     "y": false
-    },
-    {
-     "t": "qué ",
-     "y": false
-    },
-    {
-     "t": "se ",
-     "y": false
-    },
-    {
-     "t": "trata,",
+     "t": "conocen,",
      "y": false
     }
    ]
   },
   {
-   "from": 43.1,
-   "to": 43.842,
+   "from": 42.977,
+   "to": 43.377,
    "pieces": [
     {
      "t": "el ",
@@ -1083,17 +1094,17 @@
    "fx": "whoosh"
   },
   {
-   "from": 32.867,
-   "to": 34.291,
+   "from": 32.882,
+   "to": 34.378,
    "icon": "mail",
    "kicker": "",
-   "text": "Por correo no responde",
+   "text": "Por correo no responden",
    "color": "red",
    "fx": "thud"
   },
   {
-   "from": 35.693,
-   "to": 37.726,
+   "from": 35.032,
+   "to": 37.7,
    "icon": "doc",
    "kicker": "Presencialmente",
    "text": "Segundo derecho de petición",
@@ -1101,8 +1112,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 39.222,
-   "to": 41.184,
+   "from": 40.005,
+   "to": 41.638,
    "icon": "city",
    "kicker": "",
    "text": "El futuro de Palmira",
@@ -1110,8 +1121,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 43.1,
-   "to": 45.9,
+   "from": 42.933,
+   "to": 45.1,
    "icon": "city",
    "kicker": "Muy pocos lo conocen",
    "text": "¿Qué es el POT?",
