@@ -7,3 +7,13 @@ dist
 out
 whisper.cpp
 media/
+public/proxy/
+public/master/
+whisper-models/
+__pycache__/
+public/voice/
+# Material intermedio del video de la petición (se rehace con scripts/build_peticion.py
+# desde media/raw; la base pasa de 100 MB, el límite de GitHub).
+public/policia/peticion-base.mp4
+public/policia/peticion-base.mp4.json
+public/policia/peticion-voz.wav
