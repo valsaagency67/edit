@@ -1,0 +1,37 @@
+{
+  "_nota": "Video completo de la petición. Tomas = DEFAULT de la cabina. 'phrases': subtítulos por toma, en orden y con el mismo número de palabras que la transcripción (public/subs); una palabra con * va en amarillo (acusación o dato clave). Tarjetas y efectos en segundos relativos al inicio de su toma. Lo usa scripts/build_peticion.py.",
+  "tail": 1.8,
+  "segments": [
+    {"clip": "IMG_1698", "in": 15.55, "out": 18.1,
+     "phrases": ["nos están *censurando", "no podemos grabar"]},
+    {"clip": "IMG_1698", "in": 28.38, "out": 37.3,
+     "phrases": ["Nos está apuntando directamente", "la cámara de la *Policía *Nacional,", "donde nos dicen", "que van a llegar", "de inmediato", "justamente porque", "estamos aquí grabando."]},
+    {"clip": "IMG_1724", "in": 0.85, "out": 4.5,
+     "phrases": ["El 14 de septiembre", "de este año", "le solicité a la alcaldía"]},
+    {"clip": "IMG_1724", "in": 10.2, "out": 24.9,
+     "phrases": ["Particularmente le pedí", "los números de *homicidios", "y de *violencia *intrafamiliar", "discriminado por comuna", "por meses", "y principalmente", "por si las víctimas", "eran jóvenes,", "es decir,", "si tenían entre", "14 y 28 años de edad."]},
+    {"clip": "IMG_1728", "in": 0, "out": 16.96,
+     "phrases": ["Tienen *15 *días *hábiles", "para responder.", "Ya pasaron", "más de *tres *semanas", "y el 9 de octubre", "me llegó un correo.", "Sin embargo,", "no fue con los datos", "de seguridad,", "fue con un *radicado,", "lo que significa", "que apenas recibieron", "la solicitud."]},
+    {"clip": "IMG_1740", "in": 0, "out": 13.74,
+     "phrases": ["Por correo", "*no *me *responde,", "así que vengo presencialmente", "a radicar un segundo", "derecho de petición,", "pero este será sobre algo", "que decidirá", "el futuro de Palmira,", "pero que muy pocos conocen", "de qué se trata,", "el *FOT."]}
+  ],
+  "cards": [
+    {"seg": 0, "at": 0.0, "dur": 2.45, "icon": "eyeoff", "text": "Nos están censurando", "color": "red", "fx": "thud"},
+    {"seg": 1, "at": 0.05, "dur": 4.25, "icon": "camera", "text": "Nos apunta la cámara de la Policía", "color": "blue", "fx": "shutter"},
+    {"seg": 1, "at": 4.45, "dur": 2.3, "icon": "shield", "text": "Van a llegar de inmediato", "color": "red", "fx": "radio"},
+    {"seg": 1, "at": 6.85, "dur": 2.05, "icon": "cameraoff", "text": "Por estar grabando", "color": "red", "fx": "thud"},
+    {"seg": 2, "at": 0.0, "dur": 3.55, "icon": "calendar", "kicker": "Derecho de petición", "text": "14 de septiembre", "color": "blue", "fx": "thud"},
+    {"seg": 3, "at": 2.2, "dur": 3.7, "icon": "chart", "kicker": "Le pedí las cifras de", "text": "Homicidios y violencia intrafamiliar", "color": "red", "fx": "whoosh"},
+    {"seg": 3, "at": 9.8, "dur": 4.75, "icon": "people", "kicker": "Víctimas jóvenes", "text": "Entre 14 y 28 años", "color": "blue", "fx": "whoosh"},
+    {"seg": 4, "at": 0.6, "dur": 2.9, "icon": "clock", "kicker": "Plazo para responder", "text": "15 días hábiles", "color": "red", "fx": "thud"},
+    {"seg": 4, "at": 3.6, "dur": 2.0, "icon": "calendar", "text": "Más de 3 semanas", "color": "blue", "fx": "whoosh"},
+    {"seg": 4, "at": 10.9, "dur": 4.3, "icon": "doc", "kicker": "Sin los datos de seguridad", "text": "Solo un radicado", "color": "red", "fx": "thud"},
+    {"seg": 5, "at": 0.3, "dur": 2.2, "icon": "mail", "text": "Por correo no responde", "color": "red", "fx": "thud"},
+    {"seg": 5, "at": 4.0, "dur": 2.6, "icon": "doc", "kicker": "Presencialmente", "text": "Segundo derecho de petición", "color": "blue", "fx": "whoosh"},
+    {"seg": 5, "at": 8.2, "dur": 2.1, "icon": "city", "text": "El futuro de Palmira", "color": "blue", "fx": "whoosh"},
+    {"seg": 5, "at": 12.5, "dur": 3.04, "icon": "city", "kicker": "Muy pocos lo conocen", "text": "¿Qué es el FOT?", "color": "red", "fx": "final"}
+  ],
+  "events": [
+    {"seg": 1, "at": 5.7, "fx": "heart"}
+  ]
+}

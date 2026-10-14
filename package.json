@@ -38,7 +38,9 @@
     "transcribe": "node scripts/transcribe.mjs",
     "render:vigilante": "remotion render src/index.ts JFC-Vigilante out/JFC-Vigilante.mp4 --codec=h264 --crf=14 --pixel-format=yuv420p --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --jpeg-quality=95 --concurrency=4 --timeout=120000",
     "render:policia": "mkdir -p out && remotion render src/index.ts JFC-Policia out/policia-censura.mp4 --codec=h264 --crf=14 --pixel-format=yuv420p --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --jpeg-quality=95 --concurrency=4 --timeout=120000",
-    "render:destacadas":"for h in INFO JUVENTUD TERRITORIO; do remotion still src/index.ts Destacada-$h out/destacada-$h.png; done",
+    "build:peticion": "python3 scripts/build_peticion.py",
+    "render:peticion": "mkdir -p out && remotion render src/index.ts JFC-Peticion out/peticion-completa-mezcla.mp4 --codec=h264 --crf=14 --pixel-format=yuv420p --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --jpeg-quality=95 --concurrency=4 --timeout=120000 && ffmpeg -v error -y -i out/peticion-completa-mezcla.mp4 -c:v copy -af volume=2dB,alimiter=limit=0.89:level=false -c:a aac -b:a 320k -ar 48000 -movflags +faststart out/peticion-completa.mp4",
+    "render:destacadas": "for h in INFO JUVENTUD TERRITORIO; do remotion still src/index.ts Destacada-$h out/destacada-$h.png; done",
     "render:portada": "remotion still src/index.ts JFC-Portada out/portada.png",
     "render:borrador": "remotion render src/index.ts JFC-Vigilante-Borrador out/borrador.mp4 --scale=0.5 --codec=h264 --crf=23 --audio-codec=aac --audio-bitrate=128k --concurrency=4 --timeout=120000"
   }

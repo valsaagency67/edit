@@ -206,7 +206,7 @@ export const Policia: React.FC = () => (
     {/* Foley sintético alineado con cada acción (scripts/make_foley.py). */}
     <Html5Audio src={staticFile("policia/foley.wav")} volume={0.9} />
 
-    <Sequence from={0} durationInFrames={f(11.5)}>
+    <Sequence  durationInFrames={f(11.5)}>
       <OffthreadVideo
         src={staticFile("policia/clip.mp4")}
         style={{ width: "100%", height: "100%", objectFit: "cover" }}
@@ -232,7 +232,7 @@ export const Policia: React.FC = () => (
       <CardView icon="cameraoff" text="No nos dejan grabar" color={RED} dur={f(2.0)} />
     </Sequence>
 
-    <Sequence from={0} durationInFrames={policiaDuration}>
+    <Sequence  durationInFrames={policiaDuration}>
       <Firma />
     </Sequence>
   </AbsoluteFill>

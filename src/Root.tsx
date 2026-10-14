@@ -3,6 +3,7 @@ import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
 import { Highlight } from "./campaign/Highlights";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
+import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
 
 // JFC-Vigilante: versión final (60 fps, render a 1080x1920).
 // JFC-Vigilante-Borrador: revisión rápida (30 fps, se renderiza con --scale=0.5).
@@ -43,6 +44,15 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         fps={POLICIA_FPS}
         durationInFrames={policiaDuration}
+      />
+      {/* Video completo de la petición (todas las tomas, en gris): npm run render:peticion */}
+      <Composition
+        id="JFC-Peticion"
+        component={Peticion}
+        width={1080}
+        height={1920}
+        fps={PETICION_FPS}
+        durationInFrames={peticionDuration}
       />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
