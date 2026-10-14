@@ -7,6 +7,7 @@ import {
   Sequence,
   staticFile,
   useCurrentFrame,
+  useVideoConfig,
 } from "remotion";
 import { Anton, Montserrat } from "./font";
 
@@ -157,22 +158,45 @@ const CaptionView: React.FC<{ pieces: Piece[]; dur: number }> = ({ pieces, dur }
   );
 };
 
-// Firma pequeña arriba a la izquierda, igual que en el video de campaña.
-const Firma: React.FC = () => (
-  <AbsoluteFill style={{ alignItems: "flex-start", justifyContent: "flex-start", top: 300, left: 64 }}>
+// Firma igual que en el video de campaña: nombre en rojo, sin recuadro, y la barra de
+// 5 colores de la marca debajo del nombre. Arriba a la izquierda, dentro de la zona 4:5.
+const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
+const Firma: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const o = interpolate(frame, [0, Math.round(0.3 * fps)], [0, 1], { extrapolateRight: "clamp" });
+  return (
     <div
       style={{
-        fontFamily: Anton,
-        fontSize: 44,
-        color: "white",
-        letterSpacing: 1,
-        textShadow: SHADOW,
+        position: "absolute",
+        top: 300,
+        left: 64,
+        opacity: o,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        gap: 5,
       }}
     >
-      JUAN FELIPE CASTAÑO
+      <div
+        style={{
+          fontFamily: Anton,
+          fontSize: 28,
+          color: RED,
+          lineHeight: 1,
+          textShadow: "0 0 2px rgba(255,255,255,0.9), 0 1px 6px rgba(0,0,0,0.55)",
+        }}
+      >
+        Juan Felipe Castaño
+      </div>
+      <div style={{ display: "flex", width: "100%", height: 4, borderRadius: 2, overflow: "hidden" }}>
+        {BRAND.map((c) => (
+          <div key={c} style={{ flex: 1, backgroundColor: c }} />
+        ))}
+      </div>
     </div>
-  </AbsoluteFill>
-);
+  );
+};
 
 export const Policia: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
