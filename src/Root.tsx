@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
+import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Highlight } from "./campaign/Highlights";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
@@ -53,6 +54,14 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         fps={PETICION_FPS}
         durationInFrames={peticionDuration}
+      />
+      <Composition
+        id="JFC-Peticion-Portada"
+        component={CoverPeticion}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1}
       />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
