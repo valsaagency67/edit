@@ -68,14 +68,23 @@ const ICONS = {
   ),
 };
 
-const CardView: React.FC<{ icon: keyof typeof ICONS; text: string; color: string }> = ({
+// Entrada (desenfoque -> nítido, 0.2 s) y salida (nítido -> desenfoque, 0.2 s) dentro de
+// su propio tiempo: la animación termina antes de que entre la siguiente tarjeta.
+const IO = 6;
+const inOut = (frame: number, dur: number) => {
+  const o = interpolate(frame, [0, IO, dur - IO, dur], [0, 1, 1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
+  const blur = interpolate(frame, [0, IO, dur - IO, dur], [12, 0, 0, 12], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
+  return { o, blur };
+};
+
+const CardView: React.FC<{ icon: keyof typeof ICONS; text: string; color: string; dur: number }> = ({
   icon,
   text,
   color,
+  dur,
 }) => {
   const frame = useCurrentFrame();
-  const o = interpolate(frame, [0, 6], [0, 1], { extrapolateRight: "clamp" });
-  const blur = interpolate(frame, [0, 6], [12, 0], { extrapolateRight: "clamp" });
+  const { o, blur } = inOut(frame, dur);
   return (
     <AbsoluteFill
       style={{
@@ -120,9 +129,9 @@ const CardView: React.FC<{ icon: keyof typeof ICONS; text: string; color: string
   );
 };
 
-const CaptionView: React.FC<{ pieces: Piece[] }> = ({ pieces }) => {
+const CaptionView: React.FC<{ pieces: Piece[]; dur: number }> = ({ pieces, dur }) => {
   const frame = useCurrentFrame();
-  const o = interpolate(frame, [0, 4], [0, 1], { extrapolateRight: "clamp" });
+  const o = interpolate(frame, [0, 4, dur - 4, dur], [0, 1, 1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
   return (
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1160 }}>
       <div
@@ -170,6 +179,8 @@ export const Policia: React.FC = () => (
     {/* Música dramática (scripts/make_drama.py, muestras CC-BY 3.0, ver CREDITOS.md).
         -18 LUFS x 0.35 (-9 dB): se oye en el momento sin tapar la voz (-16 LUFS). */}
     <Html5Audio src={staticFile("policia/dramatico.wav")} volume={0.35} />
+    {/* Foley sintético alineado con cada acción (scripts/make_foley.py). */}
+    <Html5Audio src={staticFile("policia/foley.wav")} volume={0.9} />
 
     <Sequence from={0} durationInFrames={f(11.5)}>
       <OffthreadVideo
@@ -180,21 +191,21 @@ export const Policia: React.FC = () => (
 
     {CAPTIONS.map((c) => (
       <Sequence key={c.from} from={f(c.from)} durationInFrames={f(c.to) - f(c.from)}>
-        <CaptionView pieces={c.pieces} />
+        <CaptionView pieces={c.pieces} dur={f(c.to) - f(c.from)} />
       </Sequence>
     ))}
 
-    <Sequence from={f(0.3)} durationInFrames={f(2.2)}>
-      <CardView icon="eyeoff" text="Nos están censurando" color={RED} />
+    <Sequence from={f(0)} durationInFrames={f(2.45)}>
+      <CardView icon="eyeoff" text="Nos están censurando" color={RED} dur={f(2.45)} />
     </Sequence>
     <Sequence from={f(2.6)} durationInFrames={f(4.3)}>
-      <CardView icon="shield" text="Llega la Policía Nacional" color={BLUE} />
+      <CardView icon="shield" text="Llega la Policía Nacional" color={BLUE} dur={f(4.3)} />
     </Sequence>
     <Sequence from={f(7.0)} durationInFrames={f(4.4)}>
-      <CardView icon="camera" text="Porque estamos grabando" color={RED} />
+      <CardView icon="camera" text="Porque estamos grabando" color={RED} dur={f(4.4)} />
     </Sequence>
     <Sequence from={f(11.5)} durationInFrames={f(2.0)}>
-      <CardView icon="cameraoff" text="No nos dejan grabar" color={RED} />
+      <CardView icon="cameraoff" text="No nos dejan grabar" color={RED} dur={f(2.0)} />
     </Sequence>
 
     <Sequence from={0} durationInFrames={policiaDuration}>
