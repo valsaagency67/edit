@@ -1,12 +1,12 @@
 {
-  "_nota": "Video completo de la petición. 'phrases': subtítulos por toma, en orden y con el mismo número de palabras que la transcripción (public/subs); una palabra con * va en amarillo. Tarjetas: 'at' y 'dur' en segundos de la toma ORIGINAL (relativos a 'in'); build_peticion.py las pasa a la línea de tiempo con los cortes de pausas. 'toEnd' alarga la tarjeta hasta el final del video. 'gray': toma en escala de grises. 'corrections': arreglos de la transcripción (texto exacto de la palabra).",
+  "_nota": "Video completo de la petición. 'phrases': subtítulos por toma, en orden y con el mismo número de palabras que la transcripción (public/subs); una palabra con * va en amarillo. Tarjetas: 'at' y 'dur' en segundos de la toma ORIGINAL (relativos a 'in'); build_peticion.py las pasa a la línea de tiempo con los cortes de pausas. 'toEnd' alarga la tarjeta hasta el final del video. 'gray': toma en escala de grises. 'keepOut': usar la toma solo hasta ese segundo (sin rehacer la base). 'corrections': arreglos de la transcripción (texto exacto de la palabra).",
   "tail": 1.8,
   "speed": 1.07,
   "pause": {"threshold": 0.35, "minSilence": 0.14, "padBefore": 0.05, "padAfter": 0.05, "minCut": 0.06},
   "corrections": {"FOT.": "POT."},
   "segments": [
-    {"clip": "IMG_1698", "in": 15.55, "out": 28.4, "gray": true,
-     "phrases": ["nos están *censurando", "no podemos grabar.", "Al parecer", "está *prohibido *grabar", "en un escenario público,", "en una zona", "que es de todos,", "donde estamos mostrando", "exclusivamente la fachada."]},
+    {"clip": "IMG_1698", "in": 15.55, "out": 28.4, "keepOut": 18.1, "gray": true,
+     "phrases": ["nos están *censurando", "no podemos grabar."]},
     {"clip": "IMG_1724", "in": 0.85, "out": 4.5,
      "phrases": ["El 14 de septiembre", "de este año", "le solicité a la alcaldía"]},
     {"clip": "IMG_1724", "in": 10.2, "out": 24.9,
@@ -17,10 +17,7 @@
      "phrases": ["Por correo", "*no *me *responde,", "así que vengo presencialmente", "a radicar un segundo", "derecho de petición,", "pero este será sobre algo", "que decidirá", "el futuro de Palmira,", "pero que muy pocos conocen", "de qué se trata,", "el *POT."]}
   ],
   "cards": [
-    {"seg": 0, "at": 0.0, "dur": 2.45, "icon": "eyeoff", "text": "Nos están censurando", "color": "red", "fx": "thud"},
-    {"seg": 0, "at": 3.05, "dur": 4.55, "icon": "cameraoff", "kicker": "Al parecer", "text": "Prohibido grabar en un escenario público", "color": "red", "fx": "thud"},
-    {"seg": 0, "at": 7.66, "dur": 2.38, "icon": "people", "text": "Una zona de todos", "color": "blue", "fx": "whoosh"},
-    {"seg": 0, "at": 10.06, "dur": 2.8, "icon": "camera", "kicker": "Solo mostramos", "text": "La fachada", "color": "red", "fx": "shutter"},
+    {"seg": 0, "at": 0.0, "dur": 2.55, "icon": "eyeoff", "kicker": "No podemos grabar", "text": "Nos están censurando", "color": "red", "fx": "thud"},
     {"seg": 2, "at": 9.8, "dur": 4.7, "icon": "people", "kicker": "Víctimas jóvenes", "text": "Entre 14 y 28 años", "color": "blue", "fx": "whoosh"},
     {"seg": 3, "at": 0.6, "dur": 2.9, "icon": "clock", "kicker": "Plazo para responder", "text": "15 días hábiles", "color": "red", "fx": "thud"},
     {"seg": 3, "at": 3.6, "dur": 2.0, "icon": "calendar", "text": "Más de 3 semanas", "color": "blue", "fx": "whoosh"},
@@ -32,7 +29,7 @@
   "_evidencia": "Recortes del correo del derecho de petición (scripts/make_evidencia.py). 'img' es el índice en src/campaign/evidencia.json. Reemplazan a las tarjetas en esos momentos.",
   "evidence": [
     {"seg": 1, "at": 0.0, "dur": 3.6, "img": 0, "title": "Correo del 14 de septiembre", "quote": "Enviado a la Alcaldía de Palmira", "fx": "whoosh"},
-    {"seg": 2, "at": 2.2, "dur": 3.7, "img": 1, "title": "Lo que le pedí a la Alcaldía", "quote": "Homicidios y violencia intrafamiliar · 2024 y 2025", "fx": "whoosh"},
+    {"seg": 2, "at": 2.2, "dur": 3.7, "img": 1, "title": "Lo que le pedí a la Alcaldía", "quote": "Homicidios y violencia intrafamiliar\n2024 y 2025", "fx": "whoosh"},
     {"seg": 3, "at": 10.9, "dur": 4.3, "img": 2, "title": "Solo un radicado", "quote": "Radicado N.º 20260525051", "fx": "thud"}
   ],
   "events": []

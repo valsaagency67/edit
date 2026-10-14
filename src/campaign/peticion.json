@@ -1,193 +1,165 @@
 {
  "fps": 30,
  "speed": 1.07,
- "videoFrames": 1514,
- "duration": 52.267,
+ "videoFrames": 1251,
+ "duration": 43.5,
  "cuts": [
-  10.9,
-  26.767,
-  39.567
+  2.133,
+  18.0,
+  30.8
  ],
  "ranges": [
   {
    "base": 0,
-   "dur": 34,
+   "dur": 35,
    "out": 0,
-   "outDur": 32,
+   "outDur": 33,
    "gray": true
   },
   {
    "base": 37,
    "dur": 33,
-   "out": 32,
+   "out": 33,
    "outDur": 31,
-   "gray": true
-  },
-  {
-   "base": 79,
-   "dur": 79,
-   "out": 63,
-   "outDur": 74,
-   "gray": true
-  },
-  {
-   "base": 161,
-   "dur": 19,
-   "out": 137,
-   "outDur": 18,
-   "gray": true
-  },
-  {
-   "base": 197,
-   "dur": 59,
-   "out": 155,
-   "outDur": 55,
-   "gray": true
-  },
-  {
-   "base": 260,
-   "dur": 125,
-   "out": 210,
-   "outDur": 117,
    "gray": true
   },
   {
    "base": 386,
    "dur": 109,
-   "out": 327,
+   "out": 64,
    "outDur": 102,
    "gray": false
   },
   {
    "base": 495,
    "dur": 47,
-   "out": 429,
+   "out": 166,
    "outDur": 44,
    "gray": false
   },
   {
    "base": 544,
    "dur": 86,
-   "out": 473,
+   "out": 210,
    "outDur": 80,
    "gray": false
   },
   {
    "base": 632,
    "dur": 51,
-   "out": 553,
+   "out": 290,
    "outDur": 48,
    "gray": false
   },
   {
    "base": 690,
    "dur": 10,
-   "out": 601,
+   "out": 338,
    "outDur": 9,
    "gray": false
   },
   {
    "base": 703,
    "dur": 17,
-   "out": 610,
+   "out": 347,
    "outDur": 16,
    "gray": false
   },
   {
    "base": 722,
    "dur": 95,
-   "out": 626,
+   "out": 363,
    "outDur": 89,
    "gray": false
   },
   {
    "base": 821,
    "dur": 18,
-   "out": 715,
+   "out": 452,
    "outDur": 17,
    "gray": false
   },
   {
    "base": 841,
    "dur": 37,
-   "out": 732,
+   "out": 469,
    "outDur": 35,
    "gray": false
   },
   {
    "base": 884,
    "dur": 38,
-   "out": 767,
+   "out": 504,
    "outDur": 36,
    "gray": false
   },
   {
    "base": 964,
    "dur": 72,
-   "out": 803,
+   "out": 540,
    "outDur": 67,
    "gray": false
   },
   {
    "base": 1042,
    "dur": 61,
-   "out": 870,
+   "out": 607,
    "outDur": 57,
    "gray": false
   },
   {
    "base": 1107,
    "dur": 80,
-   "out": 927,
+   "out": 664,
    "outDur": 75,
    "gray": false
   },
   {
    "base": 1191,
    "dur": 66,
-   "out": 1002,
+   "out": 739,
    "outDur": 62,
    "gray": false
   },
   {
    "base": 1267,
    "dur": 32,
-   "out": 1064,
+   "out": 801,
    "outDur": 30,
    "gray": false
   },
   {
    "base": 1301,
    "dur": 99,
-   "out": 1094,
+   "out": 831,
    "outDur": 93,
    "gray": false
   },
   {
    "base": 1467,
    "dur": 42,
-   "out": 1187,
+   "out": 924,
    "outDur": 39,
    "gray": false
   },
   {
    "base": 1516,
    "dur": 111,
-   "out": 1226,
+   "out": 963,
    "outDur": 104,
    "gray": false
   },
   {
    "base": 1640,
    "dur": 174,
-   "out": 1330,
+   "out": 1067,
    "outDur": 163,
    "gray": false
   },
   {
    "base": 1825,
    "dur": 22,
-   "out": 1493,
+   "out": 1230,
    "outDur": 21,
    "gray": false
   }
@@ -195,7 +167,7 @@
  "captions": [
   {
    "from": 0.047,
-   "to": 1.137,
+   "to": 1.17,
    "pieces": [
     {
      "t": "nos ",
@@ -212,8 +184,8 @@
    ]
   },
   {
-   "from": 1.157,
-   "to": 2.516,
+   "from": 1.19,
+   "to": 2.126,
    "pieces": [
     {
      "t": "no ",
@@ -230,138 +202,8 @@
    ]
   },
   {
-   "from": 2.536,
-   "to": 3.264,
-   "pieces": [
-    {
-     "t": "Al ",
-     "y": false
-    },
-    {
-     "t": "parecer",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 3.284,
-   "to": 4.671,
-   "pieces": [
-    {
-     "t": "está ",
-     "y": false
-    },
-    {
-     "t": "prohibido ",
-     "y": true
-    },
-    {
-     "t": "grabar",
-     "y": true
-    }
-   ]
-  },
-  {
-   "from": 4.691,
-   "to": 6.168,
-   "pieces": [
-    {
-     "t": "en ",
-     "y": false
-    },
-    {
-     "t": "un ",
-     "y": false
-    },
-    {
-     "t": "escenario ",
-     "y": false
-    },
-    {
-     "t": "público,",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 6.188,
-   "to": 7.086,
-   "pieces": [
-    {
-     "t": "en ",
-     "y": false
-    },
-    {
-     "t": "una ",
-     "y": false
-    },
-    {
-     "t": "zona",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 7.106,
-   "to": 8.282,
-   "pieces": [
-    {
-     "t": "que ",
-     "y": false
-    },
-    {
-     "t": "es ",
-     "y": false
-    },
-    {
-     "t": "de ",
-     "y": false
-    },
-    {
-     "t": "todos,",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 8.302,
-   "to": 9.329,
-   "pieces": [
-    {
-     "t": "donde ",
-     "y": false
-    },
-    {
-     "t": "estamos ",
-     "y": false
-    },
-    {
-     "t": "mostrando",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 9.349,
-   "to": 10.892,
-   "pieces": [
-    {
-     "t": "exclusivamente ",
-     "y": false
-    },
-    {
-     "t": "la ",
-     "y": false
-    },
-    {
-     "t": "fachada.",
-     "y": false
-    }
-   ]
-  },
-  {
-   "from": 10.912,
-   "to": 12.163,
+   "from": 2.146,
+   "to": 3.397,
    "pieces": [
     {
      "t": "El ",
@@ -382,8 +224,8 @@
    ]
   },
   {
-   "from": 12.183,
-   "to": 12.762,
+   "from": 3.417,
+   "to": 3.995,
    "pieces": [
     {
      "t": "de ",
@@ -400,8 +242,8 @@
    ]
   },
   {
-   "from": 12.782,
-   "to": 14.3,
+   "from": 4.015,
+   "to": 5.533,
    "pieces": [
     {
      "t": "le ",
@@ -426,8 +268,8 @@
    ]
   },
   {
-   "from": 14.337,
-   "to": 15.753,
+   "from": 5.571,
+   "to": 6.986,
    "pieces": [
     {
      "t": "Particularmente ",
@@ -444,8 +286,8 @@
    ]
   },
   {
-   "from": 15.773,
-   "to": 17.024,
+   "from": 7.006,
+   "to": 8.257,
    "pieces": [
     {
      "t": "los ",
@@ -466,8 +308,8 @@
    ]
   },
   {
-   "from": 17.044,
-   "to": 18.444,
+   "from": 8.277,
+   "to": 9.678,
    "pieces": [
     {
      "t": "y ",
@@ -488,8 +330,8 @@
    ]
   },
   {
-   "from": 18.464,
-   "to": 20.013,
+   "from": 9.698,
+   "to": 11.247,
    "pieces": [
     {
      "t": "discriminado ",
@@ -506,8 +348,8 @@
    ]
   },
   {
-   "from": 20.033,
-   "to": 20.847,
+   "from": 11.267,
+   "to": 12.08,
    "pieces": [
     {
      "t": "por ",
@@ -520,8 +362,8 @@
    ]
   },
   {
-   "from": 20.867,
-   "to": 21.812,
+   "from": 12.1,
+   "to": 13.046,
    "pieces": [
     {
      "t": "y ",
@@ -534,8 +376,8 @@
    ]
   },
   {
-   "from": 21.832,
-   "to": 23.009,
+   "from": 13.066,
+   "to": 14.242,
    "pieces": [
     {
      "t": "por ",
@@ -556,8 +398,8 @@
    ]
   },
   {
-   "from": 23.029,
-   "to": 23.813,
+   "from": 14.262,
+   "to": 15.047,
    "pieces": [
     {
      "t": "eran ",
@@ -570,8 +412,8 @@
    ]
   },
   {
-   "from": 23.833,
-   "to": 24.312,
+   "from": 15.067,
+   "to": 15.545,
    "pieces": [
     {
      "t": "es ",
@@ -584,8 +426,8 @@
    ]
   },
   {
-   "from": 24.332,
-   "to": 25.078,
+   "from": 15.565,
+   "to": 16.311,
    "pieces": [
     {
      "t": "si ",
@@ -602,8 +444,8 @@
    ]
   },
   {
-   "from": 25.098,
-   "to": 26.747,
+   "from": 16.331,
+   "to": 17.98,
    "pieces": [
     {
      "t": "14 ",
@@ -632,8 +474,8 @@
    ]
   },
   {
-   "from": 26.767,
-   "to": 28.267,
+   "from": 18.0,
+   "to": 19.5,
    "pieces": [
     {
      "t": "Tienen ",
@@ -654,8 +496,8 @@
    ]
   },
   {
-   "from": 28.287,
-   "to": 29.042,
+   "from": 19.52,
+   "to": 20.276,
    "pieces": [
     {
      "t": "para ",
@@ -668,8 +510,8 @@
    ]
   },
   {
-   "from": 29.062,
-   "to": 29.79,
+   "from": 20.296,
+   "to": 21.023,
    "pieces": [
     {
      "t": "Ya ",
@@ -682,8 +524,8 @@
    ]
   },
   {
-   "from": 29.81,
-   "to": 30.88,
+   "from": 21.043,
+   "to": 22.113,
    "pieces": [
     {
      "t": "más ",
@@ -704,8 +546,8 @@
    ]
   },
   {
-   "from": 30.9,
-   "to": 32.132,
+   "from": 22.133,
+   "to": 23.366,
    "pieces": [
     {
      "t": "y ",
@@ -730,8 +572,8 @@
    ]
   },
   {
-   "from": 32.152,
-   "to": 33.38,
+   "from": 23.386,
+   "to": 24.613,
    "pieces": [
     {
      "t": "me ",
@@ -752,8 +594,8 @@
    ]
   },
   {
-   "from": 33.4,
-   "to": 33.81,
+   "from": 24.633,
+   "to": 25.043,
    "pieces": [
     {
      "t": "Sin ",
@@ -766,8 +608,8 @@
    ]
   },
   {
-   "from": 33.83,
-   "to": 34.707,
+   "from": 25.063,
+   "to": 25.94,
    "pieces": [
     {
      "t": "no ",
@@ -792,8 +634,8 @@
    ]
   },
   {
-   "from": 34.727,
-   "to": 35.447,
+   "from": 25.96,
+   "to": 26.68,
    "pieces": [
     {
      "t": "de ",
@@ -806,8 +648,8 @@
    ]
   },
   {
-   "from": 35.467,
-   "to": 36.59,
+   "from": 26.7,
+   "to": 27.823,
    "pieces": [
     {
      "t": "fue ",
@@ -828,8 +670,8 @@
    ]
   },
   {
-   "from": 36.61,
-   "to": 37.487,
+   "from": 27.843,
+   "to": 28.72,
    "pieces": [
     {
      "t": "lo ",
@@ -846,8 +688,8 @@
    ]
   },
   {
-   "from": 37.507,
-   "to": 38.833,
+   "from": 28.74,
+   "to": 30.066,
    "pieces": [
     {
      "t": "que ",
@@ -864,8 +706,8 @@
    ]
   },
   {
-   "from": 38.853,
-   "to": 39.547,
+   "from": 30.086,
+   "to": 30.78,
    "pieces": [
     {
      "t": "la ",
@@ -878,8 +720,8 @@
    ]
   },
   {
-   "from": 39.567,
-   "to": 40.126,
+   "from": 30.8,
+   "to": 31.359,
    "pieces": [
     {
      "t": "Por ",
@@ -892,8 +734,8 @@
    ]
   },
   {
-   "from": 40.146,
-   "to": 40.847,
+   "from": 31.379,
+   "to": 32.08,
    "pieces": [
     {
      "t": "no ",
@@ -910,8 +752,8 @@
    ]
   },
   {
-   "from": 40.867,
-   "to": 42.217,
+   "from": 32.1,
+   "to": 33.451,
    "pieces": [
     {
      "t": "así ",
@@ -932,8 +774,8 @@
    ]
   },
   {
-   "from": 42.237,
-   "to": 43.339,
+   "from": 33.471,
+   "to": 34.572,
    "pieces": [
     {
      "t": "a ",
@@ -954,8 +796,8 @@
    ]
   },
   {
-   "from": 43.359,
-   "to": 44.313,
+   "from": 34.592,
+   "to": 35.547,
    "pieces": [
     {
      "t": "derecho ",
@@ -972,8 +814,8 @@
    ]
   },
   {
-   "from": 44.333,
-   "to": 45.784,
+   "from": 35.567,
+   "to": 37.017,
    "pieces": [
     {
      "t": "pero ",
@@ -998,8 +840,8 @@
    ]
   },
   {
-   "from": 45.804,
-   "to": 46.606,
+   "from": 37.037,
+   "to": 37.84,
    "pieces": [
     {
      "t": "que ",
@@ -1012,8 +854,8 @@
    ]
   },
   {
-   "from": 46.626,
-   "to": 47.802,
+   "from": 37.86,
+   "to": 39.036,
    "pieces": [
     {
      "t": "el ",
@@ -1034,8 +876,8 @@
    ]
   },
   {
-   "from": 47.822,
-   "to": 48.999,
+   "from": 39.056,
+   "to": 40.232,
    "pieces": [
     {
      "t": "pero ",
@@ -1060,8 +902,8 @@
    ]
   },
   {
-   "from": 49.019,
-   "to": 49.747,
+   "from": 40.252,
+   "to": 40.98,
    "pieces": [
     {
      "t": "de ",
@@ -1082,8 +924,8 @@
    ]
   },
   {
-   "from": 49.767,
-   "to": 50.467,
+   "from": 41.0,
+   "to": 41.7,
    "pieces": [
     {
      "t": "el ",
@@ -1099,43 +941,16 @@
  "cards": [
   {
    "from": 0.0,
-   "to": 2.1,
+   "to": 2.133,
    "icon": "eyeoff",
-   "kicker": "",
+   "kicker": "No podemos grabar",
    "text": "Nos están censurando",
    "color": "red",
    "fx": "thud"
   },
   {
-   "from": 2.489,
-   "to": 6.132,
-   "icon": "cameraoff",
-   "kicker": "Al parecer",
-   "text": "Prohibido grabar en un escenario público",
-   "color": "red",
-   "fx": "thud"
-  },
-  {
-   "from": 6.188,
-   "to": 8.283,
-   "icon": "people",
-   "kicker": "",
-   "text": "Una zona de todos",
-   "color": "blue",
-   "fx": "whoosh"
-  },
-  {
-   "from": 8.302,
-   "to": 10.9,
-   "icon": "camera",
-   "kicker": "Solo mostramos",
-   "text": "La fachada",
-   "color": "red",
-   "fx": "shutter"
-  },
-  {
-   "from": 22.954,
-   "to": 26.767,
+   "from": 14.187,
+   "to": 18.0,
    "icon": "people",
    "kicker": "Víctimas jóvenes",
    "text": "Entre 14 y 28 años",
@@ -1143,8 +958,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 26.767,
-   "to": 29.0,
+   "from": 18.0,
+   "to": 20.233,
    "icon": "clock",
    "kicker": "Plazo para responder",
    "text": "15 días hábiles",
@@ -1152,8 +967,8 @@
    "fx": "thud"
   },
   {
-   "from": 29.062,
-   "to": 30.9,
+   "from": 20.296,
+   "to": 22.133,
    "icon": "calendar",
    "kicker": "",
    "text": "Más de 3 semanas",
@@ -1161,8 +976,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 39.567,
-   "to": 40.985,
+   "from": 30.8,
+   "to": 32.218,
    "icon": "mail",
    "kicker": "",
    "text": "Por correo no responde",
@@ -1170,8 +985,8 @@
    "fx": "thud"
   },
   {
-   "from": 42.387,
-   "to": 44.421,
+   "from": 33.62,
+   "to": 35.654,
    "icon": "doc",
    "kicker": "Presencialmente",
    "text": "Segundo derecho de petición",
@@ -1179,8 +994,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 45.916,
-   "to": 47.879,
+   "from": 37.149,
+   "to": 39.112,
    "icon": "city",
    "kicker": "",
    "text": "El futuro de Palmira",
@@ -1188,8 +1003,8 @@
    "fx": "whoosh"
   },
   {
-   "from": 49.767,
-   "to": 52.267,
+   "from": 41.0,
+   "to": 43.5,
    "icon": "city",
    "kicker": "Muy pocos lo conocen",
    "text": "¿Qué es el POT?",
@@ -1199,24 +1014,24 @@
  ],
  "evidence": [
   {
-   "from": 10.9,
-   "to": 14.249,
+   "from": 2.133,
+   "to": 5.482,
    "img": 0,
    "title": "Correo del 14 de septiembre",
    "quote": "Enviado a la Alcaldía de Palmira",
    "fx": "whoosh"
   },
   {
-   "from": 16.296,
-   "to": 19.679,
+   "from": 7.53,
+   "to": 10.913,
    "img": 1,
    "title": "Lo que le pedí a la Alcaldía",
-   "quote": "Homicidios y violencia intrafamiliar · 2024 y 2025",
+   "quote": "Homicidios y violencia intrafamiliar\n2024 y 2025",
    "fx": "whoosh"
   },
   {
-   "from": 35.467,
-   "to": 39.302,
+   "from": 26.7,
+   "to": 30.535,
    "img": 2,
    "title": "Solo un radicado",
    "quote": "Radicado N.º 20260525051",

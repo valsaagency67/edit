@@ -328,6 +328,7 @@ const EvidenceView: React.FC<{ img: number; title: string; quote: string; dur: n
               fontSize: 40,
               lineHeight: 1.15,
               padding: "10px 18px",
+              whiteSpace: "pre-line",
               opacity: interpolate(frame, [IO + 14, IO + 20], [0, 1], clamp),
               boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
             }}

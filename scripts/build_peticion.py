@@ -63,7 +63,7 @@ def layout():
 def seg_words(s):
     words = []
     for w in json.load(open(f"{ROOT}/public/subs/{s['clip']}.json", encoding="utf-8")):
-        if s["in"] - 0.02 <= w["startMs"] / 1000 < s["out"] - 0.1:
+        if s["in"] - 0.02 <= w["startMs"] / 1000 < s.get("keepOut", s["out"]) - 0.1:
             w = dict(w)
             w["text"] = FIX.get(w["text"].strip(), w["text"].strip())
             words.append(w)
@@ -141,7 +141,8 @@ def keep_ranges(starts):
     db, hop = envelope(f"{OUT}/peticion-voz.wav")
     ranges = []
     for i, s in enumerate(SEGS):
-        seg_len = s["out"] - s["in"]
+        # keepOut: usar solo hasta ese punto de la toma sin volver a renderizar la base.
+        seg_len = s.get("keepOut", s["out"]) - s["in"]
         b0 = starts[i]
         words = seg_words(s)
         lo = int(b0 / hop)
