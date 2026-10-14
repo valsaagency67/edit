@@ -401,22 +401,42 @@ const GRAY = "grayscale(1) contrast(1.12) brightness(0.98)";
 const FILL: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
 const LAST = raw.ranges[raw.ranges.length - 1];
 
-// Un tramo conservado de la base (los cortes de pausas quedan entre tramos), acelerado a
-// raw.speed (el audio usa atempo: el tono no cambia). `dur` son cuadros de la base y `outDur` los
-// que ocupa en el video. La voz lleva un fundido de 1 cuadro en cada borde para que no haga clic.
-const Tramo: React.FC<{ base: number; dur: number; outDur: number; gray: boolean }> = ({
+// Un tramo conservado de la base (los cortes de pausas quedan entre tramos), acelerado a `speed`
+// (la introducción va más rápida que el resto; el audio usa atempo: el tono no cambia). `dur` son
+// cuadros de la base y `outDur` los que ocupa en el video. La voz lleva un fundido de 1 cuadro en
+// cada borde para que no haga clic.
+const Tramo: React.FC<{ base: number; dur: number; outDur: number; speed: number; gray: boolean }> = ({
   base,
   dur,
   outDur,
+  speed,
   gray,
 }) => (
   <>
-    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} playbackRate={raw.speed} muted
+    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} playbackRate={speed} muted
       style={{ ...FILL, filter: gray ? GRAY : undefined }} />
-    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur} playbackRate={raw.speed}
+    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur} playbackRate={speed}
       volume={(fr) => interpolate(fr, [0, 1, outDur - 1, outDur], [0, 1, 1, 0], clamp)} />
   </>
 );
+
+// Barra de duración arriba, igual que en el video de campaña (regla fija del cliente, CLAUDE.md):
+// fondo oscuro translúcido de 42 px y avance con el degradado de los 5 colores de la marca.
+const Progress: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { durationInFrames } = useVideoConfig();
+  return (
+    <div style={{ position: "absolute", top: 0, left: 0, height: 42, width: "100%", backgroundColor: "rgba(0,0,0,0.35)" }}>
+      <div
+        style={{
+          height: "100%",
+          width: `${(frame / durationInFrames) * 100}%`,
+          background: `linear-gradient(90deg, ${BRAND.join(",")})`,
+        }}
+      />
+    </div>
+  );
+};
 
 export const Peticion: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -429,7 +449,7 @@ export const Peticion: React.FC = () => (
     {/* Imagen y voz (cada toma a -16 LUFS con la cadena de enhance_voice.py), tramo por tramo. */}
     {raw.ranges.map((r) => (
       <Sequence key={r.out} from={r.out} durationInFrames={r.outDur} premountFor={15}>
-        <Tramo base={r.base} dur={r.dur} outDur={r.outDur} gray={r.gray} />
+        <Tramo base={r.base} dur={r.dur} outDur={r.outDur} speed={r.speed} gray={r.gray} />
       </Sequence>
     ))}
     <Sequence from={VIDEO_FRAMES} durationInFrames={peticionDuration - VIDEO_FRAMES}>
@@ -473,6 +493,7 @@ export const Peticion: React.FC = () => (
 
     <Sequence  durationInFrames={peticionDuration}>
       <Firma />
+      <Progress />
     </Sequence>
   </AbsoluteFill>
 );

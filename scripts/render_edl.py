@@ -11,6 +11,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TONEMAP = ("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,"
@@ -23,23 +24,32 @@ def main():
     segs = data["timeline"]
     if not segs:
         sys.exit("La lista está vacía.")
-    cmd = ["ffmpeg", "-v", "error", "-y"]
     for s in segs:
-        src = f"{ROOT}/media/raw/{s['clip']}.MOV"
-        if not os.path.exists(src):
-            sys.exit(f"Falta el original: {src}")
-        cmd += ["-ss", str(s["in"]), "-t", str(round(s["out"] - s["in"], 3)), "-i", src]
+        if not os.path.exists(f"{ROOT}/media/raw/{s['clip']}.MOV"):
+            sys.exit(f"Falta el original: {ROOT}/media/raw/{s['clip']}.MOV")
+    # Una toma a la vez (con 6 tomas abiertas a la vez el filtro HDR en float agotaba la memoria y
+    # ffmpeg moría con SIGKILL) y luego se unen sin recodificar: todas salen con los mismos parámetros.
+    tmp = tempfile.mkdtemp(dir=os.path.dirname(os.path.abspath(out)))
     parts = []
-    for i in range(len(segs)):
-        parts.append(f"[{i}:v]fps=30,zscale=w=1080:h=1920:f=lanczos,{TONEMAP},format=yuv420p,setsar=1,setpts=PTS-STARTPTS[v{i}]")
-        parts.append(f"[{i}:a]aresample=48000,asetpts=PTS-STARTPTS[a{i}]")
-    inputs = "".join(f"[v{i}][a{i}]" for i in range(len(segs)))
-    parts.append(f"{inputs}concat=n={len(segs)}:v=1:a=1[vo][ao]")
-    cmd += ["-filter_complex", ";".join(parts), "-map", "[vo]", "-map", "[ao]",
-            "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-pix_fmt", "yuv420p",
-            "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
-            "-c:a", "aac", "-b:a", "320k", "-movflags", "+faststart", out]
-    subprocess.run(cmd, check=True, cwd=ROOT)
+    for i, s in enumerate(segs):
+        part = os.path.join(tmp, f"{i:03d}.mp4")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(s["in"]), "-t", str(round(s["out"] - s["in"], 3)),
+                        "-i", f"{ROOT}/media/raw/{s['clip']}.MOV",
+                        "-vf", f"fps=30,zscale=w=1080:h=1920:f=lanczos,{TONEMAP},format=yuv420p,setsar=1",
+                        "-af", "aresample=48000", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
+                        "-pix_fmt", "yuv420p", "-colorspace", "bt709", "-color_primaries", "bt709",
+                        "-color_trc", "bt709", "-c:a", "aac", "-b:a", "320k", "-ac", "2",
+                        # Cuadros exactos (duración redondeada a 1/30 s) para que la base y la voz cuadren.
+                        "-frames:v", str(round((s["out"] - s["in"]) * 30)), part], check=True, cwd=ROOT)
+        parts.append(part)
+    lst = os.path.join(tmp, "partes.txt")
+    with open(lst, "w") as fh:
+        fh.writelines(f"file '{p}'\n" for p in parts)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy",
+                    "-movflags", "+faststart", out], check=True, cwd=ROOT)
+    for p in parts + [lst]:
+        os.remove(p)
+    os.rmdir(tmp)
     print("listo", out)
 
 

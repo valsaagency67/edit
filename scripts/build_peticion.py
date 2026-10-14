@@ -51,19 +51,26 @@ def norm(w):
     return w.translate(str.maketrans("áéíóú", "aeiou"))
 
 
+def seg_dur(s):
+    """Duración de la toma en la base: redondeada a cuadros, igual que render_edl.py."""
+    return round((s["out"] - s["in"]) * FPS) / FPS
+
+
 def layout():
     """Inicio de cada toma en la base (sin cortes de pausas) y duración de la base."""
     starts, t = [], 0.0
     for s in SEGS:
         starts.append(round(t, 3))
-        t += s["out"] - s["in"]
+        t += seg_dur(s)
     return starts, round(t, 3)
 
 
 def seg_words(s):
     words = []
     for w in json.load(open(f"{ROOT}/public/subs/{s['clip']}.json", encoding="utf-8")):
-        if s["in"] - 0.02 <= w["startMs"] / 1000 < s.get("keepOut", s["out"]) - 0.1:
+        lo = s.get("wordsIn", s.get("keepIn", s["in"])) - 0.02
+        hi = s.get("wordsOut", s.get("keepOut", s["out"]) - 0.1)
+        if lo <= w["startMs"] / 1000 < hi:
             w = dict(w)
             w["text"] = FIX.get(w["text"].strip(), w["text"].strip())
             words.append(w)
@@ -107,8 +114,8 @@ def voice(total):
     parts = []
     for i, s in enumerate(SEGS):
         idx = clips.index(s["clip"])
-        d = s["out"] - s["in"]
-        parts.append(f"[s{idx}_{used[s['clip']]}]atrim=start={s['in']}:end={s['out']},asetpts=PTS-STARTPTS,"
+        d = seg_dur(s)
+        parts.append(f"[s{idx}_{used[s['clip']]}]atrim=start={s['in']}:end={s['in'] + d:.4f},asetpts=PTS-STARTPTS,"
                      f"afade=t=in:d=0.01,afade=t=out:st={d - 0.01:.3f}:d=0.01[a{i}]")
         used[s["clip"]] += 1
     parts.append("".join(f"[a{i}]" for i in range(len(SEGS))) + f"concat=n={len(SEGS)}:v=0:a=1,"
@@ -174,13 +181,15 @@ def keep_ranges(starts):
                 prev = [w["text"] for w in words if w["startMs"] / 1000 - s["in"] <= a][-1:]
                 nxt = [w["text"] for w in words if w["startMs"] / 1000 - s["in"] >= b][:1]
                 print(f"   corte {a:5.2f}-{b:5.2f} ({b - a:.2f} s) entre {prev} y {nxt}")
-        # Silencio antes de la primera palabra y después de la última.
-        first = max(0.0, words[0]["startMs"] / 1000 - s["in"] - PAUSE["padBefore"])
-        last = min(seg_len, words[-1]["endMs"] / 1000 - s["in"] + PAUSE["padAfter"] + 0.05)
-        # Si el audio ya está en silencio antes del final de la última palabra, se corta ahí.
-        tail_quiet = [a for a, b in cuts if b >= last - PAUSE["padBefore"] - 0.01]
-        if tail_quiet:
-            last = min(last, tail_quiet[0])
+        # Silencio antes de la primera palabra y después de la última: por el AUDIO (primer y último
+        # instante sobre el umbral), no por la transcripción, cuyos tiempos vienen corridos y
+        # podían comerse el final de la última palabra.
+        n_eff = min(len(env), int(seg_len / hop))
+        loud = np.nonzero(env[:n_eff] >= thr)[0]
+        first = max(0.0, loud[0] * hop - PAUSE["padBefore"]) if len(loud) else 0.0
+        # keepIn: empezar la toma más tarde sin volver a renderizar la base.
+        first = max(first, s.get("keepIn", s["in"]) - s["in"])
+        last = min(seg_len, (loud[-1] + 1) * hop + PAUSE["padAfter"]) if len(loud) else seg_len
         keep, t = [], first
         for a, b in cuts:
             if b <= first or a >= last:
@@ -211,7 +220,8 @@ def keep_ranges(starts):
     t = 0
     for r in ranges:
         r["out"] = t
-        r["outDur"] = max(1, round(r["dur"] / SPEED))
+        r["speed"] = SEGS[r["seg"]].get("speed", SPEED)
+        r["outDur"] = max(1, round(r["dur"] / r["speed"]))
         t += r["outDur"]
     return ranges, t
 
@@ -226,7 +236,7 @@ def mapper(ranges, starts):
             if fb < r["base"]:
                 return r["out"] / FPS
             if fb <= r["base"] + r["dur"]:
-                return (r["out"] + (fb - r["base"]) / SPEED) / FPS
+                return (r["out"] + (fb - r["base"]) / r["speed"]) / FPS
         return (mine[-1]["out"] + mine[-1]["outDur"]) / FPS
     return to_out
 
@@ -391,7 +401,9 @@ def main():
 
     data = {"fps": FPS, "speed": SPEED, "videoFrames": frames, "duration": round(length, 3),
             "cuts": [round(t, 3) for t in clip_cuts],
-            "ranges": [{"base": r["base"], "dur": r["dur"], "out": r["out"], "outDur": r["outDur"], "gray": r["gray"]}
+            "ranges": [{"seg": r["seg"], "base": r["base"], "dur": r["dur"], "out": r["out"], "outDur": r["outDur"],
+                        "speed": r["speed"],
+                        "gray": r["gray"]}
                        for r in ranges],
             "captions": caps, "cards": cds, "evidence": evs}
     json.dump(data, open(f"{ROOT}/src/campaign/peticion.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
