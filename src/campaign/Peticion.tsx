@@ -349,7 +349,7 @@ const Flash: React.FC = () => {
 };
 
 // Firma igual que en el video de campaña: nombre en rojo y la barra de 5 colores debajo.
-const Firma: React.FC = () => {
+export const Firma: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const o = interpolate(frame, [0, Math.round(0.3 * fps)], [0, 1], { extrapolateRight: "clamp" });
@@ -463,7 +463,7 @@ const Tramo: React.FC<{ base: number; dur: number; outDur: number; speed: number
 
 // Barra de duración arriba, igual que en el video de campaña (regla fija del cliente, CLAUDE.md):
 // fondo oscuro translúcido de 42 px y avance con el degradado de los 5 colores de la marca.
-const Progress: React.FC = () => {
+export const Progress: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   return (

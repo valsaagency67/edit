@@ -3,6 +3,7 @@ import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
 import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Highlight } from "./campaign/Highlights";
+import { Marcha, MARCHA_FPS, marchaDuration } from "./campaign/Marcha";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
 
@@ -62,6 +63,15 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         fps={30}
         durationInFrames={1}
+      />
+      {/* Marcha frente al CAM con texto cinético: npm run build:marcha && npm run render:marcha */}
+      <Composition
+        id="JFC-Marcha"
+        component={Marcha}
+        width={1080}
+        height={1920}
+        fps={MARCHA_FPS}
+        durationInFrames={marchaDuration}
       />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
