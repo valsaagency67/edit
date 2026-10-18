@@ -45,6 +45,7 @@
     "render:destacadas": "for h in INFO JUVENTUD TERRITORIO; do remotion still src/index.ts Destacada-$h out/destacada-$h.png; done",
     "render:portada": "remotion still src/index.ts JFC-Portada out/portada.png",
     "render:portada-peticion": "remotion still src/index.ts JFC-Peticion-Portada out/portada-peticion.png",
+    "render:portada-marcha": "remotion still src/index.ts JFC-Marcha-Portada out/portada-marcha.png",
     "render:borrador": "remotion render src/index.ts JFC-Vigilante-Borrador out/borrador.mp4 --scale=0.5 --codec=h264 --crf=23 --audio-codec=aac --audio-bitrate=128k --concurrency=4 --timeout=120000"
   }
 }
