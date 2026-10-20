@@ -488,7 +488,7 @@ export const Nia: React.FC = () => (
     {/* Voz en off (cada toma a -16 LUFS), música propia ~17 dB abajo y foley alineado. */}
     <Html5Audio src={staticFile("nia/voz.wav")} />
     <Html5Audio src={staticFile("nia/musica.wav")} />
-    <Html5Audio src={staticFile("nia/foley.wav")} volume={0.4} />
+    <Html5Audio src={staticFile("nia/foley.wav")} volume={0.6} />
 
     {scenes.map((sc) =>
       sc.shots.map((s) => (

@@ -280,78 +280,33 @@ def musica(data):
 
 
 def sample(name):
-    """Efecto grabado (Ion.Sound, licencia MIT; ver CREDITOS.md)."""
-    return read_wav(f"{OUT}/sfx/{name}.wav")
-
-
-def _clack(freqs, decay, noise_decay, thump, seed):
-    """Golpe mecánico: resonancias metálicas amortiguadas + ráfaga de ruido agudo + golpe grave."""
-    rng = np.random.default_rng(seed)
-    n = int(0.09 * SR)
-    t = np.arange(n) / SR
-    x = sum(a * np.sin(2 * np.pi * fr * t + rng.uniform(0, 6)) * np.exp(-t / decay) for fr, a in freqs)
-    x = x + mf.band(rng.standard_normal(n), 2500, 16000) * np.exp(-t / noise_decay) * 0.9
-    x = x + np.sin(2 * np.pi * 110 * t) * np.exp(-t / 0.018) * thump
-    return x
-
-
-def shutter_dslr(gain=0.6):
-    """Obturador de cámara réflex («ka-chik»): espejo que sube y cortina que cierra 70 ms después, con
-    dos rebotes mecánicos pequeños."""
-    buf = np.zeros(int(0.25 * SR))
-    mf.place(buf, _clack([(1900, 0.5), (3300, 0.35), (5600, 0.25)], 0.008, 0.004, 0.35, 1) * 0.7, 0.0)
-    mf.place(buf, _clack([(2300, 0.5), (4100, 0.4), (7200, 0.25)], 0.014, 0.006, 0.5, 2), 0.07)
-    mf.place(buf, _clack([(4600, 0.3)], 0.004, 0.002, 0.0, 3) * 0.25, 0.082)
-    mf.place(buf, _clack([(5200, 0.3)], 0.004, 0.002, 0.0, 4) * 0.15, 0.093)
-    return buf / np.abs(buf).max() * gain
-
-
-def shutter_phone(gain=0.6):
-    """Obturador de celular: un clic seco con cola corta de ruido («chk»)."""
-    buf = np.zeros(int(0.2 * SR))
-    mf.place(buf, _clack([(2800, 0.4), (6100, 0.3)], 0.006, 0.03, 0.2, 5), 0.0)
-    return buf / np.abs(buf).max() * gain
-
-
-def big_whoosh(gain=0.4, dur=0.55):
-    """Whoosh grande: ruido con un pasabanda que sube y baja (efecto Doppler) y envolvente con pico al centro."""
-    n = int(dur * SR)
-    t = np.arange(n) / SR
-    noise = np.random.default_rng(5).standard_normal(n)
-    out = np.zeros(n)
-    hop = 1024
-    for k in range(0, n, hop):
-        c = 400 + 4200 * np.sin(np.pi * min(1, k / n)) ** 2
-        seg = mf.band(noise[max(0, k - 2048): k + hop], c * 0.6, min(c * 1.6, 20000))[-min(hop, n - k):]
-        out[k: k + len(seg)] = seg
-    env = np.sin(np.pi * t / dur) ** 2.5
-    return out * env / np.abs(out * env).max() * gain
+    """Efecto sacado del video de referencia del cliente (public/nia/sfx/ref-*.wav, ver CREDITOS.md)."""
+    return read_wav(f"{OUT}/sfx/ref-{name}.wav")
 
 
 def foley(data):
-    """Efectos de la referencia del cliente, sin el «faaahh» ni el «magic reveal» (no le gustó en las
-    letras; prefiere el clic, más limpio):
+    """Los efectos del video de referencia del cliente (sin el «faaahh»), sacados de ese mismo video:
     - clic para remarcar textos: cada subtítulo (suave) y cada texto grande que aparece (más fuerte);
-    - whoosh en los cambios de toma dentro de una escena y en cada acercamiento/alejamiento;
+    - «magic reveal» para revelar algo: la pintura de Sócrates, VERDADES y el ¿POR QUÉ? final;
+    - whoosh en cada acercamiento/alejamiento y en los cambios de foto dentro de una escena;
     - obturador de cámara en los cambios de escena (con el destello cálido de la imagen)."""
-    buf = np.zeros(int((data["duration"] + 2) * SR))
-    # Obturador: el cliente no quiso el de Ion.Sound; «ka-chik» de cámara réflex sintetizado.
-    click, shutter, whoosh = sample("click"), shutter_dslr(), big_whoosh()
+    buf = np.zeros(int((data["duration"] + 3) * SR))
+    click, shutter, whoosh, magic = sample("click"), sample("shutter"), sample("whoosh"), sample("magic")
     # Palabras en las que entra un texto grande (ver Kinetic en src/nia/Nia.tsx).
     big = {"gancho": ["filosofía", "no"], "porque": ["por"], "injusticia": ["tanto", "tan"],
            "socrates": ["sócrates", "haciendo", "daban"], "ojo": ["ojo,", "atreverse"], "cierre": ["cuestionarlo."]}
     for i, sc in enumerate(data["scenes"]):
         if i:
-            mf.place(buf, shutter * 0.55, sc["start"] - 0.03)
+            mf.place(buf, shutter * 0.7, sc["start"] - 0.03)
         for z in (sc.get("zooms") or {}).get("at", []):
-            mf.place(buf, whoosh * 0.8, z["t"] - 0.27)  # el pico del whoosh cae en el acercamiento
+            mf.place(buf, whoosh * 0.6, z["t"] - 0.1)  # el pico del whoosh cae en el acercamiento
         for c in sc["captions"]:
             mf.place(buf, click * 0.35, c["start"])
-        for s in sc["shots"][1:]:
-            if s.get("porque") or s.get("card"):
-                mf.place(buf, click * 0.7, s["start"])
-            else:
-                mf.place(buf, whoosh, s["start"] - 0.3)
+        for j, s in enumerate(sc["shots"]):
+            if s.get("porque") or s.get("card") or s.get("painting"):
+                mf.place(buf, magic * 0.45, s["start"])
+            elif j:
+                mf.place(buf, whoosh * 0.6, s["start"] - 0.1)
         for w in sc["words"]:
             if w["t"].lower() in big.get(sc["key"], []):
                 mf.place(buf, click * 0.7, w["s"])
