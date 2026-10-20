@@ -1,6 +1,6 @@
 # Videos de Juan Felipe Castaño (Palmira) — reglas fijas del cliente
 
-Estas reglas valen para TODOS los videos del proyecto, salvo que el cliente pida otra cosa para uno
+Estas reglas valen para TODOS los videos de Juan Felipe (no para los de otros clientes, ver «Nia» abajo), salvo que el cliente pida otra cosa para uno
 en particular. Detalles de estilo con valores concretos en `estilo.md`; implementación de referencia en
 `src/campaign/CampaignVideo.tsx` (video de campaña) y `src/campaign/Peticion.tsx` (video de la petición).
 
@@ -32,3 +32,12 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 ## Datos que ya se corrigieron
 - Es el **POT** (Plan de Ordenamiento Territorial), no «FOT» como sale en la transcripción de IMG_1740.
 - El correo de la Alcaldía con el radicado 20260525051 es del 8 de octubre de 2026 (él dice «9 de octubre»).
+
+# Videos de Nia — reglas propias (NO usar las de Juan Felipe)
+- Proyecto «La filosofía se vive en la calle» (carpeta de Drive «Nia»). Voz en off grabada aparte; los
+  videos son tomas selfie caminando, sin audio.
+- **Colorimetría pastel**, más suave que la de campaña: lila `#CDB8F0`, lavanda `#9C82D4`, amarillo
+  mantequilla `#FFE9A8`, rosa `#F6C9DA`, crema `#FFF8EC`, ciruela `#3E2F5B` (texto sobre bloques claros).
+  Gradación del video: negros levantados, menos contraste y saturación, sombras lila, luces cálidas.
+  Propuesta de referencia en `src/nia/NiaEstilo.tsx` (composición NIA-Estilo).
+- Sin firma ni colores de Juan Felipe. Barra de duración con degradado lila → rosa → amarillo.

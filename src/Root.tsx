@@ -7,6 +7,7 @@ import { Highlight } from "./campaign/Highlights";
 import { Marcha, MARCHA_FPS, marchaDuration } from "./campaign/Marcha";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
+import { NiaEstilo } from "./nia/NiaEstilo";
 
 // JFC-Vigilante: versión final (60 fps, render a 1080x1920).
 // JFC-Vigilante-Borrador: revisión rápida (30 fps, se renderiza con --scale=0.5).
@@ -81,6 +82,16 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         fps={30}
         durationInFrames={1}
+      />
+      {/* Nia: propuesta de estilo pastel (cuadros de muestra) */}
+      <Composition
+        id="NIA-Estilo"
+        component={NiaEstilo}
+        width={1080}
+        height={1920}
+        fps={30}
+        durationInFrames={1}
+        defaultProps={{ variante: "gancho" as "gancho" | "subtitulo" }}
       />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
