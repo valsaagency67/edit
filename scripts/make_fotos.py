@@ -28,8 +28,8 @@ OUT = f"{ROOT}/public/nia/broll"
 TMP = f"{ROOT}/out/nia/tmp"
 W, H, FPS, DUR = 1080, 1920, 30, 3.0
 # Misma gradación viva que las tomas (build_nia.py), un poco más suave.
-GRADE = ("vibrance=intensity=0.25,eq=saturation=1.08:contrast=1.05,"
-         "curves=b='0/0.015 0.5/0.5 1/0.98',colorbalance=bs=0.02:rh=0.02:bh=-0.015")
+GRADE = ("vibrance=intensity=0.14,eq=saturation=1.02:contrast=1.05,"
+         "curves=b='0/0.015 0.5/0.5 1/1',colorbalance=bs=0.015:rm=-0.01:rh=-0.01:bh=0.01")
 
 
 def ease(x):

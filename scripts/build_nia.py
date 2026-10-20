@@ -32,11 +32,10 @@ OUT = f"{ROOT}/public/nia"
 TMP = f"{ROOT}/out/nia/tmp"
 SR = 48000
 FPS = CFG["fps"]
-# Gradación (ver CLAUDE.md, sección Nia): colores vivos (el cliente vio pálida la pastel), contraste
-# un poco más alto, sombras con un toque lila y luces cálidas.
-GRADE = ("vibrance=intensity=0.28,eq=saturation=1.12:contrast=1.07:brightness=0.005,"
-         "curves=r='0/0 0.5/0.51 1/1':g='0/0 0.5/0.5 1/1':b='0/0.015 0.5/0.5 1/0.98',"
-         "colorbalance=bs=0.025:rh=0.03:gh=0.01:bh=-0.02")
+# Gradación (ver CLAUDE.md, sección Nia): colores vivos (el cliente vio pálida la pastel) pero sin
+# empujar la piel al naranja: contraste un poco más alto, sombras con un toque lila, luces neutras.
+GRADE = ("vibrance=intensity=0.16,eq=saturation=1.03:contrast=1.06,curves=b='0/0.015 0.5/0.5 1/1',"
+         "colorbalance=bs=0.02:rm=-0.01:bm=0.005:rh=-0.01:bh=0.01")
 
 
 def read_wav(path):

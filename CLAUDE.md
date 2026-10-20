@@ -38,8 +38,8 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
   videos son tomas selfie caminando, sin audio.
 - **Colorimetría pastel**, más suave que la de campaña: lila `#CDB8F0`, lavanda `#9C82D4`, amarillo
   mantequilla `#FFE9A8`, rosa `#F6C9DA`, crema `#FFF8EC`, ciruela `#3E2F5B` (texto sobre bloques claros).
-  Gradación del video: **colores vivos** (el cliente vio pálida la versión lavada): vibrance + un poco más de
-  saturación y contraste, sombras con toque lila, luces cálidas.
+  Gradación del video: **colores vivos pero sin naranja** (la lavada se vio pálida y la muy saturada, naranja):
+  vibrance suave (0.16), saturación 1.03, contraste 1.06, sombras con toque lila, luces neutras.
   Propuesta de referencia en `src/nia/NiaEstilo.tsx` (composición NIA-Estilo).
 - Sin firma ni colores de Juan Felipe. Barra de duración con degradado lila → rosa → amarillo.
 - **Tipografía Bootzy TM** (la eligió el cliente) en casi todo: subtítulos, textos grandes, globos. Solo las

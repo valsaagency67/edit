@@ -27,7 +27,7 @@ W, H, FPS, DUR = 1080, 1920, 30, 6.5
 S = 3.4          # escala del cuadro (798x586 -> 2713x1992)
 OY = 40          # recorte vertical del lienzo
 PAN_END = 1.6    # s: la cámara llega a Sócrates
-GRADE = "vibrance=intensity=0.2,eq=saturation=1.06:contrast=1.05"
+GRADE = "vibrance=intensity=0.12,eq=saturation=1.0:contrast=1.05"
 
 # Partes móviles: polígono (coordenadas del cuadro original), pivote y movimiento en función de t.
 # rot: grados; dy: píxeles del cuadro original.
