@@ -36,11 +36,11 @@
     {
       "key": "calle",
       "silent": "Empieza en la calle.",
-      "dur": 1.6,
+      "dur": 2.0,
       "shots": [
         {
-          "src": "v8",
-          "from": 0.6
+          "src": "v3",
+          "from": 0.0
         }
       ]
     },
@@ -76,8 +76,7 @@
       "shots": [
         {
           "at": "Cuando",
-          "src": "v3",
-          "from": 0.0
+          "placeholder": "Una injusticia en la calle"
         },
         {
           "at": "discutes",
@@ -106,8 +105,7 @@
       "shots": [
         {
           "at": "Los",
-          "src": "v1",
-          "from": 3.3
+          "placeholder": "Los antiguos (Grecia, estatuas)"
         },
         {
           "at": "Sócrates",
@@ -115,8 +113,7 @@
         },
         {
           "at": "haciendo",
-          "src": "v2",
-          "from": 5.6
+          "placeholder": "Gente conversando, haciendo preguntas"
         },
         {
           "at": "esas",
@@ -159,8 +156,8 @@
       "shots": [
         {
           "at": "Y",
-          "src": "v1",
-          "from": 3.4
+          "src": "v8",
+          "from": 0.6
         },
         {
           "at": "barrio,",

@@ -2,7 +2,7 @@
 """Video de Nia («La filosofía se vive en la calle»): voz, video base, música y foley para
 src/nia/Nia.tsx, a partir de scripts/nia.config.json.
 
-- Voz en off (media/nia/<id>.bin, audios del Drive): cadena de enhance_voice.py a -16 LUFS, pausas
+- Voz en off (media/nia/<id>.bin, audios del Drive): RNNoise + cadena de enhance_voice.py a -16 LUFS, pausas
   recortadas por el AUDIO (umbral adaptativo entre ruido y voz; se dejan `keep` s de aire) y voz
   acelerada (`speed`, el gancho más rápido). Tiempos por palabra con Parakeet sobre la toma ya
   procesada, texto del guión tal como lo dice ella (align de transcribe_whisper).
@@ -90,10 +90,16 @@ def cut_video(vid, ranges, speed, dst):
                     "-map", "[v]", "-an", *ENC, dst], check=True)
 
 
+# Reducción de ruido con RNNoise (modelo original de Xiph, BSD) antes de la cadena de voz: las tomas a
+# cámara se grabaron al aire libre y la voz quedaba apenas 8-12 dB sobre el ruido.
+# mix=0.85: con el 100 % se comía palabras suaves («ojo» en la toma V4).
+RNNOISE = f"aresample={SR},arnndn=m={ROOT}/scripts/models/rnnoise-std.rnnn:mix=0.85"
+
+
 def enhanced(take):
     path = f"{TMP}/{take}-voz.wav"
     if not os.path.exists(path):
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{MEDIA}/{take}.bin", "-af", CHAIN,
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{MEDIA}/{take}.bin", "-af", f"{RNNOISE},{CHAIN}",
                         "-ar", str(SR), "-ac", "1", path], check=True)
     return read_wav(path)
 
@@ -266,20 +272,6 @@ def sample(name):
     return read_wav(f"{OUT}/sfx/{name}.wav")
 
 
-def magic_reveal(gain=0.5):
-    """«Magic reveal»: arpegio rápido ascendente de piano agudo (muestras reales) con brillo de ruido
-    agudo que titila, y reverb larga."""
-    n = int(1.8 * SR)
-    x = np.zeros(n)
-    for i, note in enumerate(["E5", "Gs5", "B5", "E6", "Gs6", "B6", "E7"]):
-        mm.place(x, mm.note("piano", note, 1.4, 0.22 + 0.04 * i, release=0.9), 0.045 * i)
-    t = np.arange(n) / SR
-    shimmer = mf.band(np.random.default_rng(3).standard_normal(n), 6000, 14000)
-    shimmer *= np.clip(t / 0.25, 0, 1) * np.exp(-t / 0.5) * (0.6 + 0.4 * np.sin(2 * np.pi * 18 * t)) * 0.08
-    y = mm.reverb(x + shimmer, 1.8, 0.35).mean(1)
-    return y / np.abs(y).max() * gain
-
-
 def big_whoosh(gain=0.4, dur=0.55):
     """Whoosh grande: ruido con un pasabanda que sube y baja (efecto Doppler) y envolvente con pico al centro."""
     n = int(dur * SR)
@@ -296,15 +288,16 @@ def big_whoosh(gain=0.4, dur=0.55):
 
 
 def foley(data):
-    """Los 4 efectos de la referencia del cliente (sin el «faaahh»):
-    - clic para remarcar textos: cada subtítulo y cada palabra grande;
-    - «magic reveal» para revelar algo: LA FILOSOFÍA, CALLE, ¿POR QUÉ?, Sócrates, VERDADES, CUESTIONARLO;
+    """Efectos de la referencia del cliente, sin el «faaahh» ni el «magic reveal» (no le gustó en las
+    letras; prefiere el clic, más limpio):
+    - clic para remarcar textos: cada subtítulo (suave) y cada texto grande que aparece (más fuerte);
     - whoosh en los cambios de toma dentro de una escena;
     - obturador de cámara en los cambios de escena (con el destello de la imagen)."""
     buf = np.zeros(int((data["duration"] + 2) * SR))
-    click, shutter, magic, whoosh = sample("click"), sample("shutter"), magic_reveal(), big_whoosh()
-    reveal = {"gancho": ["filosofía"], "socrates": ["sócrates"], "porque": ["por"], "cierre": ["cuestionarlo."]}
-    big = {"injusticia": ["tanto"], "ojo": ["ojo,", "atreverse"], "gancho": ["libro."]}
+    click, shutter, whoosh = sample("click"), sample("shutter"), big_whoosh()
+    # Palabras en las que entra un texto grande (ver Kinetic en src/nia/Nia.tsx).
+    big = {"gancho": ["filosofía", "no"], "porque": ["por"], "injusticia": ["tanto", "tan"],
+           "socrates": ["sócrates", "daban"], "ojo": ["ojo,", "atreverse"], "cierre": ["cuestionarlo."]}
     for i, sc in enumerate(data["scenes"]):
         if i:
             mf.place(buf, shutter * 0.55, sc["start"] - 0.03)
@@ -312,16 +305,15 @@ def foley(data):
             mf.place(buf, click * 0.35, c["start"])
         for s in sc["shots"][1:]:
             if s.get("porque") or s.get("card"):
-                mf.place(buf, magic, s["start"] - 0.05)
+                mf.place(buf, click * 0.7, s["start"])
             else:
                 mf.place(buf, whoosh, s["start"] - 0.3)
         for w in sc["words"]:
-            if w["t"].lower() in reveal.get(sc["key"], []):
-                mf.place(buf, magic, w["s"] - 0.05)
             if w["t"].lower() in big.get(sc["key"], []):
-                mf.place(buf, click * 0.6, w["s"])
+                mf.place(buf, click * 0.7, w["s"])
         if sc["key"] == "calle":
-            mf.place(buf, magic, sc["start"] + 0.5)
+            mf.place(buf, click * 0.5, sc["start"] + 0.1)
+            mf.place(buf, click * 0.7, sc["start"] + 0.55)
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 

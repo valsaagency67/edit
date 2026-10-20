@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "duration": 42.91,
+ "duration": 40.769,
  "clips": {
   "v1": 169,
   "v2": 205,
@@ -10,26 +10,26 @@
   "v6": 76,
   "v7": 133,
   "v8": 243,
-  "porque": 96,
-  "ojo": 128,
-  "cierre": 121
+  "porque": 91,
+  "ojo": 125,
+  "cierre": 91
  },
  "scenes": [
   {
    "key": "gancho",
    "start": 0.0,
-   "end": 2.452,
+   "end": 2.279,
    "silent": null,
    "text": "La filosofía no empieza en un libro.",
    "words": [
     {
      "t": "La",
-     "s": 0.16,
-     "e": 0.48
+     "s": 0.24,
+     "e": 0.4
     },
     {
      "t": "filosofía",
-     "s": 0.48,
+     "s": 0.4,
      "e": 1.12
     },
     {
@@ -55,7 +55,7 @@
     {
      "t": "libro.",
      "s": 1.92,
-     "e": 2.42
+     "e": 2.279
     }
    ],
    "shots": [
@@ -63,941 +63,938 @@
      "src": "v6",
      "from": 0.0,
      "start": 0.0,
-     "end": 2.672
+     "end": 2.499
     }
    ],
    "captions": []
   },
   {
    "key": "calle",
-   "start": 2.672,
-   "end": 4.272,
+   "start": 2.499,
+   "end": 4.499,
    "silent": "Empieza en la calle.",
    "text": null,
    "words": [],
    "shots": [
     {
-     "src": "v8",
-     "from": 0.6,
-     "start": 2.672,
-     "end": 4.272
+     "src": "v3",
+     "from": 0.0,
+     "start": 2.499,
+     "end": 4.499
     }
    ],
    "captions": []
   },
   {
    "key": "porque",
-   "start": 4.272,
-   "end": 7.481,
+   "start": 4.499,
+   "end": 7.525,
    "silent": null,
    "text": "Empieza cuando te preguntas por qué las cosas son como son.",
    "words": [
     {
      "t": "Empieza",
-     "s": 4.272,
-     "e": 4.992
+     "s": 4.499,
+     "e": 5.139
     },
     {
      "t": "cuando",
-     "s": 4.992,
-     "e": 5.232
+     "s": 5.139,
+     "e": 5.379
     },
     {
      "t": "te",
-     "s": 5.232,
-     "e": 5.392
+     "s": 5.379,
+     "e": 5.539
     },
     {
      "t": "preguntas",
-     "s": 5.392,
-     "e": 5.659
+     "s": 5.539,
+     "e": 6.099
     },
     {
      "t": "por",
-     "s": 5.659,
-     "e": 5.925
+     "s": 6.099,
+     "e": 6.179
     },
     {
      "t": "qué",
-     "s": 5.925,
-     "e": 6.192
+     "s": 6.179,
+     "e": 6.339
     },
     {
      "t": "las",
-     "s": 6.192,
-     "e": 6.352
+     "s": 6.339,
+     "e": 6.499
     },
     {
      "t": "cosas",
-     "s": 6.352,
-     "e": 6.672
+     "s": 6.499,
+     "e": 6.739
     },
     {
      "t": "son",
-     "s": 6.672,
-     "e": 6.832
+     "s": 6.739,
+     "e": 6.979
     },
     {
      "t": "como",
-     "s": 6.832,
-     "e": 7.072
+     "s": 6.979,
+     "e": 7.219
     },
     {
      "t": "son.",
-     "s": 7.072,
-     "e": 7.48
+     "s": 7.219,
+     "e": 7.525
     }
    ],
    "shots": [
     {
      "src": "porque",
      "from": 0,
-     "start": 4.272,
-     "end": 7.701
+     "start": 4.499,
+     "end": 7.745
     }
    ],
    "captions": [
     {
      "text": "Empieza cuando te preguntas",
-     "start": 4.272,
-     "end": 5.659
+     "start": 4.499,
+     "end": 6.099
     },
     {
      "text": "*por *qué las cosas",
-     "start": 5.659,
-     "end": 6.672
+     "start": 6.099,
+     "end": 6.739
     },
     {
      "text": "son como son.",
-     "start": 6.672,
-     "end": 7.481
+     "start": 6.739,
+     "end": 7.525
     }
    ]
   },
   {
    "key": "injusticia",
-   "start": 7.701,
-   "end": 14.107,
+   "start": 7.745,
+   "end": 13.772,
    "silent": null,
    "text": "Cuando cuestionas una injusticia, cuando discutes con alguien en la esquina o cuando te preguntas por qué unos tienen tanto y otros tan poco.",
    "words": [
     {
      "t": "Cuando",
-     "s": 7.861,
-     "e": 8.181
+     "s": 7.745,
+     "e": 7.985
     },
     {
      "t": "cuestionas",
-     "s": 8.181,
-     "e": 8.661
+     "s": 7.985,
+     "e": 8.385
     },
     {
      "t": "una",
-     "s": 8.661,
-     "e": 8.821
+     "s": 8.385,
+     "e": 8.545
     },
     {
      "t": "injusticia,",
-     "s": 8.821,
-     "e": 9.381
+     "s": 8.545,
+     "e": 9.105
     },
     {
      "t": "cuando",
-     "s": 9.381,
-     "e": 9.541
+     "s": 9.105,
+     "e": 9.265
     },
     {
      "t": "discutes",
-     "s": 9.541,
-     "e": 9.941
+     "s": 9.265,
+     "e": 9.665
     },
     {
      "t": "con",
-     "s": 9.941,
-     "e": 10.021
+     "s": 9.665,
+     "e": 9.745
     },
     {
      "t": "alguien",
-     "s": 10.021,
-     "e": 10.261
+     "s": 9.745,
+     "e": 9.985
     },
     {
      "t": "en",
-     "s": 10.261,
-     "e": 10.341
+     "s": 9.985,
+     "e": 10.065
     },
     {
      "t": "la",
-     "s": 10.341,
-     "e": 10.421
+     "s": 10.065,
+     "e": 10.225
     },
     {
      "t": "esquina",
-     "s": 10.421,
-     "e": 10.821
+     "s": 10.225,
+     "e": 10.545
     },
     {
      "t": "o",
-     "s": 10.821,
-     "e": 10.981
+     "s": 10.545,
+     "e": 10.705
     },
     {
      "t": "cuando",
-     "s": 10.981,
-     "e": 11.141
+     "s": 10.705,
+     "e": 10.865
     },
     {
      "t": "te",
-     "s": 11.141,
-     "e": 11.221
+     "s": 10.865,
+     "e": 10.945
     },
     {
      "t": "preguntas",
-     "s": 11.221,
-     "e": 11.621
+     "s": 10.945,
+     "e": 11.185
     },
     {
      "t": "por",
-     "s": 11.621,
-     "e": 11.781
+     "s": 11.185,
+     "e": 11.425
     },
     {
      "t": "qué",
-     "s": 11.781,
-     "e": 11.941
+     "s": 11.425,
+     "e": 11.665
     },
     {
      "t": "unos",
-     "s": 11.941,
-     "e": 12.261
+     "s": 11.665,
+     "e": 11.985
     },
     {
      "t": "tienen",
-     "s": 12.261,
-     "e": 12.581
+     "s": 11.985,
+     "e": 12.305
     },
     {
      "t": "tanto",
-     "s": 12.581,
-     "e": 12.901
+     "s": 12.305,
+     "e": 12.625
     },
     {
      "t": "y",
-     "s": 12.901,
-     "e": 13.061
+     "s": 12.625,
+     "e": 12.785
     },
     {
      "t": "otros",
-     "s": 13.061,
-     "e": 13.41
+     "s": 12.785,
+     "e": 13.114
     },
     {
      "t": "tan",
-     "s": 13.41,
-     "e": 13.759
+     "s": 13.114,
+     "e": 13.443
     },
     {
      "t": "poco.",
-     "s": 13.759,
-     "e": 13.881
+     "s": 13.443,
+     "e": 13.605
     }
    ],
    "shots": [
     {
-     "src": "v3",
-     "from": 0.0,
-     "start": 7.701,
-     "end": 9.541
+     "placeholder": "Una injusticia en la calle",
+     "start": 7.745,
+     "end": 9.265
     },
     {
      "placeholder": "Gente discutiendo en una esquina",
-     "start": 9.541,
-     "end": 11.941
+     "start": 9.265,
+     "end": 11.665
     },
     {
      "placeholder": "Contraste: unos tienen tanto…",
-     "start": 11.941,
-     "end": 14.327
+     "start": 11.665,
+     "end": 13.992
     }
    ],
    "captions": [
     {
      "text": "Cuando cuestionas",
-     "start": 7.861,
-     "end": 8.661
+     "start": 7.745,
+     "end": 8.385
     },
     {
      "text": "una *injusticia,",
-     "start": 8.661,
-     "end": 9.381
+     "start": 8.385,
+     "end": 9.105
     },
     {
      "text": "cuando discutes con alguien",
-     "start": 9.381,
-     "end": 10.261
+     "start": 9.105,
+     "end": 9.985
     },
     {
      "text": "en la *esquina",
-     "start": 10.261,
-     "end": 10.821
+     "start": 9.985,
+     "end": 10.545
     },
     {
      "text": "o cuando te preguntas",
-     "start": 10.821,
-     "end": 11.621
+     "start": 10.545,
+     "end": 11.185
     },
     {
      "text": "por qué unos tienen *tanto",
-     "start": 11.621,
-     "end": 12.901
+     "start": 11.185,
+     "end": 12.625
     },
     {
      "text": "y otros *tan *poco.",
-     "start": 12.901,
-     "end": 14.107
+     "start": 12.625,
+     "end": 13.772
     }
    ]
   },
   {
    "key": "socrates",
-   "start": 14.327,
-   "end": 22.267,
+   "start": 13.992,
+   "end": 21.605,
    "silent": null,
    "text": "Los antiguos ya lo sabían. Sócrates caminaba conversando con la gente, haciendo preguntas y poniendo en duda esas verdades que todos daban por sentadas.",
    "words": [
     {
      "t": "Los",
-     "s": 14.647,
-     "e": 15.047
+     "s": 14.152,
+     "e": 14.392
     },
     {
      "t": "antiguos",
-     "s": 15.047,
-     "e": 15.607
+     "s": 14.392,
+     "e": 14.952
     },
     {
      "t": "ya",
-     "s": 15.607,
-     "e": 15.767
+     "s": 14.952,
+     "e": 15.112
     },
     {
      "t": "lo",
-     "s": 15.767,
-     "e": 15.927
+     "s": 15.112,
+     "e": 15.192
     },
     {
      "t": "sabían.",
-     "s": 15.927,
-     "e": 16.327
+     "s": 15.192,
+     "e": 15.592
     },
     {
      "t": "Sócrates",
-     "s": 16.327,
-     "e": 16.887
+     "s": 15.592,
+     "e": 16.232
     },
     {
      "t": "caminaba",
-     "s": 16.887,
-     "e": 17.447
+     "s": 16.232,
+     "e": 16.712
     },
     {
      "t": "conversando",
-     "s": 17.447,
-     "e": 17.847
+     "s": 16.712,
+     "e": 17.192
     },
     {
      "t": "con",
-     "s": 17.847,
-     "e": 18.007
+     "s": 17.192,
+     "e": 17.352
     },
     {
      "t": "la",
-     "s": 18.007,
-     "e": 18.087
+     "s": 17.352,
+     "e": 17.432
     },
     {
      "t": "gente,",
-     "s": 18.087,
-     "e": 18.487
+     "s": 17.432,
+     "e": 17.832
     },
     {
      "t": "haciendo",
-     "s": 18.487,
-     "e": 18.887
+     "s": 17.832,
+     "e": 18.152
     },
     {
      "t": "preguntas",
-     "s": 18.887,
-     "e": 19.287
+     "s": 18.152,
+     "e": 18.552
     },
     {
      "t": "y",
-     "s": 19.287,
-     "e": 19.447
+     "s": 18.552,
+     "e": 18.712
     },
     {
      "t": "poniendo",
-     "s": 19.447,
-     "e": 19.767
+     "s": 18.712,
+     "e": 19.112
     },
     {
      "t": "en",
-     "s": 19.767,
-     "e": 19.847
+     "s": 19.112,
+     "e": 19.192
     },
     {
      "t": "duda",
-     "s": 19.847,
-     "e": 20.167
+     "s": 19.192,
+     "e": 19.432
     },
     {
      "t": "esas",
-     "s": 20.167,
-     "e": 20.407
+     "s": 19.432,
+     "e": 19.672
     },
     {
      "t": "verdades",
-     "s": 20.407,
-     "e": 20.727
+     "s": 19.672,
+     "e": 20.072
     },
     {
      "t": "que",
-     "s": 20.727,
-     "e": 20.887
+     "s": 20.072,
+     "e": 20.152
     },
     {
      "t": "todos",
-     "s": 20.887,
-     "e": 21.127
+     "s": 20.152,
+     "e": 20.392
     },
     {
      "t": "daban",
-     "s": 21.127,
-     "e": 21.367
+     "s": 20.392,
+     "e": 20.712
     },
     {
      "t": "por",
-     "s": 21.367,
-     "e": 21.607
+     "s": 20.712,
+     "e": 20.872
     },
     {
      "t": "sentadas.",
-     "s": 21.607,
-     "e": 22.107
+     "s": 20.872,
+     "e": 21.372
     }
    ],
    "shots": [
     {
-     "src": "v1",
-     "from": 3.3,
-     "start": 14.327,
-     "end": 16.327
+     "placeholder": "Los antiguos (Grecia, estatuas)",
+     "start": 13.992,
+     "end": 15.592
     },
     {
      "placeholder": "Imagen de Sócrates (busto o pintura)",
-     "start": 16.327,
-     "end": 18.487
+     "start": 15.592,
+     "end": 17.832
     },
     {
-     "src": "v2",
-     "from": 5.6,
-     "start": 18.487,
-     "end": 20.167
+     "placeholder": "Gente conversando, haciendo preguntas",
+     "start": 17.832,
+     "end": 19.432
     },
     {
      "card": "verdades",
-     "start": 20.167,
-     "end": 22.487
+     "start": 19.432,
+     "end": 21.825
     }
    ],
    "captions": [
     {
      "text": "Los antiguos",
-     "start": 14.647,
-     "end": 15.607
+     "start": 14.152,
+     "end": 14.952
     },
     {
      "text": "ya lo sabían.",
-     "start": 15.607,
-     "end": 16.327
+     "start": 14.952,
+     "end": 15.592
     },
     {
      "text": "*Sócrates caminaba",
-     "start": 16.327,
-     "end": 17.447
+     "start": 15.592,
+     "end": 16.712
     },
     {
      "text": "conversando con la gente,",
-     "start": 17.447,
-     "end": 18.487
+     "start": 16.712,
+     "end": 17.832
     },
     {
      "text": "haciendo *preguntas",
-     "start": 18.487,
-     "end": 19.287
+     "start": 17.832,
+     "end": 18.552
     },
     {
      "text": "y poniendo en *duda",
-     "start": 19.287,
-     "end": 20.167
+     "start": 18.552,
+     "end": 19.432
     },
     {
      "text": "esas verdades",
-     "start": 20.167,
-     "end": 20.727
+     "start": 19.432,
+     "end": 20.072
     },
     {
      "text": "que todos daban por sentadas.",
-     "start": 20.727,
-     "end": 22.267
+     "start": 20.072,
+     "end": 21.605
     }
    ]
   },
   {
    "key": "ojo",
-   "start": 22.487,
-   "end": 26.767,
+   "start": 21.825,
+   "end": 26.015,
    "silent": null,
    "text": "Pero ojo, filosofar no era solo contemplar el mundo, era atreverse a cuestionarlo.",
    "words": [
     {
      "t": "Pero",
-     "s": 22.487,
-     "e": 22.847
+     "s": 21.825,
+     "e": 22.145
     },
     {
      "t": "ojo,",
-     "s": 22.847,
-     "e": 23.207
+     "s": 22.145,
+     "e": 22.545
     },
     {
      "t": "filosofar",
-     "s": 23.207,
-     "e": 24.007
+     "s": 22.545,
+     "e": 23.265
     },
     {
      "t": "no",
-     "s": 24.007,
-     "e": 24.087
+     "s": 23.265,
+     "e": 23.345
     },
     {
      "t": "era",
-     "s": 24.087,
-     "e": 24.327
+     "s": 23.345,
+     "e": 23.505
     },
     {
      "t": "solo",
-     "s": 24.327,
-     "e": 24.487
+     "s": 23.505,
+     "e": 23.745
     },
     {
      "t": "contemplar",
-     "s": 24.487,
-     "e": 24.967
+     "s": 23.745,
+     "e": 24.225
     },
     {
      "t": "el",
-     "s": 24.967,
-     "e": 25.127
+     "s": 24.225,
+     "e": 24.305
     },
     {
      "t": "mundo,",
-     "s": 25.127,
-     "e": 25.367
+     "s": 24.305,
+     "e": 24.545
     },
     {
      "t": "era",
-     "s": 25.367,
-     "e": 25.527
+     "s": 24.545,
+     "e": 24.785
     },
     {
      "t": "atreverse",
-     "s": 25.527,
-     "e": 26.087
+     "s": 24.785,
+     "e": 25.345
     },
     {
      "t": "a",
-     "s": 26.087,
-     "e": 26.167
+     "s": 25.345,
+     "e": 25.425
     },
     {
      "t": "cuestionarlo.",
-     "s": 26.167,
-     "e": 26.667
+     "s": 25.425,
+     "e": 25.925
     }
    ],
    "shots": [
     {
      "src": "ojo",
      "from": 0,
-     "start": 22.487,
-     "end": 26.987
+     "start": 21.825,
+     "end": 26.235
     }
    ],
    "captions": [
     {
      "text": "Pero *ojo,",
-     "start": 22.487,
-     "end": 23.207
+     "start": 21.825,
+     "end": 22.545
     },
     {
      "text": "filosofar no era solo",
-     "start": 23.207,
-     "end": 24.487
+     "start": 22.545,
+     "end": 23.745
     },
     {
      "text": "*contemplar el mundo,",
-     "start": 24.487,
-     "end": 25.367
+     "start": 23.745,
+     "end": 24.545
     },
     {
      "text": "era *atreverse",
-     "start": 25.367,
-     "end": 26.087
+     "start": 24.545,
+     "end": 25.345
     },
     {
      "text": "a cuestionarlo.",
-     "start": 26.087,
-     "end": 26.767
+     "start": 25.345,
+     "end": 26.015
     }
    ]
   },
   {
    "key": "hoy",
-   "start": 26.987,
-   "end": 36.629,
+   "start": 26.235,
+   "end": 35.507,
    "silent": null,
    "text": "Y eso sigue pasando hoy, en el barrio, en la universidad, en el transporte público y hasta en la mesa familiar. En cada conversación donde alguien se atreve a preguntar: ¿por qué?",
    "words": [
     {
      "t": "Y",
-     "s": 27.147,
-     "e": 27.387
+     "s": 26.315,
+     "e": 26.555
     },
     {
      "t": "eso",
-     "s": 27.387,
-     "e": 27.707
+     "s": 26.555,
+     "e": 26.795
     },
     {
      "t": "sigue",
-     "s": 27.707,
-     "e": 28.027
+     "s": 26.795,
+     "e": 27.115
     },
     {
      "t": "pasando",
-     "s": 28.027,
-     "e": 28.347
+     "s": 27.115,
+     "e": 27.435
     },
     {
      "t": "hoy,",
-     "s": 28.347,
-     "e": 28.667
+     "s": 27.435,
+     "e": 27.755
     },
     {
      "t": "en",
-     "s": 28.667,
-     "e": 28.827
+     "s": 27.755,
+     "e": 27.835
     },
     {
      "t": "el",
-     "s": 28.827,
-     "e": 28.907
+     "s": 27.835,
+     "e": 27.915
     },
     {
      "t": "barrio,",
-     "s": 28.907,
-     "e": 29.307
+     "s": 27.915,
+     "e": 28.315
     },
     {
      "t": "en",
-     "s": 29.307,
-     "e": 29.387
+     "s": 28.315,
+     "e": 28.475
     },
     {
      "t": "la",
-     "s": 29.387,
-     "e": 29.547
+     "s": 28.475,
+     "e": 28.555
     },
     {
      "t": "universidad,",
-     "s": 29.547,
-     "e": 29.947
+     "s": 28.555,
+     "e": 29.035
     },
     {
      "t": "en",
-     "s": 29.947,
-     "e": 30.107
+     "s": 29.035,
+     "e": 29.195
     },
     {
      "t": "el",
-     "s": 30.107,
-     "e": 30.187
+     "s": 29.195,
+     "e": 29.275
     },
     {
      "t": "transporte",
-     "s": 30.187,
-     "e": 30.667
+     "s": 29.275,
+     "e": 29.675
     },
     {
      "t": "público",
-     "s": 30.667,
-     "e": 30.987
+     "s": 29.675,
+     "e": 29.995
     },
     {
      "t": "y",
-     "s": 30.987,
-     "e": 31.067
+     "s": 29.995,
+     "e": 30.155
     },
     {
      "t": "hasta",
-     "s": 31.067,
-     "e": 31.307
+     "s": 30.155,
+     "e": 30.395
     },
     {
      "t": "en",
-     "s": 31.307,
-     "e": 31.387
+     "s": 30.395,
+     "e": 30.475
     },
     {
      "t": "la",
-     "s": 31.387,
-     "e": 31.467
+     "s": 30.475,
+     "e": 30.555
     },
     {
      "t": "mesa",
-     "s": 31.467,
-     "e": 31.787
+     "s": 30.555,
+     "e": 30.875
     },
     {
      "t": "familiar.",
-     "s": 31.787,
-     "e": 32.187
+     "s": 30.875,
+     "e": 31.275
     },
     {
      "t": "En",
-     "s": 32.187,
-     "e": 32.347
+     "s": 31.275,
+     "e": 31.435
     },
     {
      "t": "cada",
-     "s": 32.347,
-     "e": 32.587
+     "s": 31.435,
+     "e": 31.675
     },
     {
      "t": "conversación",
-     "s": 32.587,
-     "e": 33.067
+     "s": 31.675,
+     "e": 32.235
     },
     {
      "t": "donde",
-     "s": 33.067,
-     "e": 33.307
+     "s": 32.235,
+     "e": 32.475
     },
     {
      "t": "alguien",
-     "s": 33.307,
-     "e": 33.547
+     "s": 32.475,
+     "e": 32.715
     },
     {
      "t": "se",
-     "s": 33.547,
-     "e": 33.707
+     "s": 32.715,
+     "e": 32.875
     },
     {
      "t": "atreve",
-     "s": 33.707,
-     "e": 34.187
+     "s": 32.875,
+     "e": 33.275
     },
     {
      "t": "a",
-     "s": 34.187,
-     "e": 34.347
+     "s": 33.275,
+     "e": 33.435
     },
     {
      "t": "preguntar:",
-     "s": 34.347,
-     "e": 34.827
+     "s": 33.435,
+     "e": 33.915
     },
     {
      "t": "¿por",
-     "s": 34.827,
-     "e": 34.987
+     "s": 33.915,
+     "e": 34.075
     },
     {
      "t": "qué?",
-     "s": 34.987,
-     "e": 35.487
+     "s": 34.075,
+     "e": 34.508
     }
    ],
    "shots": [
     {
-     "src": "v1",
-     "from": 3.4,
-     "start": 26.987,
-     "end": 28.907
+     "src": "v8",
+     "from": 0.6,
+     "start": 26.235,
+     "end": 27.915
     },
     {
      "placeholder": "El barrio",
-     "start": 28.907,
-     "end": 29.547
+     "start": 27.915,
+     "end": 28.555
     },
     {
      "placeholder": "La universidad",
-     "start": 29.547,
-     "end": 30.187
+     "start": 28.555,
+     "end": 29.275
     },
     {
      "placeholder": "Transporte público",
-     "start": 30.187,
-     "end": 31.467
+     "start": 29.275,
+     "end": 30.555
     },
     {
      "placeholder": "La mesa familiar",
-     "start": 31.467,
-     "end": 32.187
+     "start": 30.555,
+     "end": 31.275
     },
     {
      "src": "v2",
      "from": 0.2,
-     "start": 32.187,
-     "end": 34.827
+     "start": 31.275,
+     "end": 33.915
     },
     {
      "porque": true,
-     "start": 34.827,
-     "end": 36.849
+     "start": 33.915,
+     "end": 35.727
     }
    ],
    "captions": [
     {
      "text": "Y eso sigue pasando *hoy,",
-     "start": 27.147,
-     "end": 28.667
+     "start": 26.315,
+     "end": 27.755
     },
     {
      "text": "en el *barrio,",
-     "start": 28.667,
-     "end": 29.307
+     "start": 27.755,
+     "end": 28.315
     },
     {
      "text": "en la *universidad,",
-     "start": 29.307,
-     "end": 29.947
+     "start": 28.315,
+     "end": 29.035
     },
     {
      "text": "en el *transporte *público",
-     "start": 29.947,
-     "end": 30.987
+     "start": 29.035,
+     "end": 29.995
     },
     {
      "text": "y hasta en la *mesa *familiar.",
-     "start": 30.987,
-     "end": 32.187
+     "start": 29.995,
+     "end": 31.275
     },
     {
      "text": "En cada conversación",
-     "start": 32.187,
-     "end": 33.067
+     "start": 31.275,
+     "end": 32.235
     },
     {
      "text": "donde alguien se atreve",
-     "start": 33.067,
-     "end": 34.187
+     "start": 32.235,
+     "end": 33.275
     },
     {
      "text": "a preguntar:",
-     "start": 34.187,
-     "end": 35.629
+     "start": 33.275,
+     "end": 34.507
     }
    ]
   },
   {
    "key": "cierre",
-   "start": 36.849,
-   "end": 42.51,
+   "start": 35.727,
+   "end": 40.369,
    "silent": null,
    "text": "Porque para transformar el mundo, primero hay que aprender a cuestionarlo.",
    "words": [
     {
      "t": "Porque",
-     "s": 37.169,
-     "e": 37.649
+     "s": 35.727,
+     "e": 36.127
     },
     {
      "t": "para",
-     "s": 37.649,
-     "e": 37.889
+     "s": 36.127,
+     "e": 36.367
     },
     {
      "t": "transformar",
-     "s": 37.889,
-     "e": 38.289
+     "s": 36.367,
+     "e": 36.847
     },
     {
      "t": "el",
-     "s": 38.289,
-     "e": 38.449
+     "s": 36.847,
+     "e": 36.927
     },
     {
      "t": "mundo,",
-     "s": 38.449,
-     "e": 38.769
+     "s": 36.927,
+     "e": 37.247
     },
     {
      "t": "primero",
-     "s": 38.769,
-     "e": 39.089
+     "s": 37.247,
+     "e": 37.487
     },
     {
      "t": "hay",
-     "s": 39.089,
-     "e": 39.169
+     "s": 37.487,
+     "e": 37.647
     },
     {
      "t": "que",
-     "s": 39.169,
-     "e": 39.249
+     "s": 37.647,
+     "e": 37.727
     },
     {
      "t": "aprender",
-     "s": 39.249,
-     "e": 39.649
+     "s": 37.727,
+     "e": 38.047
     },
     {
      "t": "a",
-     "s": 39.649,
-     "e": 39.729
+     "s": 38.047,
+     "e": 38.127
     },
     {
      "t": "cuestionarlo.",
-     "s": 39.729,
-     "e": 40.229
+     "s": 38.127,
+     "e": 38.627
     }
    ],
    "shots": [
     {
      "src": "cierre",
      "from": 0,
-     "start": 36.849,
-     "end": 42.91
+     "start": 35.727,
+     "end": 40.769
     }
    ],
    "captions": [
     {
      "text": "Porque para *transformar el mundo,",
-     "start": 37.169,
-     "end": 38.769
+     "start": 35.727,
+     "end": 37.247
     },
     {
      "text": "primero hay que aprender",
-     "start": 38.769,
-     "end": 39.649
+     "start": 37.247,
+     "end": 38.047
     },
     {
      "text": "a *cuestionarlo.",
-     "start": 39.649,
-     "end": 40.91
+     "start": 38.047,
+     "end": 38.769
     }
    ]
   }

@@ -36,4 +36,6 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
   `scripts/build_nia.py` con muestras de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0).
 - **Efectos de sonido**: `public/nia/sfx/click.wav` y `public/nia/sfx/shutter.wav` son
   `button_click` y `camera_flashing` de **Ion.Sound** (Denis Ineshin, licencia MIT, paquete npm
-  `ion-sound`). El «magic reveal» (piano tonejs + ruido) y el whoosh son sintetizados en `scripts/build_nia.py`.
+  `ion-sound`). El whoosh es sintetizado en `scripts/build_nia.py`.
+- **Reducción de ruido** de la voz: filtro `arnndn` de FFmpeg con el modelo original de RNNoise
+  (Xiph.Org, licencia BSD-3), `scripts/models/rnnoise-std.rnnn` (tomado de richardpl/arnndn-models).
