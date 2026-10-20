@@ -193,6 +193,16 @@ def build():
             voice.append((t, x))
         else:
             words, dur = [], sc["dur"]
+            if "ambient" in sc:
+                # Escena sin voz: su propio sonido ambiente (aire del parque), a -21 LUFS con fundidos,
+                # desde el mismo punto de la toma que se ve.
+                shot = sc["shots"][0]
+                amb = f"{TMP}/{sc['key']}-ambiente.wav"
+                subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(shot.get("from", 0) + 0.15),
+                                "-t", str(dur + 0.1), "-i", f"{MEDIA}/{CFG['videos'][sc['ambient']]}.bin", "-vn",
+                                "-af", f"loudnorm=I=-21:TP=-6,afade=t=in:d=0.08,afade=t=out:st={dur - 0.2:.2f}:d=0.3",
+                                "-ar", str(SR), "-ac", "1", amb], check=True)
+                voice.append((t, read_wav(amb)))
         end = t + dur + sc.get("hold", 0)
         # Tomas de imagen: cada una empieza en una palabra (o al inicio de la escena) y dura hasta la
         # siguiente; la última, hasta el final de la escena.

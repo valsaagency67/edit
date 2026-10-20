@@ -54,7 +54,8 @@
           "src": "v3",
           "from": 0.0
         }
-      ]
+      ],
+      "ambient": "v3"
     },
     {
       "key": "porque",
