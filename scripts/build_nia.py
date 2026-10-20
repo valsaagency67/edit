@@ -212,7 +212,13 @@ def build():
             k += n
         for i, c in enumerate(caps):
             c["end"] = caps[i + 1]["start"] if i + 1 < len(caps) else round(t + dur, 3)
-        scenes.append({"key": sc["key"], "start": round(t, 3), "end": round(end, 3),
+        # Acercamientos (con whoosh): tiempos globales de cada cambio de escala.
+        zooms = None
+        if "zooms" in sc:
+            zooms = {"origin": sc["zooms"]["origin"],
+                     "at": [{"t": round(t + find_word(words, z["at"], z.get("nth", 1)), 3), "scale": z["scale"]}
+                            for z in sc["zooms"]["at"]]}
+        scenes.append({"key": sc["key"], "start": round(t, 3), "end": round(end, 3), "zooms": zooms,
                        "silent": sc.get("silent"), "text": sc.get("text"),
                        "words": [{**w, "s": round(t + w["s"], 3), "e": round(t + w["e"], 3)} for w in words],
                        "shots": shots, "captions": caps})
@@ -297,8 +303,8 @@ def foley(data):
     """Efectos de la referencia del cliente, sin el «faaahh» ni el «magic reveal» (no le gustó en las
     letras; prefiere el clic, más limpio):
     - clic para remarcar textos: cada subtítulo (suave) y cada texto grande que aparece (más fuerte);
-    - whoosh en los cambios de toma dentro de una escena;
-    - obturador de cámara en los cambios de escena (con el destello de la imagen)."""
+    - whoosh en los cambios de toma dentro de una escena y en cada acercamiento/alejamiento;
+    - obturador de cámara en los cambios de escena (con el destello cálido de la imagen)."""
     buf = np.zeros(int((data["duration"] + 2) * SR))
     click, shutter, whoosh = sample("click"), sample("shutter"), big_whoosh()
     # Palabras en las que entra un texto grande (ver Kinetic en src/nia/Nia.tsx).
@@ -307,6 +313,8 @@ def foley(data):
     for i, sc in enumerate(data["scenes"]):
         if i:
             mf.place(buf, shutter * 0.55, sc["start"] - 0.03)
+        for z in (sc.get("zooms") or {}).get("at", []):
+            mf.place(buf, whoosh * 0.8, z["t"] - 0.27)  # el pico del whoosh cae en el acercamiento
         for c in sc["captions"]:
             mf.place(buf, click * 0.35, c["start"])
         for s in sc["shots"][1:]:

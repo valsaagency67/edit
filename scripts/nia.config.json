@@ -31,7 +31,19 @@
           "src": "v6",
           "from": 0.0
         }
-      ]
+      ],
+      "zooms": {
+        "origin": [
+          540,
+          640
+        ],
+        "at": [
+          {
+            "at": "libro.",
+            "scale": 1.12
+          }
+        ]
+      }
     },
     {
       "key": "calle",
@@ -58,7 +70,23 @@
           "src": "porque",
           "from": 0
         }
-      ]
+      ],
+      "zooms": {
+        "origin": [
+          460,
+          560
+        ],
+        "at": [
+          {
+            "at": "por",
+            "scale": 1.15
+          },
+          {
+            "at": "son",
+            "scale": 1.0
+          }
+        ]
+      }
     },
     {
       "key": "injusticia",
@@ -133,7 +161,27 @@
           "src": "ojo",
           "from": 0
         }
-      ]
+      ],
+      "zooms": {
+        "origin": [
+          480,
+          470
+        ],
+        "at": [
+          {
+            "at": "ojo,",
+            "scale": 1.35
+          },
+          {
+            "at": "contemplar",
+            "scale": 1.0
+          },
+          {
+            "at": "atreverse",
+            "scale": 1.22
+          }
+        ]
+      }
     },
     {
       "key": "hoy",
@@ -169,7 +217,7 @@
         },
         {
           "at": "mesa",
-          "placeholder": "La mesa familiar"
+          "full": "mesa"
         },
         {
           "at": "En",
@@ -182,7 +230,19 @@
           "porque": true
         }
       ],
-      "hold": 0.8
+      "hold": 0.8,
+      "zooms": {
+        "origin": [
+          580,
+          600
+        ],
+        "at": [
+          {
+            "at": "preguntar:",
+            "scale": 1.15
+          }
+        ]
+      }
     },
     {
       "key": "cierre",
@@ -199,7 +259,27 @@
           "from": 0
         }
       ],
-      "hold": 1.6
+      "hold": 1.6,
+      "zooms": {
+        "origin": [
+          600,
+          450
+        ],
+        "at": [
+          {
+            "at": "transformar",
+            "scale": 1.12
+          },
+          {
+            "at": "primero",
+            "scale": 1.0
+          },
+          {
+            "at": "cuestionarlo.",
+            "scale": 1.2
+          }
+        ]
+      }
     }
   ]
 }

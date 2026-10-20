@@ -393,6 +393,47 @@ const ShotView: React.FC<{ shot: Shot }> = ({ shot }) => {
   return null;
 };
 
+// Acercar y alejar (como en el video de referencia, con whoosh): la toma llega a cada escala en 7
+// cuadros con frenado suave; el origen es la cara de ella en esa toma.
+type Zooms = { origin: number[]; at: { t: number; scale: number }[] } | null;
+const Zoom: React.FC<{ zooms: Zooms; from: number; children: React.ReactNode }> = ({ zooms, from, children }) => {
+  const frame = useCurrentFrame() + f(from);
+  let scale = 1;
+  for (const z of zooms?.at ?? []) {
+    const k = interpolate(frame, [f(z.t), f(z.t) + 7], [0, 1], clamp);
+    const e = 1 - (1 - k) ** 3;
+    scale = scale + (z.scale - scale) * e;
+  }
+  if (!zooms) return <>{children}</>;
+  return (
+    <AbsoluteFill style={{ transform: `scale(${scale})`, transformOrigin: `${zooms.origin[0]}px ${zooms.origin[1]}px` }}>
+      {children}
+    </AbsoluteFill>
+  );
+};
+
+// Transición «obturador de cámara» entre escenas: tinte naranja que sube a un destello cálido justo en
+// el corte y se apaga (3 cuadros antes y 6 después), con el sonido del obturador.
+const LEAK_PRE = 3;
+const LightLeak: React.FC = () => {
+  const k = useCurrentFrame() - LEAK_PRE;
+  const glow = interpolate(k, [-3, -1, 0, 2, 4, 6], [0.2, 0.6, 0.95, 0.65, 0.25, 0], clamp);
+  const tint = interpolate(k, [-3, -1, 1, 4], [0, 0.35, 0.3, 0], clamp);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ backgroundColor: "#E8743B", opacity: tint, mixBlendMode: "multiply" }} />
+      <AbsoluteFill
+        style={{
+          opacity: glow,
+          mixBlendMode: "screen",
+          background:
+            "radial-gradient(circle at 50% 42%, rgba(255,248,226,1) 0%, rgba(255,214,160,0.95) 30%, rgba(250,160,110,0.7) 62%, rgba(214,96,86,0.45) 100%)",
+        }}
+      />
+    </AbsoluteFill>
+  );
+};
+
 const Flash: React.FC = () => {
   const o = interpolate(useCurrentFrame(), [0, 3], [0.35, 0], clamp);
   return <AbsoluteFill style={{ backgroundColor: NIA.crema, opacity: o }} />;
@@ -452,11 +493,19 @@ export const Nia: React.FC = () => (
     {scenes.map((sc) =>
       sc.shots.map((s) => (
         <Sequence key={`${sc.key}-${s.start}`} from={f(s.start)} durationInFrames={Math.max(1, f(s.end) - f(s.start))} premountFor={15}>
-          <ShotView shot={s} />
-          {s.start > 0 ? <Flash /> : null}
+          <Zoom zooms={s.src ? (sc.zooms as Zooms) : null} from={s.start}>
+            <ShotView shot={s} />
+          </Zoom>
+          {s.start > sc.start ? <Flash /> : null}
         </Sequence>
       )),
     )}
+
+    {scenes.slice(1).map((sc) => (
+      <Sequence key={`leak-${sc.key}`} from={f(sc.start) - LEAK_PRE} durationInFrames={LEAK_PRE + 7}>
+        <LightLeak />
+      </Sequence>
+    ))}
 
     {scenes.map((sc) => (
       <Sequence key={`k-${sc.key}`} from={f(sc.start)} durationInFrames={f(sc.end) - f(sc.start)}>

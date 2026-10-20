@@ -20,13 +20,26 @@
   "socrates": 195,
   "barrio": 90,
   "universidad": 90,
-  "transporte": 90
+  "transporte": 90,
+  "mesa": 90
  },
  "scenes": [
   {
    "key": "gancho",
    "start": 0.0,
    "end": 2.165,
+   "zooms": {
+    "origin": [
+     540,
+     640
+    ],
+    "at": [
+     {
+      "t": 1.84,
+      "scale": 1.12
+     }
+    ]
+   },
    "silent": null,
    "text": "La filosofía no empieza en un libro.",
    "words": [
@@ -80,6 +93,7 @@
    "key": "calle",
    "start": 2.225,
    "end": 3.625,
+   "zooms": null,
    "silent": "Empieza en la calle.",
    "text": null,
    "words": [],
@@ -97,6 +111,22 @@
    "key": "porque",
    "start": 3.625,
    "end": 6.569,
+   "zooms": {
+    "origin": [
+     460,
+     560
+    ],
+    "at": [
+     {
+      "t": 4.932,
+      "scale": 1.15
+     },
+     {
+      "t": 5.865,
+      "scale": 1.0
+     }
+    ]
+   },
    "silent": null,
    "text": "Empieza cuando te preguntas por qué las cosas son como son.",
    "words": [
@@ -186,6 +216,7 @@
    "key": "injusticia",
    "start": 6.629,
    "end": 12.505,
+   "zooms": null,
    "silent": null,
    "text": "Cuando cuestionas una injusticia, cuando discutes con alguien en la esquina o cuando te preguntas por qué unos tienen tanto y otros tan poco.",
    "words": [
@@ -374,6 +405,7 @@
    "key": "socrates",
    "start": 12.565,
    "end": 19.972,
+   "zooms": null,
    "silent": null,
    "text": "Los antiguos ya lo sabían. Sócrates caminaba conversando con la gente, haciendo preguntas y poniendo en duda esas verdades que todos daban por sentadas.",
    "words": [
@@ -557,6 +589,26 @@
    "key": "ojo",
    "start": 20.032,
    "end": 24.037,
+   "zooms": {
+    "origin": [
+     480,
+     470
+    ],
+    "at": [
+     {
+      "t": 20.312,
+      "scale": 1.35
+     },
+     {
+      "t": 21.872,
+      "scale": 1.0
+     },
+     {
+      "t": 22.832,
+      "scale": 1.22
+     }
+    ]
+   },
    "silent": null,
    "text": "Pero ojo, filosofar no era solo contemplar el mundo, era atreverse a cuestionarlo.",
    "words": [
@@ -666,6 +718,18 @@
    "key": "hoy",
    "start": 24.097,
    "end": 32.934,
+   "zooms": {
+    "origin": [
+     580,
+     600
+    ],
+    "at": [
+     {
+      "t": 31.137,
+      "scale": 1.15
+     }
+    ]
+   },
    "silent": null,
    "text": "Y eso sigue pasando hoy, en el barrio, en la universidad, en el transporte público y hasta en la mesa familiar. En cada conversación donde alguien se atreve a preguntar: ¿por qué?",
    "words": [
@@ -853,7 +917,7 @@
      "end": 28.337
     },
     {
-     "placeholder": "La mesa familiar",
+     "full": "mesa",
      "start": 28.337,
      "end": 29.057
     },
@@ -916,6 +980,26 @@
    "key": "cierre",
    "start": 32.994,
    "end": 37.582,
+   "zooms": {
+    "origin": [
+     600,
+     450
+    ],
+    "at": [
+     {
+      "t": 33.554,
+      "scale": 1.12
+     },
+     {
+      "t": 34.434,
+      "scale": 1.0
+     },
+     {
+      "t": 35.314,
+      "scale": 1.2
+     }
+    ]
+   },
    "silent": null,
    "text": "Porque para transformar el mundo, primero hay que aprender a cuestionarlo.",
    "words": [

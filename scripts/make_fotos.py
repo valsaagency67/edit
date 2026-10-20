@@ -7,7 +7,8 @@ Capas por foto (coordenadas de la foto original):
            poco más que el fondo y respira (escala), así la foto gana profundidad;
   parte    polígono que gira o se desplaza alrededor de un pivote (el cartel de la protesta, buses);
   ondear   zona que ondula (banderines);
-  derivar  zona que se desliza despacio (nubes).
+  derivar  zona que se desliza despacio (nubes);
+  velas    luz que titila alrededor de una llama.
 Debajo de lo que se mueve va la foto con esas zonas rellenadas (cv2.inpaint) para que no se vea doble.
 Salida: public/nia/broll/<nombre>-anim.mp4 (1080x1920, 30 fps, 3 s).
 
@@ -53,6 +54,9 @@ FOTOS = {
     "universidad": dict(
         cam=((190, 340), (1.0, 1.06)), y=330,
         derivar=[dict(box=(0, 0, 808, 300), dx=14, until=520)]),
+    "mesa": dict(
+        cam=((250, 430), (1.0, 1.07)), y=205, persona=0.03,
+        velas=[(304, 282, 22), (455, 258, 20)]),
     "transporte": dict(
         cam=((330, 470), (1.0, 1.08)), y=330, persona=0.03,
         partes=[dict(poly=[(600, 150), (864, 170), (864, 360), (600, 330)], pivot=(730, 260),
@@ -145,6 +149,11 @@ def render(name, cfg):
             a = feather(band, 12)
             disp = o["amp"] * s * np.sin(2 * np.pi * (xx / (60 * s) - t / o["period"])) * a
             frame = cv2.remap(frame, xx, yy + disp, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+        for vx, vy, vr in cfg.get("velas", []):
+            # Velas: la luz titila (brillo cálido alrededor de la llama).
+            g = 0.10 * math.sin(t * 21 + vx) + 0.06 * math.sin(t * 34 + vy)
+            d2 = ((xx - vx * s) ** 2 + (yy - vy * s) ** 2) / (vr * s * 2.2) ** 2
+            frame *= (1 + g * np.exp(-d2))[..., None]
         if cfg.get("brillo"):
             frame *= 1 + 0.04 * math.sin(2 * math.pi * t / 1.5)
         # Ventana vertical 9:16 (con zoom) centrada en cx, cfg["y"].
