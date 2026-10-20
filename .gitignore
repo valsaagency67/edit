@@ -18,3 +18,7 @@ public/policia/peticion-base.mp4
 public/policia/peticion-base.mp4.json
 public/policia/peticion-voz.wav
 public/marcha/base.mp4
+
+# Nia: generados por scripts/build_nia.py a partir de media/nia (no versionar)
+public/nia/*.mp4
+public/nia/*.wav

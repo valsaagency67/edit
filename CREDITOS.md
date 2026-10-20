@@ -29,3 +29,11 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
 - **Foley** (`public/policia/peticion-foley.wav` y `public/policia/foley.wav`): sintetizado para este
   proyecto (`scripts/make_foley.py`, `scripts/build_peticion.py`); no usa grabaciones de terceros.
 - **Íconos** de las tarjetas: dibujados a mano en SVG para este proyecto (`src/campaign/Peticion.tsx`).
+
+## Video de Nia (`out/nia.mp4`)
+
+- **Música** (`public/nia/musica.wav`): pieza propia en Sol mayor (piano y chelo), compuesta con
+  `scripts/build_nia.py` con muestras de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0).
+- **Efectos de sonido**: `public/nia/sfx/click.wav` y `public/nia/sfx/shutter.wav` son
+  `button_click` y `camera_flashing` de **Ion.Sound** (Denis Ineshin, licencia MIT, paquete npm
+  `ion-sound`). El «magic reveal» (piano tonejs + ruido) y el whoosh son sintetizados en `scripts/build_nia.py`.

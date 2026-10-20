@@ -1,0 +1,200 @@
+{
+  "_doc": "Video de Nia («La filosofía se vive en la calle»). Tomas de voz en off (Drive, carpeta Nia) en el orden del guión; los tramos sin voz grabada todavía van como 'pendiente' (texto en pantalla, sin voz). Lo arma scripts/build_nia.py -> src/nia/nia.json.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.14,
+    "keep": 0.13
+  },
+  "gap": 0.22,
+  "videos": {
+    "v1": "1SnyG_vzA4Q3Ms88tACGSGb3Vi5hODpBV",
+    "v2": "1Mky_86jjsP80_xn1OtlI_AAKEox8LUIS"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "take": "1DfUeXNvX-MrX2axgCKIW2dRukcEpalj1",
+      "alt": "1mFMtZfSCwu_pMc6ClBlJQcmlDy-2Xqmz",
+      "speed": 1.12,
+      "text": "La filosofía no empieza en un libro.",
+      "phrases": [],
+      "shots": [
+        {
+          "src": "v1",
+          "from": 2.6
+        }
+      ]
+    },
+    {
+      "key": "calle",
+      "pending": "Empieza en la calle.",
+      "dur": 1.5,
+      "shots": [
+        {
+          "src": "v2",
+          "from": 2.55
+        }
+      ]
+    },
+    {
+      "key": "porque",
+      "pending": "Empieza cuando te preguntas por qué las cosas son como son.",
+      "dur": 2.8,
+      "shots": [
+        {
+          "src": "v2",
+          "from": 0.0
+        }
+      ]
+    },
+    {
+      "key": "injusticia",
+      "take": "1cuvRMYJBksBGaVdD2ntMG5wdIqfvFcW6",
+      "text": "Cuando cuestionas una injusticia, cuando discutes con alguien en la esquina o cuando te preguntas por qué unos tienen tanto y otros tan poco.",
+      "phrases": [
+        "Cuando cuestionas",
+        "una *injusticia,",
+        "cuando discutes con alguien",
+        "en la *esquina",
+        "o cuando te preguntas",
+        "por qué unos tienen *tanto",
+        "y otros *tan *poco."
+      ],
+      "shots": [
+        {
+          "at": "Cuando",
+          "placeholder": "Una injusticia en la calle"
+        },
+        {
+          "at": "discutes",
+          "placeholder": "Gente discutiendo en una esquina"
+        },
+        {
+          "at": "unos",
+          "placeholder": "Contraste: unos tienen tanto…"
+        }
+      ]
+    },
+    {
+      "key": "socrates",
+      "take": "1uKaik-o8OM_-7V_fS-HyXDMtHQj4mw8g",
+      "text": "Los antiguos ya lo sabían. Sócrates caminaba conversando con la gente, haciendo preguntas y poniendo en duda esas verdades que todos daban por sentadas.",
+      "phrases": [
+        "Los antiguos",
+        "ya lo sabían.",
+        "*Sócrates caminaba",
+        "conversando con la gente,",
+        "haciendo *preguntas",
+        "y poniendo en *duda",
+        "esas verdades",
+        "que todos daban por sentadas."
+      ],
+      "shots": [
+        {
+          "at": "Los",
+          "src": "v1",
+          "from": 3.3
+        },
+        {
+          "at": "Sócrates",
+          "placeholder": "Imagen de Sócrates (busto o pintura)"
+        },
+        {
+          "at": "haciendo",
+          "src": "v2",
+          "from": 5.6
+        },
+        {
+          "at": "esas",
+          "card": "verdades"
+        }
+      ]
+    },
+    {
+      "key": "ojo",
+      "take": "1Cpy9XDtrjNLZ0Iq6cdtywkQDVqVzl-7p",
+      "text": "Pero ojo, filosofar no era solo cuestionar el mundo, era atreverse a cuestionarlo.",
+      "phrases": [
+        "Pero *ojo,",
+        "filosofar no era solo",
+        "cuestionar el mundo,",
+        "era *atreverse",
+        "a cuestionarlo."
+      ],
+      "shots": [
+        {
+          "at": "Pero",
+          "src": "v1",
+          "from": 0.0
+        },
+        {
+          "at": "era",
+          "nth": 2,
+          "src": "v2",
+          "from": 5.6
+        }
+      ]
+    },
+    {
+      "key": "hoy",
+      "take": "1GlBWGMbcJKzZ7mNDqUHblQoZCH7g1Uew",
+      "text": "Y eso sigue pasando hoy, en el barrio, en la universidad, en el transporte público y hasta en la mesa familiar. En cada conversación donde alguien se atreve a preguntar: ¿por qué?",
+      "phrases": [
+        "Y eso sigue pasando *hoy,",
+        "en el *barrio,",
+        "en la *universidad,",
+        "en el *transporte *público",
+        "y hasta en la *mesa *familiar.",
+        "En cada conversación",
+        "donde alguien se atreve",
+        "a preguntar:"
+      ],
+      "shots": [
+        {
+          "at": "Y",
+          "src": "v1",
+          "from": 3.4
+        },
+        {
+          "at": "barrio,",
+          "placeholder": "El barrio"
+        },
+        {
+          "at": "universidad,",
+          "placeholder": "La universidad"
+        },
+        {
+          "at": "transporte",
+          "placeholder": "Transporte público"
+        },
+        {
+          "at": "mesa",
+          "placeholder": "La mesa familiar"
+        },
+        {
+          "at": "En",
+          "nth": 5,
+          "src": "v2",
+          "from": 0.2
+        },
+        {
+          "at": "¿por",
+          "porque": true
+        }
+      ],
+      "hold": 1.0
+    },
+    {
+      "key": "final",
+      "pending": "La filosofía se vive. Se discute. Se cuestiona… y el cierre (en los videos que faltan).",
+      "dur": 2.6,
+      "shots": [
+        {
+          "placeholder": "Aquí sigue el final del guión"
+        }
+      ]
+    }
+  ]
+}

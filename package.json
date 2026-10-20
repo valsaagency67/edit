@@ -46,6 +46,9 @@
     "render:portada": "remotion still src/index.ts JFC-Portada out/portada.png",
     "render:portada-peticion": "remotion still src/index.ts JFC-Peticion-Portada out/portada-peticion.png",
     "render:portada-marcha": "remotion still src/index.ts JFC-Marcha-Portada out/portada-marcha.png",
-    "render:borrador": "remotion render src/index.ts JFC-Vigilante-Borrador out/borrador.mp4 --scale=0.5 --codec=h264 --crf=23 --audio-codec=aac --audio-bitrate=128k --concurrency=4 --timeout=120000"
+    "render:borrador": "remotion render src/index.ts JFC-Vigilante-Borrador out/borrador.mp4 --scale=0.5 --codec=h264 --crf=23 --audio-codec=aac --audio-bitrate=128k --concurrency=4 --timeout=120000",
+    "build:nia": "python3 scripts/build_nia.py",
+    "render:nia": "mkdir -p out && remotion render src/index.ts NIA out/nia-mezcla.mp4 --codec=h264 --crf=14 --pixel-format=yuv420p --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --jpeg-quality=95 --concurrency=4 --timeout=120000 && ffmpeg -v error -y -i out/nia-mezcla.mp4 -c:v copy -af volume=2dB,alimiter=limit=0.89:level=false -c:a aac -b:a 320k -ar 48000 -movflags +faststart out/nia.mp4",
+    "render:nia-avance": "mkdir -p out && remotion render src/index.ts NIA out/nia-avance-mezcla.mp4 --scale=0.5 --codec=h264 --crf=24 --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=160k --concurrency=4 --timeout=120000 && ffmpeg -v error -y -i out/nia-avance-mezcla.mp4 -c:v copy -af volume=2dB,alimiter=limit=0.89:level=false -c:a aac -b:a 160k -ar 48000 -movflags +faststart out/nia-avance.mp4"
   }
 }
