@@ -59,7 +59,7 @@ const Appear: React.FC<{ t: number; from: number; children: React.ReactNode; sty
 };
 
 // Si la escena dura más que lo que queda de la toma, se congela su último cuadro.
-const CLIP_FRAMES: Record<string, number> = { v1: 169, v2: 205 };
+const CLIP_FRAMES: Record<string, number> = raw.clips;
 const Clip: React.FC<{ src: string; from: number; dur: number }> = ({ src, from, dur }) => {
   const usable = CLIP_FRAMES[src] - f(from) - 1;
   const video = (trim: number) => (
@@ -130,26 +130,6 @@ const Placeholder: React.FC<{ label: string; dur: number }> = ({ label, dur }) =
   );
 };
 
-const Pendiente: React.FC = () => (
-  <div
-    style={{
-      position: "absolute",
-      top: 300,
-      right: 64,
-      fontFamily: Montserrat,
-      fontWeight: 600,
-      fontSize: 28,
-      color: NIA.ciruela,
-      background: NIA.crema,
-      padding: "8px 22px",
-      borderRadius: 30,
-      opacity: 0.92,
-    }}
-  >
-    voz pendiente
-  </div>
-);
-
 const Bloque: React.FC<{ children: React.ReactNode; size?: number }> = ({ children, size = 190 }) => (
   <span
     style={{
@@ -181,7 +161,7 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
   switch (sc.key) {
     case "gancho":
       return col(
-        1060,
+        1330,
         <>
           <Appear t={at("gancho", "filosofía")} from={from}>
             <Bloque>LA FILOSOFÍA</Bloque>
@@ -208,18 +188,10 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
       );
     case "porque":
       return col(
-        1000,
-        <>
-          <Appear t={from + 0.1} from={from}>
-            <Serif size={72}>empieza cuando te preguntas</Serif>
-          </Appear>
-          <Appear t={from + 0.8} from={from} style={{ marginTop: 14 }}>
-            <Bloque size={200}>¿POR QUÉ?</Bloque>
-          </Appear>
-          <Appear t={from + 1.5} from={from}>
-            <Serif size={72}>las cosas son como son</Serif>
-          </Appear>
-        </>,
+        1380,
+        <Appear t={at("porque", "por")} from={from}>
+          <Bloque size={200}>¿POR QUÉ?</Bloque>
+        </Appear>,
       );
     case "injusticia":
       return col(
@@ -256,6 +228,13 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
             </div>
           </Appear>
         </>,
+      );
+    case "cierre":
+      return col(
+        1380,
+        <Appear t={at("cierre", "cuestionarlo")} from={from}>
+          <Bloque size={170}>CUESTIONARLO</Bloque>
+        </Appear>,
       );
     default:
       return null;
@@ -393,7 +372,6 @@ export const Nia: React.FC = () => (
     {scenes.map((sc) => (
       <Sequence key={`k-${sc.key}`} from={f(sc.start)} durationInFrames={f(sc.end) - f(sc.start)}>
         <Kinetic sc={sc} />
-        {sc.pending && sc.key !== "final" ? <Pendiente /> : null}
       </Sequence>
     ))}
 

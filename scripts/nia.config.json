@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Nia («La filosofía se vive en la calle»). Tomas de voz en off (Drive, carpeta Nia) en el orden del guión; los tramos sin voz grabada todavía van como 'pendiente' (texto en pantalla, sin voz). Lo arma scripts/build_nia.py -> src/nia/nia.json.",
+  "_doc": "Video de Nia («La filosofía se vive en la calle»), en el orden del guión. 'take' = voz en off (audio aparte del Drive); 'camera' = toma a cámara con su propio audio (se corta igual que su voz); escenas sin voz llevan 'dur' y 'silent'. Lo arma scripts/build_nia.py -> src/nia/nia.json. «Se vive, se discute…» y «Y sobre todo…» no se grabaron.",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -10,7 +10,13 @@
   "gap": 0.22,
   "videos": {
     "v1": "1SnyG_vzA4Q3Ms88tACGSGb3Vi5hODpBV",
-    "v2": "1Mky_86jjsP80_xn1OtlI_AAKEox8LUIS"
+    "v2": "1Mky_86jjsP80_xn1OtlI_AAKEox8LUIS",
+    "v3": "1q9l52HegF_dOHw8mkZOnCANIhmn6BURo",
+    "v4": "1LHaGYoFUSEHwZxRFKnFuaED_As0OXe6O",
+    "v5": "1Xih9c8YSyLR4eALXe7OQeab9kBrSotty",
+    "v6": "1LardY7Fp2KxRQ8d5Er5CCErutUOtSig3",
+    "v7": "1y_iMDTZc-UQ2PeRsSn0d2UQECzC2nClL",
+    "v8": "1LwQOP6qp8PCQL22jeRO7yVK9w-QAogqK"
   },
   "scenes": [
     {
@@ -22,30 +28,35 @@
       "phrases": [],
       "shots": [
         {
-          "src": "v1",
-          "from": 2.6
+          "src": "v6",
+          "from": 0.0
         }
       ]
     },
     {
       "key": "calle",
-      "pending": "Empieza en la calle.",
-      "dur": 1.5,
+      "silent": "Empieza en la calle.",
+      "dur": 1.6,
       "shots": [
         {
-          "src": "v2",
-          "from": 2.55
+          "src": "v8",
+          "from": 0.6
         }
       ]
     },
     {
       "key": "porque",
-      "pending": "Empieza cuando te preguntas por qué las cosas son como son.",
-      "dur": 2.8,
+      "camera": "v5",
+      "text": "Empieza cuando te preguntas por qué las cosas son como son.",
+      "phrases": [
+        "Empieza cuando te preguntas",
+        "*por *qué las cosas",
+        "son como son."
+      ],
       "shots": [
         {
-          "src": "v2",
-          "from": 0.0
+          "src": "porque",
+          "from": 0
         }
       ]
     },
@@ -65,7 +76,8 @@
       "shots": [
         {
           "at": "Cuando",
-          "placeholder": "Una injusticia en la calle"
+          "src": "v3",
+          "from": 0.0
         },
         {
           "at": "discutes",
@@ -114,26 +126,19 @@
     },
     {
       "key": "ojo",
-      "take": "1Cpy9XDtrjNLZ0Iq6cdtywkQDVqVzl-7p",
-      "text": "Pero ojo, filosofar no era solo cuestionar el mundo, era atreverse a cuestionarlo.",
+      "camera": "v4",
+      "text": "Pero ojo, filosofar no era solo contemplar el mundo, era atreverse a cuestionarlo.",
       "phrases": [
         "Pero *ojo,",
         "filosofar no era solo",
-        "cuestionar el mundo,",
+        "*contemplar el mundo,",
         "era *atreverse",
         "a cuestionarlo."
       ],
       "shots": [
         {
-          "at": "Pero",
-          "src": "v1",
-          "from": 0.0
-        },
-        {
-          "at": "era",
-          "nth": 2,
-          "src": "v2",
-          "from": 5.6
+          "src": "ojo",
+          "from": 0
         }
       ]
     },
@@ -187,14 +192,21 @@
       "hold": 1.0
     },
     {
-      "key": "final",
-      "pending": "La filosofía se vive. Se discute. Se cuestiona… y el cierre (en los videos que faltan).",
-      "dur": 2.6,
+      "key": "cierre",
+      "camera": "v7",
+      "text": "Porque para transformar el mundo, primero hay que aprender a cuestionarlo.",
+      "phrases": [
+        "Porque para *transformar el mundo,",
+        "primero hay que aprender",
+        "a *cuestionarlo."
+      ],
       "shots": [
         {
-          "placeholder": "Aquí sigue el final del guión"
+          "src": "cierre",
+          "from": 0
         }
-      ]
+      ],
+      "hold": 1.6
     }
   ]
 }

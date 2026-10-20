@@ -7,7 +7,7 @@ src/nia/Nia.tsx, a partir de scripts/nia.config.json.
   acelerada (`speed`, el gancho más rápido). Tiempos por palabra con Parakeet sobre la toma ya
   procesada, texto del guión tal como lo dice ella (align de transcribe_whisper).
 - Videos (720x1280, sin audio): escalados a 1080x1920, 30 fps, con la gradación pastel.
-- Escenas 'pending' (voz aún no disponible): duración fija, texto en pantalla sin voz.
+- Escenas 'silent' (sin voz grabada): duración fija, solo texto en pantalla.
 Salidas: public/nia/{voz,musica,foley}.wav, public/nia/{v1,v2}.mp4, src/nia/nia.json.
 
 Uso: python3 scripts/build_nia.py
@@ -56,15 +56,38 @@ def write_wav(path, x, channels=1):
         w.writeframes((x * 32767).astype("<i2").tobytes())
 
 
+VF = f"scale=1080:1920:flags=lanczos,unsharp=5:5:0.3,fps={FPS},{GRADE},format=yuv420p"
+ENC = ["-c:v", "libx264", "-preset", "slow", "-crf", "16", "-movflags", "+faststart"]
+
+
+def frames(path):
+    out = subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v",
+                          "-show_entries", "stream=nb_read_frames", "-of", "csv=p=0", path],
+                         capture_output=True, text=True, check=True).stdout
+    return int(out.strip())
+
+
 def videos():
+    """Tomas sin cortar (las de apoyo), escaladas a 1080x1920 con la gradación pastel."""
+    clips = {}
     for key, vid in CFG["videos"].items():
         dst = f"{OUT}/{key}.mp4"
-        if os.path.exists(dst):
-            continue
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{MEDIA}/{vid}.bin", "-an",
-                        "-vf", f"scale=1080:1920:flags=lanczos,unsharp=5:5:0.4,fps={FPS},{GRADE},format=yuv420p",
-                        "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-movflags", "+faststart", dst], check=True)
-        print("video:", dst)
+        if not os.path.exists(dst):
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{MEDIA}/{vid}.bin", "-an", "-vf", VF, *ENC, dst],
+                           check=True)
+            print("video:", dst)
+        clips[key] = frames(dst)
+    return clips
+
+
+def cut_video(vid, ranges, speed, dst):
+    """Toma a cámara cortada con los mismos tramos que su voz y a la misma velocidad (queda en sincronía
+    con voz.wav)."""
+    parts = "".join(f"[0:v]trim={a:.3f}:{b:.3f},setpts=PTS-STARTPTS[p{i}];" for i, (a, b) in enumerate(ranges))
+    concat = "".join(f"[p{i}]" for i in range(len(ranges))) + f"concat=n={len(ranges)}:v=1:a=0[c];"
+    graph = parts + concat + f"[c]setpts=PTS/{speed},{VF}[v]"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", f"{MEDIA}/{vid}.bin", "-filter_complex", graph,
+                    "-map", "[v]", "-an", *ENC, dst], check=True)
 
 
 def enhanced(take):
@@ -76,7 +99,8 @@ def enhanced(take):
 
 
 def cut_pauses(x):
-    """Quita las pausas largas (decididas por el audio) y deja `keep` s de aire en cada una."""
+    """Quita las pausas largas (decididas por el audio) y deja `keep` s de aire en cada una.
+    Devuelve el audio recortado y los tramos conservados (en s, relativos a x) para cortar el video igual."""
     p = CFG["pause"]
     hop = int(0.01 * SR)
     n = len(x) // hop
@@ -106,7 +130,7 @@ def cut_pauses(x):
         y[:fade] *= np.linspace(0, 1, fade)
         y[-fade:] *= np.linspace(1, 0, fade)
         parts.append(y)
-    return np.concatenate(parts)
+    return np.concatenate(parts), [(a * 0.01, b * 0.01) for a, b in keep]
 
 
 def tempo(x, speed, name):
@@ -139,17 +163,25 @@ def find_word(words, at, nth=1):
 def build():
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(TMP, exist_ok=True)
-    videos()
+    clips = videos()
     t = 0.0
     voice, scenes = [], []
     for sc in CFG["scenes"]:
-        if "take" in sc:
-            raw = enhanced(sc["take"])
+        # take: voz en off grabada aparte; camera: toma a cámara con su propio audio.
+        src = sc.get("take") or (CFG["videos"][sc["camera"]] if "camera" in sc else None)
+        if src:
+            raw = enhanced(src)
             # Lo que haya antes de la primera palabra (murmullos, ruido) se descarta: la toma empieza
             # 0.3 s antes de la primera palabra que reconoce Parakeet (sus tiempos vienen corridos ~0.2 s).
             first = words_for(raw, sc["text"])[0]["s"]
-            raw = raw[int(max(0.0, first - 0.3) * SR):]
-            x = tempo(cut_pauses(raw), sc.get("speed", CFG["speed"]), sc["key"])
+            off = max(0.0, first - 0.3)
+            cut, ranges = cut_pauses(raw[int(off * SR):])
+            speed = sc.get("speed", CFG["speed"])
+            x = tempo(cut, speed, sc["key"])
+            if "camera" in sc:
+                dst = f"{OUT}/{sc['key']}.mp4"
+                cut_video(src, [(off + a, off + b) for a, b in ranges], speed, dst)
+                clips[sc["key"]] = frames(dst)
             words = words_for(x, sc["text"])
             dur = len(x) / SR
             voice.append((t, x))
@@ -175,11 +207,11 @@ def build():
         for i, c in enumerate(caps):
             c["end"] = caps[i + 1]["start"] if i + 1 < len(caps) else round(t + dur, 3)
         scenes.append({"key": sc["key"], "start": round(t, 3), "end": round(end, 3),
-                       "pending": sc.get("pending"), "text": sc.get("text"),
+                       "silent": sc.get("silent"), "text": sc.get("text"),
                        "words": [{**w, "s": round(t + w["s"], 3), "e": round(t + w["e"], 3)} for w in words],
                        "shots": shots, "captions": caps})
         print(f"{sc['key']:11s} {t:6.2f} -> {end:6.2f}  ({dur:.2f} s)")
-        t = end + (CFG["gap"] if "take" in sc else 0.0)
+        t = end + (CFG["gap"] if src else 0.0)
     # La última toma de cada escena se estira hasta la siguiente escena (sin negro en los huecos).
     for a, b in zip(scenes, scenes[1:]):
         a["shots"][-1]["end"] = b["start"]
@@ -189,7 +221,7 @@ def build():
     for st, x in voice:
         mf.place(buf, x, st)
     write_wav(f"{OUT}/voz.wav", buf)
-    data = {"fps": FPS, "duration": round(total, 3), "scenes": scenes}
+    data = {"fps": FPS, "duration": round(total, 3), "clips": clips, "scenes": scenes}
     json.dump(data, open(f"{ROOT}/src/nia/nia.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return data
 
@@ -266,12 +298,12 @@ def big_whoosh(gain=0.4, dur=0.55):
 def foley(data):
     """Los 4 efectos de la referencia del cliente (sin el «faaahh»):
     - clic para remarcar textos: cada subtítulo y cada palabra grande;
-    - «magic reveal» para revelar algo: LA FILOSOFÍA, CALLE, ¿POR QUÉ?, Sócrates, VERDADES;
+    - «magic reveal» para revelar algo: LA FILOSOFÍA, CALLE, ¿POR QUÉ?, Sócrates, VERDADES, CUESTIONARLO;
     - whoosh en los cambios de toma dentro de una escena;
     - obturador de cámara en los cambios de escena (con el destello de la imagen)."""
     buf = np.zeros(int((data["duration"] + 2) * SR))
     click, shutter, magic, whoosh = sample("click"), sample("shutter"), magic_reveal(), big_whoosh()
-    reveal = {"gancho": ["filosofía"], "socrates": ["sócrates"]}
+    reveal = {"gancho": ["filosofía"], "socrates": ["sócrates"], "porque": ["por"], "cierre": ["cuestionarlo."]}
     big = {"injusticia": ["tanto"], "ojo": ["ojo,", "atreverse"], "gancho": ["libro."]}
     for i, sc in enumerate(data["scenes"]):
         if i:
@@ -290,8 +322,6 @@ def foley(data):
                 mf.place(buf, click * 0.6, w["s"])
         if sc["key"] == "calle":
             mf.place(buf, magic, sc["start"] + 0.5)
-        if sc["key"] == "porque":
-            mf.place(buf, magic, sc["start"] + 0.75)
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 
