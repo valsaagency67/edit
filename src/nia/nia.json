@@ -14,6 +14,50 @@
   "ojo": 125,
   "cierre": 91
  },
+ "broll": {
+  "protesta": {
+   "kind": "image",
+   "w": 1000,
+   "h": 752,
+   "frames": 0
+  },
+  "discusion": {
+   "kind": "video",
+   "w": 1000,
+   "h": 1380,
+   "frames": 63
+  },
+  "nestle": {
+   "kind": "image",
+   "w": 1000,
+   "h": 640,
+   "frames": 0
+  },
+  "pobreza": {
+   "kind": "image",
+   "w": 1000,
+   "h": 734,
+   "frames": 0
+  },
+  "barrio": {
+   "kind": "image",
+   "w": 1000,
+   "h": 1148,
+   "frames": 0
+  },
+  "universidad": {
+   "kind": "image",
+   "w": 1000,
+   "h": 730,
+   "frames": 0
+  },
+  "transporte": {
+   "kind": "image",
+   "w": 1000,
+   "h": 704,
+   "frames": 0
+  }
+ },
  "scenes": [
   {
    "key": "gancho",
@@ -304,18 +348,23 @@
    ],
    "shots": [
     {
-     "placeholder": "Una injusticia en la calle",
+     "broll": "protesta",
      "start": 7.745,
      "end": 9.265
     },
     {
-     "placeholder": "Gente discutiendo en una esquina",
+     "broll": "discusion",
      "start": 9.265,
-     "end": 11.665
+     "end": 11.185
     },
     {
-     "placeholder": "Contraste: unos tienen tanto…",
-     "start": 11.665,
+     "broll": "nestle",
+     "start": 11.185,
+     "end": 12.625
+    },
+    {
+     "broll": "pobreza",
+     "start": 12.625,
      "end": 13.992
     }
    ],
@@ -487,18 +536,8 @@
    ],
    "shots": [
     {
-     "placeholder": "Los antiguos (Grecia, estatuas)",
+     "painting": "socrates",
      "start": 13.992,
-     "end": 15.592
-    },
-    {
-     "placeholder": "Imagen de Sócrates (busto o pintura)",
-     "start": 15.592,
-     "end": 17.832
-    },
-    {
-     "placeholder": "Gente conversando, haciendo preguntas",
-     "start": 17.832,
      "end": 19.432
     },
     {
@@ -835,17 +874,17 @@
      "end": 27.915
     },
     {
-     "placeholder": "El barrio",
+     "broll": "barrio",
      "start": 27.915,
      "end": 28.555
     },
     {
-     "placeholder": "La universidad",
+     "broll": "universidad",
      "start": 28.555,
      "end": 29.275
     },
     {
-     "placeholder": "Transporte público",
+     "broll": "transporte",
      "start": 29.275,
      "end": 30.555
     },

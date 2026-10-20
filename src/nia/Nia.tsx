@@ -13,6 +13,7 @@ import {
 } from "remotion";
 import { Bebas, Montserrat, Playfair } from "../campaign/font";
 import raw from "./nia.json";
+import socrates from "./socrates.json";
 import { NIA } from "./NiaEstilo";
 
 // Video de Nia («La filosofía se vive en la calle»). Voz en off por escenas (scripts/build_nia.py,
@@ -23,7 +24,9 @@ export const NIA_FPS = raw.fps;
 export const niaDuration = Math.round(raw.duration * raw.fps);
 
 type Word = { t: string; s: number; e: number };
-type Shot = { start: number; end: number; src?: string; from?: number; placeholder?: string; card?: string; porque?: boolean };
+type Shot = { start: number; end: number; src?: string; from?: number; placeholder?: string; card?: string; porque?: boolean; broll?: string; painting?: string };
+type BrollInfo = { kind: string; w: number; h: number; frames: number };
+const BROLL = raw.broll as Record<string, BrollInfo>;
 type Scene = (typeof raw.scenes)[number] & { words: Word[]; shots: Shot[] };
 
 const f = (s: number) => Math.round(s * NIA_FPS);
@@ -295,12 +298,139 @@ const PorQue: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
+// Imagen o video de apoyo: tarjeta con bordes redondeados en la parte de arriba (deja libres los
+// subtítulos y los textos grandes de abajo) sobre una copia desenfocada que llena la pantalla. Las
+// fotos se acercan muy despacio para que no se vean quietas; los videos que se acaban se congelan.
+const CARD_W = 1000;
+const CARD_TOP = 330;
+const CARD_MAX_H = 780;
+const Broll: React.FC<{ name: string; dur: number }> = ({ name, dur }) => {
+  const frame = useCurrentFrame();
+  const info = BROLL[name];
+  const file = staticFile(`nia/broll/${name}.${info.kind === "video" ? "mp4" : "jpg"}`);
+  const io = useBlurIO(dur);
+  const push = interpolate(frame, [0, dur], [1, 1.06], clamp);
+  const h = Math.min(CARD_MAX_H, Math.round((CARD_W * info.h) / info.w));
+  const fill: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
+  const media = (style: React.CSSProperties) => {
+    if (info.kind !== "video") return <Img src={file} style={{ ...fill, ...style }} />;
+    const last = info.frames - 2;
+    const video = (trim: number) => <OffthreadVideo src={file} muted trimBefore={trim} style={{ ...fill, ...style }} />;
+    if (dur <= last) return video(0);
+    return (
+      <>
+        <Sequence durationInFrames={last}>{video(0)}</Sequence>
+        <Sequence from={last}>
+          <Freeze frame={0}>{video(last - 1)}</Freeze>
+        </Sequence>
+      </>
+    );
+  };
+  return (
+    <AbsoluteFill style={{ backgroundColor: NIA.ciruela }}>
+      {media({ filter: "blur(36px) brightness(0.8)", transform: "scale(1.2)" })}
+      <AbsoluteFill style={{ background: "rgba(62,47,91,0.35)" }} />
+      <div
+        style={{
+          ...io,
+          position: "absolute",
+          top: CARD_TOP + (CARD_MAX_H - h) / 2,
+          left: (1080 - CARD_W) / 2,
+          width: CARD_W,
+          height: h,
+          borderRadius: 36,
+          overflow: "hidden",
+          boxShadow: "0 18px 50px rgba(62,47,91,0.45)",
+          border: `4px solid ${NIA.crema}`,
+        }}
+      >
+        {media({ transform: info.kind === "video" ? undefined : `scale(${push})` })}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// Globo de texto de cómic: entra con un pequeño rebote y sale desenfocado; la cola apunta a `to`.
+const Globo: React.FC<{ text: string; left: number; top: number; width: number; to: [number, number]; dur: number }> = ({
+  text,
+  left,
+  top,
+  width: W,
+  to,
+  dur,
+}) => {
+  const frame = useCurrentFrame();
+  const pop = interpolate(frame, [0, 5, 8], [0.6, 1.06, 1], clamp);
+  const o = interpolate(frame, [0, 3, dur - IO, dur], [0, 1, 1, 0], clamp);
+  const b = interpolate(frame, [dur - IO, dur], [0, 12], clamp);
+  // Cola: triángulo desde el borde de abajo del globo hasta la cabeza del personaje.
+  const baseX = Math.min(Math.max(to[0] - left, 90), W - 90);
+  return (
+    <AbsoluteFill style={{ opacity: o, filter: `blur(${b}px)` }}>
+      <svg style={{ position: "absolute", left: 0, top: 0 }} width={1080} height={1920}>
+        <polygon
+          points={`${left + baseX - 34},${top + 90} ${left + baseX + 34},${top + 90} ${to[0]},${to[1]}`}
+          fill={NIA.crema}
+        />
+      </svg>
+      <div
+        style={{
+          position: "absolute",
+          left,
+          top,
+          width: W,
+          padding: "26px 34px",
+          background: NIA.crema,
+          borderRadius: 44,
+          border: `5px solid ${NIA.lavanda}`,
+          boxShadow: "0 12px 40px rgba(62,47,91,0.35)",
+          transform: `scale(${pop})`,
+          transformOrigin: `${baseX}px 100%`,
+          fontFamily: Montserrat,
+          fontWeight: 700,
+          fontSize: 44,
+          lineHeight: 1.18,
+          color: NIA.ciruela,
+          textAlign: "center",
+        }}
+      >
+        {text}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+// «La muerte de Sócrates» (David, 1787) animada en scripts/make_socrates.py, a pantalla completa, con
+// dos globos: Sócrates pregunta y Critón contesta.
+const Pintura: React.FC<{ shot: Shot }> = ({ shot }) => {
+  const dur = f(shot.end) - f(shot.start);
+  // Sócrates pregunta justo después de que la cámara llega a él; Critón contesta en «haciendo preguntas».
+  const g1 = f(at("socrates", "sócrates") + 0.3) - f(shot.start);
+  const g2 = f(at("socrates", "haciendo")) - f(shot.start);
+  const s = socrates.heads.socrates as [number, number];
+  const c = socrates.heads.criton as [number, number];
+  return (
+    <AbsoluteFill>
+      <OffthreadVideo src={staticFile(`nia/broll/${shot.painting}.mp4`)} muted style={{ width: "100%", height: "100%" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(30,20,50,0.5) 66%, rgba(30,20,50,0.5) 100%)" }} />
+      <Sequence from={g1} durationInFrames={g2 - g1}>
+        <Globo text="¿Y tú cómo sabes que eso es verdad?" left={180} top={330} width={600} to={[s[0] - 50, s[1] - 95]} dur={g2 - g1} />
+      </Sequence>
+      <Sequence from={g2} durationInFrames={dur - g2}>
+        <Globo text="Pues… ¡todo el mundo lo dice!" left={520} top={640} width={520} to={[c[0] - 20, c[1] - 75]} dur={dur - g2} />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
+
 const ShotView: React.FC<{ shot: Shot }> = ({ shot }) => {
   const dur = f(shot.end) - f(shot.start);
   if (shot.src) return <Clip src={shot.src} from={shot.from ?? 0} dur={dur} />;
   if (shot.placeholder) return <Placeholder label={shot.placeholder} dur={dur} />;
   if (shot.card === "verdades") return <Verdades from={shot.start} dur={dur} />;
   if (shot.porque) return <PorQue dur={dur} />;
+  if (shot.broll) return <Broll name={shot.broll} dur={dur} />;
+  if (shot.painting) return <Pintura shot={shot} />;
   return null;
 };
 

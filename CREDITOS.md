@@ -39,3 +39,7 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
   `ion-sound`). El whoosh es sintetizado en `scripts/build_nia.py`.
 - **Reducción de ruido** de la voz: filtro `arnndn` de FFmpeg con el modelo original de RNNoise
   (Xiph.Org, licencia BSD-3), `scripts/models/rnnoise-std.rnnn` (tomado de richardpl/arnndn-models).
+- **Pintura**: «La muerte de Sócrates», Jacques-Louis David (1787), dominio público; animada en
+  `scripts/make_socrates.py`.
+- **Fotos y video de apoyo** (protesta, Nestlé, pobreza, discusión, barrio, universidad, transporte):
+  enviados por el cliente (`media/nia/broll`, no versionados); los derechos son de sus autores.

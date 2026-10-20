@@ -18,6 +18,15 @@
     "v7": "1y_iMDTZc-UQ2PeRsSn0d2UQECzC2nClL",
     "v8": "1LwQOP6qp8PCQL22jeRO7yVK9w-QAogqK"
   },
+  "broll": {
+    "protesta": "protesta.jpg",
+    "discusion": "discusion.mp4",
+    "nestle": "nestle.jpg",
+    "pobreza": "pobreza.jpg",
+    "barrio": "barrio.jpg",
+    "universidad": "universidad.jpg",
+    "transporte": "transporte.jpg"
+  },
   "scenes": [
     {
       "key": "gancho",
@@ -76,15 +85,19 @@
       "shots": [
         {
           "at": "Cuando",
-          "placeholder": "Una injusticia en la calle"
+          "broll": "protesta"
         },
         {
           "at": "discutes",
-          "placeholder": "Gente discutiendo en una esquina"
+          "broll": "discusion"
         },
         {
-          "at": "unos",
-          "placeholder": "Contraste: unos tienen tanto…"
+          "at": "por",
+          "broll": "nestle"
+        },
+        {
+          "at": "y",
+          "broll": "pobreza"
         }
       ]
     },
@@ -105,15 +118,7 @@
       "shots": [
         {
           "at": "Los",
-          "placeholder": "Los antiguos (Grecia, estatuas)"
-        },
-        {
-          "at": "Sócrates",
-          "placeholder": "Imagen de Sócrates (busto o pintura)"
-        },
-        {
-          "at": "haciendo",
-          "placeholder": "Gente conversando, haciendo preguntas"
+          "painting": "socrates"
         },
         {
           "at": "esas",
@@ -161,15 +166,15 @@
         },
         {
           "at": "barrio,",
-          "placeholder": "El barrio"
+          "broll": "barrio"
         },
         {
           "at": "universidad,",
-          "placeholder": "La universidad"
+          "broll": "universidad"
         },
         {
           "at": "transporte",
-          "placeholder": "Transporte público"
+          "broll": "transporte"
         },
         {
           "at": "mesa",
