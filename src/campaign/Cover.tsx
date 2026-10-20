@@ -8,10 +8,10 @@ const YELLOW = "#FFE600";
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const SHADOW = "0 4px 18px rgba(0,0,0,0.6), 0 0 3px rgba(0,0,0,0.6)";
 
-export const Cover: React.FC = () => (
+export const Cover: React.FC<{ fondo?: string }> = ({ fondo = "cover/fondo.jpg" }) => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
     <Img
-      src={staticFile("cover/fondo.jpg")}
+      src={staticFile(fondo)}
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
     />
     <AbsoluteFill
