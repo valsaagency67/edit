@@ -1,0 +1,373 @@
+[
+ {
+  "text": " En",
+  "startMs": 1200,
+  "endMs": 1520,
+  "timestampMs": 1200,
+  "confidence": null
+ },
+ {
+  "text": " lugar",
+  "startMs": 1520,
+  "endMs": 1840,
+  "timestampMs": 1520,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 1840,
+  "endMs": 2080,
+  "timestampMs": 1840,
+  "confidence": null
+ },
+ {
+  "text": " hacer",
+  "startMs": 2080,
+  "endMs": 2320,
+  "timestampMs": 2080,
+  "confidence": null
+ },
+ {
+  "text": " control",
+  "startMs": 2320,
+  "endMs": 2720,
+  "timestampMs": 2320,
+  "confidence": null
+ },
+ {
+  "text": " político,",
+  "startMs": 2720,
+  "endMs": 3360,
+  "timestampMs": 2720,
+  "confidence": null
+ },
+ {
+  "text": " decidió",
+  "startMs": 3360,
+  "endMs": 3920,
+  "timestampMs": 3360,
+  "confidence": null
+ },
+ {
+  "text": " arreglarlo",
+  "startMs": 3920,
+  "endMs": 4560,
+  "timestampMs": 3920,
+  "confidence": null
+ },
+ {
+  "text": " con",
+  "startMs": 4560,
+  "endMs": 4720,
+  "timestampMs": 4560,
+  "confidence": null
+ },
+ {
+  "text": " su",
+  "startMs": 4720,
+  "endMs": 4880,
+  "timestampMs": 4720,
+  "confidence": null
+ },
+ {
+  "text": " plata",
+  "startMs": 4880,
+  "endMs": 5280,
+  "timestampMs": 4880,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 5280,
+  "endMs": 5440,
+  "timestampMs": 5280,
+  "confidence": null
+ },
+ {
+  "text": " con",
+  "startMs": 5440,
+  "endMs": 5600,
+  "timestampMs": 5440,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 5600,
+  "endMs": 5680,
+  "timestampMs": 5600,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 5680,
+  "endMs": 5840,
+  "timestampMs": 5680,
+  "confidence": null
+ },
+ {
+  "text": " sus",
+  "startMs": 5840,
+  "endMs": 6000,
+  "timestampMs": 5840,
+  "confidence": null
+ },
+ {
+  "text": " amigos.",
+  "startMs": 6000,
+  "endMs": 6640,
+  "timestampMs": 6000,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 6640,
+  "endMs": 6880,
+  "timestampMs": 6640,
+  "confidence": null
+ },
+ {
+  "text": " qué",
+  "startMs": 6880,
+  "endMs": 7120,
+  "timestampMs": 6880,
+  "confidence": null
+ },
+ {
+  "text": " casualidad",
+  "startMs": 7120,
+  "endMs": 7840,
+  "timestampMs": 7120,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 7840,
+  "endMs": 8080,
+  "timestampMs": 7840,
+  "confidence": null
+ },
+ {
+  "text": " uno",
+  "startMs": 8080,
+  "endMs": 8320,
+  "timestampMs": 8080,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 8320,
+  "endMs": 8480,
+  "timestampMs": 8320,
+  "confidence": null
+ },
+ {
+  "text": " sus",
+  "startMs": 8480,
+  "endMs": 8640,
+  "timestampMs": 8480,
+  "confidence": null
+ },
+ {
+  "text": " amigos",
+  "startMs": 8640,
+  "endMs": 8880,
+  "timestampMs": 8640,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 8880,
+  "endMs": 9120,
+  "timestampMs": 8880,
+  "confidence": null
+ },
+ {
+  "text": " encuentre",
+  "startMs": 9120,
+  "endMs": 9680,
+  "timestampMs": 9120,
+  "confidence": null
+ },
+ {
+  "text": " hoy",
+  "startMs": 9680,
+  "endMs": 10160,
+  "timestampMs": 9680,
+  "confidence": null
+ },
+ {
+  "text": " haciendo",
+  "startMs": 10160,
+  "endMs": 10560,
+  "timestampMs": 10160,
+  "confidence": null
+ },
+ {
+  "text": " campaña",
+  "startMs": 10560,
+  "endMs": 11040,
+  "timestampMs": 10560,
+  "confidence": null
+ },
+ {
+  "text": " para",
+  "startMs": 11040,
+  "endMs": 11200,
+  "timestampMs": 11040,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 11200,
+  "endMs": 11440,
+  "timestampMs": 11200,
+  "confidence": null
+ },
+ {
+  "text": " alcaldía",
+  "startMs": 11440,
+  "endMs": 12160,
+  "timestampMs": 11440,
+  "confidence": null
+ },
+ {
+  "text": " con",
+  "startMs": 12160,
+  "endMs": 12320,
+  "timestampMs": 12160,
+  "confidence": null
+ },
+ {
+  "text": " las",
+  "startMs": 12320,
+  "endMs": 12400,
+  "timestampMs": 12320,
+  "confidence": null
+ },
+ {
+  "text": " banderas",
+  "startMs": 12400,
+  "endMs": 12880,
+  "timestampMs": 12400,
+  "confidence": null
+ },
+ {
+  "text": " del",
+  "startMs": 12880,
+  "endMs": 13040,
+  "timestampMs": 12880,
+  "confidence": null
+ },
+ {
+  "text": " dilianismo.",
+  "startMs": 13040,
+  "endMs": 13840,
+  "timestampMs": 13040,
+  "confidence": null
+ },
+ {
+  "text": " Y",
+  "startMs": 13920,
+  "endMs": 14160,
+  "timestampMs": 13920,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 14160,
+  "endMs": 14240,
+  "timestampMs": 14160,
+  "confidence": null
+ },
+ {
+  "text": " otra",
+  "startMs": 14240,
+  "endMs": 14560,
+  "timestampMs": 14240,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 14560,
+  "endMs": 14640,
+  "timestampMs": 14560,
+  "confidence": null
+ },
+ {
+  "text": " sus",
+  "startMs": 14640,
+  "endMs": 14880,
+  "timestampMs": 14640,
+  "confidence": null
+ },
+ {
+  "text": " amigas",
+  "startMs": 14880,
+  "endMs": 15360,
+  "timestampMs": 14880,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 15360,
+  "endMs": 15520,
+  "timestampMs": 15360,
+  "confidence": null
+ },
+ {
+  "text": " una",
+  "startMs": 15520,
+  "endMs": 15760,
+  "timestampMs": 15520,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 15760,
+  "endMs": 15920,
+  "timestampMs": 15760,
+  "confidence": null
+ },
+ {
+  "text": " sus",
+  "startMs": 15920,
+  "endMs": 16160,
+  "timestampMs": 15920,
+  "confidence": null
+ },
+ {
+  "text": " mayores",
+  "startMs": 16160,
+  "endMs": 16560,
+  "timestampMs": 16160,
+  "confidence": null
+ },
+ {
+  "text": " aliadas",
+  "startMs": 16560,
+  "endMs": 17120,
+  "timestampMs": 16560,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 17120,
+  "endMs": 17280,
+  "timestampMs": 17120,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 17280,
+  "endMs": 17360,
+  "timestampMs": 17280,
+  "confidence": null
+ },
+ {
+  "text": " concejo.",
+  "startMs": 17360,
+  "endMs": 17860,
+  "timestampMs": 17360,
+  "confidence": null
+ }
+]
