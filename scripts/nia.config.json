@@ -231,7 +231,7 @@
           "porque": true
         }
       ],
-      "hold": 0.8,
+      "hold": 0.15,
       "zooms": {
         "origin": [
           580,
