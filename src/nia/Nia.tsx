@@ -30,13 +30,13 @@ type Scene = (typeof raw.scenes)[number] & { words: Word[]; shots: Shot[] };
 
 const f = (s: number) => Math.round(s * NIA_FPS);
 const clamp = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const };
-const SHADOW = "0 3px 14px rgba(62,47,91,0.55), 0 0 2px rgba(62,47,91,0.6)";
-const GRAD = `linear-gradient(90deg, ${NIA.lila}, ${NIA.rosa}, ${NIA.amarillo})`;
+export const SHADOW = "0 3px 14px rgba(62,47,91,0.55), 0 0 2px rgba(62,47,91,0.6)";
+export const GRAD = `linear-gradient(90deg, ${NIA.lila}, ${NIA.rosa}, ${NIA.amarillo})`;
 const IO = 6;
 const scenes = raw.scenes as Scene[];
 
 // Bootzy no trae «¿», «¡» ni «…»: los signos de apertura se arman girando su «?» y su «!».
-const BZ: React.FC<{ t: string }> = ({ t }) => (
+export const BZ: React.FC<{ t: string }> = ({ t }) => (
   <>
     {t
       .replace(/…/g, "...")
@@ -150,7 +150,7 @@ const Placeholder: React.FC<{ label: string; dur: number }> = ({ label, dur }) =
   );
 };
 
-const Bloque: React.FC<{ children: string; size?: number }> = ({ children, size = 140 }) => (
+export const Bloque: React.FC<{ children: string; size?: number }> = ({ children, size = 140 }) => (
   <span
     style={{
       fontFamily: Bootzy,
@@ -168,7 +168,7 @@ const Bloque: React.FC<{ children: string; size?: number }> = ({ children, size 
   </span>
 );
 
-const Serif: React.FC<{ children: React.ReactNode; size?: number; color?: string }> = ({ children, size = 92, color = NIA.crema }) => (
+export const Serif: React.FC<{ children: React.ReactNode; size?: number; color?: string }> = ({ children, size = 92, color = NIA.crema }) => (
   <div style={{ fontFamily: Playfair, fontStyle: "italic", fontSize: size, color, textShadow: SHADOW, marginTop: 18 }}>{children}</div>
 );
 

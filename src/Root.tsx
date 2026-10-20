@@ -9,6 +9,7 @@ import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
 import { Nia, NIA_FPS, niaDuration } from "./nia/Nia";
 import { NiaEstilo } from "./nia/NiaEstilo";
+import { NiaPortada } from "./nia/NiaPortada";
 
 // JFC-Vigilante: versión final (60 fps, render a 1080x1920).
 // JFC-Vigilante-Borrador: revisión rápida (30 fps, se renderiza con --scale=0.5).
@@ -86,6 +87,7 @@ export const RemotionRoot: React.FC = () => {
       />
       {/* Nia: «La filosofía se vive en la calle»: npm run build:nia && npm run render:nia */}
       <Composition id="NIA" component={Nia} width={1080} height={1920} fps={NIA_FPS} durationInFrames={niaDuration} />
+      <Composition id="NIA-Portada" component={NiaPortada} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Nia: propuesta de estilo pastel (cuadros de muestra) */}
       <Composition
         id="NIA-Estilo"
