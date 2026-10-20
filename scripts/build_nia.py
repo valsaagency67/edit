@@ -80,27 +80,6 @@ def videos():
     return clips
 
 
-def broll():
-    """Imágenes y videos de apoyo que manda el cliente (media/nia/broll): misma gradación pastel; los
-    videos a 30 fps sin audio. Devuelve {nombre: {kind, w, h, frames}} para Nia.tsx."""
-    os.makedirs(f"{OUT}/broll", exist_ok=True)
-    info = {}
-    for name, file in CFG.get("broll", {}).items():
-        src = f"{MEDIA}/broll/{file}"
-        video = file.lower().endswith((".mp4", ".mov"))
-        dst = f"{OUT}/broll/{name}.{'mp4' if video else 'jpg'}"
-        if not os.path.exists(dst):
-            vf = f"scale='max(1000,iw)':-2:flags=lanczos,{GRADE}" + (f",fps={FPS},format=yuv420p" if video else "")
-            args = ["-an", "-vf", vf, *ENC] if video else ["-vf", vf, "-q:v", "2"]
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, *args, dst], check=True)
-        w, h = map(int, subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v", "-show_entries",
-                                        "stream=width,height", "-of", "csv=p=0", dst],
-                                       capture_output=True, text=True, check=True).stdout.strip().split(","))
-        info[name] = {"kind": "video" if video else "image", "w": w, "h": h,
-                      "frames": frames(dst) if video else 0}
-    return info
-
-
 def cut_video(vid, ranges, speed, dst):
     """Toma a cámara cortada con los mismos tramos que su voz y a la misma velocidad (queda en sincronía
     con voz.wav)."""
@@ -248,7 +227,13 @@ def build():
     for st, x in voice:
         mf.place(buf, x, st)
     write_wav(f"{OUT}/voz.wav", buf)
-    data = {"fps": FPS, "duration": round(total, 3), "clips": clips, "broll": broll(), "scenes": scenes}
+    # Fotos y videos de apoyo animados a pantalla completa (scripts/make_fotos.py y make_socrates.py).
+    for sc in scenes:
+        for sh in sc["shots"]:
+            name = sh.get("full") or sh.get("painting")
+            if name:
+                clips[name] = frames(f"{OUT}/broll/{name}{'-anim' if 'full' in sh else ''}.mp4")
+    data = {"fps": FPS, "duration": round(total, 3), "clips": clips, "scenes": scenes}
     json.dump(data, open(f"{ROOT}/src/nia/nia.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return data
 

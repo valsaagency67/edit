@@ -24,9 +24,7 @@ export const NIA_FPS = raw.fps;
 export const niaDuration = Math.round(raw.duration * raw.fps);
 
 type Word = { t: string; s: number; e: number };
-type Shot = { start: number; end: number; src?: string; from?: number; placeholder?: string; card?: string; porque?: boolean; broll?: string; painting?: string };
-type BrollInfo = { kind: string; w: number; h: number; frames: number };
-const BROLL = raw.broll as Record<string, BrollInfo>;
+type Shot = { start: number; end: number; src?: string; from?: number; placeholder?: string; card?: string; porque?: boolean; full?: string; painting?: string };
 type Scene = (typeof raw.scenes)[number] & { words: Word[]; shots: Shot[] };
 
 const f = (s: number) => Math.round(s * NIA_FPS);
@@ -63,8 +61,8 @@ const Appear: React.FC<{ t: number; from: number; children: React.ReactNode; sty
 
 // Si la escena dura más que lo que queda de la toma, se congela su último cuadro.
 const CLIP_FRAMES: Record<string, number> = raw.clips;
-const Clip: React.FC<{ src: string; from: number; dur: number }> = ({ src, from, dur }) => {
-  const usable = CLIP_FRAMES[src] - f(from) - 1;
+const Clip: React.FC<{ src: string; from: number; dur: number; clip?: string }> = ({ src, from, dur, clip }) => {
+  const usable = CLIP_FRAMES[clip ?? src] - f(from) - 1;
   const video = (trim: number) => (
     <OffthreadVideo src={staticFile(`nia/${src}.mp4`)} trimBefore={trim} muted style={{ width: "100%", height: "100%", objectFit: "cover" }} />
   );
@@ -197,16 +195,19 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
         </Appear>,
       );
     case "injusticia":
+      // TANTO sobre la foto de Nestlé; al pasar a la de la pobreza, «tan poco».
       return col(
         1380,
         <>
-          <Appear t={at("injusticia", "tanto")} from={from}>
-            <div style={{ fontFamily: Bebas, fontSize: 250, lineHeight: 0.9, color: NIA.crema, textShadow: `0 6px 0 ${NIA.lavanda}, ${SHADOW}` }}>
-              TANTO
-            </div>
-          </Appear>
+          <Sequence durationInFrames={f(at("injusticia", "tan")) - f(from)} layout="none">
+            <Appear t={at("injusticia", "tanto")} from={from}>
+              <div style={{ fontFamily: Bebas, fontSize: 250, lineHeight: 0.9, color: NIA.crema, textShadow: `0 6px 0 ${NIA.lavanda}, ${SHADOW}` }}>
+                TANTO
+              </div>
+            </Appear>
+          </Sequence>
           <Appear t={at("injusticia", "tan")} from={from}>
-            <Serif size={56}>y otros tan poco</Serif>
+            <Serif size={120}>tan poco</Serif>
           </Appear>
         </>,
       );
@@ -298,57 +299,15 @@ const PorQue: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-// Imagen o video de apoyo: tarjeta con bordes redondeados en la parte de arriba (deja libres los
-// subtítulos y los textos grandes de abajo) sobre una copia desenfocada que llena la pantalla. Las
-// fotos se acercan muy despacio para que no se vean quietas; los videos que se acaban se congelan.
-const CARD_W = 1000;
-const CARD_TOP = 330;
-const CARD_MAX_H = 780;
-const Broll: React.FC<{ name: string; dur: number }> = ({ name, dur }) => {
-  const frame = useCurrentFrame();
-  const info = BROLL[name];
-  const file = staticFile(`nia/broll/${name}.${info.kind === "video" ? "mp4" : "jpg"}`);
-  const io = useBlurIO(dur);
-  const push = interpolate(frame, [0, dur], [1, 1.06], clamp);
-  const h = Math.min(CARD_MAX_H, Math.round((CARD_W * info.h) / info.w));
-  const fill: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
-  const media = (style: React.CSSProperties) => {
-    if (info.kind !== "video") return <Img src={file} style={{ ...fill, ...style }} />;
-    const last = info.frames - 2;
-    const video = (trim: number) => <OffthreadVideo src={file} muted trimBefore={trim} style={{ ...fill, ...style }} />;
-    if (dur <= last) return video(0);
-    return (
-      <>
-        <Sequence durationInFrames={last}>{video(0)}</Sequence>
-        <Sequence from={last}>
-          <Freeze frame={0}>{video(last - 1)}</Freeze>
-        </Sequence>
-      </>
-    );
-  };
-  return (
-    <AbsoluteFill style={{ backgroundColor: NIA.ciruela }}>
-      {media({ filter: "blur(36px) brightness(0.8)", transform: "scale(1.2)" })}
-      <AbsoluteFill style={{ background: "rgba(62,47,91,0.35)" }} />
-      <div
-        style={{
-          ...io,
-          position: "absolute",
-          top: CARD_TOP + (CARD_MAX_H - h) / 2,
-          left: (1080 - CARD_W) / 2,
-          width: CARD_W,
-          height: h,
-          borderRadius: 36,
-          overflow: "hidden",
-          boxShadow: "0 18px 50px rgba(62,47,91,0.45)",
-          border: `4px solid ${NIA.crema}`,
-        }}
-      >
-        {media({ transform: info.kind === "video" ? undefined : `scale(${push})` })}
-      </div>
-    </AbsoluteFill>
-  );
-};
+// Foto o video de apoyo animado a pantalla completa (scripts/make_fotos.py), como la pintura de
+// Sócrates; abajo se oscurece un poco para que los subtítulos se lean.
+const SUBS_SHADE = "linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(30,20,50,0.5) 66%, rgba(30,20,50,0.5) 100%)";
+const Full: React.FC<{ name: string; dur: number }> = ({ name, dur }) => (
+  <AbsoluteFill>
+    <Clip src={`broll/${name}-anim`} clip={name} from={0} dur={dur} />
+    <AbsoluteFill style={{ background: SUBS_SHADE }} />
+  </AbsoluteFill>
+);
 
 // Globo de texto de cómic: entra con un pequeño rebote y sale desenfocado; la cola apunta a `to`.
 const Globo: React.FC<{ text: string; left: number; top: number; width: number; to: [number, number]; dur: number }> = ({
@@ -412,7 +371,7 @@ const Pintura: React.FC<{ shot: Shot }> = ({ shot }) => {
   return (
     <AbsoluteFill>
       <OffthreadVideo src={staticFile(`nia/broll/${shot.painting}.mp4`)} muted style={{ width: "100%", height: "100%" }} />
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 52%, rgba(30,20,50,0.5) 66%, rgba(30,20,50,0.5) 100%)" }} />
+      <AbsoluteFill style={{ background: SUBS_SHADE }} />
       <Sequence from={g1} durationInFrames={g2 - g1}>
         <Globo text="¿Y tú cómo sabes que eso es verdad?" left={180} top={330} width={600} to={[s[0] - 50, s[1] - 95]} dur={g2 - g1} />
       </Sequence>
@@ -429,7 +388,7 @@ const ShotView: React.FC<{ shot: Shot }> = ({ shot }) => {
   if (shot.placeholder) return <Placeholder label={shot.placeholder} dur={dur} />;
   if (shot.card === "verdades") return <Verdades from={shot.start} dur={dur} />;
   if (shot.porque) return <PorQue dur={dur} />;
-  if (shot.broll) return <Broll name={shot.broll} dur={dur} />;
+  if (shot.full) return <Full name={shot.full} dur={dur} />;
   if (shot.painting) return <Pintura shot={shot} />;
   return null;
 };

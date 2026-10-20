@@ -4,10 +4,10 @@
   "speed": 1.07,
   "pause": {
     "threshold": 0.35,
-    "minSilence": 0.14,
-    "keep": 0.13
+    "minSilence": 0.1,
+    "keep": 0.07
   },
-  "gap": 0.22,
+  "gap": 0.06,
   "videos": {
     "v1": "1SnyG_vzA4Q3Ms88tACGSGb3Vi5hODpBV",
     "v2": "1Mky_86jjsP80_xn1OtlI_AAKEox8LUIS",
@@ -17,15 +17,6 @@
     "v6": "1LardY7Fp2KxRQ8d5Er5CCErutUOtSig3",
     "v7": "1y_iMDTZc-UQ2PeRsSn0d2UQECzC2nClL",
     "v8": "1LwQOP6qp8PCQL22jeRO7yVK9w-QAogqK"
-  },
-  "broll": {
-    "protesta": "protesta.jpg",
-    "discusion": "discusion.mp4",
-    "nestle": "nestle.jpg",
-    "pobreza": "pobreza.jpg",
-    "barrio": "barrio.jpg",
-    "universidad": "universidad.jpg",
-    "transporte": "transporte.jpg"
   },
   "scenes": [
     {
@@ -45,7 +36,7 @@
     {
       "key": "calle",
       "silent": "Empieza en la calle.",
-      "dur": 2.0,
+      "dur": 1.4,
       "shots": [
         {
           "src": "v3",
@@ -85,19 +76,19 @@
       "shots": [
         {
           "at": "Cuando",
-          "broll": "protesta"
+          "full": "protesta"
         },
         {
           "at": "discutes",
-          "broll": "discusion"
+          "full": "discusion"
         },
         {
           "at": "por",
-          "broll": "nestle"
+          "full": "nestle"
         },
         {
-          "at": "y",
-          "broll": "pobreza"
+          "at": "tan",
+          "full": "pobreza"
         }
       ]
     },
@@ -166,15 +157,15 @@
         },
         {
           "at": "barrio,",
-          "broll": "barrio"
+          "full": "barrio"
         },
         {
           "at": "universidad,",
-          "broll": "universidad"
+          "full": "universidad"
         },
         {
           "at": "transporte",
-          "broll": "transporte"
+          "full": "transporte"
         },
         {
           "at": "mesa",
@@ -191,7 +182,7 @@
           "porque": true
         }
       ],
-      "hold": 1.0
+      "hold": 0.8
     },
     {
       "key": "cierre",
