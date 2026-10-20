@@ -31,6 +31,8 @@ RED, RED_D = np.array([227, 6, 19]), np.array([150, 0, 12])
 SHOTS = {
     "caminando": dict(clip="IMG_1741", t=12.90, mic=(1262, 1518, 1568, 1670), src=(0, 178), sq=(420, 0, 1760)),
     "catedral": dict(clip="IMG_1724", t=24.65, mic=(1103, 1850, 1256, 1982), src=(0, 170), sq=(218, 606, 1600)),
+    # Frame de la captura (IMG_1713 al inicio, cara seria), con el micrófono sobre la camisa.
+    "inicio": dict(clip="IMG_1713", t=0.3, mic=(688, 2520, 900, 2720), src=(0, 260), sq=(0, 648, 2100)),
 }
 
 
@@ -149,8 +151,9 @@ def circle_preview(paths, dst):
 if __name__ == "__main__":
     os.makedirs(TMP, exist_ok=True)
     done = []
-    for key, cfg in SHOTS.items():
-        compose(key, cfg)
+    keys = sys.argv[1:] or list(SHOTS)
+    for key in keys:
+        compose(key, SHOTS[key])
         done += [f"{OUT}/perfil-{key}-split.png", f"{OUT}/perfil-{key}-glow.png"]
-    circle_preview(done, f"{OUT}/vista-circulos.png")
+    circle_preview(done, f"{OUT}/vista-circulos-{'-'.join(keys)}.png")
     print("vista", f"{OUT}/vista-circulos.png")
