@@ -284,6 +284,35 @@ def sample(name):
     return read_wav(f"{OUT}/sfx/{name}.wav")
 
 
+def _clack(freqs, decay, noise_decay, thump, seed):
+    """Golpe mecánico: resonancias metálicas amortiguadas + ráfaga de ruido agudo + golpe grave."""
+    rng = np.random.default_rng(seed)
+    n = int(0.09 * SR)
+    t = np.arange(n) / SR
+    x = sum(a * np.sin(2 * np.pi * fr * t + rng.uniform(0, 6)) * np.exp(-t / decay) for fr, a in freqs)
+    x = x + mf.band(rng.standard_normal(n), 2500, 16000) * np.exp(-t / noise_decay) * 0.9
+    x = x + np.sin(2 * np.pi * 110 * t) * np.exp(-t / 0.018) * thump
+    return x
+
+
+def shutter_dslr(gain=0.6):
+    """Obturador de cámara réflex («ka-chik»): espejo que sube y cortina que cierra 70 ms después, con
+    dos rebotes mecánicos pequeños."""
+    buf = np.zeros(int(0.25 * SR))
+    mf.place(buf, _clack([(1900, 0.5), (3300, 0.35), (5600, 0.25)], 0.008, 0.004, 0.35, 1) * 0.7, 0.0)
+    mf.place(buf, _clack([(2300, 0.5), (4100, 0.4), (7200, 0.25)], 0.014, 0.006, 0.5, 2), 0.07)
+    mf.place(buf, _clack([(4600, 0.3)], 0.004, 0.002, 0.0, 3) * 0.25, 0.082)
+    mf.place(buf, _clack([(5200, 0.3)], 0.004, 0.002, 0.0, 4) * 0.15, 0.093)
+    return buf / np.abs(buf).max() * gain
+
+
+def shutter_phone(gain=0.6):
+    """Obturador de celular: un clic seco con cola corta de ruido («chk»)."""
+    buf = np.zeros(int(0.2 * SR))
+    mf.place(buf, _clack([(2800, 0.4), (6100, 0.3)], 0.006, 0.03, 0.2, 5), 0.0)
+    return buf / np.abs(buf).max() * gain
+
+
 def big_whoosh(gain=0.4, dur=0.55):
     """Whoosh grande: ruido con un pasabanda que sube y baja (efecto Doppler) y envolvente con pico al centro."""
     n = int(dur * SR)
@@ -306,7 +335,8 @@ def foley(data):
     - whoosh en los cambios de toma dentro de una escena y en cada acercamiento/alejamiento;
     - obturador de cámara en los cambios de escena (con el destello cálido de la imagen)."""
     buf = np.zeros(int((data["duration"] + 2) * SR))
-    click, shutter, whoosh = sample("click"), sample("shutter"), big_whoosh()
+    # Obturador: el cliente no quiso el de Ion.Sound; «ka-chik» de cámara réflex sintetizado.
+    click, shutter, whoosh = sample("click"), shutter_dslr(), big_whoosh()
     # Palabras en las que entra un texto grande (ver Kinetic en src/nia/Nia.tsx).
     big = {"gancho": ["filosofía", "no"], "porque": ["por"], "injusticia": ["tanto", "tan"],
            "socrates": ["sócrates", "haciendo", "daban"], "ojo": ["ojo,", "atreverse"], "cierre": ["cuestionarlo."]}
