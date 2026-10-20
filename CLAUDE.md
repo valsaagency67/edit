@@ -41,3 +41,8 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
   Gradación del video: negros levantados, menos contraste y saturación, sombras lila, luces cálidas.
   Propuesta de referencia en `src/nia/NiaEstilo.tsx` (composición NIA-Estilo).
 - Sin firma ni colores de Juan Felipe. Barra de duración con degradado lila → rosa → amarillo.
+- **Tipografía Bootzy TM** (la eligió el cliente) en casi todo: subtítulos, textos grandes, globos. Solo las
+  frases cursivas de acompañamiento y la firma «Nia» van en Playfair. Es comercial: `public/fonts/BootzyTM.ttf`
+  no se versiona; no trae «¿ ¡ …» (se arman girando «? !», componente `BZ`).
+- **Efectos de sonido**: solo los del video de referencia del cliente (`public/nia/sfx/ref-*.wav`): clic en
+  textos, magic reveal al revelar imágenes, whoosh en acercamientos, obturador en transiciones. Nada sintetizado.

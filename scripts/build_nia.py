@@ -305,7 +305,7 @@ def foley(data):
     click, shutter, whoosh, magic = sample("click"), sample("shutter"), sample("whoosh"), sample("magic")
     # Palabras en las que entra un texto grande (ver Kinetic en src/nia/Nia.tsx).
     big = {"gancho": ["filosofía", "no"], "porque": ["por"], "injusticia": ["tanto", "tan"],
-           "socrates": ["sócrates", "haciendo", "daban"], "ojo": ["ojo,", "atreverse"], "cierre": ["cuestionarlo."]}
+           "socrates": ["sócrates", "haciendo", "daban"], "calle": ["empieza", "calle."], "ojo": ["ojo,", "atreverse"], "cierre": ["cuestionarlo."]}
     for i, sc in enumerate(data["scenes"]):
         if i:
             mf.place(buf, shutter * 0.7, sc["start"] - 0.03)
@@ -323,9 +323,6 @@ def foley(data):
                 mf.place(buf, click * 0.7, w["s"])
         if sc["key"] == "socrates":  # globo de Sócrates (Nia.tsx: Pintura)
             mf.place(buf, click * 0.7, next(w["s"] for w in sc["words"] if w["t"] == "Sócrates") + 0.3)
-        if sc["key"] == "calle":
-            mf.place(buf, click * 0.5, sc["start"] + 0.1)
-            mf.place(buf, click * 0.7, sc["start"] + 0.55)
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 

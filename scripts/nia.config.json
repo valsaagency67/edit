@@ -47,15 +47,15 @@
     },
     {
       "key": "calle",
-      "silent": "Empieza en la calle.",
-      "dur": 1.4,
+      "take": "calle-voz",
+      "text": "Empieza en la calle.",
+      "phrases": [],
       "shots": [
         {
           "src": "v3",
           "from": 0.0
         }
-      ],
-      "ambient": "v3"
+      ]
     },
     {
       "key": "porque",

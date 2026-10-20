@@ -23,3 +23,5 @@ public/marcha/base.mp4
 public/nia/*.mp4
 public/nia/*.wav
 public/nia/broll/
+# Fuente comercial del cliente (Nia): no se redistribuye
+public/fonts/BootzyTM.ttf

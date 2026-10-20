@@ -11,7 +11,8 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Bebas, Montserrat, Playfair } from "../campaign/font";
+import { Playfair } from "../campaign/font";
+import { Bootzy } from "./fontNia";
 import raw from "./nia.json";
 import socrates from "./socrates.json";
 import { NIA } from "./NiaEstilo";
@@ -33,6 +34,24 @@ const SHADOW = "0 3px 14px rgba(62,47,91,0.55), 0 0 2px rgba(62,47,91,0.6)";
 const GRAD = `linear-gradient(90deg, ${NIA.lila}, ${NIA.rosa}, ${NIA.amarillo})`;
 const IO = 6;
 const scenes = raw.scenes as Scene[];
+
+// Bootzy no trae «¿», «¡» ni «…»: los signos de apertura se arman girando su «?» y su «!».
+const BZ: React.FC<{ t: string }> = ({ t }) => (
+  <>
+    {t
+      .replace(/…/g, "...")
+      .split(/([¿¡])/)
+      .map((p, i) =>
+        p === "¿" || p === "¡" ? (
+          <span key={i} style={{ display: "inline-block", transform: "rotate(180deg)" }}>
+            {p === "¿" ? "?" : "!"}
+          </span>
+        ) : (
+          p
+        ),
+      )}
+  </>
+);
 const scene = (key: string) => scenes.find((s) => s.key === key)!;
 // Inicio de una palabra (n-ésima aparición) dentro de una escena, en segundos globales.
 const at = (key: string, word: string, nth = 1) =>
@@ -119,7 +138,7 @@ const Placeholder: React.FC<{ label: string; dur: number }> = ({ label, dur }) =
           }}
         >
           <Camara />
-          <div style={{ fontFamily: Montserrat, fontWeight: 600, fontSize: 34, letterSpacing: 4, color: NIA.crema, opacity: 0.85 }}>
+          <div style={{ fontFamily: Bootzy, fontSize: 34, letterSpacing: 3, color: NIA.crema, opacity: 0.85 }}>
             AQUÍ VA TU VIDEO
           </div>
           <div style={{ fontFamily: Playfair, fontStyle: "italic", fontSize: 76, color: "white", textAlign: "center", padding: "0 50px", textShadow: SHADOW }}>
@@ -131,21 +150,21 @@ const Placeholder: React.FC<{ label: string; dur: number }> = ({ label, dur }) =
   );
 };
 
-const Bloque: React.FC<{ children: React.ReactNode; size?: number }> = ({ children, size = 190 }) => (
+const Bloque: React.FC<{ children: string; size?: number }> = ({ children, size = 140 }) => (
   <span
     style={{
-      fontFamily: Bebas,
+      fontFamily: Bootzy,
       fontSize: size,
-      lineHeight: 0.95,
+      lineHeight: 1,
       color: NIA.ciruela,
       background: NIA.amarillo,
-      padding: "10px 38px 0",
+      padding: "14px 34px 10px",
       borderRadius: 28,
       boxShadow: "0 10px 40px rgba(62,47,91,0.25)",
       display: "inline-block",
     }}
   >
-    {children}
+    <BZ t={children} />
   </span>
 );
 
@@ -165,7 +184,7 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
         1330,
         <>
           <Appear t={at("gancho", "filosofía")} from={from}>
-            <Bloque>LA FILOSOFÍA</Bloque>
+            <Bloque size={128}>LA FILOSOFÍA</Bloque>
           </Appear>
           <Appear t={at("gancho", "no")} from={from}>
             <Serif>
@@ -179,11 +198,11 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
       return col(
         1060,
         <>
-          <Appear t={from + 0.1} from={from}>
+          <Appear t={at("calle", "empieza")} from={from}>
             <Serif>empieza en la</Serif>
           </Appear>
-          <Appear t={from + 0.55} from={from} style={{ marginTop: 14 }}>
-            <Bloque size={230}>CALLE</Bloque>
+          <Appear t={at("calle", "calle")} from={from} style={{ marginTop: 14 }}>
+            <Bloque size={190}>CALLE</Bloque>
           </Appear>
         </>,
       );
@@ -191,7 +210,7 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
       return col(
         1380,
         <Appear t={at("porque", "por")} from={from}>
-          <Bloque size={200}>¿POR QUÉ?</Bloque>
+          <Bloque size={150}>¿POR QUÉ?</Bloque>
         </Appear>,
       );
     case "injusticia":
@@ -201,7 +220,7 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
         <>
           <Sequence durationInFrames={f(at("injusticia", "tan")) - f(from)} layout="none">
             <Appear t={at("injusticia", "tanto")} from={from}>
-              <div style={{ fontFamily: Bebas, fontSize: 250, lineHeight: 0.9, color: NIA.crema, textShadow: `0 6px 0 ${NIA.lavanda}, ${SHADOW}` }}>
+              <div style={{ fontFamily: Bootzy, fontSize: 190, lineHeight: 1, color: NIA.crema, textShadow: `0 6px 0 ${NIA.lavanda}, ${SHADOW}` }}>
                 TANTO
               </div>
             </Appear>
@@ -223,11 +242,11 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
         <>
           <Sequence durationInFrames={f(at("ojo", "atreverse")) - f(from)} layout="none">
             <Appear t={at("ojo", "ojo")} from={from}>
-              <Bloque size={220}>OJO</Bloque>
+              <Bloque size={180}>OJO</Bloque>
             </Appear>
           </Sequence>
           <Appear t={at("ojo", "atreverse")} from={from}>
-            <div style={{ fontFamily: Bebas, fontSize: 170, lineHeight: 1, marginTop: 10, color: NIA.crema, textShadow: `0 5px 0 ${NIA.lavanda}, ${SHADOW}` }}>
+            <div style={{ fontFamily: Bootzy, fontSize: 116, lineHeight: 1, marginTop: 14, color: NIA.crema, textShadow: `0 5px 0 ${NIA.lavanda}, ${SHADOW}` }}>
               ATREVERSE
             </div>
           </Appear>
@@ -237,7 +256,7 @@ const Kinetic: React.FC<{ sc: Scene }> = ({ sc }) => {
       return col(
         1380,
         <Appear t={at("cierre", "cuestionarlo")} from={from}>
-          <Bloque size={170}>CUESTIONARLO</Bloque>
+          <Bloque size={104}>CUESTIONARLO</Bloque>
         </Appear>,
       );
     default:
@@ -251,7 +270,7 @@ const SocratesCard: React.FC<{ dur: number }> = ({ dur }) => {
     <AbsoluteFill style={{ alignItems: "center", paddingTop: 1380 }}>
       <div style={{ ...io, background: NIA.crema, borderRadius: 32, padding: "18px 48px 24px", textAlign: "center", boxShadow: "0 10px 40px rgba(62,47,91,0.25)" }}>
         <div style={{ fontFamily: Playfair, fontStyle: "italic", fontSize: 104, color: NIA.ciruela }}>Sócrates</div>
-        <div style={{ fontFamily: Montserrat, fontWeight: 600, fontSize: 34, letterSpacing: 3, color: NIA.lavanda }}>ATENAS · 470–399 a. C.</div>
+        <div style={{ fontFamily: Bootzy, fontSize: 32, letterSpacing: 2, color: NIA.lavanda }}>ATENAS — 470–399 A. C.</div>
       </div>
     </AbsoluteFill>
   );
@@ -268,7 +287,7 @@ const Verdades: React.FC<{ from: number; dur: number }> = ({ from, dur }) => {
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 560, textAlign: "center", ...io }}>
         <Serif size={70} color="white">esas</Serif>
         <div style={{ position: "relative", display: "inline-block" }}>
-          <div style={{ fontFamily: Bebas, fontSize: 240, lineHeight: 1, color: NIA.ciruela }}>VERDADES</div>
+          <div style={{ fontFamily: Bootzy, fontSize: 150, lineHeight: 1.1, color: NIA.ciruela }}>VERDADES</div>
           <div
             style={{
               position: "absolute",
@@ -293,7 +312,9 @@ const PorQue: React.FC<{ dur: number }> = ({ dur }) => {
     <AbsoluteFill>
       <PastelBg blurImg={false} />
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", ...io }}>
-        <div style={{ fontFamily: Bebas, fontSize: 330, lineHeight: 0.9, color: NIA.ciruela }}>¿POR QUÉ?</div>
+        <div style={{ fontFamily: Bootzy, fontSize: 190, lineHeight: 1, color: NIA.ciruela }}>
+          <BZ t="¿POR QUÉ?" />
+        </div>
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -345,15 +366,14 @@ const Globo: React.FC<{ text: string; left: number; top: number; width: number; 
           boxShadow: "0 12px 40px rgba(62,47,91,0.35)",
           transform: `scale(${pop})`,
           transformOrigin: `${baseX}px 100%`,
-          fontFamily: Montserrat,
-          fontWeight: 700,
-          fontSize: 44,
+          fontFamily: Bootzy,
+          fontSize: 50,
           lineHeight: 1.18,
           color: NIA.ciruela,
           textAlign: "center",
         }}
       >
-        {text}
+        <BZ t={text} />
       </div>
     </AbsoluteFill>
   );
@@ -447,9 +467,9 @@ const Caption: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
         style={{
           opacity: o,
           maxWidth: 940,
-          fontFamily: Montserrat,
-          fontWeight: 600,
-          fontSize: 64,
+          fontFamily: Bootzy,
+          fontSize: 70,
+          letterSpacing: 1,
           lineHeight: 1.2,
           color: "white",
           textAlign: "center",
@@ -458,7 +478,7 @@ const Caption: React.FC<{ text: string; dur: number }> = ({ text, dur }) => {
       >
         {text.split(" ").map((w, i) => (
           <span key={i} style={{ color: w.startsWith("*") ? NIA.amarillo : "white" }}>
-            {(i ? " " : "") + w.replace("*", "")}
+            <BZ t={(i ? " " : "") + w.replace("*", "")} />
           </span>
         ))}
       </div>
