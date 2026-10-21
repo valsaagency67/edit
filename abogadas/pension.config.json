@@ -13,8 +13,7 @@
   "inserts": [
     {"kind": "hourglass", "at": "pueden", "until": "Tu#2", "lines": ["TU FUTURO"]},
     {"kind": "weeks", "at": "semanas", "until": "historia"},
-    {"kind": "document", "at": "historia", "until": "para", "lines": ["HISTORIA", "LABORAL"]},
-    {"kind": "bookshelf", "at": "En", "until": "Tu#5", "src": "media/abogadas/cartera.mov", "from": 16.0}
+    {"kind": "document", "at": "historia", "until": "para", "lines": ["HISTORIA", "LABORAL"]}
   ],
   "texts": [
     {"at": "cambios", "until": "pueden", "lines": ["CAMBIOS", "PENSIONALES"], "sfx": "click"},

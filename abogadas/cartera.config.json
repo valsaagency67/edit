@@ -14,7 +14,6 @@
   "inserts": [
     {"kind": "invoices", "at": "pero", "until": "puede", "stamp": "vencida#1"},
     {"kind": "chart_down", "at": "la#1", "until": "Recuperar", "lines": ["LIQUIDEZ"]},
-    {"kind": "bookshelf", "at": "En", "until": "recuperar#2", "src": "media/abogadas/cartera.mov", "from": 16.0},
     {"kind": "shield", "at": "protegiendo", "until": "No#2"}
   ],
   "texts": [

@@ -17,9 +17,9 @@ python3 abogadas/build.py abogadas/cartera.config.json   # → out/abogadas/cart
   cerca, obturador + destello en los cambios de tema, magic reveal solo en la marca, clic en el sello.
 - **Tomas de apoyo** (`apoyo.py`, pedidas por el cliente). No hay material de archivo (los bancos de video
   están bloqueados en este entorno y no hay nada en el Drive), así que son gráficos animados en azul noche y
-  dorado —reloj de arena, semanas cotizadas, documento con lupa, facturas con sello «VENCIDA», curva de
-  liquidez, escudo— y un plano real de la biblioteca de la oficina recortado del original de cartera
-  (misma oficina en los dos videos). Se configuran en `inserts` de cada `*.config.json`.
+  dorado: reloj de arena, semanas cotizadas, documento con lupa, facturas con sello «VENCIDA», curva de
+  liquidez y escudo. Se configuran en `inserts` de cada `*.config.json`. En «Enso Jurídicos» el cliente
+  pidió seguir con el video normal (sin el acercamiento a la biblioteca, `Bookshelf` quedó sin usar).
 - **Cortes en todas las pausas** (silencios > 0.22 s detectados en el audio, margen 0.05/0.10 s).
   Verificado con Whisper sobre el resultado: no se pierde ninguna palabra.
 - **Subtítulos palabra por palabra**: Montserrat ExtraBold 86 px, mayúsculas, blancos con contorno negro,
