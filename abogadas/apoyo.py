@@ -341,3 +341,111 @@ GRAPHICS = {
     "chart_down": chart_down,
     "shield": shield,
 }
+
+
+def person(d, cx, cy, r, color):
+    """Ícono de persona: cabeza y hombros."""
+    d.ellipse(S(cx - r * 0.55, cy - r * 1.35, cx + r * 0.55, cy - r * 0.25), fill=color)
+    d.pieslice(S(cx - r, cy - r * 0.1, cx + r, cy + r * 1.9), 180, 360, fill=color)
+
+
+def family_tree(t, dur, lines=("DERECHOS", "HEREDITARIOS")):
+    """Árbol de herederos: la persona de arriba y las líneas que bajan a tres herederos."""
+    img, d = canvas()
+    title(d, lines, t, y=430)
+    top = (W / 2, 820)
+    heirs = [(W / 2 - 300, 1180), (W / 2, 1180), (W / 2 + 300, 1180)]
+    u0 = back((t - 0.1) / 0.3)
+    if u0 > 0:
+        person(d, top[0], top[1], 80 * u0, GOLD)
+    # Líneas: vertical, horizontal y bajadas.
+    v = ease((t - 0.35) / 0.35)
+    if v > 0:
+        yb = 960
+        d.line(S(W / 2, 1010, W / 2, 1010 + (yb - 1010 + 0.01) * min(1, v * 3)), fill=WHITE, width=6 * K)
+        span = 300 * min(1, max(0, v * 3 - 1))
+        d.line(S(W / 2 - span, yb, W / 2 + span, yb), fill=WHITE, width=6 * K)
+        drop = 120 * min(1, max(0, v * 3 - 2))
+        for x, _ in heirs:
+            if drop > 0:
+                d.line(S(x, yb, x, yb + drop), fill=WHITE, width=6 * K)
+    for i, (x, y) in enumerate(heirs):
+        u = back((t - 0.7 - i * 0.12) / 0.3)
+        if u > 0:
+            person(d, x, y, 70 * u, WHITE)
+    return finish(img)
+
+
+def notary(t, dur, lines=("ANTE NOTARÍA",)):
+    """Documento que se firma y recibe el sello dorado de la notaría."""
+    img, d = canvas()
+    title(d, lines, t, y=440)
+    img = img.convert("RGBA")
+    pw, ph = 600, 660
+    u = ease(t / 0.35)
+    cy = 1000 + (1 - u) * 260
+    base = paper("doc", pw, ph, "").copy()
+    pd = ImageDraw.Draw(base)
+    for i in range(4):
+        y = 220 + i * 70
+        pd.rounded_rectangle(S(80, y, 80 + pw - 160 - (i % 2) * 90, y + 18), radius=9 * K, fill=(185, 192, 205))
+    # Firma que se dibuja sobre la línea.
+    pd.line(S(80, 560, 330, 560), fill=INK, width=3 * K)
+    v = ease((t - 0.35) / 0.6)
+    pts = [(90 + 230 * k / 40, 525 - 28 * math.sin(k / 40 * 9.5) * (1 - k / 60)) for k in range(int(40 * v) + 1)]
+    if len(pts) > 1:
+        pd.line([(x * K, y * K) for x, y in pts], fill=NAVY, width=5 * K, joint="curve")
+    paste_rot(img, base, W / 2, cy, alpha=u)
+    # Sello dorado.
+    s = (t - min(dur * 0.6, 1.0)) / 0.14
+    if s > 0:
+        st = Image.new("RGBA", (300 * K, 300 * K), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(st)
+        sd.ellipse(S(10, 10, 290, 290), outline=GOLD, width=14 * K, fill=(242, 193, 78, 40))
+        sd.ellipse(S(45, 45, 255, 255), outline=GOLD, width=5 * K)
+        star = [(150 + (62 if k % 2 == 0 else 26) * math.cos(-math.pi / 2 + k * math.pi / 5),
+                 150 + (62 if k % 2 == 0 else 26) * math.sin(-math.pi / 2 + k * math.pi / 5)) for k in range(10)]
+        sd.polygon([(x * K, y * K) for x, y in star], fill=GOLD)
+        sc = 1 + 1.2 * (1 - ease(s))
+        paste_rot(img, st, W / 2 + 170, cy + 200, angle=-10, scale=sc * 0.9, alpha=min(1, s))
+    return finish(img.convert("RGB"))
+
+
+def gavel(t, dur, lines=("PROCESO", "JUDICIAL"), hit_at=0.55):
+    """Mazo de juez que golpea la base (con ondas al golpear)."""
+    img, d = canvas()
+    title(d, lines, t, y=430)
+    img = img.convert("RGBA")
+    # Base.
+    d = ImageDraw.Draw(img, "RGBA")
+    d.rounded_rectangle(S(W / 2 - 220, 1180, W / 2 + 220, 1240), radius=16 * K, fill=GOLD)
+    d.rounded_rectangle(S(W / 2 - 160, 1140, W / 2 + 160, 1190), radius=14 * K, fill=(214, 166, 60))
+    # Mazo: sube y cae hasta el golpe; rebota un poco después.
+    if t < hit_at:
+        ang = 38 * (1 - (t / hit_at) ** 2)
+    else:
+        ang = 6 * math.exp(-(t - hit_at) * 9) * abs(math.sin((t - hit_at) * 14))
+    g = Image.new("RGBA", (760 * K, 300 * K), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(g)
+    gd.rounded_rectangle(S(300, 60, 460, 240), radius=24 * K, fill=WHITE)  # cabeza
+    gd.rectangle(S(286, 80, 300, 220), fill=GOLD)
+    gd.rectangle(S(460, 80, 474, 220), fill=GOLD)
+    gd.rounded_rectangle(S(460, 130, 740, 170), radius=18 * K, fill=WHITE)  # mango
+    # Gira alrededor del extremo del mango.
+    big = Image.new("RGBA", (1500 * K, 1500 * K), (0, 0, 0, 0))
+    big.alpha_composite(g, (750 * K - 740 * K, 750 * K - 150 * K))
+    big = big.rotate(-ang, resample=Image.BICUBIC, center=(750 * K, 750 * K))
+    # La cabeza golpea en x≈W/2, y≈1100.
+    img.alpha_composite(big, (int((W / 2 + 360) * K - 750 * K), int(1100 * K - 750 * K)))
+    if t >= hit_at:
+        u = (t - hit_at) / 0.45
+        if u < 1:
+            d = ImageDraw.Draw(img, "RGBA")
+            for k in range(2):
+                r = 120 + 260 * min(1, u + k * 0.2)
+                a = int(160 * (1 - u))
+                d.arc(S(W / 2 - r, 1150 - r * 0.45, W / 2 + r, 1150 + r * 0.45), 180, 360, fill=GOLD + (a,), width=6 * K)
+    return finish(img.convert("RGB"))
+
+
+GRAPHICS.update({"family_tree": family_tree, "notary": notary, "gavel": gavel})

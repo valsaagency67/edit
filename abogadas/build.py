@@ -306,7 +306,7 @@ def build_ass(cfg, words, tl, path):
         n = len(tx["lines"])
         for i, line in enumerate(tx["lines"]):
             delay = i * 140
-            y = BIG_Y - (n - 1) * 80 + i * 160
+            y = tx.get("y", BIG_Y) - (n - 1) * 80 + i * 160
             color = GOLD if (style == "gold" or (style == "brand" and i == 1)) else WHITE
             size = 120 if style == "brand" and i == 0 else 100
             ev.append(f"Dialogue: 4,{ts(t0)},{ts(t1)},Big,,0,0,0,,"
@@ -338,9 +338,9 @@ def zoom_curve(cfg, words, tl):
     """Zoom en cada frame. En un corte el cambio es seco; dentro de un tramo, acercamiento suave de 0.25 s."""
     keys = sorted((tl.out(find(words, z["at"])["s"]) - 0.04, z["z"]) for z in cfg["zooms"])
     n = int(round(tl.duration * FPS))
-    zs = np.ones(n)
+    zs = np.ones(n) * cfg.get("zoom_start", 1.0)
     events = []
-    cur = 1.0
+    cur = cfg.get("zoom_start", 1.0)
     t_prev = 0.0
     for t, z in keys + [(tl.duration + 1, None)]:
         i0, i1 = int(t_prev * FPS), min(n, int(t * FPS))
@@ -452,6 +452,9 @@ def main():
     tl = Timeline(segs, words[-1]["e"], dur)
     print(f"{name}: {dur:.2f} s → {tl.duration:.2f} s, tramos: " +
           " ".join(f"[{a:.2f}-{b:.2f}]" for a, b in tl.keep))
+    # Posición de subtítulos y textos grandes (en un primer plano tipo selfie van a la altura del pecho).
+    global CAP_Y, BIG_Y
+    CAP_Y, BIG_Y = cfg.get("cap_y", CAP_Y), cfg.get("big_y", BIG_Y)
     ass = f"{tmp}/{name}.ass"
     sfx = build_ass(cfg, words, tl, ass)
     zs, zsfx = zoom_curve(cfg, words, tl)
@@ -462,7 +465,8 @@ def main():
     # (no dentro de una toma de apoyo) y si no hay otro sonido cerca.
     for t0, t1, _, extra in ins:
         sfx += extra
-        if all(abs(t0 - t) > 0.3 for _, t, _ in sfx):
+        follows = any(abs(t0 - b) < 0.05 for _, b, _, _ in ins)  # entre dos tomas de apoyo, sin sonido
+        if not follows and all(abs(t0 - t) > 0.3 for _, t, _ in sfx):
             sfx.append(("whoosh", t0, 0.35))
     zsfx = [e for e in zsfx if not any(a - 0.1 <= e[1] < b for a, b, _, _ in ins)]
     zsfx = [e for e in zsfx if all(abs(e[1] - t) > 0.5 for _, t, _ in sfx)]

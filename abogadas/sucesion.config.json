@@ -1,0 +1,29 @@
+{
+  "src": "media/abogadas/sucesion.mov",
+  "out": "sucesion",
+  "face": [0.50, 0.33],
+  "zoom_start": 1.5,
+  "big_y": 1150,
+  "cap_y": 1460,
+  "zooms": [
+    {"at": "Una", "z": 1.0},
+    {"at": "controversias,", "z": 1.12},
+    {"at": "Tus", "z": 1.0},
+    {"at": "Agenda", "z": 1.12}
+  ],
+  "transitions": ["Una", "Tus"],
+  "inserts": [
+    {"kind": "family_tree", "at": "determinar", "until": "formalizar"},
+    {"kind": "document", "at": "formalizar", "until": "Si#1", "lines": ["ADJUDICACIÓN", "DE LOS BIENES"]},
+    {"kind": "notary", "at": "puede#1", "until": "Si#2"},
+    {"kind": "gavel", "at": "puede#2", "until": "Tus"},
+    {"kind": "shield", "at": "merecen", "until": "Agenda", "lines": ["PROTECCIÓN"]}
+  ],
+  "texts": [
+    {"at": "bienes#1", "until": "Una", "lines": ["BIENES SIN", "REPARTIR"], "sfx": "click", "y": 1230},
+    {"at": "sucesión", "until": "determinar", "lines": ["SUCESIÓN"], "sfx": "click", "style": "gold"},
+    {"at": "acuerdo", "until": "puede#1", "list": ["ACUERDO", "REQUISITOS LEGALES"], "items_at": ["acuerdo", "requisitos"], "sfx": "click"},
+    {"at": "controversias,", "until": "puede#2", "lines": ["CONTROVERSIAS"], "sfx": "click", "style": "gold"},
+    {"at": "Agenda", "until": "END", "lines": ["AGENDA TU", "ASESORÍA"], "sfx": "click", "style": "gold"}
+  ]
+}

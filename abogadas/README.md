@@ -1,10 +1,11 @@
 # Videos de consultoría — Enso Jurídicos
 
-Dos videos verticales (pensión y cartera vencida) editados con `build.py` (FFmpeg + libass, sin Remotion).
+Videos verticales (pensión, cartera vencida y sucesión) editados con `build.py` (FFmpeg + libass, sin Remotion).
 
 ```
 python3 abogadas/build.py abogadas/pension.config.json   # → out/abogadas/pension.mp4 y pension-celular.mp4
 python3 abogadas/build.py abogadas/cartera.config.json   # → out/abogadas/cartera.mp4 y cartera-celular.mp4
+python3 abogadas/build.py abogadas/sucesion.config.json  # → out/abogadas/sucesion.mp4 y sucesion-celular.mp4
 ```
 (`--draft` para un borrador rápido). Originales en `media/abogadas/` (no versionados).
 
@@ -29,6 +30,13 @@ python3 abogadas/build.py abogadas/cartera.config.json   # → out/abogadas/cart
 - **Zoom** sobre la cara (1.18–1.25×): seco en los cortes, suave (0.25 s) dentro de una toma.
 - **Voz**: RNNoise (`models/rnnoise-std.rnnn`), EQ de presencia, compresor; mezcla final -14 LUFS, pico -1 dBFS.
 - Formato: 1080x1920, 30 fps, H.264 CRF 16, AAC 320 kbps. El de pensión viene en 576x1024 y se escala.
+
+## Sucesión
+- Primer plano tipo selfie (720x1280): subtítulos en y = 1460 y textos grandes a la altura del pecho
+  (`cap_y`, `big_y`, `y` por texto) para no tapar la cara.
+- **Primera frase ampliada a 1.5×** (`zoom_start`): el cliente pidió que no se viera la axila en los bordes.
+- Tomas de apoyo propias: árbol de herederos, adjudicación (documento con lupa), notaría (firma y sello),
+  mazo judicial y escudo («merecen protección»).
 
 ## Por confirmar con el cliente
 - Nombre de la firma: Whisper lo oye «Enso Jurídicos» (una vez «Enzo»). Si se escribe distinto (p. ej. «Ensō»),
