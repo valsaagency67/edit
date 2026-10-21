@@ -3,9 +3,11 @@
 
 - Corta todas las pausas (> 0.22 s, decididas por el audio) para que hable de seguido.
 - Acercamientos y alejamientos sobre la cara con whoosh; obturador + destello en los cambios de tema.
-- Subtítulos palabra por palabra (Montserrat ExtraBold, palabra activa en dorado) con clic suave.
-- Textos grandes con clic y «magic reveal» para revelar la marca y el cierre.
-  Los 4 efectos son los del video de referencia del cliente (sfx/*.wav, sin el «faaahh»).
+- Subtítulos palabra por palabra (Montserrat ExtraBold, palabra activa en dorado), sin sonido.
+- Textos grandes con un clic suave y «magic reveal» solo para revelar la marca.
+- Tomas de apoyo a pantalla completa (apoyo.py): gráficos animados y la biblioteca de la oficina.
+  Los 4 efectos son los del video de referencia del cliente (sfx/*.wav, sin el «faaahh»), pocos y bajos
+  (el cliente pidió menos sonidos en los textos).
 - Voz limpia (RNNoise) y nivelada a -14 LUFS.
 
 Uso: python3 abogadas/build.py abogadas/pension.config.json [--draft]
@@ -21,6 +23,8 @@ import wave
 
 import numpy as np
 from PIL import Image
+
+import apoyo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -282,7 +286,6 @@ def build_ass(cfg, words, tl, path):
             anim = pop() if j == 0 else ""
             ev.append(f"Dialogue: 2,{ts(ws)},{ts(we)},Cap,,0,0,0,,{{\\an5\\pos({W // 2},{CAP_Y}){anim}}}"
                       + " ".join(parts))
-        sfx.append(("click", start, 0.30))
     # Textos grandes.
     for tx in cfg["texts"]:
         w0 = find(words, tx["at"])
@@ -297,7 +300,8 @@ def build_ass(cfg, words, tl, path):
                 y = BIG_Y - 170 + i * 150
                 ev.append(f"Dialogue: 3,{ts(ti)},{ts(t1)},Box,,0,0,0,,"
                           f"{{\\an4\\pos(110,{y})\\fad(0,150)\\c{WHITE}{pop(100)}}}{{\\c{GOLD}}}• {{\\c{WHITE}}}{item}")
-                sfx.append(("click", ti, 0.7))
+                if i == 0:
+                    sfx.append(("click", ti, 0.4))
             continue
         n = len(tx["lines"])
         for i, line in enumerate(tx["lines"]):
@@ -314,7 +318,7 @@ def build_ass(cfg, words, tl, path):
                       f"{{\\an7\\pos({W // 2 - 170},{y})\\c{GOLD}\\bord0\\shad0\\fad(0,150)"
                       f"\\fscx0\\t(0,250,\\fscx100)\\p1}}m 0 0 l 340 0 340 8 0 8{{\\p0}}")
         kind = tx.get("sfx", "click")
-        sfx.append((kind, t0, 0.55 if kind == "magic" else 0.7))
+        sfx.append((kind, t0, 0.35 if kind == "magic" else 0.4))
     # Destello cálido en los cambios de tema (con obturador).
     for ref in cfg.get("transitions", []):
         t = o(find(words, ref)["s"]) - PAD_IN
@@ -323,7 +327,7 @@ def build_ass(cfg, words, tl, path):
         ev.append(f"Dialogue: 9,{ts(t + 0.01)},{ts(t + 0.3)},Flash,,0,0,0,,"
                   f"{{\\an7\\pos(0,0)\\c&H00E0F3FF&\\1a&H40&\\t(0,300,\\1a&HFF&)\\bord0\\shad0\\p1}}"
                   f"m 0 0 l {W} 0 {W} {H} 0 {H}{{\\p0}}")
-        sfx.append(("shutter", t, 0.75))
+        sfx.append(("shutter", t, 0.5))
     open(path, "w").write(ASS_HEAD + "\n".join(ev) + "\n")
     return sfx
 
@@ -353,13 +357,44 @@ def zoom_curve(cfg, words, tl):
                 u = (j - j0) / max(1, j1 - j0)
                 zs[j] = cur + (z - cur) * (1 - (1 - u) ** 3)
             t += dur
-        events.append(("whoosh", t if near else t - 0.1, 0.55))
+        events.append(("whoosh", t if near else t - 0.1, 0.4))
         cur, t_prev = z, t
     zs[int(t_prev * FPS):] = cur
     return zs, events
 
 
-def render_video(cfg, src, tl, zs, ass, mix, out, draft):
+def snap(t, tl):
+    near = [c for c in tl.cuts if abs(c - t) < 0.12]
+    return near[0] if near else t
+
+
+def inserts(cfg, words, tl):
+    """Tomas de apoyo: [(t0, t1, frame(t, dur), extra_sfx)] en tiempo de salida."""
+    out = []
+    for ins in cfg.get("inserts", []):
+        t0 = snap(tl.out(find(words, ins["at"])["s"]) - 0.04, tl)
+        until = find(words, ins["until"])
+        t1 = snap(tl.out(until["s"]) - 0.04, tl) if until else tl.duration
+        kind = ins["kind"]
+        extra = []
+        if kind == "bookshelf":
+            fn = apoyo.Bookshelf(os.path.join(ROOT, ins["src"]), ins.get("from", 16.0), t1 - t0, FPS)
+        else:
+            kw = {}
+            if "lines" in ins:
+                kw["lines"] = tuple(ins["lines"])
+            if "label" in ins:
+                kw["label"] = ins["label"]
+            if "stamp" in ins:
+                kw["stamp_at"] = tl.out(find(words, ins["stamp"])["s"]) - t0
+                extra.append(("click", t0 + kw["stamp_at"], 0.45))
+            g = apoyo.GRAPHICS[kind]
+            fn = (lambda g, kw: lambda t, d: g(t, d, **kw))(g, kw)
+        out.append((t0, t1, fn, extra))
+    return out
+
+
+def render_video(cfg, src, tl, zs, ins, ass, mix, out, draft):
     sel = "+".join(f"between(t,{a:.4f},{b:.4f})" for a, b in tl.keep)
     fx, fy = cfg["face"][0] * W, cfg["face"][1] * H
     dec = subprocess.Popen(
@@ -381,7 +416,12 @@ def render_video(cfg, src, tl, zs, ass, mix, out, draft):
         if len(buf) < size:
             break
         z = zs[min(i, len(zs) - 1)]
-        if abs(z - 1) > 1e-3:
+        t = i / FPS
+        cur = [x for x in ins if x[0] <= t + 1e-6 < x[1]]
+        if cur:
+            t0, t1, fn, _ = cur[0]
+            buf = fn(max(0.0, t - t0), t1 - t0).tobytes()
+        elif abs(z - 1) > 1e-3:
             img = Image.frombuffer("RGB", (W, H), buf)
             cw, ch = W / z, H / z
             x0, y0 = fx * (1 - 1 / z), fy * (1 - 1 / z)
@@ -415,14 +455,22 @@ def main():
     ass = f"{tmp}/{name}.ass"
     sfx = build_ass(cfg, words, tl, ass)
     zs, zsfx = zoom_curve(cfg, words, tl)
+    ins = inserts(cfg, words, tl)
+    print("apoyo: " + " ".join(f"[{a:.2f}-{b:.2f}]" for a, b, _, _ in ins))
     vo = voice(src, tl, tmp)
-    # En los cambios de tema suena el obturador, no el whoosh.
-    shut = [t for k, t, _ in sfx if k == "shutter"]
-    zsfx = [e for e in zsfx if all(abs(e[1] - t) > 0.2 for t in shut)]
+    # Pocos sonidos: whoosh suave al entrar a una toma de apoyo; el de los zooms solo si se ve el zoom
+    # (no dentro de una toma de apoyo) y si no hay otro sonido cerca.
+    for t0, t1, _, extra in ins:
+        sfx += extra
+        if all(abs(t0 - t) > 0.3 for _, t, _ in sfx):
+            sfx.append(("whoosh", t0, 0.35))
+    zsfx = [e for e in zsfx if not any(a - 0.1 <= e[1] < b for a, b, _, _ in ins)]
+    zsfx = [e for e in zsfx if all(abs(e[1] - t) > 0.5 for _, t, _ in sfx)]
+    print("efectos: " + " ".join(f"{k}@{t:.1f}" for k, t, _ in sorted(sfx + zsfx, key=lambda e: e[1])))
     fx = sfx_track(sfx + zsfx, tl.duration, tmp)
     mix = f"{tmp}/mezcla.wav"
     run(["ffmpeg", "-v", "error", "-y", "-i", vo, "-i", fx, "-filter_complex",
-         "[1:a]volume=0.5[f];[0:a][f]amix=inputs=2:normalize=0:duration=first,"
+         "[1:a]volume=0.45[f];[0:a][f]amix=inputs=2:normalize=0:duration=first,"
          "alimiter=limit=0.89:level=false", "-ar", str(SR), mix])
     # Mezcla final a -14 LUFS (Reels/TikTok) con limitador a -1 dBFS.
     p = subprocess.run(["ffmpeg", "-hide_banner", "-i", mix, "-af", "ebur128", "-f", "null", "-"],
@@ -433,7 +481,7 @@ def main():
          f"volume={-14 - lufs:.2f}dB,alimiter=limit=0.89:level=false", "-ar", str(SR), final])
     mix = final
     out = os.path.join(ROOT, "out", "abogadas", name + ("-borrador" if draft else "") + ".mp4")
-    frames = render_video(cfg, src, tl, zs, ass, mix, out, draft)
+    frames = render_video(cfg, src, tl, zs, ins, ass, mix, out, draft)
     print(f"{out}: {frames} frames")
     if not draft:
         cel = out.replace(".mp4", "-celular.mp4")

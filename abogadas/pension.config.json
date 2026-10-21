@@ -10,10 +10,16 @@
     {"at": "Tu#5", "z": 1.25}
   ],
   "transitions": ["Tu#2", "En"],
+  "inserts": [
+    {"kind": "hourglass", "at": "pueden", "until": "Tu#2", "lines": ["TU FUTURO"]},
+    {"kind": "weeks", "at": "semanas", "until": "historia"},
+    {"kind": "document", "at": "historia", "until": "para", "lines": ["HISTORIA", "LABORAL"]},
+    {"kind": "bookshelf", "at": "En", "until": "Tu#5", "src": "media/abogadas/cartera.mov", "from": 16.0}
+  ],
   "texts": [
-    {"at": "cambios", "until": "futuro?", "lines": ["CAMBIOS", "PENSIONALES"], "sfx": "click"},
-    {"at": "edad,", "until": "son", "list": ["EDAD", "SEMANAS COTIZADAS", "HISTORIA LABORAL"], "items_at": ["edad,", "semanas", "historia"], "sfx": "click"},
+    {"at": "cambios", "until": "pueden", "lines": ["CAMBIOS", "PENSIONALES"], "sfx": "click"},
+    {"at": "edad,", "until": "semanas", "lines": ["EDAD"], "sfx": "click", "style": "gold"},
     {"at": "Enso", "until": "Tu#5", "lines": ["ENSO", "JURÍDICOS"], "sfx": "magic", "style": "brand"},
-    {"at": "asesoría", "until": "END", "lines": ["ASESORÍA", "SERIA"], "sfx": "magic", "style": "gold"}
+    {"at": "asesoría", "until": "END", "lines": ["ASESORÍA", "SERIA"], "sfx": "click", "style": "gold"}
   ]
 }

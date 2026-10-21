@@ -11,12 +11,15 @@
     {"at": "No#2", "z": 1.25}
   ],
   "transitions": ["Recuperar", "En"],
+  "inserts": [
+    {"kind": "invoices", "at": "pero", "until": "puede", "stamp": "vencida#1"},
+    {"kind": "chart_down", "at": "la#1", "until": "Recuperar", "lines": ["LIQUIDEZ"]},
+    {"kind": "bookshelf", "at": "En", "until": "recuperar#2", "src": "media/abogadas/cartera.mov", "from": 16.0},
+    {"kind": "shield", "at": "protegiendo", "until": "No#2"}
+  ],
   "texts": [
-    {"at": "clientes", "until": "Una", "lines": ["¿TUS CLIENTES", "NO PAGAN?"], "sfx": "click"},
-    {"at": "cartera#1", "until": "la#1", "lines": ["CARTERA", "VENCIDA"], "sfx": "click"},
-    {"at": "liquidez", "until": "Recuperar", "lines": ["LA LIQUIDEZ", "DE TU NEGOCIO"], "sfx": "click", "style": "gold"},
     {"at": "estrategia,", "until": "En", "list": ["ESTRATEGIA", "ANÁLISIS DOCUMENTAL", "ACCIONES JURÍDICAS"], "items_at": ["estrategia,", "análisis", "acciones"], "sfx": "click"},
-    {"at": "Enso", "until": "protegiendo", "lines": ["ENSO", "JURÍDICOS"], "sfx": "magic", "style": "brand"},
-    {"at": "agenda", "until": "END", "lines": ["AGENDA TU", "ASESORÍA"], "sfx": "magic", "style": "gold"}
+    {"at": "Enso", "until": "recuperar#2", "lines": ["ENSO", "JURÍDICOS"], "sfx": "magic", "style": "brand"},
+    {"at": "agenda", "until": "END", "lines": ["AGENDA TU", "ASESORÍA"], "sfx": "click", "style": "gold"}
   ]
 }

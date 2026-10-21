@@ -11,9 +11,15 @@ python3 abogadas/build.py abogadas/cartera.config.json   # → out/abogadas/cart
 ## Ediciones (las que pidió el cliente en el otro chat)
 - **Efectos de sonido del video de referencia del cliente** («Usá estos 4 efectos de sonido…»), **sin el
   primero («faaahh»)**: `sfx/click.wav`, `magic.wav`, `whoosh.wav`, `shutter.wav` (los mismos que se sacaron
-  para el video de Nia). Uso: clic en cada subtítulo (suave) y en cada texto grande; whoosh en cada
-  acercamiento/alejamiento; obturador + destello cálido en los cambios de tema; magic reveal al revelar la
-  marca y el cierre.
+  para el video de Nia). Segunda versión: el cliente pidió **menos sonidos en los textos**, así que los
+  subtítulos ya no suenan y quedan ~10 efectos por video, más bajos: un clic suave por texto grande (en
+  las listas, solo el primer ítem), whoosh al entrar a una toma de apoyo o en un zoom sin otro sonido
+  cerca, obturador + destello en los cambios de tema, magic reveal solo en la marca, clic en el sello.
+- **Tomas de apoyo** (`apoyo.py`, pedidas por el cliente). No hay material de archivo (los bancos de video
+  están bloqueados en este entorno y no hay nada en el Drive), así que son gráficos animados en azul noche y
+  dorado —reloj de arena, semanas cotizadas, documento con lupa, facturas con sello «VENCIDA», curva de
+  liquidez, escudo— y un plano real de la biblioteca de la oficina recortado del original de cartera
+  (misma oficina en los dos videos). Se configuran en `inserts` de cada `*.config.json`.
 - **Cortes en todas las pausas** (silencios > 0.22 s detectados en el audio, margen 0.05/0.10 s).
   Verificado con Whisper sobre el resultado: no se pierde ninguna palabra.
 - **Subtítulos palabra por palabra**: Montserrat ExtraBold 86 px, mayúsculas, blancos con contorno negro,
