@@ -1,0 +1,22 @@
+{
+  "src": "media/abogadas/cartera.mov",
+  "out": "cartera",
+  "face": [0.33, 0.51],
+  "zooms": [
+    {"at": "pero", "z": 1.22},
+    {"at": "Una", "z": 1.0},
+    {"at": "la#1", "z": 1.2},
+    {"at": "Recuperar", "z": 1.0},
+    {"at": "protegiendo", "z": 1.18},
+    {"at": "No#2", "z": 1.25}
+  ],
+  "transitions": ["Recuperar", "En"],
+  "texts": [
+    {"at": "clientes", "until": "Una", "lines": ["¿TUS CLIENTES", "NO PAGAN?"], "sfx": "click"},
+    {"at": "cartera#1", "until": "la#1", "lines": ["CARTERA", "VENCIDA"], "sfx": "click"},
+    {"at": "liquidez", "until": "Recuperar", "lines": ["LA LIQUIDEZ", "DE TU NEGOCIO"], "sfx": "click", "style": "gold"},
+    {"at": "estrategia,", "until": "En", "list": ["ESTRATEGIA", "ANÁLISIS DOCUMENTAL", "ACCIONES JURÍDICAS"], "items_at": ["estrategia,", "análisis", "acciones"], "sfx": "click"},
+    {"at": "Enso", "until": "protegiendo", "lines": ["ENSO", "JURÍDICOS"], "sfx": "magic", "style": "brand"},
+    {"at": "agenda", "until": "END", "lines": ["AGENDA TU", "ASESORÍA"], "sfx": "magic", "style": "gold"}
+  ]
+}

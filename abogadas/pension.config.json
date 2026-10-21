@@ -1,0 +1,19 @@
+{
+  "src": "media/abogadas/pension.mp4",
+  "out": "pension",
+  "face": [0.63, 0.53],
+  "zooms": [
+    {"at": "afectar", "z": 1.22},
+    {"at": "Tu#2", "z": 1.0},
+    {"at": "son", "z": 1.18},
+    {"at": "En", "z": 1.0},
+    {"at": "Tu#5", "z": 1.25}
+  ],
+  "transitions": ["Tu#2", "En"],
+  "texts": [
+    {"at": "cambios", "until": "futuro?", "lines": ["CAMBIOS", "PENSIONALES"], "sfx": "click"},
+    {"at": "edad,", "until": "son", "list": ["EDAD", "SEMANAS COTIZADAS", "HISTORIA LABORAL"], "items_at": ["edad,", "semanas", "historia"], "sfx": "click"},
+    {"at": "Enso", "until": "Tu#5", "lines": ["ENSO", "JURÍDICOS"], "sfx": "magic", "style": "brand"},
+    {"at": "asesoría", "until": "END", "lines": ["ASESORÍA", "SERIA"], "sfx": "magic", "style": "gold"}
+  ]
+}
