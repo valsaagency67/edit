@@ -98,7 +98,7 @@ export const RemotionRoot: React.FC = () => {
             mostrarMarca: false,
           }}
         />
-        {/* Video donde mueve los dedos: solo cambia el audio por el del TikTok ssstik ...939. */}
+        {/* IMG_0684.MOV (mueve los dedos): solo cambia el audio por el del TikTok ssstik ...939. */}
         <Composition
           id="VideoDedos"
           component={ReelTransiciones}

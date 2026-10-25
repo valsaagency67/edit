@@ -14,7 +14,7 @@ el sonido es solo música. Render final 1080x1920, H.264 `--crf=16`, audio 320 k
 | `Carrusel-<outfit>-<n>` | Láminas 1080x1350 para carrusel de Instagram, una por foto | Listo (`out/carrusel/`) |
 | `ReelFotos` | Reel vertical con todas las fotos y transiciones animadas | Listo, sin música |
 | `TransicionOutfits` | Cambio de outfit en corte seco al ritmo del TikTok de referencia `ssstik ...161` (cortes en 0.77, 1.77, 2.9, 3.8, 4.5 s) | Armado con fotos de relleno; faltan los .MOV |
-| `VideoDedos` | El video donde empieza moviendo los dedos, solo con el audio del TikTok `ssstik ...939` (8.7 s) | Armado; falta el .MOV |
+| `VideoDedos` | IMG_0684.MOV (empieza moviendo los dedos, top vinotinto), solo con el audio del TikTok `ssstik ...939` (8.7 s) | Armado; falta el .MOV |
 | — | Los 2 videos en pared blanca | Aparte, se definen después |
 
 ## Outfits (fotos)
@@ -27,6 +27,8 @@ el sonido es solo música. Render final 1080x1920, H.264 `--crf=16`, audio 320 k
 ## Videos en Drive (pendientes de descarga)
 
 IMG_0550, 0552, 0553, 0595, 0676, 0684, 0685, 0688, 0703 (.MOV, 25–200 MB).
+IMG_0684 = video de los dedos (id 1odjbyqzBmgskGby-iz6agJ5LLmgaoN9Z). Los otros van a la transición de outfits,
+menos los 2 de pared blanca (por identificar).
 La red del entorno bloquea `drive.google.com` / `drive.usercontent.google.com`
 y la API de Drive solo entrega archivos de hasta 10 MB.
 
