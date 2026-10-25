@@ -7,3 +7,6 @@ dist
 out
 whisper.cpp
 media/
+
+# Material del cliente (no se versiona)
+public/linea01/
