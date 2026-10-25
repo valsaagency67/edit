@@ -34,7 +34,7 @@ const BLUE = "#1D3E9E";
 const YELLOW = "#FFE600";
 const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
 const SHADOW = "0 4px 18px rgba(0,0,0,0.55), 0 0 3px rgba(0,0,0,0.6)";
-const COLORS: Record<string, string> = { red: RED, blue: BLUE };
+export const COLORS: Record<string, string> = { red: RED, blue: BLUE };
 const f = (s: number) => Math.round(s * PETICION_FPS);
 const clamp = { extrapolateRight: "clamp" as const, extrapolateLeft: "clamp" as const };
 
@@ -124,7 +124,7 @@ const ICONS: Record<string, React.ReactNode> = {
 // la animación termina antes de que entre la siguiente tarjeta.
 const IO = 6;
 
-const CardView: React.FC<{ icon: string; kicker: string; text: string; color: string; dur: number }> = ({
+export const CardView: React.FC<{ icon: string; kicker: string; text: string; color: string; dur: number }> = ({
   icon,
   kicker,
   text,
@@ -199,7 +199,7 @@ const CardView: React.FC<{ icon: string; kicker: string; text: string; color: st
   );
 };
 
-const CaptionView: React.FC<{ pieces: { t: string; y: boolean }[]; dur: number }> = ({ pieces, dur }) => {
+export const CaptionView: React.FC<{ pieces: { t: string; y: boolean }[]; dur: number }> = ({ pieces, dur }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
   return (
@@ -342,7 +342,7 @@ const EvidenceView: React.FC<{ img: number; title: string; quote: string; dur: n
 };
 
 // Destello blanco de 0.2 s en cada cambio de clip (interrupción de patrón, sin zoom ni sacudida).
-const Flash: React.FC = () => {
+export const Flash: React.FC = () => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, 6], [0.55, 0], clamp);
   return <AbsoluteFill style={{ backgroundColor: "white", opacity: o }} />;

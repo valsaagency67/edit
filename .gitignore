@@ -25,3 +25,6 @@ public/nia/*.wav
 public/nia/broll/
 # Fuente comercial del cliente (Nia): no se redistribuye
 public/fonts/BootzyTM.ttf
+# Juan Felipe II: generados por scripts/build_derechos.py (no versionar)
+public/jf2/*.mp4
+public/jf2/*.wav

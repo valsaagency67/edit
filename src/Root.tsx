@@ -3,6 +3,7 @@ import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
 import { CoverMarcha } from "./campaign/CoverMarcha";
 import { CoverPeticion } from "./campaign/CoverPeticion";
+import { Derechos, DERECHOS_FPS, derechosDuration } from "./campaign/Derechos";
 import { Highlight } from "./campaign/Highlights";
 import { Marcha, MARCHA_FPS, marchaDuration } from "./campaign/Marcha";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
@@ -98,6 +99,8 @@ export const RemotionRoot: React.FC = () => {
         durationInFrames={1}
         defaultProps={{ variante: "gancho" as "gancho" | "subtitulo" }}
       />
+      {/* Juan Felipe: «¿Dónde acudir cuando te vulneran tus derechos?»: npm run build:derechos && npm run render:derechos */}
+      <Composition id="JFC-Derechos" component={Derechos} width={1080} height={1920} fps={DERECHOS_FPS} durationInFrames={derechosDuration} />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
         id="Destacada-INFO"
