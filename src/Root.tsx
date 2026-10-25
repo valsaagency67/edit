@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
+import { CoverDerechos } from "./campaign/CoverDerechos";
 import { CoverMarcha } from "./campaign/CoverMarcha";
 import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Derechos, DERECHOS_FPS, derechosDuration } from "./campaign/Derechos";
@@ -101,6 +102,7 @@ export const RemotionRoot: React.FC = () => {
       />
       {/* Juan Felipe: «¿Dónde acudir cuando te vulneran tus derechos?»: npm run build:derechos && npm run render:derechos */}
       <Composition id="JFC-Derechos" component={Derechos} width={1080} height={1920} fps={DERECHOS_FPS} durationInFrames={derechosDuration} />
+      <Composition id="JFC-Derechos-Portada" component={CoverDerechos} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
         id="Destacada-INFO"
