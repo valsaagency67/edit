@@ -102,6 +102,36 @@ export const RemotionRoot: React.FC = () => {
             mostrarMarca: false,
           }}
         />
+        {/* Pared blanca: se da vuelta en IMG_0685 (vinotinto) y termina el giro en IMG_0688 (blanco/rojo).
+            El corte cae a mitad del giro, en el golpe fuerte de 1.73 s del audio ...161. */}
+        <Composition
+          id="GiroParedBlanca"
+          component={ReelTransiciones}
+          schema={reelSchema}
+          calculateMetadata={calcularDuracionReel}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            clips: [
+              {
+                tipo: "video" as const,
+                src: clip("IMG_0685"),
+                duracion: 1.733,
+                inicio: 0,
+              },
+              {
+                tipo: "video" as const,
+                src: clip("IMG_0688"),
+                duracion: 3.6,
+                inicio: 0,
+              },
+            ],
+            musica: staticFile("linea01/audio/ref_161.wav"),
+            volumenMusica: 1,
+            transicionFrames: 0,
+            mostrarMarca: false,
+          }}
+        />
         {/* IMG_0684.MOV (mueve los dedos): solo cambia el audio por el del TikTok ssstik ...939. */}
         <Composition
           id="VideoDedos"

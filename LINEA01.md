@@ -15,7 +15,7 @@ el sonido es solo música. Render final 1080x1920, H.264 `--crf=16`, audio 320 k
 | `ReelFotos` | Reel vertical con todas las fotos y transiciones animadas | Listo, sin música |
 | `TransicionOutfits` | Cambio de outfit con los videos, en corte seco al ritmo del TikTok de referencia `ssstik ...161` (cortes en 0.77, 1.77, 2.9, 3.8 s) y con su audio | Listo (`out/linea01-transicion-outfits.mp4`) |
 | `VideoDedos` | IMG_0684.MOV (empieza moviendo los dedos), solo con el audio del TikTok `ssstik ...939` (8.7 s), arrancando en 0.5 s para que la mano se aparte en el mismo beat | Listo (`out/linea01-video-dedos.mp4`) |
-| — | IMG_0685 y IMG_0688 (pared blanca) | Aparte, se definen después |
+| `GiroParedBlanca` | Pared blanca: se da vuelta con el vinotinto (IMG_0685, desde 2.067 s) y termina el giro con el blanco/rojo (IMG_0688, desde 1.2 s). Corte a mitad del giro en el golpe de 1.73 s del audio `ssstik ...161` | Listo (`out/linea01-giro-pared-blanca.mp4`) |
 
 ## Outfits (fotos)
 
@@ -38,7 +38,7 @@ Bajados con `gdown <id> -O media/raw/IMG_xxxx.MOV`. Todos son HEVC SDR, vertical
 | IMG_0703 | blanco/rojo + leggins rojo, parque | Transición, desde 2.5 s (plano final) |
 | IMG_0550 | amarillo, primer plano de perfil | Sin usar |
 | IMG_0684 | dedos a cámara, vinotinto + café | `VideoDedos` |
-| IMG_0685, IMG_0688 | pared blanca | Otra pieza |
+| IMG_0685, IMG_0688 | pared blanca | `GiroParedBlanca` |
 
 Los tramos se recortan desde el original a `public/linea01/clips/*.mp4` (1080x1920, H.264 crf 12,
 30 fps, sin audio), con un crop por clip para que ella quede del mismo tamaño y en el mismo lugar
@@ -52,6 +52,8 @@ en cada cambio de outfit:
 | IMG_0676 | `crop=864:1536:288:376` |
 | IMG_0703 | sin crop |
 | IMG_0684 | sin crop, 9.5 s completos |
+| IMG_0685 | sin crop, desde 2.067 s |
+| IMG_0688 | sin crop, desde 1.2 s |
 
 Audios de referencia: `ffmpeg -i ref.mp4 -vn -c:a pcm_s16le public/linea01/audio/ref_XXX.wav`.
 
