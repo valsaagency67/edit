@@ -13,24 +13,47 @@ el sonido es solo música. Render final 1080x1920, H.264 `--crf=16`, audio 320 k
 |---|---|---|
 | `Carrusel-<outfit>-<n>` | Láminas 1080x1350 para carrusel de Instagram, una por foto | Listo (`out/carrusel/`) |
 | `ReelFotos` | Reel vertical con todas las fotos y transiciones animadas | Listo, sin música |
-| `TransicionOutfits` | Cambio de outfit en corte seco al ritmo del TikTok de referencia `ssstik ...161` (cortes en 0.77, 1.77, 2.9, 3.8, 4.5 s) | Armado con fotos de relleno; faltan los .MOV |
-| `VideoDedos` | IMG_0684.MOV (empieza moviendo los dedos, top vinotinto), solo con el audio del TikTok `ssstik ...939` (8.7 s) | Armado; falta el .MOV |
-| — | Los 2 videos en pared blanca | Aparte, se definen después |
+| `TransicionOutfits` | Cambio de outfit con los videos, en corte seco al ritmo del TikTok de referencia `ssstik ...161` (cortes en 0.77, 1.77, 2.9, 3.8 s) y con su audio | Listo (`out/linea01-transicion-outfits.mp4`) |
+| `VideoDedos` | IMG_0684.MOV (empieza moviendo los dedos), solo con el audio del TikTok `ssstik ...939` (8.7 s), arrancando en 0.5 s para que la mano se aparte en el mismo beat | Listo (`out/linea01-video-dedos.mp4`) |
+| — | IMG_0685 y IMG_0688 (pared blanca) | Aparte, se definen después |
 
 ## Outfits (fotos)
 
 - `jeanCeleste`: body celeste + jean bota ancha — IMG_0578, 0589, 0596, 0605, 0606
 - `vinotintoCafe`: top vinotinto + leggins café — IMG_0669, 0674
 - `rojoBlanco`: top blanco/rojo + leggins rojo — IMG_0689, 0694, 0698, 0701
-- Los 6 DNG (IMG_0557, 0564, 0565, 0569, 0631, 0635) pesan más de 10 MB y no bajan por la API.
+- Los 6 DNG (IMG_0557, 0564, 0565, 0569, 0631, 0635) están en `media/raw/fotos_dng/`, sin usar todavía.
 
-## Videos en Drive (pendientes de descarga)
+## Videos
 
-IMG_0550, 0552, 0553, 0595, 0676, 0684, 0685, 0688, 0703 (.MOV, 25–200 MB).
-IMG_0684 = video de los dedos (id 1odjbyqzBmgskGby-iz6agJ5LLmgaoN9Z). Los otros van a la transición de outfits,
-menos los 2 de pared blanca (por identificar).
-La red del entorno bloquea `drive.google.com` / `drive.usercontent.google.com`
-y la API de Drive solo entrega archivos de hasta 10 MB.
+Bajados con `gdown <id> -O media/raw/IMG_xxxx.MOV`. Todos son HEVC SDR, verticales (4K 60 fps salvo
+0595 1080p y 0676 1440x1920 30 fps).
+
+| Video | Contenido | Uso |
+|---|---|---|
+| IMG_0595 | celeste + jean, parque | Transición, desde 2.0 s |
+| IMG_0552 | amarillo + jean, parque | Transición, desde 8.0 s |
+| IMG_0553 | rojo + jean, parque | Transición, desde 2.5 s |
+| IMG_0676 | vinotinto + café, parque | Transición, desde 0 s |
+| IMG_0703 | blanco/rojo + leggins rojo, parque | Transición, desde 2.5 s (plano final) |
+| IMG_0550 | amarillo, primer plano de perfil | Sin usar |
+| IMG_0684 | dedos a cámara, vinotinto + café | `VideoDedos` |
+| IMG_0685, IMG_0688 | pared blanca | Otra pieza |
+
+Los tramos se recortan desde el original a `public/linea01/clips/*.mp4` (1080x1920, H.264 crf 12,
+30 fps, sin audio), con un crop por clip para que ella quede del mismo tamaño y en el mismo lugar
+en cada cambio de outfit:
+
+| Clip | Crop sobre el original (rotado) |
+|---|---|
+| IMG_0595 | `crop=978:1740:100:147` |
+| IMG_0552 | `crop=1566:2784:456:672` |
+| IMG_0553 | `crop=1568:2786:95:698` |
+| IMG_0676 | `crop=864:1536:288:376` |
+| IMG_0703 | sin crop |
+| IMG_0684 | sin crop, 9.5 s completos |
+
+Audios de referencia: `ffmpeg -i ref.mp4 -vn -c:a pcm_s16le public/linea01/audio/ref_XXX.wav`.
 
 ## Render
 

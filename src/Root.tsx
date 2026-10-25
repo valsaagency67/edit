@@ -21,12 +21,17 @@ const fotosReel = [
 ];
 
 // Duración (s) de cada plano en el TikTok de referencia: cortes en 0.77, 1.77, 2.9, 3.8 y 4.5 s.
-const CORTES_REFERENCIA = [0.767, 1.0, 1.133, 0.9, 0.7, 0.833];
-const PORTADAS = [
-  OUTFITS.jeanCeleste[0],
-  OUTFITS.vinotintoCafe[0],
-  OUTFITS.rojoBlanco[0],
+// Son 5 outfits, así que el último plano se queda con los dos tramos finales (0.7 + 0.833).
+const CORTES_REFERENCIA = [0.767, 1.0, 1.133, 0.9, 1.533];
+// Tramos ya recortados de los .MOV a 1080x1920 sin audio (ver LINEA01.md), con el encuadre igualado.
+const CLIPS_OUTFITS = [
+  "IMG_0595", // celeste + jean
+  "IMG_0552", // amarillo + jean
+  "IMG_0553", // rojo + jean
+  "IMG_0676", // vinotinto + café
+  "IMG_0703", // blanco/rojo + leggins rojo
 ];
+const clip = (nombre: string) => staticFile(`linea01/clips/${nombre}.mp4`);
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -76,8 +81,7 @@ export const RemotionRoot: React.FC = () => {
             mostrarMarca: true,
           }}
         />
-        {/* Cambios de outfit en corte seco al ritmo del TikTok de referencia (ssstik ...161).
-            Placeholders con fotos hasta tener los .MOV: reemplazar por clips tipo "video". */}
+        {/* Cambios de outfit en corte seco al ritmo del TikTok de referencia (ssstik ...161). */}
         <Composition
           id="TransicionOutfits"
           component={ReelTransiciones}
@@ -87,8 +91,8 @@ export const RemotionRoot: React.FC = () => {
           height={1920}
           defaultProps={{
             clips: CORTES_REFERENCIA.map((duracion, i) => ({
-              tipo: "foto" as const,
-              src: foto(PORTADAS[i % PORTADAS.length]),
+              tipo: "video" as const,
+              src: clip(CLIPS_OUTFITS[i]),
               duracion,
               inicio: 0,
             })),
@@ -109,10 +113,11 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={{
             clips: [
               {
-                tipo: "foto" as const,
-                src: foto(PORTADAS[0]),
+                tipo: "video" as const,
+                src: clip("IMG_0684"),
                 duracion: 8.67,
-                inicio: 0,
+                // La mano se aparta ~0.5 s después que en la referencia: así el "reveal" cae igual.
+                inicio: 0.5,
               },
             ],
             musica: staticFile("linea01/audio/ref_939.wav"),
