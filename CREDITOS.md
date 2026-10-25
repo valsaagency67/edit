@@ -34,7 +34,7 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
 
 - **Música** (`public/nia/musica.wav`): pieza propia en Sol mayor (piano y chelo), compuesta con
   `scripts/build_nia.py` con muestras de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0).
-- **Efectos de sonido** (`public/nia/sfx/ref-*.wav`: clic, magic reveal, whoosh y obturador): sacados del
+- **Efectos de sonido** (`public/sfx/ref-*.wav`: clic, magic reveal, whoosh y obturador): sacados del
   video de referencia que mandó el cliente («Usa estos 4 efectos de sonido…»), separando la voz con el
   modelo UVR-MDX-NET-Inst_HQ_3 (sherpa-onnx) y filtrando los graves que quedaban de la voz.
 - **Reducción de ruido** de la voz: filtro `arnndn` de FFmpeg con el modelo original de RNNoise

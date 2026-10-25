@@ -20,7 +20,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import make_foley as mf  # noqa: E402
 import make_music as mm  # noqa: E402
-from tomas import SR, Proyecto, read_wav, write_wav  # noqa: E402
+from tomas import SR, Proyecto, sample, write_wav  # noqa: E402
 
 CFG = json.load(open(f"{ROOT}/scripts/nia.config.json", encoding="utf-8"))
 OUT = f"{ROOT}/public/nia"
@@ -69,11 +69,6 @@ def musica(data):
     # ~17 dB bajo la voz (-16 LUFS).
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp, "-af", "loudnorm=I=-33:TP=-9:LRA=11",
                     "-ar", str(SR), f"{OUT}/musica.wav"], check=True)
-
-
-def sample(name):
-    """Efecto sacado del video de referencia del cliente (public/nia/sfx/ref-*.wav, ver CREDITOS.md)."""
-    return read_wav(f"{OUT}/sfx/ref-{name}.wav")
 
 
 def foley(data):

@@ -7,7 +7,8 @@ los cortes, música propia baja y foley alineado.
 - Escenas, voz y tomas: scripts/tomas.py (cinco tomas a cámara de media/jf2/IMG_*.MOV).
 - public/jf2/musica.wav: pieza propia, distinta de las otras (piano, violín y contrabajo en La mayor,
   96 bpm, esperanzadora), muestras reales tonejs-instruments (CC-BY 3.0), ~17 dB bajo la voz.
-- public/jf2/foley.wav: clic por subtítulo, golpe en cada tarjeta, barrido en cada corte de toma.
+- public/jf2/foley.wav: efectos del video de referencia del cliente (obturador en los cortes, clic en
+  subtítulos y tarjetas).
 Salida de la línea de tiempo: src/campaign/derechos.json.
 
 Uso: python3 scripts/build_derechos.py
@@ -23,7 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import make_foley as mf  # noqa: E402
 import make_music as mm  # noqa: E402
-from tomas import SR, Proyecto, write_wav  # noqa: E402
+from tomas import SR, Proyecto, sample, write_wav  # noqa: E402
 
 CFG = json.load(open(f"{ROOT}/scripts/derechos.config.json", encoding="utf-8"))
 OUT = f"{ROOT}/public/jf2"
@@ -66,14 +67,17 @@ def musica(data):
 
 
 def foley(data):
+    """Solo los efectos del video de referencia del cliente (public/sfx/ref-*.wav): obturador en cada
+    cambio de toma (con el destello), clic suave en cada subtítulo y clic fuerte cuando aparece una tarjeta."""
     buf = np.zeros(int((data["duration"] + 2) * SR))
+    click, shutter = sample("click"), sample("shutter")
     for i, sc in enumerate(data["scenes"]):
         if i:
-            mf.place(buf, mf.whoosh(0.35, 700, 6500, 0.16, rise=True), sc["start"] - 0.25)
+            mf.place(buf, shutter * 0.7, sc["start"] - 0.03)
         for c in sc["captions"]:
-            mf.place(buf, mf.click(0.3), c["start"])
+            mf.place(buf, click * 0.35, c["start"])
         for c in sc["cards"]:
-            mf.place(buf, mf.thud(58, 0.5, 0.55), c["start"])
+            mf.place(buf, click * 0.75, c["start"])
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 

@@ -49,6 +49,12 @@ def write_wav(path, x, channels=1):
         w.writeframes((x * 32767).astype("<i2").tobytes())
 
 
+def sample(name):
+    """Efecto del video de referencia del cliente (public/sfx/ref-*.wav: click, shutter, whoosh, magic;
+    ver CREDITOS.md). Son los únicos que quiere en sus videos."""
+    return read_wav(f"{ROOT}/public/sfx/ref-{name}.wav")
+
+
 def frames(path):
     out = subprocess.run(["ffprobe", "-v", "error", "-count_frames", "-select_streams", "v",
                           "-show_entries", "stream=nb_read_frames", "-of", "csv=p=0", path],
@@ -63,7 +69,27 @@ def cut_pauses(x, pause):
     n = len(x) // hop
     db = 20 * np.log10(np.sqrt(np.mean(x[: n * hop].reshape(n, hop) ** 2, 1)) + 1e-9)
     floor, speech = np.percentile(db, 10), np.percentile(db, 90)
-    loud = db >= floor + pause["threshold"] * (speech - floor)
+    # Umbral entre ruido y voz, pero nunca más de 26 dB bajo la voz: si la toma tiene tramos casi mudos
+    # el «ruido» sale muy bajo y el aire de la calle contaba como voz (gancho de IMG_0727).
+    loud = db >= max(floor + pause["threshold"] * (speech - floor), speech - 26)
+    # Ruidos sueltos al principio o al final (un golpe, una moto, una respiración): tramos de menos de
+    # 0.3 s separados de la voz por al menos 0.5 s de silencio no cuentan como voz.
+    runs, k = [], 0
+    while k < n:
+        if loud[k]:
+            j = k
+            while j < n and loud[j]:
+                j += 1
+            runs.append((k, j))
+            k = j
+        else:
+            k += 1
+    while len(runs) > 1 and runs[0][1] - runs[0][0] < 30 and runs[1][0] - runs[0][1] >= 50:
+        loud[runs[0][0]:runs[0][1]] = False
+        runs.pop(0)
+    while len(runs) > 1 and runs[-1][1] - runs[-1][0] < 30 and runs[-1][0] - runs[-2][1] >= 50:
+        loud[runs[-1][0]:runs[-1][1]] = False
+        runs.pop()
     idx = np.nonzero(loud)[0]
     first, last = max(0, idx[0] - 4), min(n, idx[-1] + 6)  # 40 ms antes, 60 ms después
     keep, k, t = [], first, first

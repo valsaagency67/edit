@@ -22,7 +22,9 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Música**: propia para cada pieza (no reutilizar la de otro video), con muestras reales
   (tonejs-instruments, CC-BY 3.0, crédito en `CREDITOS.md`) y BAJA: ~17 dB bajo la voz.
 - **Voz**: cadena de `scripts/enhance_voice.py`, cada toma a -16 LUFS. Mezcla final ≈ -14 LUFS, pico -1 dBFS.
-- **Foley** alineado con lo que pasa en pantalla (clic por subtítulo, golpes en tarjetas, etc.).
+- **Efectos de sonido**: SOLO los del video de referencia del cliente (`public/sfx/ref-*.wav`): obturador en
+  los cambios de toma (con el destello), clic en subtítulos (suave) y cuando aparece una tarjeta (fuerte).
+  Nada sintetizado: los foleys sintéticos no le gustan.
 - **Evidencia**: cuando hay documentos (correos, radicados), mostrarlos recortados con resaltador y el dato
   clave en grande; difuminar cédula y datos personales.
 - **Privacidad y legal**: pixelar caras de terceros (p. ej. el vigilante); no difamar a nadie.
@@ -45,5 +47,5 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Tipografía Bootzy TM** (la eligió el cliente) en casi todo: subtítulos, textos grandes, globos. Solo las
   frases cursivas de acompañamiento y la firma «Nia» van en Playfair. Es comercial: `public/fonts/BootzyTM.ttf`
   no se versiona; no trae «¿ ¡ …» (se arman girando «? !», componente `BZ`).
-- **Efectos de sonido**: solo los del video de referencia del cliente (`public/nia/sfx/ref-*.wav`): clic en
+- **Efectos de sonido**: solo los del video de referencia del cliente (`public/sfx/ref-*.wav`): clic en
   textos, magic reveal al revelar imágenes, whoosh en acercamientos, obturador en transiciones. Nada sintetizado.

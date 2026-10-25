@@ -1,90 +1,90 @@
 {
  "fps": 30,
- "duration": 31.288,
+ "duration": 29.551,
  "clips": {
-  "gancho": 94,
-  "derecho": 164,
-  "causas": 200,
-  "escuchar": 279,
-  "dm": 163
+  "gancho": 66,
+  "derecho": 157,
+  "causas": 195,
+  "escuchar": 273,
+  "dm": 158
  },
  "scenes": [
   {
    "key": "gancho",
    "start": 0.0,
-   "end": 3.152,
+   "end": 2.181,
    "zooms": null,
    "silent": null,
    "text": "¿No sabes dónde acudir cuando te vulneran tus derechos?",
    "words": [
     {
      "t": "¿No",
-     "s": 0.16,
-     "e": 0.64
+     "s": 0.0,
+     "e": 0.24
     },
     {
      "t": "sabes",
-     "s": 0.64,
-     "e": 0.96
+     "s": 0.24,
+     "e": 0.4
     },
     {
      "t": "dónde",
-     "s": 0.96,
-     "e": 1.12
+     "s": 0.4,
+     "e": 0.64
     },
     {
      "t": "acudir",
-     "s": 1.12,
-     "e": 1.52
+     "s": 0.64,
+     "e": 1.04
     },
     {
      "t": "cuando",
-     "s": 1.52,
-     "e": 1.68
+     "s": 1.04,
+     "e": 1.2
     },
     {
      "t": "te",
-     "s": 1.68,
-     "e": 1.76
+     "s": 1.2,
+     "e": 1.28
     },
     {
      "t": "vulneran",
-     "s": 1.76,
-     "e": 2.24
+     "s": 1.28,
+     "e": 1.68
     },
     {
      "t": "tus",
-     "s": 2.24,
-     "e": 2.4
+     "s": 1.68,
+     "e": 1.84
     },
     {
      "t": "derechos?",
-     "s": 2.4,
-     "e": 2.9
+     "s": 1.84,
+     "e": 2.181
     }
    ],
    "shots": [
     {
      "src": "gancho",
      "start": 0.0,
-     "end": 3.152
+     "end": 2.181
     }
    ],
    "captions": [
     {
      "text": "¿No sabes dónde acudir",
-     "start": 0.16,
-     "end": 1.52
+     "start": 0.0,
+     "end": 1.04
     },
     {
      "text": "cuando te *vulneran",
-     "start": 1.52,
-     "end": 2.24
+     "start": 1.04,
+     "end": 1.68
     },
     {
      "text": "tus *derechos?",
-     "start": 2.24,
-     "end": 3.152
+     "start": 1.68,
+     "end": 2.181
     }
    ],
    "cards": [
@@ -93,167 +93,167 @@
      "kicker": "¿Te vulneran tus",
      "text": "derechos?",
      "color": "red",
-     "start": 1.76,
-     "end": 3.152
+     "start": 1.28,
+     "end": 2.181
     }
    ]
   },
   {
    "key": "derecho",
-   "start": 3.152,
-   "end": 8.624,
+   "start": 2.181,
+   "end": 7.45,
    "zooms": null,
    "silent": null,
    "text": "Estudié derecho porque quiero que la ley le llegue al que verdaderamente lo necesita, no solamente al que puede pagar por ella.",
    "words": [
     {
      "t": "Estudié",
-     "s": 3.232,
-     "e": 3.712
+     "s": 2.261,
+     "e": 2.661
     },
     {
      "t": "derecho",
-     "s": 3.712,
-     "e": 4.032
+     "s": 2.661,
+     "e": 3.061
     },
     {
      "t": "porque",
-     "s": 4.032,
-     "e": 4.272
+     "s": 3.061,
+     "e": 3.221
     },
     {
      "t": "quiero",
-     "s": 4.272,
-     "e": 4.512
+     "s": 3.221,
+     "e": 3.461
     },
     {
      "t": "que",
-     "s": 4.512,
-     "e": 4.592
+     "s": 3.461,
+     "e": 3.541
     },
     {
      "t": "la",
-     "s": 4.592,
-     "e": 4.672
+     "s": 3.541,
+     "e": 3.621
     },
     {
      "t": "ley",
-     "s": 4.672,
-     "e": 4.912
+     "s": 3.621,
+     "e": 3.861
     },
     {
      "t": "le",
-     "s": 4.912,
-     "e": 5.072
+     "s": 3.861,
+     "e": 4.021
     },
     {
      "t": "llegue",
-     "s": 5.072,
-     "e": 5.392
+     "s": 4.021,
+     "e": 4.341
     },
     {
      "t": "al",
-     "s": 5.392,
-     "e": 5.552
+     "s": 4.341,
+     "e": 4.501
     },
     {
      "t": "que",
-     "s": 5.552,
-     "e": 5.712
+     "s": 4.501,
+     "e": 4.661
     },
     {
      "t": "verdaderamente",
-     "s": 5.712,
-     "e": 6.272
+     "s": 4.661,
+     "e": 5.221
     },
     {
      "t": "lo",
-     "s": 6.272,
-     "e": 6.432
+     "s": 5.221,
+     "e": 5.381
     },
     {
      "t": "necesita,",
-     "s": 6.432,
-     "e": 6.912
+     "s": 5.381,
+     "e": 5.861
     },
     {
      "t": "no",
-     "s": 6.912,
-     "e": 7.072
+     "s": 5.861,
+     "e": 6.021
     },
     {
      "t": "solamente",
-     "s": 7.072,
-     "e": 7.392
+     "s": 6.021,
+     "e": 6.341
     },
     {
      "t": "al",
-     "s": 7.392,
-     "e": 7.552
+     "s": 6.341,
+     "e": 6.501
     },
     {
      "t": "que",
-     "s": 7.552,
-     "e": 7.712
+     "s": 6.501,
+     "e": 6.581
     },
     {
      "t": "puede",
-     "s": 7.712,
-     "e": 7.952
+     "s": 6.581,
+     "e": 6.821
     },
     {
      "t": "pagar",
-     "s": 7.952,
-     "e": 8.192
+     "s": 6.821,
+     "e": 7.061
     },
     {
      "t": "por",
-     "s": 8.192,
-     "e": 8.272
+     "s": 7.061,
+     "e": 7.141
     },
     {
      "t": "ella.",
-     "s": 8.272,
-     "e": 8.623
+     "s": 7.141,
+     "e": 7.45
     }
    ],
    "shots": [
     {
      "src": "derecho",
-     "start": 3.152,
-     "end": 8.624
+     "start": 2.181,
+     "end": 7.45
     }
    ],
    "captions": [
     {
      "text": "Estudié *derecho",
-     "start": 3.232,
-     "end": 4.032
+     "start": 2.261,
+     "end": 3.061
     },
     {
      "text": "porque quiero que la *ley",
-     "start": 4.032,
-     "end": 4.912
+     "start": 3.061,
+     "end": 3.861
     },
     {
      "text": "le llegue al que",
-     "start": 4.912,
-     "end": 5.712
+     "start": 3.861,
+     "end": 4.661
     },
     {
      "text": "*verdaderamente lo necesita,",
-     "start": 5.712,
-     "end": 6.912
+     "start": 4.661,
+     "end": 5.861
     },
     {
      "text": "no solamente al que",
-     "start": 6.912,
-     "end": 7.712
+     "start": 5.861,
+     "end": 6.581
     },
     {
      "text": "puede *pagar por ella.",
-     "start": 7.712,
-     "end": 8.624
+     "start": 6.581,
+     "end": 7.45
     }
    ],
    "cards": [
@@ -262,155 +262,155 @@
      "kicker": "La ley para",
      "text": "quien la necesita",
      "color": "blue",
-     "start": 4.672,
-     "end": 6.912
+     "start": 3.621,
+     "end": 5.861
     },
     {
      "icon": "eyeoff",
      "kicker": "No solo para",
      "text": "quien puede pagar",
      "color": "red",
-     "start": 7.952,
-     "end": 8.624
+     "start": 6.821,
+     "end": 7.45
     }
    ]
   },
   {
    "key": "causas",
-   "start": 8.624,
-   "end": 15.331,
+   "start": 7.45,
+   "end": 13.959,
    "zooms": null,
    "silent": null,
    "text": "Hoy trabajo en causas sociales y acompaño víctimas en procesos penales, principalmente en fraudes, suplantaciones y violencia intrafamiliar.",
    "words": [
     {
      "t": "Hoy",
-     "s": 8.624,
-     "e": 8.864
+     "s": 7.45,
+     "e": 7.69
     },
     {
      "t": "trabajo",
-     "s": 8.864,
-     "e": 9.184
+     "s": 7.69,
+     "e": 8.01
     },
     {
      "t": "en",
-     "s": 9.184,
-     "e": 9.264
+     "s": 8.01,
+     "e": 8.09
     },
     {
      "t": "causas",
-     "s": 9.264,
-     "e": 9.584
+     "s": 8.09,
+     "e": 8.41
     },
     {
      "t": "sociales",
-     "s": 9.584,
-     "e": 9.904
+     "s": 8.41,
+     "e": 8.73
     },
     {
      "t": "y",
-     "s": 9.904,
-     "e": 10.064
+     "s": 8.73,
+     "e": 8.89
     },
     {
      "t": "acompaño",
-     "s": 10.064,
-     "e": 10.704
+     "s": 8.89,
+     "e": 9.45
     },
     {
      "t": "víctimas",
-     "s": 10.704,
-     "e": 11.104
+     "s": 9.45,
+     "e": 9.85
     },
     {
      "t": "en",
-     "s": 11.104,
-     "e": 11.184
+     "s": 9.85,
+     "e": 10.01
     },
     {
      "t": "procesos",
-     "s": 11.184,
-     "e": 11.584
+     "s": 10.01,
+     "e": 10.33
     },
     {
      "t": "penales,",
-     "s": 11.584,
-     "e": 12.064
+     "s": 10.33,
+     "e": 10.81
     },
     {
      "t": "principalmente",
-     "s": 12.064,
-     "e": 12.704
+     "s": 10.81,
+     "e": 11.45
     },
     {
      "t": "en",
-     "s": 12.704,
-     "e": 12.944
+     "s": 11.45,
+     "e": 11.61
     },
     {
      "t": "fraudes,",
-     "s": 12.944,
-     "e": 13.504
+     "s": 11.61,
+     "e": 12.25
     },
     {
      "t": "suplantaciones",
-     "s": 13.504,
-     "e": 14.224
+     "s": 12.25,
+     "e": 12.89
     },
     {
      "t": "y",
-     "s": 14.224,
-     "e": 14.304
+     "s": 12.89,
+     "e": 12.97
     },
     {
      "t": "violencia",
-     "s": 14.304,
-     "e": 14.704
+     "s": 12.97,
+     "e": 13.37
     },
     {
      "t": "intrafamiliar.",
-     "s": 14.704,
-     "e": 15.204
+     "s": 13.37,
+     "e": 13.87
     }
    ],
    "shots": [
     {
      "src": "causas",
-     "start": 8.624,
-     "end": 15.331
+     "start": 7.45,
+     "end": 13.959
     }
    ],
    "captions": [
     {
      "text": "Hoy trabajo en *causas *sociales",
-     "start": 8.624,
-     "end": 9.904
+     "start": 7.45,
+     "end": 8.73
     },
     {
      "text": "y acompaño *víctimas",
-     "start": 9.904,
-     "end": 11.104
+     "start": 8.73,
+     "end": 9.85
     },
     {
      "text": "en procesos penales,",
-     "start": 11.104,
-     "end": 12.064
+     "start": 9.85,
+     "end": 10.81
     },
     {
      "text": "principalmente en *fraudes,",
-     "start": 12.064,
-     "end": 13.504
+     "start": 10.81,
+     "end": 12.25
     },
     {
      "text": "*suplantaciones",
-     "start": 13.504,
-     "end": 14.224
+     "start": 12.25,
+     "end": 12.89
     },
     {
      "text": "y *violencia *intrafamiliar.",
-     "start": 14.224,
-     "end": 15.331
+     "start": 12.89,
+     "end": 13.959
     }
    ],
    "cards": [
@@ -419,266 +419,266 @@
      "kicker": "Hoy trabajo en",
      "text": "causas sociales",
      "color": "blue",
-     "start": 9.264,
-     "end": 12.064
+     "start": 8.09,
+     "end": 10.81
     },
     {
      "icon": "doc",
      "kicker": "Acompaño víctimas de",
      "text": "fraudes",
      "color": "red",
-     "start": 12.944,
-     "end": 13.504
+     "start": 11.61,
+     "end": 12.25
     },
     {
      "icon": "eyeoff",
      "kicker": "Acompaño víctimas de",
      "text": "suplantaciones",
      "color": "red",
-     "start": 13.504,
-     "end": 14.224
+     "start": 12.25,
+     "end": 12.89
     },
     {
      "icon": "shield",
      "kicker": "Acompaño víctimas de",
      "text": "violencia intrafamiliar",
      "color": "red",
-     "start": 14.304,
-     "end": 15.331
+     "start": 12.97,
+     "end": 13.959
     }
    ]
   },
   {
    "key": "escuchar",
-   "start": 15.331,
-   "end": 24.638,
+   "start": 13.959,
+   "end": 23.067,
    "zooms": null,
    "silent": null,
    "text": "Cuando la gente se me acerca y me cuenta sus problemas, lo primero que hago es escuchar. A veces basta con un derecho de petición, una tutela o un simple trámite para solucionar sus inquietudes.",
    "words": [
     {
      "t": "Cuando",
-     "s": 15.331,
-     "e": 15.651
+     "s": 13.959,
+     "e": 14.199
     },
     {
      "t": "la",
-     "s": 15.651,
-     "e": 15.731
+     "s": 14.199,
+     "e": 14.279
     },
     {
      "t": "gente",
-     "s": 15.731,
-     "e": 15.971
+     "s": 14.279,
+     "e": 14.519
     },
     {
      "t": "se",
-     "s": 15.971,
-     "e": 16.131
+     "s": 14.519,
+     "e": 14.599
     },
     {
      "t": "me",
-     "s": 16.131,
-     "e": 16.211
+     "s": 14.599,
+     "e": 14.759
     },
     {
      "t": "acerca",
-     "s": 16.211,
-     "e": 16.611
+     "s": 14.759,
+     "e": 15.159
     },
     {
      "t": "y",
-     "s": 16.611,
-     "e": 16.771
+     "s": 15.159,
+     "e": 15.239
     },
     {
      "t": "me",
-     "s": 16.771,
-     "e": 16.851
+     "s": 15.239,
+     "e": 15.399
     },
     {
      "t": "cuenta",
-     "s": 16.851,
-     "e": 17.251
+     "s": 15.399,
+     "e": 15.719
     },
     {
      "t": "sus",
-     "s": 17.251,
-     "e": 17.411
+     "s": 15.719,
+     "e": 15.879
     },
     {
      "t": "problemas,",
-     "s": 17.411,
-     "e": 17.891
+     "s": 15.879,
+     "e": 16.359
     },
     {
      "t": "lo",
-     "s": 17.891,
-     "e": 18.051
+     "s": 16.359,
+     "e": 16.519
     },
     {
      "t": "primero",
-     "s": 18.051,
-     "e": 18.211
+     "s": 16.519,
+     "e": 16.759
     },
     {
      "t": "que",
-     "s": 18.211,
-     "e": 18.371
+     "s": 16.759,
+     "e": 16.919
     },
     {
      "t": "hago",
-     "s": 18.371,
-     "e": 18.611
+     "s": 16.919,
+     "e": 17.079
     },
     {
      "t": "es",
-     "s": 18.611,
-     "e": 18.771
+     "s": 17.079,
+     "e": 17.239
     },
     {
      "t": "escuchar.",
-     "s": 18.771,
-     "e": 19.331
+     "s": 17.239,
+     "e": 17.799
     },
     {
      "t": "A",
-     "s": 19.331,
-     "e": 19.411
+     "s": 17.799,
+     "e": 17.879
     },
     {
      "t": "veces",
-     "s": 19.411,
-     "e": 19.731
+     "s": 17.879,
+     "e": 18.199
     },
     {
      "t": "basta",
-     "s": 19.731,
-     "e": 20.131
+     "s": 18.199,
+     "e": 18.599
     },
     {
      "t": "con",
-     "s": 20.131,
-     "e": 20.291
+     "s": 18.599,
+     "e": 18.759
     },
     {
      "t": "un",
-     "s": 20.291,
-     "e": 20.451
+     "s": 18.759,
+     "e": 18.919
     },
     {
      "t": "derecho",
-     "s": 20.451,
-     "e": 20.771
+     "s": 18.919,
+     "e": 19.239
     },
     {
      "t": "de",
-     "s": 20.771,
-     "e": 20.931
+     "s": 19.239,
+     "e": 19.399
     },
     {
      "t": "petición,",
-     "s": 20.931,
-     "e": 21.491
+     "s": 19.399,
+     "e": 19.959
     },
     {
      "t": "una",
-     "s": 21.491,
-     "e": 21.651
+     "s": 19.959,
+     "e": 20.119
     },
     {
      "t": "tutela",
-     "s": 21.651,
-     "e": 22.131
+     "s": 20.119,
+     "e": 20.599
     },
     {
      "t": "o",
-     "s": 22.131,
-     "e": 22.291
+     "s": 20.599,
+     "e": 20.759
     },
     {
      "t": "un",
-     "s": 22.291,
-     "e": 22.451
+     "s": 20.759,
+     "e": 20.919
     },
     {
      "t": "simple",
-     "s": 22.451,
-     "e": 22.691
+     "s": 20.919,
+     "e": 21.159
     },
     {
      "t": "trámite",
-     "s": 22.691,
-     "e": 23.171
+     "s": 21.159,
+     "e": 21.639
     },
     {
      "t": "para",
-     "s": 23.171,
-     "e": 23.331
+     "s": 21.639,
+     "e": 21.799
     },
     {
      "t": "solucionar",
-     "s": 23.331,
-     "e": 23.891
+     "s": 21.799,
+     "e": 22.279
     },
     {
      "t": "sus",
-     "s": 23.891,
-     "e": 24.051
+     "s": 22.279,
+     "e": 22.439
     },
     {
      "t": "inquietudes.",
-     "s": 24.051,
-     "e": 24.551
+     "s": 22.439,
+     "e": 22.939
     }
    ],
    "shots": [
     {
      "src": "escuchar",
-     "start": 15.331,
-     "end": 24.638
+     "start": 13.959,
+     "end": 23.067
     }
    ],
    "captions": [
     {
      "text": "Cuando la gente se me acerca",
-     "start": 15.331,
-     "end": 16.611
+     "start": 13.959,
+     "end": 15.159
     },
     {
      "text": "y me cuenta sus problemas,",
-     "start": 16.611,
-     "end": 17.891
+     "start": 15.159,
+     "end": 16.359
     },
     {
      "text": "lo primero que hago es *escuchar.",
-     "start": 17.891,
-     "end": 19.331
+     "start": 16.359,
+     "end": 17.799
     },
     {
      "text": "A veces basta con",
-     "start": 19.331,
-     "end": 20.291
+     "start": 17.799,
+     "end": 18.759
     },
     {
      "text": "un *derecho *de *petición,",
-     "start": 20.291,
-     "end": 21.491
+     "start": 18.759,
+     "end": 19.959
     },
     {
      "text": "una *tutela",
-     "start": 21.491,
-     "end": 22.131
+     "start": 19.959,
+     "end": 20.599
     },
     {
      "text": "o un simple *trámite",
-     "start": 22.131,
-     "end": 23.171
+     "start": 20.599,
+     "end": 21.639
     },
     {
      "text": "para solucionar sus inquietudes.",
-     "start": 23.171,
-     "end": 24.638
+     "start": 21.639,
+     "end": 23.067
     }
    ],
    "cards": [
@@ -687,171 +687,171 @@
      "kicker": "Lo primero:",
      "text": "escuchar",
      "color": "blue",
-     "start": 18.771,
-     "end": 20.291
+     "start": 17.239,
+     "end": 18.759
     },
     {
      "icon": "doc",
      "kicker": "A veces basta con un",
      "text": "derecho de petición",
      "color": "blue",
-     "start": 20.451,
-     "end": 21.491
+     "start": 18.919,
+     "end": 19.959
     },
     {
      "icon": "shield",
      "kicker": "A veces basta con una",
      "text": "tutela",
      "color": "blue",
-     "start": 21.651,
-     "end": 22.131
+     "start": 20.119,
+     "end": 20.599
     },
     {
      "icon": "clock",
      "kicker": "O con",
      "text": "un simple trámite",
      "color": "blue",
-     "start": 22.691,
-     "end": 24.638
+     "start": 21.159,
+     "end": 23.067
     }
    ]
   },
   {
    "key": "dm",
-   "start": 24.638,
-   "end": 30.088,
+   "start": 23.067,
+   "end": 28.351,
    "zooms": null,
    "silent": null,
    "text": "Si quieres resolver tu inquietud, puedes escribirme al DM o compartirle este video a quien creas que le pueda servir.",
    "words": [
     {
      "t": "Si",
-     "s": 24.638,
-     "e": 24.878
+     "s": 23.067,
+     "e": 23.227
     },
     {
      "t": "quieres",
-     "s": 24.878,
-     "e": 25.198
+     "s": 23.227,
+     "e": 23.547
     },
     {
      "t": "resolver",
-     "s": 25.198,
-     "e": 25.598
+     "s": 23.547,
+     "e": 23.867
     },
     {
      "t": "tu",
-     "s": 25.598,
-     "e": 25.758
+     "s": 23.867,
+     "e": 24.027
     },
     {
      "t": "inquietud,",
-     "s": 25.758,
-     "e": 26.158
+     "s": 24.027,
+     "e": 24.427
     },
     {
      "t": "puedes",
-     "s": 26.158,
-     "e": 26.398
+     "s": 24.427,
+     "e": 24.667
     },
     {
      "t": "escribirme",
-     "s": 26.398,
-     "e": 26.878
+     "s": 24.667,
+     "e": 25.147
     },
     {
      "t": "al",
-     "s": 26.878,
-     "e": 27.158
+     "s": 25.147,
+     "e": 25.227
     },
     {
      "t": "DM",
-     "s": 27.158,
-     "e": 27.438
+     "s": 25.227,
+     "e": 25.707
     },
     {
      "t": "o",
-     "s": 27.438,
-     "e": 27.598
+     "s": 25.707,
+     "e": 25.867
     },
     {
      "t": "compartirle",
-     "s": 27.598,
-     "e": 28.238
+     "s": 25.867,
+     "e": 26.507
     },
     {
      "t": "este",
-     "s": 28.238,
-     "e": 28.398
+     "s": 26.507,
+     "e": 26.667
     },
     {
      "t": "video",
-     "s": 28.398,
-     "e": 28.718
+     "s": 26.667,
+     "e": 26.907
     },
     {
      "t": "a",
-     "s": 28.718,
-     "e": 28.878
+     "s": 26.907,
+     "e": 27.067
     },
     {
      "t": "quien",
-     "s": 28.878,
-     "e": 29.038
+     "s": 27.067,
+     "e": 27.307
     },
     {
      "t": "creas",
-     "s": 29.038,
-     "e": 29.358
+     "s": 27.307,
+     "e": 27.627
     },
     {
      "t": "que",
-     "s": 29.358,
-     "e": 29.438
+     "s": 27.627,
+     "e": 27.707
     },
     {
      "t": "le",
-     "s": 29.438,
-     "e": 29.518
+     "s": 27.707,
+     "e": 27.787
     },
     {
      "t": "pueda",
-     "s": 29.518,
-     "e": 29.758
+     "s": 27.787,
+     "e": 28.027
     },
     {
      "t": "servir.",
-     "s": 29.758,
-     "e": 30.088
+     "s": 28.027,
+     "e": 28.351
     }
    ],
    "shots": [
     {
      "src": "dm",
-     "start": 24.638,
-     "end": 31.288
+     "start": 23.067,
+     "end": 29.551
     }
    ],
    "captions": [
     {
      "text": "Si quieres resolver tu inquietud,",
-     "start": 24.638,
-     "end": 26.158
+     "start": 23.067,
+     "end": 24.427
     },
     {
      "text": "puedes *escribirme al *DM",
-     "start": 26.158,
-     "end": 27.438
+     "start": 24.427,
+     "end": 25.707
     },
     {
      "text": "o *compartirle este video",
-     "start": 27.438,
-     "end": 28.718
+     "start": 25.707,
+     "end": 26.907
     },
     {
      "text": "a quien creas que le pueda servir.",
-     "start": 28.718,
-     "end": 30.088
+     "start": 26.907,
+     "end": 28.351
     }
    ],
    "cards": [
@@ -860,16 +860,16 @@
      "kicker": "Escríbeme al",
      "text": "DM",
      "color": "red",
-     "start": 26.398,
-     "end": 27.438
+     "start": 24.667,
+     "end": 25.707
     },
     {
      "icon": "people",
      "kicker": "Compártelo con",
      "text": "quien lo necesite",
      "color": "blue",
-     "start": 27.598,
-     "end": 30.088
+     "start": 25.867,
+     "end": 28.351
     }
    ]
   }
