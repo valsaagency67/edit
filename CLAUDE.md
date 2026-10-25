@@ -5,10 +5,13 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 `src/campaign/CampaignVideo.tsx` (video de campaña) y `src/campaign/Peticion.tsx` (video de la petición).
 
 ## Siempre
-- **Barra de duración arriba**: 42 px, fondo `rgba(0,0,0,0.35)`, avance con el degradado de los 5 colores
-  de la marca (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Componente `Progress`.
-- **Firma**: «Juan Felipe Castaño» en Anton 28 px rojo `#E30613`, sin recuadro, con la barra de 5 colores
-  debajo; arriba a la izquierda (top 300, left 64).
+- **Bandera de Colombia** (desde el video de Derechos; antes eran 5 colores con verde y morado, que el
+  cliente ya NO quiere): amarillo `#FCD116` (mitad), azul `#1D3E9E` y rojo `#E30613` (un cuarto cada uno).
+  `BANDERA` y `Bandera` en `src/campaign/Peticion.tsx`.
+- **Barra de duración arriba**: 42 px, fondo `rgba(0,0,0,0.35)`; el avance va destapando la bandera.
+  Componente `Progress`.
+- **Firma**: «Juan Felipe Castaño» en Anton 28 px rojo `#E30613`, sin recuadro, con la barrita de la
+  bandera debajo; arriba a la izquierda (top 300, left 64). Igual en las portadas.
 - **Que hable de seguido**: cortes en las pausas (decididos por el audio, no por la transcripción, cuyos
   tiempos vienen corridos ~0.2 s) y voz un poco acelerada (1.07x; la introducción puede ir más rápida).
   Verificar con Whisper que ningún corte se come una palabra.

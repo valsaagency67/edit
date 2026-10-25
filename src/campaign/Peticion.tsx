@@ -32,7 +32,18 @@ export const peticionDuration = Math.round(raw.duration * raw.fps);
 const RED = "#E30613";
 const BLUE = "#1D3E9E";
 const YELLOW = "#FFE600";
-const BRAND = ["#F39200", "#1D3E9E", "#E30613", "#0A9A48", "#5B2C8F"];
+// Bandera de Colombia (amarillo el doble de ancho que azul y rojo): la barrita bajo la firma y la barra de
+// duración. Reemplaza a los 5 colores de la marca desde el video de Derechos (lo pidió el cliente).
+export const BANDERA: [string, number][] = [["#FCD116", 2], [BLUE, 1], [RED, 1]];
+const FLAG_BG = "linear-gradient(90deg, #FCD116 0 50%, #1D3E9E 50% 75%, #E30613 75% 100%)";
+
+export const Bandera: React.FC<{ height: number }> = ({ height }) => (
+  <div style={{ display: "flex", width: "100%", height, borderRadius: height / 2, overflow: "hidden" }}>
+    {BANDERA.map(([c, w]) => (
+      <div key={c} style={{ flex: w, backgroundColor: c }} />
+    ))}
+  </div>
+);
 const SHADOW = "0 4px 18px rgba(0,0,0,0.55), 0 0 3px rgba(0,0,0,0.6)";
 export const COLORS: Record<string, string> = { red: RED, blue: BLUE };
 const f = (s: number) => Math.round(s * PETICION_FPS);
@@ -377,11 +388,7 @@ export const Firma: React.FC = () => {
       >
         Juan Felipe Castaño
       </div>
-      <div style={{ display: "flex", width: "100%", height: 4, borderRadius: 2, overflow: "hidden" }}>
-        {BRAND.map((c) => (
-          <div key={c} style={{ flex: 1, backgroundColor: c }} />
-        ))}
-      </div>
+      <Bandera height={4} />
     </div>
   );
 };
@@ -462,7 +469,7 @@ const Tramo: React.FC<{ base: number; dur: number; outDur: number; speed: number
 );
 
 // Barra de duración arriba, igual que en el video de campaña (regla fija del cliente, CLAUDE.md):
-// fondo oscuro translúcido de 42 px y avance con el degradado de los 5 colores de la marca.
+// fondo oscuro translúcido de 42 px; el avance va destapando la bandera de Colombia de izquierda a derecha.
 export const Progress: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
@@ -471,8 +478,8 @@ export const Progress: React.FC = () => {
       <div
         style={{
           height: "100%",
-          width: `${(frame / durationInFrames) * 100}%`,
-          background: `linear-gradient(90deg, ${BRAND.join(",")})`,
+          background: FLAG_BG,
+          clipPath: `inset(0 ${100 - (frame / durationInFrames) * 100}% 0 0)`,
         }}
       />
     </div>

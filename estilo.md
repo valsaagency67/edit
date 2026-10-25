@@ -22,8 +22,8 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 - Animación de entrada del bloque: escala 0.70 → 1.00 y subida de 24 px con resorte (damping 12) en ~8 frames. Sin animación de salida (corte seco al siguiente bloque).
 
 ## Textos en pantalla
-- **Barra de progreso** arriba de borde a borde: **42 px** de alto (el cliente la pidió 3× más grande), degradado con los 5 colores de campaña sobre fondo negro 35 %.
-- Firma fija **arriba a la izquierda** (x = 64, y = 300 px), **sin recuadro** (pedido del cliente): "Juan Felipe Castaño" en Anton **28 px** rojo `#E30613` con halo blanco suave y sombra, y barra de 5 colores de 4 px (`#F39200 #1D3E9E #E30613 #0A9A48 #5B2C8F`). Dentro del recorte 4:5 de Instagram.
+- **Barra de progreso** arriba de borde a borde: **42 px** de alto (el cliente la pidió 3× más grande), el avance destapa la bandera de Colombia (amarillo `#FCD116` la mitad, azul `#1D3E9E` y rojo `#E30613` un cuarto cada uno) sobre fondo negro 35 %. Sin verde ni morado (pedido del cliente).
+- Firma fija **arriba a la izquierda** (x = 64, y = 300 px), **sin recuadro** (pedido del cliente): "Juan Felipe Castaño" en Anton **28 px** rojo `#E30613` con halo blanco suave y sombra, y barrita de 4 px con la bandera de Colombia (componente `Bandera`). Dentro del recorte 4:5 de Instagram.
 - Gancho 0–2.6 s: "¿NO PODEMOS ESTAR AQUÍ?" en caja amarilla, Anton 80 px, rotación −3°, **debajo de los subtítulos (borde superior y = 1390 px)**: arriba taparía la cara.
 - Credenciales (del perfil de Instagram): "ABOGADO JAVERIANO" al entrar el primer monólogo, "LIDERAZGO SOCIAL EN PALMIRA" en el tercero; caja roja, 60 px, rotación 2°, misma zona que el gancho.
 - Cierre 3.5 s: fondo rojo radial, nombre + barra de colores, "¡Súmate a construir una Palmira mejor!" y "SÍGUENOS @juanfelipecastano_col" pulsando (pedido del cliente).
