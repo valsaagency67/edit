@@ -87,7 +87,8 @@
      "end": 2.225
     }
    ],
-   "captions": []
+   "captions": [],
+   "cards": []
   },
   {
    "key": "calle",
@@ -126,7 +127,8 @@
      "end": 3.623
     }
    ],
-   "captions": []
+   "captions": [],
+   "cards": []
   },
   {
    "key": "porque",
@@ -231,7 +233,8 @@
      "start": 5.863,
      "end": 6.567
     }
-   ]
+   ],
+   "cards": []
   },
   {
    "key": "injusticia",
@@ -420,7 +423,8 @@
      "start": 11.347,
      "end": 12.503
     }
-   ]
+   ],
+   "cards": []
   },
   {
    "key": "socrates",
@@ -604,7 +608,8 @@
      "start": 18.563,
      "end": 19.97
     }
-   ]
+   ],
+   "cards": []
   },
   {
    "key": "ojo",
@@ -733,7 +738,8 @@
      "start": 23.39,
      "end": 24.035
     }
-   ]
+   ],
+   "cards": []
   },
   {
    "key": "hoy",
@@ -995,7 +1001,8 @@
      "start": 30.975,
      "end": 32.132
     }
-   ]
+   ],
+   "cards": []
   },
   {
    "key": "cierre",
@@ -1104,7 +1111,8 @@
      "start": 34.582,
      "end": 35.33
     }
-   ]
+   ],
+   "cards": []
   }
  ]
 }
