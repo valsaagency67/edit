@@ -17,6 +17,7 @@ import { slide } from "@remotion/transitions/slide";
 import { wipe } from "@remotion/transitions/wipe";
 import { pushCut } from "@remotion/transitions/push-cut";
 import { fade } from "@remotion/transitions/fade";
+import { barrido } from "./barrido";
 import { z } from "zod";
 import { MARCA } from "./material";
 import { fontFamily } from "./fuente";
@@ -38,6 +39,8 @@ export const reelSchema = z.object({
   // 0 = corte seco en el beat (como el TikTok de referencia de cambios de outfit).
   transicionFrames: z.number().int().min(0).default(10),
   mostrarMarca: z.boolean().default(true),
+  // "variado" alterna transiciones; "barrido" usa siempre el whip pan con desenfoque.
+  estiloTransicion: z.enum(["variado", "barrido"]).default("variado"),
 });
 
 type ReelProps = z.infer<typeof reelSchema>;
@@ -113,6 +116,7 @@ export const ReelTransiciones: React.FC<ReelProps> = ({
   volumenMusica,
   transicionFrames,
   mostrarMarca,
+  estiloTransicion,
 }) => {
   const { fps } = useVideoConfig();
   return (
@@ -131,7 +135,13 @@ export const ReelTransiciones: React.FC<ReelProps> = ({
             items.push(
               <TransitionSeries.Transition
                 key={`t${i}`}
-                presentation={TRANSICIONES[i % TRANSICIONES.length]}
+                presentation={
+                  estiloTransicion === "barrido"
+                    ? (barrido() as TransitionPresentation<
+                        Record<string, unknown>
+                      >)
+                    : TRANSICIONES[i % TRANSICIONES.length]
+                }
                 timing={linearTiming({ durationInFrames: transicionFrames })}
               />,
             );

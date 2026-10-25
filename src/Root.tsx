@@ -31,6 +31,7 @@ const CLIPS_OUTFITS = [
   "IMG_0676", // vinotinto + café
   "IMG_0703", // blanco/rojo + leggins rojo
 ];
+const BARRIDO_FRAMES = 8;
 const clip = (nombre: string) => staticFile(`linea01/clips/${nombre}.mp4`);
 
 export const RemotionRoot: React.FC = () => {
@@ -79,6 +80,7 @@ export const RemotionRoot: React.FC = () => {
             volumenMusica: 1,
             transicionFrames: 10,
             mostrarMarca: true,
+            estiloTransicion: "variado" as const,
           }}
         />
         {/* Cambios de outfit en corte seco al ritmo del TikTok de referencia (ssstik ...161). */}
@@ -100,10 +102,12 @@ export const RemotionRoot: React.FC = () => {
             volumenMusica: 1,
             transicionFrames: 0,
             mostrarMarca: false,
+            estiloTransicion: "variado" as const,
           }}
         />
         {/* Pared blanca: se da vuelta en IMG_0685 (vinotinto) y termina el giro en IMG_0688 (blanco/rojo).
-            El corte cae a mitad del giro, en el golpe fuerte de 1.73 s del audio ...161. */}
+            El cambio se esconde con un barrido con desenfoque cuyo centro cae en el golpe de 1.73 s del
+            audio ...161: el clip A dura 1.733 s + medio barrido y el B arranca medio barrido antes. */}
         <Composition
           id="GiroParedBlanca"
           component={ReelTransiciones}
@@ -116,20 +120,21 @@ export const RemotionRoot: React.FC = () => {
               {
                 tipo: "video" as const,
                 src: clip("IMG_0685"),
-                duracion: 1.733,
+                duracion: 1.733 + BARRIDO_FRAMES / 2 / 30,
                 inicio: 0,
               },
               {
                 tipo: "video" as const,
                 src: clip("IMG_0688"),
-                duracion: 3.6,
+                duracion: 5.333 - 1.733 + BARRIDO_FRAMES / 2 / 30,
                 inicio: 0,
               },
             ],
             musica: staticFile("linea01/audio/ref_161.wav"),
             volumenMusica: 1,
-            transicionFrames: 0,
+            transicionFrames: BARRIDO_FRAMES,
             mostrarMarca: false,
+            estiloTransicion: "barrido" as const,
           }}
         />
         {/* IMG_0684.MOV (mueve los dedos): solo cambia el audio por el del TikTok ssstik ...939. */}
@@ -154,6 +159,7 @@ export const RemotionRoot: React.FC = () => {
             volumenMusica: 1,
             transicionFrames: 0,
             mostrarMarca: false,
+            estiloTransicion: "variado" as const,
           }}
         />
       </Folder>
