@@ -3,11 +3,11 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
-// Portada del video «¿Dónde acudir cuando te vulneran tus derechos?» (1080x1920). Fondo: IMG_0743
-// (toma de «escuchar») a 1.14 s: contrapicado, de pie, cielo detrás y la gradería amarilla, azul y roja
-// (el cliente pidió una foto más imponente que la del guadual). La cara queda arriba y el texto abajo,
-// todo dentro del recorte 4:5 de la cuadrícula de Instagram (y 285–1635): la pregunta en azul,
-// DERECHOS en Bebas sobre rojo y la firma con la bandera de Colombia.
+// Portada del video «¿Dónde acudir cuando te vulneran tus derechos?» (1080x1920). Fondo: el último
+// cuadro del video (IMG_0744, frente al guadual), donde queda totalmente serio con los puños al pecho;
+// lo eligió el cliente. La cara queda arriba y el texto abajo, todo dentro del recorte 4:5 de la
+// cuadrícula de Instagram (y 285–1635): la pregunta en azul, DERECHOS en Bebas sobre rojo y la firma con
+// la bandera de Colombia.
 const RED = "#E30613";
 const BLUE = "#1D3E9E";
 const YELLOW = "#FFE600";
@@ -21,7 +21,7 @@ export const CoverDerechos: React.FC = () => (
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        transform: "scale(1.22)",
+        transform: "scale(1.1)",
         transformOrigin: "50% 0%",
       }}
     />
