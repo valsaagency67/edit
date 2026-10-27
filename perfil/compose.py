@@ -34,11 +34,13 @@ rows = np.where(a[:, OUT // 2, 0] > 0.5)[0]
 yy, xx = np.mgrid[0:OUT, 0:OUT].astype(np.float32) / OUT
 d = np.sqrt((xx - 0.5) ** 2 + ((yy - 0.42) * 1.1) ** 2)
 u = np.clip(d / 0.72, 0, 1)
-red = np.array([200, 16, 32], np.float32) / 255
-mid = np.array([92, 6, 14], np.float32) / 255
-blk = np.array([8, 6, 8], np.float32) / 255
-t1 = np.clip(u / 0.55, 0, 1)[..., None]
-t2 = np.clip((u - 0.55) / 0.45, 0, 1)[..., None]
+# Rojo vivo en casi todo el círculo de perfil; el negro entra solo hacia las orillas y las esquinas
+# (la primera versión era tan oscura que en el celular el rojo se veía casi negro).
+red = np.array([226, 18, 34], np.float32) / 255
+mid = np.array([150, 8, 20], np.float32) / 255
+blk = np.array([6, 4, 6], np.float32) / 255
+t1 = np.clip(u / 0.85, 0, 1)[..., None] ** 1.6
+t2 = np.clip((u - 0.78) / 0.32, 0, 1)[..., None]
 bg = red * (1 - t1) + mid * t1
 bg = bg * (1 - t2) + blk * t2
 streak = np.exp(-((xx - yy * 0.6 - 0.05) ** 2) / 0.01)[..., None] * 0.06
@@ -47,7 +49,7 @@ bg += np.random.default_rng(1).normal(0, 0.006, bg.shape).astype(np.float32)  # 
 
 # Halo rojo detrás de la silueta (da profundidad).
 glow = cv2.GaussianBlur(a[..., 0], (0, 0), 40)[..., None]
-bg = np.clip(bg + glow * np.array([0.55, 0.05, 0.08], np.float32) * 0.35, 0, 1)
+bg = np.clip(bg + glow * np.array([0.55, 0.05, 0.08], np.float32) * 0.15, 0, 1)
 # Sombra suave pegada a la silueta.
 sh = cv2.GaussianBlur(a[..., 0], (0, 0), 14)[..., None]
 bg = bg * (1 - sh * 0.35)
