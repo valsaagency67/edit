@@ -1,5 +1,6 @@
 """Composición final: persona sobre fondo rojo con negro, 2048x2048 (y vista circular de prueba)."""
 import os
+import sys
 
 import cv2
 import numpy as np
@@ -7,6 +8,13 @@ from PIL import Image, ImageDraw
 
 D = os.path.dirname(os.path.abspath(__file__))
 OUT = 2048
+# Color del fondo: «rojo» (por defecto) o «azul». Mismo degradado y sombra en los dos.
+COLOR = sys.argv[1] if len(sys.argv) > 1 else "rojo"
+PALETAS = {
+    "rojo": ([226, 18, 34], [150, 8, 20], [0.55, 0.05, 0.08]),
+    "azul": ([24, 84, 224], [12, 40, 138], [0.06, 0.2, 0.6]),
+}
+SUF = "" if COLOR == "rojo" else "-" + COLOR
 
 fg = np.asarray(Image.open(f"{D}/fg.png")).astype(np.float32) / 255
 a = np.load(f"{D}/alpha.npy").astype(np.float32)
@@ -36,8 +44,8 @@ d = np.sqrt((xx - 0.5) ** 2 + ((yy - 0.42) * 1.1) ** 2)
 u = np.clip(d / 0.72, 0, 1)
 # Rojo vivo en casi todo el círculo de perfil; el negro entra solo hacia las orillas y las esquinas
 # (la primera versión era tan oscura que en el celular el rojo se veía casi negro).
-red = np.array([226, 18, 34], np.float32) / 255
-mid = np.array([150, 8, 20], np.float32) / 255
+red = np.array(PALETAS[COLOR][0], np.float32) / 255
+mid = np.array(PALETAS[COLOR][1], np.float32) / 255
 blk = np.array([6, 4, 6], np.float32) / 255
 t1 = np.clip(u / 0.85, 0, 1)[..., None] ** 1.6
 t2 = np.clip((u - 0.78) / 0.32, 0, 1)[..., None]
@@ -49,7 +57,7 @@ bg += np.random.default_rng(1).normal(0, 0.006, bg.shape).astype(np.float32)  # 
 
 # Halo rojo detrás de la silueta (da profundidad).
 glow = cv2.GaussianBlur(a[..., 0], (0, 0), 40)[..., None]
-bg = np.clip(bg + glow * np.array([0.55, 0.05, 0.08], np.float32) * 0.15, 0, 1)
+bg = np.clip(bg + glow * np.array(PALETAS[COLOR][2], np.float32) * 0.15, 0, 1)
 # Sombra suave pegada a la silueta.
 sh = cv2.GaussianBlur(a[..., 0], (0, 0), 14)[..., None]
 bg = bg * (1 - sh * 0.35)
@@ -60,13 +68,13 @@ person = np.clip(fg + rim * (red - fg) * 0.6, 0, 1)
 
 out = person * a + bg * (1 - a)
 img = Image.fromarray((np.clip(out, 0, 1) * 255).round().astype(np.uint8))
-img.save(f"{D}/perfil-2048.png")
-img.save(f"{D}/perfil-2048.jpg", quality=95)
-img.resize((1080, 1080), Image.LANCZOS).save(f"{D}/perfil-1080.jpg", quality=95)
+img.save(f"{D}/perfil{SUF}-2048.png")
+img.save(f"{D}/perfil{SUF}-2048.jpg", quality=95)
+img.resize((1080, 1080), Image.LANCZOS).save(f"{D}/perfil{SUF}-1080.jpg", quality=95)
 # Vista de prueba en círculo (como se ve en Instagram/WhatsApp).
 m = Image.new("L", (OUT, OUT), 0)
 ImageDraw.Draw(m).ellipse((0, 0, OUT, OUT), fill=255)
 prev = Image.new("RGB", (OUT, OUT), (20, 22, 28))
 prev.paste(img, (0, 0), m)
-prev.resize((600, 600), Image.LANCZOS).save(f"{D}/vista-circulo.jpg", quality=92)
+prev.resize((600, 600), Image.LANCZOS).save(f"{D}/vista-circulo{SUF}.jpg", quality=92)
 print("listo", rows.min() if len(rows) else None, rows.max() if len(rows) else None)
