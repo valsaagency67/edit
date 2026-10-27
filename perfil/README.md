@@ -6,7 +6,7 @@ A partir de un pantallazo de Instagram (foto dentro del círculo, con el botón 
    (mezclado al 60 % con la de Real-ESRGAN para no cambiar la identidad; alineada a la plantilla FFHQ con
    5 puntos marcados a mano), quita el fondo con rembg (BiRefNet-portrait) y limpia el color de los bordes.
    El lápiz queda fuera de la silueta, así que sale con el fondo.
-2. `compose.py [rojo|azul]`: fondo rojo (o azul) que se va a negro, halo y luz de borde del mismo color, persona un 8 % más grande para que
+2. `compose.py [rojo|azul|rojo-azul]`: fondo rojo, azul o los dos (rojo a la izquierda, azul a la derecha) que se va a negro, halo y luz de borde del mismo color, persona un 8 % más grande para que
    el corte curvo de la chaqueta quede fuera del círculo. Salida 2048x2048 (PNG/JPG) y 1080x1080.
 
 Modelos (no versionados): `models/RealESRGAN_x4plus.pth` (xinntao/Real-ESRGAN v0.1.0) y

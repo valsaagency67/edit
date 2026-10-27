@@ -8,7 +8,8 @@ from PIL import Image, ImageDraw
 
 D = os.path.dirname(os.path.abspath(__file__))
 OUT = 2048
-# Color del fondo: «rojo» (por defecto) o «azul». Mismo degradado y sombra en los dos.
+# Color del fondo: «rojo» (por defecto), «azul» o «rojo-azul» (rojo a la izquierda, azul a la derecha).
+# Mismo degradado y sombra en todos.
 COLOR = sys.argv[1] if len(sys.argv) > 1 else "rojo"
 PALETAS = {
     "rojo": ([226, 18, 34], [150, 8, 20], [0.55, 0.05, 0.08]),
@@ -44,8 +45,16 @@ d = np.sqrt((xx - 0.5) ** 2 + ((yy - 0.42) * 1.1) ** 2)
 u = np.clip(d / 0.72, 0, 1)
 # Rojo vivo en casi todo el círculo de perfil; el negro entra solo hacia las orillas y las esquinas
 # (la primera versión era tan oscura que en el celular el rojo se veía casi negro).
-red = np.array(PALETAS[COLOR][0], np.float32) / 255
-mid = np.array(PALETAS[COLOR][1], np.float32) / 255
+if COLOR == "rojo-azul":
+    # Se juntan detrás de la persona, en una diagonal suave.
+    w = (1 / (1 + np.exp(-((xx - 0.5) + (yy - 0.5) * 0.25) / 0.07)))[..., None]
+    def pal(i):
+        return (np.array(PALETAS["rojo"][i], np.float32) * (1 - w) + np.array(PALETAS["azul"][i], np.float32) * w)
+    red, mid, glow_col = pal(0) / 255, pal(1) / 255, pal(2)
+else:
+    red = np.array(PALETAS[COLOR][0], np.float32) / 255
+    mid = np.array(PALETAS[COLOR][1], np.float32) / 255
+    glow_col = np.array(PALETAS[COLOR][2], np.float32)
 blk = np.array([6, 4, 6], np.float32) / 255
 t1 = np.clip(u / 0.85, 0, 1)[..., None] ** 1.6
 t2 = np.clip((u - 0.78) / 0.32, 0, 1)[..., None]
@@ -57,7 +66,7 @@ bg += np.random.default_rng(1).normal(0, 0.006, bg.shape).astype(np.float32)  # 
 
 # Halo rojo detrás de la silueta (da profundidad).
 glow = cv2.GaussianBlur(a[..., 0], (0, 0), 40)[..., None]
-bg = np.clip(bg + glow * np.array(PALETAS[COLOR][2], np.float32) * 0.15, 0, 1)
+bg = np.clip(bg + glow * glow_col * 0.15, 0, 1)
 # Sombra suave pegada a la silueta.
 sh = cv2.GaussianBlur(a[..., 0], (0, 0), 14)[..., None]
 bg = bg * (1 - sh * 0.35)
