@@ -135,13 +135,15 @@ const ICONS: Record<string, React.ReactNode> = {
 // la animación termina antes de que entre la siguiente tarjeta.
 const IO = 6;
 
-export const CardView: React.FC<{ icon: string; kicker: string; text: string; color: string; dur: number }> = ({
-  icon,
-  kicker,
-  text,
-  color,
-  dur,
-}) => {
+// bottom: borde inferior de la tarjeta (por defecto a la altura del pecho, y=1120).
+export const CardView: React.FC<{
+  icon: string;
+  kicker: string;
+  text: string;
+  color: string;
+  dur: number;
+  bottom?: number;
+}> = ({ icon, kicker, text, color, dur, bottom = 1120 }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, IO, dur - IO, dur], [0, 1, 1, 0], clamp);
   const blur = interpolate(frame, [0, IO, dur - IO, dur], [12, 0, 0, 12], clamp);
@@ -152,7 +154,7 @@ export const CardView: React.FC<{ icon: string; kicker: string; text: string; co
           position: "absolute",
           left: 70,
           right: 70,
-          bottom: 1920 - 1120,
+          bottom: 1920 - bottom,
           display: "flex",
           flexDirection: "row",
           alignItems: "flex-end",
@@ -210,11 +212,18 @@ export const CardView: React.FC<{ icon: string; kicker: string; text: string; co
   );
 };
 
-export const CaptionView: React.FC<{ pieces: { t: string; y: boolean }[]; dur: number }> = ({ pieces, dur }) => {
+// top: borde superior del subtítulo (por defecto y=1160, regla del cliente); boxed: con fondo oscuro
+// translúcido, para cuando va sobre un fondo cargado (p. ej. el póster amarillo del video del Museo).
+export const CaptionView: React.FC<{
+  pieces: { t: string; y: boolean }[];
+  dur: number;
+  top?: number;
+  boxed?: boolean;
+}> = ({ pieces, dur, top = 1160, boxed = false }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1160 }}>
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
       <div
         style={{
           opacity: o,
@@ -226,6 +235,7 @@ export const CaptionView: React.FC<{ pieces: { t: string; y: boolean }[]; dur: n
           color: "white",
           textAlign: "center",
           textShadow: SHADOW,
+          ...(boxed ? { background: "rgba(0,0,0,0.55)", padding: "10px 26px", borderRadius: 16 } : {}),
         }}
       >
         {pieces.map((p, i) => (

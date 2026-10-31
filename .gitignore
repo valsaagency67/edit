@@ -28,3 +28,6 @@ public/fonts/BootzyTM.ttf
 # Juan Felipe II: generados por scripts/build_derechos.py (no versionar)
 public/jf2/*.mp4
 public/jf2/*.wav
+# Juan Felipe III (Museo): generados por scripts/build_museo.py (no versionar)
+public/jf3/*.mp4
+public/jf3/*.wav

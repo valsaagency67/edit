@@ -7,6 +7,7 @@ import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Derechos, DERECHOS_FPS, derechosDuration } from "./campaign/Derechos";
 import { Highlight } from "./campaign/Highlights";
 import { Marcha, MARCHA_FPS, marchaDuration } from "./campaign/Marcha";
+import { Museo, MUSEO_FPS, museoDuration } from "./campaign/Museo";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
 import { Nia, NIA_FPS, niaDuration } from "./nia/Nia";
@@ -103,6 +104,8 @@ export const RemotionRoot: React.FC = () => {
       {/* Juan Felipe: «¿Dónde acudir cuando te vulneran tus derechos?»: npm run build:derechos && npm run render:derechos */}
       <Composition id="JFC-Derechos" component={Derechos} width={1080} height={1920} fps={DERECHOS_FPS} durationInFrames={derechosDuration} />
       <Composition id="JFC-Derechos-Portada" component={CoverDerechos} width={1080} height={1920} fps={30} durationInFrames={1} />
+      {/* Fallo del Museo Nacional: npm run build:museo && npm run render:museo */}
+      <Composition id="JFC-Museo" component={Museo} width={1080} height={1920} fps={MUSEO_FPS} durationInFrames={museoDuration} />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
         id="Destacada-INFO"

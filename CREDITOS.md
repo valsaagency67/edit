@@ -43,3 +43,10 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
   `scripts/make_socrates.py`.
 - **Fotos y video de apoyo** (protesta, Nestlé, pobreza, discusión, barrio, universidad, transporte):
   enviados por el cliente (`media/nia/broll`, no versionados); los derechos son de sus autores.
+
+## Video del Museo Nacional (`out/museo.mp4`)
+
+- **Música** (`public/jf3/musica.wav`): pieza propia (chelo, piano, contrabajo y violín en Re menor,
+  `scripts/build_museo.py`) con muestras de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0).
+  Mismo texto de crédito que arriba.
+- **Efectos**: solo los del video de referencia del cliente (`public/sfx/ref-*.wav`).

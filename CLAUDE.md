@@ -21,13 +21,15 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Colores de campaña**: rojo y azul en tarjetas y gráficos.
 - **Sin zooms ni sacudidas**. Transiciones: corte, destello breve en cambio de clip, desenfoque en
   entradas/salidas de gráficos. Las animaciones terminan dentro de su tiempo.
-- **Gráficos sin tapar la cara**: tarjetas a la altura del pecho (ancladas abajo en y=1120).
+- **Gráficos sin tapar la cara**: tarjetas a la altura del pecho (ancladas abajo en y=1120). Si la toma es
+  muy cerrada (selfie), subtítulos arriba con fondo oscuro y cada tarjeta donde no tape la cara (ver Museo).
+- **Sin saturar**: pocas tarjetas (3–4 por minuto, solo los datos clave); el cliente no quiere el video lleno.
 - **Música**: propia para cada pieza (no reutilizar la de otro video), con muestras reales
   (tonejs-instruments, CC-BY 3.0, crédito en `CREDITOS.md`) y BAJA: ~17 dB bajo la voz.
 - **Voz**: cadena de `scripts/enhance_voice.py`, cada toma a -16 LUFS. Mezcla final ≈ -14 LUFS, pico -1 dBFS.
 - **Efectos de sonido**: SOLO los del video de referencia del cliente (`public/sfx/ref-*.wav`): obturador en
-  los cambios de toma (con el destello), clic en subtítulos (suave) y cuando aparece una tarjeta (fuerte).
-  Nada sintetizado: los foleys sintéticos no le gustan.
+  algunos cambios de toma (con el destello) y clic cuando aparece una tarjeta. **De vez en cuando**, no en
+  cada subtítulo ni en cada corte («si no queda mal el video»). Nada sintetizado: no le gustan.
 - **Evidencia**: cuando hay documentos (correos, radicados), mostrarlos recortados con resaltador y el dato
   clave en grande; difuminar cédula y datos personales.
 - **Privacidad y legal**: pixelar caras de terceros (p. ej. el vigilante); no difamar a nadie.

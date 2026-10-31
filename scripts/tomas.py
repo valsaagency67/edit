@@ -144,7 +144,8 @@ class Proyecto:
     def __init__(self, cfg, media, ext, out, tmp, grade):
         self.cfg, self.media, self.ext, self.out, self.tmp = cfg, media, ext, out, tmp
         self.fps = cfg["fps"]
-        self.vf = f"scale=1080:1920:flags=lanczos,unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
+        # Llena 1080x1920 sin deformar (las tomas 3:4 se recortan a los lados).
+        self.vf = f"scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
 
     def src(self, name):
         return f"{self.media}/{name}{self.ext}"
@@ -166,7 +167,9 @@ class Proyecto:
         cuadros con `select` en una sola pasada (con trim+concat por tramo, ffmpeg guardaba en memoria
         todo el video 4K y el proceso moría)."""
         keep = "+".join(f"between(t,{a:.3f},{b - 0.0001:.4f})" for a, b in ranges)
-        vf = f"select='{keep}',setpts=N/FRAME_RATE/TB,setpts=PTS/{speed},{self.vf}"
+        # fps= antes de select: las tomas de iPhone a «120 fps» son de cuadro variable (~30 reales) y
+        # N/FRAME_RATE las acortaba; así el contador de cuadros va a 30 fijos.
+        vf = f"fps={self.fps},select='{keep}',setpts=N/{self.fps}/TB,setpts=PTS/{speed},{self.vf}"
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", self.src(vid), "-vf", vf, "-an", *ENC, dst], check=True)
 
     def enhanced(self, take):
