@@ -1,0 +1,300 @@
+{
+  "_doc": "Video de Juan Felipe sobre el fallo que ordena al Museo Nacional devolver las 63 piezas retiradas. Doce tomas selfie (3:4, se recortan a 9:16) en el orden del discurso. El cliente pidió pocas tarjetas y pocos efectos de sonido: obturador solo en los cortes de `shutters`, clic solo en las tarjetas. Lo arma scripts/build_museo.py -> src/campaign/museo.json. Fotos de apoyo (`photos`, en public/jf3/fotos/, no versionadas: son de prensa, las mandó el cliente) ancladas a palabras.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.0,
+  "tail": 1.2,
+  "videos": {},
+  "shutters": [
+    "museo",
+    "batalla",
+    "fallo"
+  ],
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_3995",
+      "speed": 1.12,
+      "text": "Hoy un juez le dijo al gobierno algo que no debería hacer falta decirse.",
+      "phrases": [
+        "Hoy un *juez",
+        "le dijo al *gobierno",
+        "algo que no debería",
+        "hacer falta decirse."
+      ],
+      "shots": [
+        {
+          "src": "gancho"
+        }
+      ]
+    },
+    {
+      "key": "gobierno",
+      "camera": "IMG_3988",
+      "text": "Ningún gobierno puede decidir qué historia merece ser contada.",
+      "phrases": [
+        "*Ningún gobierno puede decidir",
+        "qué *historia merece ser contada."
+      ],
+      "shots": [
+        {
+          "src": "gobierno"
+        }
+      ]
+    },
+    {
+      "key": "museo",
+      "camera": "IMG_3949",
+      "text": "Se ordenó al Museo Nacional devolver las 63 piezas retiradas el 15 de octubre.",
+      "phrases": [
+        "Se ordenó al *Museo *Nacional",
+        "devolver las *63 *piezas",
+        "retiradas el 15 de octubre."
+      ],
+      "cards": [
+        {
+          "at": "63",
+          "icon": "doc",
+          "kicker": "Orden de devolver",
+          "text": "63 piezas",
+          "color": "blue",
+          "bottom": 900
+        }
+      ],
+      "shots": [
+        {
+          "src": "museo"
+        }
+      ],
+      "photos": [
+        {
+          "at": "Museo",
+          "img": "museo"
+        }
+      ]
+    },
+    {
+      "key": "muestra",
+      "camera": "IMG_3954",
+      "text": "¿Una muestra que simboliza las luchas del feminismo, la diversidad sexual, los acuerdos de paz y la memoria histórica del país?",
+      "phrases": [
+        "¿Una muestra que simboliza",
+        "las luchas del *feminismo,",
+        "la *diversidad *sexual,",
+        "los *acuerdos *de *paz",
+        "y la *memoria histórica del país?"
+      ],
+      "shots": [
+        {
+          "src": "muestra"
+        }
+      ],
+      "photos": [
+        {
+          "at": "feminismo,",
+          "until": "diversidad",
+          "img": "feminismo"
+        },
+        {
+          "at": "diversidad",
+          "until": "acuerdos",
+          "img": "diversidad"
+        },
+        {
+          "at": "acuerdos",
+          "until": "memoria",
+          "img": "paz"
+        },
+        {
+          "at": "memoria",
+          "img": "memoria"
+        }
+      ]
+    },
+    {
+      "key": "terrorismo",
+      "camera": "IMG_3943",
+      "text": "La memoria histórica y la diversidad cultural no son una oda al terrorismo.",
+      "phrases": [
+        "La memoria histórica",
+        "y la diversidad cultural",
+        "*no son una oda",
+        "al terrorismo."
+      ],
+      "shots": [
+        {
+          "src": "terrorismo"
+        }
+      ]
+    },
+    {
+      "key": "batalla",
+      "camera": "IMG_3957",
+      "text": "Esa es la batalla cultural de la que habla su estratega, Carlos Suárez,",
+      "phrases": [
+        "Esa es la *batalla *cultural",
+        "de la que habla su estratega,",
+        "Carlos Suárez,"
+      ],
+      "shots": [
+        {
+          "src": "batalla"
+        }
+      ],
+      "photos": [
+        {
+          "at": "Carlos",
+          "img": "suarez"
+        }
+      ]
+    },
+    {
+      "key": "aplastar",
+      "camera": "IMG_3964",
+      "text": "quien dice tener cuatro años para aplastar la narrativa instaurada.",
+      "phrases": [
+        "quien dice tener *cuatro *años",
+        "para *aplastar la narrativa",
+        "instaurada."
+      ],
+      "cards": [
+        {
+          "at": "aplastar",
+          "icon": "eyeoff",
+          "kicker": "Cuatro años para",
+          "text": "«aplastar la narrativa»",
+          "color": "red",
+          "bottom": 1780
+        }
+      ],
+      "shots": [
+        {
+          "src": "aplastar"
+        }
+      ]
+    },
+    {
+      "key": "ordonez",
+      "camera": "IMG_3979",
+      "text": "Es por eso que destituyeron a Lara como ministro del Interior y en su lugar designaron a un conservador como Alejandro Ordóñez.",
+      "phrases": [
+        "Es por eso que destituyeron",
+        "a Lara como ministro del Interior",
+        "y en su lugar designaron",
+        "a un conservador",
+        "como Alejandro Ordóñez."
+      ],
+      "shots": [
+        {
+          "src": "ordonez"
+        }
+      ],
+      "photos": [
+        {
+          "at": "destituyeron",
+          "until": "designaron",
+          "img": "lara"
+        },
+        {
+          "at": "designaron",
+          "img": "ordonez"
+        }
+      ]
+    },
+    {
+      "key": "libros",
+      "camera": "IMG_3981",
+      "text": "Sí, el mismo que está orgulloso de haber quemado libros y de oponerse a los derechos de la comunidad LGBT, del aborto y de la eutanasia.",
+      "phrases": [
+        "Sí, el mismo que está orgulloso",
+        "de haber *quemado *libros",
+        "y de oponerse a los derechos",
+        "de la comunidad LGBT,",
+        "del aborto y de la eutanasia."
+      ],
+      "shots": [
+        {
+          "src": "libros"
+        }
+      ],
+      "photos": [
+        {
+          "at": "oponerse",
+          "img": "aborto"
+        }
+      ]
+    },
+    {
+      "key": "fallo",
+      "camera": "IMG_3986",
+      "text": "Por eso este fallo es mucho más importante que el museo.",
+      "phrases": [
+        "Por eso este *fallo",
+        "es mucho más *importante",
+        "que el museo."
+      ],
+      "shots": [
+        {
+          "src": "fallo"
+        }
+      ]
+    },
+    {
+      "key": "freno",
+      "camera": "IMG_3992",
+      "text": "Y si bien la justicia hoy le puso un freno, es una guerra que no podemos perder.",
+      "phrases": [
+        "Y si bien la *justicia",
+        "hoy le puso un *freno,",
+        "es una guerra",
+        "que *no *podemos *perder."
+      ],
+      "shots": [
+        {
+          "src": "freno"
+        }
+      ]
+    },
+    {
+      "key": "cierre",
+      "camera": "IMG_3993",
+      "text": "Porque cuando lo que se borra es la memoria de las víctimas y de las diversidades, ya no estamos hablando de una guerra cultural, es una guerra contra la cultura.",
+      "phrases": [
+        "Porque cuando lo que se *borra",
+        "es la *memoria de las víctimas",
+        "y de las diversidades,",
+        "ya no estamos hablando",
+        "de una guerra cultural,",
+        "es una *guerra *contra *la *cultura."
+      ],
+      "cards": [
+        {
+          "at": "es",
+          "nth": 2,
+          "icon": "shield",
+          "kicker": "No es una guerra cultural:",
+          "text": "es contra la cultura",
+          "color": "red",
+          "bottom": 1780
+        }
+      ],
+      "shots": [
+        {
+          "src": "cierre"
+        }
+      ],
+      "photos": [
+        {
+          "at": "memoria",
+          "until": "ya",
+          "img": "victimas"
+        }
+      ]
+    }
+  ]
+}

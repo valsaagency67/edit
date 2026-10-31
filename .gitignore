@@ -7,3 +7,28 @@ dist
 out
 whisper.cpp
 media/
+public/proxy/
+public/master/
+whisper-models/
+__pycache__/
+public/voice/
+# Material intermedio del video de la petición (se rehace con scripts/build_peticion.py
+# desde media/raw; la base pasa de 100 MB, el límite de GitHub).
+public/policia/peticion-base.mp4
+public/policia/peticion-base.mp4.json
+public/policia/peticion-voz.wav
+public/marcha/base.mp4
+
+# Nia: generados por scripts/build_nia.py a partir de media/nia (no versionar)
+public/nia/*.mp4
+public/nia/*.wav
+public/nia/broll/
+# Fuente comercial del cliente (Nia): no se redistribuye
+public/fonts/BootzyTM.ttf
+# Juan Felipe II: generados por scripts/build_derechos.py (no versionar)
+public/jf2/*.mp4
+public/jf2/*.wav
+# Juan Felipe III (Museo): generados por scripts/build_museo.py (no versionar)
+public/jf3/*.mp4
+public/jf3/*.wav
+public/jf3/fotos/

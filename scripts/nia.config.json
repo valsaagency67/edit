@@ -1,0 +1,286 @@
+{
+  "_doc": "Video de Nia («La filosofía se vive en la calle»), en el orden del guión. 'take' = voz en off (audio aparte del Drive); 'camera' = toma a cámara con su propio audio (se corta igual que su voz); escenas sin voz llevan 'dur' y 'silent'. Lo arma scripts/build_nia.py -> src/nia/nia.json. «Se vive, se discute…» y «Y sobre todo…» no se grabaron.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.06,
+  "videos": {
+    "v1": "1SnyG_vzA4Q3Ms88tACGSGb3Vi5hODpBV",
+    "v2": "1Mky_86jjsP80_xn1OtlI_AAKEox8LUIS",
+    "v3": "1q9l52HegF_dOHw8mkZOnCANIhmn6BURo",
+    "v4": "1LHaGYoFUSEHwZxRFKnFuaED_As0OXe6O",
+    "v5": "1Xih9c8YSyLR4eALXe7OQeab9kBrSotty",
+    "v6": "1LardY7Fp2KxRQ8d5Er5CCErutUOtSig3",
+    "v7": "1y_iMDTZc-UQ2PeRsSn0d2UQECzC2nClL",
+    "v8": "1LwQOP6qp8PCQL22jeRO7yVK9w-QAogqK"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "take": "1DfUeXNvX-MrX2axgCKIW2dRukcEpalj1",
+      "alt": "1mFMtZfSCwu_pMc6ClBlJQcmlDy-2Xqmz",
+      "speed": 1.12,
+      "text": "La filosofía no empieza en un libro.",
+      "phrases": [],
+      "shots": [
+        {
+          "src": "v6",
+          "from": 0.0
+        }
+      ],
+      "zooms": {
+        "origin": [
+          540,
+          640
+        ],
+        "at": [
+          {
+            "at": "libro.",
+            "scale": 1.12
+          }
+        ]
+      }
+    },
+    {
+      "key": "calle",
+      "take": "calle-voz",
+      "text": "Empieza en la calle.",
+      "phrases": [],
+      "shots": [
+        {
+          "src": "v3",
+          "from": 0.0
+        }
+      ]
+    },
+    {
+      "key": "porque",
+      "camera": "v5",
+      "text": "Empieza cuando te preguntas por qué las cosas son como son.",
+      "phrases": [
+        "Empieza cuando te preguntas",
+        "*por *qué las cosas",
+        "son como son."
+      ],
+      "shots": [
+        {
+          "src": "porque",
+          "from": 0
+        }
+      ],
+      "zooms": {
+        "origin": [
+          460,
+          560
+        ],
+        "at": [
+          {
+            "at": "por",
+            "scale": 1.15
+          },
+          {
+            "at": "son",
+            "scale": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "key": "injusticia",
+      "take": "1cuvRMYJBksBGaVdD2ntMG5wdIqfvFcW6",
+      "text": "Cuando cuestionas una injusticia, cuando discutes con alguien en la esquina o cuando te preguntas por qué unos tienen tanto y otros tan poco.",
+      "phrases": [
+        "Cuando cuestionas",
+        "una *injusticia,",
+        "cuando discutes con alguien",
+        "en la *esquina",
+        "o cuando te preguntas",
+        "por qué unos tienen *tanto",
+        "y otros *tan *poco."
+      ],
+      "shots": [
+        {
+          "at": "Cuando",
+          "full": "protesta"
+        },
+        {
+          "at": "discutes",
+          "full": "discusion"
+        },
+        {
+          "at": "por",
+          "full": "nestle"
+        },
+        {
+          "at": "tan",
+          "full": "pobreza"
+        }
+      ]
+    },
+    {
+      "key": "socrates",
+      "take": "1uKaik-o8OM_-7V_fS-HyXDMtHQj4mw8g",
+      "text": "Los antiguos ya lo sabían. Sócrates caminaba conversando con la gente, haciendo preguntas y poniendo en duda esas verdades que todos daban por sentadas.",
+      "phrases": [
+        "Los antiguos",
+        "ya lo sabían.",
+        "*Sócrates caminaba",
+        "conversando con la gente,",
+        "haciendo *preguntas",
+        "y poniendo en *duda",
+        "esas verdades",
+        "que todos daban por sentadas."
+      ],
+      "shots": [
+        {
+          "at": "Los",
+          "painting": "socrates"
+        },
+        {
+          "at": "esas",
+          "card": "verdades"
+        }
+      ]
+    },
+    {
+      "key": "ojo",
+      "camera": "v4",
+      "text": "Pero ojo, filosofar no era solo contemplar el mundo, era atreverse a cuestionarlo.",
+      "phrases": [
+        "Pero *ojo,",
+        "filosofar no era solo",
+        "*contemplar el mundo,",
+        "era *atreverse",
+        "a cuestionarlo."
+      ],
+      "shots": [
+        {
+          "src": "ojo",
+          "from": 0
+        }
+      ],
+      "zooms": {
+        "origin": [
+          480,
+          470
+        ],
+        "at": [
+          {
+            "at": "ojo,",
+            "scale": 1.35
+          },
+          {
+            "at": "contemplar",
+            "scale": 1.0
+          },
+          {
+            "at": "atreverse",
+            "scale": 1.22
+          }
+        ]
+      }
+    },
+    {
+      "key": "hoy",
+      "take": "1GlBWGMbcJKzZ7mNDqUHblQoZCH7g1Uew",
+      "text": "Y eso sigue pasando hoy, en el barrio, en la universidad, en el transporte público y hasta en la mesa familiar. En cada conversación donde alguien se atreve a preguntar: ¿por qué?",
+      "phrases": [
+        "Y eso sigue pasando *hoy,",
+        "en el *barrio,",
+        "en la *universidad,",
+        "en el *transporte *público",
+        "y hasta en la *mesa *familiar.",
+        "En cada conversación",
+        "donde alguien se atreve",
+        "a preguntar:"
+      ],
+      "shots": [
+        {
+          "at": "Y",
+          "src": "v8",
+          "from": 0.6
+        },
+        {
+          "at": "barrio,",
+          "full": "barrio"
+        },
+        {
+          "at": "universidad,",
+          "full": "universidad"
+        },
+        {
+          "at": "transporte",
+          "full": "transporte"
+        },
+        {
+          "at": "mesa",
+          "full": "mesa"
+        },
+        {
+          "at": "En",
+          "nth": 5,
+          "src": "v2",
+          "from": 0.2
+        },
+        {
+          "at": "¿por",
+          "porque": true
+        }
+      ],
+      "hold": 0.15,
+      "zooms": {
+        "origin": [
+          580,
+          600
+        ],
+        "at": [
+          {
+            "at": "preguntar:",
+            "scale": 1.15
+          }
+        ]
+      }
+    },
+    {
+      "key": "cierre",
+      "camera": "v7",
+      "text": "Porque para transformar el mundo, primero hay que aprender a cuestionarlo.",
+      "phrases": [
+        "Porque para *transformar el mundo,",
+        "primero hay que aprender",
+        "a *cuestionarlo."
+      ],
+      "shots": [
+        {
+          "src": "cierre",
+          "from": 0
+        }
+      ],
+      "hold": 1.6,
+      "zooms": {
+        "origin": [
+          600,
+          450
+        ],
+        "at": [
+          {
+            "at": "transformar",
+            "scale": 1.12
+          },
+          {
+            "at": "primero",
+            "scale": 1.0
+          },
+          {
+            "at": "cuestionarlo.",
+            "scale": 1.2
+          }
+        ]
+      }
+    }
+  ]
+}
