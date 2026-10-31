@@ -3,6 +3,7 @@ import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { Cover } from "./campaign/Cover";
 import { CoverDerechos } from "./campaign/CoverDerechos";
 import { CoverMarcha } from "./campaign/CoverMarcha";
+import { CoverMuseo } from "./campaign/CoverMuseo";
 import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Derechos, DERECHOS_FPS, derechosDuration } from "./campaign/Derechos";
 import { Highlight } from "./campaign/Highlights";
@@ -106,6 +107,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="JFC-Derechos-Portada" component={CoverDerechos} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Fallo del Museo Nacional: npm run build:museo && npm run render:museo */}
       <Composition id="JFC-Museo" component={Museo} width={1080} height={1920} fps={MUSEO_FPS} durationInFrames={museoDuration} />
+      <Composition id="JFC-Museo-Portada" component={CoverMuseo} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition
         id="Destacada-INFO"
