@@ -1,6 +1,7 @@
 import { Composition } from "remotion";
 import { CampaignVideo, durationFor, FPS } from "./campaign/CampaignVideo";
 import { CarruselIva, IVA_SLIDES } from "./campaign/CarruselIva";
+import { CarruselIva2, IVA2_SLIDES } from "./campaign/CarruselIva2";
 import { Cover } from "./campaign/Cover";
 import { CoverDerechos } from "./campaign/CoverDerechos";
 import { CoverMarcha } from "./campaign/CoverMarcha";
@@ -112,6 +113,9 @@ export const RemotionRoot: React.FC = () => {
       {/* Carrusel del IVA a la canasta (1080x1350): npm run render:carrusel-iva */}
       {Array.from({ length: IVA_SLIDES }, (_, k) => (
         <Composition key={k} id={`IVA-${k + 1}`} component={CarruselIva} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{ slide: k + 1 }} />
+      ))}
+      {Array.from({ length: IVA2_SLIDES }, (_, k) => (
+        <Composition key={k} id={`IVA2-${k + 1}`} component={CarruselIva2} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{ slide: k + 1 }} />
       ))}
       {/* Portadas de historias destacadas: npm run render:destacadas */}
       <Composition

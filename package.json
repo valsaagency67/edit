@@ -53,6 +53,7 @@
     "render:portada-derechos": "remotion still src/index.ts JFC-Derechos-Portada out/portada-derechos.png && ffmpeg -v error -y -i out/portada-derechos.png -q:v 2 out/portada-derechos.jpg",
     "render:portada-museo": "remotion still src/index.ts JFC-Museo-Portada out/portada-museo.png && ffmpeg -v error -y -i out/portada-museo.png -q:v 2 out/portada-museo.jpg",
     "render:carrusel-iva": "mkdir -p out/carrusel-iva && for i in 1 2 3 4 5 6 7; do remotion still src/index.ts IVA-$i out/carrusel-iva/iva-$i.png && ffmpeg -v error -y -i out/carrusel-iva/iva-$i.png -q:v 2 out/carrusel-iva/iva-$i.jpg; done",
+    "render:carrusel-iva2": "mkdir -p out/carrusel-iva2 && for i in 1 2 3 4 5 6 7 8 9 10; do remotion still src/index.ts IVA2-$i out/carrusel-iva2/iva2-$i.png && ffmpeg -v error -y -i out/carrusel-iva2/iva2-$i.png -q:v 2 out/carrusel-iva2/iva2-$i.jpg; done",
     "render:portada-nia": "remotion still src/index.ts NIA-Portada out/portada-nia.png",
     "build:derechos": "python3 scripts/build_derechos.py",
     "render:derechos": "mkdir -p out && remotion render src/index.ts JFC-Derechos out/derechos-mezcla.mp4 --codec=h264 --crf=14 --pixel-format=yuv420p --color-space=bt709 --audio-codec=aac --audio-bitrate=320k --jpeg-quality=95 --concurrency=4 --timeout=120000 && ffmpeg -v error -y -i out/derechos-mezcla.mp4 -c:v copy -af volume=2dB,alimiter=limit=0.89:level=false -c:a aac -b:a 320k -ar 48000 -movflags +faststart out/derechos.mp4",

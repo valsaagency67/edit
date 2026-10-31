@@ -9,18 +9,20 @@ import { Bandera } from "./Peticion";
 // (café, azúcar, aceites, pastas, chocolate de mesa pasan al 19 %) y salen de los excluidos frutas y
 // verduras frescas, granos secos, sal y maíz. Es un proyecto: falta el trámite en el Congreso. Cada lámina
 // es una composición (IVA-1 … IVA-7); npm run render:carrusel-iva.
-const RED = "#E30613";
-const BLUE = "#1D3E9E";
-const YELLOW = "#FCD116";
-const NAVY = "#0B1736";
-const SHADOW = "0 6px 22px rgba(0,0,0,0.55)";
-const EMOJI = "'Noto Color Emoji'";
+export const RED = "#E30613";
+export const BLUE = "#1D3E9E";
+export const YELLOW = "#FCD116";
+export const NAVY = "#0B1736";
+export const SHADOW = "0 6px 22px rgba(0,0,0,0.55)";
+export const EMOJI = "'Noto Color Emoji'";
 export const IVA_SLIDES = 7;
 
-const Fondo: React.FC<{ children: React.ReactNode; n: number }> = ({
-  children,
-  n,
-}) => (
+// Fondo común de los carruseles: degradado azul noche, franja de la bandera, numeración n/total y firma.
+export const Fondo: React.FC<{
+  children: React.ReactNode;
+  n: number;
+  total?: number;
+}> = ({ children, n, total = IVA_SLIDES }) => (
   <AbsoluteFill
     style={{
       background: `radial-gradient(circle at 80% 10%, #1F3B8C 0%, ${NAVY} 55%, #050B1D 100%)`,
@@ -42,7 +44,7 @@ const Fondo: React.FC<{ children: React.ReactNode; n: number }> = ({
         opacity: 0.7,
       }}
     >
-      {n}/{IVA_SLIDES}
+      {n}/{total}
     </div>
     {children}
     <div
@@ -71,7 +73,7 @@ const Fondo: React.FC<{ children: React.ReactNode; n: number }> = ({
 );
 
 // Bloque de titular en Bebas: fondo de color, levemente inclinado (estilo cartel).
-const Bloque: React.FC<{
+export const Bloque: React.FC<{
   bg: string;
   color?: string;
   size: number;
@@ -95,8 +97,8 @@ const Bloque: React.FC<{
   </div>
 );
 
-type Item = { e: string; t: string };
-const Fichas: React.FC<{
+export type Item = { e: string; t: string };
+export const Fichas: React.FC<{
   items: Item[];
   cols: number;
   size?: number;
@@ -167,7 +169,7 @@ const Fichas: React.FC<{
   </div>
 );
 
-const Nota: React.FC<{ children: React.ReactNode; bottom?: number }> = ({
+export const Nota: React.FC<{ children: React.ReactNode; bottom?: number }> = ({
   children,
   bottom = 150,
 }) => (
@@ -187,20 +189,30 @@ const Nota: React.FC<{ children: React.ReactNode; bottom?: number }> = ({
   </div>
 );
 
+// Juan Felipe con camisa (recorte del final de IMG_0744, el de la portada de Derechos: serio, puños al
+// pecho), a la derecha, de la cabeza a la cintura; el borde de abajo se desvanece.
+export const JFCamisa: React.FC<{
+  top: number;
+  right?: number;
+  height?: number;
+}> = ({ top, right = -40, height = 1500 }) => (
+  <Img
+    src={staticFile("cover/iva-jf.png")}
+    style={{
+      position: "absolute",
+      height,
+      right,
+      top,
+      maskImage: "linear-gradient(180deg, black 38%, transparent 52%)",
+      WebkitMaskImage: "linear-gradient(180deg, black 38%, transparent 52%)",
+      filter: "drop-shadow(0 0 30px rgba(252,209,22,0.5))",
+    }}
+  />
+);
+
 const Portada: React.FC = () => (
   <Fondo n={1}>
-    <Img
-      src={staticFile("cover/museo-jf.png")}
-      style={{
-        position: "absolute",
-        height: 900,
-        right: -120,
-        bottom: 0,
-        maskImage: "linear-gradient(180deg, black 62%, transparent 92%)",
-        WebkitMaskImage: "linear-gradient(180deg, black 62%, transparent 92%)",
-        filter: "drop-shadow(0 0 30px rgba(252,209,22,0.55))",
-      }}
-    />
+    <JFCamisa top={640} />
     <div style={{ position: "absolute", top: 110, left: 64, right: 64 }}>
       <div
         style={{
@@ -239,9 +251,9 @@ const Portada: React.FC = () => (
       style={{
         position: "absolute",
         left: 64,
-        top: 800,
+        top: 730,
         display: "grid",
-        gridTemplateColumns: "repeat(3, 130px)",
+        gridTemplateColumns: "repeat(2, 130px)",
         gap: 14,
       }}
     >
@@ -268,7 +280,7 @@ const Portada: React.FC = () => (
       style={{
         position: "absolute",
         left: 64,
-        top: 1100,
+        top: 1168,
         fontWeight: 800,
         fontSize: 32,
         color: YELLOW,
