@@ -3,66 +3,91 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
-// Portada del video del fallo del Museo Nacional (1080x1920). Fondo: el final de IMG_3993 (cierre, «es una
-// guerra contra la cultura»), cuando se queda serio mirando a cámara, recortado a 9:16 con la gradación
-// del video. La toma es tan cerrada que la imagen sube 150 px para dejar el texto sobre el cuello y la
-// camiseta (la boca queda libre); todo dentro del recorte 4:5 de la cuadrícula de Instagram (y 285–1635).
+// Portada del video del fallo del Museo Nacional (1080x1920), pedida «referente al museo, con colores
+// vivos, muy libertaria» (scripts/make_portada_museo.py): de fondo la sala de la exposición con la
+// bandera arcoíris y los afiches, en color vivo; Juan Felipe recortado, serio, a la derecha con borde
+// blanco y resplandor amarillo; arriba «LA MEMORIA NO SE BORRA» (su frase de cierre). Todo lo importante
+// queda dentro del recorte 4:5 de la cuadrícula de Instagram (y 285–1635).
 const RED = "#E30613";
-const BLUE = "#1D3E9E";
-const YELLOW = "#FFE600";
-const SHADOW = "0 4px 18px rgba(0,0,0,0.6), 0 0 3px rgba(0,0,0,0.6)";
+const YELLOW = "#FCD116";
+const SHADOW = "0 6px 22px rgba(0,0,0,0.65), 0 0 4px rgba(0,0,0,0.6)";
 
 export const CoverMuseo: React.FC = () => (
-  <AbsoluteFill style={{ backgroundColor: "black" }}>
+  <AbsoluteFill style={{ backgroundColor: "black", overflow: "hidden" }}>
+    {/* Sala del museo: la bandera arcoíris queda a la izquierda, junto a su cabeza. */}
     <Img
-      src={staticFile("cover/museo-fondo.jpg")}
-      style={{ width: "100%", height: "100%", objectFit: "cover", transform: "translateY(-150px)" }}
+      src={staticFile("jf3/fotos/museo-expo.jpg")}
+      style={{
+        position: "absolute",
+        width: 1350,
+        height: 2400,
+        left: -270,
+        top: -480,
+      }}
     />
     <AbsoluteFill
       style={{
         background:
-          "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 52%, rgba(0,0,0,0.65) 64%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,1) 92%)",
+          "linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0) 38%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.7) 86%, rgba(0,0,0,0.85) 100%)",
       }}
     />
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1230, textAlign: "center" }}>
+    {/* Juan Felipe: borde blanco y resplandor amarillo para despegarlo del fondo. */}
+    <Img
+      src={staticFile("cover/museo-jf.png")}
+      style={{
+        position: "absolute",
+        height: 1150,
+        left: 300,
+        bottom: 0,
+        // El cuadro original cortaba el hombro izquierdo en recto: el pecho se desvanece hacia abajo.
+        maskImage: "linear-gradient(180deg, black 60%, transparent 80%)",
+        WebkitMaskImage: "linear-gradient(180deg, black 60%, transparent 80%)",
+        filter:
+          "drop-shadow(0 0 0 white) drop-shadow(5px 0 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white) drop-shadow(0 0 40px rgba(252,209,22,0.85))",
+      }}
+    />
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 300, textAlign: "center" }}>
       <div
         style={{
-          background: BLUE,
-          color: "white",
+          background: YELLOW,
+          color: "#141414",
           fontFamily: Montserrat,
           fontWeight: 800,
-          fontSize: 42,
+          fontSize: 40,
           letterSpacing: 2,
-          padding: "10px 26px",
+          padding: "10px 24px",
           textTransform: "uppercase",
-          marginBottom: 16,
+          transform: "rotate(-2deg)",
+          marginBottom: 18,
         }}
       >
         Museo Nacional · 63 piezas
       </div>
-      <div style={{ fontFamily: Montserrat, fontWeight: 600, fontSize: 62, color: "white", textShadow: SHADOW }}>
-        No es una guerra <span style={{ color: YELLOW }}>cultural</span>:
+      <div style={{ fontFamily: Bebas, fontSize: 200, lineHeight: 0.92, color: "white", textShadow: SHADOW }}>
+        LA MEMORIA
       </div>
       <div
         style={{
           fontFamily: Bebas,
-          fontSize: 116,
-          lineHeight: 0.95,
+          fontSize: 200,
+          lineHeight: 0.92,
           color: "white",
           background: RED,
-          padding: "4px 30px 0",
+          padding: "10px 34px 0",
           marginTop: 10,
+          transform: "rotate(-2deg)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
         }}
       >
-        ES CONTRA LA CULTURA
+        NO SE BORRA
       </div>
     </AbsoluteFill>
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1560 }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 7 }}>
-        <div style={{ fontFamily: Anton, fontSize: 50, lineHeight: 1, color: "white", textShadow: SHADOW }}>
+    <AbsoluteFill style={{ justifyContent: "flex-start", top: 1500, left: 60 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 7, alignSelf: "flex-start" }}>
+        <div style={{ fontFamily: Anton, fontSize: 54, lineHeight: 1, color: "white", textShadow: SHADOW }}>
           Juan Felipe Castaño
         </div>
-        <Bandera height={7} />
+        <Bandera height={8} />
       </div>
     </AbsoluteFill>
   </AbsoluteFill>
