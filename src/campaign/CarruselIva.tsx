@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Img, staticFile } from "remotion";
+import { AbsoluteFill } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
@@ -189,30 +189,126 @@ export const Nota: React.FC<{ children: React.ReactNode; bottom?: number }> = ({
   </div>
 );
 
-// Juan Felipe con camisa (recorte del final de IMG_0744, el de la portada de Derechos: serio, puños al
-// pecho), a la derecha, de la cabeza a la cintura; el borde de abajo se desvanece.
-export const JFCamisa: React.FC<{
-  top: number;
-  right?: number;
-  height?: number;
-}> = ({ top, right = -40, height = 1500 }) => (
-  <Img
-    src={staticFile("cover/iva-jf.png")}
-    style={{
-      position: "absolute",
-      height,
-      right,
-      top,
-      maskImage: "linear-gradient(180deg, black 38%, transparent 52%)",
-      WebkitMaskImage: "linear-gradient(180deg, black 38%, transparent 52%)",
-      filter: "drop-shadow(0 0 30px rgba(252,209,22,0.5))",
-    }}
-  />
-);
+// Factura del mercado (portada; el cliente prefirió algo del tema en vez de la foto de Juan Felipe):
+// tiquete blanco inclinado con lo que hoy paga 5% o 0% de IVA y pasaría a 19%, y un sello rojo. Sin precios
+// (no hay cifras confirmadas); solo las tarifas que reportan los medios.
+const RENGLONES: [string, string][] = [
+  ["CAFÉ", "5%"],
+  ["AZÚCAR", "5%"],
+  ["PASTAS", "5%"],
+  ["FRÍJOL", "0%"],
+  ["TOMATE", "0%"],
+  ["CEBOLLA", "0%"],
+];
+export const Factura: React.FC<{ top: number; right?: number }> = ({
+  top,
+  right = 50,
+}) => {
+  const mono = "'DejaVu Sans Mono', monospace";
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top,
+        right,
+        width: 520,
+        transform: "rotate(4deg)",
+      }}
+    >
+      <div
+        style={{
+          background: "#FBFAF5",
+          color: "#1A1A1A",
+          fontFamily: mono,
+          padding: "34px 34px 40px",
+          boxShadow: "0 24px 60px rgba(0,0,0,0.55)",
+          // Borde de abajo en zigzag, como un tiquete cortado.
+          clipPath:
+            "polygon(0 0, 100% 0, 100% 96%, 95% 100%, 90% 96%, 85% 100%, 80% 96%, 75% 100%, 70% 96%, 65% 100%, 60% 96%, 55% 100%, 50% 96%, 45% 100%, 40% 96%, 35% 100%, 30% 96%, 25% 100%, 20% 96%, 15% 100%, 10% 96%, 5% 100%, 0 96%)",
+        }}
+      >
+        <div
+          style={{
+            textAlign: "center",
+            fontWeight: 700,
+            fontSize: 30,
+            letterSpacing: 2,
+          }}
+        >
+          TU MERCADO
+        </div>
+        <div style={{ textAlign: "center", fontSize: 22, marginTop: 4 }}>
+          FACTURA · ENERO 2028
+        </div>
+        <div style={{ borderTop: "3px dashed #1A1A1A", margin: "18px 0" }} />
+        <div style={{ display: "flex", fontSize: 22, fontWeight: 700 }}>
+          <div style={{ flex: 1 }}>PRODUCTO</div>
+          <div style={{ width: 90, textAlign: "right" }}>HOY</div>
+          <div style={{ width: 110, textAlign: "right" }}>2028</div>
+        </div>
+        {RENGLONES.map(([p, hoy]) => (
+          <div key={p} style={{ display: "flex", fontSize: 30, marginTop: 14 }}>
+            <div style={{ flex: 1 }}>{p}</div>
+            <div
+              style={{
+                width: 90,
+                textAlign: "right",
+                textDecoration: "line-through",
+                opacity: 0.55,
+              }}
+            >
+              {hoy}
+            </div>
+            <div
+              style={{
+                width: 110,
+                textAlign: "right",
+                fontWeight: 700,
+                color: RED,
+              }}
+            >
+              19%
+            </div>
+          </div>
+        ))}
+        <div
+          style={{ borderTop: "3px dashed #1A1A1A", margin: "20px 0 14px" }}
+        />
+        <div style={{ display: "flex", fontSize: 32, fontWeight: 700 }}>
+          <div style={{ flex: 1 }}>IVA</div>
+          <div style={{ color: RED }}>19%</div>
+        </div>
+      </div>
+      {/* Sello */}
+      <div
+        style={{
+          position: "absolute",
+          right: -40,
+          top: -60,
+          transform: "rotate(12deg)",
+          border: `8px solid ${RED}`,
+          borderRadius: 18,
+          color: RED,
+          fontFamily: Bebas,
+          fontSize: 58,
+          lineHeight: 0.95,
+          padding: "10px 18px 4px",
+          textAlign: "center",
+          background: "rgba(251,250,245,0.85)",
+          boxShadow: "0 6px 18px rgba(0,0,0,0.3)",
+        }}
+      >
+        LEY DE
+        <br />
+        RESCATE
+      </div>
+    </div>
+  );
+};
 
 const Portada: React.FC = () => (
   <Fondo n={1}>
-    <JFCamisa top={640} />
+    <Factura top={730} />
     <div style={{ position: "absolute", top: 110, left: 64, right: 64 }}>
       <div
         style={{

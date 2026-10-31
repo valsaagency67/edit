@@ -6,7 +6,7 @@ import {
   EMOJI,
   Fichas,
   Fondo,
-  JFCamisa,
+  Factura,
   Nota,
   NAVY,
   RED,
@@ -94,7 +94,7 @@ const Lista: React.FC<{
 
 const Portada: React.FC = () => (
   <Fondo n={1} total={IVA2_SLIDES}>
-    <JFCamisa top={640} />
+    <Factura top={700} />
     <div style={{ position: "absolute", top: 110, left: 64, right: 64 }}>
       <Kicker>Ley de Rescate de Abelardo</Kicker>
       <div
