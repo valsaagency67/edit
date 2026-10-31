@@ -960,7 +960,18 @@
     }
    ],
    "cards": [],
-   "photos": []
+   "photos": [
+    {
+     "img": "lara",
+     "start": 29.429,
+     "end": 32.309
+    },
+    {
+     "img": "ordonez",
+     "start": 32.309,
+     "end": 35.095
+    }
+   ]
   },
   {
    "key": "libros",
@@ -1136,7 +1147,13 @@
     }
    ],
    "cards": [],
-   "photos": []
+   "photos": [
+    {
+     "img": "aborto",
+     "start": 38.375,
+     "end": 42.849
+    }
+   ]
   },
   {
    "key": "fallo",
@@ -1564,7 +1581,13 @@
      "end": 56.956
     }
    ],
-   "photos": []
+   "photos": [
+    {
+     "img": "victimas",
+     "start": 50.982,
+     "end": 53.382
+    }
+   ]
   }
  ]
 }

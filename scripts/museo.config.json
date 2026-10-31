@@ -193,6 +193,17 @@
         {
           "src": "ordonez"
         }
+      ],
+      "photos": [
+        {
+          "at": "destituyeron",
+          "until": "designaron",
+          "img": "lara"
+        },
+        {
+          "at": "designaron",
+          "img": "ordonez"
+        }
       ]
     },
     {
@@ -209,6 +220,12 @@
       "shots": [
         {
           "src": "libros"
+        }
+      ],
+      "photos": [
+        {
+          "at": "oponerse",
+          "img": "aborto"
         }
       ]
     },
@@ -269,6 +286,13 @@
       "shots": [
         {
           "src": "cierre"
+        }
+      ],
+      "photos": [
+        {
+          "at": "memoria",
+          "until": "ya",
+          "img": "victimas"
         }
       ]
     }
