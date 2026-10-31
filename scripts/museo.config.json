@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe sobre el fallo que ordena al Museo Nacional devolver las 63 piezas retiradas. Doce tomas selfie (3:4, se recortan a 9:16) en el orden del discurso. El cliente pidió pocas tarjetas y pocos efectos de sonido: obturador solo en los cortes de `shutters`, clic solo en las tarjetas. Lo arma scripts/build_museo.py -> src/campaign/museo.json.",
+  "_doc": "Video de Juan Felipe sobre el fallo que ordena al Museo Nacional devolver las 63 piezas retiradas. Doce tomas selfie (3:4, se recortan a 9:16) en el orden del discurso. El cliente pidió pocas tarjetas y pocos efectos de sonido: obturador solo en los cortes de `shutters`, clic solo en las tarjetas. Lo arma scripts/build_museo.py -> src/campaign/museo.json. Fotos de apoyo (`photos`, en public/jf3/fotos/, no versionadas: son de prensa, las mandó el cliente) ancladas a palabras.",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -70,6 +70,12 @@
         {
           "src": "museo"
         }
+      ],
+      "photos": [
+        {
+          "at": "Museo",
+          "img": "museo"
+        }
       ]
     },
     {
@@ -86,6 +92,27 @@
       "shots": [
         {
           "src": "muestra"
+        }
+      ],
+      "photos": [
+        {
+          "at": "feminismo,",
+          "until": "diversidad",
+          "img": "feminismo"
+        },
+        {
+          "at": "diversidad",
+          "until": "acuerdos",
+          "img": "diversidad"
+        },
+        {
+          "at": "acuerdos",
+          "until": "memoria",
+          "img": "paz"
+        },
+        {
+          "at": "memoria",
+          "img": "memoria"
         }
       ]
     },
@@ -117,6 +144,12 @@
       "shots": [
         {
           "src": "batalla"
+        }
+      ],
+      "photos": [
+        {
+          "at": "Carlos",
+          "img": "suarez"
         }
       ]
     },

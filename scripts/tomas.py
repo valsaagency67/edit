@@ -244,10 +244,12 @@ class Proyecto:
             for i, c in enumerate(caps):
                 c["end"] = caps[i + 1]["start"] if i + 1 < len(caps) else round(t + dur, 3)
             # Tarjetas y acercamientos anclados a palabras (tiempos globales).
-            cards = [{**{k: v for k, v in c.items() if k not in ("at", "nth", "until", "untilNth")},
-                      "start": round(t + find_word(words, c["at"], c.get("nth", 1)), 3),
-                      "end": round(t + find_word(words, c["until"], c.get("untilNth", 1)), 3) if "until" in c
-                      else round(t + dur, 3)} for c in sc.get("cards", [])]
+            def anchored(items):
+                return [{**{k: v for k, v in c.items() if k not in ("at", "nth", "until", "untilNth")},
+                         "start": round(t + find_word(words, c["at"], c.get("nth", 1)), 3),
+                         "end": round(t + find_word(words, c["until"], c.get("untilNth", 1)), 3) if "until" in c
+                         else round(t + dur, 3)} for c in items]
+            cards, photos = anchored(sc.get("cards", [])), anchored(sc.get("photos", []))
             zooms = None
             if "zooms" in sc:
                 zooms = {"origin": sc["zooms"]["origin"],
@@ -256,7 +258,7 @@ class Proyecto:
             scenes.append({"key": sc["key"], "start": round(t, 3), "end": round(end, 3), "zooms": zooms,
                            "silent": sc.get("silent"), "text": sc.get("text"),
                            "words": [{**w, "s": round(t + w["s"], 3), "e": round(t + w["e"], 3)} for w in words],
-                           "shots": shots, "captions": caps, "cards": cards})
+                           "shots": shots, "captions": caps, "cards": cards, "photos": photos})
             print(f"{sc['key']:11s} {t:6.2f} -> {end:6.2f}  ({dur:.2f} s)")
             t = end + (cfg["gap"] if src else 0.0)
         # La última toma de cada escena se estira hasta la siguiente escena (sin negro en los huecos).

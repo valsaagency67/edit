@@ -8,7 +8,8 @@ pocas tarjetas y pocos efectos de sonido.
   76 bpm, tensa; el violín entra en «el fallo» y sube hacia el cierre), muestras reales tonejs-instruments
   (CC-BY 3.0), ~17 dB bajo la voz.
 - public/jf3/foley.wav: efectos del video de referencia del cliente, con moderación: obturador solo en los
-  cortes de `shutters` (giros del discurso) y clic solo cuando aparece una tarjeta.
+  cortes de `shutters` (giros del discurso), clic solo cuando aparece una tarjeta y obturador suave en la
+  primera foto de apoyo de una escena.
 Salida de la línea de tiempo: src/campaign/museo.json.
 
 Uso: python3 scripts/build_museo.py
@@ -79,6 +80,9 @@ def foley(data):
             mf.place(buf, shutter * 0.6, sc["start"] - 0.03)
         for c in sc["cards"]:
             mf.place(buf, click * 0.7, c["start"])
+        # Fotos: obturador suave solo en la primera de una escena que no empieza ya con obturador.
+        if sc["photos"] and sc["key"] not in CFG["shutters"]:
+            mf.place(buf, shutter * 0.4, sc["photos"][0]["start"] - 0.03)
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 
