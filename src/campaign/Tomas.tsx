@@ -18,6 +18,7 @@ import {
   Flash,
   Progress,
 } from "./Peticion";
+import { Bebas, Montserrat } from "./font";
 
 // Video de Juan Felipe hecho de tomas a cámara con la voz de seguido (scripts/tomas.py arma el JSON) y
 // las reglas fijas del cliente (CLAUDE.md): subtítulos con resaltado amarillo, tarjetas rojas y azules,
@@ -41,6 +42,7 @@ export type TomasData = {
     })[];
     photos?: (Range & { img: string })[];
   }[];
+  outro?: Range & { kicker: string; text: string };
 };
 
 // Toma cortada en sincronía con la voz; si la escena dura más (cola final), se congela su último cuadro.
@@ -111,14 +113,64 @@ const PhotoView: React.FC<{
   );
 };
 
+// Escrito final sobre el último cuadro congelado (oscurecido): la frase en blanco y la consigna en Bebas
+// sobre rojo; entra con desenfoque y se queda hasta el final.
+const Outro: React.FC<{ kicker: string; text: string }> = ({
+  kicker,
+  text,
+}) => {
+  const frame = useCurrentFrame();
+  const o = interpolate(frame, [0, IO + 2], [0, 1], clamp);
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{ backgroundColor: "black", opacity: 0.55 * o }} />
+      <AbsoluteFill
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          gap: 18,
+          opacity: o,
+          filter: `blur(${(1 - o) * 12}px)`,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: Montserrat,
+            fontWeight: 600,
+            fontSize: 76,
+            color: "white",
+            textShadow: "0 4px 18px rgba(0,0,0,0.6)",
+          }}
+        >
+          {kicker}
+        </div>
+        <div
+          style={{
+            maxWidth: 940,
+            fontFamily: Bebas,
+            fontSize: 150,
+            lineHeight: 1.02,
+            color: "white",
+            background: COLORS.red,
+            padding: "8px 34px 0",
+            textTransform: "uppercase",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+          }}
+        >
+          {text}
+        </div>
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
 // «*palabra» = resaltada en amarillo (formato de CaptionView).
 const pieces = (text: string) =>
-  text
-    .split(" ")
-    .map((w, i, all) => ({
-      t: w.replace("*", "") + (i < all.length - 1 ? " " : ""),
-      y: w.startsWith("*"),
-    }));
+  text.split(" ").map((w, i, all) => ({
+    t: w.replace("*", "") + (i < all.length - 1 ? " " : ""),
+    y: w.startsWith("*"),
+  }));
 
 // dir: carpeta de public/ con las tomas y voz/musica/foley.wav; captionTop: altura de los subtítulos;
 // captionBox: subtítulos sobre fondo oscuro translúcido.
@@ -208,6 +260,12 @@ export const TomasVideo: React.FC<{
           </Sequence>
         )),
       )}
+
+      {data.outro ? (
+        <Sequence from={f(data.outro.start)} durationInFrames={len(data.outro)}>
+          <Outro kicker={data.outro.kicker} text={data.outro.text} />
+        </Sequence>
+      ) : null}
 
       <Firma />
       <Progress />

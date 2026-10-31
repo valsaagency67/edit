@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe sobre el fallo que ordena al Museo Nacional devolver las 63 piezas retiradas. Doce tomas selfie (3:4, se recortan a 9:16) en el orden del discurso. El cliente pidió pocas tarjetas y pocos efectos de sonido: obturador solo en los cortes de `shutters`, clic solo en las tarjetas. Lo arma scripts/build_museo.py -> src/campaign/museo.json. Fotos de apoyo (`photos`, en public/jf3/fotos/, no versionadas: son de prensa, las mandó el cliente) ancladas a palabras.",
+  "_doc": "Video de Juan Felipe sobre el fallo que ordena al Museo Nacional devolver las 63 piezas retiradas. Doce tomas selfie (3:4, se recortan a 9:16) en el orden del discurso. El cliente pidió pocas tarjetas y pocos efectos de sonido: obturador solo en los cortes de `shutters`, clic solo en las tarjetas. Lo arma scripts/build_museo.py -> src/campaign/museo.json. Fotos de apoyo (`photos`, en public/jf3/fotos/, no versionadas: son de prensa, las mandó el cliente) ancladas a palabras. Cierra con «freno» (se intercambió con «cierre», pedido del cliente) y el escrito de `outro` sobre el último cuadro.",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -8,7 +8,7 @@
     "keep": 0.07
   },
   "gap": 0.0,
-  "tail": 1.2,
+  "tail": 2.8,
   "videos": {},
   "shutters": [
     "museo",
@@ -250,28 +250,6 @@
       ]
     },
     {
-      "key": "freno",
-      "camera": "IMG_3992",
-      "text": "Y si bien la justicia hoy le puso un freno, es una guerra que no podemos perder.",
-      "phrases": [
-        "Y si bien la *justicia",
-        "hoy le puso un *freno,",
-        "es una guerra",
-        "que *no *podemos *perder."
-      ],
-      "shots": [
-        {
-          "src": "freno"
-        }
-      ],
-      "photos": [
-        {
-          "at": "guerra",
-          "img": "guerra"
-        }
-      ]
-    },
-    {
       "key": "cierre",
       "camera": "IMG_3993",
       "text": "Porque cuando lo que se borra es la memoria de las víctimas y de las diversidades, ya no estamos hablando de una guerra cultural, es una guerra contra la cultura.",
@@ -306,6 +284,32 @@
           "img": "victimas"
         }
       ]
+    },
+    {
+      "key": "freno",
+      "camera": "IMG_3992",
+      "text": "Y si bien la justicia hoy le puso un freno, es una guerra que no podemos perder.",
+      "phrases": [
+        "Y si bien la *justicia",
+        "hoy le puso un *freno,",
+        "es una guerra",
+        "que *no *podemos *perder."
+      ],
+      "shots": [
+        {
+          "src": "freno"
+        }
+      ],
+      "photos": [
+        {
+          "at": "guerra",
+          "img": "guerra"
+        }
+      ]
     }
-  ]
+  ],
+  "outro": {
+    "kicker": "Es una guerra",
+    "text": "que no podemos perder"
+  }
 }

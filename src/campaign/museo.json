@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "duration": 58.156,
+ "duration": 59.756,
  "clips": {
   "gancho": 102,
   "gobierno": 102,
@@ -12,8 +12,8 @@
   "ordonez": 185,
   "libros": 231,
   "fallo": 76,
-  "freno": 118,
-  "cierre": 227
+  "cierre": 227,
+  "freno": 118
  },
  "scenes": [
   {
@@ -1252,333 +1252,201 @@
    "photos": []
   },
   {
-   "key": "freno",
-   "start": 45.416,
-   "end": 49.382,
-   "zooms": null,
-   "silent": null,
-   "text": "Y si bien la justicia hoy le puso un freno, es una guerra que no podemos perder.",
-   "words": [
-    {
-     "t": "Y",
-     "s": 45.416,
-     "e": 45.576
-    },
-    {
-     "t": "si",
-     "s": 45.576,
-     "e": 45.656
-    },
-    {
-     "t": "bien",
-     "s": 45.656,
-     "e": 45.896
-    },
-    {
-     "t": "la",
-     "s": 45.896,
-     "e": 46.056
-    },
-    {
-     "t": "justicia",
-     "s": 46.056,
-     "e": 46.456
-    },
-    {
-     "t": "hoy",
-     "s": 46.456,
-     "e": 46.696
-    },
-    {
-     "t": "le",
-     "s": 46.696,
-     "e": 46.776
-    },
-    {
-     "t": "puso",
-     "s": 46.776,
-     "e": 47.096
-    },
-    {
-     "t": "un",
-     "s": 47.096,
-     "e": 47.176
-    },
-    {
-     "t": "freno,",
-     "s": 47.176,
-     "e": 47.656
-    },
-    {
-     "t": "es",
-     "s": 47.656,
-     "e": 47.816
-    },
-    {
-     "t": "una",
-     "s": 47.816,
-     "e": 47.976
-    },
-    {
-     "t": "guerra",
-     "s": 47.976,
-     "e": 48.296
-    },
-    {
-     "t": "que",
-     "s": 48.296,
-     "e": 48.456
-    },
-    {
-     "t": "no",
-     "s": 48.456,
-     "e": 48.616
-    },
-    {
-     "t": "podemos",
-     "s": 48.616,
-     "e": 49.016
-    },
-    {
-     "t": "perder.",
-     "s": 49.016,
-     "e": 49.382
-    }
-   ],
-   "shots": [
-    {
-     "src": "freno",
-     "start": 45.416,
-     "end": 49.382
-    }
-   ],
-   "captions": [
-    {
-     "text": "Y si bien la *justicia",
-     "start": 45.416,
-     "end": 46.456
-    },
-    {
-     "text": "hoy le puso un *freno,",
-     "start": 46.456,
-     "end": 47.656
-    },
-    {
-     "text": "es una guerra",
-     "start": 47.656,
-     "end": 48.296
-    },
-    {
-     "text": "que *no *podemos *perder.",
-     "start": 48.296,
-     "end": 49.382
-    }
-   ],
-   "cards": [],
-   "photos": [
-    {
-     "img": "guerra",
-     "start": 47.976,
-     "end": 49.382
-    }
-   ]
-  },
-  {
    "key": "cierre",
-   "start": 49.382,
-   "end": 56.956,
+   "start": 45.416,
+   "end": 52.99,
    "zooms": null,
    "silent": null,
    "text": "Porque cuando lo que se borra es la memoria de las víctimas y de las diversidades, ya no estamos hablando de una guerra cultural, es una guerra contra la cultura.",
    "words": [
     {
      "t": "Porque",
-     "s": 49.382,
-     "e": 49.702
+     "s": 45.416,
+     "e": 45.736
     },
     {
      "t": "cuando",
-     "s": 49.702,
-     "e": 49.942
+     "s": 45.736,
+     "e": 45.976
     },
     {
      "t": "lo",
-     "s": 49.942,
-     "e": 50.022
+     "s": 45.976,
+     "e": 46.056
     },
     {
      "t": "que",
-     "s": 50.022,
-     "e": 50.102
+     "s": 46.056,
+     "e": 46.136
     },
     {
      "t": "se",
-     "s": 50.102,
-     "e": 50.262
+     "s": 46.136,
+     "e": 46.296
     },
     {
      "t": "borra",
-     "s": 50.262,
-     "e": 50.742
+     "s": 46.296,
+     "e": 46.776
     },
     {
      "t": "es",
-     "s": 50.742,
-     "e": 50.902
+     "s": 46.776,
+     "e": 46.936
     },
     {
      "t": "la",
-     "s": 50.902,
-     "e": 50.982
+     "s": 46.936,
+     "e": 47.016
     },
     {
      "t": "memoria",
-     "s": 50.982,
-     "e": 51.382
+     "s": 47.016,
+     "e": 47.416
     },
     {
      "t": "de",
-     "s": 51.382,
-     "e": 51.542
+     "s": 47.416,
+     "e": 47.576
     },
     {
      "t": "las",
-     "s": 51.542,
-     "e": 51.622
+     "s": 47.576,
+     "e": 47.656
     },
     {
      "t": "víctimas",
-     "s": 51.622,
-     "e": 52.102
+     "s": 47.656,
+     "e": 48.136
     },
     {
      "t": "y",
-     "s": 52.102,
-     "e": 52.262
+     "s": 48.136,
+     "e": 48.296
     },
     {
      "t": "de",
-     "s": 52.262,
-     "e": 52.422
+     "s": 48.296,
+     "e": 48.456
     },
     {
      "t": "las",
-     "s": 52.422,
-     "e": 52.582
+     "s": 48.456,
+     "e": 48.616
     },
     {
      "t": "diversidades,",
-     "s": 52.582,
-     "e": 53.382
+     "s": 48.616,
+     "e": 49.416
     },
     {
      "t": "ya",
-     "s": 53.382,
-     "e": 53.542
+     "s": 49.416,
+     "e": 49.576
     },
     {
      "t": "no",
-     "s": 53.542,
-     "e": 53.702
+     "s": 49.576,
+     "e": 49.736
     },
     {
      "t": "estamos",
-     "s": 53.702,
-     "e": 53.942
+     "s": 49.736,
+     "e": 49.976
     },
     {
      "t": "hablando",
-     "s": 53.942,
-     "e": 54.262
+     "s": 49.976,
+     "e": 50.296
     },
     {
      "t": "de",
-     "s": 54.262,
-     "e": 54.422
+     "s": 50.296,
+     "e": 50.456
     },
     {
      "t": "una",
-     "s": 54.422,
-     "e": 54.582
+     "s": 50.456,
+     "e": 50.616
     },
     {
      "t": "guerra",
-     "s": 54.582,
-     "e": 54.822
+     "s": 50.616,
+     "e": 50.856
     },
     {
      "t": "cultural,",
-     "s": 54.822,
-     "e": 55.382
+     "s": 50.856,
+     "e": 51.416
     },
     {
      "t": "es",
-     "s": 55.382,
-     "e": 55.542
+     "s": 51.416,
+     "e": 51.576
     },
     {
      "t": "una",
-     "s": 55.542,
-     "e": 55.702
+     "s": 51.576,
+     "e": 51.736
     },
     {
      "t": "guerra",
-     "s": 55.702,
-     "e": 56.102
+     "s": 51.736,
+     "e": 52.136
     },
     {
      "t": "contra",
-     "s": 56.102,
-     "e": 56.342
+     "s": 52.136,
+     "e": 52.376
     },
     {
      "t": "la",
-     "s": 56.342,
-     "e": 56.422
+     "s": 52.376,
+     "e": 52.456
     },
     {
      "t": "cultura.",
-     "s": 56.422,
-     "e": 56.922
+     "s": 52.456,
+     "e": 52.956
     }
    ],
    "shots": [
     {
      "src": "cierre",
-     "start": 49.382,
-     "end": 58.156
+     "start": 45.416,
+     "end": 52.99
     }
    ],
    "captions": [
     {
      "text": "Porque cuando lo que se *borra",
-     "start": 49.382,
-     "end": 50.742
+     "start": 45.416,
+     "end": 46.776
     },
     {
      "text": "es la *memoria de las víctimas",
-     "start": 50.742,
-     "end": 52.102
+     "start": 46.776,
+     "end": 48.136
     },
     {
      "text": "y de las diversidades,",
-     "start": 52.102,
-     "end": 53.382
+     "start": 48.136,
+     "end": 49.416
     },
     {
      "text": "ya no estamos hablando",
-     "start": 53.382,
-     "end": 54.262
+     "start": 49.416,
+     "end": 50.296
     },
     {
      "text": "de una guerra cultural,",
-     "start": 54.262,
-     "end": 55.382
+     "start": 50.296,
+     "end": 51.416
     },
     {
      "text": "es una *guerra *contra *la *cultura.",
-     "start": 55.382,
-     "end": 56.956
+     "start": 51.416,
+     "end": 52.99
     }
    ],
    "cards": [
@@ -1588,17 +1456,155 @@
      "text": "es contra la cultura",
      "color": "red",
      "bottom": 1780,
-     "start": 55.382,
-     "end": 56.956
+     "start": 51.416,
+     "end": 52.99
     }
    ],
    "photos": [
     {
      "img": "victimas",
-     "start": 50.982,
-     "end": 53.382
+     "start": 47.016,
+     "end": 49.416
+    }
+   ]
+  },
+  {
+   "key": "freno",
+   "start": 52.99,
+   "end": 56.956,
+   "zooms": null,
+   "silent": null,
+   "text": "Y si bien la justicia hoy le puso un freno, es una guerra que no podemos perder.",
+   "words": [
+    {
+     "t": "Y",
+     "s": 52.99,
+     "e": 53.15
+    },
+    {
+     "t": "si",
+     "s": 53.15,
+     "e": 53.23
+    },
+    {
+     "t": "bien",
+     "s": 53.23,
+     "e": 53.47
+    },
+    {
+     "t": "la",
+     "s": 53.47,
+     "e": 53.63
+    },
+    {
+     "t": "justicia",
+     "s": 53.63,
+     "e": 54.03
+    },
+    {
+     "t": "hoy",
+     "s": 54.03,
+     "e": 54.27
+    },
+    {
+     "t": "le",
+     "s": 54.27,
+     "e": 54.35
+    },
+    {
+     "t": "puso",
+     "s": 54.35,
+     "e": 54.67
+    },
+    {
+     "t": "un",
+     "s": 54.67,
+     "e": 54.75
+    },
+    {
+     "t": "freno,",
+     "s": 54.75,
+     "e": 55.23
+    },
+    {
+     "t": "es",
+     "s": 55.23,
+     "e": 55.39
+    },
+    {
+     "t": "una",
+     "s": 55.39,
+     "e": 55.55
+    },
+    {
+     "t": "guerra",
+     "s": 55.55,
+     "e": 55.87
+    },
+    {
+     "t": "que",
+     "s": 55.87,
+     "e": 56.03
+    },
+    {
+     "t": "no",
+     "s": 56.03,
+     "e": 56.19
+    },
+    {
+     "t": "podemos",
+     "s": 56.19,
+     "e": 56.59
+    },
+    {
+     "t": "perder.",
+     "s": 56.59,
+     "e": 56.956
+    }
+   ],
+   "shots": [
+    {
+     "src": "freno",
+     "start": 52.99,
+     "end": 59.756
+    }
+   ],
+   "captions": [
+    {
+     "text": "Y si bien la *justicia",
+     "start": 52.99,
+     "end": 54.03
+    },
+    {
+     "text": "hoy le puso un *freno,",
+     "start": 54.03,
+     "end": 55.23
+    },
+    {
+     "text": "es una guerra",
+     "start": 55.23,
+     "end": 55.87
+    },
+    {
+     "text": "que *no *podemos *perder.",
+     "start": 55.87,
+     "end": 56.956
+    }
+   ],
+   "cards": [],
+   "photos": [
+    {
+     "img": "guerra",
+     "start": 55.55,
+     "end": 56.956
     }
    ]
   }
- ]
+ ],
+ "outro": {
+  "kicker": "Es una guerra",
+  "text": "que no podemos perder",
+  "start": 56.956,
+  "end": 59.756
+ }
 }

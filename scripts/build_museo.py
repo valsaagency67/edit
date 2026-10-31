@@ -83,6 +83,8 @@ def foley(data):
         # Fotos: obturador suave solo en la primera de una escena que no empieza ya con obturador.
         if sc["photos"] and sc["key"] not in CFG["shutters"]:
             mf.place(buf, shutter * 0.4, sc["photos"][0]["start"] - 0.03)
+    if "outro" in data:  # clic cuando entra el escrito final
+        mf.place(buf, click * 0.7, data["outro"]["start"])
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 

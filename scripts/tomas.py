@@ -277,5 +277,8 @@ class Proyecto:
                 if name:
                     clips[name] = frames(f"{self.out}/broll/{name}{'-anim' if 'full' in sh else ''}.mp4")
         data = {"fps": self.fps, "duration": round(total, 3), "clips": clips, "scenes": scenes}
+        # Escrito final sobre el último cuadro congelado, desde que termina de hablar hasta el final.
+        if "outro" in cfg:
+            data["outro"] = {**cfg["outro"], "start": scenes[-1]["end"], "end": round(total, 3)}
         json.dump(data, open(json_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         return data
