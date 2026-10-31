@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill } from "remotion";
+import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
@@ -306,8 +306,47 @@ export const Factura: React.FC<{ top: number; right?: number }> = ({
   );
 };
 
+// Abelardo de la Espriella (saludo militar, con la banda presidencial), recortado de la imagen de referencia
+// que mandó el cliente (scripts: ver public/iva/, no versionado); abajo se desvanece y lleva su nombre.
+export const Abelardo: React.FC<{
+  top: number;
+  left?: number;
+  width?: number;
+}> = ({ top, left = 0, width = 600 }) => (
+  <div style={{ position: "absolute", top, left, width }}>
+    <Img
+      src={staticFile("iva/abelardo.png")}
+      style={{
+        width: "100%",
+        maskImage: "linear-gradient(180deg, black 62%, transparent 84%)",
+        WebkitMaskImage: "linear-gradient(180deg, black 62%, transparent 84%)",
+        filter: "drop-shadow(0 0 26px rgba(227,6,19,0.45))",
+      }}
+    />
+    <div
+      style={{
+        position: "absolute",
+        left: 64,
+        top: -6,
+        background: YELLOW,
+        color: NAVY,
+        fontFamily: Montserrat,
+        fontWeight: 800,
+        fontSize: 22,
+        letterSpacing: 1,
+        padding: "6px 12px",
+        textTransform: "uppercase",
+        transform: "rotate(-3deg)",
+      }}
+    >
+      Abelardo de la Espriella
+    </div>
+  </div>
+);
+
 const Portada: React.FC = () => (
   <Fondo n={1}>
+    <Abelardo top={720} />
     <Factura top={730} />
     <div style={{ position: "absolute", top: 110, left: 64, right: 64 }}>
       <div
@@ -342,35 +381,6 @@ const Portada: React.FC = () => (
           A TU MERCADO
         </Bloque>
       </div>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        left: 64,
-        top: 730,
-        display: "grid",
-        gridTemplateColumns: "repeat(2, 130px)",
-        gap: 14,
-      }}
-    >
-      {["☕", "🍅", "🧅", "🫘", "🍝", "🍫"].map((e) => (
-        <div
-          key={e}
-          style={{
-            height: 130,
-            borderRadius: 18,
-            background: "rgba(255,255,255,0.08)",
-            border: `3px solid ${YELLOW}`,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontFamily: EMOJI,
-            fontSize: 70,
-          }}
-        >
-          {e}
-        </div>
-      ))}
     </div>
     <div
       style={{

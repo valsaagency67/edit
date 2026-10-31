@@ -32,3 +32,5 @@ public/jf2/*.wav
 public/jf3/*.mp4
 public/jf3/*.wav
 public/jf3/fotos/
+# Carrusel del IVA: foto de Abelardo recortada de la imagen de referencia del cliente (no versionar)
+public/iva/

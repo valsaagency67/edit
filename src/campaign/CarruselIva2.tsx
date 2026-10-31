@@ -6,6 +6,7 @@ import {
   EMOJI,
   Fichas,
   Fondo,
+  Abelardo,
   Factura,
   Nota,
   NAVY,
@@ -94,6 +95,7 @@ const Lista: React.FC<{
 
 const Portada: React.FC = () => (
   <Fondo n={1} total={IVA2_SLIDES}>
+    <Abelardo top={700} />
     <Factura top={700} />
     <div style={{ position: "absolute", top: 110, left: 64, right: 64 }}>
       <Kicker>Ley de Rescate de Abelardo</Kicker>
@@ -119,15 +121,17 @@ const Portada: React.FC = () => (
         </Bloque>
       </div>
     </div>
-    <div style={{ position: "absolute", left: 64, top: 760, width: 420 }}>
-      <P size={40} mt={0}>
-        Te explicamos en <Y>10 puntos</Y> lo que trae para tu bolsillo.
-      </P>
-      <div
-        style={{ fontWeight: 800, fontSize: 32, color: YELLOW, marginTop: 40 }}
-      >
-        Desliza →
-      </div>
+    <div
+      style={{
+        position: "absolute",
+        left: 64,
+        top: 1168,
+        fontWeight: 800,
+        fontSize: 32,
+        color: YELLOW,
+      }}
+    >
+      10 puntos · Desliza →
     </div>
   </Fondo>
 );
