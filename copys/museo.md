@@ -1,6 +1,6 @@
 # «Una guerra contra la cultura» (fallo del Museo Nacional) — texto para redes
 
-Video: `out/museo-redes.mp4` (1080x1920, 58 s). Portada: `out/portada-museo.jpg`.
+Video: `out/museo-redes.mp4` (1080x1920, 1 min). Portada: `out/portada-museo.jpg`.
 
 ## Copy para Instagram / Facebook
 
