@@ -4,46 +4,31 @@ import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
 // Portada del video del fallo del Museo Nacional (1080x1920), pedida «referente al museo, con colores
-// vivos, muy libertaria» (scripts/make_portada_museo.py): de fondo la sala de la exposición con la
-// bandera arcoíris y los afiches, en color vivo; Juan Felipe recortado, serio, a la derecha con borde
-// blanco y resplandor amarillo; arriba «LA MEMORIA NO SE BORRA» (su frase de cierre). Todo lo importante
-// queda dentro del recorte 4:5 de la cuadrícula de Instagram (y 285–1635).
+// vivos, muy libertaria» y sin la cara de Juan Felipe (scripts/make_portada_museo.py): toda la portada es la
+// sala de la exposición en color vivo, ampliada para que la bandera arcoíris quede grande en el centro;
+// arriba «LA MEMORIA NO SE BORRA» y abajo la firma. Todo lo importante queda dentro del recorte 4:5 de la
+// cuadrícula de Instagram (y 285–1635).
 const RED = "#E30613";
 const YELLOW = "#FCD116";
 const SHADOW = "0 6px 22px rgba(0,0,0,0.65), 0 0 4px rgba(0,0,0,0.6)";
 
 export const CoverMuseo: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "black", overflow: "hidden" }}>
-    {/* Sala del museo: la bandera arcoíris queda a la izquierda, junto a su cabeza. */}
+    {/* Sala del museo ampliada 1.3x: la bandera arcoíris queda centrada, entre el titular y la firma. */}
     <Img
       src={staticFile("jf3/fotos/museo-expo.jpg")}
       style={{
         position: "absolute",
-        width: 1350,
-        height: 2400,
-        left: -270,
-        top: -480,
+        width: 1404,
+        height: 2496,
+        left: -230,
+        top: -260,
       }}
     />
     <AbsoluteFill
       style={{
         background:
-          "linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 22%, rgba(0,0,0,0) 38%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.7) 86%, rgba(0,0,0,0.85) 100%)",
-      }}
-    />
-    {/* Juan Felipe: borde blanco y resplandor amarillo para despegarlo del fondo. */}
-    <Img
-      src={staticFile("cover/museo-jf.png")}
-      style={{
-        position: "absolute",
-        height: 1150,
-        left: 300,
-        bottom: 0,
-        // El cuadro original cortaba el hombro izquierdo en recto: el pecho se desvanece hacia abajo.
-        maskImage: "linear-gradient(180deg, black 60%, transparent 80%)",
-        WebkitMaskImage: "linear-gradient(180deg, black 60%, transparent 80%)",
-        filter:
-          "drop-shadow(0 0 0 white) drop-shadow(5px 0 0 white) drop-shadow(-5px 0 0 white) drop-shadow(0 -5px 0 white) drop-shadow(0 0 40px rgba(252,209,22,0.85))",
+          "linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.55) 24%, rgba(0,0,0,0) 42%, rgba(0,0,0,0) 68%, rgba(0,0,0,0.65) 84%, rgba(0,0,0,0.85) 100%)",
       }}
     />
     <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 300, textAlign: "center" }}>
@@ -82,9 +67,9 @@ export const CoverMuseo: React.FC = () => (
         NO SE BORRA
       </div>
     </AbsoluteFill>
-    <AbsoluteFill style={{ justifyContent: "flex-start", top: 1500, left: 60 }}>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 7, alignSelf: "flex-start" }}>
-        <div style={{ fontFamily: Anton, fontSize: 54, lineHeight: 1, color: "white", textShadow: SHADOW }}>
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1520 }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "stretch", gap: 8 }}>
+        <div style={{ fontFamily: Anton, fontSize: 60, lineHeight: 1, color: "white", textShadow: SHADOW }}>
           Juan Felipe Castaño
         </div>
         <Bandera height={8} />
