@@ -243,9 +243,7 @@
       "photos": [
         {
           "at": "bancada",
-          "until": "se",
-          "emoji": "🏛️",
-          "label": "NI LA BANCADA"
+          "img": "bancada"
         }
       ]
     },
