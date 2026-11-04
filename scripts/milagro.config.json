@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json.",
+  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). En el gancho, desde «pero», blanco y negro y voz distorsionada (effects).",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -36,7 +36,22 @@
           "src": "gancho"
         }
       ],
-      "cards": []
+      "cards": [],
+      "effects": [
+        {
+          "at": "pero",
+          "gray": true,
+          "distort": true
+        }
+      ],
+      "kinetic": [
+        {
+          "at": "billón",
+          "until": "pero",
+          "text": "$1 billón",
+          "color": "blue"
+        }
+      ]
     },
     {
       "key": "terremoto",
@@ -54,7 +69,23 @@
           "src": "terremoto"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "terremoto",
+          "until": "miles",
+          "img": "escombros"
+        },
+        {
+          "at": "miles",
+          "until": "Chocó",
+          "img": "rescate"
+        },
+        {
+          "at": "Chocó",
+          "img": "albergue"
+        }
+      ]
     },
     {
       "key": "presidente",
@@ -130,7 +161,21 @@
           "src": "pregunta"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "Uribe",
+          "img": "uribe"
+        }
+      ],
+      "kinetic": [
+        {
+          "at": "¿qué",
+          "until": "Uribe",
+          "text": "¿Qué ha hecho?",
+          "color": "red"
+        }
+      ]
     },
     {
       "key": "obras",
@@ -162,6 +207,13 @@
         {
           "src": "obras"
         }
+      ],
+      "kinetic": [
+        {
+          "at": "valor",
+          "text": "¿Y el valor?",
+          "color": "red"
+        }
       ]
     },
     {
@@ -179,7 +231,15 @@
           "src": "bancada"
         }
       ],
-      "cards": []
+      "cards": [],
+      "kinetic": [
+        {
+          "at": "bancada",
+          "until": "se",
+          "text": "Ni la bancada",
+          "color": "blue"
+        }
+      ]
     },
     {
       "key": "show",
@@ -195,7 +255,20 @@
           "src": "show"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "show",
+          "img": "show"
+        }
+      ],
+      "kinetic": [
+        {
+          "at": "llaves",
+          "text": "Llaves de cartón",
+          "color": "red"
+        }
+      ]
     },
     {
       "key": "cierre",
@@ -212,7 +285,15 @@
           "src": "cierre"
         }
       ],
-      "cards": []
+      "cards": [],
+      "kinetic": [
+        {
+          "at": "plata",
+          "until": "¿Será",
+          "text": "¿Y la plata?",
+          "color": "red"
+        }
+      ]
     }
   ]
 }

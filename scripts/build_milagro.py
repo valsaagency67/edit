@@ -82,8 +82,37 @@ def foley(data):
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)
 
 
+def distorsion(data):
+    """Tramos con efecto «distort» (el «pero ¿y las casas para los damnificados?» del gancho): la voz pasa
+    por un filtro de radio vieja (banda 350–2800 Hz, saturación y menos bits) con el mismo nivel RMS y
+    fundidos de 30 ms para que el cambio no truene."""
+    from tomas import read_wav
+    voz = read_wav(f"{OUT}/voz.wav")
+    for sc in data["scenes"]:
+        for fx in sc.get("effects", []):
+            if not fx.get("distort"):
+                continue
+            a, b = int(fx["start"] * SR), int(fx["end"] * SR)
+            seg = voz[a:b]
+            src, dst = f"{TMP}/distorsion-in.wav", f"{TMP}/distorsion-out.wav"
+            write_wav(src, seg)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af",
+                            "highpass=f=350,lowpass=f=2800,acrusher=bits=6:mix=0.45:mode=log:aa=1,"
+                            "asoftclip=type=atan:param=2,highpass=f=300,lowpass=f=3000",
+                            "-ar", str(SR), "-ac", "1", dst], check=True)
+            out = read_wav(dst)[:len(seg)]
+            out = out * np.sqrt(np.mean(seg ** 2)) / max(1e-9, np.sqrt(np.mean(out ** 2)))
+            f = int(0.03 * SR)
+            ramp = np.linspace(0, 1, f)
+            mix = np.ones(len(seg))
+            mix[:f], mix[-f:] = ramp, ramp[::-1]
+            voz[a:b] = seg * (1 - mix) + out * mix
+    write_wav(f"{OUT}/voz.wav", voz)
+
+
 if __name__ == "__main__":
     d = Proyecto(CFG, f"{ROOT}/media/jf4", ".MOV", OUT, TMP, GRADE).build(f"{ROOT}/src/campaign/milagro.json")
+    distorsion(d)
     musica(d)
     foley(d)
     print("listo:", d["duration"], "s")

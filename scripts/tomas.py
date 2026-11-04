@@ -255,6 +255,8 @@ class Proyecto:
                          "end": round(t + find_word(words, c["until"], c.get("untilNth", 1)), 3) if "until" in c
                          else round(t + dur, 3)} for c in items]
             cards, photos = anchored(sc.get("cards", [])), anchored(sc.get("photos", []))
+            effects = anchored(sc.get("effects", []))  # p. ej. blanco y negro + voz distorsionada
+            kinetic = anchored(sc.get("kinetic", []))  # palabras clave animadas
             zooms = None
             if "zooms" in sc:
                 zooms = {"origin": sc["zooms"]["origin"],
@@ -263,7 +265,8 @@ class Proyecto:
             scenes.append({"key": sc["key"], "start": round(t, 3), "end": round(end, 3), "zooms": zooms,
                            "silent": sc.get("silent"), "text": sc.get("text"),
                            "words": [{**w, "s": round(t + w["s"], 3), "e": round(t + w["e"], 3)} for w in words],
-                           "shots": shots, "captions": caps, "cards": cards, "photos": photos})
+                           "shots": shots, "captions": caps, "cards": cards, "photos": photos,
+                           "effects": effects, "kinetic": kinetic})
             print(f"{sc['key']:11s} {t:6.2f} -> {end:6.2f}  ({dur:.2f} s)")
             t = end + (cfg["gap"] if src else 0.0)
         # La última toma de cada escena se estira hasta la siguiente escena (sin negro en los huecos).

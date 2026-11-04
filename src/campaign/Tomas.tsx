@@ -41,6 +41,8 @@ export type TomasData = {
       bottom?: number;
     })[];
     photos?: (Range & { img: string })[];
+    effects?: (Range & { gray?: boolean; distort?: boolean })[];
+    kinetic?: (Range & { text: string; color: string })[];
   }[];
   outro?: Range & { kicker: string; text: string };
 };
@@ -84,7 +86,8 @@ const PhotoView: React.FC<{
   dur: number;
   fadeIn: boolean;
   fadeOut: boolean;
-}> = ({ src, dur, fadeIn, fadeOut }) => {
+  center: number;
+}> = ({ src, dur, fadeIn, fadeOut, center }) => {
   const frame = useCurrentFrame();
   const inn = fadeIn ? interpolate(frame, [0, IO], [0, 1], clamp) : 1;
   const out = fadeOut ? interpolate(frame, [dur - IO, dur], [1, 0], clamp) : 1;
@@ -96,7 +99,7 @@ const PhotoView: React.FC<{
         style={{
           alignItems: "center",
           justifyContent: "center",
-          top: 2 * 1150 - 1920,
+          top: center - 960, // la capa mide 1920: su centro queda en «center»
           opacity: o,
           filter: `blur(${(1 - o) * 12}px)`,
         }}
@@ -165,6 +168,44 @@ const Outro: React.FC<{ kicker: string; text: string }> = ({
   );
 };
 
+// Palabra clave animada (donde no hay foto ni tarjeta): bloque en Bebas sobre rojo o azul, arriba de la
+// cabeza (y=110). Entra con desenfoque y un desliz corto hacia arriba (sin zoom) y sale con fundido.
+const KineticView: React.FC<{ text: string; color: string; dur: number }> = ({
+  text,
+  color,
+  dur,
+}) => {
+  const frame = useCurrentFrame();
+  const o = Math.min(
+    interpolate(frame, [0, IO], [0, 1], clamp),
+    interpolate(frame, [dur - 5, dur], [1, 0], clamp),
+  );
+  const y = interpolate(frame, [0, IO], [30, 0], clamp);
+  return (
+    <AbsoluteFill
+      style={{ alignItems: "center", justifyContent: "flex-start", top: 110 }}
+    >
+      <div
+        style={{
+          opacity: o,
+          filter: `blur(${(1 - o) * 10}px)`,
+          transform: `translateY(${y}px) rotate(-2deg)`,
+          fontFamily: Bebas,
+          fontSize: 130,
+          lineHeight: 1,
+          color: "white",
+          background: color,
+          padding: "10px 36px 0",
+          textTransform: "uppercase",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+        }}
+      >
+        {text}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 // «*palabra» = resaltada en amarillo (formato de CaptionView).
 const pieces = (text: string) =>
   text.split(" ").map((w, i, all) => ({
@@ -173,14 +214,22 @@ const pieces = (text: string) =>
   }));
 
 // dir: carpeta de public/ con las tomas y voz/musica/foley.wav; captionTop: altura de los subtítulos;
-// captionBox: subtítulos sobre fondo oscuro translúcido.
+// captionBox: subtítulos sobre fondo oscuro translúcido; photoCenter: altura del centro de las fotos de apoyo.
+// Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
 export const TomasVideo: React.FC<{
   data: TomasData;
   dir: string;
   captionTop?: number;
   captionBox?: boolean;
-}> = ({ data, dir, captionTop, captionBox }) => {
+  photoCenter?: number;
+}> = ({ data, dir, captionTop, captionBox, photoCenter = 1150 }) => {
+  const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
+  const gray = data.scenes.some((sc) =>
+    (sc.effects ?? []).some(
+      (e) => e.gray && frame >= f(e.start) && frame < f(e.end),
+    ),
+  );
   const len = (r: Range) => Math.max(1, f(r.end) - f(r.start));
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
@@ -189,24 +238,28 @@ export const TomasVideo: React.FC<{
       <Html5Audio src={staticFile(`${dir}/musica.wav`)} />
       <Html5Audio src={staticFile(`${dir}/foley.wav`)} volume={0.8} />
 
-      {data.scenes.map((sc, i) =>
-        sc.shots.map((s) => (
-          <Sequence
-            key={`${sc.key}-${s.start}`}
-            from={f(s.start)}
-            durationInFrames={len(s)}
-            premountFor={15}
-          >
-            <Toma
-              dir={dir}
-              src={s.src}
-              dur={len(s)}
-              frames={data.clips[s.src]}
-            />
-            {i > 0 ? <Flash /> : null}
-          </Sequence>
-        )),
-      )}
+      <AbsoluteFill
+        style={{ filter: gray ? "grayscale(1) contrast(1.15)" : undefined }}
+      >
+        {data.scenes.map((sc, i) =>
+          sc.shots.map((s) => (
+            <Sequence
+              key={`${sc.key}-${s.start}`}
+              from={f(s.start)}
+              durationInFrames={len(s)}
+              premountFor={15}
+            >
+              <Toma
+                dir={dir}
+                src={s.src}
+                dur={len(s)}
+                frames={data.clips[s.src]}
+              />
+              {i > 0 ? <Flash /> : null}
+            </Sequence>
+          )),
+        )}
+      </AbsoluteFill>
 
       {data.scenes.map((sc) =>
         (sc.photos ?? []).map((p, k, all) => (
@@ -220,7 +273,20 @@ export const TomasVideo: React.FC<{
               dur={len(p)}
               fadeIn={k === 0 || f(all[k - 1].end) !== f(p.start)}
               fadeOut={k === all.length - 1 || f(all[k + 1].start) !== f(p.end)}
+              center={photoCenter}
             />
+          </Sequence>
+        )),
+      )}
+
+      {data.scenes.map((sc) =>
+        (sc.kinetic ?? []).map((k) => (
+          <Sequence
+            key={`kin-${k.start}`}
+            from={f(k.start)}
+            durationInFrames={len(k)}
+          >
+            <KineticView text={k.text} color={COLORS[k.color]} dur={len(k)} />
           </Sequence>
         )),
       )}

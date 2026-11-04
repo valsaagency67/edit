@@ -10,4 +10,4 @@ import { TomasData, TomasVideo } from "./Tomas";
 export const MUSEO_FPS = raw.fps;
 export const museoDuration = Math.round(raw.duration * raw.fps);
 
-export const Museo: React.FC = () => <TomasVideo data={raw as TomasData} dir="jf3" captionTop={400} captionBox />;
+export const Museo: React.FC = () => <TomasVideo data={raw as TomasData} dir="jf3" captionTop={400} captionBox photoCenter={1340} />;
