@@ -65,7 +65,8 @@ def foley(data):
         for c in sc["cards"]:
             mf.place(buf, click * 0.7, c["start"])
         # Fotos: obturador suave solo en la primera de una escena que no empieza ya con obturador.
-        if sc["photos"] and sc["key"] not in CFG["shutters"]:
+        # (Las imágenes animadas con emoji entran sin sonido: efectos de vez en cuando.)
+        if sc["photos"] and "img" in sc["photos"][0] and sc["key"] not in CFG["shutters"]:
             mf.place(buf, shutter * 0.4, sc["photos"][0]["start"] - 0.03)
     if "outro" in data:  # clic cuando entra el escrito final
         mf.place(buf, click * 0.7, data["outro"]["start"])

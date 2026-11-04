@@ -7,8 +7,10 @@ import {
   interpolate,
   OffthreadVideo,
   Sequence,
+  spring,
   staticFile,
   useCurrentFrame,
+  useVideoConfig,
 } from "remotion";
 import {
   CaptionView,
@@ -40,7 +42,8 @@ export type TomasData = {
       color: string;
       bottom?: number;
     })[];
-    photos?: (Range & { img: string })[];
+    // img: foto en public/<dir>/fotos/; o emoji + label: imagen animada hecha con un ícono grande.
+    photos?: (Range & { img?: string; emoji?: string; label?: string })[];
     effects?: (Range & { gray?: boolean; distort?: boolean })[];
     kinetic?: (Range & { text: string; color: string })[];
   }[];
@@ -81,13 +84,71 @@ const clamp = {
   extrapolateLeft: "clamp" as const,
   extrapolateRight: "clamp" as const,
 };
+// Imagen animada para una palabra clave sin foto (el cliente pidió imágenes de lo que va diciendo): tarjeta
+// blanca con un ícono grande que entra con rebote y flota, y la palabra en Bebas sobre rojo.
+const Ilustracion: React.FC<{ emoji: string; label: string }> = ({
+  emoji,
+  label,
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const pop = spring({ frame, fps, config: { damping: 10, stiffness: 160 } });
+  const float = Math.sin(frame / 7) * 12;
+  return (
+    <div
+      style={{
+        width: 620,
+        borderRadius: 28,
+        border: "10px solid white",
+        background:
+          "radial-gradient(circle at 50% 35%, #FFF6C9 0%, #FCD116 55%, #F39200 100%)",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.6)",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          fontFamily: "'Noto Color Emoji'",
+          fontSize: 280,
+          lineHeight: 1.15,
+          paddingTop: 30,
+          transform: `translateY(${float}px) scale(${0.5 + 0.5 * pop}) rotate(${(1 - pop) * -20}deg)`,
+          filter: "drop-shadow(0 14px 18px rgba(0,0,0,0.3))",
+        }}
+      >
+        {emoji}
+      </div>
+      <div
+        style={{
+          alignSelf: "stretch",
+          marginTop: 20,
+          background: COLORS.red,
+          color: "white",
+          fontFamily: Bebas,
+          fontSize: 92,
+          lineHeight: 1,
+          padding: "16px 20px 6px",
+          textAlign: "center",
+        }}
+      >
+        {label}
+      </div>
+    </div>
+  );
+};
+
 const PhotoView: React.FC<{
-  src: string;
+  src?: string;
+  emoji?: string;
+  label?: string;
   dur: number;
   fadeIn: boolean;
   fadeOut: boolean;
   center: number;
-}> = ({ src, dur, fadeIn, fadeOut, center }) => {
+}> = ({ src, emoji, label, dur, fadeIn, fadeOut, center }) => {
   const frame = useCurrentFrame();
   const inn = fadeIn ? interpolate(frame, [0, IO], [0, 1], clamp) : 1;
   const out = fadeOut ? interpolate(frame, [dur - IO, dur], [1, 0], clamp) : 1;
@@ -104,13 +165,17 @@ const PhotoView: React.FC<{
           filter: `blur(${(1 - o) * 12}px)`,
         }}
       >
-        <Img
-          src={staticFile(src)}
-          style={{
-            border: "10px solid white",
-            boxShadow: "0 12px 40px rgba(0,0,0,0.6)",
-          }}
-        />
+        {emoji ? (
+          <Ilustracion emoji={emoji} label={label ?? ""} />
+        ) : (
+          <Img
+            src={staticFile(src ?? "")}
+            style={{
+              border: "10px solid white",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.6)",
+            }}
+          />
+        )}
       </AbsoluteFill>
     </AbsoluteFill>
   );
@@ -278,7 +343,9 @@ export const TomasVideo: React.FC<{
             durationInFrames={len(p)}
           >
             <PhotoView
-              src={`${dir}/fotos/${p.img}.jpg`}
+              src={p.img ? `${dir}/fotos/${p.img}.jpg` : undefined}
+              emoji={p.emoji}
+              label={p.label}
               dur={len(p)}
               fadeIn={k === 0 || f(all[k - 1].end) !== f(p.start)}
               fadeOut={k === all.length - 1 || f(all[k + 1].start) !== f(p.end)}

@@ -16,7 +16,6 @@ export const Milagro: React.FC = () => (
     dir="jf4"
     captionTop={1330}
     captionBox
-    captionPop
     photoCenter={760}
   />
 );

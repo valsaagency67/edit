@@ -142,7 +142,20 @@
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "emoji": "💰",
+     "label": "$1 BILLÓN",
+     "start": 0.56,
+     "end": 2.56
+    },
+    {
+     "emoji": "🏚️",
+     "label": "¿Y LAS CASAS?",
+     "start": 2.88,
+     "end": 4.156
+    }
+   ],
    "effects": [
     {
      "gray": true,
@@ -151,14 +164,7 @@
      "end": 4.156
     }
    ],
-   "kinetic": [
-    {
-     "text": "$1 billón",
-     "color": "blue",
-     "start": 0.56,
-     "end": 2.56
-    }
-   ]
+   "kinetic": []
   },
   {
    "key": "terremoto",
@@ -573,12 +579,25 @@
      "kicker": "El Fondo Milagro tiene",
      "text": "más de $1 billón",
      "color": "blue",
-     "bottom": 1800,
+     "bottom": 292,
      "start": 16.125,
      "end": 17.645
     }
    ],
-   "photos": [],
+   "photos": [
+    {
+     "emoji": "📅",
+     "label": "7 DE OCTUBRE",
+     "start": 13.405,
+     "end": 14.205
+    },
+    {
+     "emoji": "🔍",
+     "label": "¿Y CADA PESO?",
+     "start": 18.445,
+     "end": 20.182
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -821,12 +840,25 @@
      "kicker": "Todavía no tiene",
      "text": "manual de contratación",
      "color": "red",
-     "bottom": 1800,
+     "bottom": 292,
      "start": 24.982,
      "end": 30.216
     }
    ],
-   "photos": [],
+   "photos": [
+    {
+     "emoji": "🤫",
+     "label": "LO QUE NO DICE",
+     "start": 21.862,
+     "end": 23.782
+    },
+    {
+     "emoji": "🏗️",
+     "label": "¿Y LA RECONSTRUCCIÓN?",
+     "start": 28.902,
+     "end": 30.216
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -951,20 +983,19 @@
    "cards": [],
    "photos": [
     {
+     "emoji": "🤔",
+     "label": "¿QUÉ HA HECHO?",
+     "start": 31.576,
+     "end": 32.376
+    },
+    {
      "img": "uribe",
      "start": 32.376,
      "end": 34.233
     }
    ],
    "effects": [],
-   "kinetic": [
-    {
-     "text": "¿Qué ha hecho?",
-     "color": "red",
-     "start": 31.576,
-     "end": 32.376
-    }
-   ]
+   "kinetic": []
   },
   {
    "key": "obras",
@@ -1220,21 +1251,33 @@
      "kicker": "Con este presupuesto",
      "text": "¿cuáles obras?",
      "color": "red",
-     "bottom": 1800,
+     "bottom": 292,
      "start": 37.113,
      "end": 38.633
     }
    ],
-   "photos": [],
-   "effects": [],
-   "kinetic": [
+   "photos": [
     {
-     "text": "¿Y el valor?",
-     "color": "red",
+     "emoji": "🚧",
+     "label": "¿Y LAS OBRAS?",
+     "start": 35.273,
+     "end": 37.113
+    },
+    {
+     "emoji": "📢",
+     "label": "¿Y EL INFORME?",
+     "start": 39.753,
+     "end": 42.473
+    },
+    {
+     "emoji": "🧾",
+     "label": "¿Y EL VALOR?",
      "start": 42.473,
      "end": 43.399
     }
-   ]
+   ],
+   "effects": [],
+   "kinetic": []
   },
   {
    "key": "bancada",
@@ -1355,16 +1398,22 @@
     }
    ],
    "cards": [],
-   "photos": [],
-   "effects": [],
-   "kinetic": [
+   "photos": [
     {
-     "text": "Ni la bancada",
-     "color": "blue",
+     "emoji": "🏛️",
+     "label": "NI LA BANCADA",
      "start": 44.679,
      "end": 46.199
+    },
+    {
+     "emoji": "🤐",
+     "label": "NADIE RESPONDE",
+     "start": 46.199,
+     "end": 47.213
     }
-   ]
+   ],
+   "effects": [],
+   "kinetic": []
   },
   {
    "key": "show",
@@ -1498,14 +1547,7 @@
     }
    ],
    "effects": [],
-   "kinetic": [
-    {
-     "text": "Llaves de cartón",
-     "color": "red",
-     "start": 49.933,
-     "end": 50.742
-    }
-   ]
+   "kinetic": []
   },
   {
    "key": "cierre",
@@ -1656,16 +1698,22 @@
     }
    ],
    "cards": [],
-   "photos": [],
-   "effects": [],
-   "kinetic": [
+   "photos": [
     {
-     "text": "¿Y la plata?",
-     "color": "red",
+     "emoji": "💸",
+     "label": "¿Y LA PLATA?",
      "start": 51.942,
      "end": 52.982
+    },
+    {
+     "emoji": "💬",
+     "label": "TE LEO",
+     "start": 54.022,
+     "end": 55.034
     }
-   ]
+   ],
+   "effects": [],
+   "kinetic": []
   }
  ],
  "outro": {

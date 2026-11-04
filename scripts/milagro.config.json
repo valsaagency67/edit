@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). En el gancho, desde «pero», blanco y negro y voz distorsionada (effects).",
+  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). Imágenes animadas (emoji + label) en las palabras clave sin foto, pedidas por el cliente; las tarjetas van arriba (bottom 292) porque abajo las tapa Instagram. En el gancho, desde «pero», blanco y negro y voz distorsionada (effects).",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -44,12 +44,17 @@
           "distort": true
         }
       ],
-      "kinetic": [
+      "photos": [
         {
           "at": "billón",
           "until": "pero",
-          "text": "$1 billón",
-          "color": "blue"
+          "emoji": "💰",
+          "label": "$1 BILLÓN"
+        },
+        {
+          "at": "casas",
+          "emoji": "🏚️",
+          "label": "¿Y LAS CASAS?"
         }
       ]
     },
@@ -107,12 +112,26 @@
           "kicker": "El Fondo Milagro tiene",
           "text": "más de $1 billón",
           "color": "blue",
-          "bottom": 1800
+          "bottom": 292
         }
       ],
       "shots": [
         {
           "src": "presidente"
+        }
+      ],
+      "photos": [
+        {
+          "at": "7",
+          "until": "el",
+          "untilNth": 3,
+          "emoji": "📅",
+          "label": "7 DE OCTUBRE"
+        },
+        {
+          "at": "verificar",
+          "emoji": "🔍",
+          "label": "¿Y CADA PESO?"
         }
       ]
     },
@@ -138,12 +157,25 @@
           "kicker": "Todavía no tiene",
           "text": "manual de contratación",
           "color": "red",
-          "bottom": 1800
+          "bottom": 292
         }
       ],
       "shots": [
         {
           "src": "manual"
+        }
+      ],
+      "photos": [
+        {
+          "at": "dice",
+          "until": "todavía",
+          "emoji": "🤫",
+          "label": "LO QUE NO DICE"
+        },
+        {
+          "at": "recuperación",
+          "emoji": "🏗️",
+          "label": "¿Y LA RECONSTRUCCIÓN?"
         }
       ]
     },
@@ -164,16 +196,14 @@
       "cards": [],
       "photos": [
         {
-          "at": "Uribe",
-          "img": "uribe"
-        }
-      ],
-      "kinetic": [
-        {
           "at": "¿qué",
           "until": "Uribe",
-          "text": "¿Qué ha hecho?",
-          "color": "red"
+          "emoji": "🤔",
+          "label": "¿QUÉ HA HECHO?"
+        },
+        {
+          "at": "Uribe",
+          "img": "uribe"
         }
       ]
     },
@@ -199,7 +229,7 @@
           "kicker": "Con este presupuesto",
           "text": "¿cuáles obras?",
           "color": "red",
-          "bottom": 1800,
+          "bottom": 292,
           "untilNth": 2
         }
       ],
@@ -208,11 +238,23 @@
           "src": "obras"
         }
       ],
-      "kinetic": [
+      "photos": [
+        {
+          "at": "presupuesto",
+          "until": "ninguna",
+          "emoji": "🚧",
+          "label": "¿Y LAS OBRAS?"
+        },
+        {
+          "at": "informado",
+          "until": "valor",
+          "emoji": "📢",
+          "label": "¿Y EL INFORME?"
+        },
         {
           "at": "valor",
-          "text": "¿Y el valor?",
-          "color": "red"
+          "emoji": "🧾",
+          "label": "¿Y EL VALOR?"
         }
       ]
     },
@@ -232,12 +274,17 @@
         }
       ],
       "cards": [],
-      "kinetic": [
+      "photos": [
         {
           "at": "bancada",
           "until": "se",
-          "text": "Ni la bancada",
-          "color": "blue"
+          "emoji": "🏛️",
+          "label": "NI LA BANCADA"
+        },
+        {
+          "at": "se",
+          "emoji": "🤐",
+          "label": "NADIE RESPONDE"
         }
       ]
     },
@@ -266,13 +313,6 @@
           "at": "llaves",
           "img": "llave"
         }
-      ],
-      "kinetic": [
-        {
-          "at": "llaves",
-          "text": "Llaves de cartón",
-          "color": "red"
-        }
       ]
     },
     {
@@ -291,12 +331,17 @@
         }
       ],
       "cards": [],
-      "kinetic": [
+      "photos": [
         {
           "at": "plata",
           "until": "¿Será",
-          "text": "¿Y la plata?",
-          "color": "red"
+          "emoji": "💸",
+          "label": "¿Y LA PLATA?"
+        },
+        {
+          "at": "Te",
+          "emoji": "💬",
+          "label": "TE LEO"
         }
       ]
     }
