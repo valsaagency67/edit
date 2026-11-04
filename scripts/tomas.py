@@ -200,8 +200,13 @@ class Proyecto:
                 raw = self.enhanced(src)
                 # Lo que haya antes de la primera palabra (murmullos, «¿listo?») se descarta: la toma empieza
                 # 0.3 s antes de la primera palabra del texto (los tiempos de Parakeet vienen corridos ~0.2 s).
-                first = words_for(raw, sc["text"])[0]["s"]
+                aligned = words_for(raw, sc["text"])
+                first = aligned[0]["s"]
                 off = max(0.0, first - 0.3)
+                if sc.get("endAtText"):
+                    # La toma sigue con algo que no va (otra frase): se corta 0.3 s después de la última
+                    # palabra del texto.
+                    raw = raw[:int((aligned[-1]["e"] + 0.3) * SR)]
                 cut, ranges = cut_pauses(raw[int(off * SR):], cfg["pause"])
                 speed = sc.get("speed", cfg["speed"])
                 x = self.tempo(cut, speed, sc["key"])

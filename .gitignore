@@ -34,3 +34,7 @@ public/jf3/*.wav
 public/jf3/fotos/
 # Carrusel del IVA: foto de Abelardo recortada de la imagen de referencia del cliente (no versionar)
 public/iva/
+# Juan Felipe IV (Fondo Milagro): generados por scripts/build_milagro.py (no versionar)
+public/jf4/*.mp4
+public/jf4/*.wav
+public/jf4/fotos/

@@ -1,0 +1,218 @@
+{
+  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.0,
+  "tail": 2.8,
+  "videos": {},
+  "shutters": [
+    "presidente",
+    "pregunta",
+    "show"
+  ],
+  "outro": {
+    "kicker": "¿Y la plata del",
+    "text": "Fondo Milagro?"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_4165",
+      "speed": 1.25,
+      "text": "Más de un billón de pesos disponibles en el Fondo Milagro, pero ¿y las casas para los damnificados?",
+      "phrases": [
+        "Más de un *billón de pesos",
+        "disponibles en el Fondo Milagro,",
+        "pero ¿y las *casas",
+        "para los *damnificados?"
+      ],
+      "shots": [
+        {
+          "src": "gancho"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "terremoto",
+      "camera": "IMG_4136",
+      "text": "Ya han pasado casi tres meses desde el terremoto del 10 de agosto que dejó miles de familias damnificadas en el Chocó y en el suroccidente colombiano.",
+      "phrases": [
+        "Ya han pasado casi *tres *meses",
+        "desde el terremoto del 10 de agosto",
+        "que dejó *miles de familias damnificadas",
+        "en el Chocó",
+        "y en el suroccidente colombiano."
+      ],
+      "shots": [
+        {
+          "src": "terremoto"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "presidente",
+      "camera": "IMG_4146",
+      "text": "El presidente dijo que desde el 7 de octubre el Fondo Milagro ya cuenta con más de un billón de pesos disponibles y que se debe verificar el destino de cada peso.",
+      "phrases": [
+        "El presidente dijo",
+        "que desde el 7 de octubre",
+        "el Fondo Milagro ya cuenta",
+        "con más de un *billón de pesos disponibles",
+        "y que se debe verificar",
+        "el destino de cada peso."
+      ],
+      "cards": [
+        {
+          "at": "billón",
+          "until": "y",
+          "icon": "doc",
+          "kicker": "El Fondo Milagro tiene",
+          "text": "más de $1 billón",
+          "color": "blue",
+          "bottom": 1880
+        }
+      ],
+      "shots": [
+        {
+          "src": "presidente"
+        }
+      ]
+    },
+    {
+      "key": "manual",
+      "camera": "IMG_4150",
+      "endAtText": true,
+      "text": "Eso suena muy bien, pero lo que no dice el presidente es que el Fondo Milagro todavía no cuenta con un manual de contratación que permita ejecutar este billón disponible para la recuperación del terremoto.",
+      "phrases": [
+        "Eso suena muy bien,",
+        "pero lo que *no *dice el presidente",
+        "es que el Fondo Milagro",
+        "todavía *no cuenta",
+        "con un *manual *de *contratación",
+        "que permita ejecutar",
+        "este billón disponible",
+        "para la recuperación del terremoto."
+      ],
+      "cards": [
+        {
+          "at": "manual",
+          "icon": "eyeoff",
+          "kicker": "Todavía no tiene",
+          "text": "manual de contratación",
+          "color": "red",
+          "bottom": 1880
+        }
+      ],
+      "shots": [
+        {
+          "src": "manual"
+        }
+      ]
+    },
+    {
+      "key": "pregunta",
+      "camera": "IMG_4155",
+      "text": "Por eso la pregunta es concreta, ¿qué ha hecho el señor Uribe como gerente de este fondo?",
+      "phrases": [
+        "Por eso la pregunta es concreta,",
+        "¿qué ha hecho el señor *Uribe",
+        "como *gerente de este fondo?"
+      ],
+      "shots": [
+        {
+          "src": "pregunta"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "obras",
+      "camera": "IMG_4156",
+      "text": "¿Por qué teniendo este presupuesto todavía no se ha ejecutado ninguna obra? ¿Y si se ha ejecutado, por qué no se ha informado cuál ha sido la obra que se ha ejecutado y el valor de la misma?",
+      "phrases": [
+        "¿Por qué teniendo este presupuesto",
+        "todavía no se ha ejecutado",
+        "*ninguna *obra?",
+        "¿Y si se ha ejecutado,",
+        "por qué *no *se *ha *informado",
+        "cuál ha sido la obra",
+        "que se ha ejecutado",
+        "y el *valor de la misma?"
+      ],
+      "cards": [
+        {
+          "at": "ninguna",
+          "until": "por",
+          "icon": "clock",
+          "kicker": "Con este presupuesto",
+          "text": "¿cuáles obras?",
+          "color": "red",
+          "bottom": 1880,
+          "untilNth": 2
+        }
+      ],
+      "shots": [
+        {
+          "src": "obras"
+        }
+      ]
+    },
+    {
+      "key": "bancada",
+      "camera": "IMG_4164",
+      "text": "Estas son preguntas que ni la bancada del gobierno en el Congreso se atreve a responder.",
+      "phrases": [
+        "Estas son preguntas",
+        "que ni la *bancada *del *gobierno",
+        "en el Congreso",
+        "se atreve a responder."
+      ],
+      "shots": [
+        {
+          "src": "bancada"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "show",
+      "camera": "IMG_4152",
+      "text": "Pero qué esperar de un presidente que prefiere el show y la entrega de llaves de cartón.",
+      "phrases": [
+        "Pero qué esperar de un presidente",
+        "que prefiere el *show",
+        "y la entrega de *llaves *de *cartón."
+      ],
+      "shots": [
+        {
+          "src": "show"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "cierre",
+      "camera": "IMG_4160",
+      "text": "¿Y tú qué crees que pasó con la plata del Fondo Milagro? ¿Será que se la abelardearon? Te leo en los comentarios.",
+      "phrases": [
+        "¿Y tú qué crees que pasó",
+        "con la *plata del Fondo Milagro?",
+        "¿Será que se la *abelardearon?",
+        "Te leo en los comentarios."
+      ],
+      "shots": [
+        {
+          "src": "cierre"
+        }
+      ],
+      "cards": []
+    }
+  ]
+}
