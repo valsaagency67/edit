@@ -117,13 +117,6 @@
       ],
       "photos": [
         {
-          "at": "7",
-          "until": "el",
-          "untilNth": 3,
-          "emoji": "📅",
-          "label": "7 DE OCTUBRE"
-        },
-        {
           "at": "verificar",
           "emoji": "🔍",
           "label": "¿Y CADA PESO?"
@@ -166,11 +159,6 @@
           "until": "todavía",
           "emoji": "🤫",
           "label": "LO QUE NO DICE"
-        },
-        {
-          "at": "recuperación",
-          "emoji": "🏗️",
-          "label": "¿Y LA RECONSTRUCCIÓN?"
         }
       ]
     },
@@ -190,12 +178,6 @@
       ],
       "cards": [],
       "photos": [
-        {
-          "at": "¿qué",
-          "until": "Uribe",
-          "emoji": "🤔",
-          "label": "¿QUÉ HA HECHO?"
-        },
         {
           "at": "Uribe",
           "img": "uribe"
@@ -239,17 +221,6 @@
           "until": "ninguna",
           "emoji": "🚧",
           "label": "¿Y LAS OBRAS?"
-        },
-        {
-          "at": "informado",
-          "until": "valor",
-          "emoji": "📢",
-          "label": "¿Y EL INFORME?"
-        },
-        {
-          "at": "valor",
-          "emoji": "🧾",
-          "label": "¿Y EL VALOR?"
         }
       ]
     },
@@ -275,11 +246,6 @@
           "until": "se",
           "emoji": "🏛️",
           "label": "NI LA BANCADA"
-        },
-        {
-          "at": "se",
-          "emoji": "🤐",
-          "label": "NADIE RESPONDE"
         }
       ]
     },
@@ -332,11 +298,6 @@
           "until": "¿Será",
           "emoji": "💸",
           "label": "¿Y LA PLATA?"
-        },
-        {
-          "at": "Te",
-          "emoji": "💬",
-          "label": "TE LEO"
         }
       ]
     }
