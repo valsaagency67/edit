@@ -50,3 +50,10 @@ Anton, Montserrat, Bebas Neue y Playfair Display, licencia SIL Open Font License
   `scripts/build_museo.py`) con muestras de **tonejs-instruments** de Nicholaus Brosowsky (CC BY 3.0).
   Mismo texto de crédito que arriba.
 - **Efectos**: solo los del video de referencia del cliente (`public/sfx/ref-*.wav`).
+
+## Video del Fondo Milagro (`out/milagro.mp4`)
+
+- **Música**: «Latinoamérica» de Calle 13 (pedida por el cliente). Es una canción comercial con derechos de
+  autor: no se versiona (`media/jf4/musica/`) y las redes pueden silenciar el audio o limitar el alcance.
+- **Fotos de apoyo** (`public/jf4/fotos/`, no versionadas): las mandó el cliente; los derechos son de sus autores.
+- **Efectos**: solo los del video de referencia del cliente (`public/sfx/ref-*.wav`).

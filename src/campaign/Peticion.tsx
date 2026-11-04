@@ -7,6 +7,7 @@ import {
   interpolate,
   OffthreadVideo,
   Sequence,
+  spring,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
@@ -34,11 +35,24 @@ const BLUE = "#1D3E9E";
 const YELLOW = "#FFE600";
 // Bandera de Colombia (amarillo el doble de ancho que azul y rojo): la barrita bajo la firma y la barra de
 // duración. Reemplaza a los 5 colores de la marca desde el video de Derechos (lo pidió el cliente).
-export const BANDERA: [string, number][] = [["#FCD116", 2], [BLUE, 1], [RED, 1]];
-const FLAG_BG = "linear-gradient(90deg, #FCD116 0 50%, #1D3E9E 50% 75%, #E30613 75% 100%)";
+export const BANDERA: [string, number][] = [
+  ["#FCD116", 2],
+  [BLUE, 1],
+  [RED, 1],
+];
+const FLAG_BG =
+  "linear-gradient(90deg, #FCD116 0 50%, #1D3E9E 50% 75%, #E30613 75% 100%)";
 
 export const Bandera: React.FC<{ height: number }> = ({ height }) => (
-  <div style={{ display: "flex", width: "100%", height, borderRadius: height / 2, overflow: "hidden" }}>
+  <div
+    style={{
+      display: "flex",
+      width: "100%",
+      height,
+      borderRadius: height / 2,
+      overflow: "hidden",
+    }}
+  >
     {BANDERA.map(([c, w]) => (
       <div key={c} style={{ flex: w, backgroundColor: c }} />
     ))}
@@ -47,7 +61,10 @@ export const Bandera: React.FC<{ height: number }> = ({ height }) => (
 const SHADOW = "0 4px 18px rgba(0,0,0,0.55), 0 0 3px rgba(0,0,0,0.6)";
 export const COLORS: Record<string, string> = { red: RED, blue: BLUE };
 const f = (s: number) => Math.round(s * PETICION_FPS);
-const clamp = { extrapolateRight: "clamp" as const, extrapolateLeft: "clamp" as const };
+const clamp = {
+  extrapolateRight: "clamp" as const,
+  extrapolateLeft: "clamp" as const,
+};
 
 // Íconos de línea blancos (viewBox 100x100, trazo 6), hechos a mano para esta pieza.
 const ICONS: Record<string, React.ReactNode> = {
@@ -146,7 +163,12 @@ export const CardView: React.FC<{
 }> = ({ icon, kicker, text, color, dur, bottom = 1120 }) => {
   const frame = useCurrentFrame();
   const o = interpolate(frame, [0, IO, dur - IO, dur], [0, 1, 1, 0], clamp);
-  const blur = interpolate(frame, [0, IO, dur - IO, dur], [12, 0, 0, 12], clamp);
+  const blur = interpolate(
+    frame,
+    [0, IO, dur - IO, dur],
+    [12, 0, 0, 12],
+    clamp,
+  );
   return (
     <AbsoluteFill style={{ opacity: o, filter: `blur(${blur}px)` }}>
       <div
@@ -171,11 +193,21 @@ export const CardView: React.FC<{
           strokeWidth={6}
           strokeLinecap="round"
           strokeLinejoin="round"
-          style={{ flexShrink: 0, filter: "drop-shadow(0 6px 14px rgba(0,0,0,0.55))" }}
+          style={{
+            flexShrink: 0,
+            filter: "drop-shadow(0 6px 14px rgba(0,0,0,0.55))",
+          }}
         >
           {ICONS[icon]}
         </svg>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 10 }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 10,
+          }}
+        >
           {kicker ? (
             <div
               style={{
@@ -214,16 +246,23 @@ export const CardView: React.FC<{
 
 // top: borde superior del subtítulo (por defecto y=1160, regla del cliente); boxed: con fondo oscuro
 // translúcido, para cuando va sobre un fondo cargado (p. ej. el póster amarillo del video del Museo).
+// pop: las palabras en amarillo «saltan» (rebote corto y subrayado que se dibuja) más o menos cuando se
+// dicen; el momento se estima por su posición en la frase, que dura `dur`.
 export const CaptionView: React.FC<{
   pieces: { t: string; y: boolean }[];
   dur: number;
   top?: number;
   boxed?: boolean;
-}> = ({ pieces, dur, top = 1160, boxed = false }) => {
+  pop?: boolean;
+}> = ({ pieces, dur, top = 1160, boxed = false, pop = false }) => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const total = pieces.reduce((n, p) => n + p.t.length, 0);
   const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
+    <AbsoluteFill
+      style={{ alignItems: "center", justifyContent: "flex-start", top }}
+    >
       <div
         style={{
           opacity: o,
@@ -235,14 +274,50 @@ export const CaptionView: React.FC<{
           color: "white",
           textAlign: "center",
           textShadow: SHADOW,
-          ...(boxed ? { background: "rgba(0,0,0,0.55)", padding: "10px 26px", borderRadius: 16 } : {}),
+          ...(boxed
+            ? {
+                background: "rgba(0,0,0,0.55)",
+                padding: "10px 26px",
+                borderRadius: 16,
+              }
+            : {}),
         }}
       >
-        {pieces.map((p, i) => (
-          <span key={i} style={{ color: p.y ? YELLOW : "white" }}>
-            {p.t}
-          </span>
-        ))}
+        {pieces.map((p, i) => {
+          if (!(pop && p.y)) {
+            return (
+              <span key={i} style={{ color: p.y ? YELLOW : "white" }}>
+                {p.t}
+              </span>
+            );
+          }
+          const before = pieces.slice(0, i).reduce((n, q) => n + q.t.length, 0);
+          const at = Math.round((before / Math.max(1, total)) * dur * 0.85);
+          const k = spring({
+            frame: frame - at,
+            fps,
+            config: { damping: 9, stiffness: 220 },
+          });
+          const line = interpolate(frame - at, [2, 9], [0, 100], clamp);
+          return (
+            <span
+              key={i}
+              style={{
+                display: "inline-block",
+                whiteSpace: "pre",
+                transformOrigin: "50% 80%",
+                color: YELLOW,
+                transform: `scale(${1 + 0.18 * (1 - k)}) rotate(${-3 * (1 - k)}deg)`,
+                backgroundImage: `linear-gradient(${YELLOW}, ${YELLOW})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "0 100%",
+                backgroundSize: `${line}% 6px`,
+              }}
+            >
+              {p.t}
+            </span>
+          );
+        })}
       </div>
     </AbsoluteFill>
   );
@@ -253,16 +328,21 @@ export const CaptionView: React.FC<{
 // Va a la altura de las tarjetas (anclada abajo en y=1120) para no tapar los subtítulos.
 const EV_W = 1000; // ancho de la hoja
 const EV_PAD = 20;
-const EvidenceView: React.FC<{ img: number; title: string; quote: string; dur: number }> = ({
-  img,
-  title,
-  quote,
-  dur,
-}) => {
+const EvidenceView: React.FC<{
+  img: number;
+  title: string;
+  quote: string;
+  dur: number;
+}> = ({ img, title, quote, dur }) => {
   const frame = useCurrentFrame();
   const ev = evidencia[img];
   const o = interpolate(frame, [0, IO, dur - IO, dur], [0, 1, 1, 0], clamp);
-  const blur = interpolate(frame, [0, IO, dur - IO, dur], [12, 0, 0, 12], clamp);
+  const blur = interpolate(
+    frame,
+    [0, IO, dur - IO, dur],
+    [12, 0, 0, 12],
+    clamp,
+  );
   const s = (EV_W - 2 * EV_PAD) / ev.w;
   return (
     <AbsoluteFill style={{ opacity: o }}>
@@ -316,7 +396,10 @@ const EvidenceView: React.FC<{ img: number; title: string; quote: string; dur: n
             boxShadow: "0 18px 40px rgba(0,0,0,0.55)",
           }}
         >
-          <Img src={staticFile(ev.src)} style={{ display: "block", width: ev.w * s, height: ev.h * s }} />
+          <Img
+            src={staticFile(ev.src)}
+            style={{ display: "block", width: ev.w * s, height: ev.h * s }}
+          />
           {ev.marks.map(([x0, y0, x1, y1], i) => {
             const start = IO + 4 + i * 5;
             const p = interpolate(frame, [start, start + 9], [0, 1], clamp);
@@ -373,7 +456,9 @@ export const Flash: React.FC = () => {
 export const Firma: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const o = interpolate(frame, [0, Math.round(0.3 * fps)], [0, 1], { extrapolateRight: "clamp" });
+  const o = interpolate(frame, [0, Math.round(0.3 * fps)], [0, 1], {
+    extrapolateRight: "clamp",
+  });
   return (
     <div
       style={{
@@ -393,7 +478,8 @@ export const Firma: React.FC = () => {
           fontSize: 28,
           color: RED,
           lineHeight: 1,
-          textShadow: "0 0 2px rgba(255,255,255,0.9), 0 1px 6px rgba(0,0,0,0.55)",
+          textShadow:
+            "0 0 2px rgba(255,255,255,0.9), 0 1px 6px rgba(0,0,0,0.55)",
         }}
       >
         Juan Felipe Castaño
@@ -415,10 +501,16 @@ const BASE = staticFile("policia/peticion-base.mp4");
 const VOICE = staticFile("policia/peticion-voz.wav");
 // Solo el primer clip va en gris (pedido del cliente); el resto en color.
 const GRAY = "grayscale(1) contrast(1.12) brightness(0.98)";
-const FILL: React.CSSProperties = { width: "100%", height: "100%", objectFit: "cover" };
+const FILL: React.CSSProperties = {
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+};
 const LAST = raw.ranges[raw.ranges.length - 1];
 // Fin de la parte en gris (recuerdo del video anterior), en cuadros.
-const GRAY_END = Math.max(...raw.ranges.filter((r) => r.gray).map((r) => r.out + r.outDur));
+const GRAY_END = Math.max(
+  ...raw.ranges.filter((r) => r.gray).map((r) => r.out + r.outDur),
+);
 
 // Letrero «Anteriormente en el otro video…» sobre la parte en gris (pedido del cliente), para
 // que se entienda que es un recuerdo del video anterior. Arriba, entre la barra y la firma, sin
@@ -428,7 +520,14 @@ const Anteriormente: React.FC<{ dur: number }> = ({ dur }) => {
   const o = interpolate(frame, [0, 5, dur - 5, dur], [0, 1, 1, 0], clamp);
   const dots = Math.min(3, Math.max(0, Math.floor((frame - 6) / 5) + 1));
   return (
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 72, opacity: o }}>
+    <AbsoluteFill
+      style={{
+        alignItems: "center",
+        justifyContent: "flex-start",
+        top: 72,
+        opacity: o,
+      }}
+    >
       <div
         style={{
           display: "flex",
@@ -452,7 +551,11 @@ const Anteriormente: React.FC<{ dur: number }> = ({ dur }) => {
           }}
         >
           Anteriormente en el otro video
-          <span style={{ display: "inline-block", width: 48, textAlign: "left" }}>{".".repeat(dots)}</span>
+          <span
+            style={{ display: "inline-block", width: 48, textAlign: "left" }}
+          >
+            {".".repeat(dots)}
+          </span>
         </div>
       </div>
     </AbsoluteFill>
@@ -463,18 +566,31 @@ const Anteriormente: React.FC<{ dur: number }> = ({ dur }) => {
 // (la introducción va más rápida que el resto; el audio usa atempo: el tono no cambia). `dur` son
 // cuadros de la base y `outDur` los que ocupa en el video. La voz lleva un fundido de 1 cuadro en
 // cada borde para que no haga clic.
-const Tramo: React.FC<{ base: number; dur: number; outDur: number; speed: number; gray: boolean }> = ({
-  base,
-  dur,
-  outDur,
-  speed,
-  gray,
-}) => (
+const Tramo: React.FC<{
+  base: number;
+  dur: number;
+  outDur: number;
+  speed: number;
+  gray: boolean;
+}> = ({ base, dur, outDur, speed, gray }) => (
   <>
-    <OffthreadVideo src={BASE} trimBefore={base} trimAfter={base + dur} playbackRate={speed} muted
-      style={{ ...FILL, filter: gray ? GRAY : undefined }} />
-    <Html5Audio src={VOICE} trimBefore={base} trimAfter={base + dur} playbackRate={speed}
-      volume={(fr) => interpolate(fr, [0, 1, outDur - 1, outDur], [0, 1, 1, 0], clamp)} />
+    <OffthreadVideo
+      src={BASE}
+      trimBefore={base}
+      trimAfter={base + dur}
+      playbackRate={speed}
+      muted
+      style={{ ...FILL, filter: gray ? GRAY : undefined }}
+    />
+    <Html5Audio
+      src={VOICE}
+      trimBefore={base}
+      trimAfter={base + dur}
+      playbackRate={speed}
+      volume={(fr) =>
+        interpolate(fr, [0, 1, outDur - 1, outDur], [0, 1, 1, 0], clamp)
+      }
+    />
   </>
 );
 
@@ -484,7 +600,16 @@ export const Progress: React.FC = () => {
   const frame = useCurrentFrame();
   const { durationInFrames } = useVideoConfig();
   return (
-    <div style={{ position: "absolute", top: 0, left: 0, height: 42, width: "100%", backgroundColor: "rgba(0,0,0,0.35)" }}>
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        height: 42,
+        width: "100%",
+        backgroundColor: "rgba(0,0,0,0.35)",
+      }}
+    >
       <div
         style={{
           height: "100%",
@@ -506,15 +631,33 @@ export const Peticion: React.FC = () => (
 
     {/* Imagen y voz (cada toma a -16 LUFS con la cadena de enhance_voice.py), tramo por tramo. */}
     {raw.ranges.map((r) => (
-      <Sequence key={r.out} from={r.out} durationInFrames={r.outDur} premountFor={15}>
-        <Tramo base={r.base} dur={r.dur} outDur={r.outDur} speed={r.speed} gray={r.gray} />
+      <Sequence
+        key={r.out}
+        from={r.out}
+        durationInFrames={r.outDur}
+        premountFor={15}
+      >
+        <Tramo
+          base={r.base}
+          dur={r.dur}
+          outDur={r.outDur}
+          speed={r.speed}
+          gray={r.gray}
+        />
       </Sequence>
     ))}
-    <Sequence from={VIDEO_FRAMES} durationInFrames={peticionDuration - VIDEO_FRAMES}>
+    <Sequence
+      from={VIDEO_FRAMES}
+      durationInFrames={peticionDuration - VIDEO_FRAMES}
+    >
       {/* trimBefore lleva la base a su último cuadro conservado; Freeze lo deja quieto ahí. */}
       <Freeze frame={0}>
-        <OffthreadVideo src={BASE} trimBefore={LAST.base + LAST.dur - 1} muted
-          style={{ ...FILL, filter: LAST.gray ? GRAY : undefined }} />
+        <OffthreadVideo
+          src={BASE}
+          trimBefore={LAST.base + LAST.dur - 1}
+          muted
+          style={{ ...FILL, filter: LAST.gray ? GRAY : undefined }}
+        />
       </Freeze>
       <Dim />
     </Sequence>
@@ -526,13 +669,21 @@ export const Peticion: React.FC = () => (
     ))}
 
     {raw.captions.map((c) => (
-      <Sequence key={c.from} from={f(c.from)} durationInFrames={Math.max(1, f(c.to) - f(c.from))}>
+      <Sequence
+        key={c.from}
+        from={f(c.from)}
+        durationInFrames={Math.max(1, f(c.to) - f(c.from))}
+      >
         <CaptionView pieces={c.pieces} dur={Math.max(1, f(c.to) - f(c.from))} />
       </Sequence>
     ))}
 
     {raw.cards.map((c) => (
-      <Sequence key={c.from} from={f(c.from)} durationInFrames={Math.max(1, f(c.to) - f(c.from))}>
+      <Sequence
+        key={c.from}
+        from={f(c.from)}
+        durationInFrames={Math.max(1, f(c.to) - f(c.from))}
+      >
         <CardView
           icon={c.icon}
           kicker={c.kicker}
@@ -544,8 +695,17 @@ export const Peticion: React.FC = () => (
     ))}
 
     {raw.evidence.map((e) => (
-      <Sequence key={e.from} from={f(e.from)} durationInFrames={Math.max(1, f(e.to) - f(e.from))}>
-        <EvidenceView img={e.img} title={e.title} quote={e.quote} dur={Math.max(1, f(e.to) - f(e.from))} />
+      <Sequence
+        key={e.from}
+        from={f(e.from)}
+        durationInFrames={Math.max(1, f(e.to) - f(e.from))}
+      >
+        <EvidenceView
+          img={e.img}
+          title={e.title}
+          quote={e.quote}
+          dur={Math.max(1, f(e.to) - f(e.from))}
+        />
       </Sequence>
     ))}
 
@@ -553,7 +713,7 @@ export const Peticion: React.FC = () => (
       <Anteriormente dur={GRAY_END} />
     </Sequence>
 
-    <Sequence  durationInFrames={peticionDuration}>
+    <Sequence durationInFrames={peticionDuration}>
       <Firma />
       <Progress />
     </Sequence>

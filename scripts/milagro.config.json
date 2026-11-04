@@ -8,7 +8,7 @@
     "keep": 0.07
   },
   "gap": 0.0,
-  "tail": 2.8,
+  "tail": 3.6,
   "videos": {},
   "shutters": [
     "presidente",
@@ -107,7 +107,7 @@
           "kicker": "El Fondo Milagro tiene",
           "text": "más de $1 billón",
           "color": "blue",
-          "bottom": 1880
+          "bottom": 1800
         }
       ],
       "shots": [
@@ -138,7 +138,7 @@
           "kicker": "Todavía no tiene",
           "text": "manual de contratación",
           "color": "red",
-          "bottom": 1880
+          "bottom": 1800
         }
       ],
       "shots": [
@@ -199,7 +199,7 @@
           "kicker": "Con este presupuesto",
           "text": "¿cuáles obras?",
           "color": "red",
-          "bottom": 1880,
+          "bottom": 1800,
           "untilNth": 2
         }
       ],
@@ -259,7 +259,12 @@
       "photos": [
         {
           "at": "show",
-          "img": "show"
+          "until": "llaves",
+          "img": "tarima"
+        },
+        {
+          "at": "llaves",
+          "img": "llave"
         }
       ],
       "kinetic": [
@@ -295,5 +300,11 @@
         }
       ]
     }
-  ]
+  ],
+  "song": {
+    "file": "media/jf4/musica/latinoamerica.mp3",
+    "lyric": 86.8,
+    "lyricEnd": 89.7,
+    "_doc": "«Latinoamérica» (Calle 13), pedida por el cliente: la frase «el que no quiere a su patria no quiere a su madre» (86.8–89.7 s de la canción) cae en el escrito final, cuando él ya no habla."
+  }
 }

@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "duration": 57.834,
+ "duration": 58.634,
  "clips": {
   "gancho": 124,
   "terremoto": 236,
@@ -573,7 +573,7 @@
      "kicker": "El Fondo Milagro tiene",
      "text": "más de $1 billón",
      "color": "blue",
-     "bottom": 1880,
+     "bottom": 1800,
      "start": 16.125,
      "end": 17.645
     }
@@ -821,7 +821,7 @@
      "kicker": "Todavía no tiene",
      "text": "manual de contratación",
      "color": "red",
-     "bottom": 1880,
+     "bottom": 1800,
      "start": 24.982,
      "end": 30.216
     }
@@ -1220,7 +1220,7 @@
      "kicker": "Con este presupuesto",
      "text": "¿cuáles obras?",
      "color": "red",
-     "bottom": 1880,
+     "bottom": 1800,
      "start": 37.113,
      "end": 38.633
     }
@@ -1487,8 +1487,13 @@
    "cards": [],
    "photos": [
     {
-     "img": "show",
+     "img": "tarima",
      "start": 49.053,
+     "end": 49.933
+    },
+    {
+     "img": "llave",
+     "start": 49.933,
      "end": 50.742
     }
    ],
@@ -1625,7 +1630,7 @@
     {
      "src": "cierre",
      "start": 50.742,
-     "end": 57.834
+     "end": 58.634
     }
    ],
    "captions": [
@@ -1667,6 +1672,6 @@
   "kicker": "¿Y la plata del",
   "text": "Fondo Milagro?",
   "start": 55.034,
-  "end": 57.834
+  "end": 58.634
  }
 }

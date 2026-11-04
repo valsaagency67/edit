@@ -214,15 +214,24 @@ const pieces = (text: string) =>
   }));
 
 // dir: carpeta de public/ con las tomas y voz/musica/foley.wav; captionTop: altura de los subtítulos;
-// captionBox: subtítulos sobre fondo oscuro translúcido; photoCenter: altura del centro de las fotos de apoyo.
+// captionBox: subtítulos sobre fondo oscuro translúcido; captionPop: las palabras en amarillo saltan;
+// photoCenter: altura del centro de las fotos de apoyo.
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
 export const TomasVideo: React.FC<{
   data: TomasData;
   dir: string;
   captionTop?: number;
   captionBox?: boolean;
+  captionPop?: boolean;
   photoCenter?: number;
-}> = ({ data, dir, captionTop, captionBox, photoCenter = 1150 }) => {
+}> = ({
+  data,
+  dir,
+  captionTop,
+  captionBox,
+  captionPop,
+  photoCenter = 1150,
+}) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
   const gray = data.scenes.some((sc) =>
@@ -322,6 +331,7 @@ export const TomasVideo: React.FC<{
               dur={len(c)}
               top={captionTop}
               boxed={captionBox}
+              pop={captionPop}
             />
           </Sequence>
         )),
