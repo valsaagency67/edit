@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). Imágenes animadas (emoji + label) en las palabras clave sin foto, pedidas por el cliente; las tarjetas van arriba (bottom 292) porque abajo las tapa Instagram. En el gancho, desde «pero», blanco y negro y voz distorsionada (effects).",
+  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). Imágenes animadas (emoji + label) en las palabras clave sin foto, pedidas por el cliente; las tarjetas van arriba (bottom 292) porque abajo las tapa Instagram. En el gancho, desde «pero», blanco y negro y voz distorsionada (effects). Durante el blanco y negro no va ninguna imagen (pedido del cliente).",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -50,11 +50,6 @@
           "until": "pero",
           "emoji": "💰",
           "label": "$1 BILLÓN"
-        },
-        {
-          "at": "casas",
-          "emoji": "🏚️",
-          "label": "¿Y LAS CASAS?"
         }
       ]
     },
