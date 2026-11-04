@@ -4,9 +4,10 @@ import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
 // Portada del video del Fondo Milagro (1080x1920), pedida «alusiva al fondo, sin la cara de Juan, con el señor
-// de la llave de cartón y Abelardo de la Espriella, con nuestros colores»: fondo azul noche con la bandera,
-// la foto de la llave (inclinada, borde blanco) y Abelardo recortado (de la imagen de referencia del
-// carrusel del IVA), detrás de la foto para que su brazo no la tape. Fotos en public/jf4/fotos/ (no versionadas). Todo dentro del recorte 4:5 (y 285–1635).
+// de la llave de cartón y Abelardo de la Espriella, con nuestros colores»; después pidió de fondo a Abelardo
+// de payaso: fondo azul noche con la bandera, el meme del payaso de lado a lado en el centro y la foto de la
+// llave encima (inclinada, borde blanco). Fotos en public/jf4/fotos/ (no versionadas). Todo dentro del
+// recorte 4:5 (y 285–1635).
 const RED = "#E30613";
 const YELLOW = "#FCD116";
 const NAVY = "#0B1736";
@@ -79,48 +80,31 @@ export const CoverMilagro: React.FC = () => (
       </div>
     </AbsoluteFill>
 
-    {/* Abelardo de la Espriella */}
-    <div style={{ position: "absolute", right: -40, top: 860, width: 560 }}>
-      <Img
-        src={staticFile("jf4/fotos/portada-abelardo.png")}
-        style={{
-          width: "100%",
-          maskImage: "linear-gradient(180deg, black 62%, transparent 86%)",
-          WebkitMaskImage:
-            "linear-gradient(180deg, black 62%, transparent 86%)",
-          filter: "drop-shadow(0 0 26px rgba(227,6,19,0.5))",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: 150,
-          top: -10,
-          background: YELLOW,
-          color: NAVY,
-          fontFamily: Montserrat,
-          fontWeight: 800,
-          fontSize: 21,
-          padding: "6px 12px",
-          textTransform: "uppercase",
-          transform: "rotate(-3deg)",
-        }}
-      >
-        Abelardo de la Espriella
-      </div>
-    </div>
-
+    {/* Abelardo de payaso (meme que mandó el cliente, sin su texto), de lado a lado detrás del centro. */}
+    <Img
+      src={staticFile("jf4/fotos/portada-payaso.jpg")}
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 640,
+        width: 1080,
+        maskImage:
+          "linear-gradient(180deg, transparent 0%, black 14%, black 80%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(180deg, transparent 0%, black 14%, black 80%, transparent 100%)",
+      }}
+    />
     {/* El señor con la llave de cartón */}
     <Img
       src={staticFile("jf4/fotos/portada-llave.jpg")}
       style={{
         position: "absolute",
-        left: 50,
-        top: 760,
-        width: 640,
-        border: "10px solid white",
+        left: 40,
+        top: 930,
+        width: 440,
+        border: "8px solid white",
         boxShadow: "0 16px 44px rgba(0,0,0,0.6)",
-        transform: "rotate(-4deg)",
+        transform: "rotate(-5deg)",
       }}
     />
 
@@ -163,7 +147,7 @@ export const CoverMilagro: React.FC = () => (
     </AbsoluteFill>
 
     <AbsoluteFill
-      style={{ alignItems: "center", justifyContent: "flex-start", top: 1500 }}
+      style={{ alignItems: "center", justifyContent: "flex-start", top: 1535 }}
     >
       <div
         style={{
