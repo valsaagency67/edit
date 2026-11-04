@@ -5,6 +5,7 @@ import { CarruselIva2, IVA2_SLIDES } from "./campaign/CarruselIva2";
 import { Cover } from "./campaign/Cover";
 import { CoverDerechos } from "./campaign/CoverDerechos";
 import { CoverMarcha } from "./campaign/CoverMarcha";
+import { CoverMilagro } from "./campaign/CoverMilagro";
 import { CoverMuseo } from "./campaign/CoverMuseo";
 import { CoverPeticion } from "./campaign/CoverPeticion";
 import { Derechos, DERECHOS_FPS, derechosDuration } from "./campaign/Derechos";
@@ -113,6 +114,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="JFC-Museo-Portada" component={CoverMuseo} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Fondo Milagro: npm run build:milagro && npm run render:milagro */}
       <Composition id="JFC-Milagro" component={Milagro} width={1080} height={1920} fps={MILAGRO_FPS} durationInFrames={milagroDuration} />
+      <Composition id="JFC-Milagro-Portada" component={CoverMilagro} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Carrusel del IVA a la canasta (1080x1350): npm run render:carrusel-iva */}
       {Array.from({ length: IVA_SLIDES }, (_, k) => (
         <Composition key={k} id={`IVA-${k + 1}`} component={CarruselIva} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{ slide: k + 1 }} />
