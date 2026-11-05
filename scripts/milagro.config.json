@@ -1,0 +1,309 @@
+{
+  "_doc": "Video de Juan Felipe sobre el Fondo Milagro (reconstrucción tras el terremoto del 10 de agosto). Nueve tomas selfie 3:4 (se recortan a 9:16) en el orden del discurso; IMG_4150 termina con «¿Qué es el Fondo Milagro?», que se corta (endAtText). Pocas tarjetas y pocos efectos (CLAUDE.md). Lo arma scripts/build_milagro.py -> src/campaign/milagro.json. Fotos de apoyo en public/jf4/fotos/ (no versionadas: las mandó el cliente). Imágenes animadas (emoji + label) en las palabras clave sin foto, pedidas por el cliente; las tarjetas van arriba (bottom 292) porque abajo las tapa Instagram. En el gancho, desde «pero», blanco y negro y voz distorsionada (effects). Durante el blanco y negro no va ninguna imagen (pedido del cliente).",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.0,
+  "tail": 3.6,
+  "videos": {},
+  "shutters": [
+    "presidente",
+    "pregunta",
+    "show"
+  ],
+  "outro": {
+    "kicker": "¿Y la plata del",
+    "text": "Fondo Milagro?"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_4165",
+      "speed": 1.25,
+      "text": "Más de un billón de pesos disponibles en el Fondo Milagro, pero ¿y las casas para los damnificados?",
+      "phrases": [
+        "Más de un *billón de pesos",
+        "disponibles en el Fondo Milagro,",
+        "pero ¿y las *casas",
+        "para los *damnificados?"
+      ],
+      "shots": [
+        {
+          "src": "gancho"
+        }
+      ],
+      "cards": [],
+      "effects": [
+        {
+          "at": "pero",
+          "gray": true,
+          "distort": true
+        }
+      ],
+      "photos": [
+        {
+          "at": "billón",
+          "until": "pero",
+          "emoji": "💰",
+          "label": "$1 BILLÓN"
+        }
+      ]
+    },
+    {
+      "key": "terremoto",
+      "camera": "IMG_4136",
+      "text": "Ya han pasado casi tres meses desde el terremoto del 10 de agosto que dejó miles de familias damnificadas en el Chocó y en el suroccidente colombiano.",
+      "phrases": [
+        "Ya han pasado casi *tres *meses",
+        "desde el terremoto del 10 de agosto",
+        "que dejó *miles de familias damnificadas",
+        "en el Chocó",
+        "y en el suroccidente colombiano."
+      ],
+      "shots": [
+        {
+          "src": "terremoto"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "terremoto",
+          "until": "miles",
+          "img": "escombros"
+        },
+        {
+          "at": "miles",
+          "until": "Chocó",
+          "img": "rescate"
+        },
+        {
+          "at": "Chocó",
+          "img": "albergue"
+        }
+      ]
+    },
+    {
+      "key": "presidente",
+      "camera": "IMG_4146",
+      "text": "El presidente dijo que desde el 7 de octubre el Fondo Milagro ya cuenta con más de un billón de pesos disponibles y que se debe verificar el destino de cada peso.",
+      "phrases": [
+        "El presidente dijo",
+        "que desde el 7 de octubre",
+        "el Fondo Milagro ya cuenta",
+        "con más de un *billón de pesos disponibles",
+        "y que se debe verificar",
+        "el destino de cada peso."
+      ],
+      "cards": [
+        {
+          "at": "billón",
+          "until": "y",
+          "icon": "doc",
+          "kicker": "El Fondo Milagro tiene",
+          "text": "más de $1 billón",
+          "color": "blue",
+          "bottom": 292
+        }
+      ],
+      "shots": [
+        {
+          "src": "presidente"
+        }
+      ],
+      "photos": [
+        {
+          "at": "verificar",
+          "emoji": "🔍",
+          "label": "¿Y CADA PESO?"
+        }
+      ]
+    },
+    {
+      "key": "manual",
+      "camera": "IMG_4150",
+      "endAtText": true,
+      "text": "Eso suena muy bien, pero lo que no dice el presidente es que el Fondo Milagro todavía no cuenta con un manual de contratación que permita ejecutar este billón disponible para la recuperación del terremoto.",
+      "phrases": [
+        "Eso suena muy bien,",
+        "pero lo que *no *dice el presidente",
+        "es que el Fondo Milagro",
+        "todavía *no cuenta",
+        "con un *manual *de *contratación",
+        "que permita ejecutar",
+        "este billón disponible",
+        "para la recuperación del terremoto."
+      ],
+      "cards": [
+        {
+          "at": "manual",
+          "icon": "eyeoff",
+          "kicker": "Todavía no tiene",
+          "text": "manual de contratación",
+          "color": "red",
+          "bottom": 292
+        }
+      ],
+      "shots": [
+        {
+          "src": "manual"
+        }
+      ],
+      "photos": [
+        {
+          "at": "dice",
+          "until": "todavía",
+          "emoji": "🤫",
+          "label": "LO QUE NO DICE"
+        }
+      ]
+    },
+    {
+      "key": "pregunta",
+      "camera": "IMG_4155",
+      "text": "Por eso la pregunta es concreta, ¿qué ha hecho el señor Uribe como gerente de este fondo?",
+      "phrases": [
+        "Por eso la pregunta es concreta,",
+        "¿qué ha hecho el señor *Uribe",
+        "como *gerente de este fondo?"
+      ],
+      "shots": [
+        {
+          "src": "pregunta"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "Uribe",
+          "img": "uribe"
+        }
+      ]
+    },
+    {
+      "key": "obras",
+      "camera": "IMG_4156",
+      "text": "¿Por qué teniendo este presupuesto todavía no se ha ejecutado ninguna obra? ¿Y si se ha ejecutado, por qué no se ha informado cuál ha sido la obra que se ha ejecutado y el valor de la misma?",
+      "phrases": [
+        "¿Por qué teniendo este presupuesto",
+        "todavía no se ha ejecutado",
+        "*ninguna *obra?",
+        "¿Y si se ha ejecutado,",
+        "por qué *no *se *ha *informado",
+        "cuál ha sido la obra",
+        "que se ha ejecutado",
+        "y el *valor de la misma?"
+      ],
+      "cards": [
+        {
+          "at": "ninguna",
+          "until": "por",
+          "icon": "clock",
+          "kicker": "Con este presupuesto",
+          "text": "¿cuáles obras?",
+          "color": "red",
+          "bottom": 292,
+          "untilNth": 2
+        }
+      ],
+      "shots": [
+        {
+          "src": "obras"
+        }
+      ],
+      "photos": [
+        {
+          "at": "presupuesto",
+          "until": "ninguna",
+          "emoji": "🚧",
+          "label": "¿Y LAS OBRAS?"
+        }
+      ]
+    },
+    {
+      "key": "bancada",
+      "camera": "IMG_4164",
+      "text": "Estas son preguntas que ni la bancada del gobierno en el Congreso se atreve a responder.",
+      "phrases": [
+        "Estas son preguntas",
+        "que ni la *bancada *del *gobierno",
+        "en el Congreso",
+        "se atreve a responder."
+      ],
+      "shots": [
+        {
+          "src": "bancada"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "bancada",
+          "img": "bancada"
+        }
+      ]
+    },
+    {
+      "key": "show",
+      "camera": "IMG_4152",
+      "text": "Pero qué esperar de un presidente que prefiere el show y la entrega de llaves de cartón.",
+      "phrases": [
+        "Pero qué esperar de un presidente",
+        "que prefiere el *show",
+        "y la entrega de *llaves *de *cartón."
+      ],
+      "shots": [
+        {
+          "src": "show"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "show",
+          "until": "llaves",
+          "img": "tarima"
+        },
+        {
+          "at": "llaves",
+          "img": "llave"
+        }
+      ]
+    },
+    {
+      "key": "cierre",
+      "camera": "IMG_4160",
+      "text": "¿Y tú qué crees que pasó con la plata del Fondo Milagro? ¿Será que se la abelardearon? Te leo en los comentarios.",
+      "phrases": [
+        "¿Y tú qué crees que pasó",
+        "con la *plata del Fondo Milagro?",
+        "¿Será que se la *abelardearon?",
+        "Te leo en los comentarios."
+      ],
+      "shots": [
+        {
+          "src": "cierre"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "plata",
+          "until": "¿Será",
+          "emoji": "💸",
+          "label": "¿Y LA PLATA?"
+        }
+      ]
+    }
+  ],
+  "song": {
+    "file": "media/jf4/musica/latinoamerica.mp3",
+    "lyric": 86.8,
+    "lyricEnd": 89.7,
+    "_doc": "«Latinoamérica» (Calle 13), pedida por el cliente: la frase «el que no quiere a su patria no quiere a su madre» (86.8–89.7 s de la canción) cae en el escrito final, cuando él ya no habla."
+  }
+}

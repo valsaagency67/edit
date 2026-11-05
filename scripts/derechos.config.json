@@ -1,0 +1,68 @@
+{
+  "_doc": "Video de Juan Felipe «¿Dónde acudir cuando te vulneran tus derechos?» (carpeta de Drive «Juan felipe ll»). Cinco tomas a cámara en orden; se descarta lo que hay antes de la primera palabra («¿Listo?», «¿Ya estás grabando?»). Lo arma scripts/build_derechos.py -> src/campaign/derechos.json.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": { "threshold": 0.35, "minSilence": 0.1, "keep": 0.07 },
+  "gap": 0.0,
+  "tail": 1.2,
+  "videos": {},
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_0727",
+      "speed": 1.12,
+      "text": "¿No sabes dónde acudir cuando te vulneran tus derechos?",
+      "phrases": ["¿No sabes dónde acudir", "cuando te *vulneran", "tus *derechos?"],
+      "cards": [{ "at": "vulneran", "icon": "shield", "kicker": "¿Te vulneran tus", "text": "derechos?", "color": "red" }],
+      "shots": [{ "src": "gancho" }]
+    },
+    {
+      "key": "derecho",
+      "camera": "IMG_0731",
+      "text": "Estudié derecho porque quiero que la ley le llegue al que verdaderamente lo necesita, no solamente al que puede pagar por ella.",
+      "phrases": ["Estudié *derecho", "porque quiero que la *ley", "le llegue al que", "*verdaderamente lo necesita,", "no solamente al que", "puede *pagar por ella."],
+      "cards": [
+        { "at": "ley", "until": "no", "icon": "people", "kicker": "La ley para", "text": "quien la necesita", "color": "blue" },
+        { "at": "pagar", "icon": "eyeoff", "kicker": "No solo para", "text": "quien puede pagar", "color": "red" }
+      ],
+      "shots": [{ "src": "derecho" }]
+    },
+    {
+      "key": "causas",
+      "camera": "IMG_0741",
+      "text": "Hoy trabajo en causas sociales y acompaño víctimas en procesos penales, principalmente en fraudes, suplantaciones y violencia intrafamiliar.",
+      "phrases": ["Hoy trabajo en *causas *sociales", "y acompaño *víctimas", "en procesos penales,", "principalmente en *fraudes,", "*suplantaciones", "y *violencia *intrafamiliar."],
+      "cards": [
+        { "at": "causas", "until": "principalmente", "icon": "people", "kicker": "Hoy trabajo en", "text": "causas sociales", "color": "blue" },
+        { "at": "fraudes,", "until": "suplantaciones", "icon": "doc", "kicker": "Acompaño víctimas de", "text": "fraudes", "color": "red" },
+        { "at": "suplantaciones", "until": "y", "untilNth": 2, "icon": "eyeoff", "kicker": "Acompaño víctimas de", "text": "suplantaciones", "color": "red" },
+        { "at": "violencia", "icon": "shield", "kicker": "Acompaño víctimas de", "text": "violencia intrafamiliar", "color": "red" }
+      ],
+      "shots": [{ "src": "causas" }]
+    },
+    {
+      "key": "escuchar",
+      "camera": "IMG_0743",
+      "text": "Cuando la gente se me acerca y me cuenta sus problemas, lo primero que hago es escuchar. A veces basta con un derecho de petición, una tutela o un simple trámite para solucionar sus inquietudes.",
+      "phrases": ["Cuando la gente se me acerca", "y me cuenta sus problemas,", "lo primero que hago es *escuchar.", "A veces basta con", "un *derecho *de *petición,", "una *tutela", "o un simple *trámite", "para solucionar sus inquietudes."],
+      "cards": [
+        { "at": "escuchar.", "until": "un", "icon": "people", "kicker": "Lo primero:", "text": "escuchar", "color": "blue" },
+        { "at": "derecho", "until": "una", "icon": "doc", "kicker": "A veces basta con un", "text": "derecho de petición", "color": "blue" },
+        { "at": "tutela", "until": "o", "icon": "shield", "kicker": "A veces basta con una", "text": "tutela", "color": "blue" },
+        { "at": "trámite", "icon": "clock", "kicker": "O con", "text": "un simple trámite", "color": "blue" }
+      ],
+      "shots": [{ "src": "escuchar" }]
+    },
+    {
+      "key": "dm",
+      "camera": "IMG_0744",
+      "text": "Si quieres resolver tu inquietud, puedes escribirme al DM o compartirle este video a quien creas que le pueda servir.",
+      "phrases": ["Si quieres resolver tu inquietud,", "puedes *escribirme al *DM", "o *compartirle este video", "a quien creas que le pueda servir."],
+      "cards": [
+        { "at": "escribirme", "until": "o", "icon": "mail", "kicker": "Escríbeme al", "text": "DM", "color": "red" },
+        { "at": "compartirle", "icon": "people", "kicker": "Compártelo con", "text": "quien lo necesite", "color": "blue" }
+      ],
+      "shots": [{ "src": "dm" }]
+    }
+  ]
+}

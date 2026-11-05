@@ -1,0 +1,191 @@
+[
+ {
+  "text": " Pepo",
+  "startMs": 1280,
+  "endMs": 1840,
+  "timestampMs": 1280,
+  "confidence": null
+ },
+ {
+  "text": " dijo",
+  "startMs": 1840,
+  "endMs": 2000,
+  "timestampMs": 1840,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 2000,
+  "endMs": 2080,
+  "timestampMs": 2000,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 2080,
+  "endMs": 2160,
+  "timestampMs": 2080,
+  "confidence": null
+ },
+ {
+  "text": " puente",
+  "startMs": 2160,
+  "endMs": 2400,
+  "timestampMs": 2160,
+  "confidence": null
+ },
+ {
+  "text": " del",
+  "startMs": 2400,
+  "endMs": 2560,
+  "timestampMs": 2400,
+  "confidence": null
+ },
+ {
+  "text": " Sesqui",
+  "startMs": 2560,
+  "endMs": 3120,
+  "timestampMs": 2560,
+  "confidence": null
+ },
+ {
+  "text": " seguía",
+  "startMs": 3120,
+  "endMs": 3600,
+  "timestampMs": 3120,
+  "confidence": null
+ },
+ {
+  "text": " así",
+  "startMs": 3600,
+  "endMs": 3920,
+  "timestampMs": 3600,
+  "confidence": null
+ },
+ {
+  "text": " porque",
+  "startMs": 3920,
+  "endMs": 4320,
+  "timestampMs": 3920,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 4320,
+  "endMs": 4480,
+  "timestampMs": 4320,
+  "confidence": null
+ },
+ {
+  "text": " pronto",
+  "startMs": 4480,
+  "endMs": 4880,
+  "timestampMs": 4480,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 4880,
+  "endMs": 5040,
+  "timestampMs": 4880,
+  "confidence": null
+ },
+ {
+  "text": " había",
+  "startMs": 5040,
+  "endMs": 5360,
+  "timestampMs": 5040,
+  "confidence": null
+ },
+ {
+  "text": " presupuesto.",
+  "startMs": 5360,
+  "endMs": 6160,
+  "timestampMs": 5360,
+  "confidence": null
+ },
+ {
+  "text": " ¿De",
+  "startMs": 6240,
+  "endMs": 6480,
+  "timestampMs": 6240,
+  "confidence": null
+ },
+ {
+  "text": " pronto,",
+  "startMs": 6480,
+  "endMs": 6880,
+  "timestampMs": 6480,
+  "confidence": null
+ },
+ {
+  "text": " concejal?",
+  "startMs": 6880,
+  "endMs": 7680,
+  "timestampMs": 6880,
+  "confidence": null
+ },
+ {
+  "text": " ¿No",
+  "startMs": 7760,
+  "endMs": 8080,
+  "timestampMs": 7760,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 8080,
+  "endMs": 8240,
+  "timestampMs": 8080,
+  "confidence": null
+ },
+ {
+  "text": " usted",
+  "startMs": 8240,
+  "endMs": 8640,
+  "timestampMs": 8240,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 8640,
+  "endMs": 8800,
+  "timestampMs": 8640,
+  "confidence": null
+ },
+ {
+  "text": " encargado",
+  "startMs": 8800,
+  "endMs": 9280,
+  "timestampMs": 8800,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 9280,
+  "endMs": 9440,
+  "timestampMs": 9280,
+  "confidence": null
+ },
+ {
+  "text": " vigilar",
+  "startMs": 9440,
+  "endMs": 9920,
+  "timestampMs": 9440,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 9920,
+  "endMs": 10000,
+  "timestampMs": 9920,
+  "confidence": null
+ },
+ {
+  "text": " presupuesto?",
+  "startMs": 10000,
+  "endMs": 10500,
+  "timestampMs": 10000,
+  "confidence": null
+ }
+]

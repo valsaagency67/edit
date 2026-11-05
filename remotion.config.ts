@@ -8,3 +8,11 @@ import { Config } from "@remotion/cli/config";
 Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
+
+// En el entorno cloud no se puede descargar Chrome Headless Shell; usar el preinstalado.
+import { existsSync } from "node:fs";
+const PREINSTALLED_SHELL =
+  "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
+if (existsSync(PREINSTALLED_SHELL)) {
+  Config.setBrowserExecutable(PREINSTALLED_SHELL);
+}
