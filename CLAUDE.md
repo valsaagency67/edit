@@ -36,6 +36,14 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Entregas**: mandar siempre una versión ligera para revisar en el celular (540x960, < 15 MB) y la de
   redes (1080x1920, < 30 MB). El master queda en `out/`.
 
+## Referencia de ritmo que mandó el cliente (`media/ref/referencia-2.mp4`, no versionado)
+Video de TikTok sobre cómo hacer un video viral. El cliente dice que «lo hacen muy bien». Sus tres reglas:
+1. **Gancho** en los primeros 3 segundos.
+2. **Regla de los 3 segundos**: cada ~3 s pasa algo (corte, acercamiento o alejamiento, material de apoyo); nunca
+   el mismo cuadro más de 3 s.
+3. **Llamado a la acción** al final (comentar, compartir).
+Ojo: el acercamiento choca con la regla «sin zooms»; no se cambia hasta que el cliente lo confirme.
+
 ## Datos que ya se corrigieron
 - Es el **POT** (Plan de Ordenamiento Territorial), no «FOT» como sale en la transcripción de IMG_1740.
 - El correo de la Alcaldía con el radicado 20260525051 es del 8 de octubre de 2026 (él dice «9 de octubre»).
