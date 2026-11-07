@@ -1,0 +1,20 @@
+{
+  "_nota": "Texto revisado de la transcripcion (Whisper small, espanol). Tiempos en segundos relativos a cada clip.",
+  "clips": [
+    {"file": "IMG_1825.MOV", "words": [
+      ["Mira,", 1.29, 1.62], ["hoy", 1.76, 1.88], ["es", 1.88, 1.98], ["la", 1.98, 2.06],
+      ["inauguración", 2.06, 2.58], ["de", 2.58, 2.74], ["Apolo", 2.74, 3.02],
+      ["Gastro", 3.02, 3.38], ["Bar.", 3.38, 3.74]]},
+    {"file": "IMG_1827.MOV", "words": [
+      ["Estaremos", 1.25, 1.96], ["atendiéndolos", 1.96, 2.44], ["hasta", 2.44, 2.62],
+      ["las", 2.62, 2.84], ["12", 2.84, 3.02], ["de", 3.02, 3.26], ["la", 3.26, 3.36],
+      ["noche.", 3.36, 3.64]]},
+    {"file": "IMG_1829.MOV", "words": [
+      ["Tendremos", 1.24, 1.56], ["cócteles", 1.56, 2.08], ["y", 2.08, 2.22],
+      ["entradas.", 2.22, 2.68]]},
+    {"file": "IMG_1830.MOV", "words": [
+      ["Esperamos", 1.71, 2.18], ["aquí", 2.18, 2.48], ["en", 2.48, 2.58],
+      ["Altamira.", 2.58, 3.14], ["¡No", 3.54, 3.74], ["te", 3.74, 3.82], ["lo", 3.82, 3.9],
+      ["puedes", 3.9, 4.06], ["perder!", 4.06, 4.49]]}
+  ]
+}
