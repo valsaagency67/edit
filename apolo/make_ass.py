@@ -39,7 +39,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
 lines, offset = [], 0.0
 for clip, dur in zip(data["clips"], durs):
-    pg = pages(clip["words"])
+    cin = clip.get("in", 0.0)
+    pg = pages([[w, s - cin, e - cin] for w, s, e in clip["words"]])
     for i, p in enumerate(pg):
         nxt = pg[i + 1][0][1] if i + 1 < len(pg) else dur
         end = min(p[-1][2] + 0.35, nxt, dur)

@@ -1,6 +1,7 @@
 # Apolo Karaoke Gastro Bar — video de inauguración
 
-Cuatro clips (IMG_1825, 1827, 1829, 1830, carpeta de Drive "A"), subtítulos
+Cuatro clips (IMG_1825, 1827, 1829, 1830, carpeta de Drive "A") recortados para
+que arranquen justo al hablar (`in`/`out` en `subtitulos.json`), subtítulos
 palabra por palabra (blanco con la palabra activa en dorado de la marca) y un
 cierre de 3.5 s con el logo.
 
