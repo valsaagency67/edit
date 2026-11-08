@@ -10,6 +10,8 @@ cierre de 3.5 s con el logo.
 - `make_ass.py`: genera los subtítulos ASS.
 - `make_music.py`: música original generada por código (ukelele, bajo, palmas,
   campanitas; Do mayor, 118 bpm), sin derechos de autor. El "ta-da" cae al entrar el logo.
+- `make_cover.py`: portada 1080x1920 (`out/Apolo_portada.jpg`).
+- `guion.md`: guion con tiempos.
 - `build.sh`: convierte HDR (HLG) 4K 120 fps a SDR 1080x1920 30 fps, normaliza
   el audio, quema los subtítulos, mezcla la música (baja sola cuando hablan) y
   añade el logo (`media/logo.jpg`).
