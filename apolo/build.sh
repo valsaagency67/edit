@@ -29,11 +29,16 @@ done
 python3 apolo/make_ass.py apolo/subtitulos.json "$WORK/duraciones.txt" "$WORK/subs.ass"
 TOTAL=$(awk '{s+=$1} END {printf "%.4f", s}' "$WORK/duraciones.txt")
 XOFF=$(awk -v t=$TOTAL -v x=$XF 'BEGIN{printf "%.4f", t-x}')
+FULL=$(awk -v t=$TOTAL -v x=$XF -v l=$LOGO_DUR 'BEGIN{printf "%.4f", t-x+l}')
 
-# 3) Union de clips + subtitulos + cierre con logo (fundido)
+# 3) Musica original (sin derechos); el "ta-da" cae al entrar el logo
+python3 apolo/make_music.py $FULL $XOFF "$WORK/musica.wav"
+
+# 4) Union de clips + subtitulos + cierre con logo (fundido)
 ffmpeg -v error -y -f concat -safe 0 -i "$WORK/lista.txt" \
   -loop 1 -framerate $FPS -t $LOGO_DUR -i media/logo.jpg \
   -f lavfi -t $LOGO_DUR -i anullsrc=r=48000:cl=stereo \
+  -i "$WORK/musica.wav" \
   -filter_complex "
     [0:v]subtitles=$WORK/subs.ass,fps=$FPS,settb=1/$FPS,setsar=1,format=yuv420p[main];
     [1:v]scale=1080:-2:flags=lanczos,setsar=1,split=3[lg][lt][lb];
@@ -43,7 +48,10 @@ ffmpeg -v error -y -f concat -safe 0 -i "$WORK/lista.txt" \
         scale=w='trunc(1080*(1+0.05*t/$LOGO_DUR)/2)*2':h=-2:eval=frame,crop=1080:1920,
         fps=$FPS,settb=1/$FPS,setsar=1,format=yuv420p[end];
     [main][end]xfade=transition=fade:duration=$XF:offset=$XOFF[v];
-    [0:a][2:a]acrossfade=d=$XF:c1=tri:c2=tri[a]" \
+    [0:a][2:a]acrossfade=d=$XF:c1=tri:c2=tri,asplit[voz][sc];
+    [3:a]highpass=f=45,equalizer=f=2500:t=q:w=1.2:g=-3,volume=-7dB,volume=9dB:enable='gte(t,$XOFF)'[mus];
+    [mus][sc]sidechaincompress=threshold=0.05:ratio=2.5:attack=20:release=350[musd];
+    [voz][musd]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]" \
   -map "[v]" -map "[a]" -c:v libx264 -preset slow -crf 16 -profile:v high -pix_fmt yuv420p \
   -color_primaries bt709 -color_trc bt709 -colorspace bt709 \
   -c:a aac -b:a 320k -movflags +faststart "$OUT/Apolo_Gastrobar_subtitulado.mp4"
