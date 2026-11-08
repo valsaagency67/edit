@@ -19,6 +19,6 @@ Esperamos aquí en Altamira. ¡No te lo puedes perder!
 
 ## Portada
 
-`out/Apolo_portada.jpg` (1080x1920): logo arriba, foto del chico con las botellas,
-texto "¡HOY ES LA INAUGURACIÓN!" y "CÓCTELES · ENTRADAS · KARAOKE".
+`out/Apolo_portada.jpg` (1080x1920): letrero de Apolo con la entrada y la cinta de inauguración,
+texto arriba "¡HOY ES LA INAUGURACIÓN!" y "CÓCTELES · ENTRADAS · KARAOKE".
 El contenido está dentro del recorte 3:4 de la cuadrícula del perfil.
