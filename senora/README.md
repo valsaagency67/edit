@@ -4,7 +4,7 @@ Fuente: carpeta de Drive "Apolo". Dos videos separados, uno por grabación
 (WA0042 es del cantante y no se usa):
 
 - `out/Senora_1_Reflexologia.mp4` (35 s) — de VID-20261108-WA0014
-- `out/Senora_2_Trivia_Apolo.mp4` (45 s) — de VID-20261108-WA0016
+- `out/Senora_2_Trivia_Apolo.mp4` (49 s) — de VID-20261108-WA0016
 - Versiones livianas `*_WhatsApp.mp4` para enviar por WhatsApp.
 
 Archivos:

@@ -1,27 +1,253 @@
 {
  "_nota": "Cortes (in/out en segundos del video original) y subtitulos (tiempos del original). Frases dudosas por ruido del publico no se subtitulan.",
  "segmentos": [
-  {"file": "VID-20261108-WA0014.mp4", "in": 6.9,  "out": 9.4,  "subs": [[7.1, 8.8, "Sesión de reflexología"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 14.8, "out": 17.0, "subs": [[15.0, 16.7, "Partes del cuerpo, niñas"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 23.4, "out": 26.2, "subs": [[23.6, 25.9, "9 años de experiencia"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 27.8, "out": 30.6, "subs": [[28.0, 30.4, "Niñas, partes del cuerpo"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 38.8, "out": 53.0, "subs": [
-      [39.0, 41.5, "No importa, órganos, lo que sea"], [42.0, 42.9, "¿De qué se trata?"],
-      [43.6, 44.5, "¿Los senos?"], [44.6, 45.6, "¿La cabeza?"], [46.7, 48.1, "Cualquier parte del cuerpo"],
-      [51.3, 52.1, "¿Las piernas?"], [52.3, 52.9, "No"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 54.5, "out": 58.4, "subs": [[54.6, 55.4, "No"], [57.7, 58.3, "No"]]},
-  {"file": "VID-20261108-WA0014.mp4", "in": 63.3, "out": 70.4, "subs": [[63.6, 65.2, "¿Oreja?"], [65.6, 67.2, "¡OREJA!"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 1.5,  "out": 12.4, "subs": [
-      [2.3, 4.6, "De nuestro patrocinador"], [4.7, 7.4, "daremos un bono de descuento"],
-      [7.4, 11.0, "de 25 % de limpieza dental"], [11.5, 12.3, "¡Vamos!"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 16.7, "out": 28.9, "subs": [
-      [16.8, 18.3, "Bienvenidos, muchachos"], [18.8, 21.6, "El primero que levante la mano y me diga"],
-      [21.7, 24.6, "¿quién era Apolo?"], [25.6, 28.7, "¿Quién era Apolo?"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 42.5, "out": 47.2, "subs": [[42.7, 44.0, "¿Era el dios de la comida?"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 49.6, "out": 51.4, "subs": [[49.7, 51.2, "¿Era el dios del sol?"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 63.8, "out": 70.6, "subs": [[64.3, 65.6, "¿Y de la música?"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 81.9, "out": 83.9, "subs": [[82.0, 83.7, "Otra pregunta, otra pregunta"]]},
-  {"file": "VID-20261108-WA0016.mp4", "in": 98.3, "out": 104.5, "subs": [
-      [98.5, 100.8, "Bueno, vamos con los otros números"], [102.0, 104.2, "Vamos del 1 al 20"]]}
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 6.9,
+   "out": 9.4,
+   "subs": [
+    [
+     7.1,
+     8.8,
+     "Sesión de reflexología"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 14.8,
+   "out": 17.0,
+   "subs": [
+    [
+     15.0,
+     16.7,
+     "Partes del cuerpo, niñas"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 23.4,
+   "out": 26.2,
+   "subs": [
+    [
+     23.6,
+     25.9,
+     "9 años de experiencia"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 27.8,
+   "out": 30.6,
+   "subs": [
+    [
+     28.0,
+     30.4,
+     "Niñas, partes del cuerpo"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 38.8,
+   "out": 53.0,
+   "subs": [
+    [
+     39.0,
+     41.5,
+     "No importa, órganos, lo que sea"
+    ],
+    [
+     42.0,
+     42.9,
+     "¿De qué se trata?"
+    ],
+    [
+     43.6,
+     44.5,
+     "¿Los senos?"
+    ],
+    [
+     44.6,
+     45.6,
+     "¿La cabeza?"
+    ],
+    [
+     46.7,
+     48.1,
+     "Cualquier parte del cuerpo"
+    ],
+    [
+     51.3,
+     52.1,
+     "¿Las piernas?"
+    ],
+    [
+     52.3,
+     52.9,
+     "No"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 54.5,
+   "out": 58.4,
+   "subs": [
+    [
+     54.6,
+     55.4,
+     "No"
+    ],
+    [
+     57.7,
+     58.3,
+     "No"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0014.mp4",
+   "in": 63.3,
+   "out": 70.4,
+   "subs": [
+    [
+     63.6,
+     65.2,
+     "¿Oreja?"
+    ],
+    [
+     65.6,
+     67.2,
+     "¡OREJA!"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 1.5,
+   "out": 12.4,
+   "subs": [
+    [
+     2.3,
+     4.6,
+     "De nuestro patrocinador"
+    ],
+    [
+     4.7,
+     7.4,
+     "daremos un bono de descuento"
+    ],
+    [
+     7.4,
+     11.0,
+     "de 25 % de limpieza dental"
+    ],
+    [
+     11.5,
+     12.3,
+     "¡Vamos!"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 16.7,
+   "out": 28.9,
+   "subs": [
+    [
+     16.8,
+     18.3,
+     "Bienvenidos, muchachos"
+    ],
+    [
+     18.8,
+     21.6,
+     "El primero que levante la mano y me diga"
+    ],
+    [
+     21.7,
+     24.6,
+     "¿quién era Apolo?"
+    ],
+    [
+     25.6,
+     28.7,
+     "¿Quién era Apolo?"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 42.5,
+   "out": 47.2,
+   "subs": [
+    [
+     42.7,
+     44.0,
+     "¿Era el dios de la comida?"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 49.6,
+   "out": 51.4,
+   "subs": [
+    [
+     49.7,
+     51.2,
+     "¿Era el dios del sol?"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 63.8,
+   "out": 74.6,
+   "subs": [
+    [
+     64.3,
+     65.6,
+     "¿Y de la música?"
+    ],
+    [
+     67.6,
+     68.9,
+     "¡Vamos!"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 81.9,
+   "out": 83.9,
+   "subs": [
+    [
+     82.0,
+     83.7,
+     "Otra pregunta, otra pregunta"
+    ]
+   ]
+  },
+  {
+   "file": "VID-20261108-WA0016.mp4",
+   "in": 98.3,
+   "out": 104.5,
+   "subs": [
+    [
+     98.5,
+     100.8,
+     "Bueno, vamos con los otros números"
+    ],
+    [
+     102.0,
+     104.2,
+     "Vamos del 1 al 20"
+    ]
+   ]
+  }
  ]
 }
