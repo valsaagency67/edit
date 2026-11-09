@@ -1,5 +1,5 @@
 """Subtitulos ASS por frases (se reparten en paginas de 2-4 palabras).
-Uso: python3 make_subs.py cortes.json salida.ass"""
+Uso: python3 make_subs.py cortes.json salida.ass [archivo_fuente]"""
 import json, sys
 
 GOLD = "&H004AB8E8&"
@@ -34,7 +34,10 @@ def two_lines(words):
 
 d = json.load(open(sys.argv[1]))
 ev, off = [], 0.0
+only = sys.argv[3] if len(sys.argv) > 3 else None
 for seg in d["segmentos"]:
+    if only and seg["file"] != only:
+        continue
     dur = seg["out"] - seg["in"]
     for s, e, text in seg["subs"]:
         s, e = max(s - seg["in"], 0), min(e - seg["in"], dur)
