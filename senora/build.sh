@@ -12,7 +12,7 @@ VF="hqdn3d=2:1.5:4:3,scale=1080:1920:flags=lanczos,unsharp=5:5:0.55:5:5:0,eq=con
 # deformaba la voz, porque el fondo es publico hablando y eco del parlante.)
 AF="highpass=f=110,equalizer=f=300:t=q:w=1:g=-3,equalizer=f=2800:t=q:w=1.2:g=4,equalizer=f=8000:t=q:w=1:g=-3,acompressor=threshold=-22dB:ratio=2.5:attack=8:release=200:makeup=1.5"
 
-declare -A MUSIC=( [VID-20261108-WA0016.mp4]=1 )
+declare -A MUSIC=( [VID-20261108-WA0014.mp4]=1 [VID-20261108-WA0016.mp4]=1 )
 declare -A NAME=( [VID-20261108-WA0014.mp4]=Senora_1_Reflexologia [VID-20261108-WA0016.mp4]=Senora_2_Trivia_Apolo )
 for SRC in ${1:-VID-20261108-WA0014.mp4 VID-20261108-WA0016.mp4}; do
   N=${NAME[$SRC]}; : > "$WORK/$N.v.txt"; : > "$WORK/$N.a.txt"
