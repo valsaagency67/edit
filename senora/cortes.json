@@ -1,5 +1,5 @@
 {
- "_nota": "Cortes (in/out en segundos del video original) y subtitulos (tiempos del original). Frases dudosas por ruido del publico no se subtitulan.",
+ "_nota": "Cortes (in/out en s del original) siempre en pausas, sin cortar frases. Subtitulos con tiempos del original; frases dudosas por ruido no se subtitulan.",
  "segmentos": [
   {
    "file": "VID-20261108-WA0014.mp4",
@@ -127,12 +127,12 @@
   },
   {
    "file": "VID-20261108-WA0016.mp4",
-   "in": 1.5,
-   "out": 11.2,
+   "in": 1.6,
+   "out": 11.25,
    "subs": [
     [
-     2.3,
-     4.6,
+     1.8,
+     3.7,
      "De nuestro patrocinador"
     ],
     [
@@ -142,98 +142,89 @@
     ],
     [
      7.4,
-     11.0,
+     10.9,
      "de 25 % de limpieza dental"
     ]
    ]
   },
   {
    "file": "VID-20261108-WA0016.mp4",
-   "in": 16.7,
-   "out": 24.6,
+   "in": 16.6,
+   "out": 28.85,
    "subs": [
     [
-     16.8,
-     18.3,
+     17.0,
+     17.9,
      "Bienvenidos, muchachos"
     ],
     [
-     18.8,
+     18.5,
      21.6,
      "El primero que levante la mano y me diga"
     ],
     [
      21.7,
-     24.5,
+     24.6,
      "¿quién era Apolo?"
+    ],
+    [
+     25.5,
+     28.6,
+     "¿Quién era Apolo?"
     ]
    ]
   },
   {
    "file": "VID-20261108-WA0016.mp4",
-   "in": 49.6,
-   "out": 51.4,
+   "in": 41.0,
+   "out": 52.6,
    "subs": [
     [
-     49.7,
-     51.2,
-     "¿Era el dios del sol?"
+     42.7,
+     43.8,
+     "¿Era el dios de la comida?"
+    ],
+    [
+     45.2,
+     47.2,
+     "Bueno, mira, el dios de la comida"
+    ],
+    [
+     49.8,
+     51.9,
+     "Era el dios del sol, dios del amor también"
     ]
    ]
   },
   {
    "file": "VID-20261108-WA0016.mp4",
-   "in": 63.8,
-   "out": 74.3,
+   "in": 62.65,
+   "out": 74.6,
    "subs": [
     [
-     64.3,
-     65.6,
+     62.8,
+     63.6,
+     "¿Qué es?"
+    ],
+    [
+     64.4,
+     65.4,
      "¿Y de la música?"
     ],
     [
      67.6,
      68.9,
      "¡Vamos!"
-    ]
-   ]
-  },
-  {
-   "file": "VID-20261108-WA0016.mp4",
-   "in": 82.0,
-   "out": 92.8,
-   "subs": [
-    [
-     85.2,
-     86.4,
-     "Espera, espera, espera"
     ],
     [
-     87.8,
-     89.4,
-     "Yo me quedo a la dura, pero…"
+     70.9,
+     72.0,
+     "¡Claro!"
     ],
     [
-     90.4,
-     92.7,
-     "¿Esto es de la música? ¿En serio?"
-    ]
-   ]
-  },
-  {
-   "file": "VID-20261108-WA0016.mp4",
-   "in": 98.3,
-   "out": 104.5,
-   "subs": [
-    [
-     98.5,
-     100.8,
-     "Bueno, vamos con los otros números"
-    ],
-    [
-     102.0,
-     104.2,
-     "Vamos del 1 al 20"
+     72.0,
+     74.2,
+     "¿Oye, pero… es el sol, será?"
     ]
    ]
   }
