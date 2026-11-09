@@ -128,7 +128,7 @@
   {
    "file": "VID-20261108-WA0016.mp4",
    "in": 1.5,
-   "out": 12.4,
+   "out": 11.2,
    "subs": [
     [
      2.3,
@@ -144,18 +144,13 @@
      7.4,
      11.0,
      "de 25 % de limpieza dental"
-    ],
-    [
-     11.5,
-     12.3,
-     "¡Vamos!"
     ]
    ]
   },
   {
    "file": "VID-20261108-WA0016.mp4",
    "in": 16.7,
-   "out": 28.9,
+   "out": 24.6,
    "subs": [
     [
      16.8,
@@ -169,25 +164,8 @@
     ],
     [
      21.7,
-     24.6,
+     24.5,
      "¿quién era Apolo?"
-    ],
-    [
-     25.6,
-     28.7,
-     "¿Quién era Apolo?"
-    ]
-   ]
-  },
-  {
-   "file": "VID-20261108-WA0016.mp4",
-   "in": 42.5,
-   "out": 47.2,
-   "subs": [
-    [
-     42.7,
-     44.0,
-     "¿Era el dios de la comida?"
     ]
    ]
   },
@@ -206,7 +184,7 @@
   {
    "file": "VID-20261108-WA0016.mp4",
    "in": 63.8,
-   "out": 74.6,
+   "out": 74.3,
    "subs": [
     [
      64.3,
@@ -222,13 +200,23 @@
   },
   {
    "file": "VID-20261108-WA0016.mp4",
-   "in": 81.9,
-   "out": 83.9,
+   "in": 82.0,
+   "out": 92.8,
    "subs": [
     [
-     82.0,
-     83.7,
-     "Otra pregunta, otra pregunta"
+     85.2,
+     86.4,
+     "Espera, espera, espera"
+    ],
+    [
+     87.8,
+     89.4,
+     "Yo me quedo a la dura, pero…"
+    ],
+    [
+     90.4,
+     92.7,
+     "¿Esto es de la música? ¿En serio?"
     ]
    ]
   },

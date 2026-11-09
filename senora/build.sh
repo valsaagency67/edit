@@ -12,6 +12,7 @@ VF="hqdn3d=2:1.5:4:3,scale=1080:1920:flags=lanczos,unsharp=5:5:0.55:5:5:0,eq=con
 # deformaba la voz, porque el fondo es publico hablando y eco del parlante.)
 AF="highpass=f=110,equalizer=f=300:t=q:w=1:g=-3,equalizer=f=2800:t=q:w=1.2:g=4,equalizer=f=8000:t=q:w=1:g=-3,acompressor=threshold=-22dB:ratio=2.5:attack=8:release=200:makeup=1.5"
 
+declare -A MUSIC=( [VID-20261108-WA0016.mp4]=1 )
 declare -A NAME=( [VID-20261108-WA0014.mp4]=Senora_1_Reflexologia [VID-20261108-WA0016.mp4]=Senora_2_Trivia_Apolo )
 for SRC in ${1:-VID-20261108-WA0014.mp4 VID-20261108-WA0016.mp4}; do
   N=${NAME[$SRC]}; : > "$WORK/$N.v.txt"; : > "$WORK/$N.a.txt"
@@ -20,7 +21,7 @@ import json
 for i,s in enumerate(json.load(open('senora/cortes.json'))['segmentos']):
     if s['file']=='$SRC': print(i, s['in'], s['out'])
 " | while read -r i a b; do
-    k=$(printf %02d $i); d=$(awk -v a=$a -v b=$b 'BEGIN{printf "%.3f", b-a}')
+    k=$(echo "$SRC-$a-$b" | md5sum | cut -c1-10); d=$(awk -v a=$a -v b=$b 'BEGIN{printf "%.3f", b-a}')
     [ -f "$WORK/v_$k.mp4" ] || ffmpeg -v error -y -ss $a -i "$RAW/$SRC" -t $d -an -vf "$VF" \
         -c:v libx264 -preset slow -crf 14 "$WORK/v_$k.mp4" < /dev/null
     ffmpeg -v error -y -ss $a -i "$RAW/$SRC" -t $d -vn -ac 1 -ar 48000 \
@@ -30,9 +31,22 @@ for i,s in enumerate(json.load(open('senora/cortes.json'))['segmentos']):
   done
   python3 senora/make_subs.py senora/cortes.json "$WORK/$N.ass" "$SRC"
   T=$(awk '{gsub(/file |'"'"'/,""); print}' "$WORK/$N.v.txt" | xargs -I{} ffprobe -v error -show_entries format=duration -of csv=p=0 {} | awk '{s+=$1} END{printf "%.3f", s}')
-  ffmpeg -v error -y -f concat -safe 0 -i "$WORK/$N.v.txt" -f concat -safe 0 -i "$WORK/$N.a.txt" \
-    -vf "subtitles=$WORK/$N.ass,fade=t=in:d=0.3,fade=t=out:st=$(awk -v t=$T 'BEGIN{print t-0.4}'):d=0.4,format=yuv420p" \
-    -af "loudnorm=I=-14:TP=-1.5:LRA=8,afade=t=out:st=$(awk -v t=$T 'BEGIN{print t-0.4}'):d=0.4,aresample=48000" -ac 2 \
+  FO=$(awk -v t=$T 'BEGIN{print t-0.4}')
+  if [ -n "${MUSIC[$SRC]:-}" ]; then
+    # musica original (sin derechos), baja sola cuando hablan
+    python3 apolo/make_music.py $T $(awk -v t=$T 'BEGIN{print t-1.6}') "$WORK/$N.music.wav"
+    AMIX="[1:a]loudnorm=I=-14:TP=-1.5:LRA=8,aresample=48000,asplit[voz][sc];
+          [2:a]highpass=f=60,volume=-6dB[mus];
+          [mus][sc]sidechaincompress=threshold=0.05:ratio=2:attack=20:release=350[musd];
+          [voz][musd]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95,afade=t=out:st=$FO:d=0.4[a]"
+    MIN=(-i "$WORK/$N.music.wav")
+  else
+    AMIX="[1:a]loudnorm=I=-14:TP=-1.5:LRA=8,afade=t=out:st=$FO:d=0.4,aresample=48000[a]"
+    MIN=()
+  fi
+  ffmpeg -v error -y -f concat -safe 0 -i "$WORK/$N.v.txt" -f concat -safe 0 -i "$WORK/$N.a.txt" "${MIN[@]}" \
+    -filter_complex "[0:v]subtitles=$WORK/$N.ass,fade=t=in:d=0.3,fade=t=out:st=$FO:d=0.4,format=yuv420p[v];$AMIX" \
+    -map "[v]" -map "[a]" -ac 2 \
     -c:v libx264 -preset slow -crf 17 -profile:v high -pix_fmt yuv420p -c:a aac -b:a 256k -shortest \
     -movflags +faststart "$OUT/$N.mp4"
   ffmpeg -v error -y -i "$OUT/$N.mp4" -c:v libx264 -preset slow -crf 22 -maxrate 4M -bufsize 8M \
