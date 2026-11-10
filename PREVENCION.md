@@ -30,16 +30,24 @@ Los clips 2–6 siguen el orden en que se enviaron.
   (tipos de violencia, manifestaciones, prevención, apóyalo/oriéntalo/ayúdalo),
   sellos con sacudida ("NO SON NORMALES", "¡NO PERMITAS ESO!", "NO ESTÁS SOLA").
 - Barra de progreso arriba.
-- Audio de los clips: filtro paso alto, reducción de ruido y normalización a
-  -14 LUFS (el video no se recomprimió al copiarlo). Efectos de sonido
-  generados con ffmpeg (`public/sfx/`), sin licencias de terceros.
+- Audio de los clips limpiado con `tools/limpiar-audio.sh` (el video no se
+  recomprime): corte de graves (retumbo/viento), reducción de ruido neuronal
+  RNNoise (modelo `sh`), reducción residual, EQ de presencia, compresión y
+  normalización a -14 LUFS. La voz pasó de estar ~10 dB por encima del ruido de
+  fondo a ~29 dB. Se probaron otros modelos y una compuerta, pero se comían
+  consonantes ("Sufrir", "¿Sabías"); se dejó la opción que mejor conserva la voz.
+  Micro-fundidos de audio en cada corte.
+- Efectos de sonido generados con ffmpeg (`public/sfx/`), sin licencias de
+  terceros.
 - Fuentes: Anton y Montserrat Black (OFL). La fuente de la plantilla
   (TheBoldFont) no tiene Í, Ñ ni ¡.
 
 ## Pendiente
 
-- **Número de la línea de atención**: no se dice en los clips. Mientras esté
-  vacío, la tarjeta muestra `[NÚMERO]` en rojo. Prop `lineaAtencion`.
+- **Líneas de atención** (las envía el cliente): prop `lineasAtencion`, lista de
+  `{ "nombre": "...", "numero": "..." }`. Aparecen en la tarjeta del clip 7
+  ("Mira, esta es una línea de atención…") y en el cierre. Mientras la lista
+  esté vacía, la tarjeta muestra `[NÚMERO]` en rojo.
 - **Video del caso real** que anuncia el clip 1: ponerlo en `public/` y pasar
   `casoSrc` (ruta relativa a `public/`).
 - Música de fondo con licencia (opcional).
@@ -48,8 +56,16 @@ Los clips 2–6 siguen el orden en que se enviaron.
 
 ## Render
 
+`casoSeconds` se calcula solo.
+
+Para limpiar el audio de un clip nuevo:
+
+```console
+tools/limpiar-audio.sh entrada.mov public/psa/salida.mov
+```
+
 ```console
 npx remotion render src/index.ts PrevencionViolencia out/prevencion-violencia.mp4 \
   --codec=h264 --crf=16 --audio-bitrate=320k \
-  --props='{"lineaAtencion":"","casoSrc":"","casoSeconds":0}'
+  --props='{"lineasAtencion":[{"nombre":"…","numero":"…"}],"casoSrc":"psa/caso.mp4","casoSeconds":0}'
 ```

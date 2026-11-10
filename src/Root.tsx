@@ -37,7 +37,7 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         durationInFrames={1}
         defaultProps={{
-          lineaAtencion: "",
+          lineasAtencion: [],
           casoSrc: "",
           casoSeconds: 0,
         }}

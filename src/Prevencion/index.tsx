@@ -20,6 +20,7 @@ import {
   CaptionPage,
   Chips,
   HotlineCard,
+  LineaAtencion,
   Outro,
   ProgressBar,
   StampOverlay,
@@ -29,8 +30,8 @@ import {
 export const FPS = 30;
 
 export const prevencionSchema = z.object({
-  /** Número de la línea de atención (no se dice en los clips). */
-  lineaAtencion: z.string(),
+  /** Líneas de atención (no se dicen en los clips; las envía el cliente). */
+  lineasAtencion: z.array(z.object({ nombre: z.string(), numero: z.string() })),
   /** Video del caso real (ruta dentro de public/). Vacío = se omite. */
   casoSrc: z.string(),
   /** Calculado automáticamente a partir de casoSrc. */
@@ -99,8 +100,8 @@ const TRANSITION = 7;
 const ClipSegment: React.FC<{
   readonly clip: Clip;
   readonly duration: number;
-  readonly lineaAtencion: string;
-}> = ({ clip, duration, lineaAtencion }) => {
+  readonly lineas: readonly LineaAtencion[];
+}> = ({ clip, duration, lineas }) => {
   const frame = useCurrentFrame();
 
   const punch = clip.punches.reduce((acc, s) => {
@@ -137,9 +138,14 @@ const ClipSegment: React.FC<{
     return acc + Math.sin(d * 2.6) * 18 * (1 - d / 9);
   }, 0);
 
-  const stampActive = stampFrames.some(
-    (s) => frame >= s.start && frame < s.end,
-  );
+  const hotlineActive =
+    clip.hotline !== undefined &&
+    frame >= toFrame(clip, clip.hotline[0]) &&
+    frame < toFrame(clip, clip.hotline[1]);
+  // Los subtítulos se ocultan mientras hay un sello o la tarjeta de líneas.
+  const stampActive =
+    hotlineActive ||
+    stampFrames.some((s) => frame >= s.start && frame < s.end);
 
   const pages = useMemo(() => {
     const captions: Caption[] = clip.words.map(([text, start, end], i) => ({
@@ -175,6 +181,13 @@ const ClipSegment: React.FC<{
         <OffthreadVideo
           src={staticFile(clip.src)}
           trimBefore={Math.round(clip.trimStart * FPS)}
+          // Micro-fundido para que los cortes no hagan "clic".
+          volume={(f) =>
+            interpolate(f, [0, 2, duration - 3, duration - 1], [0, 1, 1, 0], {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            })
+          }
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </AbsoluteFill>
@@ -221,7 +234,7 @@ const ClipSegment: React.FC<{
             toFrame(clip, clip.hotline[1]) - toFrame(clip, clip.hotline[0])
           }
         >
-          <HotlineCard number={lineaAtencion} />
+          <HotlineCard lineas={lineas} />
         </Sequence>
       ) : null}
 
@@ -288,12 +301,12 @@ export const Prevencion: React.FC<Props> = (props) => {
             <ClipSegment
               clip={seg.clip}
               duration={seg.duration}
-              lineaAtencion={props.lineaAtencion}
+              lineas={props.lineasAtencion}
             />
           ) : seg.kind === "caso" ? (
             <CasoSegment src={seg.src} />
           ) : (
-            <Outro number={props.lineaAtencion} />
+            <Outro lineas={props.lineasAtencion} />
           )}
         </Sequence>
       ))}

@@ -59,7 +59,7 @@ export const CaptionPage: React.FC<{
           fontSize: 100,
           maxWidth: 900,
           lineHeight: 1.08,
-          wordSpacing: "0.22em",
+          wordSpacing: "0.12em",
           textTransform: "uppercase",
           textAlign: "center",
           color: COLORS.white,
@@ -233,13 +233,23 @@ export const StampOverlay: React.FC<{ readonly text: string }> = ({
   );
 };
 
-export const HotlineCard: React.FC<{ readonly number: string }> = ({
-  number,
-}) => {
+export type LineaAtencion = { nombre: string; numero: string };
+
+const lineasValidas = (lineas: readonly LineaAtencion[]) =>
+  lineas.filter((l) => l.numero.trim() !== "");
+
+export const HotlineCard: React.FC<{
+  readonly lineas: readonly LineaAtencion[];
+}> = ({ lineas }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const p = spring({ frame, fps, config: { damping: 11 } });
-  const pending = number.trim() === "";
+  const validas = lineasValidas(lineas);
+  const pending = validas.length === 0;
+  const rows: LineaAtencion[] = pending
+    ? [{ nombre: "", numero: "[NÚMERO]" }]
+    : validas;
+  const numberSize = rows.length === 1 ? 150 : rows.length === 2 ? 110 : 84;
   return (
     <AbsoluteFill
       style={{ justifyContent: "center", alignItems: "center", top: 80 }}
@@ -250,6 +260,7 @@ export const HotlineCard: React.FC<{ readonly number: string }> = ({
           borderRadius: 28,
           padding: "26px 48px 30px",
           textAlign: "center",
+          maxWidth: 940,
           boxShadow: "0 24px 70px rgba(0,0,0,0.45)",
           borderBottom: `14px solid ${COLORS.brand}`,
           transform: `translateY(${interpolate(p, [0, 1], [500, 0])}px) scale(${interpolate(p, [0, 1], [0.6, 1])})`,
@@ -264,22 +275,51 @@ export const HotlineCard: React.FC<{ readonly number: string }> = ({
             letterSpacing: 3,
           }}
         >
-          LÍNEA DE ATENCIÓN
+          {rows.length > 1 ? "LÍNEAS DE ATENCIÓN" : "LÍNEA DE ATENCIÓN"}
         </div>
-        <div
-          style={{
-            fontFamily: DISPLAY_FONT,
-            fontSize: 150,
-            lineHeight: 1.1,
-            color: pending ? COLORS.danger : COLORS.brandDark,
-            border: pending ? `6px dashed ${COLORS.danger}` : undefined,
-            borderRadius: 16,
-            padding: pending ? "0 24px" : 0,
-            marginTop: 8,
-          }}
-        >
-          {pending ? "[NÚMERO]" : number}
-        </div>
+        {rows.map((l, i) => {
+          const rp = spring({
+            frame: frame - 4 - i * 5,
+            fps,
+            config: { damping: 12 },
+          });
+          return (
+            <div
+              key={`${l.numero}-${i}`}
+              style={{
+                marginTop: 10,
+                transform: `scale(${rp})`,
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: DISPLAY_FONT,
+                  fontSize: numberSize,
+                  lineHeight: 1.1,
+                  color: pending ? COLORS.danger : COLORS.brandDark,
+                  border: pending ? `6px dashed ${COLORS.danger}` : undefined,
+                  borderRadius: 16,
+                  padding: pending ? "0 24px" : 0,
+                }}
+              >
+                {l.numero}
+              </div>
+              {l.nombre ? (
+                <div
+                  style={{
+                    fontFamily: UI_FONT,
+                    fontWeight: 900,
+                    fontSize: 32,
+                    color: COLORS.brandDark,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {l.nombre}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
       </div>
     </AbsoluteFill>
   );
@@ -302,7 +342,10 @@ export const ProgressBar: React.FC<{ readonly total: number }> = ({
   );
 };
 
-export const Outro: React.FC<{ readonly number: string }> = ({ number }) => {
+export const Outro: React.FC<{
+  readonly lineas: readonly LineaAtencion[];
+}> = ({ lineas }) => {
+  const validas = lineasValidas(lineas);
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const line = (delay: number) =>
@@ -360,21 +403,33 @@ export const Outro: React.FC<{ readonly number: string }> = ({ number }) => {
         }}
       >
         LA VIOLENCIA SE RECONOCE Y SE DENUNCIA
-        {number.trim() ? (
-          <div
-            style={{
-              marginTop: 28,
-              display: "inline-block",
-              background: COLORS.white,
-              color: COLORS.brandDark,
-              borderRadius: 16,
-              padding: "10px 36px",
-              fontSize: 64,
-            }}
-          >
-            {number}
-          </div>
-        ) : null}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 20,
+            marginTop: 28,
+          }}
+        >
+          {validas.map((l) => (
+            <div
+              key={l.numero}
+              style={{
+                background: COLORS.white,
+                color: COLORS.brandDark,
+                borderRadius: 16,
+                padding: "10px 30px",
+                fontSize: validas.length > 2 ? 44 : 60,
+              }}
+            >
+              {l.numero}
+              {l.nombre ? (
+                <div style={{ fontSize: 24 }}>{l.nombre.toUpperCase()}</div>
+              ) : null}
+            </div>
+          ))}
+        </div>
       </div>
     </AbsoluteFill>
   );
