@@ -1,0 +1,315 @@
+import { Caption, createTikTokStyleCaptions } from "@remotion/captions";
+import { getVideoMetadata } from "@remotion/media-utils";
+import React, { useEffect, useMemo } from "react";
+import {
+  AbsoluteFill,
+  Audio,
+  CalculateMetadataFunction,
+  Easing,
+  interpolate,
+  OffthreadVideo,
+  Sequence,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
+import { z } from "zod";
+import { CLIPS, Clip, OUTRO_SECONDS } from "./data";
+import { loadPrevencionFonts } from "./fonts";
+import {
+  CaptionPage,
+  Chips,
+  HotlineCard,
+  Outro,
+  ProgressBar,
+  StampOverlay,
+  TitleChip,
+} from "./Overlays";
+
+export const FPS = 30;
+
+export const prevencionSchema = z.object({
+  /** Número de la línea de atención (no se dice en los clips). */
+  lineaAtencion: z.string(),
+  /** Video del caso real (ruta dentro de public/). Vacío = se omite. */
+  casoSrc: z.string(),
+  /** Calculado automáticamente a partir de casoSrc. */
+  casoSeconds: z.number(),
+});
+
+type Props = z.infer<typeof prevencionSchema>;
+
+type Segment =
+  | { kind: "clip"; clip: Clip; from: number; duration: number }
+  | { kind: "caso"; src: string; from: number; duration: number }
+  | { kind: "outro"; from: number; duration: number };
+
+const clipFrames = (c: Clip) => Math.round((c.trimEnd - c.trimStart) * FPS);
+
+const buildTimeline = (props: Props): Segment[] => {
+  const out: Segment[] = [];
+  let cursor = 0;
+  CLIPS.forEach((clip, i) => {
+    const duration = clipFrames(clip);
+    out.push({ kind: "clip", clip, from: cursor, duration });
+    cursor += duration;
+    // El caso real va justo después de la introducción ("A continuación te
+    // voy a presentar un caso...").
+    if (i === 0 && props.casoSrc && props.casoSeconds > 0) {
+      const d = Math.round(props.casoSeconds * FPS);
+      out.push({ kind: "caso", src: props.casoSrc, from: cursor, duration: d });
+      cursor += d;
+    }
+  });
+  out.push({
+    kind: "outro",
+    from: cursor,
+    duration: Math.round(OUTRO_SECONDS * FPS),
+  });
+  return out;
+};
+
+const totalFrames = (segments: Segment[]) => {
+  const last = segments[segments.length - 1];
+  return last.from + last.duration;
+};
+
+export const calculatePrevencionMetadata: CalculateMetadataFunction<
+  Props
+> = async ({ props }) => {
+  let casoSeconds = 0;
+  if (props.casoSrc) {
+    const meta = await getVideoMetadata(staticFile(props.casoSrc));
+    casoSeconds = meta.durationInSeconds;
+  }
+  const next = { ...props, casoSeconds };
+  return {
+    fps: FPS,
+    durationInFrames: totalFrames(buildTimeline(next)),
+    props: next,
+  };
+};
+
+const toFrame = (clip: Clip, seconds: number) =>
+  Math.round((seconds - clip.trimStart) * FPS);
+
+/** Entrada de cada corte: zoom + desenfoque + destello. */
+const TRANSITION = 7;
+
+const ClipSegment: React.FC<{
+  readonly clip: Clip;
+  readonly duration: number;
+  readonly lineaAtencion: string;
+}> = ({ clip, duration, lineaAtencion }) => {
+  const frame = useCurrentFrame();
+
+  const punch = clip.punches.reduce((acc, s) => {
+    const d = frame - toFrame(clip, s);
+    return (
+      acc +
+      interpolate(d, [0, 3, 14], [0, 0.07, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    );
+  }, 0);
+
+  const push = interpolate(frame, [0, duration], [0, 0.05]);
+  const enter = interpolate(frame, [0, TRANSITION], [0.2, 0], {
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const blur = interpolate(frame, [0, 5], [10, 0], {
+    extrapolateRight: "clamp",
+  });
+
+  const stampFrames = clip.stamps.map((s) => ({
+    ...s,
+    start: toFrame(clip, s.from),
+    end: toFrame(clip, s.to),
+  }));
+
+  const shake = stampFrames.reduce((acc, s) => {
+    const d = frame - s.start;
+    if (d < 0 || d > 9) {
+      return acc;
+    }
+    return acc + Math.sin(d * 2.6) * 18 * (1 - d / 9);
+  }, 0);
+
+  const stampActive = stampFrames.some(
+    (s) => frame >= s.start && frame < s.end,
+  );
+
+  const pages = useMemo(() => {
+    const captions: Caption[] = clip.words.map(([text, start, end], i) => ({
+      text: (i === 0 ? "" : " ") + text,
+      startMs: Math.max(0, (start - clip.trimStart) * 1000),
+      endMs: Math.max(0, (end - clip.trimStart) * 1000),
+      timestampMs: null,
+      confidence: 1,
+    }));
+    return createTikTokStyleCaptions({
+      captions,
+      combineTokensWithinMilliseconds: 900,
+    }).pages;
+  }, [clip]);
+
+  const durationMs = (duration / FPS) * 1000;
+
+  const chips = clip.chips.map((c) => ({
+    text: c.text,
+    tone: c.tone,
+    frame: toFrame(clip, c.at),
+  }));
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: "black", overflow: "hidden" }}>
+      <AbsoluteFill
+        style={{
+          transform: `translateX(${shake}px) scale(${clip.baseZoom + push + punch + enter})`,
+          transformOrigin: "50% 30%",
+          filter: blur > 0.1 ? `blur(${blur}px)` : undefined,
+        }}
+      >
+        <OffthreadVideo
+          src={staticFile(clip.src)}
+          trimBefore={Math.round(clip.trimStart * FPS)}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </AbsoluteFill>
+
+      {/* Viñeta para que el texto respire */}
+      <AbsoluteFill
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)",
+        }}
+      />
+
+      <TitleChip text={clip.title} />
+
+      {pages.map((page, i) => {
+        const next = pages[i + 1];
+        const start = Math.round((page.startMs / 1000) * FPS);
+        const endMs = Math.min(
+          next ? next.startMs : durationMs,
+          page.startMs + page.durationMs + 500,
+        );
+        const end = Math.round((endMs / 1000) * FPS);
+        if (end <= start) {
+          return null;
+        }
+        return (
+          <Sequence
+            key={page.startMs}
+            from={start}
+            durationInFrames={end - start}
+            layout="none"
+          >
+            <CaptionPage page={page} hidden={stampActive} />
+          </Sequence>
+        );
+      })}
+
+      <Chips chips={chips} />
+
+      {clip.hotline ? (
+        <Sequence
+          from={toFrame(clip, clip.hotline[0])}
+          durationInFrames={
+            toFrame(clip, clip.hotline[1]) - toFrame(clip, clip.hotline[0])
+          }
+        >
+          <HotlineCard number={lineaAtencion} />
+        </Sequence>
+      ) : null}
+
+      {stampFrames.map((s) => (
+        <Sequence key={s.text} from={s.start} durationInFrames={s.end - s.start}>
+          <StampOverlay text={s.text} />
+        </Sequence>
+      ))}
+
+      {/* Destello del corte */}
+      <AbsoluteFill
+        style={{
+          backgroundColor: "white",
+          opacity: interpolate(frame, [0, 5], [0.6, 0], {
+            extrapolateRight: "clamp",
+          }),
+        }}
+      />
+
+      {/* Efectos de sonido (generados, sin licencias de terceros) */}
+      {chips.map((c) => (
+        <Sequence key={`pop-${c.text}`} from={c.frame} durationInFrames={8}>
+          <Audio src={staticFile("sfx/pop.wav")} volume={0.35} />
+        </Sequence>
+      ))}
+      {stampFrames.map((s) => (
+        <Sequence key={`impact-${s.text}`} from={s.start} durationInFrames={14}>
+          <Audio src={staticFile("sfx/impact.wav")} volume={0.5} />
+        </Sequence>
+      ))}
+    </AbsoluteFill>
+  );
+};
+
+const CasoSegment: React.FC<{ readonly src: string }> = ({ src }) => (
+  <AbsoluteFill style={{ backgroundColor: "black" }}>
+    <OffthreadVideo
+      src={staticFile(src)}
+      style={{ width: "100%", height: "100%", objectFit: "contain" }}
+    />
+    <TitleChip text="CASO REAL · COLOMBIA" />
+  </AbsoluteFill>
+);
+
+export const Prevencion: React.FC<Props> = (props) => {
+  useEffect(() => {
+    loadPrevencionFonts();
+  }, []);
+
+  const segments = useMemo(() => buildTimeline(props), [props]);
+  const total = totalFrames(segments);
+  const { fps } = useVideoConfig();
+
+  return (
+    <AbsoluteFill style={{ backgroundColor: "black" }}>
+      {segments.map((seg) => (
+        <Sequence
+          key={`${seg.kind}-${seg.from}`}
+          from={seg.from}
+          durationInFrames={seg.duration}
+          premountFor={fps}
+        >
+          {seg.kind === "clip" ? (
+            <ClipSegment
+              clip={seg.clip}
+              duration={seg.duration}
+              lineaAtencion={props.lineaAtencion}
+            />
+          ) : seg.kind === "caso" ? (
+            <CasoSegment src={seg.src} />
+          ) : (
+            <Outro number={props.lineaAtencion} />
+          )}
+        </Sequence>
+      ))}
+
+      {/* Whoosh antes de cada corte */}
+      {segments.slice(1).map((seg) => (
+        <Sequence
+          key={`whoosh-${seg.from}`}
+          from={Math.max(0, seg.from - 6)}
+          durationInFrames={14}
+        >
+          <Audio src={staticFile("sfx/whoosh.wav")} volume={0.45} />
+        </Sequence>
+      ))}
+
+      <ProgressBar total={total} />
+    </AbsoluteFill>
+  );
+};
