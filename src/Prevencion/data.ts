@@ -104,7 +104,7 @@ export const CLIPS: readonly Clip[] = [
   {
     src: "psa/03-tipos.mov",
     keep: [
-      [0.5, 3.16],
+      [0.56, 3.16],
       [3.36, 5.42],
       [5.82, 6.66],
       [7.22, 8.0],
@@ -112,8 +112,8 @@ export const CLIPS: readonly Clip[] = [
     title: "TIPOS DE VIOLENCIA",
     baseZoom: 1.12,
     words: [
-      ["Es", 0.5, 0.6],
-      ["que", 0.6, 0.7],
+      ["Es", 0.56, 0.62],
+      ["que", 0.62, 0.7],
       ["estos", 0.7, 0.88],
       ["casos", 0.88, 1.08],
       ["no", 1.08, 1.22],
