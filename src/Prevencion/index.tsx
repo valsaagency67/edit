@@ -16,6 +16,7 @@ import {
 import { z } from "zod";
 import { CLIPS, Clip, OUTRO_SECONDS } from "./data";
 import { loadPrevencionFonts } from "./fonts";
+import { clipFrames, FPS, getCuts, toFrame } from "./timing";
 import {
   CaptionPage,
   Chips,
@@ -27,7 +28,7 @@ import {
   TitleChip,
 } from "./Overlays";
 
-export const FPS = 30;
+export { FPS };
 
 export const prevencionSchema = z.object({
   /** Líneas de atención (no se dicen en los clips; las envía el cliente). */
@@ -44,8 +45,6 @@ type Segment =
   | { kind: "clip"; clip: Clip; from: number; duration: number }
   | { kind: "caso"; src: string; from: number; duration: number }
   | { kind: "outro"; from: number; duration: number };
-
-const clipFrames = (c: Clip) => Math.round((c.trimEnd - c.trimStart) * FPS);
 
 const buildTimeline = (props: Props): Segment[] => {
   const out: Segment[] = [];
@@ -91,9 +90,6 @@ export const calculatePrevencionMetadata: CalculateMetadataFunction<
   };
 };
 
-const toFrame = (clip: Clip, seconds: number) =>
-  Math.round((seconds - clip.trimStart) * FPS);
-
 /** Entrada de cada corte: zoom + desenfoque + destello. */
 const TRANSITION = 7;
 
@@ -103,6 +99,7 @@ const ClipSegment: React.FC<{
   readonly lineas: readonly LineaAtencion[];
 }> = ({ clip, duration, lineas }) => {
   const frame = useCurrentFrame();
+  const cuts = useMemo(() => getCuts(clip), [clip]);
 
   const punch = clip.punches.reduce((acc, s) => {
     const d = frame - toFrame(clip, s);
@@ -144,14 +141,14 @@ const ClipSegment: React.FC<{
     frame < toFrame(clip, clip.hotline[1]);
   // Los subtítulos se ocultan mientras hay un sello o la tarjeta de líneas.
   const stampActive =
-    hotlineActive ||
-    stampFrames.some((s) => frame >= s.start && frame < s.end);
+    hotlineActive || stampFrames.some((s) => frame >= s.start && frame < s.end);
 
   const pages = useMemo(() => {
     const captions: Caption[] = clip.words.map(([text, start, end], i) => ({
       text: (i === 0 ? "" : " ") + text,
-      startMs: Math.max(0, (start - clip.trimStart) * 1000),
-      endMs: Math.max(0, (end - clip.trimStart) * 1000),
+      startMs: (toFrame(clip, start) / FPS) * 1000,
+      endMs:
+        (Math.max(toFrame(clip, end), toFrame(clip, start) + 2) / FPS) * 1000,
       timestampMs: null,
       confidence: 1,
     }));
@@ -178,18 +175,37 @@ const ClipSegment: React.FC<{
           filter: blur > 0.1 ? `blur(${blur}px)` : undefined,
         }}
       >
-        <OffthreadVideo
-          src={staticFile(clip.src)}
-          trimBefore={Math.round(clip.trimStart * FPS)}
-          // Micro-fundido para que los cortes no hagan "clic".
-          volume={(f) =>
-            interpolate(f, [0, 2, duration - 3, duration - 1], [0, 1, 1, 0], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            })
-          }
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
-        />
+        {cuts.map((cut, i) => (
+          <Sequence
+            key={cut.start}
+            from={cut.from}
+            durationInFrames={cut.duration}
+            premountFor={15}
+          >
+            {/* Cada salto cambia un poco el encuadre para disimular el corte. */}
+            <AbsoluteFill
+              style={{
+                transform: `scale(${i % 2 === 1 ? 1.09 : 1})`,
+                transformOrigin: "50% 30%",
+              }}
+            >
+              <OffthreadVideo
+                src={staticFile(clip.src)}
+                trimBefore={Math.round(cut.start * FPS)}
+                // Micro-fundido para que los cortes no hagan "clic".
+                volume={(f) =>
+                  interpolate(
+                    f,
+                    [0, 2, cut.duration - 3, cut.duration - 1],
+                    [0, 1, 1, 0],
+                    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+                  )
+                }
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </AbsoluteFill>
+          </Sequence>
+        ))}
       </AbsoluteFill>
 
       {/* Viñeta para que el texto respire */}
@@ -239,7 +255,11 @@ const ClipSegment: React.FC<{
       ) : null}
 
       {stampFrames.map((s) => (
-        <Sequence key={s.text} from={s.start} durationInFrames={s.end - s.start}>
+        <Sequence
+          key={s.text}
+          from={s.start}
+          durationInFrames={s.end - s.start}
+        >
           <StampOverlay text={s.text} />
         </Sequence>
       ))}

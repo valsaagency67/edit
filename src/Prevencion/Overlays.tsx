@@ -105,9 +105,7 @@ export const TitleChip: React.FC<{ readonly text: string }> = ({ text }) => {
     return null;
   }
   return (
-    <AbsoluteFill
-      style={{ top: TITLE_TOP, height: 110, alignItems: "center" }}
-    >
+    <AbsoluteFill style={{ top: TITLE_TOP, height: 110, alignItems: "center" }}>
       <div
         style={{
           fontFamily: DISPLAY_FONT,
@@ -195,9 +193,7 @@ export const Chips: React.FC<{
   );
 };
 
-export const StampOverlay: React.FC<{ readonly text: string }> = ({
-  text,
-}) => {
+export const StampOverlay: React.FC<{ readonly text: string }> = ({ text }) => {
   const frame = useCurrentFrame();
   const { fps, width } = useVideoConfig();
   const p = spring({ frame, fps, config: { damping: 9, stiffness: 200 } });

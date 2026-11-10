@@ -10,7 +10,7 @@ Código en `src/Prevencion/`, clips en `public/psa/`.
 | 1 | `01-intro-caso.mov` | "A continuación te voy a presentar un caso que se dio aquí en Colombia de abuso contra la mujer." |
 | — | *(caso real, opcional)* | Se inserta aquí si se pasa `casoSrc`. |
 | 2 | `02-no-son-normales.mov` | "Sufrir alguno de estos casos, estas problemáticas no son normales y no es algo que debes dejar pasar." |
-| 3 | `03-tipos.mov` | "¿Sabías que estos casos no solamente se ven mediante lo físico, sino que se pueden ver como psicológico, económico y sexual?" |
+| 3 | `03-tipos.mov` | "(Ya,) es que estos casos no solamente se ven mediante lo físico, sino que se pueden ver como psicológico, económico y sexual?" |
 | 4 | `04-manifestaciones.mov` | "Se pueden manifestar mediante insultos, golpes, humillaciones y control de la persona. ¡No permitas eso!" |
 | 5 | `05-prevenir.mov` | "¿Cómo podemos prevenir? Reconociendo las señales de alerta, promoviendo el respeto y la igualdad y promoviendo relaciones libres de violencia." |
 | 6 | `06-sin-miedo.mov` | "Recuerda que las mujeres no deben vivir con miedo. Si conoces a alguien que sufre esto, apóyalo, oriéntalo, ayúdalo." |
@@ -21,6 +21,12 @@ Código en `src/Prevencion/`, clips en `public/psa/`.
 Los clips 2–6 siguen el orden en que se enviaron.
 
 ## Edición
+
+- Recorte de pausas y muletillas: cada clip conserva solo los tramos de
+  `keep` en `src/Prevencion/data.ts`. Se quitaron las pausas largas, los "eee"
+  del clip de prevención, el "eh" antes de "apóyalo", el murmullo entre
+  "casos" y "estas", y el "ya" al inicio del clip de tipos ("…es que estos
+  casos"). Cada salto cambia un poco el encuadre para disimular el corte.
 
 - Subtítulos palabra por palabra (transcritos con Whisper y corregidos a mano
   en `src/Prevencion/data.ts`), palabra activa en amarillo.
