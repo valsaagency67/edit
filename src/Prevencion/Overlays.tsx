@@ -348,7 +348,8 @@ export const Outro: React.FC<{
     spring({ frame: frame - delay, fps, config: { damping: 12 } });
   const l1 = line(0);
   const l2 = line(6);
-  const l3 = line(14);
+  const l3 = line(16);
+  const l4 = line(26);
   return (
     <AbsoluteFill
       style={{
@@ -362,7 +363,7 @@ export const Outro: React.FC<{
       <div
         style={{
           fontFamily: DISPLAY_FONT,
-          fontSize: 132,
+          fontSize: 120,
           lineHeight: 1.05,
           color: COLORS.white,
           transform: `scale(${l1})`,
@@ -375,9 +376,9 @@ export const Outro: React.FC<{
       <div
         style={{
           fontFamily: DISPLAY_FONT,
-          fontSize: 132,
+          fontSize: 120,
           lineHeight: 1.05,
-          marginTop: 20,
+          marginTop: 16,
           color: COLORS.highlight,
           transform: `scale(${l2}) rotate(-3deg)`,
         }}
@@ -388,24 +389,42 @@ export const Outro: React.FC<{
       </div>
       <div
         style={{
-          fontFamily: UI_FONT,
-          fontWeight: 900,
-          fontSize: 40,
-          color: COLORS.white,
-          marginTop: 70,
+          fontFamily: DISPLAY_FONT,
+          fontSize: 76,
+          marginTop: 56,
+          background: COLORS.white,
+          color: COLORS.brandDark,
+          borderRadius: 18,
+          padding: "6px 36px",
           letterSpacing: 2,
-          opacity: l3,
-          transform: `translateY(${interpolate(l3, [0, 1], [40, 0])}px)`,
+          transform: `scale(${l3})`,
         }}
       >
-        LA VIOLENCIA SE RECONOCE Y SE DENUNCIA
+        NO ESTÁS SOLA.
+      </div>
+      <div
+        style={{
+          fontFamily: UI_FONT,
+          fontWeight: 900,
+          fontSize: 38,
+          color: COLORS.white,
+          marginTop: 36,
+          letterSpacing: 2,
+          lineHeight: 1.3,
+          opacity: l4,
+          transform: `translateY(${interpolate(l4, [0, 1], [40, 0])}px)`,
+        }}
+      >
+        LA VIOLENCIA SE PREVIENE,
+        <br />
+        SE RECONOCE Y SE DENUNCIA.
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "center",
             gap: 20,
-            marginTop: 28,
+            marginTop: 32,
           }}
         >
           {validas.map((l) => (
@@ -415,13 +434,24 @@ export const Outro: React.FC<{
                 background: COLORS.white,
                 color: COLORS.brandDark,
                 borderRadius: 16,
-                padding: "10px 30px",
-                fontSize: validas.length > 2 ? 44 : 60,
+                padding: "10px 34px",
+                fontSize: validas.length > 2 ? 48 : 72,
+                fontFamily: DISPLAY_FONT,
+                fontWeight: 400,
+                lineHeight: 1.1,
               }}
             >
               {l.numero}
               {l.nombre ? (
-                <div style={{ fontSize: 24 }}>{l.nombre.toUpperCase()}</div>
+                <div
+                  style={{
+                    fontFamily: UI_FONT,
+                    fontWeight: 900,
+                    fontSize: 26,
+                  }}
+                >
+                  {l.nombre.toUpperCase()}
+                </div>
               ) : null}
             </div>
           ))}

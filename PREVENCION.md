@@ -50,10 +50,12 @@ Los clips 2–6 siguen el orden en que se enviaron.
 
 ## Pendiente
 
-- **Líneas de atención** (las envía el cliente): prop `lineasAtencion`, lista de
-  `{ "nombre": "...", "numero": "..." }`. Aparecen en la tarjeta del clip 7
-  ("Mira, esta es una línea de atención…") y en el cierre. Mientras la lista
-  esté vacía, la tarjeta muestra `[NÚMERO]` en rojo.
+- **Líneas de atención**: ya cargadas con lo que envió el cliente:
+  Colombia **155** y Emergencias **123** (valores por defecto de
+  `lineasAtencion` en `src/Root.tsx`; se pueden cambiar o añadir otras con
+  `{ "nombre": "...", "numero": "..." }`). Salen en la tarjeta del clip 7
+  ("Mira, esta es una línea de atención…") y en el cierre, junto con
+  "No estás sola. La violencia se previene, se reconoce y se denuncia."
 - **Video del caso real** que anuncia el clip 1: ponerlo en `public/` y pasar
   `casoSrc` (ruta relativa a `public/`).
 - Música de fondo con licencia (opcional).
@@ -73,5 +75,5 @@ tools/limpiar-audio.sh entrada.mov public/psa/salida.mov
 ```console
 npx remotion render src/index.ts PrevencionViolencia out/prevencion-violencia.mp4 \
   --codec=h264 --crf=16 --audio-bitrate=320k \
-  --props='{"lineasAtencion":[{"nombre":"…","numero":"…"}],"casoSrc":"psa/caso.mp4","casoSeconds":0}'
+  --props='{"lineasAtencion":[{"nombre":"Colombia","numero":"155"},{"nombre":"Emergencias","numero":"123"}],"casoSrc":"psa/caso.mp4","casoSeconds":0}'
 ```

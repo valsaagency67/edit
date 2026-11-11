@@ -37,7 +37,10 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         durationInFrames={1}
         defaultProps={{
-          lineasAtencion: [],
+          lineasAtencion: [
+            { nombre: "Colombia", numero: "155" },
+            { nombre: "Emergencias", numero: "123" },
+          ],
           casoSrc: "",
           casoSeconds: 0,
         }}
