@@ -10,8 +10,9 @@ Justicia como ejemplo. Carpeta de Drive «Pepo1».
   en 1.3–3.6 kHz, con un excitador suave para devolver brillo.
 - public/pepo/musica.wav: pieza propia sombría (Re menor, 60 bpm: contrabajo, chelo, piano grave y violín en
   «palacio»), muestras reales tonejs-instruments (CC-BY 3.0), ~19 dB bajo la voz y con ducking.
-- public/pepo/foley.wav: efectos del video de referencia del cliente, de vez en cuando: obturador en los
-  cortes de `shutters`, en la primera foto de apoyo de cada escena y clic en el escrito final.
+- public/pepo/foley.wav: efectos del video de referencia del cliente: whoosh en cada zoom in / zoom out (lo pidió
+  el cliente), obturador en los cortes de `shutters` y en la primera foto de apoyo de cada escena, clic en el
+  escrito final.
 Salida de la línea de tiempo: src/campaign/pepo.json.
 
 Uso: python3 scripts/build_pepo.py
@@ -109,6 +110,20 @@ def musica(data):
     write_wav(f"{OUT}/musica.wav", m * gain[:, None], 2)
 
 
+def zooms(data):
+    """Los mismos zooms que TomasVideo (src/campaign/Tomas.tsx, prop punch): por escena, al empezar un
+    subtítulo cuando ya pasaron 2.5 s (1.2 s en el gancho) y quedan al menos 1.0 s. Devuelve (s, cerrado?)."""
+    out = []
+    for i, sc in enumerate(data["scenes"]):
+        start, end = sc["shots"][0]["start"], sc["shots"][-1]["end"]
+        every, last, close = (1.2 if i == 0 else 2.5), start, False
+        for c in sc["captions"]:
+            if c["start"] - last >= every and end - c["start"] >= 1.0:
+                close, last = not close, c["start"]
+                out.append((round(c["start"] * data["fps"]) / data["fps"], close))
+    return out
+
+
 def foley(data):
     """Solo efectos del video de referencia y de vez en cuando: obturador en los cortes de `shutters` y en
     la primera foto de apoyo de una escena; clic en el escrito final. Los subtítulos entran sin sonido."""
@@ -121,6 +136,14 @@ def foley(data):
             mf.place(buf, click * 0.7, c["start"])
         if sc["photos"] and "img" in sc["photos"][0] and sc["key"] not in CFG["shutters"]:
             mf.place(buf, shutter * 0.35, sc["photos"][0]["start"] - 0.03)
+    # Whoosh del video de referencia en cada zoom (lo pidió el cliente): al acercar, normal y con el pico al
+    # empezar el zoom; al alejar, al revés (termina cuando termina el zoom, 0.4 s).
+    whoosh = sample("whoosh")
+    for at, close in zooms(data):
+        if close:
+            mf.place(buf, whoosh * 0.45, at - 0.06)
+        else:
+            mf.place(buf, whoosh[::-1] * 0.4, at + 0.4 - len(whoosh) / SR)
     if "outro" in data:
         mf.place(buf, click * 0.7, data["outro"]["start"])
     write_wav(f"{OUT}/foley.wav", buf / max(1e-9, np.abs(buf).max()) * 10 ** (-3 / 20), 2)

@@ -286,6 +286,7 @@ const pieces = (text: string) =>
 // dinamismo»): dentro de cada escena la toma alterna con un zoom rápido (0.4 s, suave) entre el plano normal
 // y uno más cerrado (escala `punch`, centrado en la cara en punchOrigin) al empezar un subtítulo cuando ya
 // pasaron ~2.5 s (en el gancho, ~1.2 s). Cada escena (después del corte) empieza en plano normal.
+// (scripts/build_pepo.py repite este cálculo en zooms() para poner el whoosh: si cambia aquí, cambiarlo allá.)
 // punchCut: en vez de zoom animado, reencuadre seco (como antes de que el cliente pidiera los zooms).
 // base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).

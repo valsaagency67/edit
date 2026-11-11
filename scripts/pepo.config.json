@@ -1,5 +1,5 @@
 {
-  "_doc": "Video de Juan Felipe al estilo del video argentino «Recuperar la cultura política no es nostalgia» (media/ref/referencia-3.mp4): cultura política y desinformación por saturación, con el Palacio de Justicia como ejemplo. Siete tomas de la carpeta de Drive «Pepo1» (4K vertical), cada una empieza con «Ya,», que se descarta. Lo arma scripts/build_pepo.py -> src/campaign/pepo.json. Las imágenes y videos de apoyo los manda el cliente después.",
+  "_doc": "Video de Juan Felipe al estilo del video argentino «Recuperar la cultura política no es nostalgia» (media/ref/referencia-3.mp4): cultura política y desinformación por saturación, con el Palacio de Justicia como ejemplo. Siete tomas de la carpeta de Drive «Pepo1» (4K vertical), cada una empieza con «Ya,», que se descarta (cleanStart: la toma arranca justo después del silencio que sigue al «Ya»). Lo arma scripts/build_pepo.py -> src/campaign/pepo.json. Las imágenes y videos de apoyo los manda el cliente después.",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -170,5 +170,6 @@
       ],
       "cards": []
     }
-  ]
+  ],
+  "cleanStart": true
 }

@@ -116,6 +116,30 @@ def cut_pauses(x, pause):
     return np.concatenate(parts), [(a * 0.01, b * 0.01) for a, b in keep]
 
 
+def speech_onset(x, first, pause):
+    """Comienzo de la voz que lleva a la primera palabra: final del último silencio de al menos 0.15 s que
+    termina antes de first + 0.45 s (los tiempos de Parakeet salen hasta ~0.4 s adelantados). Mismo umbral
+    de voz que cut_pauses."""
+    hop = int(0.01 * SR)
+    n = len(x) // hop
+    db = 20 * np.log10(np.sqrt(np.mean(x[: n * hop].reshape(n, hop) ** 2, 1)) + 1e-9)
+    floor, speech = np.percentile(db, 10), np.percentile(db, 90)
+    loud = db >= max(floor + pause["threshold"] * (speech - floor), speech - 26)
+    limit = min(n, int((first + 0.45) / 0.01))
+    onset, k = 0, 0
+    while k < limit:
+        if not loud[k]:
+            j = k
+            while j < n and not loud[j]:
+                j += 1
+            if (j - k) >= 15 and j <= limit:
+                onset = j
+            k = j
+        else:
+            k += 1
+    return onset * 0.01
+
+
 def words_for(x, text):
     import transcribe_whisper as tw
     if not hasattr(words_for, "rec"):
@@ -204,6 +228,10 @@ class Proyecto:
                 aligned = words_for(raw, sc["text"])
                 first = aligned[0]["s"]
                 off = max(0.0, first - 0.3)
+                if cfg.get("cleanStart"):
+                    # Las tomas empiezan con una muletilla («Ya,») muy pegada a la primera palabra: se arranca
+                    # al final del último silencio (>= 0.15 s) antes de la primera palabra, 0.06 s antes de la voz.
+                    off = max(off, speech_onset(raw, first, cfg["pause"]) - 0.06)
                 if sc.get("endAtText"):
                     # La toma sigue con algo que no va (otra frase): se corta 0.3 s después de la última
                     # palabra del texto.
