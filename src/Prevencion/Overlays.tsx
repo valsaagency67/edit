@@ -234,90 +234,78 @@ export type LineaAtencion = { nombre: string; numero: string };
 const lineasValidas = (lineas: readonly LineaAtencion[]) =>
   lineas.filter((l) => l.numero.trim() !== "");
 
-export const HotlineCard: React.FC<{
-  readonly lineas: readonly LineaAtencion[];
-}> = ({ lineas }) => {
+export const PointCard: React.FC<{
+  /** null = todavía no hay número (se muestra [NÚMERO]). */
+  readonly linea: LineaAtencion | null;
+  /** Punta del dedo, como fracción del cuadro (0–1). */
+  readonly x: number;
+  readonly y: number;
+}> = ({ linea, x, y }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const p = spring({ frame, fps, config: { damping: 11 } });
-  const validas = lineasValidas(lineas);
-  const pending = validas.length === 0;
-  const rows: LineaAtencion[] = pending
-    ? [{ nombre: "", numero: "[NÚMERO]" }]
-    : validas;
-  const numberSize = rows.length === 1 ? 150 : rows.length === 2 ? 100 : 84;
+  const { fps, width, height } = useVideoConfig();
+  const p = spring({ frame, fps, config: { damping: 9, stiffness: 200 } });
+  const pending = linea === null;
   return (
-    <AbsoluteFill
-      style={{ justifyContent: "center", alignItems: "center", top: -70 }}
+    <div
+      style={{
+        position: "absolute",
+        left: x * width,
+        top: y * height - 34,
+        transformOrigin: "50% 100%",
+        transform: `translate(-50%, -100%) scale(${p})`,
+        opacity: Math.min(1, p * 3),
+      }}
     >
       <div
         style={{
           background: COLORS.white,
-          borderRadius: 28,
-          padding: "26px 48px 30px",
+          borderRadius: 24,
+          padding: "10px 26px 14px",
           textAlign: "center",
-          maxWidth: 940,
-          boxShadow: "0 24px 70px rgba(0,0,0,0.45)",
-          borderBottom: `14px solid ${COLORS.brand}`,
-          transform: `translateY(${interpolate(p, [0, 1], [500, 0])}px) scale(${interpolate(p, [0, 1], [0.6, 1])})`,
+          borderBottom: `12px solid ${COLORS.brand}`,
+          boxShadow: "0 18px 50px rgba(0,0,0,0.45)",
         }}
       >
         <div
           style={{
-            fontFamily: UI_FONT,
-            fontWeight: 900,
-            fontSize: 38,
-            color: COLORS.brand,
-            letterSpacing: 3,
+            fontFamily: DISPLAY_FONT,
+            fontSize: pending ? 70 : 130,
+            lineHeight: 1.05,
+            whiteSpace: "nowrap",
+            color: pending ? COLORS.danger : COLORS.brandDark,
           }}
         >
-          {rows.length > 1 ? "LÍNEAS DE ATENCIÓN" : "LÍNEA DE ATENCIÓN"}
+          {pending ? "[NÚMERO]" : linea.numero}
         </div>
-        {rows.map((l, i) => {
-          const rp = spring({
-            frame: frame - 4 - i * 5,
-            fps,
-            config: { damping: 12 },
-          });
-          return (
-            <div
-              key={`${l.numero}-${i}`}
-              style={{
-                marginTop: 10,
-                transform: `scale(${rp})`,
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: DISPLAY_FONT,
-                  fontSize: numberSize,
-                  lineHeight: 1.1,
-                  color: pending ? COLORS.danger : COLORS.brandDark,
-                  border: pending ? `6px dashed ${COLORS.danger}` : undefined,
-                  borderRadius: 16,
-                  padding: pending ? "0 24px" : 0,
-                }}
-              >
-                {l.numero}
-              </div>
-              {l.nombre ? (
-                <div
-                  style={{
-                    fontFamily: UI_FONT,
-                    fontWeight: 900,
-                    fontSize: 32,
-                    color: COLORS.brandDark,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  {l.nombre}
-                </div>
-              ) : null}
-            </div>
-          );
-        })}
+        {linea?.nombre ? (
+          <div
+            style={{
+              fontFamily: UI_FONT,
+              fontWeight: 900,
+              fontSize: 27,
+              letterSpacing: 1,
+              color: COLORS.brandDark,
+              textTransform: "uppercase",
+            }}
+          >
+            {linea.nombre}
+          </div>
+        ) : null}
       </div>
-    </AbsoluteFill>
+      <div
+        style={{
+          position: "absolute",
+          left: "50%",
+          bottom: -22,
+          transform: "translateX(-50%)",
+          width: 0,
+          height: 0,
+          borderLeft: "18px solid transparent",
+          borderRight: "18px solid transparent",
+          borderTop: `24px solid ${COLORS.brand}`,
+        }}
+      />
+    </div>
   );
 };
 

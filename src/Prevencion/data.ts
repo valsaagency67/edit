@@ -12,6 +12,14 @@ export type Chip = {
   readonly tone: ChipTone;
 };
 
+export type Pointer = {
+  readonly linea: number;
+  readonly at: number;
+  readonly to: number;
+  readonly x: number;
+  readonly y: number;
+};
+
 export type Stamp = {
   readonly text: string;
   readonly from: number;
@@ -34,8 +42,12 @@ export type Clip = {
   readonly punches: readonly number[];
   readonly chips: readonly Chip[];
   readonly stamps: readonly Stamp[];
-  /** Muestra la tarjeta con la línea de atención entre estos tiempos. */
-  readonly hotline?: readonly [number, number];
+  /**
+   * Tarjetas que "salen" del dedo cuando señala en el aire. `linea` es el
+   * índice en lineasAtencion; x/y es la punta del dedo como fracción del
+   * cuadro (0–1); at/to en segundos del clip original.
+   */
+  readonly pointers?: readonly Pointer[];
 };
 
 export const CLIPS: readonly Clip[] = [
@@ -302,7 +314,12 @@ export const CLIPS: readonly Clip[] = [
       { text: "Se denuncia", at: 8.54, tone: "check" },
     ],
     stamps: [{ text: "NO ESTÁS SOLA", from: 4.92, to: 6.2 }],
-    hotline: [1.0, 3.9],
+    pointers: [
+      // Primer gesto: apunta arriba a la derecha (≈2.2–2.5 s).
+      { linea: 0, at: 2.15, to: 4.4, x: 0.72, y: 0.29 },
+      // Segundo gesto: apunta arriba a la izquierda (≈2.8–3.9 s).
+      { linea: 1, at: 2.85, to: 4.4, x: 0.25, y: 0.3 },
+    ],
   },
   {
     src: "psa/08-cierre.mov",

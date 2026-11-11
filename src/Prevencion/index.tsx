@@ -20,9 +20,9 @@ import { clipFrames, FPS, getCuts, toFrame } from "./timing";
 import {
   CaptionPage,
   Chips,
-  HotlineCard,
   LineaAtencion,
   Outro,
+  PointCard,
   ProgressBar,
   StampOverlay,
   TitleChip,
@@ -157,6 +157,18 @@ const ClipSegment: React.FC<{
 
   const durationMs = (duration / FPS) * 1000;
 
+  const validas = lineas.filter((l) => l.numero.trim() !== "");
+  const pointers = (clip.pointers ?? []).map((ptr) => {
+    const from = toFrame(clip, ptr.at);
+    return {
+      ...ptr,
+      from,
+      duration: Math.max(1, toFrame(clip, ptr.to) - from),
+      // undefined = esta línea no existe (no se muestra); null = pendiente.
+      card: validas.length === 0 ? null : (validas[ptr.linea] ?? undefined),
+    };
+  });
+
   const chips = clip.chips.map((c) => ({
     text: c.text,
     tone: c.tone,
@@ -203,6 +215,19 @@ const ClipSegment: React.FC<{
             </AbsoluteFill>
           </Sequence>
         ))}
+
+        {/* Dentro del zoom, para que sigan al dedo. */}
+        {pointers.map((ptr) =>
+          ptr.card === undefined ? null : (
+            <Sequence
+              key={`ptr-${ptr.at}`}
+              from={ptr.from}
+              durationInFrames={ptr.duration}
+            >
+              <PointCard linea={ptr.card} x={ptr.x} y={ptr.y} />
+            </Sequence>
+          ),
+        )}
       </AbsoluteFill>
 
       {/* Viñeta para que el texto respire */}
@@ -240,17 +265,6 @@ const ClipSegment: React.FC<{
 
       <Chips chips={chips} />
 
-      {clip.hotline ? (
-        <Sequence
-          from={toFrame(clip, clip.hotline[0])}
-          durationInFrames={
-            toFrame(clip, clip.hotline[1]) - toFrame(clip, clip.hotline[0])
-          }
-        >
-          <HotlineCard lineas={lineas} />
-        </Sequence>
-      ) : null}
-
       {stampFrames.map((s) => (
         <Sequence
           key={s.text}
@@ -275,6 +289,15 @@ const ClipSegment: React.FC<{
       {chips.map((c) => (
         <Sequence key={`pop-${c.text}`} from={c.frame} durationInFrames={8}>
           <Audio src={staticFile("sfx/pop.wav")} volume={0.35} />
+        </Sequence>
+      ))}
+      {pointers.map((ptr) => (
+        <Sequence
+          key={`pop-ptr-${ptr.at}`}
+          from={ptr.from}
+          durationInFrames={8}
+        >
+          <Audio src={staticFile("sfx/pop.wav")} volume={0.5} />
         </Sequence>
       ))}
       {stampFrames.map((s) => (

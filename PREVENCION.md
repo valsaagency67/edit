@@ -53,8 +53,12 @@ Los clips 2–6 siguen el orden en que se enviaron.
 - **Líneas de atención**: ya cargadas con lo que envió el cliente:
   Colombia **155** y Emergencias **123** (valores por defecto de
   `lineasAtencion` en `src/Root.tsx`; se pueden cambiar o añadir otras con
-  `{ "nombre": "...", "numero": "..." }`). Salen en la tarjeta del clip 7
-  ("Mira, esta es una línea de atención…") y en el cierre, junto con
+  `{ "nombre": "...", "numero": "..." }`). En el clip 7 cada línea sale como
+  su propia tarjeta, pegada a la punta del dedo cuando él señala en el aire
+  (la 1.ª a la derecha, la 2.ª a la izquierda; ajustable en `pointers` de
+  `src/Prevencion/data.ts`, x/y = punta del dedo como fracción del cuadro).
+  En el clip 7 solo salen las dos primeras líneas; en el cierre salen todas,
+  junto con
   "No estás sola. La violencia se previene, se reconoce y se denuncia."
 - **Video del caso real** que anuncia el clip 1: ponerlo en `public/` y pasar
   `casoSrc` (ruta relativa a `public/`).
