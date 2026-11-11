@@ -262,9 +262,8 @@ export const CLIPS: readonly Clip[] = [
   {
     src: "psa/07-linea-atencion.mov",
     keep: [
-      [0.02, 0.84],
-      [1.02, 2.52],
-      [3.36, 5.58],
+      // Sin cortes mientras señala las líneas de atención (1.2–3.7 s).
+      [0.02, 5.58],
       [6.04, 9.1],
     ],
     title: "",
@@ -303,7 +302,7 @@ export const CLIPS: readonly Clip[] = [
       { text: "Se denuncia", at: 8.54, tone: "check" },
     ],
     stamps: [{ text: "NO ESTÁS SOLA", from: 4.92, to: 6.2 }],
-    hotline: [1.38, 4.6],
+    hotline: [1.0, 3.9],
   },
   {
     src: "psa/08-cierre.mov",

@@ -245,10 +245,10 @@ export const HotlineCard: React.FC<{
   const rows: LineaAtencion[] = pending
     ? [{ nombre: "", numero: "[NÚMERO]" }]
     : validas;
-  const numberSize = rows.length === 1 ? 150 : rows.length === 2 ? 110 : 84;
+  const numberSize = rows.length === 1 ? 150 : rows.length === 2 ? 100 : 84;
   return (
     <AbsoluteFill
-      style={{ justifyContent: "center", alignItems: "center", top: 80 }}
+      style={{ justifyContent: "center", alignItems: "center", top: -70 }}
     >
       <div
         style={{

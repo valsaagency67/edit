@@ -135,13 +135,10 @@ const ClipSegment: React.FC<{
     return acc + Math.sin(d * 2.6) * 18 * (1 - d / 9);
   }, 0);
 
-  const hotlineActive =
-    clip.hotline !== undefined &&
-    frame >= toFrame(clip, clip.hotline[0]) &&
-    frame < toFrame(clip, clip.hotline[1]);
-  // Los subtítulos se ocultan mientras hay un sello o la tarjeta de líneas.
-  const stampActive =
-    hotlineActive || stampFrames.some((s) => frame >= s.start && frame < s.end);
+  // Los subtítulos se ocultan mientras hay un sello.
+  const stampActive = stampFrames.some(
+    (s) => frame >= s.start && frame < s.end,
+  );
 
   const pages = useMemo(() => {
     const captions: Caption[] = clip.words.map(([text, start, end], i) => ({
