@@ -28,6 +28,20 @@ export type BRoll = {
   readonly to: number;
 };
 
+export type ImageCard = {
+  readonly src: string;
+  /** Segundos del clip original. */
+  readonly at: number;
+  readonly to: number;
+  /** Punta del dedo, como fracción del cuadro (0–1). */
+  readonly x: number;
+  readonly y: number;
+  /** Ancho de la imagen en px (cuadro de 1080). */
+  readonly width: number;
+  /** center: sobre el dedo; right: a la derecha del dedo. */
+  readonly align: "center" | "right";
+};
+
 export type Stamp = {
   readonly text: string;
   readonly from: number;
@@ -58,6 +72,8 @@ export type Clip = {
   readonly pointers?: readonly Pointer[];
   /** Imágenes de apoyo que cubren el video mientras la voz continúa. */
   readonly broll?: readonly BRoll[];
+  /** Imágenes flotantes que salen del dedo cuando señala. */
+  readonly imageCards?: readonly ImageCard[];
 };
 
 export const CLIPS: readonly Clip[] = [
@@ -94,15 +110,34 @@ export const CLIPS: readonly Clip[] = [
   {
     src: "psa/02-no-son-normales.mov",
     keep: [
-      [0.55, 1.7],
+      // Sin cortes mientras señala (hasta que baja la mano, ≈2.2 s).
+      [0.55, 2.3],
       [2.8, 5.62],
     ],
     title: "NO ES NORMAL",
-    // ≈ seg. 12 del video: mientras dice "estas problemáticas no son
-    // normales y no es algo que debes dejar pasar".
-    broll: [
-      { src: "psa/violencia-1.jpg", from: 0.9, to: 3.8 },
-      { src: "psa/violencia-2.jpg", from: 3.8, to: 5.62 },
+    // ≈ seg. 12 del video: señala dos veces en el aire al decir "Sufrir
+    // alguno de estos casos" y cada imagen sale donde apunta.
+    imageCards: [
+      // Primer gesto: arriba a la derecha (≈0.8–1.3 s).
+      {
+        src: "psa/violencia-1.jpg",
+        at: 0.8,
+        to: 2.3,
+        x: 0.6,
+        y: 0.17,
+        width: 370,
+        align: "right",
+      },
+      // Segundo gesto: arriba a la izquierda (≈1.5–2.2 s).
+      {
+        src: "psa/violencia-2.jpg",
+        at: 1.55,
+        to: 2.3,
+        x: 0.21,
+        y: 0.17,
+        width: 330,
+        align: "center",
+      },
     ],
     baseZoom: 1,
     words: [

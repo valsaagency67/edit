@@ -361,6 +361,61 @@ export const BRollImage: React.FC<{
   );
 };
 
+export const PointImage: React.FC<{
+  readonly src: string;
+  /** Punta del dedo, como fracción del cuadro (0–1). */
+  readonly x: number;
+  readonly y: number;
+  readonly width: number;
+  readonly align: "center" | "right";
+}> = ({ src, x, y, width, align }) => {
+  const frame = useCurrentFrame();
+  const { fps, width: vw, height: vh } = useVideoConfig();
+  const p = spring({ frame, fps, config: { damping: 9, stiffness: 200 } });
+  const center = align === "center";
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: x * vw + (center ? 0 : 12),
+        top: y * vh - (center ? 34 : 8),
+        transformOrigin: center ? "50% 100%" : "0% 100%",
+        transform: `translate(${center ? "-50%" : "0"}, -100%) scale(${p}) rotate(${center ? -2 : 2}deg)`,
+        opacity: Math.min(1, p * 3),
+      }}
+    >
+      <div
+        style={{
+          background: COLORS.white,
+          padding: 8,
+          borderRadius: 16,
+          boxShadow: "0 18px 50px rgba(0,0,0,0.5)",
+        }}
+      >
+        <Img
+          src={staticFile(src)}
+          style={{ display: "block", width, borderRadius: 10 }}
+        />
+      </div>
+      {center ? (
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            bottom: -22,
+            transform: "translateX(-50%)",
+            width: 0,
+            height: 0,
+            borderLeft: "18px solid transparent",
+            borderRight: "18px solid transparent",
+            borderTop: `24px solid ${COLORS.white}`,
+          }}
+        />
+      ) : null}
+    </div>
+  );
+};
+
 export const ProgressBar: React.FC<{ readonly total: number }> = ({
   total,
 }) => {

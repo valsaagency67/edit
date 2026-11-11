@@ -24,6 +24,7 @@ import {
   LineaAtencion,
   Outro,
   PointCard,
+  PointImage,
   ProgressBar,
   StampOverlay,
   TitleChip,
@@ -158,6 +159,11 @@ const ClipSegment: React.FC<{
 
   const durationMs = (duration / FPS) * 1000;
 
+  const imageCards = (clip.imageCards ?? []).map((c) => {
+    const from = toFrame(clip, c.at);
+    return { ...c, from, duration: Math.max(1, toFrame(clip, c.to) - from) };
+  });
+
   const brolls = (clip.broll ?? []).map((b) => {
     const from = toFrame(clip, b.from);
     return { ...b, from, duration: Math.max(1, toFrame(clip, b.to) - from) };
@@ -223,6 +229,21 @@ const ClipSegment: React.FC<{
         ))}
 
         {/* Dentro del zoom, para que sigan al dedo. */}
+        {imageCards.map((c) => (
+          <Sequence
+            key={`img-${c.src}`}
+            from={c.from}
+            durationInFrames={c.duration}
+          >
+            <PointImage
+              src={c.src}
+              x={c.x}
+              y={c.y}
+              width={c.width}
+              align={c.align}
+            />
+          </Sequence>
+        ))}
         {pointers.map((ptr) =>
           ptr.card === undefined ? null : (
             <Sequence
@@ -302,6 +323,11 @@ const ClipSegment: React.FC<{
       {chips.map((c) => (
         <Sequence key={`pop-${c.text}`} from={c.frame} durationInFrames={8}>
           <Audio src={staticFile("sfx/pop.wav")} volume={0.35} />
+        </Sequence>
+      ))}
+      {imageCards.map((c) => (
+        <Sequence key={`pop-img-${c.src}`} from={c.from} durationInFrames={8}>
+          <Audio src={staticFile("sfx/pop.wav")} volume={0.5} />
         </Sequence>
       ))}
       {brolls.map((b) => (
