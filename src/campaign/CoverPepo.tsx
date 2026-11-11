@@ -3,18 +3,40 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
-// Portada del video de cultura política (Pepo1, 1080x1920): fondo azul noche con la bandera arriba y abajo,
-// titular en Bebas (blanco, con bloque rojo), a Juan Felipe recortado del cuadro en que queda serio
-// (public/cover/pepo-jf.png, rembg birefnet-portrait) y la firma. Todo dentro del recorte 4:5 (285–1635).
+// Portada del video de cultura política (Pepo1, 1080x1920), sin Juan Felipe (lo pidió el cliente): las imágenes
+// del propio video (marcha liberal, Gaitán, «El liberalismo pide paz», la retoma del Palacio) regadas por el
+// cuadro, con borde blanco y rotadas; el titular va en una banda azul noche en el centro. Fotos en
+// public/pepo/fotos/cover-*.jpg (no versionadas: son de prensa). Todo dentro del recorte 4:5 (285–1635).
 const RED = "#E30613";
 const YELLOW = "#FCD116";
 const NAVY = "#0B1736";
 const SHADOW = "0 6px 22px rgba(0,0,0,0.6)";
 
+const Foto: React.FC<{
+  src: string;
+  left: number;
+  top: number;
+  width: number;
+  rotate: number;
+}> = ({ src, left, top, width, rotate }) => (
+  <Img
+    src={staticFile(`pepo/fotos/${src}`)}
+    style={{
+      position: "absolute",
+      left,
+      top,
+      width,
+      border: "8px solid white",
+      boxShadow: "0 14px 36px rgba(0,0,0,0.6)",
+      transform: `rotate(${rotate}deg)`,
+    }}
+  />
+);
+
 export const CoverPepo: React.FC = () => (
   <AbsoluteFill
     style={{
-      background: `radial-gradient(circle at 30% 60%, #1F3B8C 0%, ${NAVY} 55%, #050B1D 100%)`,
+      background: `radial-gradient(circle at 50% 40%, #1F3B8C 0%, ${NAVY} 60%, #050B1D 100%)`,
       overflow: "hidden",
     }}
   >
@@ -40,24 +62,43 @@ export const CoverPepo: React.FC = () => (
       Juan Felipe Castaño
     </div>
 
-    {/* Juan Felipe recortado, a la derecha y abajo del titular */}
-    <Img
-      src={staticFile("cover/pepo-jf.png")}
+    {/* Bloque rojo detrás de la foto de Gaitán (regado, como un recorte de tabloide) */}
+    <div
       style={{
         position: "absolute",
-        left: 170,
-        top: 760,
-        width: 840,
-        filter: "drop-shadow(0 16px 36px rgba(0,0,0,0.6))",
+        left: 540,
+        top: 300,
+        width: 470,
+        height: 320,
+        background: RED,
+        transform: "rotate(4deg)",
       }}
     />
 
-    {/* Titular */}
+    {/* Imágenes del video, regadas */}
+    <Foto src="cover-marcha.jpg" left={50} top={300} width={440} rotate={-5} />
+    <Foto src="cover-gaitan.jpg" left={590} top={330} width={400} rotate={5} />
+    <Foto src="cover-liberalismo.jpg" left={60} top={1235} width={400} rotate={4} />
+    <Foto src="cover-palacio.jpg" left={540} top={1260} width={480} rotate={-4} />
+
+    {/* Banda azul con el titular */}
+    <div
+      style={{
+        position: "absolute",
+        left: 0,
+        right: 0,
+        top: 700,
+        height: 490,
+        background: "rgba(11,23,54,0.92)",
+        borderTop: `6px solid ${YELLOW}`,
+        borderBottom: `6px solid ${RED}`,
+      }}
+    />
     <AbsoluteFill
       style={{
         alignItems: "center",
         justifyContent: "flex-start",
-        top: 300,
+        top: 722,
         textAlign: "center",
       }}
     >
@@ -67,7 +108,7 @@ export const CoverPepo: React.FC = () => (
           color: NAVY,
           fontFamily: Montserrat,
           fontWeight: 800,
-          fontSize: 36,
+          fontSize: 34,
           letterSpacing: 2,
           padding: "8px 22px",
           textTransform: "uppercase",
@@ -79,10 +120,10 @@ export const CoverPepo: React.FC = () => (
       <div
         style={{
           fontFamily: Bebas,
-          fontSize: 170,
+          fontSize: 130,
           lineHeight: 0.92,
           color: "white",
-          marginTop: 22,
+          marginTop: 18,
           textShadow: SHADOW,
         }}
       >
@@ -93,12 +134,12 @@ export const CoverPepo: React.FC = () => (
       <div
         style={{
           fontFamily: Bebas,
-          fontSize: 128,
+          fontSize: 100,
           lineHeight: 0.95,
           color: "white",
           background: RED,
-          padding: "8px 30px 0",
-          marginTop: 18,
+          padding: "6px 28px 0",
+          marginTop: 14,
           transform: "rotate(-2deg)",
           boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
         }}
@@ -109,12 +150,12 @@ export const CoverPepo: React.FC = () => (
 
     {/* Pie: la consigna del video */}
     <AbsoluteFill
-      style={{ alignItems: "center", justifyContent: "flex-start", top: 1560, textAlign: "center" }}
+      style={{ alignItems: "center", justifyContent: "flex-start", top: 1610, textAlign: "center" }}
     >
       <div
         style={{
           fontFamily: Bebas,
-          fontSize: 76,
+          fontSize: 72,
           lineHeight: 1,
           color: YELLOW,
           textShadow: SHADOW,
