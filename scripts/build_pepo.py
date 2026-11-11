@@ -110,6 +110,34 @@ def musica(data):
     write_wav(f"{OUT}/musica.wav", m * gain[:, None], 2)
 
 
+def broll(data):
+    """Videos de apoyo (CFG["broll"]) a 1080x1920, sin sonido: se recorta solo la imagen del video (sin los
+    textos de TikTok ni subtítulos quemados) y va a lo ancho, centrada en y=700, sobre una copia suya
+    desenfocada y oscurecida, igual que las fotos. Dura lo que dura en la escena (+0.5 s de margen)."""
+    os.makedirs(f"{OUT}/broll", exist_ok=True)
+    for sc in data["scenes"]:
+        for p in sc["photos"]:
+            if "video" not in p:
+                continue
+            b = CFG["broll"][p["video"]]
+            x0, y0, x1, y1 = b["crop"]
+            vf = f"crop={x1 - x0}:{y1 - y0}:{x0}:{y0},fps={CFG['fps']}"
+            for k, px in enumerate(b.get("pixel", [])):  # cara de tercero pixelada, siguiendo su movimiento
+                x = f"{px['x']}+{px.get('vx', 0)}*t"
+                vf += (f",split[s{k}][q{k}];[q{k}]crop={px['w']}:{px['h']}:'{x}':{px['y']},"
+                       f"scale={px['w'] // 14}:-1,scale={px['w']}:{px['h']}:flags=neighbor[p{k}];"
+                       f"[s{k}][p{k}]overlay='{x}':{px['y']}")
+            vf += (",split[a][b];"
+                  "[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
+                  "boxblur=40:4,eq=brightness=-0.28[bg];"
+                  "[b]scale=1080:-2:flags=lanczos,unsharp=5:5:0.6[fg];"
+                  "[bg][fg]overlay=0:700-h/2,format=yuv420p")
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(b["ss"]), "-t", f"{p['end'] - p['start'] + 0.5:.2f}",
+                            "-i", f"{ROOT}/media/pepo1/videos/{b['file']}", "-an", "-filter_complex", vf,
+                            "-c:v", "libx264", "-crf", "16", "-preset", "medium",
+                            f"{OUT}/broll/{p['video']}.mp4"], check=True)
+
+
 def zooms(data):
     """Zoom in / zoom out cada ~3 s (regla del cliente): por escena, al empezar un subtítulo cuando ya pasaron
     2.2 s (1.2 s en el gancho) desde el último cambio y quedan al menos 1.0 s. Mientras hay una foto de apoyo
@@ -191,6 +219,7 @@ if __name__ == "__main__":
     d["zooms"] = zooms(d)
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     fotos()
+    broll(d)
     musica(d)
     foley(d)
     print("listo:", d["duration"], "s")

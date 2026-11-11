@@ -511,6 +511,11 @@
     {
      "img": "meme-huevo",
      "start": 16.153,
+     "end": 17.193
+    },
+    {
+     "video": "abelardo-reels",
+     "start": 17.193,
      "end": 18.96
     }
    ],
@@ -1024,7 +1029,18 @@
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "video": "palacio-plaza",
+     "start": 26.499,
+     "end": 28.879
+    },
+    {
+     "video": "palacio-tanque",
+     "start": 31.839,
+     "end": 33.759
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -1380,20 +1396,8 @@
    false
   ],
   [
-   28.866666666666667,
+   36.5,
    true
-  ],
-  [
-   32.46666666666667,
-   false
-  ],
-  [
-   35.4,
-   true
-  ],
-  [
-   37.63333333333333,
-   false
   ],
   [
    42.6,

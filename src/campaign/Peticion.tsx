@@ -254,11 +254,46 @@ export const CaptionView: React.FC<{
   top?: number;
   boxed?: boolean;
   pop?: boolean;
-}> = ({ pieces, dur, top = 1160, boxed = false, pop = false }) => {
+  impact?: boolean;
+}> = ({ pieces, dur, top = 1160, boxed = false, pop = false, impact = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = pieces.reduce((n, p) => n + p.t.length, 0);
   const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
+  if (impact) {
+    // Subtítulo «de impacto» (Pepo1: el cliente los pidió más grandes y llamativos): Montserrat 900 en
+    // mayúsculas, 88 px, con borde negro grueso y sombra; la frase entera entra con un salto corto.
+    const k = spring({ frame, fps, config: { damping: 13, stiffness: 260 } });
+    return (
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
+        <div
+          style={{
+            opacity: interpolate(frame, [0, 2, dur - 2, dur], [0, 1, 1, 0], clamp),
+            transform: `scale(${0.82 + 0.18 * k})`,
+            transformOrigin: "50% 50%",
+            maxWidth: 980,
+            fontFamily: Montserrat,
+            fontWeight: 900,
+            fontSize: 88,
+            lineHeight: 1.04,
+            letterSpacing: -1,
+            textTransform: "uppercase",
+            color: "white",
+            textAlign: "center",
+            WebkitTextStroke: "14px black",
+            paintOrder: "stroke fill",
+            filter: "drop-shadow(0 8px 14px rgba(0,0,0,0.6))",
+          }}
+        >
+          {pieces.map((p, i) => (
+            <span key={i} style={{ color: p.y ? YELLOW : "white" }}>
+              {p.t}
+            </span>
+          ))}
+        </div>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill
       style={{ alignItems: "center", justifyContent: "flex-start", top }}

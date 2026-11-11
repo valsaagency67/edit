@@ -105,7 +105,14 @@
         {
           "at": "a",
           "nth": 2,
+          "until": "a",
+          "untilNth": 3,
           "img": "meme-huevo"
+        },
+        {
+          "at": "a",
+          "nth": 3,
+          "video": "abelardo-reels"
         }
       ]
     },
@@ -155,7 +162,19 @@
           "src": "palacio"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "Como",
+          "until": "muchos",
+          "video": "palacio-plaza"
+        },
+        {
+          "at": "retoma",
+          "until": "civiles",
+          "video": "palacio-tanque"
+        }
+      ]
     },
     {
       "key": "seria",
@@ -231,6 +250,48 @@
     },
     "meme-huevo": {
       "file": "meme-huevo.webp"
+    }
+  },
+  "broll": {
+    "_doc": "Videos de apoyo que mandó el cliente (media/pepo1/videos/, no versionados): se recorta solo la imagen (sin los textos de TikTok ni los subtítulos quemados), sin sonido, desde `ss` y armados a 1080x1920 como las fotos. La duración la da la escena. pixel: cajas que se pixelan (caras de terceros, p. ej. el detenido), en px del recorte: x + vx·t sigue la cara si la cámara se mueve.",
+    "abelardo-reels": {
+      "file": "largo.mp4",
+      "crop": [
+        0,
+        352,
+        576,
+        610
+      ],
+      "ss": 11.8,
+      "pixel": [
+        {
+          "x": 342,
+          "vx": 52,
+          "y": 72,
+          "w": 100,
+          "h": 100
+        }
+      ]
+    },
+    "palacio-plaza": {
+      "file": "recortar.mp4",
+      "crop": [
+        0,
+        296,
+        576,
+        640
+      ],
+      "ss": 75.0
+    },
+    "palacio-tanque": {
+      "file": "recortar.mp4",
+      "crop": [
+        0,
+        296,
+        576,
+        640
+      ],
+      "ss": 159.0
     }
   }
 }

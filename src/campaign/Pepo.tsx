@@ -19,5 +19,6 @@ export const Pepo: React.FC = () => (
     punch={1.32}
     punchOrigin="50% 26%"
     photoFull
+    captionImpact
   />
 );

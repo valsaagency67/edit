@@ -44,7 +44,7 @@ export type TomasData = {
       bottom?: number;
     })[];
     // img: foto en public/<dir>/fotos/; o emoji + label: imagen animada hecha con un ícono grande.
-    photos?: (Range & { img?: string; emoji?: string; label?: string })[];
+    photos?: (Range & { img?: string; video?: string; emoji?: string; label?: string })[];
     effects?: (Range & { gray?: boolean; distort?: boolean })[];
     kinetic?: (Range & { text: string; color: string })[];
   }[];
@@ -151,11 +151,20 @@ const PhotoView: React.FC<{
   fadeOut: boolean;
   center: number;
   full?: boolean;
-}> = ({ src, emoji, label, dur, fadeIn, fadeOut, center, full }) => {
+  video?: string;
+}> = ({ src, emoji, label, dur, fadeIn, fadeOut, center, full, video }) => {
   const frame = useCurrentFrame();
   const inn = fadeIn ? interpolate(frame, [0, IO], [0, 1], clamp) : 1;
   const out = fadeOut ? interpolate(frame, [dur - IO, dur], [1, 0], clamp) : 1;
   const o = Math.min(inn, out);
+  if (video) {
+    // Video de apoyo ya armado a 1080x1920 y sin sonido (build_pepo.py: broll()).
+    return (
+      <AbsoluteFill style={{ opacity: o, filter: `blur(${(1 - o) * 12}px)` }}>
+        <OffthreadVideo src={staticFile(video)} muted style={{ width: "100%", height: "100%" }} />
+      </AbsoluteFill>
+    );
+  }
   if (full && src) {
     // A pantalla completa (ya armada a 1080x1920 sobre su fondo desenfocado), con un acercamiento lento.
     return (
@@ -321,6 +330,7 @@ export const TomasVideo: React.FC<{
   base?: number;
   punchCut?: boolean;
   photoFull?: boolean;
+  captionImpact?: boolean;
 }> = ({
   data,
   dir,
@@ -333,6 +343,7 @@ export const TomasVideo: React.FC<{
   base = 1,
   punchCut,
   photoFull,
+  captionImpact,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -436,6 +447,7 @@ export const TomasVideo: React.FC<{
               fadeOut={k === all.length - 1 || f(all[k + 1].start) !== f(p.end)}
               center={photoCenter}
               full={photoFull}
+              video={p.video ? `${dir}/broll/${p.video}.mp4` : undefined}
             />
           </Sequence>
         )),
@@ -485,6 +497,7 @@ export const TomasVideo: React.FC<{
               top={captionTop}
               boxed={captionBox}
               pop={captionPop}
+              impact={captionImpact}
             />
           </Sequence>
         )),
