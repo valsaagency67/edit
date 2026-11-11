@@ -13,6 +13,7 @@ import { Highlight } from "./campaign/Highlights";
 import { Marcha, MARCHA_FPS, marchaDuration } from "./campaign/Marcha";
 import { Milagro, MILAGRO_FPS, milagroDuration } from "./campaign/Milagro";
 import { Pepo, PEPO_FPS, pepoDuration } from "./campaign/Pepo";
+import { CoverPepo } from "./campaign/CoverPepo";
 import { Museo, MUSEO_FPS, museoDuration } from "./campaign/Museo";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
@@ -118,6 +119,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="JFC-Milagro-Portada" component={CoverMilagro} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Cultura política (Pepo1, estilo del video argentino): npm run build:pepo && npm run render:pepo */}
       <Composition id="JFC-Pepo" component={Pepo} width={1080} height={1920} fps={PEPO_FPS} durationInFrames={pepoDuration} />
+      <Composition id="JFC-Pepo-Portada" component={CoverPepo} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Carrusel del IVA a la canasta (1080x1350): npm run render:carrusel-iva */}
       {Array.from({ length: IVA_SLIDES }, (_, k) => (
         <Composition key={k} id={`IVA-${k + 1}`} component={CarruselIva} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{ slide: k + 1 }} />
