@@ -4,6 +4,7 @@ import {
   Freeze,
   Html5Audio,
   Img,
+  Easing,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -281,9 +282,11 @@ const pieces = (text: string) =>
 // dir: carpeta de public/ con las tomas y voz/musica/foley.wav; captionTop: altura de los subtítulos;
 // captionBox: subtítulos sobre fondo oscuro translúcido; captionPop: las palabras en amarillo saltan;
 // photoCenter: altura del centro de las fotos de apoyo.
-// punch: reencuadre fijo (sin zoom animado, que el cliente no quiere): dentro de cada escena la toma alterna
-// entre plano normal y un plano más cerrado (escala `punch`, centrado en la cara) al empezar un subtítulo
-// cuando ya pasaron ~2.5 s, como los cortes del video argentino de referencia (regla de los 3 segundos).
+// punch: regla de los 3 segundos (el cliente la confirmó: «cada 3 segundos hacer zoom in o zoom out, que haya
+// dinamismo»): dentro de cada escena la toma alterna con un zoom rápido (0.4 s, suave) entre el plano normal
+// y uno más cerrado (escala `punch`, centrado en la cara en punchOrigin) al empezar un subtítulo cuando ya
+// pasaron ~2.5 s (en el gancho, ~1.2 s). Cada escena (después del corte) empieza en plano normal.
+// punchCut: en vez de zoom animado, reencuadre seco (como antes de que el cliente pidiera los zooms).
 // base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
 export const TomasVideo: React.FC<{
@@ -296,6 +299,7 @@ export const TomasVideo: React.FC<{
   punch?: number;
   punchOrigin?: string;
   base?: number;
+  punchCut?: boolean;
 }> = ({
   data,
   dir,
@@ -306,30 +310,47 @@ export const TomasVideo: React.FC<{
   punch,
   punchOrigin = "50% 30%",
   base = 1,
+  punchCut,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
-  // Cambios de encuadre: [frame, cerrado?] en orden; cada escena empieza en plano normal.
+  // Cambios de encuadre: [frame, cerrado?, con zoom?] en orden; cada escena empieza en plano normal (corte).
   const reframes = React.useMemo(() => {
-    const out: [number, boolean][] = [];
+    const out: [number, boolean, boolean][] = [];
     if (!punch) return out;
-    for (const sc of data.scenes) {
+    data.scenes.forEach((sc, i) => {
       const start = sc.shots[0].start;
       const end = sc.shots[sc.shots.length - 1].end;
+      const every = i === 0 ? 1.2 : 2.5;
       let last = start;
       let close = false;
-      out.push([f(start), false]);
+      out.push([f(start), false, false]);
       for (const c of sc.captions) {
-        if (c.start - last >= 2.5 && end - c.start >= 1.2) {
+        if (c.start - last >= every && end - c.start >= 1.0) {
           close = !close;
           last = c.start;
-          out.push([f(c.start), close]);
+          out.push([f(c.start), close, !punchCut]);
         }
       }
-    }
+    });
     return out;
-  }, [data, punch]);
-  const closeUp = reframes.filter(([at]) => at <= frame).pop()?.[1] ?? false;
+  }, [data, punch, punchCut]);
+  const level = (close: boolean) => (close ? (punch ?? 1) : base);
+  let idx = -1;
+  reframes.forEach(([at], k) => {
+    if (at <= frame) idx = k;
+  });
+  const scale =
+    idx < 0
+      ? base
+      : reframes[idx][2]
+        ? interpolate(
+            frame,
+            [reframes[idx][0], reframes[idx][0] + 12],
+            [level(reframes[idx - 1][1]), level(reframes[idx][1])],
+            { ...clamp, easing: Easing.inOut(Easing.cubic) },
+          )
+        : level(reframes[idx][1]);
   const gray = data.scenes.some((sc) =>
     (sc.effects ?? []).some(
       (e) => e.gray && frame >= f(e.start) && frame < f(e.end),
@@ -346,7 +367,7 @@ export const TomasVideo: React.FC<{
       <AbsoluteFill
         style={{
           filter: gray ? "grayscale(1) contrast(1.15)" : undefined,
-          transform: closeUp ? `scale(${punch})` : base !== 1 ? `scale(${base})` : undefined,
+          transform: scale !== 1 ? `scale(${scale})` : undefined,
           transformOrigin: punchOrigin,
         }}
       >

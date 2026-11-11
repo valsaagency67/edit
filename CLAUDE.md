@@ -19,8 +19,11 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Subtítulos**: Montserrat 600, 64 px, blancos con sombra, top 1160; frases cortas por sentido;
   amarillo `#FFE600` para las palabras de acusación o datos clave.
 - **Colores de campaña**: rojo y azul en tarjetas y gráficos.
-- **Sin zooms ni sacudidas**. Transiciones: corte, destello breve en cambio de clip, desenfoque en
-  entradas/salidas de gráficos. Las animaciones terminan dentro de su tiempo.
+- **Zoom in / zoom out cada ~3 s** (lo pidió el cliente: «que haya dinamismo»): zoom rápido y suave (0.4 s)
+  entre el plano normal y uno más cerrado centrado en la cara, alternando, al empezar una frase; en el gancho
+  el primero va antes (~1.2 s). Props `punch`/`base`/`punchOrigin` de `TomasVideo` (ver `src/campaign/Pepo.tsx`).
+  Sin sacudidas. Transiciones: corte, destello breve en cambio de clip, desenfoque en entradas/salidas de
+  gráficos. Las animaciones terminan dentro de su tiempo.
 - **Gráficos sin tapar la cara**: tarjetas a la altura del pecho (ancladas abajo en y=1120). Si la toma es
   muy cerrada (selfie), subtítulos arriba con fondo oscuro y cada tarjeta donde no tape la cara (ver Museo).
 - **Sin saturar**: pocas tarjetas (3–4 por minuto, solo los datos clave); el cliente no quiere el video lleno.
@@ -39,10 +42,10 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 ## Referencia de ritmo que mandó el cliente (`media/ref/referencia-2.mp4`, no versionado)
 Video de TikTok sobre cómo hacer un video viral. El cliente dice que «lo hacen muy bien». Sus tres reglas:
 1. **Gancho** en los primeros 3 segundos.
-2. **Regla de los 3 segundos**: cada ~3 s pasa algo (corte, acercamiento o alejamiento, material de apoyo); nunca
+2. **Regla de los 3 segundos**: cada ~3 s pasa algo (corte, zoom in o zoom out, material de apoyo); nunca
    el mismo cuadro más de 3 s.
 3. **Llamado a la acción** al final (comentar, compartir).
-Ojo: el acercamiento choca con la regla «sin zooms»; no se cambia hasta que el cliente lo confirme.
+El cliente confirmó los zooms: reemplazan la vieja regla «sin zooms» (ver «Siempre»).
 
 ## Datos que ya se corrigieron
 - Es el **POT** (Plan de Ordenamiento Territorial), no «FOT» como sale en la transcripción de IMG_1740.

@@ -9,7 +9,7 @@ Formato: 1080x1920, 60 fps, H.264 CRF 14, AAC 320 kbps.
 
 ## Ritmo de cortes
 - Se elimina **todo silencio > 0.30 s** (detección a −35 dB). Margen: 0.05 s antes y 0.05 s después de cada tramo de voz.
-- **Encuadre fijo, sin zooms** (el cliente pidió quitar los zooms que entran y salen). El ritmo lo dan los jump cuts.
+- **Zoom in / zoom out cada ~3 s** (antes el cliente había pedido quitar los zooms; ahora los pide para dar dinamismo, ver CLAUDE.md). El ritmo lo dan los zooms y los jump cuts.
 - Ningún plano dura más de **2.2 s**: los tramos largos se parten entre palabras (jump cut). [SUPOSICIÓN]
 - Duración objetivo: **< 50 s**. [SUPOSICIÓN]
 
