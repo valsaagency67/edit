@@ -98,6 +98,12 @@ export const CLIPS: readonly Clip[] = [
       [2.8, 5.62],
     ],
     title: "NO ES NORMAL",
+    // ≈ seg. 12 del video: mientras dice "estas problemáticas no son
+    // normales y no es algo que debes dejar pasar".
+    broll: [
+      { src: "psa/violencia-1.jpg", from: 0.9, to: 3.8 },
+      { src: "psa/violencia-2.jpg", from: 3.8, to: 5.62 },
+    ],
     baseZoom: 1,
     words: [
       ["Sufrir", 0.45, 0.64],
@@ -210,12 +216,6 @@ export const CLIPS: readonly Clip[] = [
       [8.78, 10.26],
     ],
     title: "¿CÓMO PREVENIR?",
-    // Intro del chico de camiseta azul: dos imágenes mientras dice
-    // "reconociendo las señales de alerta".
-    broll: [
-      { src: "psa/violencia-1.jpg", from: 0.9, to: 3.0 },
-      { src: "psa/violencia-2.jpg", from: 3.0, to: 4.6 },
-    ],
     baseZoom: 1.12,
     words: [
       ["¿Cómo", 0.15, 0.32],

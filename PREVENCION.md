@@ -53,10 +53,10 @@ Los clips 2–6 siguen el orden en que se enviaron.
 - **Video del caso** (`public/psa/caso.mov`, 512x480, sin audio, trae marca de
   agua "clideo.com"): después de "A continuación te voy a presentar un caso…".
   Si hay una versión sin marca y de mayor resolución, reemplazar el archivo.
-- **Imágenes** (`public/psa/violencia-1.jpg`, `violencia-2.jpg`): al inicio
-  del clip 5 (chico de camiseta azul, "¿Cómo podemos prevenir? Reconociendo
-  las señales de alerta"), a pantalla completa mientras su voz sigue. Se
-  configuran en `broll` de `src/Prevencion/data.ts`.
+- **Imágenes** (`public/psa/violencia-1.jpg`, `violencia-2.jpg`): en el clip 2
+  (chico de camiseta negra, ≈ seg. 12: "Sufrir alguno de estos casos,
+  estas problemáticas no son normales…"), a pantalla completa mientras su voz
+  sigue. Se configuran en `broll` de `src/Prevencion/data.ts`.
 
 ## Pendiente
 
