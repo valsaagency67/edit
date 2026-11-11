@@ -5,9 +5,9 @@ Justicia como ejemplo. Carpeta de Drive «Pepo1».
 
 - Escenas, voz y tomas: scripts/tomas.py (siete tomas 4K verticales de media/pepo1/IMG_*.MOV).
 - Color: cálido y más vivo que el original, como la referencia (el cliente lo pidió «más llamativo»).
-- Voz: cadena más clara que la de enhance_voice (VOZ): la grabación sale opaca, con casi nada sobre 2 kHz
-  (el cliente dijo que no se escuchaba bien), así que se quita caja en 300/550 Hz y se realza la presencia
-  en 1.3–3.6 kHz, con un excitador suave para devolver brillo.
+- Voz: primero DPDFNet (modelo de sherpa-onnx) separa la voz del ruido del lugar (plazoleta de comidas: gente
+  hablando, platos); después VOZ: menos caja en 300/550 Hz y más presencia en 1.3–3.6 kHz (la grabación sale
+  opaca), con compresión moderada para no volver a levantar el fondo.
 - public/pepo/musica.wav: pieza propia sombría (Re menor, 60 bpm: contrabajo, chelo, piano grave y violín en
   «palacio»), muestras reales tonejs-instruments (CC-BY 3.0), ~19 dB bajo la voz y con ducking.
 - public/pepo/foley.wav: efectos del video de referencia del cliente: whoosh en cada zoom in / zoom out (lo pidió
@@ -34,21 +34,22 @@ CFG = json.load(open(f"{ROOT}/scripts/pepo.config.json", encoding="utf-8"))
 OUT = f"{ROOT}/public/pepo"
 TMP = f"{ROOT}/out/pepo/tmp"
 # Cálido y vivo (como la referencia), sin llevar la piel al naranja.
+# Después de DPDFNet (que ya quitó el fondo): ecualización suave y compresión moderada. La cadena anterior
+# (excitador, +9 dB en 2.3 kHz, compresor 4:1) levantaba el ruido del lugar ~25 dB y el cliente lo oía todo.
 VOZ = ",".join([
     "highpass=f=90:poles=2",
-    "afftdn=nr=10:nf=-42:tn=1",
     "equalizer=f=300:t=q:w=1.0:g=-3",
-    "equalizer=f=550:t=q:w=1.0:g=-4",
-    "equalizer=f=1300:t=q:w=1.0:g=5",
-    "equalizer=f=2300:t=q:w=0.8:g=9",
-    "equalizer=f=3600:t=q:w=1.0:g=5",
-    "highshelf=f=6500:g=2",
-    "aexciter=amount=1.5:drive=5:blend=0:freq=2800:ceil=12000",
-    "deesser=i=0.5",
-    "acompressor=threshold=-24dB:ratio=4:attack=5:release=100:makeup=3",
+    "equalizer=f=550:t=q:w=1.0:g=-3",
+    "equalizer=f=1300:t=q:w=1.0:g=3",
+    "equalizer=f=2300:t=q:w=0.8:g=5",
+    "equalizer=f=3600:t=q:w=1.0:g=4",
+    "highshelf=f=6000:g=2",
+    "deesser=i=0.4",
+    "acompressor=threshold=-22dB:ratio=3:attack=8:release=120:makeup=2",
     "alimiter=limit=0.9:level=false",
-    "loudnorm=I=-16:TP=-1.5:LRA=5",
+    "loudnorm=I=-16:TP=-1.5:LRA=7",
 ])
+DENOISE = f"{ROOT}/whisper-models/denoise/dpdfnet2_48khz_hr.onnx"
 GRADE = "eq=contrast=1.08:saturation=1.15,colorbalance=rs=0.05:bs=-0.05:rm=0.03:bm=-0.03:rh=0.02:bh=-0.02"
 
 
@@ -215,7 +216,7 @@ def foley(data):
 
 if __name__ == "__main__":
     path = f"{ROOT}/src/campaign/pepo.json"
-    d = Proyecto(CFG, f"{ROOT}/media/pepo1", ".MOV", OUT, TMP, GRADE, voice=VOZ).build(path)
+    d = Proyecto(CFG, f"{ROOT}/media/pepo1", ".MOV", OUT, TMP, GRADE, voice=VOZ, denoise=DENOISE).build(path)
     d["zooms"] = zooms(d)
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     fotos()

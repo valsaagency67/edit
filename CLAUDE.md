@@ -30,6 +30,9 @@ en particular. Detalles de estilo con valores concretos en `estilo.md`; implemen
 - **Música**: propia para cada pieza (no reutilizar la de otro video), con muestras reales
   (tonejs-instruments, CC-BY 3.0, crédito en `CREDITOS.md`) y BAJA: ~17 dB bajo la voz.
 - **Voz**: cadena de `scripts/enhance_voice.py`, cada toma a -16 LUFS. Mezcla final ≈ -14 LUFS, pico -1 dBFS.
+  Si grabó en un lugar con ruido (gente, platos), limpiar antes con DPDFNet (`denoise=` de `Proyecto`, modelo en
+  `whisper-models/denoise/`, ver `scripts/build_pepo.py`) y no subir la presencia ni comprimir fuerte: el cliente
+  oía «todo de fondo». Con DPDFNet, revisar con Whisper las palabras cortas («sí»): si se pierden, más `keep`.
 - **Efectos de sonido**: SOLO los del video de referencia del cliente (`public/sfx/ref-*.wav`): obturador en
   algunos cambios de toma (con el destello) y clic cuando aparece una tarjeta. **De vez en cuando**, no en
   cada subtítulo ni en cada corte («si no queda mal el video»). Nada sintetizado: no le gustan.

@@ -116,6 +116,17 @@ def cut_pauses(x, pause):
     return np.concatenate(parts), [(a * 0.01, b * 0.01) for a, b in keep]
 
 
+def denoise(x, model):
+    """Quita el ruido de fondo con un modelo de mejora de voz de sherpa-onnx (DPDFNet a 48 kHz,
+    whisper-models/denoise/, de k2-fsa/sherpa-onnx «speech-enhancement-models»). x: mono a SR."""
+    import sherpa_onnx as so
+    cfg = so.OfflineSpeechDenoiserConfig(model=so.OfflineSpeechDenoiserModelConfig(
+        dpdfnet=so.OfflineSpeechDenoiserDpdfNetModelConfig(model=model), num_threads=os.cpu_count() or 4))
+    d = so.OfflineSpeechDenoiser(cfg)
+    assert d.sample_rate == SR, d.sample_rate
+    return np.asarray(d.run(x.astype(np.float32), SR).samples, np.float64)
+
+
 def speech_onset(x, first, pause):
     """Comienzo de la voz que lleva a la primera palabra: final del último silencio de al menos 0.15 s que
     termina antes de first + 0.45 s (los tiempos de Parakeet salen hasta ~0.4 s adelantados). Mismo umbral
@@ -165,9 +176,12 @@ class Proyecto:
     ext: extensión de los originales; out: carpeta pública; tmp: carpeta de trabajo; grade: filtro de
     color de ffmpeg para las tomas; voice: cadena de ffmpeg para la voz (por defecto la de enhance_voice)."""
 
-    def __init__(self, cfg, media, ext, out, tmp, grade, voice=None):
+    def __init__(self, cfg, media, ext, out, tmp, grade, voice=None, denoise=None):
         self.cfg, self.media, self.ext, self.out, self.tmp = cfg, media, ext, out, tmp
         self.voice = voice or CHAIN
+        # denoise: modelo de sherpa-onnx (DPDFNet, whisper-models/denoise/) que separa la voz del ruido de
+        # fondo (gente hablando, platos) antes de la cadena; reemplaza a RNNoise.
+        self.denoise = denoise
         self.fps = cfg["fps"]
         # Llena 1080x1920 sin deformar (las tomas 3:4 se recortan a los lados).
         self.vf = f"scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
@@ -200,7 +214,11 @@ class Proyecto:
     def enhanced(self, take):
         path = f"{self.tmp}/{take}-voz.wav"
         if not os.path.exists(path):
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", self.src(take), "-af", f"{RNNOISE},{self.voice}",
+            src, pre = self.src(take), RNNOISE
+            if self.denoise:
+                src, pre = f"{self.tmp}/{take}-limpia.wav", f"aresample={SR}"
+                write_wav(src, denoise(read_wav(self.src(take)), self.denoise))
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af", f"{pre},{self.voice}",
                             "-ar", str(SR), "-ac", "1", path], check=True)
         return read_wav(path)
 

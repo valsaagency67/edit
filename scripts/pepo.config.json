@@ -74,7 +74,10 @@
           "at": "Había",
           "img": "liberalismo-paz"
         }
-      ]
+      ],
+      "pause": {
+        "keep": 0.14
+      }
     },
     {
       "key": "hoy",
