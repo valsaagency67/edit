@@ -139,10 +139,11 @@ def find_word(words, at, nth=1):
 class Proyecto:
     """cfg: configuración (fps, speed, pause, gap, videos, scenes); media: carpeta de los originales;
     ext: extensión de los originales; out: carpeta pública; tmp: carpeta de trabajo; grade: filtro de
-    color de ffmpeg para las tomas."""
+    color de ffmpeg para las tomas; voice: cadena de ffmpeg para la voz (por defecto la de enhance_voice)."""
 
-    def __init__(self, cfg, media, ext, out, tmp, grade):
+    def __init__(self, cfg, media, ext, out, tmp, grade, voice=None):
         self.cfg, self.media, self.ext, self.out, self.tmp = cfg, media, ext, out, tmp
+        self.voice = voice or CHAIN
         self.fps = cfg["fps"]
         # Llena 1080x1920 sin deformar (las tomas 3:4 se recortan a los lados).
         self.vf = f"scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
@@ -175,7 +176,7 @@ class Proyecto:
     def enhanced(self, take):
         path = f"{self.tmp}/{take}-voz.wav"
         if not os.path.exists(path):
-            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", self.src(take), "-af", f"{RNNOISE},{CHAIN}",
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", self.src(take), "-af", f"{RNNOISE},{self.voice}",
                             "-ar", str(SR), "-ac", "1", path], check=True)
         return read_wav(path)
 
