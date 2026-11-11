@@ -207,7 +207,8 @@ class Proyecto:
                     # La toma sigue con algo que no va (otra frase): se corta 0.3 s después de la última
                     # palabra del texto.
                     raw = raw[:int((aligned[-1]["e"] + 0.3) * SR)]
-                cut, ranges = cut_pauses(raw[int(off * SR):], cfg["pause"])
+                # `pause` por escena: si un corte se come una sílaba (oclusivas de «disputa»), se sube minSilence.
+                cut, ranges = cut_pauses(raw[int(off * SR):], {**cfg["pause"], **sc.get("pause", {})})
                 speed = sc.get("speed", cfg["speed"])
                 x = self.tempo(cut, speed, sc["key"])
                 if "camera" in sc:

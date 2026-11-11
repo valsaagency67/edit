@@ -38,3 +38,7 @@ public/iva/
 public/jf4/*.mp4
 public/jf4/*.wav
 public/jf4/fotos/
+# Pepo1 (cultura política): generados por scripts/build_pepo.py (no versionar)
+public/pepo/*.mp4
+public/pepo/*.wav
+public/pepo/fotos/

@@ -281,6 +281,10 @@ const pieces = (text: string) =>
 // dir: carpeta de public/ con las tomas y voz/musica/foley.wav; captionTop: altura de los subtítulos;
 // captionBox: subtítulos sobre fondo oscuro translúcido; captionPop: las palabras en amarillo saltan;
 // photoCenter: altura del centro de las fotos de apoyo.
+// punch: reencuadre fijo (sin zoom animado, que el cliente no quiere): dentro de cada escena la toma alterna
+// entre plano normal y un plano más cerrado (escala `punch`, centrado en la cara) al empezar un subtítulo
+// cuando ya pasaron ~2.5 s, como los cortes del video argentino de referencia (regla de los 3 segundos).
+// base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
 export const TomasVideo: React.FC<{
   data: TomasData;
@@ -289,6 +293,9 @@ export const TomasVideo: React.FC<{
   captionBox?: boolean;
   captionPop?: boolean;
   photoCenter?: number;
+  punch?: number;
+  punchOrigin?: string;
+  base?: number;
 }> = ({
   data,
   dir,
@@ -296,9 +303,33 @@ export const TomasVideo: React.FC<{
   captionBox,
   captionPop,
   photoCenter = 1150,
+  punch,
+  punchOrigin = "50% 30%",
+  base = 1,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
+  // Cambios de encuadre: [frame, cerrado?] en orden; cada escena empieza en plano normal.
+  const reframes = React.useMemo(() => {
+    const out: [number, boolean][] = [];
+    if (!punch) return out;
+    for (const sc of data.scenes) {
+      const start = sc.shots[0].start;
+      const end = sc.shots[sc.shots.length - 1].end;
+      let last = start;
+      let close = false;
+      out.push([f(start), false]);
+      for (const c of sc.captions) {
+        if (c.start - last >= 2.5 && end - c.start >= 1.2) {
+          close = !close;
+          last = c.start;
+          out.push([f(c.start), close]);
+        }
+      }
+    }
+    return out;
+  }, [data, punch]);
+  const closeUp = reframes.filter(([at]) => at <= frame).pop()?.[1] ?? false;
   const gray = data.scenes.some((sc) =>
     (sc.effects ?? []).some(
       (e) => e.gray && frame >= f(e.start) && frame < f(e.end),
@@ -313,7 +344,11 @@ export const TomasVideo: React.FC<{
       <Html5Audio src={staticFile(`${dir}/foley.wav`)} volume={0.8} />
 
       <AbsoluteFill
-        style={{ filter: gray ? "grayscale(1) contrast(1.15)" : undefined }}
+        style={{
+          filter: gray ? "grayscale(1) contrast(1.15)" : undefined,
+          transform: closeUp ? `scale(${punch})` : base !== 1 ? `scale(${base})` : undefined,
+          transformOrigin: punchOrigin,
+        }}
       >
         {data.scenes.map((sc, i) =>
           sc.shots.map((s) => (

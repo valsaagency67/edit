@@ -1,0 +1,174 @@
+{
+  "_doc": "Video de Juan Felipe al estilo del video argentino «Recuperar la cultura política no es nostalgia» (media/ref/referencia-3.mp4): cultura política y desinformación por saturación, con el Palacio de Justicia como ejemplo. Siete tomas de la carpeta de Drive «Pepo1» (4K vertical), cada una empieza con «Ya,», que se descarta. Lo arma scripts/build_pepo.py -> src/campaign/pepo.json. Las imágenes y videos de apoyo los manda el cliente después.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.0,
+  "tail": 2.8,
+  "videos": {},
+  "shutters": [
+    "palacio",
+    "cta"
+  ],
+  "outro": {
+    "kicker": "Ser críticos",
+    "text": "es recuperar la política"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_0030",
+      "text": "Hoy hablamos más de política que nunca y aún así entendemos menos.",
+      "phrases": [
+        "Hoy hablamos más",
+        "de *política",
+        "que nunca",
+        "y aún así",
+        "entendemos *menos."
+      ],
+      "shots": [
+        {
+          "src": "gancho"
+        }
+      ],
+      "cards": [],
+      "speed": 1.12
+    },
+    {
+      "key": "antes",
+      "camera": "IMG_0032",
+      "text": "Antes en Colombia, liberales y conservadores se peleaban por ideas. Si abríamos el mercado o protegíamos la industria nacional. Había violencia, sí, pero la disputa era por ideas.",
+      "phrases": [
+        "Antes en Colombia,",
+        "liberales y conservadores",
+        "se peleaban por *ideas.",
+        "Si abríamos el mercado",
+        "o protegíamos",
+        "la industria nacional.",
+        "Había violencia, sí,",
+        "pero la disputa",
+        "era por *ideas."
+      ],
+      "shots": [
+        {
+          "src": "antes"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "hoy",
+      "camera": "IMG_0033",
+      "text": "Hoy el debate se va a la vida privada de los presidentes, a los memes y a los reels en Instagram.",
+      "phrases": [
+        "Hoy el debate",
+        "se va",
+        "a la *vida *privada",
+        "de los presidentes,",
+        "a los *memes",
+        "y a los *reels",
+        "en Instagram."
+      ],
+      "shots": [
+        {
+          "src": "hoy"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "saturacion",
+      "camera": "IMG_0034",
+      "text": "Y eso nos expone a algo peligroso, a la desinformación por saturación, y es que nos llega tanta información que no sabemos cuál es la correcta.",
+      "phrases": [
+        "Y eso nos expone",
+        "a algo *peligroso,",
+        "a la *desinformación",
+        "por *saturación,",
+        "y es que",
+        "nos llega",
+        "tanta información",
+        "que no sabemos",
+        "cuál es la correcta."
+      ],
+      "shots": [
+        {
+          "src": "saturacion"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "palacio",
+      "camera": "IMG_0036",
+      "text": "Como el Palacio de Justicia en 1985, muchos creen que fue obra de la guerrilla, sin embargo en la retoma el ejército también dejó civiles muertos y 11 desaparecidos. Si te quedas solo con el relato oficial, te quedarás con la mitad de la historia.",
+      "phrases": [
+        "Como el *Palacio *de *Justicia",
+        "en 1985,",
+        "muchos creen",
+        "que fue obra",
+        "de la guerrilla,",
+        "sin embargo en la retoma",
+        "el ejército también dejó",
+        "*civiles *muertos",
+        "y *11 *desaparecidos.",
+        "Si te quedas solo",
+        "con el relato oficial,",
+        "te quedarás con la *mitad",
+        "de la historia."
+      ],
+      "shots": [
+        {
+          "src": "palacio"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "seria",
+      "camera": "IMG_0039",
+      "text": "La política seria no es la más ruidosa, es la que pregunta, la que compara fuentes y disputa ideas.",
+      "phrases": [
+        "La política *seria",
+        "no es la más ruidosa,",
+        "es la que *pregunta,",
+        "la que *compara *fuentes",
+        "y *disputa ideas."
+      ],
+      "shots": [
+        {
+          "src": "seria"
+        }
+      ],
+      "cards": [],
+      "pause": {
+        "minSilence": 0.2
+      }
+    },
+    {
+      "key": "cta",
+      "camera": "IMG_0044",
+      "text": "Antes de compartir algo de política, verifica de dónde salió la información y cuéntame en los comentarios, ¿qué fuente verificas tú antes de creer algo?",
+      "phrases": [
+        "Antes de compartir",
+        "algo de política,",
+        "*verifica de dónde salió",
+        "la información",
+        "y cuéntame",
+        "en los comentarios,",
+        "¿qué *fuente verificas tú",
+        "antes de creer algo?"
+      ],
+      "shots": [
+        {
+          "src": "cta"
+        }
+      ],
+      "cards": []
+    }
+  ]
+}
