@@ -18,6 +18,7 @@ import { CLIPS, Clip, OUTRO_SECONDS } from "./data";
 import { loadPrevencionFonts } from "./fonts";
 import { clipFrames, FPS, getCuts, toFrame } from "./timing";
 import {
+  BRollImage,
   CaptionPage,
   Chips,
   LineaAtencion,
@@ -157,6 +158,11 @@ const ClipSegment: React.FC<{
 
   const durationMs = (duration / FPS) * 1000;
 
+  const brolls = (clip.broll ?? []).map((b) => {
+    const from = toFrame(clip, b.from);
+    return { ...b, from, duration: Math.max(1, toFrame(clip, b.to) - from) };
+  });
+
   const validas = lineas.filter((l) => l.numero.trim() !== "");
   const pointers = (clip.pointers ?? []).map((ptr) => {
     const from = toFrame(clip, ptr.at);
@@ -230,6 +236,13 @@ const ClipSegment: React.FC<{
         )}
       </AbsoluteFill>
 
+      {/* Imágenes de apoyo: cubren el video, la voz sigue debajo. */}
+      {brolls.map((b) => (
+        <Sequence key={b.src} from={b.from} durationInFrames={b.duration}>
+          <BRollImage src={b.src} duration={b.duration} />
+        </Sequence>
+      ))}
+
       {/* Viñeta para que el texto respire */}
       <AbsoluteFill
         style={{
@@ -291,6 +304,15 @@ const ClipSegment: React.FC<{
           <Audio src={staticFile("sfx/pop.wav")} volume={0.35} />
         </Sequence>
       ))}
+      {brolls.map((b) => (
+        <Sequence
+          key={`whoosh-${b.src}`}
+          from={Math.max(0, b.from - 3)}
+          durationInFrames={14}
+        >
+          <Audio src={staticFile("sfx/whoosh.wav")} volume={0.35} />
+        </Sequence>
+      ))}
       {pointers.map((ptr) => (
         <Sequence
           key={`pop-ptr-${ptr.at}`}
@@ -311,11 +333,33 @@ const ClipSegment: React.FC<{
 
 const CasoSegment: React.FC<{ readonly src: string }> = ({ src }) => (
   <AbsoluteFill style={{ backgroundColor: "black" }}>
-    <OffthreadVideo
-      src={staticFile(src)}
-      style={{ width: "100%", height: "100%", objectFit: "contain" }}
-    />
-    <TitleChip text="CASO REAL · COLOMBIA" />
+    {/* Fondo desenfocado: el video es casi cuadrado y la pantalla vertical. */}
+    <AbsoluteFill
+      style={{ filter: "blur(40px) brightness(0.5)", transform: "scale(1.3)" }}
+    >
+      <OffthreadVideo
+        src={staticFile(src)}
+        muted
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+      />
+    </AbsoluteFill>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
+      <div
+        style={{
+          width: 1000,
+          height: 938,
+          borderRadius: 24,
+          overflow: "hidden",
+          boxShadow: "0 20px 80px rgba(0,0,0,0.6)",
+        }}
+      >
+        <OffthreadVideo
+          src={staticFile(src)}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </div>
+    </AbsoluteFill>
+    <TitleChip text="CASO EN COLOMBIA" top={300} />
   </AbsoluteFill>
 );
 

@@ -20,6 +20,14 @@ export type Pointer = {
   readonly y: number;
 };
 
+export type BRoll = {
+  /** Imagen dentro de public/. Se muestra a pantalla completa. */
+  readonly src: string;
+  /** Segundos del clip original; la voz del clip sigue sonando debajo. */
+  readonly from: number;
+  readonly to: number;
+};
+
 export type Stamp = {
   readonly text: string;
   readonly from: number;
@@ -48,6 +56,8 @@ export type Clip = {
    * cuadro (0–1); at/to en segundos del clip original.
    */
   readonly pointers?: readonly Pointer[];
+  /** Imágenes de apoyo que cubren el video mientras la voz continúa. */
+  readonly broll?: readonly BRoll[];
 };
 
 export const CLIPS: readonly Clip[] = [
@@ -200,6 +210,12 @@ export const CLIPS: readonly Clip[] = [
       [8.78, 10.26],
     ],
     title: "¿CÓMO PREVENIR?",
+    // Intro del chico de camiseta azul: dos imágenes mientras dice
+    // "reconociendo las señales de alerta".
+    broll: [
+      { src: "psa/violencia-1.jpg", from: 0.9, to: 3.0 },
+      { src: "psa/violencia-2.jpg", from: 3.0, to: 4.6 },
+    ],
     baseZoom: 1.12,
     words: [
       ["¿Cómo", 0.15, 0.32],

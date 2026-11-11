@@ -41,7 +41,7 @@ export const RemotionRoot: React.FC = () => {
             { nombre: "Colombia", numero: "155" },
             { nombre: "Emergencias", numero: "123" },
           ],
-          casoSrc: "",
+          casoSrc: "psa/caso.mov",
           casoSeconds: 0,
         }}
       />

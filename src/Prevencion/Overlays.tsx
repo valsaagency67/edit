@@ -3,8 +3,10 @@ import { fitText } from "@remotion/layout-utils";
 import React from "react";
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -91,7 +93,10 @@ export const CaptionPage: React.FC<{
   );
 };
 
-export const TitleChip: React.FC<{ readonly text: string }> = ({ text }) => {
+export const TitleChip: React.FC<{
+  readonly text: string;
+  readonly top?: number;
+}> = ({ text, top = TITLE_TOP }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const enter = spring({ frame: frame - 3, fps, config: { damping: 12 } });
@@ -105,7 +110,7 @@ export const TitleChip: React.FC<{ readonly text: string }> = ({ text }) => {
     return null;
   }
   return (
-    <AbsoluteFill style={{ top: TITLE_TOP, height: 110, alignItems: "center" }}>
+    <AbsoluteFill style={{ top, height: 110, alignItems: "center" }}>
       <div
         style={{
           fontFamily: DISPLAY_FONT,
@@ -306,6 +311,53 @@ export const PointCard: React.FC<{
         }}
       />
     </div>
+  );
+};
+
+export const BRollImage: React.FC<{
+  readonly src: string;
+  readonly duration: number;
+}> = ({ src, duration }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const enter = spring({
+    frame,
+    fps,
+    config: { damping: 14, stiffness: 220 },
+    durationInFrames: 8,
+  });
+  const drift = interpolate(frame, [0, duration], [1, 1.07]);
+  return (
+    <AbsoluteFill
+      style={{ backgroundColor: "black", opacity: Math.min(1, enter * 2) }}
+    >
+      {/* Fondo: la misma imagen, desenfocada, para llenar el vertical. */}
+      <Img
+        src={staticFile(src)}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          filter: "blur(40px) brightness(0.45)",
+          transform: "scale(1.25)",
+        }}
+      />
+      <AbsoluteFill
+        style={{ top: -360, justifyContent: "center", alignItems: "center" }}
+      >
+        <Img
+          src={staticFile(src)}
+          style={{
+            width: "100%",
+            display: "block",
+            boxShadow: "0 20px 80px rgba(0,0,0,0.6)",
+            transform: `scale(${interpolate(enter, [0, 1], [1.25, 1]) * drift})`,
+          }}
+        />
+      </AbsoluteFill>
+    </AbsoluteFill>
   );
 };
 

@@ -8,7 +8,7 @@ Código en `src/Prevencion/`, clips en `public/psa/`.
 | # | Archivo | Lo que se dice |
 |---|---|---|
 | 1 | `01-intro-caso.mov` | "A continuación te voy a presentar un caso que se dio aquí en Colombia de abuso contra la mujer." |
-| — | *(caso real, opcional)* | Se inserta aquí si se pasa `casoSrc`. |
+| — | `caso.mov` (nota de noticias, 7 s, sin audio) | Va justo después de la intro; fondo desenfocado y título "Caso en Colombia". |
 | 2 | `02-no-son-normales.mov` | "Sufrir alguno de estos casos, estas problemáticas no son normales y no es algo que debes dejar pasar." |
 | 3 | `03-tipos.mov` | "(Ya,) es que estos casos no solamente se ven mediante lo físico, sino que se pueden ver como psicológico, económico y sexual?" |
 | 4 | `04-manifestaciones.mov` | "Se pueden manifestar mediante insultos, golpes, humillaciones y control de la persona. ¡No permitas eso!" |
@@ -48,6 +48,16 @@ Los clips 2–6 siguen el orden en que se enviaron.
 - Fuentes: Anton y Montserrat Black (OFL). La fuente de la plantilla
   (TheBoldFont) no tiene Í, Ñ ni ¡.
 
+## Material de apoyo ya incluido
+
+- **Video del caso** (`public/psa/caso.mov`, 512x480, sin audio, trae marca de
+  agua "clideo.com"): después de "A continuación te voy a presentar un caso…".
+  Si hay una versión sin marca y de mayor resolución, reemplazar el archivo.
+- **Imágenes** (`public/psa/violencia-1.jpg`, `violencia-2.jpg`): al inicio
+  del clip 5 (chico de camiseta azul, "¿Cómo podemos prevenir? Reconociendo
+  las señales de alerta"), a pantalla completa mientras su voz sigue. Se
+  configuran en `broll` de `src/Prevencion/data.ts`.
+
 ## Pendiente
 
 - **Líneas de atención**: ya cargadas con lo que envió el cliente:
@@ -60,8 +70,6 @@ Los clips 2–6 siguen el orden en que se enviaron.
   En el clip 7 solo salen las dos primeras líneas; en el cierre salen todas,
   junto con
   "No estás sola. La violencia se previene, se reconoce y se denuncia."
-- **Video del caso real** que anuncia el clip 1: ponerlo en `public/` y pasar
-  `casoSrc` (ruta relativa a `public/`).
 - Música de fondo con licencia (opcional).
 - Los clips recibidos son 720x1280. Con los originales del celular (1080p o
   4K) el render final se vería más nítido.
