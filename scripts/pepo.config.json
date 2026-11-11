@@ -58,7 +58,23 @@
           "src": "antes"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "Antes",
+          "until": "se",
+          "img": "marcha-viani"
+        },
+        {
+          "at": "se",
+          "until": "abríamos",
+          "img": "gaitan"
+        },
+        {
+          "at": "Había",
+          "img": "liberalismo-paz"
+        }
+      ]
     },
     {
       "key": "hoy",
@@ -78,7 +94,20 @@
           "src": "hoy"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [
+        {
+          "at": "a",
+          "until": "a",
+          "untilNth": 2,
+          "img": "petro-videollamada"
+        },
+        {
+          "at": "a",
+          "nth": 2,
+          "img": "meme-huevo"
+        }
+      ]
     },
     {
       "key": "saturacion",
@@ -171,5 +200,37 @@
       "cards": []
     }
   ],
-  "cleanStart": true
+  "cleanStart": true,
+  "fotos": {
+    "_doc": "Fotos de apoyo que mandó el cliente (media/pepo1/fotos/, no versionadas). Se arman a 1080x1920: la foto a lo ancho sobre una copia suya desenfocada y oscurecida (a pantalla completa, como el material de archivo del video argentino). pixel: cajas [x0,y0,x1,y1] en px de la original que se pixelan (caras de terceros). crop: [x0,y0,x1,y1] para quitar bordes que trae la foto.",
+    "marcha-viani": {
+      "file": "marcha-viani.jpg"
+    },
+    "gaitan": {
+      "file": "gaitan.jpg"
+    },
+    "liberalismo-paz": {
+      "file": "liberalismo-paz.jpg",
+      "crop": [
+        118,
+        0,
+        806,
+        518
+      ]
+    },
+    "petro-videollamada": {
+      "file": "petro-videollamada.jpg",
+      "pixel": [
+        [
+          390,
+          0,
+          576,
+          260
+        ]
+      ]
+    },
+    "meme-huevo": {
+      "file": "meme-huevo.webp"
+    }
+  }
 }

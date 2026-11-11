@@ -11,5 +11,13 @@ export const PEPO_FPS = raw.fps;
 export const pepoDuration = Math.round(raw.duration * raw.fps);
 
 export const Pepo: React.FC = () => (
-  <TomasVideo data={raw as TomasData} dir="pepo" captionTop={1240} base={1.12} punch={1.32} punchOrigin="50% 26%" />
+  <TomasVideo
+    data={raw as unknown as TomasData}
+    dir="pepo"
+    captionTop={1240}
+    base={1.12}
+    punch={1.32}
+    punchOrigin="50% 26%"
+    photoFull
+  />
 );

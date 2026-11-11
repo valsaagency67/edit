@@ -323,7 +323,23 @@
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "img": "marcha-viani",
+     "start": 3.33,
+     "end": 5.89
+    },
+    {
+     "img": "gaitan",
+     "start": 5.89,
+     "end": 7.49
+    },
+    {
+     "img": "liberalismo-paz",
+     "start": 10.37,
+     "end": 13.513
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -486,7 +502,18 @@
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "img": "petro-videollamada",
+     "start": 14.473,
+     "end": 16.153
+    },
+    {
+     "img": "meme-huevo",
+     "start": 16.153,
+     "end": 18.96
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -1338,5 +1365,47 @@
   "text": "es recuperar la política",
   "start": 51.757,
   "end": 54.557
- }
+ },
+ "zooms": [
+  [
+   1.2,
+   true
+  ],
+  [
+   21.933333333333334,
+   true
+  ],
+  [
+   24.566666666666666,
+   false
+  ],
+  [
+   28.866666666666667,
+   true
+  ],
+  [
+   32.46666666666667,
+   false
+  ],
+  [
+   35.4,
+   true
+  ],
+  [
+   37.63333333333333,
+   false
+  ],
+  [
+   42.6,
+   true
+  ],
+  [
+   47.8,
+   true
+  ],
+  [
+   50.93333333333333,
+   false
+  ]
+ ]
 }

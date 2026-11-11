@@ -111,17 +111,53 @@ def musica(data):
 
 
 def zooms(data):
-    """Los mismos zooms que TomasVideo (src/campaign/Tomas.tsx, prop punch): por escena, al empezar un
-    subtítulo cuando ya pasaron 2.5 s (1.2 s en el gancho) y quedan al menos 1.0 s. Devuelve (s, cerrado?)."""
+    """Zoom in / zoom out cada ~3 s (regla del cliente): por escena, al empezar un subtítulo cuando ya pasaron
+    2.2 s (1.2 s en el gancho) desde el último cambio y quedan al menos 1.0 s. Mientras hay una foto de apoyo
+    no se hace zoom (la foto ya es el cambio) y se cuenta desde que la foto se va. Devuelve [(s, cerrado?)];
+    TomasVideo los lee de data["zooms"] y foley() pone ahí el whoosh."""
     out = []
+    fps = data["fps"]
     for i, sc in enumerate(data["scenes"]):
         start, end = sc["shots"][0]["start"], sc["shots"][-1]["end"]
-        every, last, close = (1.2 if i == 0 else 2.5), start, False
+        every, last, close = (1.2 if i == 0 else 2.2), start, False
         for c in sc["captions"]:
-            if c["start"] - last >= every and end - c["start"] >= 1.0:
-                close, last = not close, c["start"]
-                out.append((round(c["start"] * data["fps"]) / data["fps"], close))
+            t = c["start"]
+            if any(p["start"] - 0.3 <= t < p["end"] + 0.3 for p in sc["photos"]):
+                continue
+            last = max([last] + [p["end"] for p in sc["photos"] if p["end"] <= t])
+            if t - last >= every and end - t >= 1.0:
+                close, last = not close, t
+                out.append((round(t * fps) / fps, close))
     return out
+
+
+def fotos():
+    """Fotos de apoyo a 1080x1920: la foto a lo ancho (alto máximo 960, centrada en y=700: termina antes
+    de y=1180 y los subtítulos de y=1240 quedan debajo) sobre una copia suya desenfocada y oscurecida a pantalla completa.
+    Primero se pixelan las cajas de `pixel` (caras de terceros)."""
+    from PIL import Image, ImageEnhance, ImageFilter
+    os.makedirs(f"{OUT}/fotos", exist_ok=True)
+    W, H, CY, MAXH = 1080, 1920, 700, 960
+    for name, f in CFG["fotos"].items():
+        if name.startswith("_"):
+            continue
+        im = Image.open(f"{ROOT}/media/pepo1/fotos/{f['file']}").convert("RGB")
+        if "crop" in f:
+            im = im.crop(tuple(f["crop"]))
+        for x0, y0, x1, y1 in f.get("pixel", []):
+            box = im.crop((x0, y0, x1, y1))
+            small = box.resize((max(1, (x1 - x0) // 22), max(1, (y1 - y0) // 22)), Image.BILINEAR)
+            im.paste(small.resize(box.size, Image.NEAREST), (x0, y0))
+        s = max(W / im.width, H / im.height)
+        bg = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+        bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+        bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(45))).enhance(0.45)
+        s = min(W / im.width, MAXH / im.height)
+        fg = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+        if s > 1.3:  # las de baja resolución se ven blandas al ampliarlas
+            fg = fg.filter(ImageFilter.UnsharpMask(2, 60, 2))
+        bg.paste(fg, ((W - fg.width) // 2, CY - fg.height // 2))
+        bg.save(f"{OUT}/fotos/{name}.jpg", quality=92)
 
 
 def foley(data):
@@ -139,7 +175,7 @@ def foley(data):
     # Whoosh del video de referencia en cada zoom (lo pidió el cliente): al acercar, normal y con el pico al
     # empezar el zoom; al alejar, al revés (termina cuando termina el zoom, 0.4 s).
     whoosh = sample("whoosh")
-    for at, close in zooms(data):
+    for at, close in data["zooms"]:
         if close:
             mf.place(buf, whoosh * 0.45, at - 0.06)
         else:
@@ -150,7 +186,11 @@ def foley(data):
 
 
 if __name__ == "__main__":
-    d = Proyecto(CFG, f"{ROOT}/media/pepo1", ".MOV", OUT, TMP, GRADE, voice=VOZ).build(f"{ROOT}/src/campaign/pepo.json")
+    path = f"{ROOT}/src/campaign/pepo.json"
+    d = Proyecto(CFG, f"{ROOT}/media/pepo1", ".MOV", OUT, TMP, GRADE, voice=VOZ).build(path)
+    d["zooms"] = zooms(d)
+    json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
+    fotos()
     musica(d)
     foley(d)
     print("listo:", d["duration"], "s")

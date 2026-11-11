@@ -49,6 +49,7 @@ export type TomasData = {
     kinetic?: (Range & { text: string; color: string })[];
   }[];
   outro?: Range & { kicker: string; text: string };
+  zooms?: [number, boolean][];
 };
 
 // Toma cortada en sincronía con la voz; si la escena dura más (cola final), se congela su último cuadro.
@@ -149,11 +150,28 @@ const PhotoView: React.FC<{
   fadeIn: boolean;
   fadeOut: boolean;
   center: number;
-}> = ({ src, emoji, label, dur, fadeIn, fadeOut, center }) => {
+  full?: boolean;
+}> = ({ src, emoji, label, dur, fadeIn, fadeOut, center, full }) => {
   const frame = useCurrentFrame();
   const inn = fadeIn ? interpolate(frame, [0, IO], [0, 1], clamp) : 1;
   const out = fadeOut ? interpolate(frame, [dur - IO, dur], [1, 0], clamp) : 1;
   const o = Math.min(inn, out);
+  if (full && src) {
+    // A pantalla completa (ya armada a 1080x1920 sobre su fondo desenfocado), con un acercamiento lento.
+    return (
+      <AbsoluteFill style={{ opacity: o, filter: `blur(${(1 - o) * 12}px)` }}>
+        <Img
+          src={staticFile(src)}
+          style={{
+            width: "100%",
+            height: "100%",
+            transform: `scale(${interpolate(frame, [0, dur], [1, 1.06], clamp)})`,
+            transformOrigin: "50% 40%",
+          }}
+        />
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{ backgroundColor: "black", opacity: 0.6 * o }} />
@@ -286,7 +304,8 @@ const pieces = (text: string) =>
 // dinamismo»): dentro de cada escena la toma alterna con un zoom rápido (0.4 s, suave) entre el plano normal
 // y uno más cerrado (escala `punch`, centrado en la cara en punchOrigin) al empezar un subtítulo cuando ya
 // pasaron ~2.5 s (en el gancho, ~1.2 s). Cada escena (después del corte) empieza en plano normal.
-// (scripts/build_pepo.py repite este cálculo en zooms() para poner el whoosh: si cambia aquí, cambiarlo allá.)
+// Si data.zooms viene del armado (build_pepo.py), se usan esos tiempos en vez de calcularlos aquí.
+// photoFull: las fotos de apoyo van a pantalla completa (armadas a 1080x1920), sin marco.
 // punchCut: en vez de zoom animado, reencuadre seco (como antes de que el cliente pidiera los zooms).
 // base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
@@ -301,6 +320,7 @@ export const TomasVideo: React.FC<{
   punchOrigin?: string;
   base?: number;
   punchCut?: boolean;
+  photoFull?: boolean;
 }> = ({
   data,
   dir,
@@ -312,6 +332,7 @@ export const TomasVideo: React.FC<{
   punchOrigin = "50% 30%",
   base = 1,
   punchCut,
+  photoFull,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -322,10 +343,17 @@ export const TomasVideo: React.FC<{
     data.scenes.forEach((sc, i) => {
       const start = sc.shots[0].start;
       const end = sc.shots[sc.shots.length - 1].end;
+      out.push([f(start), false, false]);
+      if (data.zooms) {
+        // Calculados en el armado (build_pepo.py: saltan las fotos de apoyo y llevan whoosh).
+        for (const [t, close] of data.zooms) {
+          if (t >= start && t < end) out.push([f(t), close, !punchCut]);
+        }
+        return;
+      }
       const every = i === 0 ? 1.2 : 2.5;
       let last = start;
       let close = false;
-      out.push([f(start), false, false]);
       for (const c of sc.captions) {
         if (c.start - last >= every && end - c.start >= 1.0) {
           close = !close;
@@ -407,6 +435,7 @@ export const TomasVideo: React.FC<{
               fadeIn={k === 0 || f(all[k - 1].end) !== f(p.start)}
               fadeOut={k === all.length - 1 || f(all[k + 1].start) !== f(p.end)}
               center={photoCenter}
+              full={photoFull}
             />
           </Sequence>
         )),
