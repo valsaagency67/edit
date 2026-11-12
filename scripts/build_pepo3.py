@@ -153,6 +153,22 @@ def musica(data):
         return
     fade = max(0.0, total - 2.0)
     tmp = f"{TMP}/musica-norm.wav"
+    if CFG.get("musicSegments"):
+        # Tramos de la canción (s) unidos con fundidos de 1,2 s: p. ej. desde la parte viral y, al acabarse,
+        # de vuelta a la parte de después del golpe.
+        joined = f"{TMP}/musica-tramos.wav"
+        segs = CFG["musicSegments"]
+        ins, chain = [], ""
+        for i, (a, b) in enumerate(segs):
+            ins += ["-ss", str(a), "-t", str(b - a), "-i", src[0]]
+        prev = "[0:a]"
+        for i in range(1, len(segs)):
+            chain += f"{prev}[{i}:a]acrossfade=d=1.2:c1=tri:c2=tri[x{i}];"
+            prev = f"[x{i}]"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", *ins, "-filter_complex",
+                        (chain.rstrip(";") if chain else "[0:a]anull[x0]"), "-map", prev if chain else "[x0]",
+                        "-ar", str(SR), "-ac", "2", joined], check=True)
+        src = [joined]
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src[0], "-t", f"{total + 0.5:.2f}", "-af",
                     f"loudnorm=I={CFG.get('musicLUFS', -33)}:TP=-6:LRA=11,afade=t=out:st={fade:.2f}:d=2", "-ar",
                     str(SR), "-ac", "2", tmp], check=True)
@@ -201,7 +217,8 @@ def foley(data):
 
 if __name__ == "__main__":
     path = f"{ROOT}/src/campaign/pepo3.json"
-    d = Proyecto(CFG, f"{ROOT}/media/pepo3", ".MOV", OUT, TMP, GRADE, voice=VOZ, denoise=DENOISE).build(path)
+    d = Proyecto(CFG, f"{ROOT}/media/pepo3", ".MOV", OUT, TMP, CFG.get("grade", GRADE), voice=VOZ,
+                 denoise=DENOISE).build(path)
     d["zooms"] = zooms(d)
     d["big"] = bigs(d)
     mattes(d)
