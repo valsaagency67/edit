@@ -1,0 +1,353 @@
+{
+  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4: imagen oscura de cine, subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.09
+  },
+  "gap": 0.0,
+  "tail": 2.6,
+  "videos": {},
+  "cleanStart": true,
+  "outro": {
+    "kicker": "¿Te pasó algo así?",
+    "text": "Escríbeme"
+  },
+  "big": [
+    {
+      "scene": "paso1",
+      "at": "Reclama",
+      "until": "es",
+      "text": "PASO 1",
+      "layer": "front",
+      "style": "tag"
+    },
+    {
+      "scene": "paso1",
+      "at": "Reclama",
+      "until": "es",
+      "text": "RECLAMA",
+      "layer": "behind"
+    },
+    {
+      "scene": "paso1",
+      "at": "por",
+      "until": "es",
+      "text": "por escrito",
+      "layer": "front"
+    },
+    {
+      "scene": "paso1",
+      "at": "obligatorio",
+      "until": "así",
+      "text": "OBLIGATORIO",
+      "layer": "behind"
+    },
+    {
+      "scene": "paso2",
+      "at": "Y",
+      "until": "rechazan",
+      "text": "PASO 2",
+      "layer": "front",
+      "style": "tag"
+    },
+    {
+      "scene": "paso2",
+      "at": "acción",
+      "until": "financiero.",
+      "text": "protección al consumidor",
+      "layer": "front"
+    },
+    {
+      "scene": "reintegro",
+      "at": "reintegrar",
+      "until": "y",
+      "text": "REINTEGRAR",
+      "layer": "behind"
+    },
+    {
+      "scene": "consejo",
+      "at": "esto",
+      "until": "hacer.",
+      "untilEnd": true,
+      "text": "esto te recomiendo",
+      "layer": "front"
+    }
+  ],
+  "sfx": [
+    {
+      "name": "riser",
+      "at": 0.0,
+      "gain": 0.55
+    },
+    {
+      "name": "impact",
+      "scene": "caso",
+      "word": "15",
+      "gain": 0.8
+    },
+    {
+      "name": "shutter",
+      "sceneStart": "proceso",
+      "gain": 0.6
+    },
+    {
+      "name": "click",
+      "scene": "paso1",
+      "word": "Reclama",
+      "gain": 0.8
+    },
+    {
+      "name": "impact2",
+      "scene": "paso1",
+      "word": "obligatorio",
+      "gain": 0.7
+    },
+    {
+      "name": "click",
+      "scene": "paso2",
+      "word": "Y",
+      "gain": 0.8
+    },
+    {
+      "name": "impact",
+      "scene": "reintegro",
+      "word": "reintegrar",
+      "gain": 0.7
+    },
+    {
+      "name": "shutter",
+      "sceneStart": "cierre",
+      "gain": 0.6
+    }
+  ],
+  "scenes": [
+    {
+      "key": "caso",
+      "camera": "C013",
+      "text": "Me robaron la tarjeta de crédito, me vaciaron 15 millones de pesos y no sé qué hacer.",
+      "phrases": [
+        "Me *robaron",
+        "la tarjeta",
+        "de crédito,",
+        "me vaciaron",
+        "*15 *millones",
+        "de pesos",
+        "y no",
+        "sé qué",
+        "hacer."
+      ],
+      "shots": [
+        {
+          "src": "caso"
+        }
+      ],
+      "cards": [],
+      "from": 4.25,
+      "speed": 1.1
+    },
+    {
+      "key": "banco",
+      "camera": "C014",
+      "text": "¿Y ya fuiste al banco a hacer el reclamo?",
+      "phrases": [
+        "¿Y ya",
+        "fuiste al",
+        "*banco a",
+        "hacer el",
+        "*reclamo?"
+      ],
+      "shots": [
+        {
+          "src": "banco"
+        }
+      ],
+      "cards": [],
+      "from": 2.1
+    },
+    {
+      "key": "veces",
+      "camera": "C015",
+      "text": "Pues claro, he ido muchas veces y me dicen que no me pueden colaborar con mi caso.",
+      "phrases": [
+        "Pues claro,",
+        "he ido",
+        "*muchas *veces",
+        "y me",
+        "dicen que",
+        "no me",
+        "pueden",
+        "colaborar con",
+        "mi caso."
+      ],
+      "shots": [
+        {
+          "src": "veces"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "proceso",
+      "camera": "C018",
+      "text": "Este es el proceso que vamos a llevar.",
+      "phrases": [
+        "Este es",
+        "el *proceso",
+        "que vamos",
+        "a llevar."
+      ],
+      "shots": [
+        {
+          "src": "proceso"
+        }
+      ],
+      "cards": [],
+      "from": 2.5
+    },
+    {
+      "key": "consejo",
+      "camera": "C020",
+      "text": "Si a ti te desconocen una transacción y el banco no te quiere responder, esto es lo que te recomiendo hacer.",
+      "phrases": [
+        "Si a",
+        "ti te",
+        "*desconocen una",
+        "transacción y",
+        "el *banco",
+        "no te",
+        "quiere",
+        "responder,",
+        "esto es",
+        "lo que",
+        "te *recomiendo",
+        "hacer."
+      ],
+      "shots": [
+        {
+          "src": "consejo"
+        }
+      ],
+      "cards": [],
+      "from": 5.1
+    },
+    {
+      "key": "paso1",
+      "camera": "C028",
+      "text": "Reclama por escrito al banco, es obligatorio antes de cualquier demanda, así que aprovecha y pide las operaciones bancarias y los registros de llamadas.",
+      "phrases": [
+        "Reclama por",
+        "*escrito al",
+        "*banco,",
+        "es *obligatorio",
+        "antes de",
+        "cualquier",
+        "demanda,",
+        "así que",
+        "aprovecha y",
+        "pide las",
+        "*operaciones",
+        "*bancarias y",
+        "los registros",
+        "de *llamadas."
+      ],
+      "shots": [
+        {
+          "src": "paso1"
+        }
+      ],
+      "cards": [],
+      "from": 1.0
+    },
+    {
+      "key": "paso2",
+      "camera": "C040",
+      "text": "Y ojo que si rechazan tu reclamación o no la responden a tiempo, puedes iniciar la acción de protección al consumidor financiero.",
+      "phrases": [
+        "Y ojo",
+        "que si",
+        "*rechazan tu",
+        "reclamación o",
+        "no la",
+        "responden a",
+        "*tiempo,",
+        "puedes iniciar",
+        "la acción",
+        "de *protección",
+        "al *consumidor",
+        "*financiero."
+      ],
+      "shots": [
+        {
+          "src": "paso2"
+        }
+      ],
+      "cards": [],
+      "from": 0.95
+    },
+    {
+      "key": "reintegro",
+      "camera": "C045",
+      "text": "En este tipo de casos, el banco suele tener la responsabilidad de reintegrar el dinero, y aunque cada caso depende de sus pruebas, una reclamación bien escrita cambia mucho la situación.",
+      "phrases": [
+        "En este",
+        "tipo de",
+        "casos,",
+        "el *banco",
+        "suele tener",
+        "la",
+        "responsabilidad",
+        "de *reintegrar",
+        "el *dinero,",
+        "y aunque",
+        "cada caso",
+        "depende de",
+        "sus *pruebas,",
+        "una",
+        "reclamación",
+        "bien *escrita",
+        "cambia mucho",
+        "la situación."
+      ],
+      "shots": [
+        {
+          "src": "reintegro"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "cierre",
+      "camera": "C051",
+      "text": "Necesito salir de esto ya, ¿cómo podríamos empezar con la reclamación? Si quieres una reclamación bien redactada y una solución pronta, puedes escribirme.",
+      "phrases": [
+        "Necesito *salir",
+        "de esto",
+        "ya,",
+        "¿cómo",
+        "podríamos",
+        "empezar con",
+        "la",
+        "reclamación?",
+        "Si quieres",
+        "una",
+        "reclamación",
+        "bien redactada",
+        "y una",
+        "solución",
+        "pronta,",
+        "puedes",
+        "*escribirme."
+      ],
+      "shots": [
+        {
+          "src": "cierre"
+        }
+      ],
+      "cards": [],
+      "from": 1.15
+    }
+  ]
+}

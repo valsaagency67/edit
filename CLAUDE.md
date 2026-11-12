@@ -50,6 +50,18 @@ Video de TikTok sobre cómo hacer un video viral. El cliente dice que «lo hacen
 3. **Llamado a la acción** al final (comentar, compartir).
 El cliente confirmó los zooms: reemplazan la vieja regla «sin zooms» (ver «Siempre»).
 
+## Estilo «cinematográfico» (Pepo 3, referencia `media/ref/referencia-4.mp4`, no versionada)
+El cliente pidió un video «súper cinematográfico» con los efectos del video de referencia de CapCut. Para estos:
+- **Color de cine**: `GRADE` de `scripts/build_pepo3.py` (contraste, curva en S suave, sombras frías, luces cálidas,
+  viñeta y grano). La primera prueba quedó demasiado oscura: no bajar el brillo, subir gamma.
+- **Subtítulos de una o dos palabras en serifa** (Playfair Display 800, clave en itálica dorada `#E9C46A`),
+  variante `cine` de `CaptionView`. Reemplazan a Montserrat amarillo solo en este estilo.
+- **Palabras grandes detrás de Juan Felipe** (la palabra y encima su recorte cuadro a cuadro, `u2net_human_seg`;
+  birefnet tarda 27 s y 10 GB por cuadro) y **delante** en itálica dorada; «PASO 1 / PASO 2» con el clic.
+- **Efectos**: solo los de la referencia (`public/sfx/ref2-*`, `scripts/extract_sfx_ref4.py`): riser al inicio,
+  clic al enumerar, impacto en datos clave, obturador en algún cambio de toma, «转场 10» en uno de cada dos zooms.
+- **Dramatizaciones**: rótulo «DRAMATIZACIÓN» en pantalla.
+
 ## Datos que ya se corrigieron
 - Es el **POT** (Plan de Ordenamiento Territorial), no «FOT» como sale en la transcripción de IMG_1740.
 - El correo de la Alcaldía con el radicado 20260525051 es del 8 de octubre de 2026 (él dice «9 de octubre»).

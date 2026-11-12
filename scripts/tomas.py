@@ -250,6 +250,10 @@ class Proyecto:
                     # Las tomas empiezan con una muletilla («Ya,») muy pegada a la primera palabra: se arranca
                     # al final del último silencio (>= 0.15 s) antes de la primera palabra, 0.06 s antes de la voz.
                     off = max(off, speech_onset(raw, first, cfg["pause"]) - 0.06)
+                if "from" in sc:
+                    # La muletilla va pegada a una palabra igual a la primera del texto («Ya. ¿Y ya fuiste…»): la
+                    # toma no empieza antes de `from` segundos del original.
+                    off = max(off, sc["from"])
                 if sc.get("endAtText"):
                     # La toma sigue con algo que no va (otra frase): se corta 0.3 s después de la última
                     # palabra del texto.

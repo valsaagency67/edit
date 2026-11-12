@@ -315,6 +315,8 @@ const pieces = (text: string) =>
 // pasaron ~2.5 s (en el gancho, ~1.2 s). Cada escena (después del corte) empieza en plano normal.
 // Si data.zooms viene del armado (build_pepo.py), se usan esos tiempos en vez de calcularlos aquí.
 // photoFull: las fotos de apoyo van a pantalla completa (armadas a 1080x1920), sin marco.
+// captionCine: subtítulos en serifa (Pepo 3); hideCaptions: tramos sin subtítulo (cuando hay palabra grande);
+// inner: capas dentro del zoom (palabra detrás + recorte); overlay: capas encima de todo, antes de la firma.
 // punchCut: en vez de zoom animado, reencuadre seco (como antes de que el cliente pidiera los zooms).
 // base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
@@ -331,6 +333,10 @@ export const TomasVideo: React.FC<{
   punchCut?: boolean;
   photoFull?: boolean;
   captionImpact?: boolean;
+  captionCine?: boolean;
+  hideCaptions?: Range[];
+  inner?: React.ReactNode;
+  overlay?: React.ReactNode;
 }> = ({
   data,
   dir,
@@ -344,6 +350,10 @@ export const TomasVideo: React.FC<{
   punchCut,
   photoFull,
   captionImpact,
+  captionCine,
+  hideCaptions = [],
+  inner,
+  overlay,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -429,6 +439,8 @@ export const TomasVideo: React.FC<{
             </Sequence>
           )),
         )}
+        {/* Capas que se mueven con la toma (zoom): palabras detrás de la persona y su recorte (Pepo 3). */}
+        {inner}
       </AbsoluteFill>
 
       {data.scenes.map((sc) =>
@@ -485,7 +497,9 @@ export const TomasVideo: React.FC<{
       )}
 
       {data.scenes.map((sc) =>
-        sc.captions.map((c) => (
+        sc.captions
+          .filter((c) => !hideCaptions.some((h) => c.end > h.start + 0.05 && c.start < h.end))
+          .map((c) => (
           <Sequence
             key={`cap-${c.start}`}
             from={f(c.start)}
@@ -498,6 +512,7 @@ export const TomasVideo: React.FC<{
               boxed={captionBox}
               pop={captionPop}
               impact={captionImpact}
+              cine={captionCine}
             />
           </Sequence>
         )),
@@ -509,6 +524,7 @@ export const TomasVideo: React.FC<{
         </Sequence>
       ) : null}
 
+      {overlay}
       <Firma />
       <Progress />
     </AbsoluteFill>

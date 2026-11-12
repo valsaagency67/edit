@@ -4,7 +4,7 @@ import { continueRender, delayRender, staticFile } from "remotion";
 // - Anton: firma "Juan Felipe Castaño", tarjetas y cierre.
 // - Montserrat: subtítulo base (600), palabras anchas (900), selección (700 itálica).
 // - Bebas Neue: palabras condensadas grandes ("VANDALIZACIÓN").
-// - Playfair Display itálica: serif fina ("incómodas").
+// - Playfair Display itálica: serif fina ("incómodas"); 800/900 y 700 itálica: subtítulos «de cine» (Pepo 3).
 export const Anton = "Anton";
 export const Montserrat = "Montserrat";
 export const Bebas = "Bebas Neue";
@@ -26,6 +26,13 @@ const faces: [string, string, FontFaceDescriptors][] = [
     Playfair,
     "playfair-display-latin-400-italic.woff2",
     { weight: "400", style: "italic" },
+  ],
+  [Playfair, "playfair-display-latin-800-normal.woff2", { weight: "800" }],
+  [Playfair, "playfair-display-latin-900-normal.woff2", { weight: "900" }],
+  [
+    Playfair,
+    "playfair-display-latin-700-italic.woff2",
+    { weight: "700", style: "italic" },
   ],
 ];
 

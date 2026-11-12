@@ -9,10 +9,19 @@ Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 
-// En el entorno cloud no se puede descargar Chrome Headless Shell; usar el preinstalado.
-import { existsSync } from "node:fs";
-const PREINSTALLED_SHELL =
-  "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
-if (existsSync(PREINSTALLED_SHELL)) {
-  Config.setBrowserExecutable(PREINSTALLED_SHELL);
+// En el entorno cloud no se puede descargar Chrome Headless Shell; usar el preinstalado (la versión cambia
+// entre entornos, así que se busca la carpeta chromium_headless_shell-* que haya).
+import { existsSync, readdirSync } from "node:fs";
+const PW = "/opt/pw-browsers";
+const shell = existsSync(PW)
+  ? readdirSync(PW)
+      .filter((d) => d.startsWith("chromium_headless_shell-"))
+      .flatMap((d) => [
+        `${PW}/${d}/chrome-headless-shell-linux64/chrome-headless-shell`,
+        `${PW}/${d}/chrome-linux/headless_shell`,
+      ])
+      .find((p) => existsSync(p))
+  : undefined;
+if (shell) {
+  Config.setBrowserExecutable(shell);
 }

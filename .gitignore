@@ -45,3 +45,5 @@ public/pepo/fotos/
 public/pepo/broll/
 # Efectos sacados de media/ref/referencia-4.mp4 (scripts/extract_sfx_ref4.py)
 public/sfx/ref2-*.wav
+# Pepo 3: generados por scripts/build_pepo3.py (no versionar)
+public/pepo3/

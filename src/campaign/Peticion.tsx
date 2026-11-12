@@ -12,7 +12,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { Anton, Montserrat } from "./font";
+import { Anton, Montserrat, Playfair } from "./font";
 import evidencia from "./evidencia.json";
 import raw from "./peticion.json";
 
@@ -255,11 +255,49 @@ export const CaptionView: React.FC<{
   boxed?: boolean;
   pop?: boolean;
   impact?: boolean;
-}> = ({ pieces, dur, top = 1160, boxed = false, pop = false, impact = false }) => {
+  cine?: boolean;
+}> = ({ pieces, dur, top = 1160, boxed = false, pop = false, impact = false, cine = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = pieces.reduce((n, p) => n + p.t.length, 0);
   const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
+  if (cine) {
+    // Subtítulo «de cine» (Pepo 3, como el video de referencia de CapCut): una o dos palabras en Playfair
+    // Display 800, blancas, con las clave en itálica dorada; entran con un desenfoque corto.
+    const k = interpolate(frame, [0, 4], [0, 1], clamp);
+    return (
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
+        <div
+          style={{
+            opacity: Math.min(k, interpolate(frame, [dur - 2, dur], [1, 0], clamp)),
+            filter: `blur(${(1 - k) * 6}px)`,
+            transform: `scale(${1.06 - 0.06 * k})`,
+            maxWidth: 960,
+            fontFamily: Playfair,
+            fontWeight: 800,
+            fontSize: 78,
+            lineHeight: 1.08,
+            color: "white",
+            textAlign: "center",
+            textShadow: "0 4px 18px rgba(0,0,0,0.75), 0 1px 3px rgba(0,0,0,0.6)",
+          }}
+        >
+          {pieces.map((p, i) => (
+            <span
+              key={i}
+              style={
+                p.y
+                  ? { color: "#E9C46A", fontStyle: "italic", fontWeight: 700 }
+                  : undefined
+              }
+            >
+              {p.t}
+            </span>
+          ))}
+        </div>
+      </AbsoluteFill>
+    );
+  }
   if (impact) {
     // Subtítulo «de impacto» (Pepo1: el cliente los pidió más grandes y llamativos): Montserrat 900 en
     // mayúsculas, 88 px, con borde negro grueso y sombra; la frase entera entra con un salto corto.
