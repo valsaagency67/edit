@@ -101,7 +101,7 @@ def mattes(data):
         return
     code = ("import sys,json;from PIL import Image;from rembg import new_session,remove;"
             "s=new_session('u2net_human_seg');"
-            "[(lambda im:(lambda m:(im.putalpha(m),im.save(o)))(remove(im.convert('RGB').resize((im.width//2,im.height//2),Image.LANCZOS),"
+            "[(lambda im:(lambda m:(im.putalpha(m),im.save(o)))(remove(im.convert('RGB').resize((1080,1920),Image.LANCZOS),"
             "session=s,only_mask=True).resize(im.size,Image.LANCZOS)))(Image.open(i).convert('RGBA')) for i,o in json.loads(sys.argv[1])]")
     jobs = list(dict(jobs).items())  # dos palabras de la misma escena piden los mismos cuadros
     # Por tandas en procesos aparte, para no acumular memoria.
@@ -132,9 +132,10 @@ def heads(data):
             continue
         n = round(((b["start"] + b["end"]) / 2 - b["shotStart"]) * fps)
         a = np.asarray(Image.open(f"{OUT}/matte/{b['src']}/{n}.png").getchannel("A")) > 128
+        k = a.shape[1] / 1080  # los recortes pueden ser 4K; las medidas van en px del lienzo de 1080
         top = CFG.get("headSearchFrom", 320)
-        rows = np.nonzero(a[top:].sum(1) >= 25)[0]
-        b["headTop"] = int(rows[0] + top) if len(rows) else 620
+        rows = np.nonzero(a[int(top * k):].sum(1) >= 25 * k)[0]
+        b["headTop"] = int(rows[0] / k + top) if len(rows) else 620
         # Base de las letras 60 px bajo el inicio de la cabeza, pero sin bajar de `behindMaxBaseline` (Pepo 2:
         # la cabeza está tan arriba que la palabra chocaba con la firma de y=300).
         b["baseline"] = min(b["headTop"] + 60, CFG.get("behindMaxBaseline", 10000))

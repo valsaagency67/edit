@@ -1,5 +1,5 @@
 {
-  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a).",
+  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a). Tomas en 4K (size 2160x3840): se renderiza con --scale=2 para la entrega 4K (npm run render:pepo3-4k).",
   "fps": 30,
   "speed": 1.0,
   "pause": {
@@ -367,5 +367,9 @@
     }
   ],
   "musicLUFS": -25,
-  "duckWoman": false
+  "duckWoman": false,
+  "size": [
+    2160,
+    3840
+  ]
 }

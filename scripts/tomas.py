@@ -184,7 +184,9 @@ class Proyecto:
         self.denoise = denoise
         self.fps = cfg["fps"]
         # Llena 1080x1920 sin deformar (las tomas 3:4 se recortan a los lados).
-        self.vf = f"scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
+        # size: resolución de las tomas cortadas (por defecto 1080x1920; [2160, 3840] para la versión 4K de Pepo 3).
+        w, h = cfg.get("size", [1080, 1920])
+        self.vf = f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},unsharp=5:5:0.3,fps={self.fps},{grade},format=yuv420p"
 
     def src(self, name):
         return f"{self.media}/{name}{self.ext}"
