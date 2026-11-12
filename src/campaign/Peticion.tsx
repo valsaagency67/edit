@@ -260,7 +260,9 @@ export const CaptionView: React.FC<{
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = pieces.reduce((n, p) => n + p.t.length, 0);
-  const o = interpolate(frame, [0, 3, dur - 3, dur], [0, 1, 1, 0], clamp);
+  // Con subtítulos de menos de 7 cuadros el rango no sería creciente: se usa al menos 7.
+  const d = Math.max(dur, 7);
+  const o = interpolate(frame, [0, 3, d - 3, d], [0, 1, 1, 0], clamp);
   if (cine) {
     // Subtítulo «de cine» (Pepo 3, como el video de referencia de CapCut): una o dos palabras en Playfair
     // Display 800, blancas, con las clave en itálica dorada; entran con un desenfoque corto.
