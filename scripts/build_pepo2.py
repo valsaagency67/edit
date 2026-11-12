@@ -45,6 +45,28 @@ def ventanas(data, key):
     return out
 
 
+def fotos():
+    """Fotos de apoyo (CFG["fotos"]) a 1080x1920: a lo ancho (alto máximo 1000, centradas en y=760) sobre una copia
+    suya desenfocada y oscurecida. Las cajas `pixel` se difuminan (la cara de la niña: menor de edad)."""
+    from PIL import Image, ImageEnhance, ImageFilter
+    os.makedirs(f"{b3.OUT}/fotos", exist_ok=True)
+    W, H, CY, MAXH = 1080, 1920, 760, 1000
+    for name, f in b3.CFG.get("fotos", {}).items():
+        if name.startswith("_"):
+            continue
+        im = Image.open(f"{b3.MEDIA}/fotos/{f['file']}").convert("RGB")
+        for x0, y0, x1, y1 in f.get("pixel", []):
+            im.paste(im.crop((x0, y0, x1, y1)).filter(ImageFilter.GaussianBlur(14)), (x0, y0))
+        s = max(W / im.width, H / im.height)
+        bg = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+        bg = bg.crop(((bg.width - W) // 2, (bg.height - H) // 2, (bg.width - W) // 2 + W, (bg.height - H) // 2 + H))
+        bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(45))).enhance(0.45)
+        s = min(W / im.width, MAXH / im.height)
+        fg = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+        bg.paste(fg, ((W - fg.width) // 2, CY - fg.height // 2))
+        bg.save(f"{b3.OUT}/fotos/{name}.jpg", quality=92)
+
+
 def recorte_abelardo():
     """Cara de Abelardo recortada (rembg u2net_human_seg) desde media/pepo2/abelardo.* (la manda el cliente) a
     public/pepo2/fotos/abelardo.png. Devuelve False si todavía no hay foto."""
@@ -57,7 +79,8 @@ def recorte_abelardo():
     os.makedirs(f"{b3.OUT}/fotos", exist_ok=True)
     code = ("import sys;from PIL import Image;from rembg import new_session,remove;"
             "im=Image.open(sys.argv[1]).convert('RGB');"
-            "o=remove(im,session=new_session('u2net_human_seg'));o.crop(o.getbbox()).save(sys.argv[2])")
+            "o=remove(im,session=new_session('u2net_human_seg'));o=o.crop(o.getbbox());"
+            "o.crop((0,0,o.width,int(o.height*0.72))).save(sys.argv[2])")
     subprocess.run([sys.executable, "-c", code, src[0], f"{b3.OUT}/fotos/abelardo.png"], check=True,
                    env={**os.environ, "U2NET_HOME": f"{ROOT}/whisper-models/u2net"})
     return True
@@ -136,6 +159,7 @@ if __name__ == "__main__":
     d["abelardo"] = ventanas(d, "abelardo") if recorte_abelardo() else []
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     saturar(d)
+    fotos()
     componer(d["duration"])
     b3.musica(d)
     b3.foley(d)

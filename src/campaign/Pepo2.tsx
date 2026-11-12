@@ -83,9 +83,9 @@ const Abelardo: React.FC<{ w: Win; dur: number }> = ({ w, dur }) => {
     <div
       style={{
         position: "absolute",
-        left: 30,
-        top: 700,
-        width: 440,
+        left: 0,
+        top: 520,
+        width: 600,
         opacity: out,
         transform: `translateY(${(1 - k) * 260}px) rotate(${(1 - k) * -8}deg)`,
         display: "flex",
@@ -95,16 +95,16 @@ const Abelardo: React.FC<{ w: Win; dur: number }> = ({ w, dur }) => {
     >
       <Img
         src={staticFile("pepo2/fotos/abelardo.png")}
-        style={{ width: 440, filter: "drop-shadow(0 16px 26px rgba(0,0,0,0.55))" }}
+        style={{ width: 600, filter: "drop-shadow(0 16px 26px rgba(0,0,0,0.55))" }}
       />
       <div
         style={{
-          marginTop: -24,
+          marginTop: 6,
           background: RED,
           color: "white",
           fontFamily: Montserrat,
           fontWeight: 800,
-          fontSize: 32,
+          fontSize: 36,
           padding: "8px 18px",
           borderRadius: 10,
           whiteSpace: "nowrap",
@@ -132,6 +132,7 @@ export const Pepo2: React.FC = () => {
       dir="pepo2"
       captionTop={1360}
       captionBena
+      photoFull
       punch={1.16}
       punchOrigin="50% 30%"
       overlay={

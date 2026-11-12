@@ -38,11 +38,11 @@
         "Abelardo de la Espriella",
         "prometió que no",
         "iba a subir",
-        "impuestos y hoy",
+        "*impuestos y hoy",
         "su ley de",
         "rescate le pone",
-        "IVA hasta la",
-        "sal."
+        "*IVA hasta la",
+        "*sal."
       ],
       "shots": [
         {
@@ -66,16 +66,16 @@
       "phrases": [
         "El IVA le",
         "cobra a todos",
-        "por igual,",
+        "por *igual,",
         "por eso la",
-        "sal le termina",
+        "*sal le termina",
         "saliendo lo mismo",
         "al que devenga",
-        "miles de millones",
+        "miles de *millones",
         "que al que",
         "gana tan siquiera",
-        "un salario",
-        "mínimo."
+        "un *salario",
+        "*mínimo."
       ],
       "shots": [
         {
@@ -91,8 +91,8 @@
       "camera": "IMG_0064",
       "text": "Eso golpea a las familias que apenas pueden comprar un mercado con su sueldo, mucho menos podrán interiorizar ese incremento en el IVA.",
       "phrases": [
-        "Eso golpea a",
-        "las familias que",
+        "Eso *golpea a",
+        "las *familias que",
         "apenas pueden",
         "comprar un",
         "mercado con su",
@@ -109,7 +109,13 @@
         }
       ],
       "cards": [],
-      "photos": [],
+      "photos": [
+        {
+          "at": "familias",
+          "until": "mucho",
+          "img": "barrio"
+        }
+      ],
       "effects": []
     },
     {
@@ -117,7 +123,7 @@
       "camera": "IMG_0067",
       "text": "Y lo peor de todo es que para alivianar el golpe, el gobierno propone una devolución del IVA para los estratos 1 y 2, pero con unas condiciones que ninguna de estas personas va a poder cumplir, que es presentar una factura electrónica.",
       "phrases": [
-        "Y lo peor",
+        "Y lo *peor",
         "de todo es",
         "que para",
         "alivianar el",
@@ -130,12 +136,12 @@
         "2,",
         "pero con unas",
         "condiciones que",
-        "ninguna de estas",
+        "*ninguna de estas",
         "personas va a",
         "poder cumplir,",
         "que es presentar",
-        "una factura",
-        "electrónica."
+        "una *factura",
+        "*electrónica."
       ],
       "shots": [
         {
@@ -143,7 +149,13 @@
         }
       ],
       "cards": [],
-      "photos": [],
+      "photos": [
+        {
+          "at": "estratos",
+          "until": "pero",
+          "img": "nina"
+        }
+      ],
       "effects": []
     },
     {
@@ -153,7 +165,7 @@
       "phrases": [
         "El fríjol,",
         "el aceite,",
-        "la sal,",
+        "la *sal,",
         "son productos que",
         "se compran en",
         "las plazas o",
@@ -161,9 +173,9 @@
         "de las esquinas,",
         "donde usualmente",
         "no se dan",
-        "facturas",
+        "*facturas",
         "electrónicas o",
-        "facturas."
+        "*facturas."
       ],
       "shots": [
         {
@@ -182,13 +194,13 @@
         "Este proyecto de",
         "ley se encuentra",
         "en el Congreso,",
-        "así que escríbele",
-        "a tu congresista",
+        "así que *escríbele",
+        "a tu *congresista",
         "y pregúntale qué",
         "opinas sobre el",
         "incremento del",
         "IVA en la",
-        "sal.",
+        "*sal.",
         "Mándale este",
         "video a quien",
         "hace el mercado",
@@ -253,16 +265,33 @@
     {
       "scene": "gancho",
       "at": "Abelardo",
-      "until": "prometió",
+      "until": "impuestos",
       "label": "Abelardo de la Espriella"
     },
     {
       "scene": "devolucion",
       "at": "gobierno",
-      "until": "una",
+      "until": "para",
       "label": "Gobierno de Abelardo"
     }
   ],
   "grade": "eq=gamma=1.16:saturation=1.2:contrast=1.06",
-  "zoomSfx": false
+  "zoomSfx": false,
+  "fotos": {
+    "_doc": "Fotos que mandó el cliente (media/pepo2/fotos/, no versionadas), armadas a 1080x1920 a lo ancho sobre su copia desenfocada. pixel: cajas [x0,y0,x1,y1] (px de la original) que se difuminan: la cara de la niña (menor de edad).",
+    "barrio": {
+      "file": "barrio.jpg"
+    },
+    "nina": {
+      "file": "nina.jpg",
+      "pixel": [
+        [
+          598,
+          212,
+          684,
+          302
+        ]
+      ]
+    }
+  }
 }

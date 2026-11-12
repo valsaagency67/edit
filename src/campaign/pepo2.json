@@ -158,7 +158,7 @@
      "end": 2.24
     },
     {
-     "text": "impuestos y hoy",
+     "text": "*impuestos y hoy",
      "start": 2.24,
      "end": 3.2
     },
@@ -173,12 +173,12 @@
      "end": 4.72
     },
     {
-     "text": "IVA hasta la",
+     "text": "*IVA hasta la",
      "start": 4.72,
      "end": 5.28
     },
     {
-     "text": "sal.",
+     "text": "*sal.",
      "start": 5.28,
      "end": 5.631
     }
@@ -382,7 +382,7 @@
      "end": 6.831
     },
     {
-     "text": "por igual,",
+     "text": "por *igual,",
      "start": 6.831,
      "end": 7.311
     },
@@ -392,7 +392,7 @@
      "end": 7.711
     },
     {
-     "text": "sal le termina",
+     "text": "*sal le termina",
      "start": 7.711,
      "end": 8.511
     },
@@ -407,7 +407,7 @@
      "end": 10.191
     },
     {
-     "text": "miles de millones",
+     "text": "miles de *millones",
      "start": 10.191,
      "end": 10.991
     },
@@ -422,12 +422,12 @@
      "end": 12.431
     },
     {
-     "text": "un salario",
+     "text": "un *salario",
      "start": 12.431,
      "end": 12.911
     },
     {
-     "text": "mínimo.",
+     "text": "*mínimo.",
      "start": 12.911,
      "end": 13.255
     }
@@ -570,12 +570,12 @@
    ],
    "captions": [
     {
-     "text": "Eso golpea a",
+     "text": "Eso *golpea a",
      "start": 13.255,
      "end": 13.975
     },
     {
-     "text": "las familias que",
+     "text": "las *familias que",
      "start": 13.975,
      "end": 14.455
     },
@@ -626,7 +626,13 @@
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "img": "barrio",
+     "start": 14.055,
+     "end": 16.695
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -863,7 +869,7 @@
    ],
    "captions": [
     {
-     "text": "Y lo peor",
+     "text": "Y lo *peor",
      "start": 19.672,
      "end": 20.232
     },
@@ -928,7 +934,7 @@
      "end": 27.272
     },
     {
-     "text": "ninguna de estas",
+     "text": "*ninguna de estas",
      "start": 27.272,
      "end": 28.312
     },
@@ -948,18 +954,24 @@
      "end": 30.392
     },
     {
-     "text": "una factura",
+     "text": "una *factura",
      "start": 30.392,
      "end": 30.792
     },
     {
-     "text": "electrónica.",
+     "text": "*electrónica.",
      "start": 30.792,
      "end": 31.349
     }
    ],
    "cards": [],
-   "photos": [],
+   "photos": [
+    {
+     "img": "nina",
+     "start": 24.712,
+     "end": 25.912
+    }
+   ],
    "effects": [],
    "kinetic": []
   },
@@ -1141,7 +1153,7 @@
      "end": 32.629
     },
     {
-     "text": "la sal,",
+     "text": "la *sal,",
      "start": 32.629,
      "end": 33.189
     },
@@ -1181,7 +1193,7 @@
      "end": 37.589
     },
     {
-     "text": "facturas",
+     "text": "*facturas",
      "start": 37.589,
      "end": 38.069
     },
@@ -1191,7 +1203,7 @@
      "end": 38.789
     },
     {
-     "text": "facturas.",
+     "text": "*facturas.",
      "start": 38.789,
      "end": 39.204
     }
@@ -1424,12 +1436,12 @@
      "end": 41.524
     },
     {
-     "text": "así que escríbele",
+     "text": "así que *escríbele",
      "start": 41.524,
      "end": 42.324
     },
     {
-     "text": "a tu congresista",
+     "text": "a tu *congresista",
      "start": 42.324,
      "end": 43.204
     },
@@ -1454,7 +1466,7 @@
      "end": 46.004
     },
     {
-     "text": "sal.",
+     "text": "*sal.",
      "start": 46.004,
      "end": 46.324
     },
@@ -1509,27 +1521,11 @@
    false
   ],
   [
-   15.566666666666666,
-   true
-  ],
-  [
-   18.6,
-   false
-  ],
-  [
    22.066666666666666,
    true
   ],
   [
-   24.7,
-   false
-  ],
-  [
-   27.266666666666666,
-   true
-  ],
-  [
-   29.666666666666668,
+   28.3,
    false
   ],
   [
@@ -1591,5 +1587,18 @@
    "end": 43.284
   }
  ],
- "abelardo": []
+ "abelardo": [
+  {
+   "scene": "gancho",
+   "label": "Abelardo de la Espriella",
+   "start": 0.2,
+   "end": 2.24
+  },
+  {
+   "scene": "devolucion",
+   "label": "Gobierno de Abelardo",
+   "start": 22.232,
+   "end": 24.472
+  }
+ ]
 }

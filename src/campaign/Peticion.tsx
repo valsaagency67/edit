@@ -265,8 +265,8 @@ export const CaptionView: React.FC<{
   const d = Math.max(dur, 7);
   const o = interpolate(frame, [0, 3, d - 3, d], [0, 1, 1, 0], clamp);
   if (bena) {
-    // Como los videos de Óscar Benavides (Pepo 2): dos o tres palabras blancas en Montserrat 800, sin resaltar,
-    // con sombra fuerte; aparecen de golpe (un fundido de 2 cuadros).
+    // Como los videos de Óscar Benavides (Pepo 2): dos o tres palabras blancas en Montserrat 800, con las
+    // contundentes en amarillo (lo pidió el cliente), con sombra fuerte; aparecen de golpe (un fundido de 2 cuadros).
     return (
       <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
         <div
@@ -282,7 +282,11 @@ export const CaptionView: React.FC<{
             textShadow: "0 4px 14px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.9)",
           }}
         >
-          {pieces.map((p) => p.t).join("")}
+          {pieces.map((p, i) => (
+            <span key={i} style={{ color: p.y ? YELLOW : "white" }}>
+              {p.t}
+            </span>
+          ))}
         </div>
       </AbsoluteFill>
     );
