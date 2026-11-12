@@ -5,14 +5,18 @@ vaciaron la tarjeta de crédito y cómo reclamarle al banco. Estilo del video de
 
 - Escenas, voz y tomas: scripts/tomas.py, con la limpieza DPDFNet y la cadena de voz de Pepo1 (build_pepo.VOZ).
   De cada toma se quita el «ya / listo / ¿ya? sí» del inicio (`from` en la config).
-- Color de cine: contraste, curva en S suave, sombras frías y luces cálidas, viñeta y grano (GRADE).
+- Color: SIN cambios (lo pidió el cliente). De corrido, como entrevista real: voz a velocidad normal y solo se
+  quitan las pausas largas.
+- Cuando habla ella (`woman`): el riser de la referencia como suspenso y la música baja 14 dB; cuando habla él,
+  la música vuelve.
 - Palabras grandes (`big`): delante de Juan Felipe, o detrás (layer behind). Para las de detrás se recorta a la
   persona cuadro a cuadro con rembg (u2net_human_seg) y se guarda en public/pepo3/matte/<escena>/<n>.png, donde
   n es el cuadro de public/pepo3/<escena>.mp4; Pepo3.tsx pone la palabra y encima el recorte.
 - Efectos (`sfx`): los del video de referencia (public/sfx/ref2-*.wav, scripts/extract_sfx_ref4.py): riser al
   inicio, clic en «paso 1 / paso 2», impacto en los datos clave, obturador en dos cambios de toma, y el «转场 10»
   en uno de cada dos zooms.
-- Música: la manda el cliente (media/pepo3/musica.*); mientras no esté, public/pepo3/musica.wav va en silencio.
+- Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a, sin el
+  cierre de TikTok); si falta, public/pepo3/musica.wav va en silencio.
 Salida de la línea de tiempo: src/campaign/pepo3.json.
 
 Uso: python3 scripts/build_pepo3.py
@@ -35,9 +39,12 @@ from tomas import SR, Proyecto, read_wav, write_wav  # noqa: E402
 CFG = json.load(open(f"{ROOT}/scripts/pepo3.config.json", encoding="utf-8"))
 OUT = f"{ROOT}/public/pepo3"
 TMP = f"{ROOT}/out/pepo3/tmp"
-GRADE = ("eq=contrast=1.12:saturation=1.12:gamma=1.06,curves=master='0/0.01 0.25/0.22 0.7/0.76 1/0.98',"
-         "colorbalance=rs=-0.04:bs=0.05:rm=0.02:bm=-0.02:rh=0.06:gh=0.015:bh=-0.06,"
-         "vignette=angle=PI/5.5,noise=alls=4:allf=t")
+# El cliente no quiere que se le cambie el color: la imagen va tal como viene («null» no toca nada). La gradación
+# de cine que se probó primero queda aquí por si la pide para otro video.
+GRADE = "null"
+GRADE_CINE = ("eq=contrast=1.12:saturation=1.12:gamma=1.06,curves=master='0/0.01 0.25/0.22 0.7/0.76 1/0.98',"
+              "colorbalance=rs=-0.04:bs=0.05:rm=0.02:bm=-0.02:rh=0.06:gh=0.015:bh=-0.06,"
+              "vignette=angle=PI/5.5,noise=alls=4:allf=t")
 
 
 def norm(w):
@@ -102,9 +109,20 @@ def mattes(data):
     print("recortes:", len(jobs))
 
 
+def woman(data):
+    """Tramos (s) en que habla ella: escenas enteras o hasta la palabra `until`."""
+    by = {s["key"]: s for s in data["scenes"]}
+    out = []
+    for w in CFG["woman"]:
+        sc = by[w["scene"]]
+        out.append((sc["start"], word_at(sc, w["until"]) - 0.1 if "until" in w else sc["end"]))
+    return out
+
+
 def musica(data):
     """La música la manda el cliente: el primer archivo de audio en media/pepo3/musica.* va ~17 dB bajo la voz
-    (-33 LUFS), con fundido al final. Mientras no esté, silencio."""
+    (-33 LUFS), con fundido al final; mientras habla ella baja 14 dB más (rampas de 0.35 s) y vuelve con él.
+    Mientras no esté, silencio."""
     total = data["duration"]
     src = sorted(glob.glob(f"{ROOT}/media/pepo3/musica.*"))
     if not src:
@@ -112,9 +130,18 @@ def musica(data):
         print("música: falta (silencio)")
         return
     fade = max(0.0, total - 2.0)
+    tmp = f"{TMP}/musica-norm.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src[0], "-t", f"{total + 0.5:.2f}", "-af",
                     f"loudnorm=I=-33:TP=-9:LRA=11,afade=t=out:st={fade:.2f}:d=2", "-ar", str(SR), "-ac", "2",
-                    f"{OUT}/musica.wav"], check=True)
+                    tmp], check=True)
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", tmp, "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"],
+                         capture_output=True, check=True).stdout
+    m = np.frombuffer(raw, np.float32).astype(np.float64).reshape(-1, 2)
+    t = np.arange(len(m)) / SR
+    db = np.zeros(len(m))
+    for a, b in woman(data):
+        db = np.minimum(db, np.interp(t, [a - 0.35, a, b, b + 0.35], [0, -14, -14, 0], left=0, right=0))
+    write_wav(f"{OUT}/musica.wav", m * (10 ** (db / 20))[:, None], 2)
 
 
 def foley(data):
@@ -127,6 +154,10 @@ def foley(data):
         mf.place(buf, np.stack([x, x], 1) * gain, max(0.0, t))
 
     for e in CFG["sfx"]:
+        if e.get("womanStart"):  # suspenso cada vez que empieza a hablar ella
+            for a, _ in woman(data):
+                put(e["name"], max(0.0, a - 0.2), e["gain"])
+            continue
         if "sceneStart" in e:
             t = by[e["sceneStart"]]["start"] - 0.05
         elif "scene" in e:

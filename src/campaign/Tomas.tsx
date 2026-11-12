@@ -316,7 +316,8 @@ const pieces = (text: string) =>
 // Si data.zooms viene del armado (build_pepo.py), se usan esos tiempos en vez de calcularlos aquí.
 // photoFull: las fotos de apoyo van a pantalla completa (armadas a 1080x1920), sin marco.
 // captionCine: subtítulos en serifa (Pepo 3); hideCaptions: tramos sin subtítulo (cuando hay palabra grande);
-// inner: capas dentro del zoom (palabra detrás + recorte); overlay: capas encima de todo, antes de la firma.
+// inner: capas dentro del zoom (palabra detrás + recorte); overlay: capas encima de todo, antes de la firma;
+// noFlash: sin destello en los cambios de toma (Pepo 3, que va de corrido como entrevista).
 // punchCut: en vez de zoom animado, reencuadre seco (como antes de que el cliente pidiera los zooms).
 // base: encuadre normal (1 = toma entera; >1 la cierra fija, también centrado en punchOrigin).
 // Los tramos «effects» con gray pasan la toma a blanco y negro (la voz se distorsiona en el armado).
@@ -337,6 +338,7 @@ export const TomasVideo: React.FC<{
   hideCaptions?: Range[];
   inner?: React.ReactNode;
   overlay?: React.ReactNode;
+  noFlash?: boolean;
 }> = ({
   data,
   dir,
@@ -354,6 +356,7 @@ export const TomasVideo: React.FC<{
   hideCaptions = [],
   inner,
   overlay,
+  noFlash,
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -435,7 +438,7 @@ export const TomasVideo: React.FC<{
                 dur={len(s)}
                 frames={data.clips[s.src]}
               />
-              {i > 0 ? <Flash /> : null}
+              {i > 0 && !noFlash ? <Flash /> : null}
             </Sequence>
           )),
         )}

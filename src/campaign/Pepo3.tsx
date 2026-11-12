@@ -12,8 +12,9 @@ import raw from "./pepo3.json";
 import { TomasData, TomasVideo } from "./Tomas";
 
 // Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3», scripts/build_pepo3.py, tiempos en
-// pepo3.json): caso dramatizado de la tarjeta de crédito vaciada. Como el video de referencia que mandó el
-// cliente: color de cine (en el armado), subtítulos de una o dos palabras en serifa, y palabras grandes que
+// pepo3.json): caso dramatizado de la tarjeta de crédito vaciada, de corrido como una entrevista real y sin
+// cambiar el color (lo pidió el cliente; «dramatización» va en la descripción). Del video de referencia:
+// subtítulos de una o dos palabras en serifa, y palabras grandes que
 // aparecen detrás de Juan Felipe (la palabra y encima su recorte, cuadro a cuadro, dentro del zoom) o delante.
 
 type Big = {
@@ -126,25 +127,6 @@ const Front: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
   );
 };
 
-// Es una recreación: se dice en pantalla para que la escena no pase por un caso real grabado.
-const Dramatizacion: React.FC = () => (
-  <div
-    style={{
-      position: "absolute",
-      top: 304,
-      right: 64,
-      fontFamily: Montserrat,
-      fontWeight: 600,
-      fontSize: 22,
-      letterSpacing: 6,
-      color: "rgba(255,255,255,0.7)",
-      textShadow: "0 2px 6px rgba(0,0,0,0.6)",
-    }}
-  >
-    DRAMATIZACIÓN
-  </div>
-);
-
 export const Pepo3: React.FC = () => {
   const seq = (b: Big, i: number, node: React.ReactNode) => (
     <Sequence key={`${b.layer}-${i}`} from={f(b.start)} durationInFrames={Math.max(1, f(b.end) - f(b.start))}>
@@ -167,12 +149,8 @@ export const Pepo3: React.FC = () => {
       punchOrigin="50% 36%"
       hideCaptions={data.big.filter((b) => b.style !== "tag")}
       inner={behind}
-      overlay={
-        <>
-          {front}
-          <Dramatizacion />
-        </>
-      }
+      overlay={front}
+      noFlash
     />
   );
 };

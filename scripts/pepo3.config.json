@@ -1,11 +1,11 @@
 {
-  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4: imagen oscura de cine, subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json.",
+  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a).",
   "fps": 30,
-  "speed": 1.07,
+  "speed": 1.0,
   "pause": {
     "threshold": 0.35,
-    "minSilence": 0.1,
-    "keep": 0.09
+    "minSilence": 0.3,
+    "keep": 0.18
   },
   "gap": 0.0,
   "tail": 2.6,
@@ -79,8 +79,8 @@
   "sfx": [
     {
       "name": "riser",
-      "at": 0.0,
-      "gain": 0.55
+      "womanStart": true,
+      "gain": 0.6
     },
     {
       "name": "impact",
@@ -116,11 +116,6 @@
       "scene": "reintegro",
       "word": "reintegrar",
       "gain": 0.7
-    },
-    {
-      "name": "shutter",
-      "sceneStart": "cierre",
-      "gain": 0.6
     }
   ],
   "scenes": [
@@ -145,8 +140,7 @@
         }
       ],
       "cards": [],
-      "from": 4.25,
-      "speed": 1.1
+      "from": 4.25
     },
     {
       "key": "banco",
@@ -348,6 +342,18 @@
       ],
       "cards": [],
       "from": 1.15
+    }
+  ],
+  "woman": [
+    {
+      "scene": "caso"
+    },
+    {
+      "scene": "veces"
+    },
+    {
+      "scene": "cierre",
+      "until": "Si"
     }
   ]
 }
