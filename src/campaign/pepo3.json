@@ -1629,7 +1629,8 @@
    "end": 17.933,
    "shotStart": 16.413,
    "src": "paso1",
-   "headTop": 588
+   "headTop": 588,
+   "baseline": 648
   },
   {
    "scene": "paso1",
@@ -1648,7 +1649,8 @@
    "end": 19.933,
    "shotStart": 16.413,
    "src": "paso1",
-   "headTop": 561
+   "headTop": 561,
+   "baseline": 621
   },
   {
    "scene": "paso1",
@@ -1658,7 +1660,8 @@
    "end": 23.007,
    "shotStart": 16.413,
    "src": "paso1",
-   "headTop": 552
+   "headTop": 552,
+   "baseline": 612
   },
   {
    "scene": "paso2",
@@ -1687,7 +1690,8 @@
    "end": 34.765,
    "shotStart": 30.045,
    "src": "reintegro",
-   "headTop": 553
+   "headTop": 553,
+   "baseline": 613
   },
   {
    "scene": "consejo",
