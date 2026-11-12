@@ -54,11 +54,12 @@
     },
     {
       "scene": "paso2",
-      "at": "Y",
-      "until": "rechazan",
+      "at": "acción",
+      "until": "financiero.",
       "text": "PASO 2",
       "layer": "front",
-      "style": "tag"
+      "style": "tag",
+      "untilEnd": true
     },
     {
       "scene": "paso2",
@@ -119,7 +120,7 @@
     {
       "name": "click",
       "scene": "paso2",
-      "word": "Y",
+      "word": "acción",
       "gain": 0.8
     },
     {
