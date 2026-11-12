@@ -339,6 +339,7 @@ export const TomasVideo: React.FC<{
   inner?: React.ReactNode;
   overlay?: React.ReactNode;
   noFlash?: boolean;
+  hideFirma?: Range[];
 }> = ({
   data,
   dir,
@@ -357,6 +358,7 @@ export const TomasVideo: React.FC<{
   inner,
   overlay,
   noFlash,
+  hideFirma = [],
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -528,7 +530,22 @@ export const TomasVideo: React.FC<{
       ) : null}
 
       {overlay}
-      <Firma />
+      {/* hideFirma: tramos en que la firma se aparta con un fundido (palabras grandes que pasan por ahí, Pepo 2). */}
+      <div
+        style={{
+          opacity: Math.min(
+            1,
+            ...hideFirma.map((h) =>
+              interpolate(frame, [f(h.start) - 5, f(h.start), f(h.end), f(h.end) + 5], [1, 0, 0, 1], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+              }),
+            ),
+          ),
+        }}
+      >
+        <Firma />
+      </div>
       <Progress />
     </AbsoluteFill>
   );

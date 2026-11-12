@@ -47,3 +47,5 @@ public/pepo/broll/
 public/sfx/ref2-*.wav
 # Pepo 3: generados por scripts/build_pepo3.py (no versionar)
 public/pepo3/
+# Pepo 2: generados por scripts/build_pepo2.py (no versionar)
+public/pepo2/

@@ -40,6 +40,7 @@ from tomas import SR, Proyecto, read_wav, write_wav  # noqa: E402
 CFG = json.load(open(f"{ROOT}/scripts/pepo3.config.json", encoding="utf-8"))
 OUT = f"{ROOT}/public/pepo3"
 TMP = f"{ROOT}/out/pepo3/tmp"
+MEDIA = f"{ROOT}/media/pepo3"  # build_pepo2.py cambia CFG, OUT, TMP y MEDIA y reusa estas funciones
 # El cliente no quiere que se le cambie el color: la imagen va tal como viene («null» no toca nada). La gradación
 # de cine que se probó primero queda aquí por si la pide para otro video.
 GRADE = "null"
@@ -114,7 +115,7 @@ def woman(data):
     """Tramos (s) en que habla ella: escenas enteras o hasta la palabra `until`."""
     by = {s["key"]: s for s in data["scenes"]}
     out = []
-    for w in CFG["woman"]:
+    for w in CFG.get("woman", []):
         sc = by[w["scene"]]
         out.append((sc["start"], word_at(sc, w["until"]) - 0.1 if "until" in w else sc["end"]))
     return out
@@ -131,8 +132,12 @@ def heads(data):
             continue
         n = round(((b["start"] + b["end"]) / 2 - b["shotStart"]) * fps)
         a = np.asarray(Image.open(f"{OUT}/matte/{b['src']}/{n}.png").getchannel("A")) > 128
-        rows = np.nonzero(a[320:].sum(1) >= 25)[0]
-        b["headTop"] = int(rows[0] + 320) if len(rows) else 620
+        top = CFG.get("headSearchFrom", 320)
+        rows = np.nonzero(a[top:].sum(1) >= 25)[0]
+        b["headTop"] = int(rows[0] + top) if len(rows) else 620
+        # Base de las letras 60 px bajo el inicio de la cabeza, pero sin bajar de `behindMaxBaseline` (Pepo 2:
+        # la cabeza está tan arriba que la palabra chocaba con la firma de y=300).
+        b["baseline"] = min(b["headTop"] + 60, CFG.get("behindMaxBaseline", 10000))
 
 
 def musica(data):
@@ -140,7 +145,7 @@ def musica(data):
     (-33 LUFS), con fundido al final; mientras habla ella baja 14 dB más (rampas de 0.35 s) y vuelve con él.
     Mientras no esté, silencio."""
     total = data["duration"]
-    src = sorted(glob.glob(f"{ROOT}/media/pepo3/musica.*"))
+    src = sorted(glob.glob(f"{MEDIA}/musica.*"))
     if not src:
         write_wav(f"{OUT}/musica.wav", np.zeros((int((total + 1) * SR), 2)), 2)
         print("música: falta (silencio)")
@@ -155,7 +160,7 @@ def musica(data):
     m = np.frombuffer(raw, np.float32).astype(np.float64).reshape(-1, 2)
     t = np.arange(len(m)) / SR
     db = np.zeros(len(m))
-    for a, b in (woman(data) if CFG.get("duckWoman", True) else []):
+    for a, b in (woman(data) if CFG.get("duckWoman", True) and CFG.get("woman") else []):
         db = np.minimum(db, np.interp(t, [a - 0.35, a, b, b + 0.35], [0, -14, -14, 0], left=0, right=0))
     write_wav(f"{OUT}/musica.wav", m * (10 ** (db / 20))[:, None], 2)
 
@@ -170,6 +175,9 @@ def foley(data):
         mf.place(buf, np.stack([x, x], 1) * gain, max(0.0, t))
 
     for e in CFG["sfx"]:
+        if e.get("at") is not None and "scene" not in e and "sceneStart" not in e and not e.get("womanStart"):
+            put(e["name"], e["at"], e["gain"])
+            continue
         if e.get("womanStart"):  # suspenso cada vez que empieza a hablar ella
             ws = woman(data)
             for k in e.get("which", range(len(ws))):  # p. ej. [0, -1]: solo la primera y la última vez

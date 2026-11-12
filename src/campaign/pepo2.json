@@ -1,0 +1,1771 @@
+{
+ "fps": 30,
+ "duration": 51.092,
+ "clips": {
+  "gancho": 168,
+  "igual": 228,
+  "familias": 192,
+  "devolucion": 348,
+  "tiendas": 235,
+  "cta": 278
+ },
+ "scenes": [
+  {
+   "key": "gancho",
+   "start": 0.0,
+   "end": 5.631,
+   "zooms": null,
+   "silent": null,
+   "text": "Abelardo de la Espriella prometió que no iba a subir impuestos y hoy su ley de rescate le pone IVA hasta la sal.",
+   "words": [
+    {
+     "t": "Abelardo",
+     "s": 0.2,
+     "e": 0.4
+    },
+    {
+     "t": "de",
+     "s": 0.4,
+     "e": 0.48
+    },
+    {
+     "t": "la",
+     "s": 0.48,
+     "e": 0.64
+    },
+    {
+     "t": "Espriella",
+     "s": 0.64,
+     "e": 1.12
+    },
+    {
+     "t": "prometió",
+     "s": 1.12,
+     "e": 1.44
+    },
+    {
+     "t": "que",
+     "s": 1.44,
+     "e": 1.52
+    },
+    {
+     "t": "no",
+     "s": 1.52,
+     "e": 1.68
+    },
+    {
+     "t": "iba",
+     "s": 1.68,
+     "e": 1.84
+    },
+    {
+     "t": "a",
+     "s": 1.84,
+     "e": 1.92
+    },
+    {
+     "t": "subir",
+     "s": 1.92,
+     "e": 2.24
+    },
+    {
+     "t": "impuestos",
+     "s": 2.24,
+     "e": 2.72
+    },
+    {
+     "t": "y",
+     "s": 2.72,
+     "e": 2.88
+    },
+    {
+     "t": "hoy",
+     "s": 2.88,
+     "e": 3.2
+    },
+    {
+     "t": "su",
+     "s": 3.2,
+     "e": 3.36
+    },
+    {
+     "t": "ley",
+     "s": 3.36,
+     "e": 3.6
+    },
+    {
+     "t": "de",
+     "s": 3.6,
+     "e": 3.68
+    },
+    {
+     "t": "rescate",
+     "s": 3.68,
+     "e": 4.24
+    },
+    {
+     "t": "le",
+     "s": 4.24,
+     "e": 4.32
+    },
+    {
+     "t": "pone",
+     "s": 4.32,
+     "e": 4.72
+    },
+    {
+     "t": "IVA",
+     "s": 4.72,
+     "e": 4.96
+    },
+    {
+     "t": "hasta",
+     "s": 4.96,
+     "e": 5.2
+    },
+    {
+     "t": "la",
+     "s": 5.2,
+     "e": 5.28
+    },
+    {
+     "t": "sal.",
+     "s": 5.28,
+     "e": 5.631
+    }
+   ],
+   "shots": [
+    {
+     "src": "gancho",
+     "start": 0.0,
+     "end": 5.631
+    }
+   ],
+   "captions": [
+    {
+     "text": "*Abelardo de",
+     "start": 0.2,
+     "end": 0.48
+    },
+    {
+     "text": "la Espriella",
+     "start": 0.48,
+     "end": 1.12
+    },
+    {
+     "text": "*prometió que",
+     "start": 1.12,
+     "end": 1.52
+    },
+    {
+     "text": "no iba",
+     "start": 1.52,
+     "end": 1.84
+    },
+    {
+     "text": "a subir",
+     "start": 1.84,
+     "end": 2.24
+    },
+    {
+     "text": "*impuestos y",
+     "start": 2.24,
+     "end": 2.88
+    },
+    {
+     "text": "hoy su",
+     "start": 2.88,
+     "end": 3.36
+    },
+    {
+     "text": "ley de",
+     "start": 3.36,
+     "end": 3.68
+    },
+    {
+     "text": "*rescate le",
+     "start": 3.68,
+     "end": 4.32
+    },
+    {
+     "text": "pone *IVA",
+     "start": 4.32,
+     "end": 4.96
+    },
+    {
+     "text": "hasta la",
+     "start": 4.96,
+     "end": 5.28
+    },
+    {
+     "text": "*sal.",
+     "start": 5.28,
+     "end": 5.631
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "igual",
+   "start": 5.631,
+   "end": 13.255,
+   "zooms": null,
+   "silent": null,
+   "text": "El IVA le cobra a todos por igual, por eso la sal le termina saliendo lo mismo al que devenga miles de millones que al que gana tan siquiera un salario mínimo.",
+   "words": [
+    {
+     "t": "El",
+     "s": 5.631,
+     "e": 5.871
+    },
+    {
+     "t": "IVA",
+     "s": 5.871,
+     "e": 6.191
+    },
+    {
+     "t": "le",
+     "s": 6.191,
+     "e": 6.271
+    },
+    {
+     "t": "cobra",
+     "s": 6.271,
+     "e": 6.511
+    },
+    {
+     "t": "a",
+     "s": 6.511,
+     "e": 6.591
+    },
+    {
+     "t": "todos",
+     "s": 6.591,
+     "e": 6.831
+    },
+    {
+     "t": "por",
+     "s": 6.831,
+     "e": 6.911
+    },
+    {
+     "t": "igual,",
+     "s": 6.911,
+     "e": 7.311
+    },
+    {
+     "t": "por",
+     "s": 7.311,
+     "e": 7.391
+    },
+    {
+     "t": "eso",
+     "s": 7.391,
+     "e": 7.551
+    },
+    {
+     "t": "la",
+     "s": 7.551,
+     "e": 7.711
+    },
+    {
+     "t": "sal",
+     "s": 7.711,
+     "e": 8.031
+    },
+    {
+     "t": "le",
+     "s": 8.031,
+     "e": 8.111
+    },
+    {
+     "t": "termina",
+     "s": 8.111,
+     "e": 8.511
+    },
+    {
+     "t": "saliendo",
+     "s": 8.511,
+     "e": 8.911
+    },
+    {
+     "t": "lo",
+     "s": 8.911,
+     "e": 9.071
+    },
+    {
+     "t": "mismo",
+     "s": 9.071,
+     "e": 9.311
+    },
+    {
+     "t": "al",
+     "s": 9.311,
+     "e": 9.551
+    },
+    {
+     "t": "que",
+     "s": 9.551,
+     "e": 9.711
+    },
+    {
+     "t": "devenga",
+     "s": 9.711,
+     "e": 10.191
+    },
+    {
+     "t": "miles",
+     "s": 10.191,
+     "e": 10.511
+    },
+    {
+     "t": "de",
+     "s": 10.511,
+     "e": 10.591
+    },
+    {
+     "t": "millones",
+     "s": 10.591,
+     "e": 10.991
+    },
+    {
+     "t": "que",
+     "s": 10.991,
+     "e": 11.151
+    },
+    {
+     "t": "al",
+     "s": 11.151,
+     "e": 11.391
+    },
+    {
+     "t": "que",
+     "s": 11.391,
+     "e": 11.471
+    },
+    {
+     "t": "gana",
+     "s": 11.471,
+     "e": 11.791
+    },
+    {
+     "t": "tan",
+     "s": 11.791,
+     "e": 11.951
+    },
+    {
+     "t": "siquiera",
+     "s": 11.951,
+     "e": 12.431
+    },
+    {
+     "t": "un",
+     "s": 12.431,
+     "e": 12.511
+    },
+    {
+     "t": "salario",
+     "s": 12.511,
+     "e": 12.911
+    },
+    {
+     "t": "mínimo.",
+     "s": 12.911,
+     "e": 13.255
+    }
+   ],
+   "shots": [
+    {
+     "src": "igual",
+     "start": 5.631,
+     "end": 13.255
+    }
+   ],
+   "captions": [
+    {
+     "text": "El *IVA",
+     "start": 5.631,
+     "end": 6.191
+    },
+    {
+     "text": "le cobra",
+     "start": 6.191,
+     "end": 6.511
+    },
+    {
+     "text": "a todos",
+     "start": 6.511,
+     "end": 6.831
+    },
+    {
+     "text": "por *igual,",
+     "start": 6.831,
+     "end": 7.311
+    },
+    {
+     "text": "por eso",
+     "start": 7.311,
+     "end": 7.551
+    },
+    {
+     "text": "la *sal",
+     "start": 7.551,
+     "end": 8.031
+    },
+    {
+     "text": "le termina",
+     "start": 8.031,
+     "end": 8.511
+    },
+    {
+     "text": "saliendo lo",
+     "start": 8.511,
+     "end": 9.071
+    },
+    {
+     "text": "mismo al",
+     "start": 9.071,
+     "end": 9.551
+    },
+    {
+     "text": "que devenga",
+     "start": 9.551,
+     "end": 10.191
+    },
+    {
+     "text": "miles de",
+     "start": 10.191,
+     "end": 10.591
+    },
+    {
+     "text": "*millones que",
+     "start": 10.591,
+     "end": 11.151
+    },
+    {
+     "text": "al que",
+     "start": 11.151,
+     "end": 11.471
+    },
+    {
+     "text": "gana tan",
+     "start": 11.471,
+     "end": 11.951
+    },
+    {
+     "text": "siquiera un",
+     "start": 11.951,
+     "end": 12.511
+    },
+    {
+     "text": "*salario",
+     "start": 12.511,
+     "end": 12.911
+    },
+    {
+     "text": "*mínimo.",
+     "start": 12.911,
+     "end": 13.255
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "familias",
+   "start": 13.255,
+   "end": 19.672,
+   "zooms": null,
+   "silent": null,
+   "text": "Eso golpea a las familias que apenas pueden comprar un mercado con su sueldo, mucho menos podrán interiorizar ese incremento en el IVA.",
+   "words": [
+    {
+     "t": "Eso",
+     "s": 13.255,
+     "e": 13.495
+    },
+    {
+     "t": "golpea",
+     "s": 13.495,
+     "e": 13.735
+    },
+    {
+     "t": "a",
+     "s": 13.735,
+     "e": 13.975
+    },
+    {
+     "t": "las",
+     "s": 13.975,
+     "e": 14.055
+    },
+    {
+     "t": "familias",
+     "s": 14.055,
+     "e": 14.375
+    },
+    {
+     "t": "que",
+     "s": 14.375,
+     "e": 14.455
+    },
+    {
+     "t": "apenas",
+     "s": 14.455,
+     "e": 14.775
+    },
+    {
+     "t": "pueden",
+     "s": 14.775,
+     "e": 15.095
+    },
+    {
+     "t": "comprar",
+     "s": 15.095,
+     "e": 15.495
+    },
+    {
+     "t": "un",
+     "s": 15.495,
+     "e": 15.575
+    },
+    {
+     "t": "mercado",
+     "s": 15.575,
+     "e": 15.895
+    },
+    {
+     "t": "con",
+     "s": 15.895,
+     "e": 16.055
+    },
+    {
+     "t": "su",
+     "s": 16.055,
+     "e": 16.215
+    },
+    {
+     "t": "sueldo,",
+     "s": 16.215,
+     "e": 16.695
+    },
+    {
+     "t": "mucho",
+     "s": 16.695,
+     "e": 16.935
+    },
+    {
+     "t": "menos",
+     "s": 16.935,
+     "e": 17.175
+    },
+    {
+     "t": "podrán",
+     "s": 17.175,
+     "e": 17.655
+    },
+    {
+     "t": "interiorizar",
+     "s": 17.655,
+     "e": 18.375
+    },
+    {
+     "t": "ese",
+     "s": 18.375,
+     "e": 18.615
+    },
+    {
+     "t": "incremento",
+     "s": 18.615,
+     "e": 19.015
+    },
+    {
+     "t": "en",
+     "s": 19.015,
+     "e": 19.095
+    },
+    {
+     "t": "el",
+     "s": 19.095,
+     "e": 19.335
+    },
+    {
+     "t": "IVA.",
+     "s": 19.335,
+     "e": 19.672
+    }
+   ],
+   "shots": [
+    {
+     "src": "familias",
+     "start": 13.255,
+     "end": 19.672
+    }
+   ],
+   "captions": [
+    {
+     "text": "Eso *golpea",
+     "start": 13.255,
+     "end": 13.735
+    },
+    {
+     "text": "a las",
+     "start": 13.735,
+     "end": 14.055
+    },
+    {
+     "text": "*familias que",
+     "start": 14.055,
+     "end": 14.455
+    },
+    {
+     "text": "apenas pueden",
+     "start": 14.455,
+     "end": 15.095
+    },
+    {
+     "text": "comprar un",
+     "start": 15.095,
+     "end": 15.575
+    },
+    {
+     "text": "*mercado con",
+     "start": 15.575,
+     "end": 16.055
+    },
+    {
+     "text": "su *sueldo,",
+     "start": 16.055,
+     "end": 16.695
+    },
+    {
+     "text": "mucho menos",
+     "start": 16.695,
+     "end": 17.175
+    },
+    {
+     "text": "podrán",
+     "start": 17.175,
+     "end": 17.655
+    },
+    {
+     "text": "interiorizar",
+     "start": 17.655,
+     "end": 18.375
+    },
+    {
+     "text": "ese *incremento",
+     "start": 18.375,
+     "end": 19.015
+    },
+    {
+     "text": "en el",
+     "start": 19.015,
+     "end": 19.335
+    },
+    {
+     "text": "*IVA.",
+     "start": 19.335,
+     "end": 19.672
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "devolucion",
+   "start": 19.672,
+   "end": 31.349,
+   "zooms": null,
+   "silent": null,
+   "text": "Y lo peor de todo es que para alivianar el golpe, el gobierno propone una devolución del IVA para los estratos 1 y 2, pero con unas condiciones que ninguna de estas personas va a poder cumplir, que es presentar una factura electrónica.",
+   "words": [
+    {
+     "t": "Y",
+     "s": 19.672,
+     "e": 19.832
+    },
+    {
+     "t": "lo",
+     "s": 19.832,
+     "e": 19.912
+    },
+    {
+     "t": "peor",
+     "s": 19.912,
+     "e": 20.232
+    },
+    {
+     "t": "de",
+     "s": 20.232,
+     "e": 20.312
+    },
+    {
+     "t": "todo",
+     "s": 20.312,
+     "e": 20.472
+    },
+    {
+     "t": "es",
+     "s": 20.472,
+     "e": 20.632
+    },
+    {
+     "t": "que",
+     "s": 20.632,
+     "e": 20.792
+    },
+    {
+     "t": "para",
+     "s": 20.792,
+     "e": 20.952
+    },
+    {
+     "t": "alivianar",
+     "s": 20.952,
+     "e": 21.512
+    },
+    {
+     "t": "el",
+     "s": 21.512,
+     "e": 21.592
+    },
+    {
+     "t": "golpe,",
+     "s": 21.592,
+     "e": 22.072
+    },
+    {
+     "t": "el",
+     "s": 22.072,
+     "e": 22.232
+    },
+    {
+     "t": "gobierno",
+     "s": 22.232,
+     "e": 22.632
+    },
+    {
+     "t": "propone",
+     "s": 22.632,
+     "e": 23.112
+    },
+    {
+     "t": "una",
+     "s": 23.112,
+     "e": 23.272
+    },
+    {
+     "t": "devolución",
+     "s": 23.272,
+     "e": 23.832
+    },
+    {
+     "t": "del",
+     "s": 23.832,
+     "e": 24.072
+    },
+    {
+     "t": "IVA",
+     "s": 24.072,
+     "e": 24.472
+    },
+    {
+     "t": "para",
+     "s": 24.472,
+     "e": 24.632
+    },
+    {
+     "t": "los",
+     "s": 24.632,
+     "e": 24.712
+    },
+    {
+     "t": "estratos",
+     "s": 24.712,
+     "e": 25.192
+    },
+    {
+     "t": "1",
+     "s": 25.192,
+     "e": 25.512
+    },
+    {
+     "t": "y",
+     "s": 25.512,
+     "e": 25.592
+    },
+    {
+     "t": "2,",
+     "s": 25.592,
+     "e": 25.912
+    },
+    {
+     "t": "pero",
+     "s": 25.912,
+     "e": 26.072
+    },
+    {
+     "t": "con",
+     "s": 26.072,
+     "e": 26.232
+    },
+    {
+     "t": "unas",
+     "s": 26.232,
+     "e": 26.472
+    },
+    {
+     "t": "condiciones",
+     "s": 26.472,
+     "e": 27.032
+    },
+    {
+     "t": "que",
+     "s": 27.032,
+     "e": 27.272
+    },
+    {
+     "t": "ninguna",
+     "s": 27.272,
+     "e": 27.832
+    },
+    {
+     "t": "de",
+     "s": 27.832,
+     "e": 27.992
+    },
+    {
+     "t": "estas",
+     "s": 27.992,
+     "e": 28.312
+    },
+    {
+     "t": "personas",
+     "s": 28.312,
+     "e": 28.792
+    },
+    {
+     "t": "va",
+     "s": 28.792,
+     "e": 28.952
+    },
+    {
+     "t": "a",
+     "s": 28.952,
+     "e": 29.032
+    },
+    {
+     "t": "poder",
+     "s": 29.032,
+     "e": 29.272
+    },
+    {
+     "t": "cumplir,",
+     "s": 29.272,
+     "e": 29.672
+    },
+    {
+     "t": "que",
+     "s": 29.672,
+     "e": 29.912
+    },
+    {
+     "t": "es",
+     "s": 29.912,
+     "e": 30.072
+    },
+    {
+     "t": "presentar",
+     "s": 30.072,
+     "e": 30.392
+    },
+    {
+     "t": "una",
+     "s": 30.392,
+     "e": 30.552
+    },
+    {
+     "t": "factura",
+     "s": 30.552,
+     "e": 30.792
+    },
+    {
+     "t": "electrónica.",
+     "s": 30.792,
+     "e": 31.292
+    }
+   ],
+   "shots": [
+    {
+     "src": "devolucion",
+     "start": 19.672,
+     "end": 31.349
+    }
+   ],
+   "captions": [
+    {
+     "text": "Y lo",
+     "start": 19.672,
+     "end": 19.912
+    },
+    {
+     "text": "*peor de",
+     "start": 19.912,
+     "end": 20.312
+    },
+    {
+     "text": "todo es",
+     "start": 20.312,
+     "end": 20.632
+    },
+    {
+     "text": "que para",
+     "start": 20.632,
+     "end": 20.952
+    },
+    {
+     "text": "alivianar el",
+     "start": 20.952,
+     "end": 21.592
+    },
+    {
+     "text": "golpe,",
+     "start": 21.592,
+     "end": 22.072
+    },
+    {
+     "text": "el gobierno",
+     "start": 22.072,
+     "end": 22.632
+    },
+    {
+     "text": "propone una",
+     "start": 22.632,
+     "end": 23.272
+    },
+    {
+     "text": "*devolución del",
+     "start": 23.272,
+     "end": 24.072
+    },
+    {
+     "text": "*IVA para",
+     "start": 24.072,
+     "end": 24.632
+    },
+    {
+     "text": "los *estratos",
+     "start": 24.632,
+     "end": 25.192
+    },
+    {
+     "text": "1 y",
+     "start": 25.192,
+     "end": 25.592
+    },
+    {
+     "text": "2,",
+     "start": 25.592,
+     "end": 25.912
+    },
+    {
+     "text": "pero con",
+     "start": 25.912,
+     "end": 26.232
+    },
+    {
+     "text": "unas",
+     "start": 26.232,
+     "end": 26.472
+    },
+    {
+     "text": "condiciones",
+     "start": 26.472,
+     "end": 27.032
+    },
+    {
+     "text": "que ninguna",
+     "start": 27.032,
+     "end": 27.832
+    },
+    {
+     "text": "de estas",
+     "start": 27.832,
+     "end": 28.312
+    },
+    {
+     "text": "personas va",
+     "start": 28.312,
+     "end": 28.952
+    },
+    {
+     "text": "a poder",
+     "start": 28.952,
+     "end": 29.272
+    },
+    {
+     "text": "cumplir,",
+     "start": 29.272,
+     "end": 29.672
+    },
+    {
+     "text": "que es",
+     "start": 29.672,
+     "end": 30.072
+    },
+    {
+     "text": "presentar una",
+     "start": 30.072,
+     "end": 30.552
+    },
+    {
+     "text": "*factura",
+     "start": 30.552,
+     "end": 30.792
+    },
+    {
+     "text": "*electrónica.",
+     "start": 30.792,
+     "end": 31.349
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "tiendas",
+   "start": 31.349,
+   "end": 39.204,
+   "zooms": null,
+   "silent": null,
+   "text": "El fríjol, el aceite, la sal, son productos que se compran en las plazas o en las tiendas de las esquinas, donde usualmente no se dan facturas electrónicas o facturas.",
+   "words": [
+    {
+     "t": "El",
+     "s": 31.349,
+     "e": 31.509
+    },
+    {
+     "t": "fríjol,",
+     "s": 31.509,
+     "e": 31.989
+    },
+    {
+     "t": "el",
+     "s": 31.989,
+     "e": 32.149
+    },
+    {
+     "t": "aceite,",
+     "s": 32.149,
+     "e": 32.629
+    },
+    {
+     "t": "la",
+     "s": 32.629,
+     "e": 32.789
+    },
+    {
+     "t": "sal,",
+     "s": 32.789,
+     "e": 33.189
+    },
+    {
+     "t": "son",
+     "s": 33.189,
+     "e": 33.429
+    },
+    {
+     "t": "productos",
+     "s": 33.429,
+     "e": 33.749
+    },
+    {
+     "t": "que",
+     "s": 33.749,
+     "e": 33.829
+    },
+    {
+     "t": "se",
+     "s": 33.829,
+     "e": 33.989
+    },
+    {
+     "t": "compran",
+     "s": 33.989,
+     "e": 34.389
+    },
+    {
+     "t": "en",
+     "s": 34.389,
+     "e": 34.469
+    },
+    {
+     "t": "las",
+     "s": 34.469,
+     "e": 34.549
+    },
+    {
+     "t": "plazas",
+     "s": 34.549,
+     "e": 34.949
+    },
+    {
+     "t": "o",
+     "s": 34.949,
+     "e": 35.109
+    },
+    {
+     "t": "en",
+     "s": 35.109,
+     "e": 35.189
+    },
+    {
+     "t": "las",
+     "s": 35.189,
+     "e": 35.269
+    },
+    {
+     "t": "tiendas",
+     "s": 35.269,
+     "e": 35.669
+    },
+    {
+     "t": "de",
+     "s": 35.669,
+     "e": 35.749
+    },
+    {
+     "t": "las",
+     "s": 35.749,
+     "e": 35.909
+    },
+    {
+     "t": "esquinas,",
+     "s": 35.909,
+     "e": 36.389
+    },
+    {
+     "t": "donde",
+     "s": 36.389,
+     "e": 36.629
+    },
+    {
+     "t": "usualmente",
+     "s": 36.629,
+     "e": 37.109
+    },
+    {
+     "t": "no",
+     "s": 37.109,
+     "e": 37.189
+    },
+    {
+     "t": "se",
+     "s": 37.189,
+     "e": 37.349
+    },
+    {
+     "t": "dan",
+     "s": 37.349,
+     "e": 37.589
+    },
+    {
+     "t": "facturas",
+     "s": 37.589,
+     "e": 38.069
+    },
+    {
+     "t": "electrónicas",
+     "s": 38.069,
+     "e": 38.629
+    },
+    {
+     "t": "o",
+     "s": 38.629,
+     "e": 38.789
+    },
+    {
+     "t": "facturas.",
+     "s": 38.789,
+     "e": 39.205
+    }
+   ],
+   "shots": [
+    {
+     "src": "tiendas",
+     "start": 31.349,
+     "end": 39.204
+    }
+   ],
+   "captions": [
+    {
+     "text": "El fríjol,",
+     "start": 31.349,
+     "end": 31.989
+    },
+    {
+     "text": "el aceite,",
+     "start": 31.989,
+     "end": 32.629
+    },
+    {
+     "text": "la *sal,",
+     "start": 32.629,
+     "end": 33.189
+    },
+    {
+     "text": "son productos",
+     "start": 33.189,
+     "end": 33.749
+    },
+    {
+     "text": "que se",
+     "start": 33.749,
+     "end": 33.989
+    },
+    {
+     "text": "compran en",
+     "start": 33.989,
+     "end": 34.469
+    },
+    {
+     "text": "las *plazas",
+     "start": 34.469,
+     "end": 34.949
+    },
+    {
+     "text": "o en",
+     "start": 34.949,
+     "end": 35.189
+    },
+    {
+     "text": "las *tiendas",
+     "start": 35.189,
+     "end": 35.669
+    },
+    {
+     "text": "de las",
+     "start": 35.669,
+     "end": 35.909
+    },
+    {
+     "text": "esquinas,",
+     "start": 35.909,
+     "end": 36.389
+    },
+    {
+     "text": "donde",
+     "start": 36.389,
+     "end": 36.629
+    },
+    {
+     "text": "usualmente no",
+     "start": 36.629,
+     "end": 37.189
+    },
+    {
+     "text": "se dan",
+     "start": 37.189,
+     "end": 37.589
+    },
+    {
+     "text": "*facturas",
+     "start": 37.589,
+     "end": 38.069
+    },
+    {
+     "text": "electrónicas o",
+     "start": 38.069,
+     "end": 38.789
+    },
+    {
+     "text": "*facturas.",
+     "start": 38.789,
+     "end": 39.204
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "cta",
+   "start": 39.204,
+   "end": 48.492,
+   "zooms": null,
+   "silent": null,
+   "text": "Este proyecto de ley se encuentra en el Congreso, así que escríbele a tu congresista y pregúntale qué opinas sobre el incremento del IVA en la sal. Mándale este video a quien hace el mercado en tu casa.",
+   "words": [
+    {
+     "t": "Este",
+     "s": 39.204,
+     "e": 39.524
+    },
+    {
+     "t": "proyecto",
+     "s": 39.524,
+     "e": 39.844
+    },
+    {
+     "t": "de",
+     "s": 39.844,
+     "e": 39.924
+    },
+    {
+     "t": "ley",
+     "s": 39.924,
+     "e": 40.324
+    },
+    {
+     "t": "se",
+     "s": 40.324,
+     "e": 40.404
+    },
+    {
+     "t": "encuentra",
+     "s": 40.404,
+     "e": 40.804
+    },
+    {
+     "t": "en",
+     "s": 40.804,
+     "e": 40.884
+    },
+    {
+     "t": "el",
+     "s": 40.884,
+     "e": 41.044
+    },
+    {
+     "t": "Congreso,",
+     "s": 41.044,
+     "e": 41.524
+    },
+    {
+     "t": "así",
+     "s": 41.524,
+     "e": 41.684
+    },
+    {
+     "t": "que",
+     "s": 41.684,
+     "e": 41.844
+    },
+    {
+     "t": "escríbele",
+     "s": 41.844,
+     "e": 42.324
+    },
+    {
+     "t": "a",
+     "s": 42.324,
+     "e": 42.404
+    },
+    {
+     "t": "tu",
+     "s": 42.404,
+     "e": 42.564
+    },
+    {
+     "t": "congresista",
+     "s": 42.564,
+     "e": 43.204
+    },
+    {
+     "t": "y",
+     "s": 43.204,
+     "e": 43.284
+    },
+    {
+     "t": "pregúntale",
+     "s": 43.284,
+     "e": 44.004
+    },
+    {
+     "t": "qué",
+     "s": 44.004,
+     "e": 44.164
+    },
+    {
+     "t": "opinas",
+     "s": 44.164,
+     "e": 44.564
+    },
+    {
+     "t": "sobre",
+     "s": 44.564,
+     "e": 44.724
+    },
+    {
+     "t": "el",
+     "s": 44.724,
+     "e": 44.804
+    },
+    {
+     "t": "incremento",
+     "s": 44.804,
+     "e": 45.204
+    },
+    {
+     "t": "del",
+     "s": 45.204,
+     "e": 45.364
+    },
+    {
+     "t": "IVA",
+     "s": 45.364,
+     "e": 45.764
+    },
+    {
+     "t": "en",
+     "s": 45.764,
+     "e": 45.844
+    },
+    {
+     "t": "la",
+     "s": 45.844,
+     "e": 46.004
+    },
+    {
+     "t": "sal.",
+     "s": 46.004,
+     "e": 46.324
+    },
+    {
+     "t": "Mándale",
+     "s": 46.324,
+     "e": 46.804
+    },
+    {
+     "t": "este",
+     "s": 46.804,
+     "e": 46.964
+    },
+    {
+     "t": "video",
+     "s": 46.964,
+     "e": 47.204
+    },
+    {
+     "t": "a",
+     "s": 47.204,
+     "e": 47.284
+    },
+    {
+     "t": "quien",
+     "s": 47.284,
+     "e": 47.524
+    },
+    {
+     "t": "hace",
+     "s": 47.524,
+     "e": 47.684
+    },
+    {
+     "t": "el",
+     "s": 47.684,
+     "e": 47.844
+    },
+    {
+     "t": "mercado",
+     "s": 47.844,
+     "e": 48.164
+    },
+    {
+     "t": "en",
+     "s": 48.164,
+     "e": 48.244
+    },
+    {
+     "t": "tu",
+     "s": 48.244,
+     "e": 48.324
+    },
+    {
+     "t": "casa.",
+     "s": 48.324,
+     "e": 48.491
+    }
+   ],
+   "shots": [
+    {
+     "src": "cta",
+     "start": 39.204,
+     "end": 51.092
+    }
+   ],
+   "captions": [
+    {
+     "text": "Este proyecto",
+     "start": 39.204,
+     "end": 39.844
+    },
+    {
+     "text": "de ley",
+     "start": 39.844,
+     "end": 40.324
+    },
+    {
+     "text": "se encuentra",
+     "start": 40.324,
+     "end": 40.804
+    },
+    {
+     "text": "en el",
+     "start": 40.804,
+     "end": 41.044
+    },
+    {
+     "text": "*Congreso,",
+     "start": 41.044,
+     "end": 41.524
+    },
+    {
+     "text": "así que",
+     "start": 41.524,
+     "end": 41.844
+    },
+    {
+     "text": "*escríbele a",
+     "start": 41.844,
+     "end": 42.404
+    },
+    {
+     "text": "tu *congresista",
+     "start": 42.404,
+     "end": 43.204
+    },
+    {
+     "text": "y pregúntale",
+     "start": 43.204,
+     "end": 44.004
+    },
+    {
+     "text": "qué opinas",
+     "start": 44.004,
+     "end": 44.564
+    },
+    {
+     "text": "sobre el",
+     "start": 44.564,
+     "end": 44.804
+    },
+    {
+     "text": "*incremento del",
+     "start": 44.804,
+     "end": 45.364
+    },
+    {
+     "text": "*IVA en",
+     "start": 45.364,
+     "end": 45.844
+    },
+    {
+     "text": "la *sal.",
+     "start": 45.844,
+     "end": 46.324
+    },
+    {
+     "text": "*Mándale este",
+     "start": 46.324,
+     "end": 46.964
+    },
+    {
+     "text": "*video a",
+     "start": 46.964,
+     "end": 47.284
+    },
+    {
+     "text": "quien hace",
+     "start": 47.284,
+     "end": 47.684
+    },
+    {
+     "text": "el *mercado",
+     "start": 47.684,
+     "end": 48.164
+    },
+    {
+     "text": "en tu",
+     "start": 48.164,
+     "end": 48.324
+    },
+    {
+     "text": "casa.",
+     "start": 48.324,
+     "end": 48.492
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  }
+ ],
+ "outro": {
+  "kicker": "Mándale este video",
+  "text": "a quien hace el mercado",
+  "start": 48.492,
+  "end": 51.092
+ },
+ "zooms": [
+  [
+   1.5333333333333334,
+   true
+  ],
+  [
+   2.8666666666666667,
+   false
+  ],
+  [
+   4.333333333333333,
+   true
+  ],
+  [
+   8.033333333333333,
+   true
+  ],
+  [
+   10.6,
+   false
+  ],
+  [
+   15.566666666666666,
+   true
+  ],
+  [
+   18.366666666666667,
+   false
+  ],
+  [
+   22.066666666666666,
+   true
+  ],
+  [
+   24.633333333333333,
+   false
+  ],
+  [
+   27.033333333333335,
+   true
+  ],
+  [
+   29.266666666666666,
+   false
+  ],
+  [
+   33.733333333333334,
+   true
+  ],
+  [
+   36.4,
+   false
+  ],
+  [
+   41.53333333333333,
+   true
+  ],
+  [
+   44.0,
+   false
+  ],
+  [
+   46.333333333333336,
+   true
+  ]
+ ],
+ "big": [
+  {
+   "scene": "gancho",
+   "text": "IMPUESTOS",
+   "layer": "behind",
+   "start": 2.24,
+   "end": 2.72,
+   "shotStart": 0.0,
+   "src": "gancho",
+   "headTop": 228,
+   "baseline": 288
+  },
+  {
+   "scene": "gancho",
+   "text": "hasta la sal",
+   "layer": "front",
+   "start": 4.96,
+   "end": 5.631,
+   "shotStart": 0.0,
+   "src": "gancho"
+  },
+  {
+   "scene": "igual",
+   "text": "IGUAL",
+   "layer": "behind",
+   "start": 6.911,
+   "end": 7.311,
+   "shotStart": 5.631,
+   "src": "igual",
+   "headTop": 349,
+   "baseline": 409
+  },
+  {
+   "scene": "igual",
+   "text": "un salario mínimo",
+   "layer": "front",
+   "start": 12.511,
+   "end": 13.255,
+   "shotStart": 5.631,
+   "src": "igual"
+  },
+  {
+   "scene": "devolucion",
+   "text": "DEVOLUCIÓN",
+   "layer": "behind",
+   "start": 23.272,
+   "end": 24.472,
+   "shotStart": 19.672,
+   "src": "devolucion",
+   "headTop": 381,
+   "baseline": 441
+  },
+  {
+   "scene": "devolucion",
+   "text": "factura electrónica",
+   "layer": "front",
+   "start": 30.552,
+   "end": 31.349,
+   "shotStart": 19.672,
+   "src": "devolucion"
+  },
+  {
+   "scene": "tiendas",
+   "text": "TIENDAS",
+   "layer": "behind",
+   "start": 35.269,
+   "end": 35.669,
+   "shotStart": 31.349,
+   "src": "tiendas",
+   "headTop": 342,
+   "baseline": 402
+  },
+  {
+   "scene": "cta",
+   "text": "escríbele a tu congresista",
+   "layer": "front",
+   "start": 41.844,
+   "end": 43.204,
+   "shotStart": 39.204,
+   "src": "cta"
+  }
+ ]
+}
