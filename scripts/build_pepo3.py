@@ -111,6 +111,18 @@ def mattes(data):
     print("recortes:", len(jobs))
 
 
+def voz_clara():
+    """Presencia y nitidez para la voz ya armada (voicePost de la config): menos graves y caja, más 2,8–5 kHz,
+    compresión suave y -15 LUFS. El cliente no entendía bien las voces."""
+    post = CFG.get("voicePost")
+    if not post:
+        return
+    src, dst = f"{OUT}/voz.wav", f"{TMP}/voz-clara.wav"
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af", post, "-ar", str(SR), "-ac", "1", dst],
+                   check=True)
+    os.replace(dst, src)
+
+
 def woman(data):
     """Tramos (s) en que habla ella: escenas enteras o hasta la palabra `until`."""
     by = {s["key"]: s for s in data["scenes"]}
@@ -179,6 +191,17 @@ def musica(data):
     db = np.zeros(len(m))
     for a, b in (woman(data) if CFG.get("duckWoman", True) and CFG.get("woman") else []):
         db = np.minimum(db, np.interp(t, [a - 0.35, a, b, b + 0.35], [0, -14, -14, 0], left=0, right=0))
+    if CFG.get("duckVoice"):
+        # Mientras alguien habla la música baja `duckVoice` dB (sube en 0,15 s y vuelve en 0,6 s).
+        v = read_wav(f"{OUT}/voz.wav")
+        hop = SR // 100
+        nv = len(v) // hop
+        talk = (20 * np.log10(np.sqrt((v[: nv * hop].reshape(nv, hop) ** 2).mean(1)) + 1e-9) > -40).astype(float)
+        g = np.zeros(nv)
+        for i in range(nv):
+            prev = g[i - 1] if i else 0.0
+            g[i] = prev + (talk[i] - prev) * (0.07 if talk[i] > prev else 0.017)
+        db = db - CFG["duckVoice"] * np.interp(np.arange(len(m)) / hop, np.arange(nv), g)
     write_wav(f"{OUT}/musica.wav", m * (10 ** (db / 20))[:, None], 2)
 
 
@@ -230,6 +253,7 @@ if __name__ == "__main__":
     mattes(d)
     heads(d)
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
+    voz_clara()
     musica(d)
     foley(d)
     print("listo:", d["duration"], "s")
