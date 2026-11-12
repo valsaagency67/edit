@@ -56,12 +56,13 @@ const Behind: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
   const size = Math.min(210, Math.round(1000 / (b.text.length * 0.72)));
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: (b.headTop ?? 620) + 110 - size * 0.55 }}>
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: (b.headTop ?? 620) + 60 - size * 0.9 }}>
         <div
           style={{
             opacity: o,
             filter: `blur(${(1 - k) * 10}px)`,
-            transform: `scale(${1.14 - 0.14 * k})`,
+            transform: `scale(${1.14 - 0.14 * k}) scaleY(1.5)`,
+            transformOrigin: "50% 90%",
             fontFamily: Playfair,
             fontWeight: 900,
             fontSize: size,
@@ -88,7 +89,7 @@ const Front: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
   const { k, o } = useIn(dur);
   if (b.style === "tag") {
     return (
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 400 }}>
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 228 }}>
         <div
           style={{
             opacity: o,
