@@ -3,21 +3,22 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Anton, Bebas, Montserrat } from "./font";
 import { Bandera } from "./Peticion";
 
-// Portada del caso dramatizado de la tarjeta vaciada (Pepo 3, 1080x1920): Juan Felipe de cerca en la mesa (cuadro
-// de la toma «consejo», ya más claro; public/pepo3/portada-fondo.jpg, no versionado), oscurecido arriba y abajo
-// para el titular, con la bandera y la firma. Todo dentro del recorte 4:5 (y 285–1635).
+// Portada del caso dramatizado de la tarjeta vaciada (Pepo 3, 1080x1920): un cuadro del video ya más claro
+// (public/pepo3/portada-*.jpg, no versionados), oscurecido abajo para el titular, con la bandera y la firma. Todo dentro del recorte 4:5 (y 285–1635).
 const RED = "#E30613";
 const YELLOW = "#FCD116";
 const NAVY = "#0B1736";
 const SHADOW = "0 6px 22px rgba(0,0,0,0.75)";
 
-export const CoverPepo3: React.FC = () => (
+// fondo: cuadro del video (A: sobre el hombro de ella, con Juan Felipe al frente; B: él de perfil junto a la
+// ventana). Todo el texto va abajo para no tapar la cara (la primera versión la tapaba y el cliente la rechazó).
+export const CoverPepo3: React.FC<{ fondo?: string }> = ({ fondo = "portada-a.jpg" }) => (
   <AbsoluteFill style={{ backgroundColor: "black", overflow: "hidden" }}>
-    <Img src={staticFile("pepo3/portada-fondo.jpg")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+    <Img src={staticFile(`pepo3/${fondo}`)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
     <AbsoluteFill
       style={{
         background:
-          "linear-gradient(180deg, rgba(5,10,25,0.85) 0%, rgba(5,10,25,0.15) 32%, rgba(5,10,25,0) 50%, rgba(5,10,25,0.35) 64%, rgba(5,10,25,0.92) 82%)",
+          "linear-gradient(180deg, rgba(5,10,25,0.55) 0%, rgba(5,10,25,0) 18%, rgba(5,10,25,0) 48%, rgba(5,10,25,0.75) 62%, rgba(5,10,25,0.95) 80%)",
       }}
     />
     <div style={{ position: "absolute", top: 0, left: 0, right: 0 }}>
@@ -40,8 +41,8 @@ export const CoverPepo3: React.FC = () => (
       Juan Felipe Castaño
     </div>
 
-    {/* Arriba: la pregunta */}
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 300, textAlign: "center" }}>
+    {/* La pregunta */}
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1060, textAlign: "center" }}>
       <div
         style={{
           background: YELLOW,
@@ -64,8 +65,8 @@ export const CoverPepo3: React.FC = () => (
       </div>
     </AbsoluteFill>
 
-    {/* Abajo: la respuesta */}
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1300, textAlign: "center" }}>
+    {/* La respuesta */}
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1440, textAlign: "center" }}>
       <div
         style={{
           fontFamily: Bebas,

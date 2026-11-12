@@ -125,7 +125,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="JFC-Pepo-Portada" component={CoverPepo} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Caso dramatizado «cinematográfico» (Pepo 3): npm run build:pepo3 && npm run render:pepo3 */}
       <Composition id="JFC-Pepo3" component={Pepo3} width={1080} height={1920} fps={PEPO3_FPS} durationInFrames={pepo3Duration} />
-      <Composition id="JFC-Pepo3-Portada" component={CoverPepo3} width={1080} height={1920} fps={30} durationInFrames={1} />
+      <Composition id="JFC-Pepo3-Portada" component={CoverPepo3} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ fondo: "portada-a.jpg" }} />
+      <Composition id="JFC-Pepo3-Portada-B" component={CoverPepo3} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ fondo: "portada-b.jpg" }} />
       {/* IVA de la ley de rescate (Pepo 2): npm run build:pepo2 && npm run render:pepo2 */}
       <Composition id="JFC-Pepo2" component={Pepo2} width={1080} height={1920} fps={PEPO2_FPS} durationInFrames={pepo2Duration} />
       {/* Carrusel del IVA a la canasta (1080x1350): npm run render:carrusel-iva */}
