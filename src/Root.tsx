@@ -17,6 +17,7 @@ import { CoverPepo } from "./campaign/CoverPepo";
 import { Pepo3, PEPO3_FPS, pepo3Duration } from "./campaign/Pepo3";
 import { CoverPepo3 } from "./campaign/CoverPepo3";
 import { Pepo2, PEPO2_FPS, pepo2Duration } from "./campaign/Pepo2";
+import { CoverPepo2 } from "./campaign/CoverPepo2";
 import { Museo, MUSEO_FPS, museoDuration } from "./campaign/Museo";
 import { Policia, POLICIA_FPS, policiaDuration } from "./campaign/Policia";
 import { Peticion, PETICION_FPS, peticionDuration } from "./campaign/Peticion";
@@ -129,6 +130,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="JFC-Pepo3-Portada-B" component={CoverPepo3} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{ fondo: "portada-b.jpg" }} />
       {/* IVA de la ley de rescate (Pepo 2): npm run build:pepo2 && npm run render:pepo2 */}
       <Composition id="JFC-Pepo2" component={Pepo2} width={1080} height={1920} fps={PEPO2_FPS} durationInFrames={pepo2Duration} />
+      <Composition id="JFC-Pepo2-Portada" component={CoverPepo2} width={1080} height={1920} fps={30} durationInFrames={1} />
       {/* Carrusel del IVA a la canasta (1080x1350): npm run render:carrusel-iva */}
       {Array.from({ length: IVA_SLIDES }, (_, k) => (
         <Composition key={k} id={`IVA-${k + 1}`} component={CarruselIva} width={1080} height={1350} fps={30} durationInFrames={1} defaultProps={{ slide: k + 1 }} />
