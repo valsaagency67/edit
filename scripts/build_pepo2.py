@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Video del IVA a la canasta familiar en la «ley de rescate» de Abelardo de la Espriella (carpeta de Drive
-«Pepo 2»). Mismo estilo «cinematográfico» de Pepo 3: reusa las funciones de scripts/build_pepo3.py cambiando su
-configuración y carpetas (color tal como viene, palabras grandes detrás y delante, efectos de la referencia).
+«Pepo 2»). Estilo de los videos de Óscar Benavides (media/ref/referencia-6.mp4): gancho en blanco y negro, color
+claro y vivo, subtítulos blancos sin resaltar, cara de Abelardo recortada y animaciones sencillas (`stickers`),
+con muy pocos efectos. Reusa las funciones de scripts/build_pepo3.py cambiando su configuración y carpetas.
 
 - Voz: DPDFNet + cadena de Pepo1, a 1.07x y sin pausas (monólogo, regla «que hable de seguido»).
 - Música propia (media/pepo2/musica.wav, se arma aquí): tensa y moderna, Re menor a 92 bpm. Contrabajo en
@@ -28,6 +29,37 @@ b3.CFG = json.load(open(f"{ROOT}/scripts/pepo2.config.json", encoding="utf-8"))
 b3.OUT = f"{ROOT}/public/pepo2"
 b3.TMP = f"{ROOT}/out/pepo2/tmp"
 b3.MEDIA = f"{ROOT}/media/pepo2"
+
+
+def ventanas(data, key):
+    """Ventanas (inicio, fin) de `stickers` o `abelardo` de la config, ancladas a palabras de cada escena."""
+    by = {s["key"]: s for s in data["scenes"]}
+    out = []
+    for w in b3.CFG.get(key, []):
+        sc = by[w["scene"]]
+        a = b3.word_at(sc, w["at"])
+        z = sc["end"] if w.get("untilEnd") else b3.word_at(sc, w["until"], a + 0.01)
+        out.append({k: v for k, v in w.items() if k not in ("at", "until", "untilEnd")} | {"start": round(a, 3),
+                                                                                        "end": round(z, 3)})
+    return out
+
+
+def recorte_abelardo():
+    """Cara de Abelardo recortada (rembg u2net_human_seg) desde media/pepo2/abelardo.* (la manda el cliente) a
+    public/pepo2/fotos/abelardo.png. Devuelve False si todavía no hay foto."""
+    import glob
+    import subprocess
+    src = sorted(glob.glob(f"{b3.MEDIA}/abelardo.*"))
+    if not src:
+        print("abelardo: falta la foto (media/pepo2/abelardo.*)")
+        return False
+    os.makedirs(f"{b3.OUT}/fotos", exist_ok=True)
+    code = ("import sys;from PIL import Image;from rembg import new_session,remove;"
+            "im=Image.open(sys.argv[1]).convert('RGB');"
+            "o=remove(im,session=new_session('u2net_human_seg'));o.crop(o.getbbox()).save(sys.argv[2])")
+    subprocess.run([sys.executable, "-c", code, src[0], f"{b3.OUT}/fotos/abelardo.png"], check=True,
+                   env={**os.environ, "U2NET_HOME": f"{ROOT}/whisper-models/u2net"})
+    return True
 
 
 def componer(total):
@@ -61,12 +93,18 @@ def componer(total):
 
 if __name__ == "__main__":
     path = f"{ROOT}/src/campaign/pepo2.json"
-    d = Proyecto(b3.CFG, f"{ROOT}/media/pepo2", ".MOV", b3.OUT, b3.TMP, b3.GRADE, voice=VOZ,
+    d = Proyecto(b3.CFG, f"{ROOT}/media/pepo2", ".MOV", b3.OUT, b3.TMP, b3.CFG.get("grade", b3.GRADE), voice=VOZ,
                  denoise=DENOISE).build(path)
     d["zooms"] = zooms(d)
     d["big"] = b3.bigs(d)
     b3.mattes(d)
     b3.heads(d)
+    for sc in d["scenes"]:  # el blanco y negro del gancho arranca en el primer cuadro, no en la primera palabra
+        for e in sc["effects"]:
+            if e.get("gray") and e["start"] - sc["start"] < 0.5:
+                e["start"] = sc["start"]
+    d["stickers"] = ventanas(d, "stickers")
+    d["abelardo"] = ventanas(d, "abelardo") if recorte_abelardo() else []
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     componer(d["duration"])
     b3.musica(d)

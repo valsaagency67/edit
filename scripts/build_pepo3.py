@@ -192,6 +192,8 @@ def foley(data):
         mf.place(buf, np.stack([x, x], 1) * gain, max(0.0, t))
 
     for e in CFG["sfx"]:
+        if e.get("abelardo"):
+            continue
         if e.get("at") is not None and "scene" not in e and "sceneStart" not in e and not e.get("womanStart"):
             put(e["name"], e["at"], e["gain"])
             continue
@@ -207,7 +209,11 @@ def foley(data):
         else:
             t = e["at"]
         put(e["name"], t, e["gain"])
-    for k, (t, _) in enumerate(data["zooms"]):
+    for e in CFG["sfx"]:
+        if e.get("abelardo"):  # Pepo 2: clic cuando aparece la cara de Abelardo
+            for w in data.get("abelardo", []):
+                put(e["name"], w["start"], e["gain"])
+    for k, (t, _) in enumerate(data["zooms"] if CFG.get("zoomSfx", True) else []):
         if k % 2 == 1:
             put("transicion", t - 0.25, 0.4)
     if "outro" in data:

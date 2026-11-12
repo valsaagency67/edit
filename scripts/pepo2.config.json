@@ -1,5 +1,5 @@
 {
-  "_doc": "Video del IVA a la canasta familiar de la «ley de rescate» de Abelardo de la Espriella (carpeta de Drive «Pepo 2»): seis tomas 4K de Juan Felipe de noche en la calle (media/pepo2/, no versionadas). Mismo estilo «cinematográfico» de Pepo 3 (Cine.tsx, scripts/build_pepo3.py): color tal como viene, subtítulos en serifa, palabras grandes detrás y delante de él, efectos del video de referencia de CapCut. Música propia (scripts/build_pepo2.py). Lo arma scripts/build_pepo2.py -> src/campaign/pepo2.json.",
+  "_doc": "Video del IVA a la canasta familiar en la «ley de rescate» de Abelardo de la Espriella (carpeta de Drive «Pepo 2»): seis tomas 4K de Juan Felipe de noche en la calle. Estilo de los videos de Óscar Benavides (media/ref/referencia-6.mp4, lo pidió el cliente): el gancho en blanco y negro y después color claro y vivo, subtítulos blancos en Montserrat gruesa de 2-3 palabras sin resaltar, cara de Abelardo recortada cuando se le nombra y animaciones sencillas (`stickers`) según lo que dice, con muy pocos efectos de sonido. Música propia. Lo arma scripts/build_pepo2.py -> src/campaign/pepo2.json.",
   "fps": 30,
   "speed": 1.07,
   "pause": {
@@ -16,94 +16,17 @@
     "text": "a quien hace el mercado"
   },
   "musicLUFS": -27,
-  "big": [
-    {
-      "scene": "gancho",
-      "at": "impuestos",
-      "until": "y",
-      "text": "IMPUESTOS",
-      "layer": "behind"
-    },
-    {
-      "scene": "gancho",
-      "at": "hasta",
-      "until": "sal.",
-      "untilEnd": true,
-      "text": "hasta la sal",
-      "layer": "front"
-    },
-    {
-      "scene": "igual",
-      "at": "igual,",
-      "until": "por",
-      "text": "IGUAL",
-      "layer": "behind"
-    },
-    {
-      "scene": "igual",
-      "at": "salario",
-      "until": "mínimo.",
-      "untilEnd": true,
-      "text": "un salario mínimo",
-      "layer": "front"
-    },
-    {
-      "scene": "devolucion",
-      "at": "devolución",
-      "until": "para",
-      "text": "DEVOLUCIÓN",
-      "layer": "behind"
-    },
-    {
-      "scene": "devolucion",
-      "at": "factura",
-      "until": "electrónica.",
-      "untilEnd": true,
-      "text": "factura electrónica",
-      "layer": "front"
-    },
-    {
-      "scene": "tiendas",
-      "at": "tiendas",
-      "until": "de",
-      "text": "TIENDAS",
-      "layer": "behind"
-    },
-    {
-      "scene": "cta",
-      "at": "escríbele",
-      "until": "y",
-      "text": "escríbele a tu congresista",
-      "layer": "front"
-    }
-  ],
+  "big": [],
   "sfx": [
     {
-      "name": "riser",
-      "at": 0.0,
+      "name": "shutter",
+      "sceneStart": "igual",
       "gain": 0.5
     },
     {
-      "name": "impact",
-      "scene": "gancho",
-      "word": "sal.",
-      "gain": 0.8
-    },
-    {
-      "name": "shutter",
-      "sceneStart": "devolucion",
-      "gain": 0.55
-    },
-    {
-      "name": "impact2",
-      "scene": "devolucion",
-      "word": "factura",
-      "gain": 0.7
-    },
-    {
-      "name": "shutter",
-      "sceneStart": "cta",
-      "gain": 0.55
+      "name": "click",
+      "abelardo": true,
+      "gain": 0.6
     }
   ],
   "scenes": [
@@ -112,18 +35,14 @@
       "camera": "IMG_0049",
       "text": "Abelardo de la Espriella prometió que no iba a subir impuestos y hoy su ley de rescate le pone IVA hasta la sal.",
       "phrases": [
-        "*Abelardo de",
-        "la Espriella",
-        "*prometió que",
-        "no iba",
-        "a subir",
-        "*impuestos y",
-        "hoy su",
-        "ley de",
-        "*rescate le",
-        "pone *IVA",
-        "hasta la",
-        "*sal."
+        "Abelardo de la Espriella",
+        "prometió que no",
+        "iba a subir",
+        "impuestos y hoy",
+        "su ley de",
+        "rescate le pone",
+        "IVA hasta la",
+        "sal."
       ],
       "shots": [
         {
@@ -131,101 +50,101 @@
         }
       ],
       "cards": [],
-      "speed": 1.1
+      "speed": 1.1,
+      "photos": [],
+      "effects": [
+        {
+          "at": "Abelardo",
+          "gray": true
+        }
+      ]
     },
     {
       "key": "igual",
       "camera": "IMG_0054",
       "text": "El IVA le cobra a todos por igual, por eso la sal le termina saliendo lo mismo al que devenga miles de millones que al que gana tan siquiera un salario mínimo.",
       "phrases": [
-        "El *IVA",
-        "le cobra",
-        "a todos",
-        "por *igual,",
-        "por eso",
-        "la *sal",
-        "le termina",
-        "saliendo lo",
-        "mismo al",
-        "que devenga",
-        "miles de",
-        "*millones que",
-        "al que",
-        "gana tan",
-        "siquiera un",
-        "*salario",
-        "*mínimo."
+        "El IVA le",
+        "cobra a todos",
+        "por igual,",
+        "por eso la",
+        "sal le termina",
+        "saliendo lo mismo",
+        "al que devenga",
+        "miles de millones",
+        "que al que",
+        "gana tan siquiera",
+        "un salario",
+        "mínimo."
       ],
       "shots": [
         {
           "src": "igual"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [],
+      "effects": []
     },
     {
       "key": "familias",
       "camera": "IMG_0064",
       "text": "Eso golpea a las familias que apenas pueden comprar un mercado con su sueldo, mucho menos podrán interiorizar ese incremento en el IVA.",
       "phrases": [
-        "Eso *golpea",
-        "a las",
-        "*familias que",
+        "Eso golpea a",
+        "las familias que",
         "apenas pueden",
         "comprar un",
-        "*mercado con",
-        "su *sueldo,",
+        "mercado con su",
+        "sueldo,",
         "mucho menos",
         "podrán",
-        "interiorizar",
-        "ese *incremento",
-        "en el",
-        "*IVA."
+        "interiorizar ese",
+        "incremento en el",
+        "IVA."
       ],
       "shots": [
         {
           "src": "familias"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [],
+      "effects": []
     },
     {
       "key": "devolucion",
       "camera": "IMG_0067",
       "text": "Y lo peor de todo es que para alivianar el golpe, el gobierno propone una devolución del IVA para los estratos 1 y 2, pero con unas condiciones que ninguna de estas personas va a poder cumplir, que es presentar una factura electrónica.",
       "phrases": [
-        "Y lo",
-        "*peor de",
-        "todo es",
+        "Y lo peor",
+        "de todo es",
         "que para",
         "alivianar el",
         "golpe,",
         "el gobierno",
         "propone una",
-        "*devolución del",
-        "*IVA para",
-        "los *estratos",
-        "1 y",
+        "devolución del",
+        "IVA para los",
+        "estratos 1 y",
         "2,",
-        "pero con",
-        "unas",
-        "condiciones",
-        "que ninguna",
-        "de estas",
-        "personas va",
-        "a poder",
-        "cumplir,",
-        "que es",
-        "presentar una",
-        "*factura",
-        "*electrónica."
+        "pero con unas",
+        "condiciones que",
+        "ninguna de estas",
+        "personas va a",
+        "poder cumplir,",
+        "que es presentar",
+        "una factura",
+        "electrónica."
       ],
       "shots": [
         {
           "src": "devolucion"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [],
+      "effects": []
     },
     {
       "key": "tiendas",
@@ -234,54 +153,46 @@
       "phrases": [
         "El fríjol,",
         "el aceite,",
-        "la *sal,",
-        "son productos",
-        "que se",
-        "compran en",
-        "las *plazas",
-        "o en",
-        "las *tiendas",
-        "de las",
-        "esquinas,",
-        "donde",
-        "usualmente no",
-        "se dan",
-        "*facturas",
+        "la sal,",
+        "son productos que",
+        "se compran en",
+        "las plazas o",
+        "en las tiendas",
+        "de las esquinas,",
+        "donde usualmente",
+        "no se dan",
+        "facturas",
         "electrónicas o",
-        "*facturas."
+        "facturas."
       ],
       "shots": [
         {
           "src": "tiendas"
         }
       ],
-      "cards": []
+      "cards": [],
+      "photos": [],
+      "effects": []
     },
     {
       "key": "cta",
       "camera": "IMG_0072",
       "text": "Este proyecto de ley se encuentra en el Congreso, así que escríbele a tu congresista y pregúntale qué opinas sobre el incremento del IVA en la sal. Mándale este video a quien hace el mercado en tu casa.",
       "phrases": [
-        "Este proyecto",
-        "de ley",
-        "se encuentra",
-        "en el",
-        "*Congreso,",
-        "así que",
-        "*escríbele a",
-        "tu *congresista",
-        "y pregúntale",
-        "qué opinas",
-        "sobre el",
-        "*incremento del",
-        "*IVA en",
-        "la *sal.",
-        "*Mándale este",
-        "*video a",
-        "quien hace",
-        "el *mercado",
-        "en tu",
-        "casa."
+        "Este proyecto de",
+        "ley se encuentra",
+        "en el Congreso,",
+        "así que escríbele",
+        "a tu congresista",
+        "y pregúntale qué",
+        "opinas sobre el",
+        "incremento del",
+        "IVA en la",
+        "sal.",
+        "Mándale este",
+        "video a quien",
+        "hace el mercado",
+        "en tu casa."
       ],
       "shots": [
         {
@@ -292,8 +203,66 @@
       "pause": {
         "minSilence": 0.4,
         "keep": 0.14
-      }
+      },
+      "photos": [],
+      "effects": []
     }
   ],
-  "headSearchFrom": 60
+  "headSearchFrom": 60,
+  "stickers": [
+    {
+      "scene": "gancho",
+      "at": "pone",
+      "until": "sal.",
+      "untilEnd": true,
+      "emoji": "🧂",
+      "label": "IVA a la sal"
+    },
+    {
+      "scene": "igual",
+      "at": "miles",
+      "until": "mínimo.",
+      "untilEnd": true,
+      "emoji": "⚖️",
+      "label": "el mismo IVA"
+    },
+    {
+      "scene": "devolucion",
+      "at": "presentar",
+      "until": "electrónica.",
+      "untilEnd": true,
+      "emoji": "🧾",
+      "label": "factura electrónica"
+    },
+    {
+      "scene": "tiendas",
+      "at": "plazas",
+      "until": "donde",
+      "emoji": "🏪",
+      "label": "sin factura"
+    },
+    {
+      "scene": "cta",
+      "at": "escríbele",
+      "until": "pregúntale",
+      "emoji": "✉️",
+      "label": "escríbele"
+    }
+  ],
+  "abelardo": [
+    {
+      "scene": "gancho",
+      "at": "Abelardo",
+      "until": "prometió",
+      "label": "Abelardo de la Espriella"
+    },
+    {
+      "scene": "devolucion",
+      "at": "gobierno",
+      "until": "una",
+      "label": "Gobierno de Abelardo"
+    }
+  ],
+  "grade": "eq=gamma=1.16:saturation=1.2:contrast=1.06",
+  "zoomSfx": false
 }

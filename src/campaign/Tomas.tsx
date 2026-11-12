@@ -335,6 +335,7 @@ export const TomasVideo: React.FC<{
   photoFull?: boolean;
   captionImpact?: boolean;
   captionCine?: boolean;
+  captionBena?: boolean;
   hideCaptions?: Range[];
   inner?: React.ReactNode;
   overlay?: React.ReactNode;
@@ -354,6 +355,7 @@ export const TomasVideo: React.FC<{
   photoFull,
   captionImpact,
   captionCine,
+  captionBena,
   hideCaptions = [],
   inner,
   overlay,
@@ -518,6 +520,7 @@ export const TomasVideo: React.FC<{
               pop={captionPop}
               impact={captionImpact}
               cine={captionCine}
+              bena={captionBena}
             />
           </Sequence>
         )),

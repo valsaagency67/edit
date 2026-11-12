@@ -143,69 +143,55 @@
    ],
    "captions": [
     {
-     "text": "*Abelardo de",
+     "text": "Abelardo de la Espriella",
      "start": 0.2,
-     "end": 0.48
-    },
-    {
-     "text": "la Espriella",
-     "start": 0.48,
      "end": 1.12
     },
     {
-     "text": "*prometió que",
+     "text": "prometió que no",
      "start": 1.12,
-     "end": 1.52
+     "end": 1.68
     },
     {
-     "text": "no iba",
-     "start": 1.52,
-     "end": 1.84
-    },
-    {
-     "text": "a subir",
-     "start": 1.84,
+     "text": "iba a subir",
+     "start": 1.68,
      "end": 2.24
     },
     {
-     "text": "*impuestos y",
+     "text": "impuestos y hoy",
      "start": 2.24,
-     "end": 2.88
+     "end": 3.2
     },
     {
-     "text": "hoy su",
-     "start": 2.88,
-     "end": 3.36
-    },
-    {
-     "text": "ley de",
-     "start": 3.36,
+     "text": "su ley de",
+     "start": 3.2,
      "end": 3.68
     },
     {
-     "text": "*rescate le",
+     "text": "rescate le pone",
      "start": 3.68,
-     "end": 4.32
+     "end": 4.72
     },
     {
-     "text": "pone *IVA",
-     "start": 4.32,
-     "end": 4.96
-    },
-    {
-     "text": "hasta la",
-     "start": 4.96,
+     "text": "IVA hasta la",
+     "start": 4.72,
      "end": 5.28
     },
     {
-     "text": "*sal.",
+     "text": "sal.",
      "start": 5.28,
      "end": 5.631
     }
    ],
    "cards": [],
    "photos": [],
-   "effects": [],
+   "effects": [
+    {
+     "gray": true,
+     "start": 0.0,
+     "end": 5.631
+    }
+   ],
    "kinetic": []
   },
   {
@@ -386,87 +372,62 @@
    ],
    "captions": [
     {
-     "text": "El *IVA",
+     "text": "El IVA le",
      "start": 5.631,
-     "end": 6.191
+     "end": 6.271
     },
     {
-     "text": "le cobra",
-     "start": 6.191,
-     "end": 6.511
-    },
-    {
-     "text": "a todos",
-     "start": 6.511,
+     "text": "cobra a todos",
+     "start": 6.271,
      "end": 6.831
     },
     {
-     "text": "por *igual,",
+     "text": "por igual,",
      "start": 6.831,
      "end": 7.311
     },
     {
-     "text": "por eso",
+     "text": "por eso la",
      "start": 7.311,
-     "end": 7.551
+     "end": 7.711
     },
     {
-     "text": "la *sal",
-     "start": 7.551,
-     "end": 8.031
-    },
-    {
-     "text": "le termina",
-     "start": 8.031,
+     "text": "sal le termina",
+     "start": 7.711,
      "end": 8.511
     },
     {
-     "text": "saliendo lo",
+     "text": "saliendo lo mismo",
      "start": 8.511,
-     "end": 9.071
+     "end": 9.311
     },
     {
-     "text": "mismo al",
-     "start": 9.071,
-     "end": 9.551
-    },
-    {
-     "text": "que devenga",
-     "start": 9.551,
+     "text": "al que devenga",
+     "start": 9.311,
      "end": 10.191
     },
     {
-     "text": "miles de",
+     "text": "miles de millones",
      "start": 10.191,
-     "end": 10.591
+     "end": 10.991
     },
     {
-     "text": "*millones que",
-     "start": 10.591,
-     "end": 11.151
-    },
-    {
-     "text": "al que",
-     "start": 11.151,
+     "text": "que al que",
+     "start": 10.991,
      "end": 11.471
     },
     {
-     "text": "gana tan",
+     "text": "gana tan siquiera",
      "start": 11.471,
-     "end": 11.951
+     "end": 12.431
     },
     {
-     "text": "siquiera un",
-     "start": 11.951,
-     "end": 12.511
-    },
-    {
-     "text": "*salario",
-     "start": 12.511,
+     "text": "un salario",
+     "start": 12.431,
      "end": 12.911
     },
     {
-     "text": "*mínimo.",
+     "text": "mínimo.",
      "start": 12.911,
      "end": 13.255
     }
@@ -609,18 +570,13 @@
    ],
    "captions": [
     {
-     "text": "Eso *golpea",
+     "text": "Eso golpea a",
      "start": 13.255,
-     "end": 13.735
+     "end": 13.975
     },
     {
-     "text": "a las",
-     "start": 13.735,
-     "end": 14.055
-    },
-    {
-     "text": "*familias que",
-     "start": 14.055,
+     "text": "las familias que",
+     "start": 13.975,
      "end": 14.455
     },
     {
@@ -634,13 +590,13 @@
      "end": 15.575
     },
     {
-     "text": "*mercado con",
+     "text": "mercado con su",
      "start": 15.575,
-     "end": 16.055
+     "end": 16.215
     },
     {
-     "text": "su *sueldo,",
-     "start": 16.055,
+     "text": "sueldo,",
+     "start": 16.215,
      "end": 16.695
     },
     {
@@ -654,22 +610,17 @@
      "end": 17.655
     },
     {
-     "text": "interiorizar",
+     "text": "interiorizar ese",
      "start": 17.655,
-     "end": 18.375
+     "end": 18.615
     },
     {
-     "text": "ese *incremento",
-     "start": 18.375,
-     "end": 19.015
-    },
-    {
-     "text": "en el",
-     "start": 19.015,
+     "text": "incremento en el",
+     "start": 18.615,
      "end": 19.335
     },
     {
-     "text": "*IVA.",
+     "text": "IVA.",
      "start": 19.335,
      "end": 19.672
     }
@@ -912,18 +863,13 @@
    ],
    "captions": [
     {
-     "text": "Y lo",
+     "text": "Y lo peor",
      "start": 19.672,
-     "end": 19.912
+     "end": 20.232
     },
     {
-     "text": "*peor de",
-     "start": 19.912,
-     "end": 20.312
-    },
-    {
-     "text": "todo es",
-     "start": 20.312,
+     "text": "de todo es",
+     "start": 20.232,
      "end": 20.632
     },
     {
@@ -952,23 +898,18 @@
      "end": 23.272
     },
     {
-     "text": "*devolución del",
+     "text": "devolución del",
      "start": 23.272,
      "end": 24.072
     },
     {
-     "text": "*IVA para",
+     "text": "IVA para los",
      "start": 24.072,
-     "end": 24.632
+     "end": 24.712
     },
     {
-     "text": "los *estratos",
-     "start": 24.632,
-     "end": 25.192
-    },
-    {
-     "text": "1 y",
-     "start": 25.192,
+     "text": "estratos 1 y",
+     "start": 24.712,
      "end": 25.592
     },
     {
@@ -977,62 +918,42 @@
      "end": 25.912
     },
     {
-     "text": "pero con",
+     "text": "pero con unas",
      "start": 25.912,
-     "end": 26.232
-    },
-    {
-     "text": "unas",
-     "start": 26.232,
      "end": 26.472
     },
     {
-     "text": "condiciones",
+     "text": "condiciones que",
      "start": 26.472,
-     "end": 27.032
+     "end": 27.272
     },
     {
-     "text": "que ninguna",
-     "start": 27.032,
-     "end": 27.832
-    },
-    {
-     "text": "de estas",
-     "start": 27.832,
+     "text": "ninguna de estas",
+     "start": 27.272,
      "end": 28.312
     },
     {
-     "text": "personas va",
+     "text": "personas va a",
      "start": 28.312,
-     "end": 28.952
+     "end": 29.032
     },
     {
-     "text": "a poder",
-     "start": 28.952,
-     "end": 29.272
-    },
-    {
-     "text": "cumplir,",
-     "start": 29.272,
+     "text": "poder cumplir,",
+     "start": 29.032,
      "end": 29.672
     },
     {
-     "text": "que es",
+     "text": "que es presentar",
      "start": 29.672,
-     "end": 30.072
+     "end": 30.392
     },
     {
-     "text": "presentar una",
-     "start": 30.072,
-     "end": 30.552
-    },
-    {
-     "text": "*factura",
-     "start": 30.552,
+     "text": "una factura",
+     "start": 30.392,
      "end": 30.792
     },
     {
-     "text": "*electrónica.",
+     "text": "electrónica.",
      "start": 30.792,
      "end": 31.349
     }
@@ -1220,67 +1141,47 @@
      "end": 32.629
     },
     {
-     "text": "la *sal,",
+     "text": "la sal,",
      "start": 32.629,
      "end": 33.189
     },
     {
-     "text": "son productos",
+     "text": "son productos que",
      "start": 33.189,
-     "end": 33.749
+     "end": 33.829
     },
     {
-     "text": "que se",
-     "start": 33.749,
-     "end": 33.989
-    },
-    {
-     "text": "compran en",
-     "start": 33.989,
+     "text": "se compran en",
+     "start": 33.829,
      "end": 34.469
     },
     {
-     "text": "las *plazas",
+     "text": "las plazas o",
      "start": 34.469,
-     "end": 34.949
+     "end": 35.109
     },
     {
-     "text": "o en",
-     "start": 34.949,
-     "end": 35.189
-    },
-    {
-     "text": "las *tiendas",
-     "start": 35.189,
+     "text": "en las tiendas",
+     "start": 35.109,
      "end": 35.669
     },
     {
-     "text": "de las",
+     "text": "de las esquinas,",
      "start": 35.669,
-     "end": 35.909
-    },
-    {
-     "text": "esquinas,",
-     "start": 35.909,
      "end": 36.389
     },
     {
-     "text": "donde",
+     "text": "donde usualmente",
      "start": 36.389,
-     "end": 36.629
+     "end": 37.109
     },
     {
-     "text": "usualmente no",
-     "start": 36.629,
-     "end": 37.189
-    },
-    {
-     "text": "se dan",
-     "start": 37.189,
+     "text": "no se dan",
+     "start": 37.109,
      "end": 37.589
     },
     {
-     "text": "*facturas",
+     "text": "facturas",
      "start": 37.589,
      "end": 38.069
     },
@@ -1290,7 +1191,7 @@
      "end": 38.789
     },
     {
-     "text": "*facturas.",
+     "text": "facturas.",
      "start": 38.789,
      "end": 39.204
     }
@@ -1508,103 +1409,73 @@
    ],
    "captions": [
     {
-     "text": "Este proyecto",
+     "text": "Este proyecto de",
      "start": 39.204,
-     "end": 39.844
+     "end": 39.924
     },
     {
-     "text": "de ley",
-     "start": 39.844,
-     "end": 40.324
-    },
-    {
-     "text": "se encuentra",
-     "start": 40.324,
+     "text": "ley se encuentra",
+     "start": 39.924,
      "end": 40.804
     },
     {
-     "text": "en el",
+     "text": "en el Congreso,",
      "start": 40.804,
-     "end": 41.044
-    },
-    {
-     "text": "*Congreso,",
-     "start": 41.044,
      "end": 41.524
     },
     {
-     "text": "así que",
+     "text": "así que escríbele",
      "start": 41.524,
-     "end": 41.844
+     "end": 42.324
     },
     {
-     "text": "*escríbele a",
-     "start": 41.844,
-     "end": 42.404
-    },
-    {
-     "text": "tu *congresista",
-     "start": 42.404,
+     "text": "a tu congresista",
+     "start": 42.324,
      "end": 43.204
     },
     {
-     "text": "y pregúntale",
+     "text": "y pregúntale qué",
      "start": 43.204,
-     "end": 44.004
+     "end": 44.164
     },
     {
-     "text": "qué opinas",
-     "start": 44.004,
-     "end": 44.564
-    },
-    {
-     "text": "sobre el",
-     "start": 44.564,
+     "text": "opinas sobre el",
+     "start": 44.164,
      "end": 44.804
     },
     {
-     "text": "*incremento del",
+     "text": "incremento del",
      "start": 44.804,
      "end": 45.364
     },
     {
-     "text": "*IVA en",
+     "text": "IVA en la",
      "start": 45.364,
-     "end": 45.844
+     "end": 46.004
     },
     {
-     "text": "la *sal.",
-     "start": 45.844,
+     "text": "sal.",
+     "start": 46.004,
      "end": 46.324
     },
     {
-     "text": "*Mándale este",
+     "text": "Mándale este",
      "start": 46.324,
      "end": 46.964
     },
     {
-     "text": "*video a",
+     "text": "video a quien",
      "start": 46.964,
-     "end": 47.284
+     "end": 47.524
     },
     {
-     "text": "quien hace",
-     "start": 47.284,
-     "end": 47.684
-    },
-    {
-     "text": "el *mercado",
-     "start": 47.684,
+     "text": "hace el mercado",
+     "start": 47.524,
      "end": 48.164
     },
     {
-     "text": "en tu",
+     "text": "en tu casa.",
      "start": 48.164,
-     "end": 48.324
-    },
-    {
-     "text": "casa.",
-     "start": 48.324,
      "end": 48.492
     }
    ],
@@ -1622,23 +1493,19 @@
  },
  "zooms": [
   [
-   1.5333333333333334,
+   1.6666666666666667,
    true
   ],
   [
-   2.8666666666666667,
+   3.2,
    false
   ],
   [
-   4.333333333333333,
+   8.5,
    true
   ],
   [
-   8.033333333333333,
-   true
-  ],
-  [
-   10.6,
+   11.0,
    false
   ],
   [
@@ -1646,7 +1513,7 @@
    true
   ],
   [
-   18.366666666666667,
+   18.6,
    false
   ],
   [
@@ -1654,19 +1521,19 @@
    true
   ],
   [
-   24.633333333333333,
+   24.7,
    false
   ],
   [
-   27.033333333333335,
+   27.266666666666666,
    true
   ],
   [
-   29.266666666666666,
+   29.666666666666668,
    false
   ],
   [
-   33.733333333333334,
+   33.833333333333336,
    true
   ],
   [
@@ -1678,94 +1545,51 @@
    true
   ],
   [
-   44.0,
+   44.166666666666664,
    false
   ],
   [
-   46.333333333333336,
+   46.96666666666667,
    true
   ]
  ],
- "big": [
+ "big": [],
+ "stickers": [
   {
    "scene": "gancho",
-   "text": "IMPUESTOS",
-   "layer": "behind",
-   "start": 2.24,
-   "end": 2.72,
-   "shotStart": 0.0,
-   "src": "gancho",
-   "headTop": 228,
-   "baseline": 288
-  },
-  {
-   "scene": "gancho",
-   "text": "hasta la sal",
-   "layer": "front",
-   "start": 4.96,
-   "end": 5.631,
-   "shotStart": 0.0,
-   "src": "gancho"
+   "emoji": "🧂",
+   "label": "IVA a la sal",
+   "start": 4.32,
+   "end": 5.631
   },
   {
    "scene": "igual",
-   "text": "IGUAL",
-   "layer": "behind",
-   "start": 6.911,
-   "end": 7.311,
-   "shotStart": 5.631,
-   "src": "igual",
-   "headTop": 349,
-   "baseline": 409
-  },
-  {
-   "scene": "igual",
-   "text": "un salario mínimo",
-   "layer": "front",
-   "start": 12.511,
-   "end": 13.255,
-   "shotStart": 5.631,
-   "src": "igual"
+   "emoji": "⚖️",
+   "label": "el mismo IVA",
+   "start": 10.191,
+   "end": 13.255
   },
   {
    "scene": "devolucion",
-   "text": "DEVOLUCIÓN",
-   "layer": "behind",
-   "start": 23.272,
-   "end": 24.472,
-   "shotStart": 19.672,
-   "src": "devolucion",
-   "headTop": 381,
-   "baseline": 441
-  },
-  {
-   "scene": "devolucion",
-   "text": "factura electrónica",
-   "layer": "front",
-   "start": 30.552,
-   "end": 31.349,
-   "shotStart": 19.672,
-   "src": "devolucion"
+   "emoji": "🧾",
+   "label": "factura electrónica",
+   "start": 30.072,
+   "end": 31.349
   },
   {
    "scene": "tiendas",
-   "text": "TIENDAS",
-   "layer": "behind",
-   "start": 35.269,
-   "end": 35.669,
-   "shotStart": 31.349,
-   "src": "tiendas",
-   "headTop": 342,
-   "baseline": 402
+   "emoji": "🏪",
+   "label": "sin factura",
+   "start": 34.549,
+   "end": 36.389
   },
   {
    "scene": "cta",
-   "text": "escríbele a tu congresista",
-   "layer": "front",
+   "emoji": "✉️",
+   "label": "escríbele",
    "start": 41.844,
-   "end": 43.204,
-   "shotStart": 39.204,
-   "src": "cta"
+   "end": 43.284
   }
- ]
+ ],
+ "abelardo": []
 }

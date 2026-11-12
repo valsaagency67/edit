@@ -256,13 +256,37 @@ export const CaptionView: React.FC<{
   pop?: boolean;
   impact?: boolean;
   cine?: boolean;
-}> = ({ pieces, dur, top = 1160, boxed = false, pop = false, impact = false, cine = false }) => {
+  bena?: boolean;
+}> = ({ pieces, dur, top = 1160, boxed = false, pop = false, impact = false, cine = false, bena = false }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const total = pieces.reduce((n, p) => n + p.t.length, 0);
   // Con subtítulos de menos de 7 cuadros el rango no sería creciente: se usa al menos 7.
   const d = Math.max(dur, 7);
   const o = interpolate(frame, [0, 3, d - 3, d], [0, 1, 1, 0], clamp);
+  if (bena) {
+    // Como los videos de Óscar Benavides (Pepo 2): dos o tres palabras blancas en Montserrat 800, sin resaltar,
+    // con sombra fuerte; aparecen de golpe (un fundido de 2 cuadros).
+    return (
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top }}>
+        <div
+          style={{
+            opacity: interpolate(frame, [0, 2, Math.max(3, dur - 1), Math.max(4, dur)], [0, 1, 1, 0], clamp),
+            maxWidth: 980,
+            fontFamily: Montserrat,
+            fontWeight: 800,
+            fontSize: 72,
+            lineHeight: 1.1,
+            color: "white",
+            textAlign: "center",
+            textShadow: "0 4px 14px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.9)",
+          }}
+        >
+          {pieces.map((p) => p.t).join("")}
+        </div>
+      </AbsoluteFill>
+    );
+  }
   if (cine) {
     // Subtítulo «de cine» (Pepo 3, como el video de referencia de CapCut): una o dos palabras en Playfair
     // Display 800, blancas, con las clave en itálica dorada; entran con un desenfoque corto.
