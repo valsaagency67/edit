@@ -4,7 +4,8 @@
 claro y vivo, subtítulos blancos sin resaltar, cara de Abelardo recortada y animaciones sencillas (`stickers`),
 con muy pocos efectos. Reusa las funciones de scripts/build_pepo3.py cambiando su configuración y carpetas.
 
-- Voz: DPDFNet + cadena de Pepo1, a 1.07x y sin pausas (monólogo, regla «que hable de seguido»).
+- Voz: DPDFNet + cadena de Pepo1, a 1.07x y sin pausas (monólogo, regla «que hable de seguido»); saturada
+  mientras la imagen está en blanco y negro (saturar()).
 - Música propia (media/pepo2/musica.wav, se arma aquí): tensa y moderna, Re menor a 92 bpm. Contrabajo en
   corcheas, chelo largo y una nota aguda de piano cada dos compases; muestras reales tonejs-instruments
   (CC-BY 3.0, media/samples/, `npm pack tonejs-instrument-<inst>-mp3`). Va continua, ~11 dB bajo la voz.
@@ -62,6 +63,34 @@ def recorte_abelardo():
     return True
 
 
+def saturar(data):
+    """Voz saturada mientras la imagen está en blanco y negro (el gancho; lo pidió el cliente), como el «distort»
+    del Fondo Milagro pero más de saturación que de radio: se empuja la voz contra un recorte suave, con una
+    banda de 200–5000 Hz. Mismo nivel RMS y fundidos de 30 ms para que el cambio no truene."""
+    import subprocess
+    from tomas import read_wav
+    voz = read_wav(f"{b3.OUT}/voz.wav")
+    for sc in data["scenes"]:
+        for fx in sc.get("effects", []):
+            if not fx.get("gray"):
+                continue
+            a, b = int(fx["start"] * SR), int(fx["end"] * SR)
+            seg = voz[a:b]
+            src, dst = f"{b3.TMP}/saturar-in.wav", f"{b3.TMP}/saturar-out.wav"
+            write_wav(src, seg)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-af",
+                            "highpass=f=200,lowpass=f=5000,volume=14dB,asoftclip=type=tanh:param=1,"
+                            "acrusher=bits=10:mix=0.25:mode=log:aa=1,highpass=f=180,lowpass=f=5500",
+                            "-ar", str(SR), "-ac", "1", dst], check=True)
+            out = read_wav(dst)[:len(seg)]
+            out = out * np.sqrt(np.mean(seg ** 2)) / max(1e-9, np.sqrt(np.mean(out ** 2)))
+            f = int(0.03 * SR)
+            mix = np.ones(len(seg))
+            mix[:f], mix[-f:] = np.linspace(0, 1, f), np.linspace(1, 0, f)
+            voz[a:b] = seg * (1 - mix) + out * mix
+    write_wav(f"{b3.OUT}/voz.wav", voz)
+
+
 def componer(total):
     """Re menor a 92 bpm (i - VI - III - VII: Rem - Sib - Fa - Do), compases de 4 tiempos."""
     beat = 60 / 92
@@ -106,6 +135,7 @@ if __name__ == "__main__":
     d["stickers"] = ventanas(d, "stickers")
     d["abelardo"] = ventanas(d, "abelardo") if recorte_abelardo() else []
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
+    saturar(d)
     componer(d["duration"])
     b3.musica(d)
     b3.foley(d)
