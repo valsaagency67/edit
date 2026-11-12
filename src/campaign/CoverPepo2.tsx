@@ -5,7 +5,7 @@ import { Bandera } from "./Peticion";
 
 // Portada del video del IVA en la «ley de rescate» (Pepo 2, 1080x1920): fondo azul noche con la bandera, Abelardo
 // recortado con el puño en alto (foto del cliente, public/pepo2/fotos/abelardo.png, no versionada) y el titular de
-// la promesa: «prometió no subir impuestos» / «y le pone IVA a la sal». Todo dentro del recorte 4:5 (285–1635).
+// la promesa: «prometió no subir impuestos» / «y le pone IVA a la canasta familiar» (el cliente cambió «la sal»). Todo dentro del recorte 4:5 (285–1635).
 const RED = "#E30613";
 const YELLOW = "#FCD116";
 const NAVY = "#0B1736";
@@ -63,11 +63,11 @@ export const CoverPepo2: React.FC = () => (
       }}
     />
 
-    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1330, textAlign: "center" }}>
+    <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1290, textAlign: "center" }}>
       <div
         style={{
           fontFamily: Bebas,
-          fontSize: 124,
+          fontSize: 112,
           lineHeight: 0.95,
           color: "white",
           background: RED,
@@ -76,9 +76,11 @@ export const CoverPepo2: React.FC = () => (
           boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
         }}
       >
-        Y LE PONE IVA A LA SAL
+        Y LE PONE IVA A LA
+        <br />
+        CANASTA FAMILIAR
       </div>
-      <div style={{ fontFamily: "'Noto Color Emoji'", fontSize: 120, marginTop: 10 }}>🧂</div>
+      <div style={{ fontFamily: "'Noto Color Emoji'", fontSize: 120, marginTop: 10 }}>🛒</div>
     </AbsoluteFill>
   </AbsoluteFill>
 );

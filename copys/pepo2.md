@@ -1,4 +1,4 @@
-# «Prometió no subir impuestos y le pone IVA a la sal» — texto para redes (Pepo 2)
+# «Prometió no subir impuestos y le pone IVA a la canasta familiar» — texto para redes (Pepo 2)
 
 Video: `out/pepo2.mp4` (máxima calidad) y `out/pepo2-redes.mp4`. Portada: `out/portada-pepo2.jpg`.
 Estilo de los videos de Óscar Benavides (gancho en blanco y negro con la voz saturada).
@@ -19,7 +19,7 @@ Mándale este video a quien hace el mercado en tu casa. 👇
 
 ## Descripción corta para TikTok / Reels
 
-Prometió no subir impuestos y le pone IVA a la sal 🧂 ¿Y la devolución? Solo con factura electrónica… en la plaza nadie la da. Escríbele a tu congresista 📩 #IVA #LeyDeRescate #Colombia
+Prometió no subir impuestos y le pone IVA a la canasta familiar 🧂 ¿Y la devolución? Solo con factura electrónica… en la plaza nadie la da. Escríbele a tu congresista 📩 #IVA #LeyDeRescate #Colombia
 
 ## Guion del video (lo que dice, en orden; 51 s)
 1. **Gancho (0–6 s, blanco y negro y voz saturada):** «Abelardo de la Espriella prometió que no iba a subir impuestos y hoy su ley de rescate le pone IVA hasta la sal.» (Abelardo recortado; salero)
