@@ -52,13 +52,46 @@ export const CoverPepo2: React.FC = () => (
     </AbsoluteFill>
 
     {/* Abelardo recortado, con el puño en alto */}
+    {/* Nómina del fondo (captura que mandó el cliente, public/pepo2/fotos/nomina.jpg): a la derecha, inclinada como
+        un documento, detrás de Abelardo pero sin taparle la cara. */}
+    <div
+      style={{
+        position: "absolute",
+        right: 24,
+        top: 720,
+        width: 500,
+        transform: "rotate(4deg)",
+        background: "white",
+        padding: 10,
+        boxShadow: "0 18px 44px rgba(0,0,0,0.6)",
+      }}
+    >
+      <Img src={staticFile("pepo2/fotos/nomina.jpg")} style={{ width: "100%", display: "block" }} />
+      <div
+        style={{
+          position: "absolute",
+          left: -20,
+          bottom: -34,
+          background: YELLOW,
+          color: NAVY,
+          fontFamily: Montserrat,
+          fontWeight: 800,
+          fontSize: 30,
+          padding: "6px 16px",
+          transform: "rotate(-4deg)",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Salarios de hasta $39 millones
+      </div>
+    </div>
     <Img
       src={staticFile("pepo2/fotos/abelardo.png")}
       style={{
         position: "absolute",
-        left: 90,
-        top: 640,
-        width: 900,
+        left: 0,
+        top: 690,
+        width: 600,
         filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.6))",
       }}
     />
