@@ -1551,5 +1551,90 @@
   "text": "Escríbeme",
   "start": 48.821,
   "end": 51.421
- }
+ },
+ "big": [
+  {
+   "scene": "paso1",
+   "text": "PASO 1",
+   "layer": "front",
+   "style": "tag",
+   "start": 16.493,
+   "end": 17.933,
+   "shotStart": 16.413,
+   "src": "paso1"
+  },
+  {
+   "scene": "paso1",
+   "text": "RECLAMA",
+   "layer": "behind",
+   "start": 16.493,
+   "end": 17.933,
+   "shotStart": 16.413,
+   "src": "paso1"
+  },
+  {
+   "scene": "paso1",
+   "text": "por escrito",
+   "layer": "front",
+   "start": 16.893,
+   "end": 17.933,
+   "shotStart": 16.413,
+   "src": "paso1"
+  },
+  {
+   "scene": "paso1",
+   "text": "OBLIGATORIO",
+   "layer": "behind",
+   "start": 18.093,
+   "end": 19.933,
+   "shotStart": 16.413,
+   "src": "paso1"
+  },
+  {
+   "scene": "paso1",
+   "text": "BANCARIAS",
+   "layer": "behind",
+   "start": 22.333,
+   "end": 23.007,
+   "shotStart": 16.413,
+   "src": "paso1"
+  },
+  {
+   "scene": "paso2",
+   "text": "PASO 2",
+   "layer": "front",
+   "style": "tag",
+   "start": 27.887,
+   "end": 30.045,
+   "shotStart": 23.007,
+   "src": "paso2"
+  },
+  {
+   "scene": "paso2",
+   "text": "protección al consumidor",
+   "layer": "front",
+   "start": 27.887,
+   "end": 29.487,
+   "shotStart": 23.007,
+   "src": "paso2"
+  },
+  {
+   "scene": "reintegro",
+   "text": "REINTEGRAR",
+   "layer": "behind",
+   "start": 33.485,
+   "end": 34.765,
+   "shotStart": 30.045,
+   "src": "reintegro"
+  },
+  {
+   "scene": "consejo",
+   "text": "esto te recomiendo",
+   "layer": "front",
+   "start": 15.106,
+   "end": 16.413,
+   "shotStart": 11.266,
+   "src": "consejo"
+  }
+ ]
 }
