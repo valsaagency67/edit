@@ -260,6 +260,17 @@ class Proyecto:
                     raw = raw[:int((aligned[-1]["e"] + 0.3) * SR)]
                 # `pause` por escena: si un corte se come una sílaba (oclusivas de «disputa»), se sube minSilence.
                 cut, ranges = cut_pauses(raw[int(off * SR):], {**cfg["pause"], **sc.get("pause", {})})
+                if "trimTo" in sc:
+                    # La escena termina a los `trimTo` s del audio ya sin pausas (p. ej. antes de que se ría):
+                    # se recorta el audio y los tramos de video que le corresponden.
+                    cut, kept, acc = cut[:int(sc["trimTo"] * SR)], [], 0.0
+                    for a, b in ranges:
+                        if acc >= sc["trimTo"]:
+                            break
+                        take = min(b - a, sc["trimTo"] - acc)
+                        kept.append((a, a + take))
+                        acc += take
+                    ranges = kept
                 speed = sc.get("speed", cfg["speed"])
                 x = self.tempo(cut, speed, sc["key"])
                 if "camera" in sc:

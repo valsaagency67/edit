@@ -7,8 +7,9 @@ vaciaron la tarjeta de crédito y cómo reclamarle al banco. Estilo del video de
   De cada toma se quita el «ya / listo / ¿ya? sí» del inicio (`from` en la config).
 - Color: SIN cambios (lo pidió el cliente). De corrido, como entrevista real: voz a velocidad normal y solo se
   quitan las pausas largas.
-- Cuando habla ella (`woman`): el riser de la referencia como suspenso y la música baja 14 dB; cuando habla él,
-  la música vuelve.
+- Cuando habla ella (`woman`): el riser de la referencia como suspenso, solo la primera y la última vez
+  (`which`). La música va continua y más fuerte (`musicLUFS`, -25); `duckWoman` la bajaría mientras habla ella
+  (el cliente lo pidió al principio y después la quiso continua).
 - Palabras grandes (`big`): delante de Juan Felipe, o detrás (layer behind). Para las de detrás se recorta a la
   persona cuadro a cuadro con rembg (u2net_human_seg) y se guarda en public/pepo3/matte/<escena>/<n>.png, donde
   n es el cuadro de public/pepo3/<escena>.mp4; Pepo3.tsx pone la palabra y encima el recorte.
@@ -147,14 +148,14 @@ def musica(data):
     fade = max(0.0, total - 2.0)
     tmp = f"{TMP}/musica-norm.wav"
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src[0], "-t", f"{total + 0.5:.2f}", "-af",
-                    f"loudnorm=I=-33:TP=-9:LRA=11,afade=t=out:st={fade:.2f}:d=2", "-ar", str(SR), "-ac", "2",
-                    tmp], check=True)
+                    f"loudnorm=I={CFG.get('musicLUFS', -33)}:TP=-6:LRA=11,afade=t=out:st={fade:.2f}:d=2", "-ar",
+                    str(SR), "-ac", "2", tmp], check=True)
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", tmp, "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"],
                          capture_output=True, check=True).stdout
     m = np.frombuffer(raw, np.float32).astype(np.float64).reshape(-1, 2)
     t = np.arange(len(m)) / SR
     db = np.zeros(len(m))
-    for a, b in woman(data):
+    for a, b in (woman(data) if CFG.get("duckWoman", True) else []):
         db = np.minimum(db, np.interp(t, [a - 0.35, a, b, b + 0.35], [0, -14, -14, 0], left=0, right=0))
     write_wav(f"{OUT}/musica.wav", m * (10 ** (db / 20))[:, None], 2)
 
@@ -170,8 +171,9 @@ def foley(data):
 
     for e in CFG["sfx"]:
         if e.get("womanStart"):  # suspenso cada vez que empieza a hablar ella
-            for a, _ in woman(data):
-                put(e["name"], max(0.0, a - 0.2), e["gain"])
+            ws = woman(data)
+            for k in e.get("which", range(len(ws))):  # p. ej. [0, -1]: solo la primera y la última vez
+                put(e["name"], max(0.0, ws[k][0] - 0.2), e["gain"])
             continue
         if "sceneStart" in e:
             t = by[e["sceneStart"]]["start"] - 0.05

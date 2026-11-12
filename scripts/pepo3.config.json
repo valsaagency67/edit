@@ -48,9 +48,9 @@
     {
       "scene": "paso1",
       "at": "bancarias",
-      "until": "registros",
       "text": "BANCARIAS",
-      "layer": "behind"
+      "layer": "behind",
+      "untilEnd": true
     },
     {
       "scene": "paso2",
@@ -87,7 +87,11 @@
     {
       "name": "riser",
       "womanStart": true,
-      "gain": 0.6
+      "gain": 0.6,
+      "which": [
+        0,
+        -1
+      ]
     },
     {
       "name": "impact",
@@ -237,7 +241,7 @@
     {
       "key": "paso1",
       "camera": "C028",
-      "text": "Reclama por escrito al banco, es obligatorio antes de cualquier demanda, así que aprovecha y pide las operaciones bancarias y los registros de llamadas.",
+      "text": "Reclama por escrito al banco, es obligatorio antes de cualquier demanda, así que aprovecha y pide las operaciones bancarias.",
       "phrases": [
         "Reclama por",
         "*escrito al",
@@ -250,9 +254,7 @@
         "aprovecha y",
         "pide las",
         "*operaciones",
-        "*bancarias y",
-        "los registros",
-        "de *llamadas."
+        "*bancarias."
       ],
       "shots": [
         {
@@ -260,7 +262,8 @@
         }
       ],
       "cards": [],
-      "from": 1.0
+      "from": 1.0,
+      "trimTo": 6.6
     },
     {
       "key": "paso2",
@@ -362,5 +365,7 @@
       "scene": "cierre",
       "until": "Si"
     }
-  ]
+  ],
+  "musicLUFS": -25,
+  "duckWoman": false
 }
