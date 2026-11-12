@@ -46,6 +46,13 @@
       "layer": "behind"
     },
     {
+      "scene": "paso1",
+      "at": "bancarias",
+      "until": "registros",
+      "text": "BANCARIAS",
+      "layer": "behind"
+    },
+    {
       "scene": "paso2",
       "at": "Y",
       "until": "rechazan",

@@ -1667,7 +1667,8 @@
    "start": 16.493,
    "end": 17.933,
    "shotStart": 16.413,
-   "src": "paso1"
+   "src": "paso1",
+   "headTop": 588
   },
   {
    "scene": "paso1",
@@ -1685,7 +1686,18 @@
    "start": 18.093,
    "end": 19.933,
    "shotStart": 16.413,
-   "src": "paso1"
+   "src": "paso1",
+   "headTop": 561
+  },
+  {
+   "scene": "paso1",
+   "text": "BANCARIAS",
+   "layer": "behind",
+   "start": 22.413,
+   "end": 24.013,
+   "shotStart": 16.413,
+   "src": "paso1",
+   "headTop": 546
   },
   {
    "scene": "paso2",
@@ -1713,7 +1725,8 @@
    "start": 36.11,
    "end": 37.39,
    "shotStart": 32.67,
-   "src": "reintegro"
+   "src": "reintegro",
+   "headTop": 553
   },
   {
    "scene": "consejo",

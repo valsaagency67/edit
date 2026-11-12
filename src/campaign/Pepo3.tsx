@@ -26,6 +26,7 @@ type Big = {
   end: number;
   shotStart: number;
   src: string;
+  headTop?: number;
 };
 
 const data = raw as unknown as TomasData & { big: Big[] };
@@ -45,7 +46,8 @@ const useIn = (dur: number) => {
   return { k, o: Math.min(k, out) };
 };
 
-// Palabra gigante detrás de la persona: la palabra y, encima, el recorte de la persona del mismo cuadro.
+// Palabra gigante detrás de la persona: la palabra y, encima, el recorte de la persona del mismo cuadro. Va
+// centrada un poco debajo de donde empieza la cabeza (headTop, medido en el armado), así la cabeza tapa el centro.
 const Behind: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
   const frame = useCurrentFrame();
   const { k, o } = useIn(dur);
@@ -54,7 +56,7 @@ const Behind: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
   const size = Math.min(210, Math.round(1000 / (b.text.length * 0.72)));
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 660 - size * 0.55 }}>
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: (b.headTop ?? 620) + 110 - size * 0.55 }}>
         <div
           style={{
             opacity: o,
@@ -73,7 +75,10 @@ const Behind: React.FC<{ b: Big; dur: number }> = ({ b, dur }) => {
           {b.text}
         </div>
       </AbsoluteFill>
-      <Img src={staticFile(`pepo3/matte/${b.src}/${n}.png`)} style={{ width: "100%", height: "100%" }} />
+      {/* En su propia capa absoluta: un <Img> suelto (sin posición) se pinta DEBAJO de la palabra, que sí la tiene. */}
+      <AbsoluteFill>
+        <Img src={staticFile(`pepo3/matte/${b.src}/${n}.png`)} style={{ width: "100%", height: "100%" }} />
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };

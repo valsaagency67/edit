@@ -119,6 +119,21 @@ def woman(data):
     return out
 
 
+def heads(data):
+    """Altura de la cabeza para cada palabra de detrás: la primera fila (bajo la firma, y > 320) del recorte del
+    cuadro del medio con al menos 25 píxeles de persona. Pepo3.tsx centra la palabra un poco más abajo, para que la
+    cabeza tape el centro de las letras (con una altura fija la palabra quedaba encima de la cabeza)."""
+    from PIL import Image
+    fps = data["fps"]
+    for b in data["big"]:
+        if b["layer"] != "behind":
+            continue
+        n = round(((b["start"] + b["end"]) / 2 - b["shotStart"]) * fps)
+        a = np.asarray(Image.open(f"{OUT}/matte/{b['src']}/{n}.png").getchannel("A")) > 128
+        rows = np.nonzero(a[320:].sum(1) >= 25)[0]
+        b["headTop"] = int(rows[0] + 320) if len(rows) else 620
+
+
 def musica(data):
     """La música la manda el cliente: el primer archivo de audio en media/pepo3/musica.* va ~17 dB bajo la voz
     (-33 LUFS), con fundido al final; mientras habla ella baja 14 dB más (rampas de 0.35 s) y vuelve con él.
@@ -178,8 +193,9 @@ if __name__ == "__main__":
     d = Proyecto(CFG, f"{ROOT}/media/pepo3", ".MOV", OUT, TMP, GRADE, voice=VOZ, denoise=DENOISE).build(path)
     d["zooms"] = zooms(d)
     d["big"] = bigs(d)
-    json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     mattes(d)
+    heads(d)
+    json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     musica(d)
     foley(d)
     print("listo:", d["duration"], "s")
