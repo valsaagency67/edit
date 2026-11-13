@@ -1,0 +1,177 @@
+[
+ {
+  "text": " Sin",
+  "startMs": 320,
+  "endMs": 800,
+  "timestampMs": 320,
+  "confidence": null
+ },
+ {
+  "text": " esos",
+  "startMs": 800,
+  "endMs": 1120,
+  "timestampMs": 800,
+  "confidence": null
+ },
+ {
+  "text": " números",
+  "startMs": 1120,
+  "endMs": 1600,
+  "timestampMs": 1120,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 1600,
+  "endMs": 1760,
+  "timestampMs": 1600,
+  "confidence": null
+ },
+ {
+  "text": " sabemos",
+  "startMs": 1760,
+  "endMs": 2240,
+  "timestampMs": 1760,
+  "confidence": null
+ },
+ {
+  "text": " dónde",
+  "startMs": 2240,
+  "endMs": 2640,
+  "timestampMs": 2240,
+  "confidence": null
+ },
+ {
+  "text": " están",
+  "startMs": 2640,
+  "endMs": 2800,
+  "timestampMs": 2640,
+  "confidence": null
+ },
+ {
+  "text": " los",
+  "startMs": 2800,
+  "endMs": 2960,
+  "timestampMs": 2800,
+  "confidence": null
+ },
+ {
+  "text": " homicidios,",
+  "startMs": 2960,
+  "endMs": 3760,
+  "timestampMs": 2960,
+  "confidence": null
+ },
+ {
+  "text": " quiénes",
+  "startMs": 3840,
+  "endMs": 4320,
+  "timestampMs": 3840,
+  "confidence": null
+ },
+ {
+  "text": " son",
+  "startMs": 4320,
+  "endMs": 4480,
+  "timestampMs": 4320,
+  "confidence": null
+ },
+ {
+  "text": " las",
+  "startMs": 4480,
+  "endMs": 4640,
+  "timestampMs": 4480,
+  "confidence": null
+ },
+ {
+  "text": " víctimas,",
+  "startMs": 4640,
+  "endMs": 5200,
+  "timestampMs": 4640,
+  "confidence": null
+ },
+ {
+  "text": " ni",
+  "startMs": 5200,
+  "endMs": 5440,
+  "timestampMs": 5200,
+  "confidence": null
+ },
+ {
+  "text": " cuáles",
+  "startMs": 5440,
+  "endMs": 5840,
+  "timestampMs": 5440,
+  "confidence": null
+ },
+ {
+  "text": " son",
+  "startMs": 5840,
+  "endMs": 6000,
+  "timestampMs": 5840,
+  "confidence": null
+ },
+ {
+  "text": " las",
+  "startMs": 6000,
+  "endMs": 6160,
+  "timestampMs": 6000,
+  "confidence": null
+ },
+ {
+  "text": " dinámicas",
+  "startMs": 6160,
+  "endMs": 6720,
+  "timestampMs": 6160,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 6720,
+  "endMs": 6880,
+  "timestampMs": 6720,
+  "confidence": null
+ },
+ {
+  "text": " pueden",
+  "startMs": 6880,
+  "endMs": 7200,
+  "timestampMs": 6880,
+  "confidence": null
+ },
+ {
+  "text": " haber",
+  "startMs": 7200,
+  "endMs": 7520,
+  "timestampMs": 7200,
+  "confidence": null
+ },
+ {
+  "text": " detrás",
+  "startMs": 7520,
+  "endMs": 7920,
+  "timestampMs": 7520,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 7920,
+  "endMs": 8000,
+  "timestampMs": 7920,
+  "confidence": null
+ },
+ {
+  "text": " cada",
+  "startMs": 8000,
+  "endMs": 8320,
+  "timestampMs": 8000,
+  "confidence": null
+ },
+ {
+  "text": " uno.",
+  "startMs": 8320,
+  "endMs": 8820,
+  "timestampMs": 8320,
+  "confidence": null
+ }
+]

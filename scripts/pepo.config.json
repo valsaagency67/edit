@@ -1,0 +1,300 @@
+{
+  "_doc": "Video de Juan Felipe al estilo del video argentino «Recuperar la cultura política no es nostalgia» (media/ref/referencia-3.mp4): cultura política y desinformación por saturación, con el Palacio de Justicia como ejemplo. Siete tomas de la carpeta de Drive «Pepo1» (4K vertical), cada una empieza con «Ya,», que se descarta (cleanStart: la toma arranca justo después del silencio que sigue al «Ya»). Lo arma scripts/build_pepo.py -> src/campaign/pepo.json. Las imágenes y videos de apoyo los manda el cliente después.",
+  "fps": 30,
+  "speed": 1.07,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.1,
+    "keep": 0.07
+  },
+  "gap": 0.0,
+  "tail": 2.8,
+  "videos": {},
+  "shutters": [
+    "palacio",
+    "cta"
+  ],
+  "outro": {
+    "kicker": "Ser críticos",
+    "text": "es recuperar la política"
+  },
+  "scenes": [
+    {
+      "key": "gancho",
+      "camera": "IMG_0030",
+      "text": "Hoy hablamos más de política que nunca y aún así entendemos menos.",
+      "phrases": [
+        "Hoy hablamos más",
+        "de *política",
+        "que nunca",
+        "y aún así",
+        "entendemos *menos."
+      ],
+      "shots": [
+        {
+          "src": "gancho"
+        }
+      ],
+      "cards": [],
+      "speed": 1.12
+    },
+    {
+      "key": "antes",
+      "camera": "IMG_0032",
+      "text": "Antes en Colombia, liberales y conservadores se peleaban por ideas. Si abríamos el mercado o protegíamos la industria nacional. Había violencia, sí, pero la disputa era por ideas.",
+      "phrases": [
+        "Antes en Colombia,",
+        "liberales y conservadores",
+        "se peleaban por *ideas.",
+        "Si abríamos el mercado",
+        "o protegíamos",
+        "la industria nacional.",
+        "Había violencia, sí,",
+        "pero la disputa",
+        "era por *ideas."
+      ],
+      "shots": [
+        {
+          "src": "antes"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "Antes",
+          "until": "se",
+          "img": "marcha-viani"
+        },
+        {
+          "at": "se",
+          "until": "abríamos",
+          "img": "gaitan"
+        },
+        {
+          "at": "Había",
+          "img": "liberalismo-paz"
+        }
+      ],
+      "pause": {
+        "keep": 0.14
+      }
+    },
+    {
+      "key": "hoy",
+      "camera": "IMG_0033",
+      "text": "Hoy el debate se va a la vida privada de los presidentes, a los memes y a los reels en Instagram.",
+      "phrases": [
+        "Hoy el debate",
+        "se va",
+        "a la *vida *privada",
+        "de los presidentes,",
+        "a los *memes",
+        "y a los *reels",
+        "en Instagram."
+      ],
+      "shots": [
+        {
+          "src": "hoy"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "a",
+          "until": "a",
+          "untilNth": 2,
+          "img": "petro-videollamada"
+        },
+        {
+          "at": "a",
+          "nth": 2,
+          "until": "a",
+          "untilNth": 3,
+          "img": "meme-huevo"
+        },
+        {
+          "at": "a",
+          "nth": 3,
+          "video": "abelardo-reels"
+        }
+      ]
+    },
+    {
+      "key": "saturacion",
+      "camera": "IMG_0034",
+      "text": "Y eso nos expone a algo peligroso, a la desinformación por saturación, y es que nos llega tanta información que no sabemos cuál es la correcta.",
+      "phrases": [
+        "Y eso nos expone",
+        "a algo *peligroso,",
+        "a la *desinformación",
+        "por *saturación,",
+        "y es que",
+        "nos llega",
+        "tanta información",
+        "que no sabemos",
+        "cuál es la correcta."
+      ],
+      "shots": [
+        {
+          "src": "saturacion"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "palacio",
+      "camera": "IMG_0036",
+      "text": "Como el Palacio de Justicia en 1985, muchos creen que fue obra de la guerrilla, sin embargo en la retoma el ejército también dejó civiles muertos y 11 desaparecidos. Si te quedas solo con el relato oficial, te quedarás con la mitad de la historia.",
+      "phrases": [
+        "Como el *Palacio *de *Justicia",
+        "en 1985,",
+        "muchos creen",
+        "que fue obra",
+        "de la guerrilla,",
+        "sin embargo en la retoma",
+        "el ejército también dejó",
+        "*civiles *muertos",
+        "y *11 *desaparecidos.",
+        "Si te quedas solo",
+        "con el relato oficial,",
+        "te quedarás con la *mitad",
+        "de la historia."
+      ],
+      "shots": [
+        {
+          "src": "palacio"
+        }
+      ],
+      "cards": [],
+      "photos": [
+        {
+          "at": "Como",
+          "until": "muchos",
+          "video": "palacio-plaza"
+        },
+        {
+          "at": "retoma",
+          "until": "civiles",
+          "video": "palacio-tanque"
+        }
+      ]
+    },
+    {
+      "key": "seria",
+      "camera": "IMG_0039",
+      "text": "La política seria no es la más ruidosa, es la que pregunta, la que compara fuentes y disputa ideas.",
+      "phrases": [
+        "La política *seria",
+        "no es la más ruidosa,",
+        "es la que *pregunta,",
+        "la que *compara *fuentes",
+        "y *disputa ideas."
+      ],
+      "shots": [
+        {
+          "src": "seria"
+        }
+      ],
+      "cards": [],
+      "pause": {
+        "minSilence": 0.2
+      }
+    },
+    {
+      "key": "cta",
+      "camera": "IMG_0044",
+      "text": "Antes de compartir algo de política, verifica de dónde salió la información y cuéntame en los comentarios, ¿qué fuente verificas tú antes de creer algo?",
+      "phrases": [
+        "Antes de compartir",
+        "algo de política,",
+        "*verifica de dónde salió",
+        "la información",
+        "y cuéntame",
+        "en los comentarios,",
+        "¿qué *fuente verificas tú",
+        "antes de creer algo?"
+      ],
+      "shots": [
+        {
+          "src": "cta"
+        }
+      ],
+      "cards": []
+    }
+  ],
+  "cleanStart": true,
+  "fotos": {
+    "_doc": "Fotos de apoyo que mandó el cliente (media/pepo1/fotos/, no versionadas). Se arman a 1080x1920: la foto a lo ancho sobre una copia suya desenfocada y oscurecida (a pantalla completa, como el material de archivo del video argentino). pixel: cajas [x0,y0,x1,y1] en px de la original que se pixelan (caras de terceros). crop: [x0,y0,x1,y1] para quitar bordes que trae la foto.",
+    "marcha-viani": {
+      "file": "marcha-viani.jpg"
+    },
+    "gaitan": {
+      "file": "gaitan.jpg"
+    },
+    "liberalismo-paz": {
+      "file": "liberalismo-paz.jpg",
+      "crop": [
+        118,
+        0,
+        806,
+        518
+      ]
+    },
+    "petro-videollamada": {
+      "file": "petro-videollamada.jpg",
+      "pixel": [
+        [
+          390,
+          0,
+          576,
+          260
+        ]
+      ]
+    },
+    "meme-huevo": {
+      "file": "meme-huevo.webp"
+    }
+  },
+  "broll": {
+    "_doc": "Videos de apoyo que mandó el cliente (media/pepo1/videos/, no versionados): se recorta solo la imagen (sin los textos de TikTok ni los subtítulos quemados), sin sonido, desde `ss` y armados a 1080x1920 como las fotos. La duración la da la escena. pixel: cajas que se pixelan (caras de terceros, p. ej. el detenido), en px del recorte: x + vx·t sigue la cara si la cámara se mueve.",
+    "abelardo-reels": {
+      "file": "largo.mp4",
+      "crop": [
+        0,
+        352,
+        576,
+        610
+      ],
+      "ss": 11.8,
+      "pixel": [
+        {
+          "x": 342,
+          "vx": 52,
+          "y": 72,
+          "w": 100,
+          "h": 100
+        }
+      ]
+    },
+    "palacio-plaza": {
+      "file": "recortar.mp4",
+      "crop": [
+        0,
+        296,
+        576,
+        640
+      ],
+      "ss": 75.0
+    },
+    "palacio-tanque": {
+      "file": "recortar.mp4",
+      "crop": [
+        0,
+        296,
+        576,
+        640
+      ],
+      "ss": 159.0
+    }
+  }
+}
