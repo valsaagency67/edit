@@ -1,5 +1,5 @@
 {
-  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a). Tomas en 4K (size 2160x3840): se renderiza con --scale=2 para la entrega 4K (npm run render:pepo3-4k). Más claro (grade: gamma y medios tonos, el cliente lo vio muy oscuro). Música: desde la parte viral (golpe a los 25,5 s de la canción, cae en «Este es el proceso»), -28 LUFS. Audio (el cliente no oía bien las voces): voicePost da presencia a la voz ya armada; música a -31 LUFS y -5 dB más mientras hablan (duckVoice).",
+  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a). Tomas en 4K (size 2160x3840): se renderiza con --scale=2 para la entrega 4K (npm run render:pepo3-4k). Más claro (grade: gamma y medios tonos, el cliente lo vio muy oscuro). Música: desde la parte viral (golpe a los 25,5 s de la canción, cae en «Este es el proceso»), -28 LUFS. Audio (el cliente no oía bien las voces): voicePost da presencia a la voz ya armada; música a -31 LUFS y -5 dB más mientras hablan (duckVoice). Gancho (reel de prueba con 300 vistas): «ME ROBARON LA TARJETA» grande desde el primer cuadro y «15 MILLONES» en dorado en «15», primera escena más clara; se quitó «Este es el proceso que vamos a llevar».",
   "fps": 30,
   "speed": 1.0,
   "pause": {
@@ -102,7 +102,7 @@
     },
     {
       "name": "shutter",
-      "sceneStart": "proceso",
+      "sceneStart": "consejo",
       "gain": 0.6
     },
     {
@@ -194,24 +194,6 @@
         }
       ],
       "cards": []
-    },
-    {
-      "key": "proceso",
-      "camera": "C018",
-      "text": "Este es el proceso que vamos a llevar.",
-      "phrases": [
-        "Este es",
-        "el *proceso",
-        "que vamos",
-        "a llevar."
-      ],
-      "shots": [
-        {
-          "src": "proceso"
-        }
-      ],
-      "cards": [],
-      "from": 2.5
     },
     {
       "key": "consejo",
@@ -385,5 +367,19 @@
     ]
   ],
   "duckVoice": 5,
-  "voicePost": "highpass=f=100,equalizer=f=220:t=q:w=1:g=-3,equalizer=f=450:t=q:w=1:g=-2,equalizer=f=2800:t=q:w=1:g=4,equalizer=f=5000:t=q:w=1:g=3,highshelf=f=8000:g=2,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80:makeup=1,alimiter=limit=0.9:level=false,loudnorm=I=-15:TP=-1.5:LRA=6"
+  "voicePost": "highpass=f=100,equalizer=f=220:t=q:w=1:g=-3,equalizer=f=450:t=q:w=1:g=-2,equalizer=f=2800:t=q:w=1:g=4,equalizer=f=5000:t=q:w=1:g=3,highshelf=f=8000:g=2,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80:makeup=1,alimiter=limit=0.9:level=false,loudnorm=I=-15:TP=-1.5:LRA=6",
+  "hook": {
+    "scene": "caso",
+    "lines": [
+      {
+        "text": "ME ROBARON LA TARJETA",
+        "at": "Me"
+      },
+      {
+        "text": "15 MILLONES",
+        "at": "15",
+        "gold": true
+      }
+    ]
+  }
 }

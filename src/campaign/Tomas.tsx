@@ -341,6 +341,7 @@ export const TomasVideo: React.FC<{
   overlay?: React.ReactNode;
   noFlash?: boolean;
   hideFirma?: Range[];
+  brighten?: (Range & { amount: number })[];
 }> = ({
   data,
   dir,
@@ -361,6 +362,7 @@ export const TomasVideo: React.FC<{
   overlay,
   noFlash,
   hideFirma = [],
+  brighten = [],
 }) => {
   const frame = useCurrentFrame();
   const f = (s: number) => Math.round(s * data.fps);
@@ -423,7 +425,13 @@ export const TomasVideo: React.FC<{
 
       <AbsoluteFill
         style={{
-          filter: gray ? "grayscale(1) contrast(1.15)" : undefined,
+          filter: gray
+            ? "grayscale(1) contrast(1.15)"
+            : (() => {
+                // brighten: tramos más claros (el gancho de Pepo 3, cuya toma es la más oscura).
+                const b = brighten.find((r) => frame >= f(r.start) && frame < f(r.end));
+                return b ? `brightness(${b.amount})` : undefined;
+              })(),
           transform: scale !== 1 ? `scale(${scale})` : undefined,
           transformOrigin: punchOrigin,
         }}

@@ -28,7 +28,47 @@ type Big = {
   baseline?: number;
 };
 
-export type CineData = TomasData & { big: Big[] };
+type HookLine = { text: string; start: number; gold?: boolean };
+export type CineData = TomasData & { big: Big[]; hook?: { start: number; end: number; lines: HookLine[] } };
+
+// Gancho: líneas grandes en el centro, cada una entra de golpe (escala y desenfoque cortos) en su palabra, sobre
+// la toma oscurecida un poco abajo para que se lea. Se va con un fundido al terminar la escena.
+const Hook: React.FC<{ h: NonNullable<CineData["hook"]>; dur: number }> = ({ h, dur }) => {
+  const frame = useCurrentFrame();
+  const out = interpolate(frame, [dur - 5, dur], [1, 0], clamp);
+  return (
+    <AbsoluteFill style={{ opacity: out }}>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 80%)" }} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", top: 120, gap: 10 }}>
+        {h.lines.map((l, i) => {
+          const at = f(l.start) - f(h.start);
+          const k = interpolate(frame - at, [0, 5], [0, 1], clamp);
+          return (
+            <div
+              key={i}
+              style={{
+                opacity: k,
+                filter: `blur(${(1 - k) * 8}px)`,
+                transform: `scale(${1.25 - 0.25 * k})`,
+                fontFamily: Playfair,
+                fontWeight: 900,
+                fontStyle: l.gold ? "italic" : "normal",
+                fontSize: l.gold ? 150 : 96,
+                lineHeight: 1,
+                color: l.gold ? GOLD : "white",
+                textAlign: "center",
+                maxWidth: 1000,
+                textShadow: "0 8px 30px rgba(0,0,0,0.8)",
+              }}
+            >
+              {l.text}
+            </div>
+          );
+        })}
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
 let FPS = 30;
 const f = (s: number) => Math.round(s * FPS);
 const GOLD = "#E9C46A";
@@ -151,9 +191,19 @@ export const CineVideo: React.FC<{ data: CineData; dir: string }> = ({ data, dir
       captionCine
       punch={1.16}
       punchOrigin="50% 36%"
-      hideCaptions={data.big.filter((b) => b.style !== "tag")}
+      hideCaptions={[...data.big.filter((b) => b.style !== "tag"), ...(data.hook ? [data.hook] : [])]}
+      brighten={data.hook ? [{ start: data.hook.start, end: data.hook.end, amount: 1.25 }] : []}
       inner={behind}
-      overlay={front}
+      overlay={
+        <>
+          {front}
+          {data.hook ? (
+            <Sequence from={f(data.hook.start)} durationInFrames={Math.max(1, f(data.hook.end) - f(data.hook.start))}>
+              <Hook h={data.hook} dur={Math.max(1, f(data.hook.end) - f(data.hook.start))} />
+            </Sequence>
+          ) : null}
+        </>
+      }
       noFlash
       hideFirma={data.big.filter((b) => b.layer === "behind" && (b.baseline ?? 9999) < 520)}
     />

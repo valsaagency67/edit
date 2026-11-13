@@ -111,6 +111,20 @@ def mattes(data):
     print("recortes:", len(jobs))
 
 
+def hook(data):
+    """Gancho en pantalla (CFG["hook"]): líneas grandes que entran en la palabra `at` de la escena y se quedan
+    hasta que termina. Pepo3: «ME ROBARON LA TARJETA» desde el primer cuadro y «15 MILLONES» en «15»."""
+    h = CFG.get("hook")
+    if not h:
+        return None
+    sc = {s["key"]: s for s in data["scenes"]}[h["scene"]]
+    lines = []
+    for ln in h["lines"]:
+        t = word_at(sc, ln["at"])
+        lines.append({**{k: v for k, v in ln.items() if k != "at"}, "start": 0.0 if t - sc["start"] < 0.5 else t})
+    return {"start": sc["start"], "end": sc["end"], "lines": lines}
+
+
 def voz_clara():
     """Presencia y nitidez para la voz ya armada (voicePost de la config): menos graves y caja, más 2,8–5 kHz,
     compresión suave y -15 LUFS. El cliente no entendía bien las voces."""
@@ -252,6 +266,7 @@ if __name__ == "__main__":
     d["big"] = bigs(d)
     mattes(d)
     heads(d)
+    d["hook"] = hook(d)
     json.dump(d, open(path, "w"), ensure_ascii=False, indent=1)
     voz_clara()
     musica(d)
