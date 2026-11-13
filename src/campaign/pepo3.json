@@ -1,11 +1,10 @@
 {
  "fps": 30,
- "duration": 51.421,
+ "duration": 50.067,
  "clips": {
   "caso": 122,
   "banco": 48,
   "veces": 127,
-  "proceso": 41,
   "consejo": 155,
   "paso1": 197,
   "paso2": 211,
@@ -413,269 +412,186 @@
    "kinetic": []
   },
   {
-   "key": "proceso",
-   "start": 9.912,
-   "end": 11.266,
-   "zooms": null,
-   "silent": null,
-   "text": "Este es el proceso que vamos a llevar.",
-   "words": [
-    {
-     "t": "Este",
-     "s": 9.912,
-     "e": 10.152
-    },
-    {
-     "t": "es",
-     "s": 10.152,
-     "e": 10.232
-    },
-    {
-     "t": "el",
-     "s": 10.232,
-     "e": 10.312
-    },
-    {
-     "t": "proceso",
-     "s": 10.312,
-     "e": 10.552
-    },
-    {
-     "t": "que",
-     "s": 10.552,
-     "e": 10.712
-    },
-    {
-     "t": "vamos",
-     "s": 10.712,
-     "e": 10.872
-    },
-    {
-     "t": "a",
-     "s": 10.872,
-     "e": 10.952
-    },
-    {
-     "t": "llevar.",
-     "s": 10.952,
-     "e": 11.266
-    }
-   ],
-   "shots": [
-    {
-     "src": "proceso",
-     "start": 9.912,
-     "end": 11.266
-    }
-   ],
-   "captions": [
-    {
-     "text": "Este es",
-     "start": 9.912,
-     "end": 10.232
-    },
-    {
-     "text": "el *proceso",
-     "start": 10.232,
-     "end": 10.552
-    },
-    {
-     "text": "que vamos",
-     "start": 10.552,
-     "end": 10.872
-    },
-    {
-     "text": "a llevar.",
-     "start": 10.872,
-     "end": 11.266
-    }
-   ],
-   "cards": [],
-   "photos": [],
-   "effects": [],
-   "kinetic": []
-  },
-  {
    "key": "consejo",
-   "start": 11.266,
-   "end": 16.413,
+   "start": 9.912,
+   "end": 15.059,
    "zooms": null,
    "silent": null,
    "text": "Si a ti te desconocen una transacción y el banco no te quiere responder, esto es lo que te recomiendo hacer.",
    "words": [
     {
      "t": "Si",
-     "s": 11.266,
-     "e": 11.373
+     "s": 9.912,
+     "e": 10.019
     },
     {
      "t": "a",
-     "s": 11.373,
-     "e": 11.479
+     "s": 10.019,
+     "e": 10.125
     },
     {
      "t": "ti",
-     "s": 11.479,
-     "e": 11.586
+     "s": 10.125,
+     "e": 10.232
     },
     {
      "t": "te",
-     "s": 11.586,
-     "e": 11.746
+     "s": 10.232,
+     "e": 10.392
     },
     {
      "t": "desconocen",
-     "s": 11.746,
-     "e": 12.386
+     "s": 10.392,
+     "e": 11.032
     },
     {
      "t": "una",
-     "s": 12.386,
-     "e": 12.546
+     "s": 11.032,
+     "e": 11.192
     },
     {
      "t": "transacción",
-     "s": 12.546,
-     "e": 13.106
+     "s": 11.192,
+     "e": 11.752
     },
     {
      "t": "y",
-     "s": 13.106,
-     "e": 13.266
+     "s": 11.752,
+     "e": 11.912
     },
     {
      "t": "el",
-     "s": 13.266,
-     "e": 13.426
+     "s": 11.912,
+     "e": 12.072
     },
     {
      "t": "banco",
-     "s": 13.426,
-     "e": 13.746
+     "s": 12.072,
+     "e": 12.392
     },
     {
      "t": "no",
-     "s": 13.746,
-     "e": 13.826
+     "s": 12.392,
+     "e": 12.472
     },
     {
      "t": "te",
-     "s": 13.826,
-     "e": 13.986
+     "s": 12.472,
+     "e": 12.632
     },
     {
      "t": "quiere",
-     "s": 13.986,
-     "e": 14.306
+     "s": 12.632,
+     "e": 12.952
     },
     {
      "t": "responder,",
-     "s": 14.306,
-     "e": 15.106
+     "s": 12.952,
+     "e": 13.752
     },
     {
      "t": "esto",
-     "s": 15.106,
-     "e": 15.266
+     "s": 13.752,
+     "e": 13.912
     },
     {
      "t": "es",
-     "s": 15.266,
-     "e": 15.426
+     "s": 13.912,
+     "e": 14.072
     },
     {
      "t": "lo",
-     "s": 15.426,
-     "e": 15.506
+     "s": 14.072,
+     "e": 14.152
     },
     {
      "t": "que",
-     "s": 15.506,
-     "e": 15.586
+     "s": 14.152,
+     "e": 14.232
     },
     {
      "t": "te",
-     "s": 15.586,
-     "e": 15.666
+     "s": 14.232,
+     "e": 14.312
     },
     {
      "t": "recomiendo",
-     "s": 15.666,
-     "e": 16.146
+     "s": 14.312,
+     "e": 14.792
     },
     {
      "t": "hacer.",
-     "s": 16.146,
-     "e": 16.413
+     "s": 14.792,
+     "e": 15.059
     }
    ],
    "shots": [
     {
      "src": "consejo",
-     "start": 11.266,
-     "end": 16.413
+     "start": 9.912,
+     "end": 15.059
     }
    ],
    "captions": [
     {
      "text": "Si a",
-     "start": 11.266,
-     "end": 11.479
+     "start": 9.912,
+     "end": 10.125
     },
     {
      "text": "ti te",
-     "start": 11.479,
-     "end": 11.746
+     "start": 10.125,
+     "end": 10.392
     },
     {
      "text": "*desconocen una",
-     "start": 11.746,
-     "end": 12.546
+     "start": 10.392,
+     "end": 11.192
     },
     {
      "text": "transacción y",
-     "start": 12.546,
-     "end": 13.266
+     "start": 11.192,
+     "end": 11.912
     },
     {
      "text": "el *banco",
-     "start": 13.266,
-     "end": 13.746
+     "start": 11.912,
+     "end": 12.392
     },
     {
      "text": "no te",
-     "start": 13.746,
-     "end": 13.986
+     "start": 12.392,
+     "end": 12.632
     },
     {
      "text": "quiere",
-     "start": 13.986,
-     "end": 14.306
+     "start": 12.632,
+     "end": 12.952
     },
     {
      "text": "responder,",
-     "start": 14.306,
-     "end": 15.106
+     "start": 12.952,
+     "end": 13.752
     },
     {
      "text": "esto es",
-     "start": 15.106,
-     "end": 15.426
+     "start": 13.752,
+     "end": 14.072
     },
     {
      "text": "lo que",
-     "start": 15.426,
-     "end": 15.586
+     "start": 14.072,
+     "end": 14.232
     },
     {
      "text": "te *recomiendo",
-     "start": 15.586,
-     "end": 16.146
+     "start": 14.232,
+     "end": 14.792
     },
     {
      "text": "hacer.",
-     "start": 16.146,
-     "end": 16.413
+     "start": 14.792,
+     "end": 15.059
     }
    ],
    "cards": [],
@@ -685,175 +601,175 @@
   },
   {
    "key": "paso1",
-   "start": 16.413,
-   "end": 23.007,
+   "start": 15.059,
+   "end": 21.653,
    "zooms": null,
    "silent": null,
    "text": "Reclama por escrito al banco, es obligatorio antes de cualquier demanda, así que aprovecha y pide las operaciones bancarias.",
    "words": [
     {
      "t": "Reclama",
-     "s": 16.493,
-     "e": 16.893
+     "s": 15.139,
+     "e": 15.539
     },
     {
      "t": "por",
-     "s": 16.893,
-     "e": 17.053
+     "s": 15.539,
+     "e": 15.699
     },
     {
      "t": "escrito",
-     "s": 17.053,
-     "e": 17.453
+     "s": 15.699,
+     "e": 16.099
     },
     {
      "t": "al",
-     "s": 17.453,
-     "e": 17.613
+     "s": 16.099,
+     "e": 16.259
     },
     {
      "t": "banco,",
-     "s": 17.613,
-     "e": 17.933
+     "s": 16.259,
+     "e": 16.579
     },
     {
      "t": "es",
-     "s": 17.933,
-     "e": 18.093
+     "s": 16.579,
+     "e": 16.739
     },
     {
      "t": "obligatorio",
-     "s": 18.093,
-     "e": 18.653
+     "s": 16.739,
+     "e": 17.299
     },
     {
      "t": "antes",
-     "s": 18.653,
-     "e": 18.893
+     "s": 17.299,
+     "e": 17.539
     },
     {
      "t": "de",
-     "s": 18.893,
-     "e": 19.053
+     "s": 17.539,
+     "e": 17.699
     },
     {
      "t": "cualquier",
-     "s": 19.053,
-     "e": 19.373
+     "s": 17.699,
+     "e": 18.019
     },
     {
      "t": "demanda,",
-     "s": 19.373,
-     "e": 19.933
+     "s": 18.019,
+     "e": 18.579
     },
     {
      "t": "así",
-     "s": 19.933,
-     "e": 20.173
+     "s": 18.579,
+     "e": 18.819
     },
     {
      "t": "que",
-     "s": 20.173,
-     "e": 20.333
+     "s": 18.819,
+     "e": 18.979
     },
     {
      "t": "aprovecha",
-     "s": 20.333,
-     "e": 20.973
+     "s": 18.979,
+     "e": 19.619
     },
     {
      "t": "y",
-     "s": 20.973,
-     "e": 21.133
+     "s": 19.619,
+     "e": 19.779
     },
     {
      "t": "pide",
-     "s": 21.133,
-     "e": 21.613
+     "s": 19.779,
+     "e": 20.259
     },
     {
      "t": "las",
-     "s": 21.613,
-     "e": 21.773
+     "s": 20.259,
+     "e": 20.419
     },
     {
      "t": "operaciones",
-     "s": 21.773,
-     "e": 22.333
+     "s": 20.419,
+     "e": 20.979
     },
     {
      "t": "bancarias.",
-     "s": 22.333,
-     "e": 22.833
+     "s": 20.979,
+     "e": 21.479
     }
    ],
    "shots": [
     {
      "src": "paso1",
-     "start": 16.413,
-     "end": 23.007
+     "start": 15.059,
+     "end": 21.653
     }
    ],
    "captions": [
     {
      "text": "Reclama por",
-     "start": 16.493,
-     "end": 17.053
+     "start": 15.139,
+     "end": 15.699
     },
     {
      "text": "*escrito al",
-     "start": 17.053,
-     "end": 17.613
+     "start": 15.699,
+     "end": 16.259
     },
     {
      "text": "*banco,",
-     "start": 17.613,
-     "end": 17.933
+     "start": 16.259,
+     "end": 16.579
     },
     {
      "text": "es *obligatorio",
-     "start": 17.933,
-     "end": 18.653
+     "start": 16.579,
+     "end": 17.299
     },
     {
      "text": "antes de",
-     "start": 18.653,
-     "end": 19.053
+     "start": 17.299,
+     "end": 17.699
     },
     {
      "text": "cualquier",
-     "start": 19.053,
-     "end": 19.373
+     "start": 17.699,
+     "end": 18.019
     },
     {
      "text": "demanda,",
-     "start": 19.373,
-     "end": 19.933
+     "start": 18.019,
+     "end": 18.579
     },
     {
      "text": "así que",
-     "start": 19.933,
-     "end": 20.333
+     "start": 18.579,
+     "end": 18.979
     },
     {
      "text": "aprovecha y",
-     "start": 20.333,
-     "end": 21.133
+     "start": 18.979,
+     "end": 19.779
     },
     {
      "text": "pide las",
-     "start": 21.133,
-     "end": 21.773
+     "start": 19.779,
+     "end": 20.419
     },
     {
      "text": "*operaciones",
-     "start": 21.773,
-     "end": 22.333
+     "start": 20.419,
+     "end": 20.979
     },
     {
      "text": "*bancarias.",
-     "start": 22.333,
-     "end": 23.007
+     "start": 20.979,
+     "end": 21.653
     }
    ],
    "cards": [],
@@ -863,190 +779,190 @@
   },
   {
    "key": "paso2",
-   "start": 23.007,
-   "end": 30.045,
+   "start": 21.653,
+   "end": 28.691,
    "zooms": null,
    "silent": null,
    "text": "Y ojo que si rechazan tu reclamación o no la responden a tiempo, puedes iniciar la acción de protección al consumidor financiero.",
    "words": [
     {
      "t": "Y",
-     "s": 23.007,
-     "e": 23.167
+     "s": 21.653,
+     "e": 21.813
     },
     {
      "t": "ojo",
-     "s": 23.167,
-     "e": 23.487
+     "s": 21.813,
+     "e": 22.133
     },
     {
      "t": "que",
-     "s": 23.487,
-     "e": 23.647
+     "s": 22.133,
+     "e": 22.293
     },
     {
      "t": "si",
-     "s": 23.647,
-     "e": 23.807
+     "s": 22.293,
+     "e": 22.453
     },
     {
      "t": "rechazan",
-     "s": 23.807,
-     "e": 24.447
+     "s": 22.453,
+     "e": 23.093
     },
     {
      "t": "tu",
-     "s": 24.447,
-     "e": 24.607
+     "s": 23.093,
+     "e": 23.253
     },
     {
      "t": "reclamación",
-     "s": 24.607,
-     "e": 25.247
+     "s": 23.253,
+     "e": 23.893
     },
     {
      "t": "o",
-     "s": 25.247,
-     "e": 25.407
+     "s": 23.893,
+     "e": 24.053
     },
     {
      "t": "no",
-     "s": 25.407,
-     "e": 25.567
+     "s": 24.053,
+     "e": 24.213
     },
     {
      "t": "la",
-     "s": 25.567,
-     "e": 25.727
+     "s": 24.213,
+     "e": 24.373
     },
     {
      "t": "responden",
-     "s": 25.727,
-     "e": 26.287
+     "s": 24.373,
+     "e": 24.933
     },
     {
      "t": "a",
-     "s": 26.287,
-     "e": 26.447
+     "s": 24.933,
+     "e": 25.093
     },
     {
      "t": "tiempo,",
-     "s": 26.447,
-     "e": 26.927
+     "s": 25.093,
+     "e": 25.573
     },
     {
      "t": "puedes",
-     "s": 26.927,
-     "e": 27.247
+     "s": 25.573,
+     "e": 25.893
     },
     {
      "t": "iniciar",
-     "s": 27.247,
-     "e": 27.727
+     "s": 25.893,
+     "e": 26.373
     },
     {
      "t": "la",
-     "s": 27.727,
-     "e": 27.887
+     "s": 26.373,
+     "e": 26.533
     },
     {
      "t": "acción",
-     "s": 27.887,
-     "e": 28.127
+     "s": 26.533,
+     "e": 26.773
     },
     {
      "t": "de",
-     "s": 28.127,
-     "e": 28.287
+     "s": 26.773,
+     "e": 26.933
     },
     {
      "t": "protección",
-     "s": 28.287,
-     "e": 28.687
+     "s": 26.933,
+     "e": 27.333
     },
     {
      "t": "al",
-     "s": 28.687,
-     "e": 28.927
+     "s": 27.333,
+     "e": 27.573
     },
     {
      "t": "consumidor",
-     "s": 28.927,
-     "e": 29.487
+     "s": 27.573,
+     "e": 28.133
     },
     {
      "t": "financiero.",
-     "s": 29.487,
-     "e": 29.987
+     "s": 28.133,
+     "e": 28.633
     }
    ],
    "shots": [
     {
      "src": "paso2",
-     "start": 23.007,
-     "end": 30.045
+     "start": 21.653,
+     "end": 28.691
     }
    ],
    "captions": [
     {
      "text": "Y ojo",
-     "start": 23.007,
-     "end": 23.487
+     "start": 21.653,
+     "end": 22.133
     },
     {
      "text": "que si",
-     "start": 23.487,
-     "end": 23.807
+     "start": 22.133,
+     "end": 22.453
     },
     {
      "text": "*rechazan tu",
-     "start": 23.807,
-     "end": 24.607
+     "start": 22.453,
+     "end": 23.253
     },
     {
      "text": "reclamación o",
-     "start": 24.607,
-     "end": 25.407
+     "start": 23.253,
+     "end": 24.053
     },
     {
      "text": "no la",
-     "start": 25.407,
-     "end": 25.727
+     "start": 24.053,
+     "end": 24.373
     },
     {
      "text": "responden a",
-     "start": 25.727,
-     "end": 26.447
+     "start": 24.373,
+     "end": 25.093
     },
     {
      "text": "*tiempo,",
-     "start": 26.447,
-     "end": 26.927
+     "start": 25.093,
+     "end": 25.573
     },
     {
      "text": "puedes iniciar",
-     "start": 26.927,
-     "end": 27.727
+     "start": 25.573,
+     "end": 26.373
     },
     {
      "text": "la acción",
-     "start": 27.727,
-     "end": 28.127
+     "start": 26.373,
+     "end": 26.773
     },
     {
      "text": "de *protección",
-     "start": 28.127,
-     "end": 28.687
+     "start": 26.773,
+     "end": 27.333
     },
     {
      "text": "al *consumidor",
-     "start": 28.687,
-     "end": 29.487
+     "start": 27.333,
+     "end": 28.133
     },
     {
      "text": "*financiero.",
-     "start": 29.487,
-     "end": 30.045
+     "start": 28.133,
+     "end": 28.691
     }
    ],
    "cards": [],
@@ -1056,265 +972,265 @@
   },
   {
    "key": "reintegro",
-   "start": 30.045,
-   "end": 40.248,
+   "start": 28.691,
+   "end": 38.894,
    "zooms": null,
    "silent": null,
    "text": "En este tipo de casos, el banco suele tener la responsabilidad de reintegrar el dinero, y aunque cada caso depende de sus pruebas, una reclamación bien escrita cambia mucho la situación.",
    "words": [
     {
      "t": "En",
-     "s": 30.045,
-     "e": 30.205
+     "s": 28.691,
+     "e": 28.851
     },
     {
      "t": "este",
-     "s": 30.205,
-     "e": 30.525
+     "s": 28.851,
+     "e": 29.171
     },
     {
      "t": "tipo",
-     "s": 30.525,
-     "e": 30.685
+     "s": 29.171,
+     "e": 29.331
     },
     {
      "t": "de",
-     "s": 30.685,
-     "e": 30.845
+     "s": 29.331,
+     "e": 29.491
     },
     {
      "t": "casos,",
-     "s": 30.845,
-     "e": 31.325
+     "s": 29.491,
+     "e": 29.971
     },
     {
      "t": "el",
-     "s": 31.325,
-     "e": 31.485
+     "s": 29.971,
+     "e": 30.131
     },
     {
      "t": "banco",
-     "s": 31.485,
-     "e": 31.885
+     "s": 30.131,
+     "e": 30.531
     },
     {
      "t": "suele",
-     "s": 31.885,
-     "e": 32.285
+     "s": 30.531,
+     "e": 30.931
     },
     {
      "t": "tener",
-     "s": 32.285,
-     "e": 32.525
+     "s": 30.931,
+     "e": 31.171
     },
     {
      "t": "la",
-     "s": 32.525,
-     "e": 32.685
+     "s": 31.171,
+     "e": 31.331
     },
     {
      "t": "responsabilidad",
-     "s": 32.685,
-     "e": 33.325
+     "s": 31.331,
+     "e": 31.971
     },
     {
      "t": "de",
-     "s": 33.325,
-     "e": 33.485
+     "s": 31.971,
+     "e": 32.131
     },
     {
      "t": "reintegrar",
-     "s": 33.485,
-     "e": 34.205
+     "s": 32.131,
+     "e": 32.851
     },
     {
      "t": "el",
-     "s": 34.205,
-     "e": 34.365
+     "s": 32.851,
+     "e": 33.011
     },
     {
      "t": "dinero,",
-     "s": 34.365,
-     "e": 34.765
+     "s": 33.011,
+     "e": 33.411
     },
     {
      "t": "y",
-     "s": 34.765,
-     "e": 34.925
+     "s": 33.411,
+     "e": 33.571
     },
     {
      "t": "aunque",
-     "s": 34.925,
-     "e": 35.325
+     "s": 33.571,
+     "e": 33.971
     },
     {
      "t": "cada",
-     "s": 35.325,
-     "e": 35.565
+     "s": 33.971,
+     "e": 34.211
     },
     {
      "t": "caso",
-     "s": 35.565,
-     "e": 35.885
+     "s": 34.211,
+     "e": 34.531
     },
     {
      "t": "depende",
-     "s": 35.885,
-     "e": 36.285
+     "s": 34.531,
+     "e": 34.931
     },
     {
      "t": "de",
-     "s": 36.285,
-     "e": 36.445
+     "s": 34.931,
+     "e": 35.091
     },
     {
      "t": "sus",
-     "s": 36.445,
-     "e": 36.685
+     "s": 35.091,
+     "e": 35.331
     },
     {
      "t": "pruebas,",
-     "s": 36.685,
-     "e": 37.165
+     "s": 35.331,
+     "e": 35.811
     },
     {
      "t": "una",
-     "s": 37.165,
-     "e": 37.405
+     "s": 35.811,
+     "e": 36.051
     },
     {
      "t": "reclamación",
-     "s": 37.405,
-     "e": 38.125
+     "s": 36.051,
+     "e": 36.771
     },
     {
      "t": "bien",
-     "s": 38.125,
-     "e": 38.445
+     "s": 36.771,
+     "e": 37.091
     },
     {
      "t": "escrita",
-     "s": 38.445,
-     "e": 39.005
+     "s": 37.091,
+     "e": 37.651
     },
     {
      "t": "cambia",
-     "s": 39.005,
-     "e": 39.405
+     "s": 37.651,
+     "e": 38.051
     },
     {
      "t": "mucho",
-     "s": 39.405,
-     "e": 39.725
+     "s": 38.051,
+     "e": 38.371
     },
     {
      "t": "la",
-     "s": 39.725,
-     "e": 39.805
+     "s": 38.371,
+     "e": 38.451
     },
     {
      "t": "situación.",
-     "s": 39.805,
-     "e": 40.248
+     "s": 38.451,
+     "e": 38.894
     }
    ],
    "shots": [
     {
      "src": "reintegro",
-     "start": 30.045,
-     "end": 40.248
+     "start": 28.691,
+     "end": 38.894
     }
    ],
    "captions": [
     {
      "text": "En este",
-     "start": 30.045,
-     "end": 30.525
+     "start": 28.691,
+     "end": 29.171
     },
     {
      "text": "tipo de",
-     "start": 30.525,
-     "end": 30.845
+     "start": 29.171,
+     "end": 29.491
     },
     {
      "text": "casos,",
-     "start": 30.845,
-     "end": 31.325
+     "start": 29.491,
+     "end": 29.971
     },
     {
      "text": "el *banco",
-     "start": 31.325,
-     "end": 31.885
+     "start": 29.971,
+     "end": 30.531
     },
     {
      "text": "suele tener",
-     "start": 31.885,
-     "end": 32.525
+     "start": 30.531,
+     "end": 31.171
     },
     {
      "text": "la",
-     "start": 32.525,
-     "end": 32.685
+     "start": 31.171,
+     "end": 31.331
     },
     {
      "text": "responsabilidad",
-     "start": 32.685,
-     "end": 33.325
+     "start": 31.331,
+     "end": 31.971
     },
     {
      "text": "de *reintegrar",
-     "start": 33.325,
-     "end": 34.205
+     "start": 31.971,
+     "end": 32.851
     },
     {
      "text": "el *dinero,",
-     "start": 34.205,
-     "end": 34.765
+     "start": 32.851,
+     "end": 33.411
     },
     {
      "text": "y aunque",
-     "start": 34.765,
-     "end": 35.325
+     "start": 33.411,
+     "end": 33.971
     },
     {
      "text": "cada caso",
-     "start": 35.325,
-     "end": 35.885
+     "start": 33.971,
+     "end": 34.531
     },
     {
      "text": "depende de",
-     "start": 35.885,
-     "end": 36.445
+     "start": 34.531,
+     "end": 35.091
     },
     {
      "text": "sus *pruebas,",
-     "start": 36.445,
-     "end": 37.165
+     "start": 35.091,
+     "end": 35.811
     },
     {
      "text": "una",
-     "start": 37.165,
-     "end": 37.405
+     "start": 35.811,
+     "end": 36.051
     },
     {
      "text": "reclamación",
-     "start": 37.405,
-     "end": 38.125
+     "start": 36.051,
+     "end": 36.771
     },
     {
      "text": "bien *escrita",
-     "start": 38.125,
-     "end": 39.005
+     "start": 36.771,
+     "end": 37.651
     },
     {
      "text": "cambia mucho",
-     "start": 39.005,
-     "end": 39.725
+     "start": 37.651,
+     "end": 38.371
     },
     {
      "text": "la situación.",
-     "start": 39.725,
-     "end": 40.248
+     "start": 38.371,
+     "end": 38.894
     }
    ],
    "cards": [],
@@ -1324,220 +1240,220 @@
   },
   {
    "key": "cierre",
-   "start": 40.248,
-   "end": 48.821,
+   "start": 38.894,
+   "end": 47.467,
    "zooms": null,
    "silent": null,
    "text": "Necesito salir de esto ya, ¿cómo podríamos empezar con la reclamación? Si quieres una reclamación bien redactada y una solución pronta, puedes escribirme.",
    "words": [
     {
      "t": "Necesito",
-     "s": 40.328,
-     "e": 40.808
+     "s": 38.974,
+     "e": 39.454
     },
     {
      "t": "salir",
-     "s": 40.808,
-     "e": 41.128
+     "s": 39.454,
+     "e": 39.774
     },
     {
      "t": "de",
-     "s": 41.128,
-     "e": 41.288
+     "s": 39.774,
+     "e": 39.934
     },
     {
      "t": "esto",
-     "s": 41.288,
-     "e": 41.528
+     "s": 39.934,
+     "e": 40.174
     },
     {
      "t": "ya,",
-     "s": 41.528,
-     "e": 41.848
+     "s": 40.174,
+     "e": 40.494
     },
     {
      "t": "¿cómo",
-     "s": 41.848,
-     "e": 42.168
+     "s": 40.494,
+     "e": 40.814
     },
     {
      "t": "podríamos",
-     "s": 42.168,
-     "e": 42.648
+     "s": 40.814,
+     "e": 41.294
     },
     {
      "t": "empezar",
-     "s": 42.648,
-     "e": 42.968
+     "s": 41.294,
+     "e": 41.614
     },
     {
      "t": "con",
-     "s": 42.968,
-     "e": 43.128
+     "s": 41.614,
+     "e": 41.774
     },
     {
      "t": "la",
-     "s": 43.128,
-     "e": 43.208
+     "s": 41.774,
+     "e": 41.854
     },
     {
      "t": "reclamación?",
-     "s": 43.208,
-     "e": 44.008
+     "s": 41.854,
+     "e": 42.654
     },
     {
      "t": "Si",
-     "s": 44.008,
-     "e": 44.248
+     "s": 42.654,
+     "e": 42.894
     },
     {
      "t": "quieres",
-     "s": 44.248,
-     "e": 44.568
+     "s": 42.894,
+     "e": 43.214
     },
     {
      "t": "una",
-     "s": 44.568,
-     "e": 44.808
+     "s": 43.214,
+     "e": 43.454
     },
     {
      "t": "reclamación",
-     "s": 44.808,
-     "e": 45.448
+     "s": 43.454,
+     "e": 44.094
     },
     {
      "t": "bien",
-     "s": 45.448,
-     "e": 45.768
+     "s": 44.094,
+     "e": 44.414
     },
     {
      "t": "redactada",
-     "s": 45.768,
-     "e": 46.488
+     "s": 44.414,
+     "e": 45.134
     },
     {
      "t": "y",
-     "s": 46.488,
-     "e": 46.728
+     "s": 45.134,
+     "e": 45.374
     },
     {
      "t": "una",
-     "s": 46.728,
-     "e": 46.968
+     "s": 45.374,
+     "e": 45.614
     },
     {
      "t": "solución",
-     "s": 46.968,
-     "e": 47.368
+     "s": 45.614,
+     "e": 46.014
     },
     {
      "t": "pronta,",
-     "s": 47.368,
-     "e": 47.928
+     "s": 46.014,
+     "e": 46.574
     },
     {
      "t": "puedes",
-     "s": 47.928,
-     "e": 48.248
+     "s": 46.574,
+     "e": 46.894
     },
     {
      "t": "escribirme.",
-     "s": 48.248,
-     "e": 48.748
+     "s": 46.894,
+     "e": 47.394
     }
    ],
    "shots": [
     {
      "src": "cierre",
-     "start": 40.248,
-     "end": 51.421
+     "start": 38.894,
+     "end": 50.067
     }
    ],
    "captions": [
     {
      "text": "Necesito *salir",
-     "start": 40.328,
-     "end": 41.128
+     "start": 38.974,
+     "end": 39.774
     },
     {
      "text": "de esto",
-     "start": 41.128,
-     "end": 41.528
+     "start": 39.774,
+     "end": 40.174
     },
     {
      "text": "ya,",
-     "start": 41.528,
-     "end": 41.848
+     "start": 40.174,
+     "end": 40.494
     },
     {
      "text": "¿cómo",
-     "start": 41.848,
-     "end": 42.168
+     "start": 40.494,
+     "end": 40.814
     },
     {
      "text": "podríamos",
-     "start": 42.168,
-     "end": 42.648
+     "start": 40.814,
+     "end": 41.294
     },
     {
      "text": "empezar con",
-     "start": 42.648,
-     "end": 43.128
+     "start": 41.294,
+     "end": 41.774
     },
     {
      "text": "la",
-     "start": 43.128,
-     "end": 43.208
+     "start": 41.774,
+     "end": 41.854
     },
     {
      "text": "reclamación?",
-     "start": 43.208,
-     "end": 44.008
+     "start": 41.854,
+     "end": 42.654
     },
     {
      "text": "Si quieres",
-     "start": 44.008,
-     "end": 44.568
+     "start": 42.654,
+     "end": 43.214
     },
     {
      "text": "una",
-     "start": 44.568,
-     "end": 44.808
+     "start": 43.214,
+     "end": 43.454
     },
     {
      "text": "reclamación",
-     "start": 44.808,
-     "end": 45.448
+     "start": 43.454,
+     "end": 44.094
     },
     {
      "text": "bien redactada",
-     "start": 45.448,
-     "end": 46.488
+     "start": 44.094,
+     "end": 45.134
     },
     {
      "text": "y una",
-     "start": 46.488,
-     "end": 46.968
+     "start": 45.134,
+     "end": 45.614
     },
     {
      "text": "solución",
-     "start": 46.968,
-     "end": 47.368
+     "start": 45.614,
+     "end": 46.014
     },
     {
      "text": "pronta,",
-     "start": 47.368,
-     "end": 47.928
+     "start": 46.014,
+     "end": 46.574
     },
     {
      "text": "puedes",
-     "start": 47.928,
-     "end": 48.248
+     "start": 46.574,
+     "end": 46.894
     },
     {
      "text": "*escribirme.",
-     "start": 48.248,
-     "end": 48.821
+     "start": 46.894,
+     "end": 47.467
     }
    ],
    "cards": [],
@@ -1549,8 +1465,8 @@
  "outro": {
   "kicker": "¿Te pasó algo así?",
   "text": "Escríbeme",
-  "start": 48.821,
-  "end": 51.421
+  "start": 47.467,
+  "end": 50.067
  },
  "zooms": [
   [
@@ -1566,47 +1482,47 @@
    true
   ],
   [
-   13.733333333333333,
+   12.4,
    true
   ],
   [
-   18.666666666666668,
+   17.3,
    true
   ],
   [
-   21.133333333333333,
+   19.766666666666666,
    false
   ],
   [
-   25.4,
+   24.066666666666666,
    true
   ],
   [
-   27.733333333333334,
+   26.366666666666667,
    false
   ],
   [
-   32.53333333333333,
+   31.166666666666668,
    true
   ],
   [
-   34.766666666666666,
+   33.4,
    false
   ],
   [
-   37.166666666666664,
+   35.8,
    true
   ],
   [
-   42.63333333333333,
+   41.3,
    true
   ],
   [
-   45.43333333333333,
+   44.1,
    false
   ],
   [
-   47.93333333333333,
+   46.56666666666667,
    true
   ]
  ],
@@ -1616,18 +1532,18 @@
    "text": "PASO 1",
    "layer": "front",
    "style": "tag",
-   "start": 16.493,
-   "end": 17.933,
-   "shotStart": 16.413,
+   "start": 15.139,
+   "end": 16.579,
+   "shotStart": 15.059,
    "src": "paso1"
   },
   {
    "scene": "paso1",
    "text": "RECLAMA",
    "layer": "behind",
-   "start": 16.493,
-   "end": 17.933,
-   "shotStart": 16.413,
+   "start": 15.139,
+   "end": 16.579,
+   "shotStart": 15.059,
    "src": "paso1",
    "headTop": 588,
    "baseline": 648
@@ -1636,18 +1552,18 @@
    "scene": "paso1",
    "text": "por escrito",
    "layer": "front",
-   "start": 16.893,
-   "end": 17.933,
-   "shotStart": 16.413,
+   "start": 15.539,
+   "end": 16.579,
+   "shotStart": 15.059,
    "src": "paso1"
   },
   {
    "scene": "paso1",
    "text": "OBLIGATORIO",
    "layer": "behind",
-   "start": 18.093,
-   "end": 19.933,
-   "shotStart": 16.413,
+   "start": 16.739,
+   "end": 18.579,
+   "shotStart": 15.059,
    "src": "paso1",
    "headTop": 561,
    "baseline": 621
@@ -1656,9 +1572,9 @@
    "scene": "paso1",
    "text": "BANCARIAS",
    "layer": "behind",
-   "start": 22.333,
-   "end": 23.007,
-   "shotStart": 16.413,
+   "start": 20.979,
+   "end": 21.653,
+   "shotStart": 15.059,
    "src": "paso1",
    "headTop": 552,
    "baseline": 612
@@ -1668,27 +1584,27 @@
    "text": "PASO 2",
    "layer": "front",
    "style": "tag",
-   "start": 27.887,
-   "end": 30.045,
-   "shotStart": 23.007,
+   "start": 26.533,
+   "end": 28.691,
+   "shotStart": 21.653,
    "src": "paso2"
   },
   {
    "scene": "paso2",
    "text": "protección al consumidor",
    "layer": "front",
-   "start": 27.887,
-   "end": 29.487,
-   "shotStart": 23.007,
+   "start": 26.533,
+   "end": 28.133,
+   "shotStart": 21.653,
    "src": "paso2"
   },
   {
    "scene": "reintegro",
    "text": "REINTEGRAR",
    "layer": "behind",
-   "start": 33.485,
-   "end": 34.765,
-   "shotStart": 30.045,
+   "start": 32.131,
+   "end": 33.411,
+   "shotStart": 28.691,
    "src": "reintegro",
    "headTop": 555,
    "baseline": 615
@@ -1697,10 +1613,25 @@
    "scene": "consejo",
    "text": "esto te recomiendo",
    "layer": "front",
-   "start": 15.106,
-   "end": 16.413,
-   "shotStart": 11.266,
+   "start": 13.752,
+   "end": 15.059,
+   "shotStart": 9.912,
    "src": "consejo"
   }
- ]
+ ],
+ "hook": {
+  "start": 0.0,
+  "end": 4.089,
+  "lines": [
+   {
+    "text": "ME ROBARON LA TARJETA",
+    "start": 0.0
+   },
+   {
+    "text": "15 MILLONES",
+    "gold": true,
+    "start": 2.16
+   }
+  ]
+ }
 }

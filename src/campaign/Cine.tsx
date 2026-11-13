@@ -31,18 +31,19 @@ type Big = {
 type HookLine = { text: string; start: number; gold?: boolean };
 export type CineData = TomasData & { big: Big[]; hook?: { start: number; end: number; lines: HookLine[] } };
 
-// Gancho: líneas grandes en el centro, cada una entra de golpe (escala y desenfoque cortos) en su palabra, sobre
+// Gancho: líneas grandes debajo de la cara de Juan Felipe (y≈1010, para no taparla), cada una entra de golpe (escala y desenfoque cortos) en su palabra, sobre
 // la toma oscurecida un poco abajo para que se lea. Se va con un fundido al terminar la escena.
 const Hook: React.FC<{ h: NonNullable<CineData["hook"]>; dur: number }> = ({ h, dur }) => {
   const frame = useCurrentFrame();
   const out = interpolate(frame, [dur - 5, dur], [1, 0], clamp);
   return (
     <AbsoluteFill style={{ opacity: out }}>
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 80%)" }} />
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", top: 120, gap: 10 }}>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 62%, rgba(0,0,0,0.25) 85%)" }} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "flex-start", top: 1010, gap: 10 }}>
         {h.lines.map((l, i) => {
           const at = f(l.start) - f(h.start);
-          const k = interpolate(frame - at, [0, 5], [0, 1], clamp);
+          // La línea que va desde el primer cuadro sale completa (es la que se ve al pasar el dedo).
+          const k = at <= 0 ? 1 : interpolate(frame - at, [0, 5], [0, 1], clamp);
           return (
             <div
               key={i}
@@ -53,7 +54,8 @@ const Hook: React.FC<{ h: NonNullable<CineData["hook"]>; dur: number }> = ({ h, 
                 fontFamily: Playfair,
                 fontWeight: 900,
                 fontStyle: l.gold ? "italic" : "normal",
-                fontSize: l.gold ? 150 : 96,
+                fontSize: l.gold ? 138 : 112,
+                whiteSpace: l.gold ? "nowrap" : "normal",
                 lineHeight: 1,
                 color: l.gold ? GOLD : "white",
                 textAlign: "center",
