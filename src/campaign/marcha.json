@@ -1,0 +1,37 @@
+{
+  "_nota": "Texto del video de la marcha (IMG_3804). Tiempos en segundos. 'style' define la tipografía de cada línea (ver STYLES en Marcha.tsx); la letra va cambiando de frase en frase y LIBERTAD rota entre tipografías antes de quedarse fija. Lo usan Marcha.tsx y scripts/build_marcha.py (foley).",
+  "fps": 30,
+  "duration": 18.3,
+  "phrases": [
+    {
+      "from": 0.15,
+      "to": 6.2,
+      "lines": [
+        { "t": "¿Esto es el", "at": 0.15, "style": "small" },
+        { "t": "CAMBIO", "at": 0.75, "style": "cambio" },
+        { "t": "que nos", "at": 1.6, "style": "small" },
+        { "t": "prometieron?", "at": 2.2, "style": "prometieron" }
+      ]
+    },
+    {
+      "from": 6.35,
+      "to": 12.2,
+      "lines": [
+        { "t": "porque ningún", "at": 6.35, "style": "wide" },
+        { "t": "MURO", "at": 6.95, "style": "muro" },
+        { "t": "ni", "at": 7.7, "style": "serifSmall" },
+        { "t": "LEY", "at": 8.1, "style": "ley" },
+        { "t": "del olvido", "at": 9.0, "style": "olvido" }
+      ]
+    },
+    {
+      "from": 12.35,
+      "to": 18.3,
+      "lines": [
+        { "t": "silencia al que", "at": 12.35, "style": "small" },
+        { "t": "quiere la", "at": 12.95, "style": "small" },
+        { "t": "LIBERTAD", "at": 13.6, "style": "libertad", "cycleUntil": 15.2 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+[
+ {
+  "text": " Es",
+  "startMs": 960,
+  "endMs": 1440,
+  "timestampMs": 960,
+  "confidence": null
+ },
+ {
+  "text": " información",
+  "startMs": 1440,
+  "endMs": 2080,
+  "timestampMs": 1440,
+  "confidence": null
+ },
+ {
+  "text": " pública",
+  "startMs": 2080,
+  "endMs": 2640,
+  "timestampMs": 2080,
+  "confidence": null
+ },
+ {
+  "text": " y",
+  "startMs": 2640,
+  "endMs": 2800,
+  "timestampMs": 2640,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 2800,
+  "endMs": 2960,
+  "timestampMs": 2800,
+  "confidence": null
+ },
+ {
+  "text": " lo",
+  "startMs": 2960,
+  "endMs": 3200,
+  "timestampMs": 2960,
+  "confidence": null
+ },
+ {
+  "text": " mínimo",
+  "startMs": 3200,
+  "endMs": 3520,
+  "timestampMs": 3200,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 3520,
+  "endMs": 3680,
+  "timestampMs": 3520,
+  "confidence": null
+ },
+ {
+  "text": " necesitamos",
+  "startMs": 3680,
+  "endMs": 4400,
+  "timestampMs": 3680,
+  "confidence": null
+ },
+ {
+  "text": " para",
+  "startMs": 4400,
+  "endMs": 4640,
+  "timestampMs": 4400,
+  "confidence": null
+ },
+ {
+  "text": " poder",
+  "startMs": 4640,
+  "endMs": 4960,
+  "timestampMs": 4640,
+  "confidence": null
+ },
+ {
+  "text": " comprender",
+  "startMs": 4960,
+  "endMs": 5440,
+  "timestampMs": 4960,
+  "confidence": null
+ },
+ {
+  "text": " cuál",
+  "startMs": 5440,
+  "endMs": 5840,
+  "timestampMs": 5440,
+  "confidence": null
+ },
+ {
+  "text": " es",
+  "startMs": 5840,
+  "endMs": 6000,
+  "timestampMs": 5840,
+  "confidence": null
+ },
+ {
+  "text": " la",
+  "startMs": 6000,
+  "endMs": 6080,
+  "timestampMs": 6000,
+  "confidence": null
+ },
+ {
+  "text": " verdadera",
+  "startMs": 6080,
+  "endMs": 6640,
+  "timestampMs": 6080,
+  "confidence": null
+ },
+ {
+  "text": " situación",
+  "startMs": 6640,
+  "endMs": 6960,
+  "timestampMs": 6640,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 6960,
+  "endMs": 7120,
+  "timestampMs": 6960,
+  "confidence": null
+ },
+ {
+  "text": " seguridad",
+  "startMs": 7120,
+  "endMs": 7520,
+  "timestampMs": 7120,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 7520,
+  "endMs": 7760,
+  "timestampMs": 7520,
+  "confidence": null
+ },
+ {
+  "text": " Palmira.",
+  "startMs": 7760,
+  "endMs": 8260,
+  "timestampMs": 7760,
+  "confidence": null
+ }
+]

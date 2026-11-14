@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Editor de petición</title>
+<style>
+:root {
+  --bg: #0e0e10; --panel: #17171b; --panel2: #202026; --line: #33333b;
+  --fg: #ececf0; --muted: #9a9aa6; --red: #e30613; --blue: #1d3e9e; --yellow: #ffe600;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { --bg: #f2f2f5; --panel: #fff; --panel2: #e9e9ef; --line: #cfcfd8; --fg: #16161a; --muted: #5c5c68; color-scheme: light; }
+}
+:root[data-theme="light"] { --bg: #f2f2f5; --panel: #fff; --panel2: #e9e9ef; --line: #cfcfd8; --fg: #16161a; --muted: #5c5c68; color-scheme: light; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--fg); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; display: flex; flex-direction: column; min-height: 100vh; padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px); }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: var(--panel2); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; cursor: pointer; white-space: nowrap; }
+button:hover { border-color: var(--muted); }
+button:disabled { opacity: .4; cursor: default; }
+button.primary { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
+button.ghost { background: transparent; }
+input[type=number], input[type=text], textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; width: 100%; }
+kbd { font: 11px var(--mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; color: var(--muted); }
+
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 14px; background: var(--panel); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+header h1 { font-size: 15px; margin: 0 10px 0 0; font-weight: 700; }
+header h1 span { color: var(--red); }
+.grow { flex: 1; }
+.tc { font: 600 15px var(--mono); font-variant-numeric: tabular-nums; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; }
+.zoom { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; }
+.zoom input { width: 110px; }
+
+main { flex: 1; display: grid; grid-template-columns: 220px minmax(0, 1fr) 260px; gap: 12px; padding: 12px; min-height: 0; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; min-width: 0; }
+.panel h2 { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; font-weight: 600; }
+
+.bin-item { display: grid; gap: 6px; padding: 9px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 8px; background: var(--panel2); }
+.bin-item .nm { font-weight: 600; }
+.bin-item .meta { color: var(--muted); font: 12px var(--mono); }
+.bin-item .row { display: flex; gap: 6px; }
+.bin-item video { width: 100%; max-height: 120px; background: #000; border-radius: 6px; }
+
+.viewer { display: grid; place-items: center; gap: 10px; }
+#pv { background: #000; border-radius: 10px; max-height: 54vh; width: auto; max-width: 100%; aspect-ratio: 9 / 16; object-fit: contain; }
+#pvEmpty { color: var(--muted); padding: 40px 0; }
+.transport { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.transport .big { font-size: 18px; min-width: 56px; }
+.status { color: var(--muted); font-size: 12px; min-height: 16px; text-align: center; }
+
+.insp .field { display: grid; gap: 4px; margin-bottom: 10px; }
+.insp label { font-size: 12px; color: var(--muted); }
+.insp .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.insp .none { color: var(--muted); font-size: 13px; }
+
+#timeline { grid-column: 1 / -1; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 12px; }
+@media (max-width: 900px) { #timeline { grid-column: auto; } }
+#tlScroll { overflow-x: auto; overflow-y: hidden; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
+#tl { position: relative; height: 150px; }
+#ruler { position: absolute; left: 0; top: 0; right: 0; height: 26px; border-bottom: 1px solid var(--line); cursor: pointer; user-select: none; }
+#ruler .tick { position: absolute; top: 0; height: 26px; border-left: 1px solid var(--line); font: 11px var(--mono); color: var(--muted); padding-left: 4px; line-height: 14px; pointer-events: none; }
+#ruler .tick.minor { height: 8px; top: 18px; border-color: var(--muted); }
+#track { position: absolute; left: 0; right: 0; top: 34px; height: 92px; }
+.clip { position: absolute; top: 0; height: 92px; border-radius: 8px; background: linear-gradient(180deg, #2b3d78, var(--blue)); border: 1px solid #0b1b47; overflow: hidden; cursor: grab; touch-action: none; display: flex; flex-direction: column; justify-content: space-between; padding: 6px 10px; }
+.clip.sel { outline: 2px solid var(--yellow); outline-offset: -1px; }
+.clip.dragging { opacity: .85; cursor: grabbing; z-index: 3; box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+.clip .lbl { font-weight: 600; font-size: 12px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.clip .sub { font: 11px var(--mono); color: #d7def5; white-space: nowrap; }
+.clip.alt { background: linear-gradient(180deg, #8c0a13, var(--red)); border-color: #5c0008; }
+.handle { position: absolute; top: 0; bottom: 0; width: 10px; background: rgba(255,255,255,.25); cursor: ew-resize; touch-action: none; }
+.handle.l { left: 0; border-radius: 8px 0 0 8px; }
+.handle.r { right: 0; border-radius: 0 8px 8px 0; }
+.handle:hover { background: rgba(255,230,0,.55); }
+#playhead { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--yellow); pointer-events: none; z-index: 4; }
+#playhead::before { content: ""; position: absolute; top: 0; left: -6px; border: 6px solid transparent; border-top: 8px solid var(--yellow); border-bottom: 0; }
+.marker { position: absolute; top: 26px; width: 2px; height: 8px; background: #ff7f50; }
+.hint { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+details { margin-top: 12px; }
+summary { cursor: pointer; color: var(--muted); font-size: 13px; }
+textarea.mono { font: 12px var(--mono); min-height: 140px; }
+.io { display: grid; gap: 8px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Editor · <span>petición</span></h1>
+  <button id="bUndo" title="Deshacer (Ctrl+Z)">↶ Deshacer</button>
+  <button id="bRedo" title="Rehacer (Ctrl+Shift+Z)">↷ Rehacer</button>
+  <button id="bSplit" title="Cortar en el cabezal (S)">✂ Cortar</button>
+  <button id="bDel" title="Borrar selección (Supr)">🗑 Borrar</button>
+  <button id="bMark" title="Marcador en el cabezal (M)">◆ Marcador</button>
+  <span class="grow"></span>
+  <div class="zoom">Zoom <input id="zoom" type="range" min="12" max="160" value="48"></div>
+  <div class="tc" id="tc">00:00.00 / 00:00.00</div>
+  <button id="bReset" class="ghost" title="Volver al orden inicial">Restablecer</button>
+</header>
+
+<main>
+  <section class="panel" aria-label="Material">
+    <h2>Material</h2>
+    <div id="bin"></div>
+  </section>
+
+  <section class="panel viewer" aria-label="Vista previa">
+    <video id="pv" playsinline preload="auto"></video>
+    <div id="pvEmpty" hidden>Agrega clips a la línea de tiempo para verlos aquí.</div>
+    <div class="transport">
+      <button id="bStart" title="Inicio (Inicio)">⏮</button>
+      <button id="bBack" title="Un cuadro atrás (←)">◀</button>
+      <button id="bPlay" class="primary big" title="Reproducir (Espacio)">▶</button>
+      <button id="bFwd" title="Un cuadro adelante (→)">▶</button>
+      <button id="bEnd" title="Final (Fin)">⏭</button>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+
+  <section class="panel insp" aria-label="Propiedades">
+    <h2>Clip seleccionado</h2>
+    <div id="inspector"><div class="none">Toca un clip de la línea de tiempo para editar su entrada y salida.</div></div>
+    <details>
+      <summary>Exportar / importar lista de edición</summary>
+      <div class="io">
+        <textarea id="out" class="mono" readonly></textarea>
+        <button id="bCopy">Copiar lista</button>
+        <textarea id="inp" class="mono" placeholder="Pega aquí una lista de edición para cargarla"></textarea>
+        <button id="bLoad">Cargar lista</button>
+      </div>
+    </details>
+  </section>
+
+  <section id="timeline" aria-label="Línea de tiempo">
+    <div id="tlScroll"><div id="tl">
+      <div id="ruler"></div>
+      <div id="track"></div>
+      <div id="playhead"></div>
+    </div></div>
+    <div class="hint">
+      <kbd>Espacio</kbd> reproducir · <kbd>←</kbd>/<kbd>→</kbd> cuadro · <kbd>S</kbd> cortar en el cabezal ·
+      <kbd>Supr</kbd> borrar · <kbd>M</kbd> marcador · <kbd>Ctrl+Z</kbd> deshacer · arrastra un clip para reordenar y sus bordes para recortar.
+    </div>
+  </section>
+</main>
+
+<script>
+// Material: proxies livianos en preview/ (540x960). El render final sale de los originales.
+const CLIPS = [
+  { id: "IMG_1698", name: "IMG_1698 · Petición (sin rostro de otra persona)", src: "preview/IMG_1698.mp4", dur: 65.05 },
+  { id: "IMG_1724", name: "IMG_1724 · Petición del 14 de septiembre", src: "preview/IMG_1724.mp4", dur: 24.94 },
+  { id: "IMG_1728", name: "IMG_1728 · 15 días hábiles, solo un radicado", src: "preview/IMG_1728.mp4", dur: 16.95 },
+  { id: "IMG_1740", name: "IMG_1740 · Segunda petición (POT)", src: "preview/IMG_1740.mp4", dur: 13.72 },
+  { id: "IMG_1741", name: "IMG_1741 · Segunda petición (POT, caminando)", src: "preview/IMG_1741.mp4", dur: 13.06 },
+];
+const FPS = 30;
+const DEFAULT_TIMELINE = [
+  { clip: "IMG_1698", in: 19.4, out: 23.04 },
+  { clip: "IMG_1698", in: 33.88, out: 35.32 },
+  { clip: "IMG_1724", in: 0.85, out: 4.5 },
+  { clip: "IMG_1724", in: 10.2, out: 24.9 },
+  { clip: "IMG_1728", in: 0, out: 16.95 },
+  { clip: "IMG_1741", in: 0, out: 13.06 },
+];
+const KEY = "jfc-editor-peticion-v7";
+
+const $ = (id) => document.getElementById(id);
+const pv = $("pv");
+let uidN = 0;
+const uid = () => "u" + (Date.now().toString(36)) + (uidN++);
+const clipById = (id) => CLIPS.find((c) => c.id === id);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const r3 = (v) => Math.round(v * 1000) / 1000;
+
+function tc(t) {
+  t = Math.max(0, t);
+  const m = Math.floor(t / 60), s = Math.floor(t % 60), f = Math.floor((t - Math.floor(t)) * FPS);
+  return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0") + "." + String(f).padStart(2, "0");
+}
+
+// ---------- estado ----------
+function freshState() {
+  return { timeline: DEFAULT_TIMELINE.map((it) => ({ uid: uid(), clip: it.clip, in: it.in, out: it.out })), markers: [] };
+}
+let state = freshState();
+try {
+  const saved = JSON.parse(localStorage.getItem(KEY) || "null");
+  if (saved && Array.isArray(saved.timeline)) state = saved;
+} catch (e) {}
+let hist = [], future = [], sel = null, T = 0, playing = false, curIdx = -1, pxPerSec = Number($("zoom").value);
+
+function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+function snapshot() { hist.push(JSON.stringify(state)); if (hist.length > 200) hist.shift(); future = []; }
+function undo() { if (!hist.length) return; future.push(JSON.stringify(state)); state = JSON.parse(hist.pop()); afterChange(); }
+function redo() { if (!future.length) return; hist.push(JSON.stringify(state)); state = JSON.parse(future.pop()); afterChange(); }
+function afterChange() { if (sel && !state.timeline.some((i) => i.uid === sel)) sel = null; T = clamp(T, 0, total()); save(); renderAll(); }
+function status(msg) { $("status").textContent = msg || ""; }
+
+// ---------- cálculos ----------
+const dur = (it) => it.out - it.in;
+function starts() { let t = 0; return state.timeline.map((it) => { const s = t; t += dur(it); return s; }); }
+function total() { return state.timeline.reduce((a, it) => a + dur(it), 0); }
+function locate(t) {
+  const st = starts();
+  for (let i = 0; i < state.timeline.length; i++) {
+    const d = dur(state.timeline[i]);
+    if (t >= st[i] && t < st[i] + d) return { i, off: t - st[i], start: st[i] };
+  }
+  return null;
+}
+
+// ---------- reproducción ----------
+let loadedUid = null, pendingSeek = null;
+function loadItem(it, after) {
+  if (loadedUid === it.uid && pv.readyState >= 1) { after && after(); return; }
+  const c = clipById(it.clip);
+  loadedUid = it.uid;
+  pv.onloadedmetadata = () => { pv.onloadedmetadata = null; after && after(); };
+  pv.src = c.src;
+  pv.load();
+}
+function showAt(t, play) {
+  T = clamp(t, 0, total());
+  const loc = locate(T);
+  if (!loc) { pv.pause(); playing = false; updateUI(); return; }
+  const it = state.timeline[loc.i];
+  curIdx = loc.i;
+  loadItem(it, () => {
+    pv.currentTime = it.in + loc.off;
+    if (play) pv.play().catch(() => {});
+  });
+  updateUI();
+}
+function seek(t) { if (playing) pv.pause(); playing = false; showAt(t, false); }
+function togglePlay() {
+  if (playing) { playing = false; pv.pause(); updateUI(); return; }
+  if (!state.timeline.length) { status("Agrega clips a la línea de tiempo."); return; }
+  if (T >= total() - 0.01) T = 0;
+  playing = true;
+  showAt(T, true);
+  requestAnimationFrame(tick);
+}
+function tick() {
+  if (!playing) return;
+  const it = state.timeline[curIdx];
+  if (!it) { playing = false; updateUI(); return; }
+  if (pv.currentTime >= it.out - 0.03 || pv.ended) {
+    const next = curIdx + 1;
+    if (next >= state.timeline.length) { playing = false; pv.pause(); T = total(); updateUI(); return; }
+    curIdx = next;
+    const n = state.timeline[next];
+    loadItem(n, () => { pv.currentTime = n.in; pv.play().catch(() => {}); });
+  }
+  const cur = state.timeline[curIdx];
+  T = starts()[curIdx] + clamp(pv.currentTime - cur.in, 0, dur(cur));
+  updateUI();
+  requestAnimationFrame(tick);
+}
+function step(sec) { if (playing) togglePlay(); seek(T + sec); }
+
+// ---------- edición ----------
+function splitAt(t) {
+  const loc = locate(t);
+  if (!loc) return false;
+  const it = state.timeline[loc.i];
+  const off = loc.off;
+  if (off < 0.05 || dur(it) - off < 0.05) return false;
+  snapshot();
+  const cut = r3(it.in + off);
+  const a = { uid: it.uid, clip: it.clip, in: it.in, out: cut };
+  const b = { uid: uid(), clip: it.clip, in: cut, out: it.out };
+  state.timeline.splice(loc.i, 1, a, b);
+  sel = b.uid;
+  afterChange();
+  return true;
+}
+function doSplit() {
+  if (!splitAt(T)) status("Pon el cabezal dentro de un clip (no en el borde) para cortar.");
+  else status("Corte hecho.");
+}
+function doDelete() {
+  if (!sel) { status("Selecciona un clip para borrar."); return; }
+  snapshot();
+  state.timeline = state.timeline.filter((i) => i.uid !== sel);
+  sel = null;
+  afterChange();
+  status("Clip borrado.");
+}
+function addMarker() {
+  snapshot();
+  state.markers.push({ t: r3(T), id: uid() });
+  state.markers.sort((a, b) => a.t - b.t);
+  afterChange();
+  status("Marcador en " + tc(T));
+}
+function insertClipAt(clipId, t) {
+  snapshot();
+  const loc = locate(t);
+  let idx = state.timeline.length;
+  if (loc) {
+    const it = state.timeline[loc.i];
+    const off = loc.off;
+    if (off >= 0.05 && dur(it) - off >= 0.05) {
+      const cut = r3(it.in + off);
+      state.timeline.splice(loc.i, 1, { uid: it.uid, clip: it.clip, in: it.in, out: cut }, { uid: uid(), clip: it.clip, in: cut, out: it.out });
+      idx = loc.i + 1;
+    } else idx = off < 0.05 ? loc.i : loc.i + 1;
+  } else if (t <= 0) idx = 0;
+  const c = clipById(clipId);
+  const ni = { uid: uid(), clip: clipId, in: 0, out: r3(c.dur) };
+  state.timeline.splice(idx, 0, ni);
+  sel = ni.uid;
+  afterChange();
+  status("Añadido: " + c.id);
+}
+
+// ---------- interfaz ----------
+function renderBin() {
+  $("bin").innerHTML = CLIPS.map((c) => `
+    <div class="bin-item">
+      <video muted preload="metadata" src="${c.src}" data-id="${c.id}"></video>
+      <div class="nm">${c.name}</div>
+      <div class="meta">${c.id} · ${tc(c.dur)}</div>
+      <div class="row">
+        <button data-add="${c.id}" class="primary" style="flex:1">+ Al final</button>
+        <button data-ins="${c.id}" style="flex:1" title="Insertar en el cabezal">+ En cabezal</button>
+      </div>
+    </div>`).join("");
+}
+function renderRuler() {
+  const T_all = total();
+  const w = Math.max(T_all * pxPerSec + 200, 1);
+  const step = pxPerSec >= 90 ? 1 : pxPerSec >= 35 ? 2 : pxPerSec >= 18 ? 5 : 10;
+  let html = "";
+  for (let s = 0; s <= T_all + 0.001; s += step) {
+    html += `<div class="tick" style="left:${s * pxPerSec}px">${tc(s).slice(0, 5)}</div>`;
+    html += `<div class="tick minor" style="left:${(s + step / 2) * pxPerSec}px"></div>`;
+  }
+  $("ruler").innerHTML = html;
+  $("ruler").style.width = w + "px";
+  $("track").style.width = w + "px";
+  $("tl").style.width = w + "px";
+  $("tl").querySelectorAll(".marker").forEach((n) => n.remove());
+  state.markers.forEach((m) => {
+    const d = document.createElement("div");
+    d.className = "marker"; d.style.left = m.t * pxPerSec + "px";
+    $("tl").appendChild(d);
+  });
+}
+function renderTrack() {
+  const st = starts();
+  $("track").innerHTML = state.timeline.map((it, i) => {
+    const c = clipById(it.clip);
+    const cls = ["clip", i % 2 ? "alt" : "", it.uid === sel ? "sel" : ""].join(" ");
+    return `<div class="${cls}" data-uid="${it.uid}" style="left:${st[i] * pxPerSec}px;width:${Math.max(dur(it) * pxPerSec, 14)}px">
+        <div class="handle l" data-h="l" data-uid="${it.uid}"></div>
+        <div class="lbl">${c.id}</div>
+        <div class="sub">${tc(dur(it))} · ${tc(it.in)}–${tc(it.out)}</div>
+        <div class="handle r" data-h="r" data-uid="${it.uid}"></div>
+      </div>`;
+  }).join("");
+}
+function renderInspector() {
+  const it = state.timeline.find((i) => i.uid === sel);
+  if (!it) { $("inspector").innerHTML = '<div class="none">Toca un clip de la línea de tiempo para editar su entrada y salida.</div>'; return; }
+  const c = clipById(it.clip);
+  $("inspector").innerHTML = `
+    <div class="field"><label>Clip</label><div>${c.name}</div></div>
+    <div class="two">
+      <div class="field"><label>Entrada (s)</label><input id="fIn" type="number" step="0.033" min="0" max="${c.dur}" value="${it.in.toFixed(3)}"></div>
+      <div class="field"><label>Salida (s)</label><input id="fOut" type="number" step="0.033" min="0" max="${c.dur}" value="${it.out.toFixed(3)}"></div>
+    </div>
+    <div class="field"><label>Duración del clip en la secuencia</label><div class="tc" style="text-align:center">${tc(dur(it))}</div></div>
+    <div class="field"><label>Duración del material original</label><div class="meta" style="font:12px var(--mono);color:var(--muted)">${tc(c.dur)} (${c.dur.toFixed(2)} s)</div></div>
+    <div class="two">
+      <button id="bToStart">Ir al inicio</button>
+      <button id="bToIn">Cabezal = entrada</button>
+    </div>`;
+  const apply = () => {
+    const a = parseFloat($("fIn").value), b = parseFloat($("fOut").value);
+    if (isNaN(a) || isNaN(b)) return;
+    const nin = clamp(a, 0, c.dur - 0.1), nout = clamp(b, 0.1, c.dur);
+    if (nout - nin < 0.1) { status("La salida debe ir al menos 0.1 s después de la entrada."); renderInspector(); return; }
+    if (Math.abs(nin - it.in) < 1e-6 && Math.abs(nout - it.out) < 1e-6) return;
+    snapshot(); it.in = r3(nin); it.out = r3(nout); afterChange();
+  };
+  $("fIn").onchange = apply; $("fOut").onchange = apply;
+  $("bToStart").onclick = () => seek(starts()[state.timeline.indexOf(it)]);
+  $("bToIn").onclick = () => { const i = state.timeline.indexOf(it); snapshot(); it.in = r3(clamp(T - starts()[i] + it.in, 0, c.dur - 0.1)); afterChange(); };
+}
+function renderExport() {
+  const json = {
+    version: 1, fps: FPS,
+    sources: CLIPS.map((c) => ({ id: c.id, file: c.id + ".MOV", durSeconds: c.dur })),
+    timeline: state.timeline.map((it) => ({ clip: it.clip, in: r3(it.in), out: r3(it.out) })),
+    markers: state.markers.map((m) => ({ t: m.t })),
+  };
+  const edl = state.timeline.map((it, i) => `${String(i + 1).padStart(2, "0")}  ${it.clip}  entrada ${tc(it.in)}  salida ${tc(it.out)}  duración ${tc(dur(it))}`).join("\n");
+  $("out").value = "# Lista de edición (total " + tc(total()) + ")\n" + edl + "\n\n" + JSON.stringify(json);
+}
+function updateUI() {
+  const t = total();
+  $("tc").textContent = tc(T) + " / " + tc(t);
+  $("playhead").style.left = T * pxPerSec + "px";
+  $("bPlay").textContent = playing ? "❚❚" : "▶";
+  $("bUndo").disabled = !hist.length; $("bRedo").disabled = !future.length;
+  $("pvEmpty").hidden = state.timeline.length > 0;
+  pv.style.display = state.timeline.length ? "" : "none";
+  // Mantener visible el cabezal al reproducir.
+  const sc = $("tlScroll"), x = T * pxPerSec;
+  if (playing && (x < sc.scrollLeft + 40 || x > sc.scrollLeft + sc.clientWidth - 80)) sc.scrollLeft = Math.max(0, x - sc.clientWidth / 3);
+}
+function renderAll() {
+  renderRuler(); renderTrack(); renderInspector(); renderExport(); updateUI();
+}
+
+// ---------- arrastres: reordenar, recortar, cabezal ----------
+let drag = null;
+$("track").addEventListener("pointerdown", (e) => {
+  const h = e.target.closest(".handle"), blk = e.target.closest(".clip");
+  if (!blk) return;
+  const uidv = blk.dataset.uid;
+  const it = state.timeline.find((i) => i.uid === uidv);
+  if (!it) return;
+  sel = uidv;
+  drag = { mode: h ? "trim-" + h.dataset.h : "move", uid: uidv, x0: e.clientX, before: JSON.stringify(state), in0: it.in, out0: it.out, moved: false, blk };
+  try { blk.setPointerCapture(e.pointerId); } catch (err) {}
+  e.preventDefault();
+  renderInspector();
+});
+window.addEventListener("pointermove", (e) => {
+  if (!drag) return;
+  const dx = e.clientX - drag.x0, dt = dx / pxPerSec;
+  if (Math.abs(dx) > 3) drag.moved = true;
+  const it = state.timeline.find((i) => i.uid === drag.uid);
+  if (!it) return;
+  const c = clipById(it.clip);
+  if (drag.mode === "trim-l") {
+    it.in = r3(clamp(drag.in0 + dt, 0, drag.out0 - 0.1));
+    renderTrack(); renderInspector(); renderExport(); updateUI();
+  } else if (drag.mode === "trim-r") {
+    it.out = r3(clamp(drag.out0 + dt, drag.in0 + 0.1, c.dur));
+    renderTrack(); renderInspector(); renderExport(); updateUI();
+  } else if (drag.mode === "move" && drag.moved) {
+    // Mover el bloque visualmente y calcular la posición de destino.
+    drag.blk.classList.add("dragging");
+    drag.blk.style.transform = `translateX(${dx}px)`;
+  }
+});
+window.addEventListener("pointerup", (e) => {
+  if (!drag) return;
+  const d = drag; drag = null;
+  if (d.mode === "move") {
+    d.blk.classList.remove("dragging");
+    if (d.moved) {
+      const from = state.timeline.findIndex((i) => i.uid === d.uid);
+      const center = d.blk.getBoundingClientRect().left + d.blk.getBoundingClientRect().width / 2;
+      let to = state.timeline.length - 1;
+      const blocks = [...$("track").querySelectorAll(".clip")].filter((b) => b !== d.blk);
+      // Destino = número de bloques (sin contar el arrastrado) cuyo centro queda a la izquierda.
+      const rects = blocks.map((b) => { const r = b.getBoundingClientRect(); return r.left + r.width / 2; });
+      to = rects.filter((x) => x < center).length;
+      if (to !== from) {
+        const [moved] = state.timeline.splice(from, 1);
+        state.timeline.splice(to, 0, moved);
+      }
+    } else {
+      // Un toque: saltar el cabezal al inicio del clip.
+      const i = state.timeline.findIndex((x) => x.uid === d.uid);
+      if (i >= 0) { playing && togglePlay(); showAt(starts()[i], false); }
+    }
+  }
+  if (JSON.stringify(state) !== d.before) { hist.push(d.before); if (hist.length > 200) hist.shift(); future = []; }
+  afterChange();
+});
+
+// Cabezal: clic o arrastre en la regla.
+let scrubbing = false;
+function scrubAt(clientX) {
+  const r = $("ruler").getBoundingClientRect();
+  seek(clamp((clientX - r.left) / pxPerSec, 0, total()));
+}
+$("ruler").addEventListener("pointerdown", (e) => { scrubbing = true; scrubAt(e.clientX); try { $("ruler").setPointerCapture(e.pointerId); } catch (err) {} });
+$("ruler").addEventListener("pointermove", (e) => { if (scrubbing) scrubAt(e.clientX); });
+$("ruler").addEventListener("pointerup", () => { scrubbing = false; });
+
+// Material: añadir.
+$("bin").addEventListener("click", (e) => {
+  const a = e.target.closest("[data-add]"), b = e.target.closest("[data-ins]");
+  if (a) insertClipAt(a.dataset.add, Infinity);
+  if (b) insertClipAt(b.dataset.ins, T);
+});
+
+// Botones.
+$("bUndo").onclick = undo; $("bRedo").onclick = redo;
+$("bSplit").onclick = doSplit; $("bDel").onclick = doDelete; $("bMark").onclick = addMarker;
+$("bPlay").onclick = togglePlay;
+$("bStart").onclick = () => seek(0);
+$("bEnd").onclick = () => seek(total());
+$("bBack").onclick = () => step(-1 / FPS);
+$("bFwd").onclick = () => step(1 / FPS);
+$("zoom").oninput = (e) => { pxPerSec = Number(e.target.value); renderAll(); };
+$("bReset").onclick = () => { snapshot(); state = freshState(); sel = null; T = 0; afterChange(); status("Orden inicial restablecido (puedes deshacerlo)."); };
+$("bCopy").onclick = () => {
+  const ta = $("out");
+  ta.select();
+  try { navigator.clipboard.writeText(ta.value).then(() => status("Lista copiada.")).catch(() => status("Selecciona el texto y cópialo.")); }
+  catch (e) { status("Selecciona el texto y cópialo."); }
+};
+$("bLoad").onclick = () => {
+  let data;
+  try { data = JSON.parse($("inp").value.slice($("inp").value.indexOf("{"))); } catch (e) { status("No pude leer la lista: revisa que esté completa."); return; }
+  if (!data || !Array.isArray(data.timeline)) { status("La lista no tiene una línea de tiempo válida."); return; }
+  const items = [];
+  for (const it of data.timeline) {
+    const c = clipById(it.clip);
+    if (!c) { status("Clip desconocido: " + it.clip); return; }
+    items.push({ uid: uid(), clip: c.id, in: clamp(+it.in, 0, c.dur), out: clamp(+it.out, 0, c.dur) });
+  }
+  snapshot();
+  state.timeline = items;
+  state.markers = (data.markers || []).map((m) => ({ t: +m.t, id: uid() }));
+  sel = null; T = 0; afterChange(); status("Lista cargada.");
+};
+
+// Teclado.
+window.addEventListener("keydown", (e) => {
+  if (e.target.matches("input, textarea, select")) return;
+  const mod = e.ctrlKey || e.metaKey;
+  if (mod && e.key.toLowerCase() === "z" && !e.shiftKey) { e.preventDefault(); undo(); return; }
+  if (mod && ((e.key.toLowerCase() === "z" && e.shiftKey) || e.key.toLowerCase() === "y")) { e.preventDefault(); redo(); return; }
+  if (e.code === "Space") { e.preventDefault(); togglePlay(); }
+  else if (e.key === "ArrowLeft") { e.preventDefault(); step(e.shiftKey ? -1 : -1 / FPS); }
+  else if (e.key === "ArrowRight") { e.preventDefault(); step(e.shiftKey ? 1 : 1 / FPS); }
+  else if (e.key === "Home") seek(0);
+  else if (e.key === "End") seek(total());
+  else if (e.key.toLowerCase() === "s") doSplit();
+  else if (e.key === "Delete" || e.key === "Backspace") { e.preventDefault(); doDelete(); }
+  else if (e.key.toLowerCase() === "m") addMarker();
+});
+
+// Eventos del video.
+pv.addEventListener("loadedmetadata", () => {
+  const id = loadedUid && state.timeline.find((i) => i.uid === loadedUid);
+  if (!id) return;
+  const c = clipById(id.clip);
+  if (c && Math.abs(c.dur - pv.duration) > 0.2 && isFinite(pv.duration)) {
+    c.dur = Math.round(pv.duration * 100) / 100;
+    renderBin(); renderInspector(); renderExport();
+  }
+});
+pv.addEventListener("error", () => status("No se pudo abrir el clip. Recarga la página."));
+
+// Inicio.
+renderBin();
+state.timeline = state.timeline.filter((i) => clipById(i.clip));
+renderAll();
+</script>
+</body>
+</html>

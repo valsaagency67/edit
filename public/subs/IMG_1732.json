@@ -1,0 +1,72 @@
+[
+ {
+  "text": " Y",
+  "startMs": 480,
+  "endMs": 720,
+  "timestampMs": 480,
+  "confidence": null
+ },
+ {
+  "text": " lo",
+  "startMs": 720,
+  "endMs": 960,
+  "timestampMs": 720,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 960,
+  "endMs": 1120,
+  "timestampMs": 960,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 1120,
+  "endMs": 1280,
+  "timestampMs": 1120,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 1280,
+  "endMs": 1440,
+  "timestampMs": 1280,
+  "confidence": null
+ },
+ {
+  "text": " conoce,",
+  "startMs": 1440,
+  "endMs": 2000,
+  "timestampMs": 1440,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 2000,
+  "endMs": 2240,
+  "timestampMs": 2000,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 2240,
+  "endMs": 2400,
+  "timestampMs": 2240,
+  "confidence": null
+ },
+ {
+  "text": " puede",
+  "startMs": 2400,
+  "endMs": 2640,
+  "timestampMs": 2400,
+  "confidence": null
+ },
+ {
+  "text": " prevenir.",
+  "startMs": 2640,
+  "endMs": 3140,
+  "timestampMs": 2640,
+  "confidence": null
+ }
+]

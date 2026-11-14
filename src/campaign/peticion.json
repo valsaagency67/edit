@@ -1,0 +1,1159 @@
+{
+ "fps": 30,
+ "speed": 1.07,
+ "videoFrames": 1232,
+ "duration": 42.867,
+ "cuts": [
+  3.467,
+  19.133,
+  30.633
+ ],
+ "ranges": [
+  {
+   "seg": 0,
+   "base": 0,
+   "dur": 42,
+   "out": 0,
+   "outDur": 34,
+   "speed": 1.25,
+   "gray": true
+  },
+  {
+   "seg": 0,
+   "base": 46,
+   "dur": 18,
+   "out": 34,
+   "outDur": 14,
+   "speed": 1.25,
+   "gray": true
+  },
+  {
+   "seg": 0,
+   "base": 82,
+   "dur": 27,
+   "out": 48,
+   "outDur": 22,
+   "speed": 1.25,
+   "gray": true
+  },
+  {
+   "seg": 1,
+   "base": 125,
+   "dur": 43,
+   "out": 70,
+   "outDur": 34,
+   "speed": 1.25,
+   "gray": true
+  },
+  {
+   "seg": 2,
+   "base": 176,
+   "dur": 102,
+   "out": 104,
+   "outDur": 95,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 278,
+   "dur": 47,
+   "out": 199,
+   "outDur": 44,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 327,
+   "dur": 86,
+   "out": 243,
+   "outDur": 80,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 415,
+   "dur": 51,
+   "out": 323,
+   "outDur": 48,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 473,
+   "dur": 10,
+   "out": 371,
+   "outDur": 9,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 486,
+   "dur": 17,
+   "out": 380,
+   "outDur": 16,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 505,
+   "dur": 96,
+   "out": 396,
+   "outDur": 90,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 604,
+   "dur": 18,
+   "out": 486,
+   "outDur": 17,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 624,
+   "dur": 37,
+   "out": 503,
+   "outDur": 35,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 3,
+   "base": 667,
+   "dur": 39,
+   "out": 538,
+   "outDur": 36,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 747,
+   "dur": 73,
+   "out": 574,
+   "outDur": 61,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 825,
+   "dur": 61,
+   "out": 635,
+   "outDur": 51,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 890,
+   "dur": 81,
+   "out": 686,
+   "outDur": 68,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 974,
+   "dur": 67,
+   "out": 754,
+   "outDur": 56,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 1050,
+   "dur": 32,
+   "out": 810,
+   "outDur": 27,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 4,
+   "base": 1084,
+   "dur": 99,
+   "out": 837,
+   "outDur": 82,
+   "speed": 1.2,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1244,
+   "dur": 39,
+   "out": 919,
+   "outDur": 36,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1287,
+   "dur": 117,
+   "out": 955,
+   "outDur": 109,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1412,
+   "dur": 113,
+   "out": 1064,
+   "outDur": 106,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1530,
+   "dur": 55,
+   "out": 1170,
+   "outDur": 51,
+   "speed": 1.07,
+   "gray": false
+  },
+  {
+   "seg": 5,
+   "base": 1595,
+   "dur": 12,
+   "out": 1221,
+   "outDur": 11,
+   "speed": 1.07,
+   "gray": false
+  }
+ ],
+ "captions": [
+  {
+   "from": 0.04,
+   "to": 1.207,
+   "pieces": [
+    {
+     "t": "está ",
+     "y": false
+    },
+    {
+     "t": "prohibido ",
+     "y": true
+    },
+    {
+     "t": "grabar",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 1.227,
+   "to": 2.314,
+   "pieces": [
+    {
+     "t": "en ",
+     "y": false
+    },
+    {
+     "t": "un ",
+     "y": false
+    },
+    {
+     "t": "escenario ",
+     "y": false
+    },
+    {
+     "t": "público,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 2.334,
+   "to": 2.738,
+   "pieces": [
+    {
+     "t": "van ",
+     "y": false
+    },
+    {
+     "t": "a ",
+     "y": false
+    },
+    {
+     "t": "llegar",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 2.758,
+   "to": 3.447,
+   "pieces": [
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "inmediato.",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 3.467,
+   "to": 4.497,
+   "pieces": [
+    {
+     "t": "El ",
+     "y": false
+    },
+    {
+     "t": "14 ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "septiembre",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 4.517,
+   "to": 5.095,
+   "pieces": [
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "este ",
+     "y": false
+    },
+    {
+     "t": "año",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 5.115,
+   "to": 6.633,
+   "pieces": [
+    {
+     "t": "le ",
+     "y": false
+    },
+    {
+     "t": "solicité ",
+     "y": false
+    },
+    {
+     "t": "a ",
+     "y": false
+    },
+    {
+     "t": "la ",
+     "y": false
+    },
+    {
+     "t": "alcaldía",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 6.671,
+   "to": 8.087,
+   "pieces": [
+    {
+     "t": "Particularmente ",
+     "y": false
+    },
+    {
+     "t": "le ",
+     "y": false
+    },
+    {
+     "t": "pedí",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 8.107,
+   "to": 9.358,
+   "pieces": [
+    {
+     "t": "los ",
+     "y": false
+    },
+    {
+     "t": "números ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "homicidios",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 9.378,
+   "to": 10.778,
+   "pieces": [
+    {
+     "t": "y ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "violencia ",
+     "y": true
+    },
+    {
+     "t": "intrafamiliar",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 10.798,
+   "to": 12.347,
+   "pieces": [
+    {
+     "t": "discriminado ",
+     "y": false
+    },
+    {
+     "t": "por ",
+     "y": false
+    },
+    {
+     "t": "comuna",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 12.367,
+   "to": 13.18,
+   "pieces": [
+    {
+     "t": "por ",
+     "y": false
+    },
+    {
+     "t": "meses",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 13.2,
+   "to": 14.146,
+   "pieces": [
+    {
+     "t": "y ",
+     "y": false
+    },
+    {
+     "t": "principalmente",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 14.166,
+   "to": 15.342,
+   "pieces": [
+    {
+     "t": "por ",
+     "y": false
+    },
+    {
+     "t": "si ",
+     "y": false
+    },
+    {
+     "t": "las ",
+     "y": false
+    },
+    {
+     "t": "víctimas",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 15.362,
+   "to": 16.18,
+   "pieces": [
+    {
+     "t": "eran ",
+     "y": false
+    },
+    {
+     "t": "jóvenes,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 16.2,
+   "to": 16.679,
+   "pieces": [
+    {
+     "t": "es ",
+     "y": false
+    },
+    {
+     "t": "decir,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 16.699,
+   "to": 17.445,
+   "pieces": [
+    {
+     "t": "si ",
+     "y": false
+    },
+    {
+     "t": "tenían ",
+     "y": false
+    },
+    {
+     "t": "entre",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 17.465,
+   "to": 19.113,
+   "pieces": [
+    {
+     "t": "14 ",
+     "y": false
+    },
+    {
+     "t": "y ",
+     "y": false
+    },
+    {
+     "t": "28 ",
+     "y": false
+    },
+    {
+     "t": "años ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "edad.",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 19.133,
+   "to": 20.469,
+   "pieces": [
+    {
+     "t": "Tienen ",
+     "y": false
+    },
+    {
+     "t": "15 ",
+     "y": true
+    },
+    {
+     "t": "días ",
+     "y": true
+    },
+    {
+     "t": "hábiles",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 20.489,
+   "to": 21.203,
+   "pieces": [
+    {
+     "t": "para ",
+     "y": false
+    },
+    {
+     "t": "responder.",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 21.223,
+   "to": 21.869,
+   "pieces": [
+    {
+     "t": "Ya ",
+     "y": false
+    },
+    {
+     "t": "pasaron",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 21.889,
+   "to": 22.847,
+   "pieces": [
+    {
+     "t": "más ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "tres ",
+     "y": true
+    },
+    {
+     "t": "semanas",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 22.867,
+   "to": 23.964,
+   "pieces": [
+    {
+     "t": "y ",
+     "y": false
+    },
+    {
+     "t": "el ",
+     "y": false
+    },
+    {
+     "t": "9 ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "octubre",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 23.984,
+   "to": 25.113,
+   "pieces": [
+    {
+     "t": "me ",
+     "y": false
+    },
+    {
+     "t": "llegó ",
+     "y": false
+    },
+    {
+     "t": "un ",
+     "y": false
+    },
+    {
+     "t": "correo.",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 25.133,
+   "to": 25.533,
+   "pieces": [
+    {
+     "t": "Sin ",
+     "y": false
+    },
+    {
+     "t": "embargo,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 25.517,
+   "to": 26.297,
+   "pieces": [
+    {
+     "t": "no ",
+     "y": false
+    },
+    {
+     "t": "fue ",
+     "y": false
+    },
+    {
+     "t": "con ",
+     "y": false
+    },
+    {
+     "t": "los ",
+     "y": false
+    },
+    {
+     "t": "datos",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 26.317,
+   "to": 26.98,
+   "pieces": [
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "seguridad,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 27.0,
+   "to": 28.008,
+   "pieces": [
+    {
+     "t": "fue ",
+     "y": false
+    },
+    {
+     "t": "con ",
+     "y": false
+    },
+    {
+     "t": "un ",
+     "y": false
+    },
+    {
+     "t": "radicado,",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 28.028,
+   "to": 28.808,
+   "pieces": [
+    {
+     "t": "lo ",
+     "y": false
+    },
+    {
+     "t": "que ",
+     "y": false
+    },
+    {
+     "t": "significa",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 28.828,
+   "to": 30.008,
+   "pieces": [
+    {
+     "t": "que ",
+     "y": false
+    },
+    {
+     "t": "apenas ",
+     "y": false
+    },
+    {
+     "t": "recibieron",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 30.028,
+   "to": 30.633,
+   "pieces": [
+    {
+     "t": "la ",
+     "y": false
+    },
+    {
+     "t": "solicitud.",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 30.714,
+   "to": 31.161,
+   "pieces": [
+    {
+     "t": "Por ",
+     "y": false
+    },
+    {
+     "t": "correo",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 31.181,
+   "to": 31.844,
+   "pieces": [
+    {
+     "t": "no ",
+     "y": true
+    },
+    {
+     "t": "me ",
+     "y": true
+    },
+    {
+     "t": "responden,",
+     "y": true
+    }
+   ]
+  },
+  {
+   "from": 31.864,
+   "to": 32.816,
+   "pieces": [
+    {
+     "t": "entonces ",
+     "y": false
+    },
+    {
+     "t": "vine ",
+     "y": false
+    },
+    {
+     "t": "hoy",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 32.836,
+   "to": 33.236,
+   "pieces": [
+    {
+     "t": "presencialmente",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 33.247,
+   "to": 34.511,
+   "pieces": [
+    {
+     "t": "a ",
+     "y": false
+    },
+    {
+     "t": "radicar ",
+     "y": false
+    },
+    {
+     "t": "un ",
+     "y": false
+    },
+    {
+     "t": "segundo",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 34.531,
+   "to": 35.447,
+   "pieces": [
+    {
+     "t": "derecho ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "petición,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 35.467,
+   "to": 36.518,
+   "pieces": [
+    {
+     "t": "pero ",
+     "y": false
+    },
+    {
+     "t": "esta ",
+     "y": false
+    },
+    {
+     "t": "vez ",
+     "y": false
+    },
+    {
+     "t": "será",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 36.538,
+   "to": 37.789,
+   "pieces": [
+    {
+     "t": "sobre ",
+     "y": false
+    },
+    {
+     "t": "algo ",
+     "y": false
+    },
+    {
+     "t": "que ",
+     "y": false
+    },
+    {
+     "t": "decidirá",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 37.809,
+   "to": 38.992,
+   "pieces": [
+    {
+     "t": "sobre ",
+     "y": false
+    },
+    {
+     "t": "el ",
+     "y": false
+    },
+    {
+     "t": "futuro ",
+     "y": false
+    },
+    {
+     "t": "de ",
+     "y": false
+    },
+    {
+     "t": "Palmira",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 39.012,
+   "to": 40.114,
+   "pieces": [
+    {
+     "t": "y ",
+     "y": false
+    },
+    {
+     "t": "que ",
+     "y": false
+    },
+    {
+     "t": "muy ",
+     "y": false
+    },
+    {
+     "t": "pocas ",
+     "y": false
+    },
+    {
+     "t": "personas",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 40.134,
+   "to": 40.723,
+   "pieces": [
+    {
+     "t": "conocen,",
+     "y": false
+    }
+   ]
+  },
+  {
+   "from": 40.743,
+   "to": 41.143,
+   "pieces": [
+    {
+     "t": "el ",
+     "y": false
+    },
+    {
+     "t": "POT.",
+     "y": true
+    }
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "from": 0.0,
+   "to": 2.333,
+   "icon": "cameraoff",
+   "kicker": "",
+   "text": "Prohibido grabar en espacio público",
+   "color": "red",
+   "fx": "thud"
+  },
+  {
+   "from": 2.334,
+   "to": 3.467,
+   "icon": "shield",
+   "kicker": "Nos dicen que",
+   "text": "La Policía va a llegar",
+   "color": "blue",
+   "fx": "radio"
+  },
+  {
+   "from": 15.288,
+   "to": 19.133,
+   "icon": "people",
+   "kicker": "Víctimas jóvenes",
+   "text": "Entre 14 y 28 años",
+   "color": "blue",
+   "fx": "whoosh"
+  },
+  {
+   "from": 19.133,
+   "to": 21.167,
+   "icon": "clock",
+   "kicker": "Plazo para responder",
+   "text": "15 días hábiles",
+   "color": "red",
+   "fx": "thud"
+  },
+  {
+   "from": 21.223,
+   "to": 22.867,
+   "icon": "calendar",
+   "kicker": "",
+   "text": "Más de 3 semanas",
+   "color": "blue",
+   "fx": "whoosh"
+  },
+  {
+   "from": 30.649,
+   "to": 32.145,
+   "icon": "mail",
+   "kicker": "",
+   "text": "Por correo no responden",
+   "color": "red",
+   "fx": "thud"
+  },
+  {
+   "from": 32.799,
+   "to": 35.467,
+   "icon": "doc",
+   "kicker": "Presencialmente",
+   "text": "Segundo derecho de petición",
+   "color": "blue",
+   "fx": "whoosh"
+  },
+  {
+   "from": 37.772,
+   "to": 39.405,
+   "icon": "city",
+   "kicker": "",
+   "text": "El futuro de Palmira",
+   "color": "blue",
+   "fx": "whoosh"
+  },
+  {
+   "from": 40.7,
+   "to": 42.867,
+   "icon": "city",
+   "kicker": "Muy pocos lo conocen",
+   "text": "¿Qué es el POT?",
+   "color": "red",
+   "fx": "final"
+  }
+ ],
+ "evidence": [
+  {
+   "from": 3.467,
+   "to": 6.582,
+   "img": 0,
+   "title": "Correo del 14 de septiembre",
+   "quote": "Enviado a la Alcaldía de Palmira",
+   "fx": "whoosh"
+  },
+  {
+   "from": 8.63,
+   "to": 12.013,
+   "img": 1,
+   "title": "Lo que le pedí a la Alcaldía",
+   "quote": "Homicidios y violencia intrafamiliar\n2024 y 2025",
+   "fx": "whoosh"
+  },
+  {
+   "from": 27.0,
+   "to": 30.428,
+   "img": 2,
+   "title": "Solo un radicado",
+   "quote": "Radicado N.º 20260525051",
+   "fx": "thud"
+  }
+ ]
+}

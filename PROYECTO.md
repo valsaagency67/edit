@@ -47,6 +47,52 @@ o por ID con `gdown <id>` a `media/raw/` (ignorado por git).
 | IMG_1719.JPG | 2 MB | 1282k0QF6U5h7upYv-nHrwta9bnyfG47s |
 | IMG_1720.JPG | 2 MB | 1f6lkUb1v69TA_3Q4d4PdMPjflI3786Mh |
 
+## Formato real de los originales (verificado)
+
+Todos los .MOV son de iPhone: **HEVC 10-bit 3840x2160 grabado en vertical**
+(metadato de rotación), **HDR HLG + Dolby Vision 8.4**, ~120 fps variable
+(IMG_1713 es 60 fps), audio AAC. Duración total ≈ 8 min 50 s.
+Las 3 fotos (IMG_1718–1720.JPG) son 2160x3840.
+
+Chromium (Remotion) no decodifica bien HEVC HDR: se vería lavado o saturado.
+Por eso hay dos derivados, siempre generados desde `media/raw/` (que nunca se toca):
+
+| Derivado | Script | Formato | Uso |
+|---|---|---|---|
+| Proxy | `npm run proxies` → `public/proxy/` | 540x960, 30 fps, H.264 crf 26 | Solo Remotion Studio |
+| Master | `npm run master -- IMG_XXXX.MOV [inicio dur]` → `public/master/` | 1080x1920, 60 fps CFR, ProRes 422 HQ 10-bit (`prores_aw`), PCM 48 kHz | Render final |
+| Audio | `npm run audio` → `media/audio/` | WAV 16 kHz mono | Whisper |
+
+HDR→SDR (`scripts/hdr.sh`; el master usa la misma conversión horneada en una LUT 3D, `media/lut/`, 40 dB PSNR vs. el filtro directo y ~2× más rápido): zscale a lineal + tonemap hable (desat=2) a BT.709,
+elegido comparando variantes en un fotograma (sin tonemap se ve lavado; mobius
+satura el rojo de la camiseta). El escalado del master es lanczos desde 4K.
+
+Borrador rápido para revisar (540x960, 30 fps, ~3–4 min): `npm run render:borrador` → `out/borrador.mp4`.
+Render final: `npm run render:vigilante` → `out/`
+(H.264 crf 14, BT.709, 60 fps, AAC 320 kbps), leyendo de `public/master/`.
+
+## Videos (src/campaign/)
+
+Clips usados: IMG_1696, 1697, 1702, 1704, 1706, 1710. La secuencia y los cortes viven en `src/campaign/edl.ts`.
+
+- **JFC-Vigilante (65 s):** IMG_1697 0–19 s (el vigilante le dice que no pueden
+  estar ahí) → 1696 → 1702 → 1704 → 1706 → 1710 → cierre.
+
+Estímulos: gancho de texto en los primeros 2.6 s, jump cuts quitando cada
+silencio > 0.35 s con encuadre alterno (1.0×/1.16×) y pop de zoom, empuje lento
+continuo, flash + sacudida + whoosh en cada cambio de clip, textos pop con
+sonido ("Abogado Javeriano", "Liderazgo social en Palmira" — del perfil de
+Instagram), banner fijo con el nombre y la barra de 5 colores, barra de progreso
+y cierre con "¡Súmate a construir una Palmira mejor!" + @juanfelipecastano_col.
+Sin subtítulos palabra por palabra mientras no haya transcripción.
+
+## Transcripciones
+
+`npm run transcribe` → `public/subs/IMG_XXXX.json` (palabra por palabra, para
+los subtítulos) y `TRANSCRIPCIONES.md` (legible, con tiempos para elegir cortes).
+Usa whisper.cpp 1.7.5 + `large-v3-turbo` en español. El modelo se descarga de
+huggingface.co.
+
 ## Pendiente del cliente
 
 - Secuencia de los videos (orden y segmentos).

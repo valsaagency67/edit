@@ -1,0 +1,156 @@
+[
+ {
+  "text": " Si",
+  "startMs": 640,
+  "endMs": 880,
+  "timestampMs": 640,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 880,
+  "endMs": 960,
+  "timestampMs": 880,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 960,
+  "endMs": 1120,
+  "timestampMs": 960,
+  "confidence": null
+ },
+ {
+  "text": " siente",
+  "startMs": 1120,
+  "endMs": 1520,
+  "timestampMs": 1120,
+  "confidence": null
+ },
+ {
+  "text": " capacitado",
+  "startMs": 1520,
+  "endMs": 2160,
+  "timestampMs": 1520,
+  "confidence": null
+ },
+ {
+  "text": " para",
+  "startMs": 2160,
+  "endMs": 2320,
+  "timestampMs": 2160,
+  "confidence": null
+ },
+ {
+  "text": " hacer",
+  "startMs": 2320,
+  "endMs": 2560,
+  "timestampMs": 2320,
+  "confidence": null
+ },
+ {
+  "text": " las",
+  "startMs": 2560,
+  "endMs": 2720,
+  "timestampMs": 2560,
+  "confidence": null
+ },
+ {
+  "text": " preguntas",
+  "startMs": 2720,
+  "endMs": 3120,
+  "timestampMs": 2720,
+  "confidence": null
+ },
+ {
+  "text": " incómodas,",
+  "startMs": 3120,
+  "endMs": 3840,
+  "timestampMs": 3120,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 3840,
+  "endMs": 4000,
+  "timestampMs": 3840,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 4000,
+  "endMs": 4160,
+  "timestampMs": 4000,
+  "confidence": null
+ },
+ {
+  "text": " sorprenda",
+  "startMs": 4160,
+  "endMs": 4720,
+  "timestampMs": 4160,
+  "confidence": null
+ },
+ {
+  "text": " cuando",
+  "startMs": 4720,
+  "endMs": 4960,
+  "timestampMs": 4720,
+  "confidence": null
+ },
+ {
+  "text": " un",
+  "startMs": 4960,
+  "endMs": 5040,
+  "timestampMs": 4960,
+  "confidence": null
+ },
+ {
+  "text": " ciudadano",
+  "startMs": 5040,
+  "endMs": 5520,
+  "timestampMs": 5040,
+  "confidence": null
+ },
+ {
+  "text": " interesado",
+  "startMs": 5520,
+  "endMs": 6000,
+  "timestampMs": 5520,
+  "confidence": null
+ },
+ {
+  "text": " en",
+  "startMs": 6000,
+  "endMs": 6080,
+  "timestampMs": 6000,
+  "confidence": null
+ },
+ {
+  "text": " su",
+  "startMs": 6080,
+  "endMs": 6240,
+  "timestampMs": 6080,
+  "confidence": null
+ },
+ {
+  "text": " ciudad",
+  "startMs": 6240,
+  "endMs": 6720,
+  "timestampMs": 6240,
+  "confidence": null
+ },
+ {
+  "text": " decide",
+  "startMs": 6720,
+  "endMs": 7360,
+  "timestampMs": 6720,
+  "confidence": null
+ },
+ {
+  "text": " hacerlas.",
+  "startMs": 7360,
+  "endMs": 7860,
+  "timestampMs": 7360,
+  "confidence": null
+ }
+]

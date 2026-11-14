@@ -1,0 +1,385 @@
+{
+  "_doc": "Video «cinematográfico» de Juan Felipe (carpeta de Drive «Pepo 3»): caso dramatizado de una clienta a la que le vaciaron la tarjeta de crédito y cómo reclamarle al banco. Nueve tomas 4K (media/pepo3/, no versionadas); de cada una se quita el «ya / listo / ¿ya? sí» del principio (`from`). Estilo del video de referencia media/ref/referencia-4.mp4, pero SIN cambiar el color (el cliente lo pidió así) y de corrido, como una entrevista real (velocidad normal, solo se quitan pausas largas): subtítulos de una o dos palabras en serifa, palabras grandes detrás de Juan Felipe (`big` con layer behind, recorte con rembg) y delante, y los efectos de esa referencia (public/sfx/ref2-*, scripts/extract_sfx_ref4.py). Lo arma scripts/build_pepo3.py -> src/campaign/pepo3.json. Cuando habla ella (`woman`): sonido de suspenso (riser de la referencia) y la música baja; cuando habla él, la música vuelve. Música: el audio del video que mandó el cliente (media/ref/referencia-5.mp4 -> media/pepo3/musica.m4a). Tomas en 4K (size 2160x3840): se renderiza con --scale=2 para la entrega 4K (npm run render:pepo3-4k). Más claro (grade: gamma y medios tonos, el cliente lo vio muy oscuro). Música: desde la parte viral (golpe a los 25,5 s de la canción, cae en «Este es el proceso»), -28 LUFS. Audio (el cliente no oía bien las voces): voicePost da presencia a la voz ya armada; música a -31 LUFS y -5 dB más mientras hablan (duckVoice). Gancho (reel de prueba con 300 vistas): «ME ROBARON LA TARJETA» grande desde el primer cuadro y «15 MILLONES» en dorado en «15», primera escena más clara; se quitó «Este es el proceso que vamos a llevar».",
+  "fps": 30,
+  "speed": 1.0,
+  "pause": {
+    "threshold": 0.35,
+    "minSilence": 0.3,
+    "keep": 0.18
+  },
+  "gap": 0.0,
+  "tail": 2.6,
+  "videos": {},
+  "cleanStart": true,
+  "outro": {
+    "kicker": "¿Te pasó algo así?",
+    "text": "Escríbeme"
+  },
+  "big": [
+    {
+      "scene": "paso1",
+      "at": "Reclama",
+      "until": "es",
+      "text": "PASO 1",
+      "layer": "front",
+      "style": "tag"
+    },
+    {
+      "scene": "paso1",
+      "at": "Reclama",
+      "until": "es",
+      "text": "RECLAMA",
+      "layer": "behind"
+    },
+    {
+      "scene": "paso1",
+      "at": "por",
+      "until": "es",
+      "text": "por escrito",
+      "layer": "front"
+    },
+    {
+      "scene": "paso1",
+      "at": "obligatorio",
+      "until": "así",
+      "text": "OBLIGATORIO",
+      "layer": "behind"
+    },
+    {
+      "scene": "paso1",
+      "at": "bancarias",
+      "text": "BANCARIAS",
+      "layer": "behind",
+      "untilEnd": true
+    },
+    {
+      "scene": "paso2",
+      "at": "acción",
+      "until": "financiero.",
+      "text": "PASO 2",
+      "layer": "front",
+      "style": "tag",
+      "untilEnd": true
+    },
+    {
+      "scene": "paso2",
+      "at": "acción",
+      "until": "financiero.",
+      "text": "protección al consumidor",
+      "layer": "front"
+    },
+    {
+      "scene": "reintegro",
+      "at": "reintegrar",
+      "until": "y",
+      "text": "REINTEGRAR",
+      "layer": "behind"
+    },
+    {
+      "scene": "consejo",
+      "at": "esto",
+      "until": "hacer.",
+      "untilEnd": true,
+      "text": "esto te recomiendo",
+      "layer": "front"
+    }
+  ],
+  "sfx": [
+    {
+      "name": "riser",
+      "womanStart": true,
+      "gain": 0.6,
+      "which": [
+        0,
+        -1
+      ]
+    },
+    {
+      "name": "impact",
+      "scene": "caso",
+      "word": "15",
+      "gain": 0.8
+    },
+    {
+      "name": "shutter",
+      "sceneStart": "consejo",
+      "gain": 0.6
+    },
+    {
+      "name": "click",
+      "scene": "paso1",
+      "word": "Reclama",
+      "gain": 0.8
+    },
+    {
+      "name": "impact2",
+      "scene": "paso1",
+      "word": "obligatorio",
+      "gain": 0.7
+    },
+    {
+      "name": "click",
+      "scene": "paso2",
+      "word": "acción",
+      "gain": 0.8
+    },
+    {
+      "name": "impact",
+      "scene": "reintegro",
+      "word": "reintegrar",
+      "gain": 0.7
+    }
+  ],
+  "scenes": [
+    {
+      "key": "caso",
+      "camera": "C013",
+      "text": "Me robaron la tarjeta de crédito, me vaciaron 15 millones de pesos y no sé qué hacer.",
+      "phrases": [
+        "Me *robaron",
+        "la tarjeta",
+        "de crédito,",
+        "me vaciaron",
+        "*15 *millones",
+        "de pesos",
+        "y no",
+        "sé qué",
+        "hacer."
+      ],
+      "shots": [
+        {
+          "src": "caso"
+        }
+      ],
+      "cards": [],
+      "from": 4.25
+    },
+    {
+      "key": "banco",
+      "camera": "C014",
+      "text": "¿Y ya fuiste al banco a hacer el reclamo?",
+      "phrases": [
+        "¿Y ya",
+        "fuiste al",
+        "*banco a",
+        "hacer el",
+        "*reclamo?"
+      ],
+      "shots": [
+        {
+          "src": "banco"
+        }
+      ],
+      "cards": [],
+      "from": 2.1
+    },
+    {
+      "key": "veces",
+      "camera": "C015",
+      "text": "Pues claro, he ido muchas veces y me dicen que no me pueden colaborar con mi caso.",
+      "phrases": [
+        "Pues claro,",
+        "he ido",
+        "*muchas *veces",
+        "y me",
+        "dicen que",
+        "no me",
+        "pueden",
+        "colaborar con",
+        "mi caso."
+      ],
+      "shots": [
+        {
+          "src": "veces"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "consejo",
+      "camera": "C020",
+      "text": "Si a ti te desconocen una transacción y el banco no te quiere responder, esto es lo que te recomiendo hacer.",
+      "phrases": [
+        "Si a",
+        "ti te",
+        "*desconocen una",
+        "transacción y",
+        "el *banco",
+        "no te",
+        "quiere",
+        "responder,",
+        "esto es",
+        "lo que",
+        "te *recomiendo",
+        "hacer."
+      ],
+      "shots": [
+        {
+          "src": "consejo"
+        }
+      ],
+      "cards": [],
+      "from": 5.1
+    },
+    {
+      "key": "paso1",
+      "camera": "C028",
+      "text": "Reclama por escrito al banco, es obligatorio antes de cualquier demanda, así que aprovecha y pide las operaciones bancarias.",
+      "phrases": [
+        "Reclama por",
+        "*escrito al",
+        "*banco,",
+        "es *obligatorio",
+        "antes de",
+        "cualquier",
+        "demanda,",
+        "así que",
+        "aprovecha y",
+        "pide las",
+        "*operaciones",
+        "*bancarias."
+      ],
+      "shots": [
+        {
+          "src": "paso1"
+        }
+      ],
+      "cards": [],
+      "from": 1.0,
+      "trimTo": 6.6
+    },
+    {
+      "key": "paso2",
+      "camera": "C040",
+      "text": "Y ojo que si rechazan tu reclamación o no la responden a tiempo, puedes iniciar la acción de protección al consumidor financiero.",
+      "phrases": [
+        "Y ojo",
+        "que si",
+        "*rechazan tu",
+        "reclamación o",
+        "no la",
+        "responden a",
+        "*tiempo,",
+        "puedes iniciar",
+        "la acción",
+        "de *protección",
+        "al *consumidor",
+        "*financiero."
+      ],
+      "shots": [
+        {
+          "src": "paso2"
+        }
+      ],
+      "cards": [],
+      "from": 0.95
+    },
+    {
+      "key": "reintegro",
+      "camera": "C045",
+      "text": "En este tipo de casos, el banco suele tener la responsabilidad de reintegrar el dinero, y aunque cada caso depende de sus pruebas, una reclamación bien escrita cambia mucho la situación.",
+      "phrases": [
+        "En este",
+        "tipo de",
+        "casos,",
+        "el *banco",
+        "suele tener",
+        "la",
+        "responsabilidad",
+        "de *reintegrar",
+        "el *dinero,",
+        "y aunque",
+        "cada caso",
+        "depende de",
+        "sus *pruebas,",
+        "una",
+        "reclamación",
+        "bien *escrita",
+        "cambia mucho",
+        "la situación."
+      ],
+      "shots": [
+        {
+          "src": "reintegro"
+        }
+      ],
+      "cards": []
+    },
+    {
+      "key": "cierre",
+      "camera": "C051",
+      "text": "Necesito salir de esto ya, ¿cómo podríamos empezar con la reclamación? Si quieres una reclamación bien redactada y una solución pronta, puedes escribirme.",
+      "phrases": [
+        "Necesito *salir",
+        "de esto",
+        "ya,",
+        "¿cómo",
+        "podríamos",
+        "empezar con",
+        "la",
+        "reclamación?",
+        "Si quieres",
+        "una",
+        "reclamación",
+        "bien redactada",
+        "y una",
+        "solución",
+        "pronta,",
+        "puedes",
+        "*escribirme."
+      ],
+      "shots": [
+        {
+          "src": "cierre"
+        }
+      ],
+      "cards": [],
+      "from": 1.15
+    }
+  ],
+  "woman": [
+    {
+      "scene": "caso"
+    },
+    {
+      "scene": "veces"
+    },
+    {
+      "scene": "cierre",
+      "until": "Si"
+    }
+  ],
+  "musicLUFS": -31,
+  "duckWoman": false,
+  "size": [
+    2160,
+    3840
+  ],
+  "grade": "eq=gamma=1.32:brightness=0.02:saturation=1.06,curves=master='0/0 0.1/0.08 0.5/0.57 1/1'",
+  "musicSegments": [
+    [
+      15.6,
+      55.0
+    ],
+    [
+      34.0,
+      47.0
+    ]
+  ],
+  "duckVoice": 5,
+  "voicePost": "highpass=f=100,equalizer=f=220:t=q:w=1:g=-3,equalizer=f=450:t=q:w=1:g=-2,equalizer=f=2800:t=q:w=1:g=4,equalizer=f=5000:t=q:w=1:g=3,highshelf=f=8000:g=2,acompressor=threshold=-20dB:ratio=2.5:attack=5:release=80:makeup=1,alimiter=limit=0.9:level=false,loudnorm=I=-15:TP=-1.5:LRA=6",
+  "hook": {
+    "scene": "caso",
+    "lines": [
+      {
+        "text": "ME ROBARON LA TARJETA",
+        "at": "Me"
+      },
+      {
+        "text": "15 MILLONES",
+        "at": "15",
+        "gold": true
+      }
+    ]
+  }
+}

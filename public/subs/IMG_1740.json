@@ -1,0 +1,268 @@
+[
+ {
+  "text": " Por",
+  "startMs": 480,
+  "endMs": 800,
+  "timestampMs": 480,
+  "confidence": null
+ },
+ {
+  "text": " correo",
+  "startMs": 800,
+  "endMs": 1360,
+  "timestampMs": 800,
+  "confidence": null
+ },
+ {
+  "text": " no",
+  "startMs": 1360,
+  "endMs": 1520,
+  "timestampMs": 1360,
+  "confidence": null
+ },
+ {
+  "text": " me",
+  "startMs": 1520,
+  "endMs": 1680,
+  "timestampMs": 1520,
+  "confidence": null
+ },
+ {
+  "text": " responde,",
+  "startMs": 1680,
+  "endMs": 2320,
+  "timestampMs": 1680,
+  "confidence": null
+ },
+ {
+  "text": " así",
+  "startMs": 2320,
+  "endMs": 2560,
+  "timestampMs": 2320,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 2560,
+  "endMs": 2720,
+  "timestampMs": 2560,
+  "confidence": null
+ },
+ {
+  "text": " vengo",
+  "startMs": 2720,
+  "endMs": 3120,
+  "timestampMs": 2720,
+  "confidence": null
+ },
+ {
+  "text": " presencialmente",
+  "startMs": 3120,
+  "endMs": 3840,
+  "timestampMs": 3120,
+  "confidence": null
+ },
+ {
+  "text": " a",
+  "startMs": 3840,
+  "endMs": 4160,
+  "timestampMs": 3840,
+  "confidence": null
+ },
+ {
+  "text": " radicar",
+  "startMs": 4160,
+  "endMs": 4640,
+  "timestampMs": 4160,
+  "confidence": null
+ },
+ {
+  "text": " un",
+  "startMs": 4640,
+  "endMs": 4720,
+  "timestampMs": 4640,
+  "confidence": null
+ },
+ {
+  "text": " segundo",
+  "startMs": 4720,
+  "endMs": 5040,
+  "timestampMs": 4720,
+  "confidence": null
+ },
+ {
+  "text": " derecho",
+  "startMs": 5040,
+  "endMs": 5440,
+  "timestampMs": 5040,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 5440,
+  "endMs": 5600,
+  "timestampMs": 5440,
+  "confidence": null
+ },
+ {
+  "text": " petición,",
+  "startMs": 5600,
+  "endMs": 6400,
+  "timestampMs": 5600,
+  "confidence": null
+ },
+ {
+  "text": " pero",
+  "startMs": 6480,
+  "endMs": 6720,
+  "timestampMs": 6480,
+  "confidence": null
+ },
+ {
+  "text": " este",
+  "startMs": 6720,
+  "endMs": 7120,
+  "timestampMs": 6720,
+  "confidence": null
+ },
+ {
+  "text": " será",
+  "startMs": 7120,
+  "endMs": 7520,
+  "timestampMs": 7120,
+  "confidence": null
+ },
+ {
+  "text": " sobre",
+  "startMs": 7520,
+  "endMs": 7760,
+  "timestampMs": 7520,
+  "confidence": null
+ },
+ {
+  "text": " algo",
+  "startMs": 7760,
+  "endMs": 8080,
+  "timestampMs": 7760,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 8080,
+  "endMs": 8320,
+  "timestampMs": 8080,
+  "confidence": null
+ },
+ {
+  "text": " decidirá",
+  "startMs": 8320,
+  "endMs": 8960,
+  "timestampMs": 8320,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 8960,
+  "endMs": 9040,
+  "timestampMs": 8960,
+  "confidence": null
+ },
+ {
+  "text": " futuro",
+  "startMs": 9040,
+  "endMs": 9280,
+  "timestampMs": 9040,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 9280,
+  "endMs": 9440,
+  "timestampMs": 9280,
+  "confidence": null
+ },
+ {
+  "text": " Palmira,",
+  "startMs": 9440,
+  "endMs": 10240,
+  "timestampMs": 9440,
+  "confidence": null
+ },
+ {
+  "text": " pero",
+  "startMs": 10240,
+  "endMs": 10400,
+  "timestampMs": 10240,
+  "confidence": null
+ },
+ {
+  "text": " que",
+  "startMs": 10400,
+  "endMs": 10560,
+  "timestampMs": 10400,
+  "confidence": null
+ },
+ {
+  "text": " muy",
+  "startMs": 10560,
+  "endMs": 10720,
+  "timestampMs": 10560,
+  "confidence": null
+ },
+ {
+  "text": " pocos",
+  "startMs": 10720,
+  "endMs": 11040,
+  "timestampMs": 10720,
+  "confidence": null
+ },
+ {
+  "text": " conocen",
+  "startMs": 11040,
+  "endMs": 11520,
+  "timestampMs": 11040,
+  "confidence": null
+ },
+ {
+  "text": " de",
+  "startMs": 11520,
+  "endMs": 11680,
+  "timestampMs": 11520,
+  "confidence": null
+ },
+ {
+  "text": " qué",
+  "startMs": 11680,
+  "endMs": 11840,
+  "timestampMs": 11680,
+  "confidence": null
+ },
+ {
+  "text": " se",
+  "startMs": 11840,
+  "endMs": 12000,
+  "timestampMs": 11840,
+  "confidence": null
+ },
+ {
+  "text": " trata,",
+  "startMs": 12000,
+  "endMs": 12640,
+  "timestampMs": 12000,
+  "confidence": null
+ },
+ {
+  "text": " el",
+  "startMs": 12640,
+  "endMs": 12800,
+  "timestampMs": 12640,
+  "confidence": null
+ },
+ {
+  "text": " FOT.",
+  "startMs": 12800,
+  "endMs": 13300,
+  "timestampMs": 12800,
+  "confidence": null
+ }
+]

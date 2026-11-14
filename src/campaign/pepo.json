@@ -1,0 +1,1415 @@
+{
+ "fps": 30,
+ "duration": 52.977,
+ "clips": {
+  "gancho": 90,
+  "antes": 303,
+  "hoy": 148,
+  "saturacion": 213,
+  "palacio": 399,
+  "seria": 147,
+  "cta": 202
+ },
+ "scenes": [
+  {
+   "key": "gancho",
+   "start": 0.0,
+   "end": 3.015,
+   "zooms": null,
+   "silent": null,
+   "text": "Hoy hablamos más de política que nunca y aún así entendemos menos.",
+   "words": [
+    {
+     "t": "Hoy",
+     "s": 0.0,
+     "e": 0.24
+    },
+    {
+     "t": "hablamos",
+     "s": 0.24,
+     "e": 0.48
+    },
+    {
+     "t": "más",
+     "s": 0.48,
+     "e": 0.64
+    },
+    {
+     "t": "de",
+     "s": 0.64,
+     "e": 0.72
+    },
+    {
+     "t": "política",
+     "s": 0.72,
+     "e": 1.04
+    },
+    {
+     "t": "que",
+     "s": 1.04,
+     "e": 1.28
+    },
+    {
+     "t": "nunca",
+     "s": 1.28,
+     "e": 1.6
+    },
+    {
+     "t": "y",
+     "s": 1.6,
+     "e": 1.68
+    },
+    {
+     "t": "aún",
+     "s": 1.68,
+     "e": 1.92
+    },
+    {
+     "t": "así",
+     "s": 1.92,
+     "e": 2.24
+    },
+    {
+     "t": "entendemos",
+     "s": 2.24,
+     "e": 2.64
+    },
+    {
+     "t": "menos.",
+     "s": 2.64,
+     "e": 3.015
+    }
+   ],
+   "shots": [
+    {
+     "src": "gancho",
+     "start": 0.0,
+     "end": 3.015
+    }
+   ],
+   "captions": [
+    {
+     "text": "Hoy hablamos más",
+     "start": 0.0,
+     "end": 0.64
+    },
+    {
+     "text": "de *política",
+     "start": 0.64,
+     "end": 1.04
+    },
+    {
+     "text": "que nunca",
+     "start": 1.04,
+     "end": 1.6
+    },
+    {
+     "text": "y aún así",
+     "start": 1.6,
+     "end": 2.24
+    },
+    {
+     "text": "entendemos *menos.",
+     "start": 2.24,
+     "end": 3.015
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "antes",
+   "start": 3.015,
+   "end": 13.101,
+   "zooms": null,
+   "silent": null,
+   "text": "Antes en Colombia, liberales y conservadores se peleaban por ideas. Si abríamos el mercado o protegíamos la industria nacional. Había violencia, sí, pero la disputa era por ideas.",
+   "words": [
+    {
+     "t": "Antes",
+     "s": 3.095,
+     "e": 3.335
+    },
+    {
+     "t": "en",
+     "s": 3.335,
+     "e": 3.495
+    },
+    {
+     "t": "Colombia,",
+     "s": 3.495,
+     "e": 4.135
+    },
+    {
+     "t": "liberales",
+     "s": 4.135,
+     "e": 4.695
+    },
+    {
+     "t": "y",
+     "s": 4.695,
+     "e": 4.855
+    },
+    {
+     "t": "conservadores",
+     "s": 4.855,
+     "e": 5.575
+    },
+    {
+     "t": "se",
+     "s": 5.575,
+     "e": 5.735
+    },
+    {
+     "t": "peleaban",
+     "s": 5.735,
+     "e": 6.375
+    },
+    {
+     "t": "por",
+     "s": 6.375,
+     "e": 6.455
+    },
+    {
+     "t": "ideas.",
+     "s": 6.455,
+     "e": 6.935
+    },
+    {
+     "t": "Si",
+     "s": 6.935,
+     "e": 7.095
+    },
+    {
+     "t": "abríamos",
+     "s": 7.095,
+     "e": 7.735
+    },
+    {
+     "t": "el",
+     "s": 7.735,
+     "e": 7.815
+    },
+    {
+     "t": "mercado",
+     "s": 7.815,
+     "e": 8.135
+    },
+    {
+     "t": "o",
+     "s": 8.135,
+     "e": 8.375
+    },
+    {
+     "t": "protegíamos",
+     "s": 8.375,
+     "e": 9.015
+    },
+    {
+     "t": "la",
+     "s": 9.015,
+     "e": 9.175
+    },
+    {
+     "t": "industria",
+     "s": 9.175,
+     "e": 9.575
+    },
+    {
+     "t": "nacional.",
+     "s": 9.575,
+     "e": 10.055
+    },
+    {
+     "t": "Había",
+     "s": 10.055,
+     "e": 10.375
+    },
+    {
+     "t": "violencia,",
+     "s": 10.375,
+     "e": 11.015
+    },
+    {
+     "t": "sí,",
+     "s": 11.015,
+     "e": 11.335
+    },
+    {
+     "t": "pero",
+     "s": 11.335,
+     "e": 11.655
+    },
+    {
+     "t": "la",
+     "s": 11.655,
+     "e": 11.815
+    },
+    {
+     "t": "disputa",
+     "s": 11.815,
+     "e": 12.295
+    },
+    {
+     "t": "era",
+     "s": 12.295,
+     "e": 12.535
+    },
+    {
+     "t": "por",
+     "s": 12.535,
+     "e": 12.695
+    },
+    {
+     "t": "ideas.",
+     "s": 12.695,
+     "e": 13.101
+    }
+   ],
+   "shots": [
+    {
+     "src": "antes",
+     "start": 3.015,
+     "end": 13.101
+    }
+   ],
+   "captions": [
+    {
+     "text": "Antes en Colombia,",
+     "start": 3.095,
+     "end": 4.135
+    },
+    {
+     "text": "liberales y conservadores",
+     "start": 4.135,
+     "end": 5.575
+    },
+    {
+     "text": "se peleaban por *ideas.",
+     "start": 5.575,
+     "end": 6.935
+    },
+    {
+     "text": "Si abríamos el mercado",
+     "start": 6.935,
+     "end": 8.135
+    },
+    {
+     "text": "o protegíamos",
+     "start": 8.135,
+     "end": 9.015
+    },
+    {
+     "text": "la industria nacional.",
+     "start": 9.015,
+     "end": 10.055
+    },
+    {
+     "text": "Había violencia, sí,",
+     "start": 10.055,
+     "end": 11.335
+    },
+    {
+     "text": "pero la disputa",
+     "start": 11.335,
+     "end": 12.295
+    },
+    {
+     "text": "era por *ideas.",
+     "start": 12.295,
+     "end": 13.101
+    }
+   ],
+   "cards": [],
+   "photos": [
+    {
+     "img": "marcha-viani",
+     "start": 3.095,
+     "end": 5.575
+    },
+    {
+     "img": "gaitan",
+     "start": 5.575,
+     "end": 7.095
+    },
+    {
+     "img": "liberalismo-paz",
+     "start": 10.055,
+     "end": 13.101
+    }
+   ],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "hoy",
+   "start": 13.101,
+   "end": 18.055,
+   "zooms": null,
+   "silent": null,
+   "text": "Hoy el debate se va a la vida privada de los presidentes, a los memes y a los reels en Instagram.",
+   "words": [
+    {
+     "t": "Hoy",
+     "s": 13.101,
+     "e": 13.341
+    },
+    {
+     "t": "el",
+     "s": 13.341,
+     "e": 13.421
+    },
+    {
+     "t": "debate",
+     "s": 13.421,
+     "e": 13.741
+    },
+    {
+     "t": "se",
+     "s": 13.741,
+     "e": 13.901
+    },
+    {
+     "t": "va",
+     "s": 13.901,
+     "e": 14.061
+    },
+    {
+     "t": "a",
+     "s": 14.061,
+     "e": 14.141
+    },
+    {
+     "t": "la",
+     "s": 14.141,
+     "e": 14.301
+    },
+    {
+     "t": "vida",
+     "s": 14.301,
+     "e": 14.461
+    },
+    {
+     "t": "privada",
+     "s": 14.461,
+     "e": 14.781
+    },
+    {
+     "t": "de",
+     "s": 14.781,
+     "e": 14.941
+    },
+    {
+     "t": "los",
+     "s": 14.941,
+     "e": 15.101
+    },
+    {
+     "t": "presidentes,",
+     "s": 15.101,
+     "e": 15.661
+    },
+    {
+     "t": "a",
+     "s": 15.661,
+     "e": 15.821
+    },
+    {
+     "t": "los",
+     "s": 15.821,
+     "e": 15.981
+    },
+    {
+     "t": "memes",
+     "s": 15.981,
+     "e": 16.461
+    },
+    {
+     "t": "y",
+     "s": 16.461,
+     "e": 16.621
+    },
+    {
+     "t": "a",
+     "s": 16.621,
+     "e": 16.701
+    },
+    {
+     "t": "los",
+     "s": 16.701,
+     "e": 16.861
+    },
+    {
+     "t": "reels",
+     "s": 16.861,
+     "e": 17.421
+    },
+    {
+     "t": "en",
+     "s": 17.421,
+     "e": 17.581
+    },
+    {
+     "t": "Instagram.",
+     "s": 17.581,
+     "e": 18.054
+    }
+   ],
+   "shots": [
+    {
+     "src": "hoy",
+     "start": 13.101,
+     "end": 18.055
+    }
+   ],
+   "captions": [
+    {
+     "text": "Hoy el debate",
+     "start": 13.101,
+     "end": 13.741
+    },
+    {
+     "text": "se va",
+     "start": 13.741,
+     "end": 14.061
+    },
+    {
+     "text": "a la *vida *privada",
+     "start": 14.061,
+     "end": 14.781
+    },
+    {
+     "text": "de los presidentes,",
+     "start": 14.781,
+     "end": 15.661
+    },
+    {
+     "text": "a los *memes",
+     "start": 15.661,
+     "end": 16.461
+    },
+    {
+     "text": "y a los *reels",
+     "start": 16.461,
+     "end": 17.421
+    },
+    {
+     "text": "en Instagram.",
+     "start": 17.421,
+     "end": 18.055
+    }
+   ],
+   "cards": [],
+   "photos": [
+    {
+     "img": "petro-videollamada",
+     "start": 14.061,
+     "end": 15.661
+    },
+    {
+     "img": "meme-huevo",
+     "start": 15.661,
+     "end": 16.621
+    },
+    {
+     "video": "abelardo-reels",
+     "start": 16.621,
+     "end": 18.055
+    }
+   ],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "saturacion",
+   "start": 18.055,
+   "end": 25.126,
+   "zooms": null,
+   "silent": null,
+   "text": "Y eso nos expone a algo peligroso, a la desinformación por saturación, y es que nos llega tanta información que no sabemos cuál es la correcta.",
+   "words": [
+    {
+     "t": "Y",
+     "s": 18.055,
+     "e": 18.295
+    },
+    {
+     "t": "eso",
+     "s": 18.295,
+     "e": 18.535
+    },
+    {
+     "t": "nos",
+     "s": 18.535,
+     "e": 18.695
+    },
+    {
+     "t": "expone",
+     "s": 18.695,
+     "e": 19.095
+    },
+    {
+     "t": "a",
+     "s": 19.095,
+     "e": 19.255
+    },
+    {
+     "t": "algo",
+     "s": 19.255,
+     "e": 19.415
+    },
+    {
+     "t": "peligroso,",
+     "s": 19.415,
+     "e": 19.975
+    },
+    {
+     "t": "a",
+     "s": 19.975,
+     "e": 20.135
+    },
+    {
+     "t": "la",
+     "s": 20.135,
+     "e": 20.295
+    },
+    {
+     "t": "desinformación",
+     "s": 20.295,
+     "e": 20.935
+    },
+    {
+     "t": "por",
+     "s": 20.935,
+     "e": 21.175
+    },
+    {
+     "t": "saturación,",
+     "s": 21.175,
+     "e": 21.815
+    },
+    {
+     "t": "y",
+     "s": 21.815,
+     "e": 21.975
+    },
+    {
+     "t": "es",
+     "s": 21.975,
+     "e": 22.135
+    },
+    {
+     "t": "que",
+     "s": 22.135,
+     "e": 22.215
+    },
+    {
+     "t": "nos",
+     "s": 22.215,
+     "e": 22.375
+    },
+    {
+     "t": "llega",
+     "s": 22.375,
+     "e": 22.775
+    },
+    {
+     "t": "tanta",
+     "s": 22.775,
+     "e": 23.095
+    },
+    {
+     "t": "información",
+     "s": 23.095,
+     "e": 23.575
+    },
+    {
+     "t": "que",
+     "s": 23.575,
+     "e": 23.735
+    },
+    {
+     "t": "no",
+     "s": 23.735,
+     "e": 23.895
+    },
+    {
+     "t": "sabemos",
+     "s": 23.895,
+     "e": 24.295
+    },
+    {
+     "t": "cuál",
+     "s": 24.295,
+     "e": 24.455
+    },
+    {
+     "t": "es",
+     "s": 24.455,
+     "e": 24.615
+    },
+    {
+     "t": "la",
+     "s": 24.615,
+     "e": 24.695
+    },
+    {
+     "t": "correcta.",
+     "s": 24.695,
+     "e": 25.126
+    }
+   ],
+   "shots": [
+    {
+     "src": "saturacion",
+     "start": 18.055,
+     "end": 25.126
+    }
+   ],
+   "captions": [
+    {
+     "text": "Y eso nos expone",
+     "start": 18.055,
+     "end": 19.095
+    },
+    {
+     "text": "a algo *peligroso,",
+     "start": 19.095,
+     "end": 19.975
+    },
+    {
+     "text": "a la *desinformación",
+     "start": 19.975,
+     "end": 20.935
+    },
+    {
+     "text": "por *saturación,",
+     "start": 20.935,
+     "end": 21.815
+    },
+    {
+     "text": "y es que",
+     "start": 21.815,
+     "end": 22.215
+    },
+    {
+     "text": "nos llega",
+     "start": 22.215,
+     "end": 22.775
+    },
+    {
+     "text": "tanta información",
+     "start": 22.775,
+     "end": 23.575
+    },
+    {
+     "text": "que no sabemos",
+     "start": 23.575,
+     "end": 24.295
+    },
+    {
+     "text": "cuál es la correcta.",
+     "start": 24.295,
+     "end": 25.126
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "palacio",
+   "start": 25.126,
+   "end": 38.449,
+   "zooms": null,
+   "silent": null,
+   "text": "Como el Palacio de Justicia en 1985, muchos creen que fue obra de la guerrilla, sin embargo en la retoma el ejército también dejó civiles muertos y 11 desaparecidos. Si te quedas solo con el relato oficial, te quedarás con la mitad de la historia.",
+   "words": [
+    {
+     "t": "Como",
+     "s": 25.446,
+     "e": 25.766
+    },
+    {
+     "t": "el",
+     "s": 25.766,
+     "e": 26.086
+    },
+    {
+     "t": "Palacio",
+     "s": 26.086,
+     "e": 26.406
+    },
+    {
+     "t": "de",
+     "s": 26.406,
+     "e": 26.726
+    },
+    {
+     "t": "Justicia",
+     "s": 26.726,
+     "e": 27.046
+    },
+    {
+     "t": "en",
+     "s": 27.046,
+     "e": 27.366
+    },
+    {
+     "t": "1985,",
+     "s": 27.366,
+     "e": 27.686
+    },
+    {
+     "t": "muchos",
+     "s": 27.686,
+     "e": 27.926
+    },
+    {
+     "t": "creen",
+     "s": 27.926,
+     "e": 28.326
+    },
+    {
+     "t": "que",
+     "s": 28.326,
+     "e": 28.486
+    },
+    {
+     "t": "fue",
+     "s": 28.486,
+     "e": 28.646
+    },
+    {
+     "t": "obra",
+     "s": 28.646,
+     "e": 28.966
+    },
+    {
+     "t": "de",
+     "s": 28.966,
+     "e": 29.046
+    },
+    {
+     "t": "la",
+     "s": 29.046,
+     "e": 29.126
+    },
+    {
+     "t": "guerrilla,",
+     "s": 29.126,
+     "e": 29.766
+    },
+    {
+     "t": "sin",
+     "s": 29.766,
+     "e": 29.926
+    },
+    {
+     "t": "embargo",
+     "s": 29.926,
+     "e": 30.326
+    },
+    {
+     "t": "en",
+     "s": 30.326,
+     "e": 30.486
+    },
+    {
+     "t": "la",
+     "s": 30.486,
+     "e": 30.566
+    },
+    {
+     "t": "retoma",
+     "s": 30.566,
+     "e": 31.206
+    },
+    {
+     "t": "el",
+     "s": 31.206,
+     "e": 31.366
+    },
+    {
+     "t": "ejército",
+     "s": 31.366,
+     "e": 31.766
+    },
+    {
+     "t": "también",
+     "s": 31.766,
+     "e": 32.006
+    },
+    {
+     "t": "dejó",
+     "s": 32.006,
+     "e": 32.486
+    },
+    {
+     "t": "civiles",
+     "s": 32.486,
+     "e": 32.886
+    },
+    {
+     "t": "muertos",
+     "s": 32.886,
+     "e": 33.286
+    },
+    {
+     "t": "y",
+     "s": 33.286,
+     "e": 33.558
+    },
+    {
+     "t": "11",
+     "s": 33.558,
+     "e": 33.83
+    },
+    {
+     "t": "desaparecidos.",
+     "s": 33.83,
+     "e": 34.101
+    },
+    {
+     "t": "Si",
+     "s": 34.101,
+     "e": 34.373
+    },
+    {
+     "t": "te",
+     "s": 34.373,
+     "e": 34.645
+    },
+    {
+     "t": "quedas",
+     "s": 34.645,
+     "e": 34.917
+    },
+    {
+     "t": "solo",
+     "s": 34.917,
+     "e": 35.188
+    },
+    {
+     "t": "con",
+     "s": 35.188,
+     "e": 35.46
+    },
+    {
+     "t": "el",
+     "s": 35.46,
+     "e": 35.732
+    },
+    {
+     "t": "relato",
+     "s": 35.732,
+     "e": 36.004
+    },
+    {
+     "t": "oficial,",
+     "s": 36.004,
+     "e": 36.275
+    },
+    {
+     "t": "te",
+     "s": 36.275,
+     "e": 36.547
+    },
+    {
+     "t": "quedarás",
+     "s": 36.547,
+     "e": 36.819
+    },
+    {
+     "t": "con",
+     "s": 36.819,
+     "e": 37.091
+    },
+    {
+     "t": "la",
+     "s": 37.091,
+     "e": 37.362
+    },
+    {
+     "t": "mitad",
+     "s": 37.362,
+     "e": 37.634
+    },
+    {
+     "t": "de",
+     "s": 37.634,
+     "e": 37.906
+    },
+    {
+     "t": "la",
+     "s": 37.906,
+     "e": 38.178
+    },
+    {
+     "t": "historia.",
+     "s": 38.178,
+     "e": 38.258
+    }
+   ],
+   "shots": [
+    {
+     "src": "palacio",
+     "start": 25.126,
+     "end": 38.449
+    }
+   ],
+   "captions": [
+    {
+     "text": "Como el *Palacio *de *Justicia",
+     "start": 25.446,
+     "end": 27.046
+    },
+    {
+     "text": "en 1985,",
+     "start": 27.046,
+     "end": 27.686
+    },
+    {
+     "text": "muchos creen",
+     "start": 27.686,
+     "end": 28.326
+    },
+    {
+     "text": "que fue obra",
+     "start": 28.326,
+     "end": 28.966
+    },
+    {
+     "text": "de la guerrilla,",
+     "start": 28.966,
+     "end": 29.766
+    },
+    {
+     "text": "sin embargo en la retoma",
+     "start": 29.766,
+     "end": 31.206
+    },
+    {
+     "text": "el ejército también dejó",
+     "start": 31.206,
+     "end": 32.486
+    },
+    {
+     "text": "*civiles *muertos",
+     "start": 32.486,
+     "end": 33.286
+    },
+    {
+     "text": "y *11 *desaparecidos.",
+     "start": 33.286,
+     "end": 34.101
+    },
+    {
+     "text": "Si te quedas solo",
+     "start": 34.101,
+     "end": 35.188
+    },
+    {
+     "text": "con el relato oficial,",
+     "start": 35.188,
+     "end": 36.275
+    },
+    {
+     "text": "te quedarás con la *mitad",
+     "start": 36.275,
+     "end": 37.634
+    },
+    {
+     "text": "de la historia.",
+     "start": 37.634,
+     "end": 38.449
+    }
+   ],
+   "cards": [],
+   "photos": [
+    {
+     "video": "palacio-plaza",
+     "start": 25.446,
+     "end": 27.686
+    },
+    {
+     "video": "palacio-tanque",
+     "start": 30.566,
+     "end": 32.486
+    }
+   ],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "seria",
+   "start": 38.449,
+   "end": 43.393,
+   "zooms": null,
+   "silent": null,
+   "text": "La política seria no es la más ruidosa, es la que pregunta, la que compara fuentes y disputa ideas.",
+   "words": [
+    {
+     "t": "La",
+     "s": 38.449,
+     "e": 38.609
+    },
+    {
+     "t": "política",
+     "s": 38.609,
+     "e": 38.929
+    },
+    {
+     "t": "seria",
+     "s": 38.929,
+     "e": 39.329
+    },
+    {
+     "t": "no",
+     "s": 39.329,
+     "e": 39.409
+    },
+    {
+     "t": "es",
+     "s": 39.409,
+     "e": 39.569
+    },
+    {
+     "t": "la",
+     "s": 39.569,
+     "e": 39.729
+    },
+    {
+     "t": "más",
+     "s": 39.729,
+     "e": 39.969
+    },
+    {
+     "t": "ruidosa,",
+     "s": 39.969,
+     "e": 40.529
+    },
+    {
+     "t": "es",
+     "s": 40.529,
+     "e": 40.689
+    },
+    {
+     "t": "la",
+     "s": 40.689,
+     "e": 40.769
+    },
+    {
+     "t": "que",
+     "s": 40.769,
+     "e": 40.849
+    },
+    {
+     "t": "pregunta,",
+     "s": 40.849,
+     "e": 41.329
+    },
+    {
+     "t": "la",
+     "s": 41.329,
+     "e": 41.409
+    },
+    {
+     "t": "que",
+     "s": 41.409,
+     "e": 41.569
+    },
+    {
+     "t": "compara",
+     "s": 41.569,
+     "e": 41.969
+    },
+    {
+     "t": "fuentes",
+     "s": 41.969,
+     "e": 42.369
+    },
+    {
+     "t": "y",
+     "s": 42.369,
+     "e": 42.529
+    },
+    {
+     "t": "disputa",
+     "s": 42.529,
+     "e": 43.089
+    },
+    {
+     "t": "ideas.",
+     "s": 43.089,
+     "e": 43.393
+    }
+   ],
+   "shots": [
+    {
+     "src": "seria",
+     "start": 38.449,
+     "end": 43.393
+    }
+   ],
+   "captions": [
+    {
+     "text": "La política *seria",
+     "start": 38.449,
+     "end": 39.329
+    },
+    {
+     "text": "no es la más ruidosa,",
+     "start": 39.329,
+     "end": 40.529
+    },
+    {
+     "text": "es la que *pregunta,",
+     "start": 40.529,
+     "end": 41.329
+    },
+    {
+     "text": "la que *compara *fuentes",
+     "start": 41.329,
+     "end": 42.369
+    },
+    {
+     "text": "y *disputa ideas.",
+     "start": 42.369,
+     "end": 43.393
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  },
+  {
+   "key": "cta",
+   "start": 43.393,
+   "end": 50.177,
+   "zooms": null,
+   "silent": null,
+   "text": "Antes de compartir algo de política, verifica de dónde salió la información y cuéntame en los comentarios, ¿qué fuente verificas tú antes de creer algo?",
+   "words": [
+    {
+     "t": "Antes",
+     "s": 43.473,
+     "e": 43.713
+    },
+    {
+     "t": "de",
+     "s": 43.713,
+     "e": 43.793
+    },
+    {
+     "t": "compartir",
+     "s": 43.793,
+     "e": 44.193
+    },
+    {
+     "t": "algo",
+     "s": 44.193,
+     "e": 44.353
+    },
+    {
+     "t": "de",
+     "s": 44.353,
+     "e": 44.513
+    },
+    {
+     "t": "política,",
+     "s": 44.513,
+     "e": 44.993
+    },
+    {
+     "t": "verifica",
+     "s": 44.993,
+     "e": 45.473
+    },
+    {
+     "t": "de",
+     "s": 45.473,
+     "e": 45.633
+    },
+    {
+     "t": "dónde",
+     "s": 45.633,
+     "e": 45.873
+    },
+    {
+     "t": "salió",
+     "s": 45.873,
+     "e": 46.273
+    },
+    {
+     "t": "la",
+     "s": 46.273,
+     "e": 46.433
+    },
+    {
+     "t": "información",
+     "s": 46.433,
+     "e": 46.833
+    },
+    {
+     "t": "y",
+     "s": 46.833,
+     "e": 46.993
+    },
+    {
+     "t": "cuéntame",
+     "s": 46.993,
+     "e": 47.553
+    },
+    {
+     "t": "en",
+     "s": 47.553,
+     "e": 47.633
+    },
+    {
+     "t": "los",
+     "s": 47.633,
+     "e": 47.713
+    },
+    {
+     "t": "comentarios,",
+     "s": 47.713,
+     "e": 48.193
+    },
+    {
+     "t": "¿qué",
+     "s": 48.193,
+     "e": 48.353
+    },
+    {
+     "t": "fuente",
+     "s": 48.353,
+     "e": 48.753
+    },
+    {
+     "t": "verificas",
+     "s": 48.753,
+     "e": 49.233
+    },
+    {
+     "t": "tú",
+     "s": 49.233,
+     "e": 49.393
+    },
+    {
+     "t": "antes",
+     "s": 49.393,
+     "e": 49.553
+    },
+    {
+     "t": "de",
+     "s": 49.553,
+     "e": 49.633
+    },
+    {
+     "t": "creer",
+     "s": 49.633,
+     "e": 49.953
+    },
+    {
+     "t": "algo?",
+     "s": 49.953,
+     "e": 50.177
+    }
+   ],
+   "shots": [
+    {
+     "src": "cta",
+     "start": 43.393,
+     "end": 52.977
+    }
+   ],
+   "captions": [
+    {
+     "text": "Antes de compartir",
+     "start": 43.473,
+     "end": 44.193
+    },
+    {
+     "text": "algo de política,",
+     "start": 44.193,
+     "end": 44.993
+    },
+    {
+     "text": "*verifica de dónde salió",
+     "start": 44.993,
+     "end": 46.273
+    },
+    {
+     "text": "la información",
+     "start": 46.273,
+     "end": 46.833
+    },
+    {
+     "text": "y cuéntame",
+     "start": 46.833,
+     "end": 47.553
+    },
+    {
+     "text": "en los comentarios,",
+     "start": 47.553,
+     "end": 48.193
+    },
+    {
+     "text": "¿qué *fuente verificas tú",
+     "start": 48.193,
+     "end": 49.393
+    },
+    {
+     "text": "antes de creer algo?",
+     "start": 49.393,
+     "end": 50.177
+    }
+   ],
+   "cards": [],
+   "photos": [],
+   "effects": [],
+   "kinetic": []
+  }
+ ],
+ "outro": {
+  "kicker": "Ser críticos",
+  "text": "es recuperar la política",
+  "start": 50.177,
+  "end": 52.977
+ },
+ "zooms": [
+  [
+   1.6,
+   true
+  ],
+  [
+   20.933333333333334,
+   true
+  ],
+  [
+   23.566666666666666,
+   false
+  ],
+  [
+   35.2,
+   true
+  ],
+  [
+   41.333333333333336,
+   true
+  ],
+  [
+   46.266666666666666,
+   true
+  ],
+  [
+   49.4,
+   false
+  ]
+ ]
+}
