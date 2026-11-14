@@ -224,9 +224,12 @@ def foley(data):
     buf = np.zeros((int((data["duration"] + 3) * SR), 2))
     by = {s["key"]: s for s in data["scenes"]}
 
+    puestos = []
+
     def put(name, t, gain):
         x = read_wav(f"{ROOT}/public/sfx/ref2-{name}.wav")
         mf.place(buf, np.stack([x, x], 1) * gain, max(0.0, t))
+        puestos.append(max(0.0, t))
 
     for e in CFG["sfx"]:
         if e.get("abelardo"):
@@ -251,7 +254,8 @@ def foley(data):
             for w in data.get("abelardo", []):
                 put(e["name"], w["start"], e["gain"])
     for k, (t, _) in enumerate(data["zooms"] if CFG.get("zoomSfx", True) else []):
-        if k % 2 == 1:
+        # Uno de cada dos zooms, y nunca a menos de 0,6 s de otro efecto (competirían; hoja de cues de Pepo 3).
+        if k % 2 == 1 and all(abs((t - 0.25) - p) >= 0.6 for p in puestos):
             put("transicion", t - 0.25, 0.4)
     if "outro" in data:
         put("click", data["outro"]["start"], 0.6)
