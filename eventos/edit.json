@@ -1,0 +1,14 @@
+{
+ "_nota": "Piezas por clip: [inicio, fin, velocidad] en segundos del original. Velocidad >1 = camara rapida (sin voz). Palabras con tiempos del original.",
+ "clips": [
+  {"file": "IMG_0384.MOV", "piezas": [[0, 1.40, 4], [1.40, 4.87, 1]],
+   "palabras": [["Por",1.50,1.62],["si",1.62,1.74],["no",1.74,1.80],["sabían,",1.80,2.14],["en",2.26,2.36],["Apolo",2.36,2.66],["Gastro",2.66,2.96],["Bar",2.96,3.06],["también",3.06,3.24],["se",3.24,3.34],["hacen",3.34,3.50],["eventos",3.50,3.84],["privados.",3.84,4.20]]},
+  {"file": "IMG_0387.MOV", "piezas": [[0, 1.25, 4], [1.25, 3.85, 1], [3.85, 10.0, 2]],
+   "palabras": [["Hacemos",1.30,1.58],["decoraciones",1.58,2.08],["de",2.08,2.24],["15",2.24,2.42],["años",2.42,2.68],["hasta",2.68,2.98],["fiestas",2.98,3.32],["privadas.",3.32,3.74]]},
+  {"file": "IMG_0389.MOV", "piezas": [[0, 1.25, 3], [1.25, 3.75, 1], [3.75, 6.67, 1.5]],
+   "palabras": [["Los",1.28,1.40],["esperamos",1.40,1.78],["en",1.78,1.94],["Apolo",1.94,2.20],["Gastro",2.20,2.52],["Bar.",2.52,2.66],["Haga",2.70,2.88],["sus",2.88,3.04],["reservas",3.04,3.42],["aquí.",3.42,3.64]]}
+ ],
+ "transiciones": ["smoothleft", "smoothup", "fade"],
+ "dur_transicion": 0.35,
+ "cierre": 3.5
+}
