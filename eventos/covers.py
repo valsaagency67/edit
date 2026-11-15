@@ -125,7 +125,7 @@ img = photo(P + "d_07.png", sat=1.35, con=1.15, bri=1.08)
 vignette(img, 120); vgrad(img, 260, 760, (5, 5, 30), 220, up=True); vgrad(img, 1280, 1800, (5, 5, 30), 220)
 paste_c(img, text_layer("HACEMOS TU", fit("HACEMOS TU", ANTON, 700, 120), WHITE, stroke=5, shadow=8), 330)
 paste_c(img, text_layer("DECORACIÓN", fit("DECORACIÓN", ANTON, 1000, 250), GOLD, stroke=7, shadow=10, glow=(60, 90, 255, 255)), 510)
-paste_c(img, banner("15 AÑOS  ·  FIESTAS PRIVADAS", fit("15 AÑOS  ·  FIESTAS PRIVADAS", BEBAS, 760, 76), GOLD, BLACK, angle=-3), 700)
+paste_c(img, banner("RESERVA YA  ·  FIESTAS PRIVADAS", fit("RESERVA YA  ·  FIESTAS PRIVADAS", BEBAS, 760, 76), GOLD, BLACK, angle=-3), 700)
 logo(img, 280, 1490)
 save(img, 2)
 
