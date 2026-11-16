@@ -27,10 +27,12 @@ RANGES = [
     # Solo la intro lleva la pregunta; en cada entrevista se corta la pregunta
     # y queda únicamente la respuesta.
     ("IMG_0309", 0.00, 5.45),   # Intro: "Vamos a preguntarle a algunos clientes..."
-    ("IMG_0312", 4.13, 22.70),  # Chico de camiseta amarilla + Cristian
+    ("IMG_0312", 4.42, 22.70),  # Chico de camiseta amarilla + Cristian
     ("IMG_0314", 6.15, 14.25),  # Valentina
-    ("IMG_0319", 4.28, 14.45),  # Chico de gorra
-    ("IMG_0319", 16.65, 18.45), # Cierre: "Eso es todo, muchas gracias"
+    ("IMG_0319", 4.92, 14.45),  # Chico de gorra
+    ("IMG_0319", 16.65, 18.45), # "Eso es todo, muchas gracias"
+    # Último clip: completo (sin recortar pausas), solo se quita la pregunta.
+    ("IMG_0321", 4.54, 22.00, "completo"),  # Pareja: crema de whisky
 ]
 
 # Etiquetas con nombre (clip, segundo original en que aparecen, texto).
@@ -45,10 +47,18 @@ REPLACE = {
     "Maracuyá,": "maracuyá,",
     "Uroban,": "Huroban,",
     "sabores": "Sabores",
+    "comparamos,": "compramos,",
     "sorprendentes.": "Sorprendentes.",
     "palmas.": "Palmas.",
 }
 DROP_WORDS: set[tuple[str, str]] = set()
+
+# Tiempos corregidos a mano (whisper los ubicó antes de tiempo, encima del final
+# de la pregunta). Clave: (clip, palabra); valor: (inicio, fin) en el original.
+WORD_TIME_FIX = {
+    ("IMG_0319", "La"): (4.96, 5.06),
+    ("IMG_0319", "verdad,"): (5.06, 5.28),
+}
 
 KEYWORDS = {
     "sabores", "sorprendentes", "huroban", "arequipe", "maracuyá", "crema",
@@ -88,9 +98,9 @@ def pauses(clip: str) -> list[tuple[float, float]]:
 
 def build_segments():
     segs = []
-    for clip, s, e in RANGES:
+    for clip, s, e, *flags in RANGES:
         cur = s
-        for ps, pe in pauses(clip):
+        for ps, pe in ([] if "completo" in flags else pauses(clip)):
             if ps > s and pe < e:
                 cut_s, cut_e = ps + KEEP_MARGIN, pe - KEEP_MARGIN
                 if cut_s > cur:
@@ -136,6 +146,9 @@ def build_captions(segs):
         for w in merged:
             if (clip, w["text"]) in DROP_WORDS:
                 continue
+            fix = WORD_TIME_FIX.get((clip, w["text"]))
+            if fix and abs(fix[0] - w["start"]) < 0.6:
+                w = {**w, "start": fix[0], "end": fix[1]}
             ts = map_time(segs, clip, w["start"])
             te = map_time(segs, clip, w["end"] - 0.01)
             if ts is None:

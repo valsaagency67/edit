@@ -3,7 +3,6 @@ import { loadFont } from "@remotion/fonts";
 import React, { useMemo } from "react";
 import {
   AbsoluteFill,
-  Audio,
   Easing,
   Freeze,
   interpolate,
@@ -49,11 +48,7 @@ const YELLOW = "#FFD400";
 const ORANGE = "#FF7A1A";
 const DARK = "#1B0F05";
 
-// Música: "Escapada" de Beat Mekanik (CC BY 4.0). Arranca en el "drop" (33 s).
-const MUSIC_START_S = 33.0;
-
-const MUSIC_UNDER_VOICE = 0.18;
-const MUSIC_FULL = 0.41;
+// Sin música: la canción se agrega directamente en Instagram.
 
 // ---------- Video con zooms en cada corte ----------
 const CUTS: number[] = meta.cuts;
@@ -452,23 +447,6 @@ const Outro: React.FC = () => {
 
 // ---------- Composición ----------
 export const AvanzaresVideo: React.FC = () => {
-  const musicVolume = (f: number) => {
-    const fadeIn = interpolate(f, [0, 8], [0, 1], {
-      extrapolateRight: "clamp",
-    });
-    const level = interpolate(
-      f,
-      [VIDEO_FRAMES - 10, VIDEO_FRAMES + 6],
-      [MUSIC_UNDER_VOICE, MUSIC_FULL],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-    );
-    const fadeOut = interpolate(f, [TOTAL_FRAMES - 30, TOTAL_FRAMES], [1, 0], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    });
-    return level * fadeIn * fadeOut;
-  };
-
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       <Sequence durationInFrames={VIDEO_FRAMES}>
@@ -495,11 +473,6 @@ export const AvanzaresVideo: React.FC = () => {
       <Sequence from={VIDEO_FRAMES} durationInFrames={OUTRO_FRAMES}>
         <Outro />
       </Sequence>
-      <Audio
-        src={staticFile("avanzares/musica.mp3")}
-        startFrom={Math.round(MUSIC_START_S * FPS)}
-        volume={musicVolume}
-      />
     </AbsoluteFill>
   );
 };
