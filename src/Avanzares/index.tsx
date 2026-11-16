@@ -228,7 +228,7 @@ const BrandPill: React.FC<{ size?: number }> = ({ size = 1 }) => (
         boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
       }}
     >
-      Avanzares
+      Sabores
     </div>
     <div
       style={{
@@ -308,7 +308,7 @@ const CornerBrand: React.FC = () => {
           boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}
       >
-        Avanzares Sorprendentes
+        Sabores Sorprendentes
       </div>
     </AbsoluteFill>
   );

@@ -85,16 +85,22 @@
    "p": 0.81
   },
   {
-   "text": " Avanzares",
+   "text": " Uroban,",
    "start": 3.84,
-   "end": 4.38,
-   "p": 0.25
+   "end": 4.16,
+   "p": 0.66
   },
   {
-   "text": " Sorprendentes.",
-   "start": 4.38,
-   "end": 5.28,
-   "p": 0.79
+   "text": " sabores",
+   "start": 4.24,
+   "end": 4.6,
+   "p": 1.0
+  },
+  {
+   "text": " sorprendentes.",
+   "start": 4.6,
+   "end": 5.24,
+   "p": 1.0
   }
  ],
  "IMG_0312": [

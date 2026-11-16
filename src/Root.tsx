@@ -12,7 +12,7 @@ export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
-        id="AvanzaresSorprendentes"
+        id="SaboresSorprendentes"
         component={AvanzaresVideo}
         durationInFrames={TOTAL_FRAMES}
         fps={FPS}

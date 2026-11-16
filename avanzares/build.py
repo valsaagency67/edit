@@ -1,4 +1,4 @@
-"""Arma el montaje de entrevistas de Avanzares Sorprendentes.
+"""Arma el montaje de entrevistas de Huroban Sabores Sorprendentes.
 
 Corta los clips originales (quitando pausas), los une en un solo video vertical
 1080x1920 y genera los subtítulos palabra por palabra con los tiempos ya
@@ -24,17 +24,19 @@ FPS = 30
 
 # (clip, inicio, fin) en segundos del archivo original, en orden de aparición.
 RANGES = [
+    # Solo la intro lleva la pregunta; en cada entrevista se corta la pregunta
+    # y queda únicamente la respuesta.
     ("IMG_0309", 0.00, 5.45),   # Intro: "Vamos a preguntarle a algunos clientes..."
-    ("IMG_0312", 0.85, 22.70),  # Pregunta + chico de camiseta amarilla + Cristian
-    ("IMG_0314", 0.60, 14.25),  # Valentina
-    ("IMG_0319", 0.45, 14.45),  # Chico de gorra
+    ("IMG_0312", 4.13, 22.70),  # Chico de camiseta amarilla + Cristian
+    ("IMG_0314", 6.15, 14.25),  # Valentina
+    ("IMG_0319", 4.28, 14.45),  # Chico de gorra
     ("IMG_0319", 16.65, 18.45), # Cierre: "Eso es todo, muchas gracias"
 ]
 
 # Etiquetas con nombre (clip, segundo original en que aparecen, texto).
 NAME_TAGS = [
-    ("IMG_0312", 12.20, "Cristian"),
-    ("IMG_0314", 5.85, "Valentina"),
+    ("IMG_0312", 12.40, "Cristian"),
+    ("IMG_0314", 6.20, "Valentina"),
 ]
 
 # Correcciones de la transcripción automática.
@@ -42,12 +44,14 @@ REPLACE = {
     "Arequipé": "arequipe",
     "Maracuyá,": "maracuyá,",
     "Uroban,": "Huroban,",
+    "sabores": "Sabores",
+    "sorprendentes.": "Sorprendentes.",
     "palmas.": "Palmas.",
 }
-DROP_WORDS = {("IMG_0319", "Don"), ("IMG_0319", "Atres,")}  # nombre no claro en el audio
+DROP_WORDS: set[tuple[str, str]] = set()
 
 KEYWORDS = {
-    "avanzares", "sorprendentes", "huroban", "arequipe", "maracuyá", "crema",
+    "sabores", "sorprendentes", "huroban", "arequipe", "maracuyá", "crema",
     "whisky", "café", "100%", "delicioso", "increíble", "sabrosos",
 }
 
@@ -110,7 +114,7 @@ def map_time(segs, clip, src_t):
     for sg in segs:
         if sg["clip"] == clip and src_t < sg["srcEnd"]:
             if src_t < sg["srcStart"]:
-                if src_t < sg["srcStart"] - 0.2:
+                if src_t < sg["srcStart"] - 0.08:
                     return None  # palabra que quedó en un tramo cortado
                 src_t = sg["srcStart"]
             return sg["outStart"] + (src_t - sg["srcStart"])

@@ -1,6 +1,8 @@
-# Avanzares Sorprendentes — video de opiniones de clientes
+# Huroban Sabores Sorprendentes — video de opiniones de clientes
 
-Video vertical 1080x1920 (Reels/TikTok), ~56 s: entrevista corta con cortes entre
+(La carpeta se llama `avanzares` por el nombre de trabajo inicial; la marca correcta es **Sabores Sorprendentes**.)
+
+Video vertical 1080x1920 (Reels/TikTok), ~44 s: intro con la pregunta y luego solo las respuestas (sin las preguntas), con cortes entre
 respuestas, subtítulos palabra por palabra y música urbana de fondo.
 
 ## Material (Google Drive, Mi unidad)
@@ -21,7 +23,7 @@ curl -o public/avanzares/musica.mp3 https://files.freemusicarchive.org/storage-f
 # 3. Cortes + subtítulos (genera public/avanzares/montaje.mp4, captions.json, meta.json)
 python3 avanzares/build.py            # --solo-subs para regenerar solo subtítulos
 # 4. Render final
-npx remotion render AvanzaresSorprendentes out/avanzares-sorprendentes.mp4 --crf=14 --x264-preset=slow --jpeg-quality=100 --audio-bitrate=320k
+npx remotion render SaboresSorprendentes out/Sabores_Sorprendentes.mp4 --crf=14 --x264-preset=slow --jpeg-quality=100 --audio-bitrate=320k
 ```
 
 - `transcripcion_whisper.json`: transcripción automática (faster-whisper large-v3, español)
