@@ -94,12 +94,12 @@ export const Portada1: React.FC = () => (
 export const Portada2: React.FC = () => (
   <AbsoluteFill style={{ ...base, background: RED }}>
     <Img
-      src={foto("stand.jpg")}
+      src={foto("pareja_sonrie.png")}
       style={{ width: "100%", height: "100%", objectFit: "cover" }}
     />
     <AbsoluteFill
       style={{
-        background: `linear-gradient(180deg, rgba(122,26,35,0.75) 0%, rgba(122,26,35,0) 26%, rgba(122,26,35,0) 45%, ${RED} 72%, ${RED} 100%)`,
+        background: `linear-gradient(180deg, rgba(122,26,35,0.7) 0%, rgba(122,26,35,0) 24%, rgba(122,26,35,0) 60%, ${RED} 80%, ${RED} 100%)`,
       }}
     />
     <Img
@@ -114,7 +114,7 @@ export const Portada2: React.FC = () => (
     <div
       style={{
         position: "absolute",
-        top: 1170,
+        top: 1250,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

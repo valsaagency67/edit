@@ -38,6 +38,8 @@ npx remotion render SaboresSorprendentes out/Sabores_Sorprendentes.mp4 --crf=14 
 - 5 portadas alternativas: `src/Avanzares/Portadas.tsx` (composiciones `PortadaOpcion1`…`PortadaOpcion5`).
   Usan cuadros 4K de los originales en `public/avanzares/portadas/` (stand: IMG_0321 0.6 s;
   productos_mesa: recorte de IMG_0321 21.9 s) y `logo_rojo.png` / `logo_blanco.png`.
+  Opción 2 usa `pareja_sonrie.png` (IMG_0321 en 0 s, ambos sonriendo), mejorada con:
+  `ffmpeg -ss 0 -i media/raw/IMG_0321.MOV -frames:v 1 -vf "crop=1350:2400:395:437,hqdn3d=1.2:1.2:0:0,scale=1080:1920:flags=lanczos,unsharp=5:5:0.6:5:5:0,eq=contrast=1.07:saturation=1.12:brightness=0.015:gamma=1.04,colorbalance=rs=0.03:bs=-0.03:rm=0.02:bm=-0.02" public/avanzares/portadas/pareja_sonrie.png`
 
 ## Créditos
 
