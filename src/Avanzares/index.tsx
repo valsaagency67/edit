@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import {
   AbsoluteFill,
   Easing,
-  Freeze,
+  Img,
   interpolate,
   OffthreadVideo,
   Sequence,
@@ -44,8 +44,8 @@ export const OUTRO_FRAMES = 84;
 export const TOTAL_FRAMES = VIDEO_FRAMES + OUTRO_FRAMES;
 
 // Colores de marca: rojo y blanco.
-const RED = "#E30613";
-const RED_LIGHT = "#FF3B3B";
+const RED = "#AE2C36"; // rojo exacto del logo de Huroban
+const RED_LIGHT = "#FF4D5A"; // rojo claro para resaltar palabras sobre el video
 const WHITE = "#FFFFFF";
 const DARK = "#141414";
 
@@ -153,7 +153,7 @@ const SubtitlePage: React.FC<{ page: TikTokPage }> = ({ page }) => {
               style={{
                 display: "inline-block",
                 whiteSpace: "nowrap",
-                margin: "0 0.06em",
+                margin: "0 0.14em",
                 color: keyword && !active ? RED_LIGHT : WHITE,
                 background: active ? RED : "transparent",
                 borderRadius: 14,
@@ -202,51 +202,23 @@ const Subtitles: React.FC = () => {
   );
 };
 
-// ---------- Título de entrada ----------
-const BrandPill: React.FC<{ size?: number }> = ({ size = 1 }) => (
-  <div
+// ---------- Logo ----------
+const LOGO = staticFile("avanzares/logo_blanco.png"); // blanco con fondo transparente
+
+const Logo: React.FC<{ width: number; shadow?: boolean }> = ({
+  width,
+  shadow = true,
+}) => (
+  <Img
+    src={LOGO}
     style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      fontFamily,
-      textTransform: "uppercase",
-      transform: `scale(${size})`,
+      width,
+      filter: shadow ? "drop-shadow(0 4px 14px rgba(0,0,0,0.55))" : undefined,
     }}
-  >
-    <div
-      style={{
-        background: WHITE,
-        color: RED,
-        fontWeight: 900,
-        fontSize: 78,
-        letterSpacing: 1,
-        padding: "10px 34px",
-        borderRadius: 18,
-        transform: "rotate(-2deg)",
-        boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
-      }}
-    >
-      Sabores
-    </div>
-    <div
-      style={{
-        marginTop: -6,
-        background: RED,
-        color: WHITE,
-        fontWeight: 900,
-        fontSize: 64,
-        padding: "8px 30px",
-        borderRadius: 16,
-        transform: "rotate(1.5deg)",
-        boxShadow: "0 14px 40px rgba(0,0,0,0.35)",
-      }}
-    >
-      Sorprendentes
-    </div>
-  </div>
+  />
 );
 
+// ---------- Título de entrada ----------
 const IntroTitle: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -261,22 +233,23 @@ const IntroTitle: React.FC = () => {
     config: { damping: 16 },
   });
   return (
-    <AbsoluteFill style={{ alignItems: "center", top: 190, opacity: out }}>
+    <AbsoluteFill style={{ alignItems: "center", top: 150, opacity: out }}>
       <div style={{ transform: `scale(${inS})` }}>
-        <BrandPill />
+        <Logo width={560} />
       </div>
       <div
         style={{
-          marginTop: 28,
+          marginTop: 26,
           fontFamily,
           fontWeight: 800,
           fontSize: 46,
-          color: "white",
+          color: WHITE,
           textTransform: "uppercase",
           letterSpacing: 4,
-          background: "rgba(0,0,0,0.55)",
-          padding: "10px 26px",
+          background: RED,
+          padding: "10px 30px",
           borderRadius: 999,
+          boxShadow: "0 10px 28px rgba(0,0,0,0.35)",
           opacity: sub,
           transform: `translateY(${interpolate(sub, [0, 1], [20, 0])}px)`,
         }}
@@ -287,28 +260,15 @@ const IntroTitle: React.FC = () => {
   );
 };
 
-// Marca pequeña fija arriba durante las entrevistas.
-const CornerBrand: React.FC = () => {
+// Logo en transparencia durante todo el video (marca de agua).
+const LogoWatermark: React.FC = () => {
   const frame = useCurrentFrame();
-  const o = interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
+  const o = interpolate(frame, [0, 15], [0, 0.55], {
+    extrapolateRight: "clamp",
+  });
   return (
-    <AbsoluteFill style={{ alignItems: "center", top: 120, opacity: o }}>
-      <div
-        style={{
-          fontFamily,
-          fontWeight: 900,
-          fontSize: 34,
-          textTransform: "uppercase",
-          color: WHITE,
-          background: RED,
-          padding: "8px 22px",
-          borderRadius: 999,
-          letterSpacing: 2,
-          boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
-        }}
-      >
-        Sabores Sorprendentes
-      </div>
+    <AbsoluteFill style={{ alignItems: "center", top: 105, opacity: o }}>
+      <Logo width={230} />
     </AbsoluteFill>
   );
 };
@@ -386,33 +346,21 @@ const PRODUCTS = ["Arequipe de maracuyá", "Crema de whisky", "Whisky de café"]
 const Outro: React.FC = () => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const bg = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
-  const logo = spring({ frame: frame - 4, fps, config: { damping: 11 } });
+  const bg = interpolate(frame, [0, 8], [0, 1], { extrapolateRight: "clamp" });
+  const logo = spring({ frame: frame - 3, fps, config: { damping: 11 } });
   return (
-    <AbsoluteFill>
-      <Freeze frame={VIDEO_FRAMES - 1}>
-        <AbsoluteFill
-          style={{ filter: `blur(${bg * 18}px)`, transform: "scale(1.1)" }}
-        >
-          <OffthreadVideo
-            src={staticFile("avanzares/montaje.mp4")}
-            muted
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </AbsoluteFill>
-      </Freeze>
-      <AbsoluteFill style={{ backgroundColor: `rgba(20,10,0,${bg * 0.55})` }} />
+    <AbsoluteFill style={{ backgroundColor: RED, opacity: bg }}>
       <AbsoluteFill
-        style={{ justifyContent: "center", alignItems: "center", gap: 60 }}
+        style={{ justifyContent: "center", alignItems: "center", gap: 80 }}
       >
-        <div style={{ transform: `scale(${logo * 1.25})` }}>
-          <BrandPill />
+        <div style={{ transform: `scale(${logo})` }}>
+          <Logo width={820} shadow={false} />
         </div>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 18,
+            gap: 20,
             alignItems: "center",
           }}
         >
@@ -429,11 +377,10 @@ const Outro: React.FC = () => {
                   fontFamily,
                   fontWeight: 800,
                   fontSize: 50,
-                  color: "white",
+                  color: RED,
                   textTransform: "uppercase",
-                  background: "rgba(0,0,0,0.5)",
-                  border: `3px solid ${RED}`,
-                  padding: "10px 30px",
+                  background: WHITE,
+                  padding: "10px 34px",
                   borderRadius: 999,
                   opacity: s,
                   transform: `translateY(${interpolate(s, [0, 1], [40, 0])}px)`,
@@ -463,7 +410,7 @@ export const AvanzaresVideo: React.FC = () => {
         <IntroTitle />
       </Sequence>
       <Sequence from={150} durationInFrames={VIDEO_FRAMES - 150}>
-        <CornerBrand />
+        <LogoWatermark />
       </Sequence>
       {meta.nameTags.map((t) => (
         <Sequence key={t.text} from={t.fromFrame} durationInFrames={84}>
