@@ -52,8 +52,8 @@ const DARK = "#1B0F05";
 // Música: "Escapada" de Beat Mekanik (CC BY 4.0). Arranca en el "drop" (33 s).
 const MUSIC_START_S = 33.0;
 
-const MUSIC_UNDER_VOICE = 0.14;
-const MUSIC_FULL = 0.55;
+const MUSIC_UNDER_VOICE = 0.18;
+const MUSIC_FULL = 0.41;
 
 // ---------- Video con zooms en cada corte ----------
 const CUTS: number[] = meta.cuts;
