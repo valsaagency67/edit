@@ -7,3 +7,7 @@ dist
 out
 whisper.cpp
 media/
+
+# Archivos pesados del proyecto Avanzares (se regeneran con avanzares/build.py)
+public/avanzares/*.mp4
+public/avanzares/*.mp3

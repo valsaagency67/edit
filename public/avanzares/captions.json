@@ -1,0 +1,1394 @@
+[
+ {
+  "text": " Vamos",
+  "startMs": 0,
+  "endMs": 590,
+  "timestampMs": null,
+  "confidence": 0.9,
+  "keyword": false
+ },
+ {
+  "text": " a",
+  "startMs": 600,
+  "endMs": 750,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " preguntarle",
+  "startMs": 760,
+  "endMs": 1150,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " a",
+  "startMs": 1160,
+  "endMs": 1270,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " algunos",
+  "startMs": 1280,
+  "endMs": 1450,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " clientes",
+  "startMs": 1460,
+  "endMs": 2070,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " qué",
+  "startMs": 2080,
+  "endMs": 2230,
+  "timestampMs": null,
+  "confidence": 0.54,
+  "keyword": false
+ },
+ {
+  "text": " les",
+  "startMs": 2240,
+  "endMs": 2370,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " pareció",
+  "startMs": 2380,
+  "endMs": 2970,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " uno",
+  "startMs": 2980,
+  "endMs": 3170,
+  "timestampMs": null,
+  "confidence": 0.85,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 3180,
+  "endMs": 3190,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " sus",
+  "startMs": 3200,
+  "endMs": 3310,
+  "timestampMs": null,
+  "confidence": 0.88,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 3320,
+  "endMs": 3630,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 3640,
+  "endMs": 3830,
+  "timestampMs": null,
+  "confidence": 0.81,
+  "keyword": false
+ },
+ {
+  "text": " Avanzares",
+  "startMs": 3840,
+  "endMs": 4370,
+  "timestampMs": null,
+  "confidence": 0.25,
+  "keyword": true
+ },
+ {
+  "text": " Sorprendentes.",
+  "startMs": 4380,
+  "endMs": 5270,
+  "timestampMs": null,
+  "confidence": 0.79,
+  "keyword": true
+ },
+ {
+  "text": " quiero",
+  "startMs": 5537,
+  "endMs": 5707,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " preguntarte,",
+  "startMs": 5717,
+  "endMs": 6247,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " ¿qué",
+  "startMs": 6317,
+  "endMs": 6467,
+  "timestampMs": null,
+  "confidence": 0.96,
+  "keyword": false
+ },
+ {
+  "text": " te",
+  "startMs": 6477,
+  "endMs": 6627,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " pareció",
+  "startMs": 6637,
+  "endMs": 7127,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " uno",
+  "startMs": 7137,
+  "endMs": 7307,
+  "timestampMs": null,
+  "confidence": 0.92,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 7317,
+  "endMs": 7367,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " esos",
+  "startMs": 7377,
+  "endMs": 7407,
+  "timestampMs": null,
+  "confidence": 0.53,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 7417,
+  "endMs": 7767,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " en",
+  "startMs": 7777,
+  "endMs": 8027,
+  "timestampMs": null,
+  "confidence": 0.66,
+  "keyword": false
+ },
+ {
+  "text": " Avanzares",
+  "startMs": 8037,
+  "endMs": 8627,
+  "timestampMs": null,
+  "confidence": 0.26,
+  "keyword": true
+ },
+ {
+  "text": " Sorprendentes?",
+  "startMs": 8637,
+  "endMs": 8787,
+  "timestampMs": null,
+  "confidence": 0.67,
+  "keyword": true
+ },
+ {
+  "text": " La",
+  "startMs": 8797,
+  "endMs": 8887,
+  "timestampMs": null,
+  "confidence": 0.9,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 8897,
+  "endMs": 9087,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " todos",
+  "startMs": 9217,
+  "endMs": 9547,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " los",
+  "startMs": 9557,
+  "endMs": 9747,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 9757,
+  "endMs": 10067,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " son",
+  "startMs": 10077,
+  "endMs": 10287,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " muy",
+  "startMs": 10297,
+  "endMs": 10447,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " buenos,",
+  "startMs": 10457,
+  "endMs": 10747,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " pero",
+  "startMs": 10877,
+  "endMs": 11267,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " principalmente",
+  "startMs": 11277,
+  "endMs": 11707,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " les",
+  "startMs": 11717,
+  "endMs": 12447,
+  "timestampMs": null,
+  "confidence": 0.88,
+  "keyword": false
+ },
+ {
+  "text": " recomiendo",
+  "startMs": 12457,
+  "endMs": 12887,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " el",
+  "startMs": 12897,
+  "endMs": 12987,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " arequipe",
+  "startMs": 12997,
+  "endMs": 13347,
+  "timestampMs": null,
+  "confidence": 0.79,
+  "keyword": true
+ },
+ {
+  "text": " de",
+  "startMs": 13357,
+  "endMs": 13447,
+  "timestampMs": null,
+  "confidence": 0.94,
+  "keyword": false
+ },
+ {
+  "text": " maracuyá,",
+  "startMs": 13457,
+  "endMs": 13847,
+  "timestampMs": null,
+  "confidence": 0.96,
+  "keyword": true
+ },
+ {
+  "text": " muy",
+  "startMs": 13917,
+  "endMs": 14087,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " recomendado.",
+  "startMs": 14097,
+  "endMs": 14787,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Ahora",
+  "startMs": 14877,
+  "endMs": 15227,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " les",
+  "startMs": 15237,
+  "endMs": 15407,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " paso",
+  "startMs": 15417,
+  "endMs": 15587,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " a",
+  "startMs": 15597,
+  "endMs": 15727,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " mi",
+  "startMs": 15737,
+  "endMs": 15767,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " amigo",
+  "startMs": 15777,
+  "endMs": 15947,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Cristian.",
+  "startMs": 15957,
+  "endMs": 16407,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " Hola,",
+  "startMs": 16533,
+  "endMs": 16713,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " buenas",
+  "startMs": 16743,
+  "endMs": 16853,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " noches.",
+  "startMs": 16863,
+  "endMs": 17293,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " La",
+  "startMs": 17303,
+  "endMs": 17653,
+  "timestampMs": null,
+  "confidence": 0.82,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 17663,
+  "endMs": 17853,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " por",
+  "startMs": 17923,
+  "endMs": 17973,
+  "timestampMs": null,
+  "confidence": 0.55,
+  "keyword": false
+ },
+ {
+  "text": " ejemplo,",
+  "startMs": 17983,
+  "endMs": 18093,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " mi",
+  "startMs": 18103,
+  "endMs": 18213,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " producto",
+  "startMs": 18223,
+  "endMs": 18433,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " favorito,",
+  "startMs": 18443,
+  "endMs": 19033,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " la",
+  "startMs": 19043,
+  "endMs": 19153,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 19163,
+  "endMs": 19353,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " es",
+  "startMs": 19463,
+  "endMs": 19573,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " la",
+  "startMs": 19583,
+  "endMs": 19693,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " crema",
+  "startMs": 19703,
+  "endMs": 19953,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " de",
+  "startMs": 19963,
+  "endMs": 19973,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " whisky,",
+  "startMs": 19983,
+  "endMs": 20413,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": true
+ },
+ {
+  "text": " que",
+  "startMs": 20443,
+  "endMs": 20650,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " por",
+  "startMs": 20660,
+  "endMs": 20830,
+  "timestampMs": null,
+  "confidence": 0.87,
+  "keyword": false
+ },
+ {
+  "text": " ejemplo,",
+  "startMs": 20840,
+  "endMs": 20950,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " su",
+  "startMs": 21020,
+  "endMs": 21130,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " sabor",
+  "startMs": 21140,
+  "endMs": 21410,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " es",
+  "startMs": 21420,
+  "endMs": 21800,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " 100%",
+  "startMs": 21810,
+  "endMs": 22200,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " auténtico.",
+  "startMs": 22210,
+  "endMs": 22680,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Lo",
+  "startMs": 22890,
+  "endMs": 22940,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " mejor",
+  "startMs": 22950,
+  "endMs": 23180,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " que",
+  "startMs": 23190,
+  "endMs": 23320,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " he",
+  "startMs": 23330,
+  "endMs": 23340,
+  "timestampMs": null,
+  "confidence": 0.96,
+  "keyword": false
+ },
+ {
+  "text": " probado",
+  "startMs": 23350,
+  "endMs": 23500,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " en",
+  "startMs": 23510,
+  "endMs": 23600,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " mi",
+  "startMs": 23610,
+  "endMs": 23680,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " vida.",
+  "startMs": 23690,
+  "endMs": 23880,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 24160,
+  "endMs": 24350,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " se",
+  "startMs": 24360,
+  "endMs": 24450,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " los",
+  "startMs": 24460,
+  "endMs": 24510,
+  "timestampMs": null,
+  "confidence": 0.83,
+  "keyword": false
+ },
+ {
+  "text": " recomiendo.",
+  "startMs": 24520,
+  "endMs": 24990,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Pruébenlo.",
+  "startMs": 25200,
+  "endMs": 25550,
+  "timestampMs": null,
+  "confidence": 0.83,
+  "keyword": false
+ },
+ {
+  "text": " Valentina,",
+  "startMs": 25767,
+  "endMs": 26237,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " me",
+  "startMs": 26247,
+  "endMs": 26337,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " gustaría",
+  "startMs": 26347,
+  "endMs": 26617,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " saber",
+  "startMs": 26627,
+  "endMs": 26957,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " qué",
+  "startMs": 26967,
+  "endMs": 27237,
+  "timestampMs": null,
+  "confidence": 0.93,
+  "keyword": false
+ },
+ {
+  "text": " te",
+  "startMs": 27247,
+  "endMs": 27357,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " parecieron",
+  "startMs": 27367,
+  "endMs": 27897,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " nuestros",
+  "startMs": 27907,
+  "endMs": 28077,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 28087,
+  "endMs": 28717,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " en",
+  "startMs": 28727,
+  "endMs": 29237,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Huroban,",
+  "startMs": 29247,
+  "endMs": 29637,
+  "timestampMs": null,
+  "confidence": 0.77,
+  "keyword": true
+ },
+ {
+  "text": " Avanzares",
+  "startMs": 29707,
+  "endMs": 29997,
+  "timestampMs": null,
+  "confidence": 0.29,
+  "keyword": true
+ },
+ {
+  "text": " Sorprendentes.",
+  "startMs": 30007,
+  "endMs": 30777,
+  "timestampMs": null,
+  "confidence": 0.95,
+  "keyword": true
+ },
+ {
+  "text": " Bueno,",
+  "startMs": 30887,
+  "endMs": 31160,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " chicos,",
+  "startMs": 31170,
+  "endMs": 31380,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " a",
+  "startMs": 31490,
+  "endMs": 31600,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " mí",
+  "startMs": 31610,
+  "endMs": 31610,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " me",
+  "startMs": 31610,
+  "endMs": 31680,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " pareció",
+  "startMs": 31690,
+  "endMs": 31980,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " súper",
+  "startMs": 31990,
+  "endMs": 32300,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " increíble,",
+  "startMs": 32310,
+  "endMs": 32980,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " es",
+  "startMs": 33010,
+  "endMs": 33160,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 33170,
+  "endMs": 33260,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " los",
+  "startMs": 33270,
+  "endMs": 33380,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " mejores",
+  "startMs": 33390,
+  "endMs": 33660,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " que",
+  "startMs": 33670,
+  "endMs": 33920,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " he",
+  "startMs": 33930,
+  "endMs": 33960,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " probado.",
+  "startMs": 33970,
+  "endMs": 34460,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " El",
+  "startMs": 34550,
+  "endMs": 34700,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " whisky",
+  "startMs": 34710,
+  "endMs": 35180,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": true
+ },
+ {
+  "text": " de",
+  "startMs": 35190,
+  "endMs": 35260,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " café",
+  "startMs": 35270,
+  "endMs": 35540,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " es",
+  "startMs": 35550,
+  "endMs": 35840,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " súper",
+  "startMs": 35850,
+  "endMs": 36040,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " delicioso.",
+  "startMs": 36050,
+  "endMs": 36580,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " Vengan",
+  "startMs": 36590,
+  "endMs": 36940,
+  "timestampMs": null,
+  "confidence": 0.83,
+  "keyword": false
+ },
+ {
+  "text": " a",
+  "startMs": 36950,
+  "endMs": 37080,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " Huroban,",
+  "startMs": 37090,
+  "endMs": 37660,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " es",
+  "startMs": 37750,
+  "endMs": 37900,
+  "timestampMs": null,
+  "confidence": 0.89,
+  "keyword": false
+ },
+ {
+  "text": " el",
+  "startMs": 37910,
+  "endMs": 38000,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " mejor",
+  "startMs": 38010,
+  "endMs": 38240,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 38250,
+  "endMs": 38380,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " las",
+  "startMs": 38390,
+  "endMs": 38480,
+  "timestampMs": null,
+  "confidence": 0.96,
+  "keyword": false
+ },
+ {
+  "text": " ferias",
+  "startMs": 38490,
+  "endMs": 38760,
+  "timestampMs": null,
+  "confidence": 0.91,
+  "keyword": false
+ },
+ {
+  "text": " de",
+  "startMs": 38770,
+  "endMs": 38820,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " Palmas.",
+  "startMs": 38830,
+  "endMs": 39080,
+  "timestampMs": null,
+  "confidence": 0.43,
+  "keyword": false
+ },
+ {
+  "text": " me",
+  "startMs": 39877,
+  "endMs": 39927,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " gustaría",
+  "startMs": 39937,
+  "endMs": 40207,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " saber",
+  "startMs": 40217,
+  "endMs": 40527,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " qué",
+  "startMs": 40537,
+  "endMs": 40967,
+  "timestampMs": null,
+  "confidence": 0.71,
+  "keyword": false
+ },
+ {
+  "text": " te",
+  "startMs": 40977,
+  "endMs": 41087,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " pareció",
+  "startMs": 41097,
+  "endMs": 41627,
+  "timestampMs": null,
+  "confidence": 0.94,
+  "keyword": false
+ },
+ {
+  "text": " nuestros",
+  "startMs": 41637,
+  "endMs": 42087,
+  "timestampMs": null,
+  "confidence": 0.91,
+  "keyword": false
+ },
+ {
+  "text": " productos.",
+  "startMs": 42097,
+  "endMs": 42767,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " La",
+  "startMs": 43157,
+  "endMs": 43607,
+  "timestampMs": null,
+  "confidence": 0.81,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 43617,
+  "endMs": 43887,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 44017,
+  "endMs": 44247,
+  "timestampMs": null,
+  "confidence": 0.98,
+  "keyword": false
+ },
+ {
+  "text": " muy",
+  "startMs": 44257,
+  "endMs": 44527,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " sabrosos,",
+  "startMs": 44537,
+  "endMs": 45027,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " muy",
+  "startMs": 45037,
+  "endMs": 45167,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " recomendados,",
+  "startMs": 45177,
+  "endMs": 46167,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " probé",
+  "startMs": 46257,
+  "endMs": 47150,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " más",
+  "startMs": 47160,
+  "endMs": 47250,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " que",
+  "startMs": 47260,
+  "endMs": 47370,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " todo",
+  "startMs": 47380,
+  "endMs": 47530,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " la",
+  "startMs": 47540,
+  "endMs": 47710,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " crema",
+  "startMs": 47720,
+  "endMs": 48050,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " de",
+  "startMs": 48060,
+  "endMs": 48110,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " whisky",
+  "startMs": 48120,
+  "endMs": 48730,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": true
+ },
+ {
+  "text": " y",
+  "startMs": 48740,
+  "endMs": 48977,
+  "timestampMs": null,
+  "confidence": 0.61,
+  "keyword": false
+ },
+ {
+  "text": " la",
+  "startMs": 48987,
+  "endMs": 49117,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " verdad,",
+  "startMs": 49127,
+  "endMs": 49357,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " muy",
+  "startMs": 49427,
+  "endMs": 49557,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " recomendable,",
+  "startMs": 49567,
+  "endMs": 50177,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " productos",
+  "startMs": 50307,
+  "endMs": 50777,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " muy",
+  "startMs": 50787,
+  "endMs": 51253,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " bien",
+  "startMs": 51263,
+  "endMs": 51573,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " sabrosos.",
+  "startMs": 51583,
+  "endMs": 51833,
+  "timestampMs": null,
+  "confidence": 0.97,
+  "keyword": true
+ },
+ {
+  "text": " Eso",
+  "startMs": 52010,
+  "endMs": 52560,
+  "timestampMs": null,
+  "confidence": 0.99,
+  "keyword": false
+ },
+ {
+  "text": " es",
+  "startMs": 52570,
+  "endMs": 52640,
+  "timestampMs": null,
+  "confidence": 0.94,
+  "keyword": false
+ },
+ {
+  "text": " todo,",
+  "startMs": 52650,
+  "endMs": 52800,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " muchas",
+  "startMs": 52910,
+  "endMs": 53060,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " gracias.",
+  "startMs": 53070,
+  "endMs": 53380,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ }
+]
