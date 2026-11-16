@@ -35,6 +35,9 @@ npx remotion render SaboresSorprendentes out/Sabores_Sorprendentes.mp4 --crf=14 
     ffmpeg -y -i public/avanzares/montaje.mp4 -vf "select='eq(n\,$1)'" -frames:v 1 -fps_mode vfr public/avanzares/portada/$2.png; done
   npx remotion still PortadaSaboresSorprendentes out/Portada_Huroban_Sabores_Sorprendentes.png
   ```
+- 5 portadas alternativas: `src/Avanzares/Portadas.tsx` (composiciones `PortadaOpcion1`…`PortadaOpcion5`).
+  Usan cuadros 4K de los originales en `public/avanzares/portadas/` (stand: IMG_0321 0.6 s;
+  productos_mesa: recorte de IMG_0321 21.9 s) y `logo_rojo.png` / `logo_blanco.png`.
 
 ## Créditos
 

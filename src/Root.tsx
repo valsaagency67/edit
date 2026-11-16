@@ -2,6 +2,15 @@ import { Composition, staticFile } from "remotion";
 import { AvanzaresVideo, FPS, TOTAL_FRAMES } from "./Avanzares";
 import { Portada } from "./Avanzares/Portada";
 import {
+  Portada1,
+  Portada2,
+  Portada3,
+  Portada4,
+  Portada5,
+} from "./Avanzares/Portadas";
+
+const PORTADAS = [Portada1, Portada2, Portada3, Portada4, Portada5];
+import {
   CaptionedVideo,
   calculateCaptionedVideoMetadata,
   captionedVideoSchema,
@@ -20,6 +29,17 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      {PORTADAS.map((C, i) => (
+        <Composition
+          key={i}
+          id={`PortadaOpcion${i + 1}`}
+          component={C}
+          durationInFrames={1}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+      ))}
       <Composition
         id="SaboresSorprendentes"
         component={AvanzaresVideo}
