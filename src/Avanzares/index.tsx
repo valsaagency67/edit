@@ -341,7 +341,7 @@ const ProgressBar: React.FC = () => {
 };
 
 // ---------- Cierre ----------
-const PRODUCTS = ["Arequipe de maracuyá", "Crema de whisky", "Whisky de café"];
+const PRODUCTS = ["Arequipes", "Cremas de whisky", "Vino", "Conservas"];
 
 const Outro: React.FC = () => {
   const frame = useCurrentFrame();
