@@ -29,10 +29,12 @@ RANGES = [
     ("IMG_0309", 0.00, 5.45),   # Intro: "Vamos a preguntarle a algunos clientes..."
     ("IMG_0312", 4.42, 22.70),  # Chico de camiseta amarilla + Cristian
     ("IMG_0314", 6.15, 14.25),  # Valentina
-    ("IMG_0319", 4.92, 14.45),  # Chico de gorra
-    ("IMG_0319", 16.65, 18.45), # "Eso es todo, muchas gracias"
+    ("IMG_0319", 4.92, 16.35),  # Chico de gorra (hasta "muy bien sabrosos" completo)
+    # (16.65-18.45 "Eso es todo, muchas gracias" es del entrevistador: fuera)
     # Último clip: completo (sin recortar pausas), solo se quita la pregunta.
-    ("IMG_0321", 4.54, 22.00, "completo"),  # Pareja: crema de whisky
+    ("IMG_0321", 4.54, 18.90, "completo"),  # Pareja: crema de whisky
+    # (19.92-21.12 "Vale, eso es todo, gracias" es del entrevistador: fuera)
+    ("IMG_0321", 21.22, 22.00, "completo"),  # El chico: "Eso es todo."
 ]
 
 # Etiquetas con nombre (clip, segundo original en que aparecen, texto).

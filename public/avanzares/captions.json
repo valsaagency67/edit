@@ -1058,391 +1058,311 @@
  {
   "text": " sabrosos.",
   "startMs": 38250,
-  "endMs": 38500,
+  "endMs": 39037,
   "timestampMs": null,
   "confidence": 0.97,
   "keyword": true
  },
  {
-  "text": " Eso",
-  "startMs": 38677,
-  "endMs": 39227,
-  "timestampMs": null,
-  "confidence": 0.99,
-  "keyword": false
- },
- {
-  "text": " es",
-  "startMs": 39237,
-  "endMs": 39307,
-  "timestampMs": null,
-  "confidence": 0.94,
-  "keyword": false
- },
- {
-  "text": " todo,",
-  "startMs": 39317,
-  "endMs": 39467,
-  "timestampMs": null,
-  "confidence": 1.0,
-  "keyword": false
- },
- {
-  "text": " muchas",
-  "startMs": 39577,
-  "endMs": 39727,
-  "timestampMs": null,
-  "confidence": 1.0,
-  "keyword": false
- },
- {
-  "text": " gracias.",
-  "startMs": 39737,
-  "endMs": 40047,
-  "timestampMs": null,
-  "confidence": 1.0,
-  "keyword": false
- },
- {
   "text": " Pues,",
-  "startMs": 40567,
-  "endMs": 40957,
+  "startMs": 39600,
+  "endMs": 39990,
   "timestampMs": null,
   "confidence": 0.9,
   "keyword": false
  },
  {
   "text": " a",
-  "startMs": 40967,
-  "endMs": 41357,
+  "startMs": 40000,
+  "endMs": 40390,
   "timestampMs": null,
   "confidence": 0.97,
   "keyword": false
  },
  {
   "text": " nosotros",
-  "startMs": 41367,
-  "endMs": 41677,
+  "startMs": 40400,
+  "endMs": 40710,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " que",
-  "startMs": 41687,
-  "endMs": 41977,
+  "startMs": 40720,
+  "endMs": 41010,
   "timestampMs": null,
   "confidence": 0.64,
   "keyword": false
  },
  {
   "text": " compramos,",
-  "startMs": 41987,
-  "endMs": 42297,
+  "startMs": 41020,
+  "endMs": 41330,
   "timestampMs": null,
   "confidence": 0.4,
   "keyword": false
  },
  {
   "text": " por",
-  "startMs": 42407,
-  "endMs": 42497,
+  "startMs": 41440,
+  "endMs": 41530,
   "timestampMs": null,
   "confidence": 0.95,
   "keyword": false
  },
  {
   "text": " ejemplo,",
-  "startMs": 42507,
-  "endMs": 42697,
+  "startMs": 41540,
+  "endMs": 41730,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " yo",
-  "startMs": 42767,
-  "endMs": 42957,
+  "startMs": 41800,
+  "endMs": 41990,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " que",
-  "startMs": 42967,
-  "endMs": 43257,
+  "startMs": 42000,
+  "endMs": 42290,
   "timestampMs": null,
   "confidence": 0.92,
   "keyword": false
  },
  {
   "text": " probé",
-  "startMs": 43267,
-  "endMs": 43557,
+  "startMs": 42300,
+  "endMs": 42590,
   "timestampMs": null,
   "confidence": 0.92,
   "keyword": false
  },
  {
   "text": " la",
-  "startMs": 43567,
-  "endMs": 43677,
+  "startMs": 42600,
+  "endMs": 42710,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " crema",
-  "startMs": 43687,
-  "endMs": 44017,
+  "startMs": 42720,
+  "endMs": 43050,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": true
  },
  {
   "text": " de",
-  "startMs": 44027,
-  "endMs": 44057,
+  "startMs": 43060,
+  "endMs": 43090,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " whisky,",
-  "startMs": 44067,
-  "endMs": 44457,
+  "startMs": 43100,
+  "endMs": 43490,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": true
  },
  {
   "text": " me",
-  "startMs": 44527,
-  "endMs": 44937,
+  "startMs": 43560,
+  "endMs": 43970,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " pareció",
-  "startMs": 44947,
-  "endMs": 45277,
+  "startMs": 43980,
+  "endMs": 44310,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " muy",
-  "startMs": 45287,
-  "endMs": 45617,
+  "startMs": 44320,
+  "endMs": 44650,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " rica,",
-  "startMs": 45627,
-  "endMs": 46257,
+  "startMs": 44660,
+  "endMs": 45290,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " la",
-  "startMs": 46267,
-  "endMs": 46417,
+  "startMs": 45300,
+  "endMs": 45450,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " verdad,",
-  "startMs": 46427,
-  "endMs": 46597,
+  "startMs": 45460,
+  "endMs": 45630,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " muy",
-  "startMs": 46807,
-  "endMs": 47237,
+  "startMs": 45840,
+  "endMs": 46270,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " buen",
-  "startMs": 47247,
-  "endMs": 47477,
+  "startMs": 46280,
+  "endMs": 46510,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " producto,",
-  "startMs": 47487,
-  "endMs": 47757,
+  "startMs": 46520,
+  "endMs": 46790,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " la",
-  "startMs": 47847,
-  "endMs": 47997,
+  "startMs": 46880,
+  "endMs": 47030,
   "timestampMs": null,
   "confidence": 0.78,
   "keyword": false
  },
  {
   "text": " verdad,",
-  "startMs": 48007,
-  "endMs": 48217,
+  "startMs": 47040,
+  "endMs": 47250,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " 100%",
-  "startMs": 48307,
-  "endMs": 48817,
+  "startMs": 47340,
+  "endMs": 47850,
   "timestampMs": null,
   "confidence": 0.97,
   "keyword": true
  },
  {
   "text": " recomendado,",
-  "startMs": 48827,
-  "endMs": 49617,
+  "startMs": 47860,
+  "endMs": 48650,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " y",
-  "startMs": 49627,
-  "endMs": 50277,
+  "startMs": 48660,
+  "endMs": 49310,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " pues,",
-  "startMs": 50287,
-  "endMs": 50597,
+  "startMs": 49320,
+  "endMs": 49630,
   "timestampMs": null,
   "confidence": 0.98,
   "keyword": false
  },
  {
   "text": " ya.",
-  "startMs": 50687,
-  "endMs": 51017,
+  "startMs": 49720,
+  "endMs": 50050,
   "timestampMs": null,
   "confidence": 0.91,
   "keyword": false
  },
  {
   "text": " Ah,",
-  "startMs": 52487,
-  "endMs": 52877,
+  "startMs": 51520,
+  "endMs": 51910,
   "timestampMs": null,
   "confidence": 0.71,
   "keyword": false
  },
  {
   "text": " pues,",
-  "startMs": 52887,
-  "endMs": 53057,
+  "startMs": 51920,
+  "endMs": 52090,
   "timestampMs": null,
   "confidence": 0.87,
   "keyword": false
  },
  {
   "text": " delicioso,",
-  "startMs": 53147,
-  "endMs": 53597,
+  "startMs": 52180,
+  "endMs": 52630,
   "timestampMs": null,
   "confidence": 0.93,
   "keyword": true
  },
  {
   "text": " muchas",
-  "startMs": 53687,
-  "endMs": 53897,
+  "startMs": 52720,
+  "endMs": 52930,
   "timestampMs": null,
   "confidence": 0.35,
   "keyword": false
  },
  {
   "text": " gracias.",
-  "startMs": 53907,
-  "endMs": 54177,
-  "timestampMs": null,
-  "confidence": 1.0,
-  "keyword": false
- },
- {
-  "text": " Vale,",
-  "startMs": 55747,
-  "endMs": 56137,
-  "timestampMs": null,
-  "confidence": 0.31,
-  "keyword": false
- },
- {
-  "text": " eso",
-  "startMs": 56187,
-  "endMs": 56317,
-  "timestampMs": null,
-  "confidence": 0.95,
-  "keyword": false
- },
- {
-  "text": " es",
-  "startMs": 56327,
-  "endMs": 56457,
-  "timestampMs": null,
-  "confidence": 0.97,
-  "keyword": false
- },
- {
-  "text": " todo,",
-  "startMs": 56467,
-  "endMs": 56617,
-  "timestampMs": null,
-  "confidence": 1.0,
-  "keyword": false
- },
- {
-  "text": " gracias.",
-  "startMs": 56667,
-  "endMs": 56937,
+  "startMs": 52940,
+  "endMs": 53210,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
  },
  {
   "text": " Eso",
-  "startMs": 57147,
-  "endMs": 57337,
+  "startMs": 53867,
+  "endMs": 54057,
   "timestampMs": null,
   "confidence": 0.87,
   "keyword": false
  },
  {
   "text": " es",
-  "startMs": 57347,
-  "endMs": 57477,
+  "startMs": 54067,
+  "endMs": 54197,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " todo.",
-  "startMs": 57487,
-  "endMs": 57617,
+  "startMs": 54207,
+  "endMs": 54337,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
