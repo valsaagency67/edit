@@ -43,10 +43,11 @@ export const VIDEO_FRAMES = meta.frames;
 export const OUTRO_FRAMES = 84;
 export const TOTAL_FRAMES = VIDEO_FRAMES + OUTRO_FRAMES;
 
-// Colores de marca (cálidos, combinan con el stand amarillo/naranja).
-const YELLOW = "#FFD400";
-const ORANGE = "#FF7A1A";
-const DARK = "#1B0F05";
+// Colores de marca: rojo y blanco.
+const RED = "#E30613";
+const RED_LIGHT = "#FF3B3B";
+const WHITE = "#FFFFFF";
+const DARK = "#141414";
 
 // Sin música: la canción se agrega directamente en Instagram.
 
@@ -152,8 +153,11 @@ const SubtitlePage: React.FC<{ page: TikTokPage }> = ({ page }) => {
               style={{
                 display: "inline-block",
                 whiteSpace: "nowrap",
-                margin: "0 0.2em",
-                color: active ? YELLOW : keyword ? ORANGE : "white",
+                margin: "0 0.06em",
+                color: keyword && !active ? RED_LIGHT : WHITE,
+                background: active ? RED : "transparent",
+                borderRadius: 14,
+                padding: "0 10px",
                 transform: `scale(${popScale})`,
               }}
             >
@@ -212,8 +216,8 @@ const BrandPill: React.FC<{ size?: number }> = ({ size = 1 }) => (
   >
     <div
       style={{
-        background: YELLOW,
-        color: DARK,
+        background: WHITE,
+        color: RED,
         fontWeight: 900,
         fontSize: 78,
         letterSpacing: 1,
@@ -228,8 +232,8 @@ const BrandPill: React.FC<{ size?: number }> = ({ size = 1 }) => (
     <div
       style={{
         marginTop: -6,
-        background: ORANGE,
-        color: "white",
+        background: RED,
+        color: WHITE,
         fontWeight: 900,
         fontSize: 64,
         padding: "8px 30px",
@@ -295,8 +299,8 @@ const CornerBrand: React.FC = () => {
           fontWeight: 900,
           fontSize: 34,
           textTransform: "uppercase",
-          color: DARK,
-          background: YELLOW,
+          color: WHITE,
+          background: RED,
           padding: "8px 22px",
           borderRadius: 999,
           letterSpacing: 2,
@@ -335,7 +339,7 @@ const NameTag: React.FC<{ name: string }> = ({ name }) => {
           style={{
             width: 14,
             height: 64,
-            background: ORANGE,
+            background: RED,
             borderRadius: 4,
           }}
         />
@@ -368,7 +372,7 @@ const ProgressBar: React.FC = () => {
           style={{
             height: 16,
             width: `${p * 100}%`,
-            background: `linear-gradient(90deg, ${YELLOW}, ${ORANGE})`,
+            background: `linear-gradient(90deg, ${RED}, ${RED_LIGHT})`,
           }}
         />
       </div>
@@ -428,7 +432,7 @@ const Outro: React.FC = () => {
                   color: "white",
                   textTransform: "uppercase",
                   background: "rgba(0,0,0,0.5)",
-                  border: `3px solid ${YELLOW}`,
+                  border: `3px solid ${RED}`,
                   padding: "10px 30px",
                   borderRadius: 999,
                   opacity: s,
