@@ -32,9 +32,9 @@ RANGES = [
     ("IMG_0319", 4.92, 16.35),  # Chico de gorra (hasta "muy bien sabrosos" completo)
     # (16.65-18.45 "Eso es todo, muchas gracias" es del entrevistador: fuera)
     # Último clip: completo (sin recortar pausas), solo se quita la pregunta.
-    ("IMG_0321", 4.54, 18.90, "completo"),  # Pareja: crema de whisky
-    # (19.92-21.12 "Vale, eso es todo, gracias" es del entrevistador: fuera)
-    ("IMG_0321", 21.22, 22.00, "completo"),  # El chico: "Eso es todo."
+    # Pareja: completo hasta el final, incluido el cierre del entrevistador
+    # ("listo, eso es todo, gracias"): es el único clip donde se deja su voz.
+    ("IMG_0321", 4.54, 22.20, "completo"),
 ]
 
 # Etiquetas con nombre (clip, segundo original en que aparecen, texto).
@@ -50,6 +50,7 @@ REPLACE = {
     "Uroban,": "Huroban,",
     "sabores": "Sabores",
     "comparamos,": "compramos,",
+    "Vale,": "Listo,",
     "sorprendentes.": "Sorprendentes.",
     "palmas.": "Palmas.",
 }

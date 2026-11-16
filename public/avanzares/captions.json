@@ -1344,25 +1344,65 @@
   "keyword": false
  },
  {
+  "text": " Listo,",
+  "startMs": 54780,
+  "endMs": 55170,
+  "timestampMs": null,
+  "confidence": 0.31,
+  "keyword": false
+ },
+ {
+  "text": " eso",
+  "startMs": 55220,
+  "endMs": 55350,
+  "timestampMs": null,
+  "confidence": 0.95,
+  "keyword": false
+ },
+ {
+  "text": " es",
+  "startMs": 55360,
+  "endMs": 55490,
+  "timestampMs": null,
+  "confidence": 0.97,
+  "keyword": false
+ },
+ {
+  "text": " todo,",
+  "startMs": 55500,
+  "endMs": 55650,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
+  "text": " gracias.",
+  "startMs": 55700,
+  "endMs": 55970,
+  "timestampMs": null,
+  "confidence": 1.0,
+  "keyword": false
+ },
+ {
   "text": " Eso",
-  "startMs": 53867,
-  "endMs": 54057,
+  "startMs": 56180,
+  "endMs": 56370,
   "timestampMs": null,
   "confidence": 0.87,
   "keyword": false
  },
  {
   "text": " es",
-  "startMs": 54067,
-  "endMs": 54197,
+  "startMs": 56380,
+  "endMs": 56510,
   "timestampMs": null,
   "confidence": 0.99,
   "keyword": false
  },
  {
   "text": " todo.",
-  "startMs": 54207,
-  "endMs": 54337,
+  "startMs": 56520,
+  "endMs": 56650,
   "timestampMs": null,
   "confidence": 1.0,
   "keyword": false
