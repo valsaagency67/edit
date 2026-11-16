@@ -1,5 +1,6 @@
 import { Composition, staticFile } from "remotion";
 import { AvanzaresVideo, FPS, TOTAL_FRAMES } from "./Avanzares";
+import { Portada } from "./Avanzares/Portada";
 import {
   CaptionedVideo,
   calculateCaptionedVideoMetadata,
@@ -11,6 +12,14 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="PortadaSaboresSorprendentes"
+        component={Portada}
+        durationInFrames={1}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="SaboresSorprendentes"
         component={AvanzaresVideo}

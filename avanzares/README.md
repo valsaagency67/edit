@@ -29,6 +29,12 @@ npx remotion render SaboresSorprendentes out/Sabores_Sorprendentes.mp4 --crf=14 
 - `transcripcion_whisper.json`: transcripción automática (faster-whisper large-v3, español)
   generada con `transcribe.py`. Las correcciones de palabras están en `build.py` (`REPLACE`).
 - Composición: `src/Avanzares/index.tsx`.
+- Portada (1080x1920): `src/Avanzares/Portada.tsx`. Usa cuadros del montaje:
+  ```bash
+  for p in "300 amarillo" "760 valentina" "1000 gorra" "1450 pareja"; do set -- $p
+    ffmpeg -y -i public/avanzares/montaje.mp4 -vf "select='eq(n\,$1)'" -frames:v 1 -fps_mode vfr public/avanzares/portada/$2.png; done
+  npx remotion still PortadaSaboresSorprendentes out/Portada_Huroban_Sabores_Sorprendentes.png
+  ```
 
 ## Créditos
 
