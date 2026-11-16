@@ -21,7 +21,7 @@ curl -o public/avanzares/musica.mp3 https://files.freemusicarchive.org/storage-f
 # 3. Cortes + subtítulos (genera public/avanzares/montaje.mp4, captions.json, meta.json)
 python3 avanzares/build.py            # --solo-subs para regenerar solo subtítulos
 # 4. Render final
-npx remotion render AvanzaresSorprendentes out/avanzares-sorprendentes.mp4 --crf=16 --audio-bitrate=320k
+npx remotion render AvanzaresSorprendentes out/avanzares-sorprendentes.mp4 --crf=14 --x264-preset=slow --jpeg-quality=100 --audio-bitrate=320k
 ```
 
 - `transcripcion_whisper.json`: transcripción automática (faster-whisper large-v3, español)
