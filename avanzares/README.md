@@ -44,3 +44,19 @@ npx remotion render SaboresSorprendentes out/Sabores_Sorprendentes.mp4 --crf=14 
 ## Créditos
 
 Fuente: Montserrat (SIL Open Font License).
+
+## Video promocional: Palmira (IMG_0563)
+
+"Si estás aquí en el centro de Palmira…" — 15 s + cierre de 3 s, sin música.
+
+| Archivo | ID en Drive |
+|---|---|
+| IMG_0563.MOV | 19_0Y3VtehcFJSrlmyQS3EPNpgLQAE4Vf |
+
+```bash
+python3 avanzares/promo_build.py   # corte, limpieza de audio y subtítulos → public/avanzares/promo/
+npx remotion render PromoPalmira out/promo/Huroban_Promo_Palmira_master.mp4 --crf=14 --x264-preset=slow --jpeg-quality=100 --audio-bitrate=320k
+```
+
+Composición: `src/Avanzares/Promo.tsx` (logo que entra grande y queda como marca de agua,
+etiquetas de ubicación, sello "¡Solo hoy y mañana!", subtítulos y cierre en rojo).

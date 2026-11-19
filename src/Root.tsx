@@ -1,6 +1,7 @@
 import { Composition, staticFile } from "remotion";
 import { AvanzaresVideo, FPS, TOTAL_FRAMES } from "./Avanzares";
 import { Portada } from "./Avanzares/Portada";
+import { PromoPalmira, PROMO_FPS, PROMO_TOTAL } from "./Avanzares/Promo";
 import {
   Portada1,
   Portada2,
@@ -40,6 +41,14 @@ export const RemotionRoot: React.FC = () => {
           height={1920}
         />
       ))}
+      <Composition
+        id="PromoPalmira"
+        component={PromoPalmira}
+        durationInFrames={PROMO_TOTAL}
+        fps={PROMO_FPS}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="SaboresSorprendentes"
         component={AvanzaresVideo}
