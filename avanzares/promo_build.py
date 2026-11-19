@@ -72,6 +72,9 @@ def main():
         # ecualización para dar presencia a la voz, de-esser, compresor y volumen.
         "-af", f"highpass=f=90,arnndn=m={ROOT / 'media' / 'models' / 'sh.rnnn'},"
                "afftdn=nf=-40:nr=8,"
+               # Al girar la cámara hacia el teatro (8.5-10.4 s del original) la voz
+               # queda ~5 dB más baja: se sube solo en ese tramo.
+               f"volume=enable='between(t,{8.5 - START:.2f},{10.4 - START:.2f})':volume=1.75,"
                "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3500:t=q:w=1.2:g=3,"
                "equalizer=f=9000:t=q:w=1:g=1.5,deesser=i=0.3,"
                "acompressor=threshold=-24dB:ratio=3:attack=4:release=80:makeup=2,"

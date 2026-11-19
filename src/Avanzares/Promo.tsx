@@ -55,9 +55,9 @@ const M = meta.marks;
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
 // Música: "Escapada" de Beat Mekanik (CC BY 4.0), desde el "drop" (33 s).
-// Debajo de la voz ~-29 dB (la voz va en ~-19 dB); sola en el cierre ~-21 dB.
+// Debajo de la voz ~-32 dB (la voz va en ~-19 dB); sola en el cierre ~-21 dB.
 const MUSIC_START_S = 33.0;
-const MUSIC_UNDER_VOICE = 0.15;
+const MUSIC_UNDER_VOICE = 0.1;
 const MUSIC_FULL = 0.41;
 
 // ---------- Video con acercamientos en las frases clave ----------
@@ -436,6 +436,8 @@ export const PromoPalmira: React.FC = () => (
       startFrom={Math.round(MUSIC_START_S * PROMO_FPS)}
       volume={(f) =>
         interpolate(f, [0, 6], [0, 1], clamp) *
+        // Más baja mientras dice "del Teatro Materón" (la cámara gira y la voz baja).
+        interpolate(f, [228, 238, 290, 300], [1, 0.5, 0.5, 1], clamp) *
         interpolate(
           f,
           [VIDEO_FRAMES - 6, VIDEO_FRAMES + 8],
