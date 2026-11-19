@@ -1,0 +1,72 @@
+{
+  "voice": "es-CO-GonzaloNeural",
+  "rate": "+12%",
+  "scenes": [
+    {
+      "id": "hook",
+      "title": "GTA VI",
+      "subtitle": "NO SOLO SE JUEGA",
+      "visual": "hook",
+      "text": "GTA 6 no solo se juega. También puede ser tu próximo canal de contenido."
+    },
+    {
+      "id": "intro",
+      "title": "5 PASOS",
+      "subtitle": "CON INTELIGENCIA ARTIFICIAL",
+      "visual": "phone",
+      "text": "Mientras millones juegan, otros van a crecer contando lo que pasa en el juego. Te dejo cinco pasos para arrancar con inteligencia artificial."
+    },
+    {
+      "id": "uno",
+      "title": "UNO:",
+      "subtitle": "ELIGE UN TEMA",
+      "visual": "topics",
+      "transition": true,
+      "text": "Uno: elige un solo tema. Trucos, secretos del mapa o momentos graciosos. Un canal con un tema claro crece más rápido."
+    },
+    {
+      "id": "dos",
+      "title": "DOS:",
+      "subtitle": "RECORTA CON IA",
+      "visual": "clips",
+      "text": "Dos: graba tus partidas y deja que la inteligencia artificial encuentre los mejores momentos. Hay herramientas que convierten el video largo en clips verticales con subtítulos."
+    },
+    {
+      "id": "tres",
+      "title": "TRES:",
+      "subtitle": "GUIONES CORTOS",
+      "visual": "script",
+      "transition": true,
+      "text": "Tres: escribe guiones cortos. Pídele a la inteligencia artificial un gancho de tres segundos, tres datos y un cierre."
+    },
+    {
+      "id": "cuatro",
+      "title": "CUATRO:",
+      "subtitle": "PUBLICA TODOS LOS DÍAS",
+      "visual": "calendar",
+      "text": "Cuatro: publica todos los días a la misma hora. Las primeras semanas del lanzamiento es cuando más gente busca contenido del juego."
+    },
+    {
+      "id": "cinco",
+      "title": "CINCO:",
+      "subtitle": "LEE LOS COMENTARIOS",
+      "visual": "comments",
+      "transition": true,
+      "text": "Cinco: responde los comentarios. Cada duda de tu audiencia es la idea de tu próximo video."
+    },
+    {
+      "id": "ojo",
+      "title": "OJO",
+      "subtitle": "LOS PERSONAJES TIENEN DUEÑO",
+      "visual": "warning",
+      "text": "Ojo: no uses el logo ni los personajes del juego en lo que vendas. Tienen dueño."
+    },
+    {
+      "id": "cta",
+      "title": "COMENTA",
+      "subtitle": "GTA",
+      "visual": "cta",
+      "text": "Comenta GTA y te mando la lista de herramientas para empezar hoy."
+    }
+  ]
+}

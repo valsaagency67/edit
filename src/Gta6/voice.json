@@ -1,0 +1,892 @@
+{
+  "hook": {
+    "durationMs": 4992,
+    "words": [
+      {
+        "text": "GTA",
+        "startMs": 95,
+        "endMs": 429
+      },
+      {
+        "text": "6",
+        "startMs": 441,
+        "endMs": 697
+      },
+      {
+        "text": "no",
+        "startMs": 720,
+        "endMs": 798
+      },
+      {
+        "text": "solo",
+        "startMs": 820,
+        "endMs": 1010
+      },
+      {
+        "text": "se",
+        "startMs": 1032,
+        "endMs": 1121
+      },
+      {
+        "text": "juega",
+        "startMs": 1155,
+        "endMs": 1434
+      },
+      {
+        "text": "También",
+        "startMs": 2254,
+        "endMs": 2489
+      },
+      {
+        "text": "puede",
+        "startMs": 2545,
+        "endMs": 2645
+      },
+      {
+        "text": "ser",
+        "startMs": 2679,
+        "endMs": 2824
+      },
+      {
+        "text": "tu",
+        "startMs": 2879,
+        "endMs": 2946
+      },
+      {
+        "text": "próximo",
+        "startMs": 3002,
+        "endMs": 3315
+      },
+      {
+        "text": "canal",
+        "startMs": 3359,
+        "endMs": 3560
+      },
+      {
+        "text": "de",
+        "startMs": 3605,
+        "endMs": 3650
+      },
+      {
+        "text": "contenido",
+        "startMs": 3694,
+        "endMs": 4174
+      }
+    ]
+  },
+  "intro": {
+    "durationMs": 7608,
+    "words": [
+      {
+        "text": "Mientras",
+        "startMs": 95,
+        "endMs": 429
+      },
+      {
+        "text": "millones",
+        "startMs": 463,
+        "endMs": 775
+      },
+      {
+        "text": "juegan",
+        "startMs": 787,
+        "endMs": 1133
+      },
+      {
+        "text": "otros",
+        "startMs": 1289,
+        "endMs": 1501
+      },
+      {
+        "text": "van",
+        "startMs": 1546,
+        "endMs": 1657
+      },
+      {
+        "text": "a",
+        "startMs": 1657,
+        "endMs": 1702
+      },
+      {
+        "text": "crecer",
+        "startMs": 1746,
+        "endMs": 1981
+      },
+      {
+        "text": "contando",
+        "startMs": 2025,
+        "endMs": 2349
+      },
+      {
+        "text": "lo",
+        "startMs": 2371,
+        "endMs": 2427
+      },
+      {
+        "text": "que",
+        "startMs": 2472,
+        "endMs": 2539
+      },
+      {
+        "text": "pasa",
+        "startMs": 2595,
+        "endMs": 2773
+      },
+      {
+        "text": "en",
+        "startMs": 2773,
+        "endMs": 2818
+      },
+      {
+        "text": "el",
+        "startMs": 2829,
+        "endMs": 2907
+      },
+      {
+        "text": "juego",
+        "startMs": 2929,
+        "endMs": 3208
+      },
+      {
+        "text": "Te",
+        "startMs": 4029,
+        "endMs": 4141
+      },
+      {
+        "text": "dejo",
+        "startMs": 4219,
+        "endMs": 4342
+      },
+      {
+        "text": "cinco",
+        "startMs": 4364,
+        "endMs": 4643
+      },
+      {
+        "text": "pasos",
+        "startMs": 4699,
+        "endMs": 4944
+      },
+      {
+        "text": "para",
+        "startMs": 5000,
+        "endMs": 5100
+      },
+      {
+        "text": "arrancar",
+        "startMs": 5100,
+        "endMs": 5491
+      },
+      {
+        "text": "con",
+        "startMs": 5536,
+        "endMs": 5625
+      },
+      {
+        "text": "inteligencia",
+        "startMs": 5636,
+        "endMs": 6228
+      },
+      {
+        "text": "artificial",
+        "startMs": 6239,
+        "endMs": 6830
+      }
+    ]
+  },
+  "uno": {
+    "durationMs": 8640,
+    "words": [
+      {
+        "text": "Uno",
+        "startMs": 95,
+        "endMs": 374
+      },
+      {
+        "text": "elige",
+        "startMs": 642,
+        "endMs": 898
+      },
+      {
+        "text": "un",
+        "startMs": 921,
+        "endMs": 976
+      },
+      {
+        "text": "solo",
+        "startMs": 999,
+        "endMs": 1200
+      },
+      {
+        "text": "tema",
+        "startMs": 1266,
+        "endMs": 1501
+      },
+      {
+        "text": "Trucos",
+        "startMs": 2321,
+        "endMs": 2801
+      },
+      {
+        "text": "secretos",
+        "startMs": 3069,
+        "endMs": 3504
+      },
+      {
+        "text": "del",
+        "startMs": 3538,
+        "endMs": 3638
+      },
+      {
+        "text": "mapa",
+        "startMs": 3672,
+        "endMs": 3940
+      },
+      {
+        "text": "o",
+        "startMs": 3951,
+        "endMs": 3973
+      },
+      {
+        "text": "momentos",
+        "startMs": 3996,
+        "endMs": 4408
+      },
+      {
+        "text": "graciosos",
+        "startMs": 4431,
+        "endMs": 5067
+      },
+      {
+        "text": "Un",
+        "startMs": 5893,
+        "endMs": 6060
+      },
+      {
+        "text": "canal",
+        "startMs": 6083,
+        "endMs": 6295
+      },
+      {
+        "text": "con",
+        "startMs": 6339,
+        "endMs": 6429
+      },
+      {
+        "text": "un",
+        "startMs": 6440,
+        "endMs": 6574
+      },
+      {
+        "text": "tema",
+        "startMs": 6574,
+        "endMs": 6741
+      },
+      {
+        "text": "claro",
+        "startMs": 6797,
+        "endMs": 6987
+      },
+      {
+        "text": "crece",
+        "startMs": 7042,
+        "endMs": 7254
+      },
+      {
+        "text": "más",
+        "startMs": 7277,
+        "endMs": 7355
+      },
+      {
+        "text": "rápido",
+        "startMs": 7411,
+        "endMs": 7812
+      }
+    ]
+  },
+  "dos": {
+    "durationMs": 9648,
+    "words": [
+      {
+        "text": "Dos",
+        "startMs": 95,
+        "endMs": 485
+      },
+      {
+        "text": "graba",
+        "startMs": 742,
+        "endMs": 954
+      },
+      {
+        "text": "tus",
+        "startMs": 1010,
+        "endMs": 1133
+      },
+      {
+        "text": "partidas",
+        "startMs": 1177,
+        "endMs": 1612
+      },
+      {
+        "text": "y",
+        "startMs": 1624,
+        "endMs": 1657
+      },
+      {
+        "text": "deja",
+        "startMs": 1713,
+        "endMs": 1869
+      },
+      {
+        "text": "que",
+        "startMs": 1925,
+        "endMs": 1981
+      },
+      {
+        "text": "la",
+        "startMs": 2003,
+        "endMs": 2025
+      },
+      {
+        "text": "inteligencia",
+        "startMs": 2037,
+        "endMs": 2595
+      },
+      {
+        "text": "artificial",
+        "startMs": 2628,
+        "endMs": 3153
+      },
+      {
+        "text": "encuentre",
+        "startMs": 3153,
+        "endMs": 3521
+      },
+      {
+        "text": "los",
+        "startMs": 3554,
+        "endMs": 3655
+      },
+      {
+        "text": "mejores",
+        "startMs": 3688,
+        "endMs": 4012
+      },
+      {
+        "text": "momentos",
+        "startMs": 4046,
+        "endMs": 4548
+      },
+      {
+        "text": "Hay",
+        "startMs": 5357,
+        "endMs": 5525
+      },
+      {
+        "text": "herramientas",
+        "startMs": 5536,
+        "endMs": 6004
+      },
+      {
+        "text": "que",
+        "startMs": 6038,
+        "endMs": 6105
+      },
+      {
+        "text": "convierten",
+        "startMs": 6150,
+        "endMs": 6529
+      },
+      {
+        "text": "el",
+        "startMs": 6540,
+        "endMs": 6618
+      },
+      {
+        "text": "video",
+        "startMs": 6663,
+        "endMs": 6853
+      },
+      {
+        "text": "largo",
+        "startMs": 6875,
+        "endMs": 7087
+      },
+      {
+        "text": "en",
+        "startMs": 7098,
+        "endMs": 7187
+      },
+      {
+        "text": "clips",
+        "startMs": 7210,
+        "endMs": 7444
+      },
+      {
+        "text": "verticales",
+        "startMs": 7489,
+        "endMs": 8013
+      },
+      {
+        "text": "con",
+        "startMs": 8047,
+        "endMs": 8125
+      },
+      {
+        "text": "subtítulos",
+        "startMs": 8147,
+        "endMs": 8817
+      }
+    ]
+  },
+  "tres": {
+    "durationMs": 7416,
+    "words": [
+      {
+        "text": "Tres",
+        "startMs": 95,
+        "endMs": 452
+      },
+      {
+        "text": "escribe",
+        "startMs": 664,
+        "endMs": 999
+      },
+      {
+        "text": "guiones",
+        "startMs": 1043,
+        "endMs": 1300
+      },
+      {
+        "text": "cortos",
+        "startMs": 1345,
+        "endMs": 1769
+      },
+      {
+        "text": "Pídele",
+        "startMs": 2589,
+        "endMs": 2891
+      },
+      {
+        "text": "a",
+        "startMs": 2891,
+        "endMs": 2946
+      },
+      {
+        "text": "la",
+        "startMs": 2969,
+        "endMs": 3002
+      },
+      {
+        "text": "inteligencia",
+        "startMs": 3013,
+        "endMs": 3571
+      },
+      {
+        "text": "artificial",
+        "startMs": 3583,
+        "endMs": 4141
+      },
+      {
+        "text": "un",
+        "startMs": 4152,
+        "endMs": 4208
+      },
+      {
+        "text": "gancho",
+        "startMs": 4275,
+        "endMs": 4531
+      },
+      {
+        "text": "de",
+        "startMs": 4554,
+        "endMs": 4598
+      },
+      {
+        "text": "tres",
+        "startMs": 4654,
+        "endMs": 4799
+      },
+      {
+        "text": "segundos",
+        "startMs": 4799,
+        "endMs": 5346
+      },
+      {
+        "text": "tres",
+        "startMs": 5625,
+        "endMs": 5792
+      },
+      {
+        "text": "datos",
+        "startMs": 5826,
+        "endMs": 6116
+      },
+      {
+        "text": "y",
+        "startMs": 6150,
+        "endMs": 6172
+      },
+      {
+        "text": "un",
+        "startMs": 6194,
+        "endMs": 6250
+      },
+      {
+        "text": "cierre",
+        "startMs": 6261,
+        "endMs": 6607
+      }
+    ]
+  },
+  "cuatro": {
+    "durationMs": 7080,
+    "words": [
+      {
+        "text": "Cuatro",
+        "startMs": 95,
+        "endMs": 429
+      },
+      {
+        "text": "publica",
+        "startMs": 708,
+        "endMs": 1010
+      },
+      {
+        "text": "todos",
+        "startMs": 1077,
+        "endMs": 1188
+      },
+      {
+        "text": "los",
+        "startMs": 1222,
+        "endMs": 1311
+      },
+      {
+        "text": "días",
+        "startMs": 1367,
+        "endMs": 1590
+      },
+      {
+        "text": "a",
+        "startMs": 1590,
+        "endMs": 1635
+      },
+      {
+        "text": "la",
+        "startMs": 1657,
+        "endMs": 1724
+      },
+      {
+        "text": "misma",
+        "startMs": 1746,
+        "endMs": 1981
+      },
+      {
+        "text": "hora",
+        "startMs": 2037,
+        "endMs": 2249
+      },
+      {
+        "text": "Las",
+        "startMs": 3069,
+        "endMs": 3248
+      },
+      {
+        "text": "primeras",
+        "startMs": 3304,
+        "endMs": 3583
+      },
+      {
+        "text": "semanas",
+        "startMs": 3583,
+        "endMs": 3895
+      },
+      {
+        "text": "del",
+        "startMs": 3929,
+        "endMs": 4007
+      },
+      {
+        "text": "lanzamiento",
+        "startMs": 4018,
+        "endMs": 4487
+      },
+      {
+        "text": "es",
+        "startMs": 4509,
+        "endMs": 4576
+      },
+      {
+        "text": "cuando",
+        "startMs": 4609,
+        "endMs": 4777
+      },
+      {
+        "text": "más",
+        "startMs": 4799,
+        "endMs": 4944
+      },
+      {
+        "text": "gente",
+        "startMs": 4944,
+        "endMs": 5167
+      },
+      {
+        "text": "busca",
+        "startMs": 5201,
+        "endMs": 5413
+      },
+      {
+        "text": "contenido",
+        "startMs": 5469,
+        "endMs": 5837
+      },
+      {
+        "text": "del",
+        "startMs": 5859,
+        "endMs": 5915
+      },
+      {
+        "text": "juego",
+        "startMs": 5949,
+        "endMs": 6228
+      }
+    ]
+  },
+  "cinco": {
+    "durationMs": 5808,
+    "words": [
+      {
+        "text": "Cinco",
+        "startMs": 97,
+        "endMs": 533
+      },
+      {
+        "text": "responde",
+        "startMs": 834,
+        "endMs": 1202
+      },
+      {
+        "text": "los",
+        "startMs": 1225,
+        "endMs": 1336
+      },
+      {
+        "text": "comentarios",
+        "startMs": 1370,
+        "endMs": 1995
+      },
+      {
+        "text": "Cada",
+        "startMs": 2812,
+        "endMs": 3002
+      },
+      {
+        "text": "duda",
+        "startMs": 3047,
+        "endMs": 3192
+      },
+      {
+        "text": "de",
+        "startMs": 3214,
+        "endMs": 3237
+      },
+      {
+        "text": "tu",
+        "startMs": 3292,
+        "endMs": 3359
+      },
+      {
+        "text": "audiencia",
+        "startMs": 3359,
+        "endMs": 3728
+      },
+      {
+        "text": "es",
+        "startMs": 3728,
+        "endMs": 3772
+      },
+      {
+        "text": "la",
+        "startMs": 3806,
+        "endMs": 3862
+      },
+      {
+        "text": "idea",
+        "startMs": 3884,
+        "endMs": 4096
+      },
+      {
+        "text": "de",
+        "startMs": 4107,
+        "endMs": 4141
+      },
+      {
+        "text": "tu",
+        "startMs": 4185,
+        "endMs": 4252
+      },
+      {
+        "text": "próximo",
+        "startMs": 4308,
+        "endMs": 4654
+      },
+      {
+        "text": "video",
+        "startMs": 4688,
+        "endMs": 4978
+      }
+    ]
+  },
+  "ojo": {
+    "durationMs": 5208,
+    "words": [
+      {
+        "text": "Ojo",
+        "startMs": 95,
+        "endMs": 396
+      },
+      {
+        "text": "no",
+        "startMs": 630,
+        "endMs": 742
+      },
+      {
+        "text": "uses",
+        "startMs": 742,
+        "endMs": 976
+      },
+      {
+        "text": "el",
+        "startMs": 976,
+        "endMs": 1032
+      },
+      {
+        "text": "logo",
+        "startMs": 1043,
+        "endMs": 1233
+      },
+      {
+        "text": "ni",
+        "startMs": 1266,
+        "endMs": 1322
+      },
+      {
+        "text": "los",
+        "startMs": 1345,
+        "endMs": 1456
+      },
+      {
+        "text": "personajes",
+        "startMs": 1512,
+        "endMs": 1925
+      },
+      {
+        "text": "del",
+        "startMs": 1958,
+        "endMs": 2048
+      },
+      {
+        "text": "juego",
+        "startMs": 2059,
+        "endMs": 2293
+      },
+      {
+        "text": "en",
+        "startMs": 2293,
+        "endMs": 2327
+      },
+      {
+        "text": "lo",
+        "startMs": 2338,
+        "endMs": 2405
+      },
+      {
+        "text": "que",
+        "startMs": 2461,
+        "endMs": 2528
+      },
+      {
+        "text": "vendas",
+        "startMs": 2572,
+        "endMs": 2985
+      },
+      {
+        "text": "Tienen",
+        "startMs": 3795,
+        "endMs": 4040
+      },
+      {
+        "text": "dueño",
+        "startMs": 4096,
+        "endMs": 4375
+      }
+    ]
+  },
+  "cta": {
+    "durationMs": 3600,
+    "words": [
+      {
+        "text": "Comenta",
+        "startMs": 95,
+        "endMs": 463
+      },
+      {
+        "text": "GTA",
+        "startMs": 485,
+        "endMs": 798
+      },
+      {
+        "text": "y",
+        "startMs": 842,
+        "endMs": 876
+      },
+      {
+        "text": "te",
+        "startMs": 921,
+        "endMs": 976
+      },
+      {
+        "text": "mando",
+        "startMs": 999,
+        "endMs": 1177
+      },
+      {
+        "text": "la",
+        "startMs": 1200,
+        "endMs": 1266
+      },
+      {
+        "text": "lista",
+        "startMs": 1278,
+        "endMs": 1512
+      },
+      {
+        "text": "de",
+        "startMs": 1568,
+        "endMs": 1579
+      },
+      {
+        "text": "herramientas",
+        "startMs": 1579,
+        "endMs": 2070
+      },
+      {
+        "text": "para",
+        "startMs": 2126,
+        "endMs": 2215
+      },
+      {
+        "text": "empezar",
+        "startMs": 2215,
+        "endMs": 2606
+      },
+      {
+        "text": "hoy",
+        "startMs": 2606,
+        "endMs": 2784
+      }
+    ]
+  }
+}
