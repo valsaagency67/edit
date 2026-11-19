@@ -3,6 +3,7 @@ import { loadFont } from "@remotion/fonts";
 import React, { useMemo } from "react";
 import {
   AbsoluteFill,
+  Audio,
   Easing,
   Img,
   interpolate,
@@ -53,6 +54,12 @@ const M = meta.marks;
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
+// Música: "Escapada" de Beat Mekanik (CC BY 4.0), desde el "drop" (33 s).
+// Debajo de la voz ~-29 dB (la voz va en ~-19 dB); sola en el cierre ~-21 dB.
+const MUSIC_START_S = 33.0;
+const MUSIC_UNDER_VOICE = 0.15;
+const MUSIC_FULL = 0.41;
+
 // ---------- Video con acercamientos en las frases clave ----------
 const VideoLayer: React.FC = () => {
   const frame = useCurrentFrame();
@@ -86,29 +93,18 @@ const VideoLayer: React.FC = () => {
   );
 };
 
-// ---------- Logo: entra grande y se queda como marca de agua ----------
-const LogoAnimado: React.FC = () => {
+// ---------- Logo transparente en el centro durante todo el video ----------
+const LogoCentro: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const pop = spring({ frame, fps, config: { damping: 12, stiffness: 170 } });
-  const move = interpolate(frame, [32, 50], [0, 1], {
-    ...clamp,
-    easing: Easing.inOut(Easing.cubic),
-  });
-  const width = interpolate(move, [0, 1], [560, 230]);
-  const top = interpolate(move, [0, 1], [330, 105]);
-  const opacity = interpolate(move, [0, 1], [1, 0.55]);
+  const opacity = interpolate(frame, [0, 12], [0, 0.32], clamp);
   return (
-    <AbsoluteFill style={{ alignItems: "center" }}>
+    <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
       <Img
         src={LOGO}
         style={{
-          position: "absolute",
-          top,
-          width,
+          width: 460,
           opacity,
-          transform: `scale(${pop})`,
-          filter: "drop-shadow(0 4px 16px rgba(0,0,0,0.55))",
+          filter: "drop-shadow(0 2px 10px rgba(0,0,0,0.45))",
         }}
       />
     </AbsoluteFill>
@@ -414,7 +410,7 @@ export const PromoPalmira: React.FC = () => (
       <VideoLayer />
     </Sequence>
     <Sequence durationInFrames={VIDEO_FRAMES}>
-      <LogoAnimado />
+      <LogoCentro />
     </Sequence>
     <Sequence from={M.palmira} durationInFrames={80}>
       <UbicacionTag text="Centro de Palmira" dur={80} />
@@ -435,5 +431,19 @@ export const PromoPalmira: React.FC = () => (
     <Sequence from={VIDEO_FRAMES} durationInFrames={OUTRO_FRAMES}>
       <Outro />
     </Sequence>
+    <Audio
+      src={staticFile("avanzares/musica.mp3")}
+      startFrom={Math.round(MUSIC_START_S * PROMO_FPS)}
+      volume={(f) =>
+        interpolate(f, [0, 6], [0, 1], clamp) *
+        interpolate(
+          f,
+          [VIDEO_FRAMES - 6, VIDEO_FRAMES + 8],
+          [MUSIC_UNDER_VOICE, MUSIC_FULL],
+          clamp,
+        ) *
+        interpolate(f, [PROMO_TOTAL - 30, PROMO_TOTAL], [1, 0], clamp)
+      }
+    />
   </AbsoluteFill>
 );

@@ -67,10 +67,14 @@ def main():
         "-t", f"{frames / FPS:.4f}", "-map", "0:v:0", "-map", "0:a:0",
         "-vf", "scale=1080:1920:flags=lanczos,fps=30,format=yuv420p,setsar=1",
         "-frames:v", str(frames),
-        # Audio grabado al aire libre: quitar zumbidos graves y ruido de fondo,
-        # comprimir un poco y llevarlo al mismo volumen de los otros videos.
-        "-af", "highpass=f=100,afftdn=nf=-35:nr=12,"
-               "acompressor=threshold=-26dB:ratio=3:attack=5:release=90:makeup=2,"
+        # Audio grabado al aire libre. Reducción de ruido con red neuronal (RNNoise, modelo "sh" de
+        # github.com/richardpl/arnndn-models en media/models/sh.rnnn), luego
+        # ecualización para dar presencia a la voz, de-esser, compresor y volumen.
+        "-af", f"highpass=f=90,arnndn=m={ROOT / 'media' / 'models' / 'sh.rnnn'},"
+               "afftdn=nf=-40:nr=8,"
+               "equalizer=f=250:t=q:w=1:g=-2,equalizer=f=3500:t=q:w=1.2:g=3,"
+               "equalizer=f=9000:t=q:w=1:g=1.5,deesser=i=0.3,"
+               "acompressor=threshold=-24dB:ratio=3:attack=4:release=80:makeup=2,"
                "loudnorm=I=-15:TP=-1.5:LRA=7,aformat=sample_rates=48000:channel_layouts=stereo,"
                "afade=t=in:d=0.05",
         "-c:v", "libx264", "-preset", "medium", "-crf", "10",
