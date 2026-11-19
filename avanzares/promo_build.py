@@ -28,6 +28,8 @@ KEYWORDS = {
 MARKERS = {
     "palmira": "Palmira,",
     "venir": "tienes",
+    "huroban": "Huroban,",
+    "estamos": "Estamos",
     "teatro": "Teatro",
     "solo": "solamente",
     "hoy": "hoy",

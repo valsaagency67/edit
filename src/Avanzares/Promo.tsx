@@ -60,30 +60,45 @@ const MUSIC_START_S = 33.0;
 const MUSIC_UNDER_VOICE = 0.1;
 const MUSIC_FULL = 0.41;
 
-// ---------- Video con acercamientos en las frases clave ----------
+// ---------- Zoom in / zoom out (estilo del video de referencia) ----------
+// "seco": salto rápido (3 cuadros) en los golpes; si no, suave (8 cuadros ≈ 0.25 s).
+type ZoomKey = { f: number; z: number; seco: boolean };
+const ZOOMS: ZoomKey[] = [
+  { f: 0, z: 1.0, seco: true },
+  { f: M.venir, z: 1.2, seco: true }, // "tienes que venir a probar"
+  { f: M.huroban, z: 1.06, seco: false }, // zoom out suave en "Huroban"
+  { f: M.estamos, z: 1.0, seco: true }, // gira la cámara al teatro
+  { f: M.solo, z: 1.18, seco: true }, // "solamente por hoy y mañana"
+  { f: M.perder, z: 1.3, seco: true }, // "no se lo pueden perder"
+];
+
+const zoomAt = (frame: number) => {
+  let z = ZOOMS[0].z;
+  for (let i = 1; i < ZOOMS.length; i++) {
+    const k = ZOOMS[i];
+    const dur = k.seco ? 3 : 8;
+    if (frame >= k.f) {
+      z = interpolate(frame, [k.f, k.f + dur], [ZOOMS[i - 1].z, k.z], {
+        ...clamp,
+        easing: Easing.out(Easing.cubic),
+      });
+    }
+  }
+  // Acercamiento lento continuo para que la imagen nunca quede quieta.
+  return z + frame * 0.00012;
+};
+
 const VideoLayer: React.FC = () => {
   const frame = useCurrentFrame();
-  const ease = Easing.inOut(Easing.cubic);
-  const zoom = interpolate(
-    frame,
-    [
-      0,
-      M.venir,
-      M.venir + 12,
-      M.teatro - 6,
-      M.teatro + 8,
-      M.solo,
-      M.solo + 10,
-      M.perder,
-      M.perder + 10,
-      VIDEO_FRAMES,
-    ],
-    [1.0, 1.0, 1.1, 1.1, 1.0, 1.0, 1.12, 1.12, 1.2, 1.22],
-    { ...clamp, easing: ease },
-  );
+  // Sacudida corta cuando entra el sello "¡Solo hoy y mañana!".
+  const t = frame - M.hoy;
+  const shake = t >= 0 && t < 10 ? Math.sin(t * 2.6) * (10 - t) * 1.6 : 0;
   return (
     <AbsoluteFill
-      style={{ transform: `scale(${zoom})`, transformOrigin: "50% 40%" }}
+      style={{
+        transform: `translate(${shake}px, ${shake * 0.6}px) scale(${zoomAt(frame)})`,
+        transformOrigin: "50% 40%",
+      }}
     >
       <OffthreadVideo
         src={staticFile("avanzares/promo/montaje.mp4")}
@@ -92,6 +107,60 @@ const VideoLayer: React.FC = () => {
     </AbsoluteFill>
   );
 };
+
+// Destello blanco (con el sonido de obturador) en los cambios de tema.
+const FLASHES = [M.estamos, VIDEO_FRAMES];
+const Flash: React.FC = () => {
+  const frame = useCurrentFrame();
+  const o = Math.max(
+    ...FLASHES.map((f) =>
+      interpolate(frame - f, [-1, 0, 6], [0, 0.85, 0], clamp),
+    ),
+  );
+  return <AbsoluteFill style={{ backgroundColor: WHITE, opacity: o }} />;
+};
+
+// ---------- Efectos de sonido (los 4 del video de referencia) ----------
+// clic: textos grandes · whoosh: acercamientos · obturador: cambios de tema ·
+// magia: solo en la marca. Pocos y suaves para no tapar la voz.
+type Sfx = {
+  f: number;
+  s: "click" | "magic" | "whoosh" | "shutter";
+  v: number;
+};
+const SFX: Sfx[] = [
+  { f: M.palmira, s: "click", v: 0.5 },
+  { f: M.venir, s: "whoosh", v: 0.55 },
+  { f: M.huroban, s: "magic", v: 0.35 },
+  { f: M.estamos, s: "shutter", v: 0.6 },
+  { f: M.teatro, s: "click", v: 0.5 },
+  { f: M.solo, s: "whoosh", v: 0.55 },
+  { f: M.hoy, s: "click", v: 0.6 },
+  { f: M.perder, s: "whoosh", v: 0.6 },
+  { f: VIDEO_FRAMES, s: "shutter", v: 0.6 },
+  { f: VIDEO_FRAMES + 3, s: "magic", v: 0.45 },
+];
+// El whoosh y el obturador tienen el golpe un poco después del inicio: se adelantan.
+const LEAD: Record<Sfx["s"], number> = {
+  click: 0,
+  magic: 0,
+  whoosh: 2,
+  shutter: 3,
+};
+
+const Efectos: React.FC = () => (
+  <>
+    {SFX.map((e, i) => (
+      <Sequence
+        key={i}
+        from={Math.max(0, e.f - LEAD[e.s])}
+        durationInFrames={60}
+      >
+        <Audio src={staticFile(`avanzares/sfx/${e.s}.wav`)} volume={e.v} />
+      </Sequence>
+    ))}
+  </>
+);
 
 // ---------- Logo transparente en el centro durante todo el video ----------
 const LogoCentro: React.FC = () => {
@@ -409,6 +478,7 @@ export const PromoPalmira: React.FC = () => (
     <Sequence durationInFrames={VIDEO_FRAMES}>
       <VideoLayer />
     </Sequence>
+    <Efectos />
     <Sequence durationInFrames={VIDEO_FRAMES}>
       <LogoCentro />
     </Sequence>
@@ -431,6 +501,7 @@ export const PromoPalmira: React.FC = () => (
     <Sequence from={VIDEO_FRAMES} durationInFrames={OUTRO_FRAMES}>
       <Outro />
     </Sequence>
+    <Flash />
     <Audio
       src={staticFile("avanzares/musica.mp3")}
       startFrom={Math.round(MUSIC_START_S * PROMO_FPS)}
