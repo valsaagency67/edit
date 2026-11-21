@@ -52,3 +52,43 @@ o por ID con `gdown <id>` a `media/raw/` (ignorado por git).
 - Secuencia de los videos (orden y segmentos).
 - Duración objetivo, textos clave (slogan, cargo, número de tarjetón, CTA).
 - Colores/logo de campaña y música con licencia.
+
+---
+
+# Blog 1 — vlog "un día a día con nosotros"
+
+Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, ~78 s.
+
+## Material
+
+Carpeta de Drive "Blog 1" (id `1ygcGxy_HT8DVsN_8n98HaMjpLUDk7ypA`): 13 clips de
+iPhone grabados con Blackmagic Camera, HEVC 10-bit 4:2:2 en 4K, perfil
+**Apple Log** (por eso se ven grises). `A001_11141850_C115.mov` está dos veces
+en la carpeta (mismo archivo). C074 no se usa (4 s sin audio útil).
+
+## Flujo
+
+1. Descargar a `media/raw/blog1/` (`gdown <id> -O <nombre>.mov`).
+2. `scripts/prep-blog1.sh` → `public/blog1/Cxxx.mp4`: recorta los tramos usados,
+   aplica la LUT `scripts/applelog_709.cube` (Apple Log → Rec.709, generada con
+   `scripts/mklut.py`) y deja intermedios H.264 CRF 14 (verticales 1080x1920,
+   horizontales 3414x1920 para recortar 9:16 sin reescalar hacia arriba).
+3. Editar el corte en `src/Blog1/edl.ts` (tiempos del original + subtítulos
+   corregidos a mano a partir de la transcripción de Whisper).
+4. Render:
+   `npx remotion render Blog1 out/blog1-master.mp4 --crf=16 --x264-preset=slow --audio-bitrate=320k`
+   y normalizar a -14 LUFS:
+   `ffmpeg -i out/blog1-master.mp4 -c:v copy -af loudnorm=I=-14:TP=-1:LRA=9 -c:a aac -b:a 320k out/blog1-final.mp4`
+
+## Estructura del corte
+
+Gancho (spoiler del chivo + "¡Pochoclo!") → intro → invitada Valery → gym
+(métele, dame rostro, 200 kilos, espacio personal, qué fuerte eres) → "acuérdate
+que te compraste un chivo" → Pochoclo en la calle y llegada al gym → página web →
+Apolo Gastro Bar → "eso es todo".
+
+## Pendiente
+
+- Música tipo gym (la envía el cliente): copiarla a `public/music/` y pasar
+  `--props='{"music":"music/archivo.mp3","musicVolume":0.16}'`.
+- Confirmar nombre del chivo ("Pochoclo") y de la invitada ("Valery").

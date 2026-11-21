@@ -7,3 +7,4 @@ dist
 out
 whisper.cpp
 media/
+public/blog1/
