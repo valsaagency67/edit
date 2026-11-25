@@ -8,10 +8,15 @@ import {
   useVideoConfig,
 } from "remotion";
 import { z } from "zod";
-import { loadFont } from "../load-font";
-import { buildTimeline, FPS, segFrame } from "./clips";
+import { buildTimeline, PREVIEW_TOTAL } from "./clips";
 import { ClipView } from "./ClipView";
-import { Captions, FadeOut, Flash, ProgressBar, Title } from "./Overlays";
+import {
+  loadMiniVlogFonts,
+  Preview,
+  TypewriterTitle,
+  WordCaptions,
+} from "./MiniVlog";
+import { FadeOut } from "./Overlays";
 
 export const blog1Schema = z.object({
   /** Pista de música (archivo en public/, ej. "music/gym.mp3"). Vacío = sin música. */
@@ -19,33 +24,22 @@ export const blog1Schema = z.object({
   musicVolume: z.number().min(0).max(1),
 });
 
-const SFX = {
-  whoosh: { file: "sfx/whoosh.wav", lead: 6, volume: 0.35 },
-  impact: { file: "sfx/impact.wav", lead: 0, volume: 0.45 },
-  pop: { file: "sfx/pop.wav", lead: 0, volume: 0.45 },
-} as const;
-
-type SfxCue = { frame: number; kind: keyof typeof SFX };
-
 export const Blog1: React.FC<z.infer<typeof blog1Schema>> = ({
   music,
   musicVolume,
 }) => {
-  useState(() => loadFont());
+  useState(() => loadMiniVlogFonts());
   const { durationInFrames } = useVideoConfig();
   const timeline = buildTimeline();
 
-  const cues: SfxCue[] = [];
-  for (const seg of timeline) {
-    if (seg.sceneChange) cues.push({ frame: seg.from, kind: "whoosh" });
-    for (const z of seg.zooms ?? []) {
-      if (z.sfx)
-        cues.push({ frame: seg.from + segFrame(seg, z.at), kind: z.sfx });
-    }
-  }
-
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
+      {/* Adelanto rápido + título escrito a máquina */}
+      <Sequence durationInFrames={PREVIEW_TOTAL} name="Adelanto">
+        <Preview />
+      </Sequence>
+
+      {/* El día, en orden */}
       {timeline.map((seg, i) => (
         <Sequence
           key={`v${i}`}
@@ -54,45 +48,19 @@ export const Blog1: React.FC<z.infer<typeof blog1Schema>> = ({
           name={`${seg.clip} ${seg.in}-${seg.out}`}
         >
           <ClipView seg={seg} />
-          {seg.sceneChange ? (
-            <Sequence durationInFrames={6}>
-              <Flash />
-            </Sequence>
-          ) : null}
-          {(seg.titles ?? []).map((t, j) => {
-            const dur = Math.round((t.dur ?? 2.5) * FPS);
-            return (
-              <Sequence
-                key={j}
-                from={segFrame(seg, t.at)}
-                durationInFrames={dur}
-              >
-                <Title
-                  text={t.text}
-                  sub={t.sub}
-                  boxed={seg.layout === "boxed"}
-                  durationInFrames={dur}
-                />
-              </Sequence>
-            );
-          })}
         </Sequence>
       ))}
 
-      <Captions />
-      <ProgressBar />
+      <Sequence durationInFrames={PREVIEW_TOTAL + 12} name="Título">
+        <TypewriterTitle />
+      </Sequence>
+      <WordCaptions />
       <FadeOut frames={15} />
 
-      {cues.map((c, i) => (
-        <Sequence
-          key={`s${i}`}
-          from={Math.max(0, c.frame - SFX[c.kind].lead)}
-          durationInFrames={30}
-        >
-          <Audio
-            src={staticFile(SFX[c.kind].file)}
-            volume={SFX[c.kind].volume}
-          />
+      {/* tecleo suave mientras se escribe el título */}
+      {Array.from({ length: Math.floor(PREVIEW_TOTAL / 3) }).map((_, i) => (
+        <Sequence key={`t${i}`} from={i * 3} durationInFrames={4}>
+          <Audio src={staticFile("sfx/tick.wav")} volume={0.12} />
         </Sequence>
       ))}
 
@@ -104,8 +72,8 @@ export const Blog1: React.FC<z.infer<typeof blog1Schema>> = ({
             musicVolume *
             interpolate(
               f,
-              [0, 15, durationInFrames - 30, durationInFrames],
-              [0, 1, 1, 0],
+              [0, 10, durationInFrames - 30, durationInFrames],
+              [0.6, 1, 1, 0],
               { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
             )
           }

@@ -1,6 +1,6 @@
 import { staticFile } from "remotion";
 import captionsJson from "./captions.json";
-import { SEGMENTS, Segment, Word } from "./edl";
+import { PREVIEW, PREVIEW_FRAMES_EACH, SEGMENTS, Segment, Word } from "./edl";
 
 export const FPS = 30;
 
@@ -21,8 +21,11 @@ export type TimedSegment = Segment & {
 
 const framesOf = (s: Segment) => Math.round((s.out - s.in) * FPS);
 
+/** Duración del adelanto inicial (antes de la primera escena). */
+export const PREVIEW_TOTAL = PREVIEW.length * PREVIEW_FRAMES_EACH;
+
 export const buildTimeline = (): TimedSegment[] => {
-  let cursor = 0;
+  let cursor = PREVIEW_TOTAL;
   return SEGMENTS.map((s) => {
     const t = { ...s, from: cursor, durationInFrames: framesOf(s) };
     cursor += t.durationInFrames;
@@ -31,7 +34,7 @@ export const buildTimeline = (): TimedSegment[] => {
 };
 
 export const totalFrames = () =>
-  SEGMENTS.reduce((acc, s) => acc + framesOf(s), 0);
+  PREVIEW_TOTAL + SEGMENTS.reduce((acc, s) => acc + framesOf(s), 0);
 
 /** Frame (relativo al segmento) de un segundo del original. */
 export const segFrame = (seg: Segment, at: number) =>

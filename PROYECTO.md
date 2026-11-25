@@ -57,12 +57,17 @@ o por ID con `gdown <id>` a `media/raw/` (ignorado por git).
 
 # Blog 1 — vlog "un día a día con nosotros"
 
-Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, ~6:25.
+Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, **59 s**.
 
-**Versión 2 (pedido del cliente): escenas completas, sin cortes, en el orden en
-que se grabaron, para que se entienda la trama.** Solo se recorta tiempo muerto
-al inicio/fin de cada clip. El énfasis se hace con acercamientos suaves y
-títulos dentro de la escena, no con cortes.
+**Versión 3 (actual), según el video de referencia del cliente ("mini vlog de
+un día conmigo"):** un adelanto rapidísimo (14 planos de 0.1 s) mientras se
+escribe el título "mini vlog de un día con nosotros"; después el día EN ORDEN,
+plano por plano (3-8 s), con los chicos narrando a cámara como hilo de la
+historia; subtítulos de una palabra, pequeños, blancos y en minúscula (Inter);
+sin sacudidas ni destellos. Máximo 1 minuto.
+
+(v1 = 78 s con cortes rápidos; v2 = 6:25 con escenas completas. El cliente
+pidió algo intermedio: una secuencia que se entienda, de 1 minuto.)
 
 ## Material
 
@@ -80,7 +85,61 @@ en la carpeta (mismo archivo).
    3414x1920 para recortar sin reescalar hacia arriba).
 3. Subtítulos: `python3 -I scripts/captions-blog1.py scripts/blog1-transcript.json src/Blog1/captions.json`
    (transcripción de Whisper + correcciones a mano en `FIXES`).
-4. Escenas, títulos y acercamientos: `src/Blog1/edl.ts`.
+4. Adelanto, título y escenas: `src/Blog1/edl.ts` (`PREVIEW`, `TITLE`, `SEGMENTS`).
+5. Render:
+   `npx remotion render Blog1 out/blog1-master.mp4 --crf=16 --audio-bitrate=320k`
+   y normalizar a -14 LUFS con `loudnorm` en dos pasadas (video copiado sin recomprimir).
+
+## Secuencia (v3)
+
+Adelanto + título → C075 "hola chicos, estamos en un vlog… hoy vamos a iniciar
+en el gym" → C076 "la invitada es Valery, es modelo" → entreno (C084 métele
+sabroso, C087 vamos/métele, C090 báilalo Rocky, C094 qué fuerte eres) → C084
+"pequeño spoiler: me compré un chivo" → C105 "¡Pochoclo!" → C110 "todo el mundo
+mira a Pochoclo" → C115 "salimos del gym, estamos trabajando en una página web"
+→ C116 "ahora estamos en Apolo Gastro Bar… manejando la tranquilidad, eso es todo".
+
+Fuentes: Inter e Instrument Serif (SIL OFL, en `public/fonts`).
+
+## Pendiente del cliente
+
+- Secuencia de los videos (orden y segmentos).
+- Duración objetivo, textos clave (slogan, cargo, número de tarjetón, CTA).
+- Colores/logo de campaña y música con licencia.
+
+---
+
+# Blog 1 — vlog "un día a día con nosotros"
+
+Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, **59 s**.
+
+**Versión 3 (actual), según el video de referencia del cliente ("mini vlog de
+un día conmigo"):** un adelanto rapidísimo (14 planos de 0.1 s) mientras se
+escribe el título "mini vlog de un día con nosotros"; después el día EN ORDEN,
+plano por plano (3-8 s), con los chicos narrando a cámara como hilo de la
+historia; subtítulos de una palabra, pequeños, blancos y en minúscula (Inter);
+sin sacudidas ni destellos. Máximo 1 minuto.
+
+(v1 = 78 s con cortes rápidos; v2 = 6:25 con escenas completas. El cliente
+pidió algo intermedio: una secuencia que se entienda, de 1 minuto.)
+
+## Material
+
+Carpeta de Drive "Blog 1" (id `1ygcGxy_HT8DVsN_8n98HaMjpLUDk7ypA`): 13 clips de
+iPhone grabados con Blackmagic Camera, HEVC 10-bit 4:2:2 en 4K, perfil
+**Apple Log** (por eso se ven grises). `A001_11141850_C115.mov` está dos veces
+en la carpeta (mismo archivo).
+
+## Flujo
+
+1. Descargar a `media/raw/blog1/` (`gdown <id> -O <nombre>.mov`).
+2. `scripts/prep-blog1.sh` → `public/blog1/Cxxx.mp4`: clips completos con la LUT
+   `scripts/applelog_709.cube` (Apple Log → Rec.709, generada con
+   `scripts/mklut.py`), H.264 CRF 14 (verticales 1080x1920, horizontales
+   3414x1920 para recortar sin reescalar hacia arriba).
+3. Subtítulos: `python3 -I scripts/captions-blog1.py scripts/blog1-transcript.json src/Blog1/captions.json`
+   (transcripción de Whisper + correcciones a mano en `FIXES`).
+4. Adelanto, título y escenas: `src/Blog1/edl.ts` (`PREVIEW`, `TITLE`, `SEGMENTS`).
 5. Render:
    `npx remotion render Blog1 out/blog1-master.mp4 --crf=16 --audio-bitrate=320k`
    y normalizar a -14 LUFS con `loudnorm` en dos pasadas (video copiado sin recomprimir).
