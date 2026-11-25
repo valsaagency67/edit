@@ -7,7 +7,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-import { CLIP_OFFSETS, clipSrc, FPS, HORIZONTAL, TimedSegment } from "./clips";
+import { clipSrc, FPS, HORIZONTAL, segFrame, TimedSegment } from "./clips";
 
 // Ventana de las tomas horizontales en layout "boxed".
 export const BOX = { top: 440, width: 1080, height: 720 };
@@ -18,22 +18,26 @@ const GRADE = "brightness(1.16) contrast(1.06) saturate(1.08)";
 const useMotion = (seg: TimedSegment) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const base = seg.zoom ?? 1;
-  const push = interpolate(frame, [0, seg.durationInFrames], [0, 0.035]);
-  const punch = seg.punch
-    ? interpolate(
-        spring({ frame, fps, config: { damping: 14, stiffness: 180 } }),
-        [0, 1],
-        [0.28, 0],
-      )
-    : 0;
-  const decay = Math.exp(-frame / 5);
-  const shakeX = seg.shake ? Math.sin(frame * 2.7) * 26 * decay : 0;
-  const shakeY = seg.shake ? Math.cos(frame * 3.3) * 18 * decay : 0;
-  const rot = seg.shake ? Math.sin(frame * 1.9) * 1.2 * decay : 0;
-  return {
-    transform: `translate(${shakeX}px, ${shakeY}px) rotate(${rot}deg) scale(${base + push + punch})`,
-  };
+  // empuje muy lento durante toda la escena
+  const push = interpolate(frame, [0, seg.durationInFrames], [0, 0.04]);
+  // acercamientos de énfasis: entran con spring, se sostienen y salen suave
+  let zoom = 0;
+  for (const z of seg.zooms ?? []) {
+    const start = segFrame(seg, z.at);
+    const end = start + Math.round((z.dur ?? 2) * fps);
+    const amount = (z.scale ?? 1.1) - 1;
+    const inP = spring({
+      frame: frame - start,
+      fps,
+      config: { damping: 18, stiffness: 120 },
+    });
+    const outP = interpolate(frame, [end, end + 12], [1, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+    zoom += amount * inP * outP;
+  }
+  return { transform: `scale(${1 + push + zoom})` };
 };
 
 const Video: React.FC<{
@@ -41,11 +45,11 @@ const Video: React.FC<{
   style: React.CSSProperties;
   muted?: boolean;
 }> = ({ seg, style, muted }) => {
-  const realFrames = Math.round((seg.out - seg.in) * FPS);
+  const realFrames = seg.durationInFrames;
   return (
     <OffthreadVideo
       src={clipSrc(seg.clip)}
-      trimBefore={Math.round((seg.in - CLIP_OFFSETS[seg.clip]) * FPS)}
+      trimBefore={Math.round(seg.in * FPS)}
       muted={muted}
       volume={(f) =>
         interpolate(f, [0, 2, realFrames - 2, realFrames], [0, 1, 1, 0], {

@@ -1,466 +1,171 @@
-// Lista de edición del Blog 1 (vertical 9:16, ~77 s).
-// Los tiempos están en segundos del ORIGINAL (A001_..._Cxxx.mov); clips.ts
-// los convierte al intermedio recortado. Las palabras de los subtítulos vienen
-// de la transcripción (Whisper) con el texto corregido a mano.
+// Lista de edición del Blog 1 (vertical 9:16).
+// Versión 2: escenas COMPLETAS en el orden en que se grabaron, para que se
+// entienda la trama. Solo se recorta tiempo muerto al inicio/fin de cada clip.
+//
+// Tiempos en segundos del ORIGINAL (A001_..._Cxxx.mov). Los subtítulos salen
+// de captions.json (scripts/captions-blog1.py) filtrados al tramo [in, out].
 
 export type Word = [text: string, start: number, end: number];
+
+export type Moment = {
+  /** segundo del original */
+  at: number;
+};
 
 export type Segment = {
   clip: string;
   in: number;
   out: number;
-  /** cover = llena 9:16 · boxed = ventana cuadrada con fondo difuminado (tomas horizontales de 2 personas) */
+  /** cover = llena 9:16 · boxed = ventana con fondo difuminado (tomas horizontales) */
   layout: "cover" | "boxed";
   /** centro horizontal del encuadre, 0 = izquierda, 1 = derecha */
   focusX?: number;
-  /** escala base (para que los jump cuts se noten) */
-  zoom?: number;
-  /** punch-in rápido al entrar */
-  punch?: boolean;
-  /** sacudida al entrar */
-  shake?: boolean;
-  /** destello blanco al entrar */
-  flash?: boolean;
-  sfx?: "whoosh" | "impact" | "pop";
-  title?: { text: string; sub?: string; durationSec?: number };
-  words: Word[];
+  /** destello blanco + whoosh al entrar (cambio de escena) */
+  sceneChange?: boolean;
+  /** títulos que aparecen dentro de la escena */
+  titles?: (Moment & { text: string; sub?: string; dur?: number })[];
+  /** acercamientos suaves para enfatizar una frase (sin cortar) */
+  zooms?: (Moment & { dur?: number; scale?: number; sfx?: "pop" | "impact" })[];
 };
 
 export const SEGMENTS: Segment[] = [
-  // ── GANCHO ──────────────────────────────────────────────
+  // 1. Arranque
   {
-    clip: "C084",
-    in: 29.95,
-    out: 32.2,
+    clip: "C074",
+    in: 0,
+    out: 4.05,
     layout: "cover",
-    punch: true,
-    sfx: "impact",
-    title: { text: "PEQUEÑO SPOILER", durationSec: 2.2 },
-    words: [
-      ["Me", 30.03, 30.51],
-      ["compré", 30.51, 30.87],
-      ["un", 30.87, 30.93],
-      ["chivo,", 30.93, 31.19],
-      ["te", 31.29, 31.33],
-      ["lo", 31.33, 31.49],
-      ["juro", 31.49, 32.15],
-    ],
+    titles: [{ at: 0.2, text: "BLOG 1", dur: 3.6 }],
   },
-  {
-    clip: "C105",
-    in: 0.45,
-    out: 2.75,
-    layout: "cover",
-    shake: true,
-    flash: true,
-    sfx: "whoosh",
-    words: [
-      ["¡Pochoclo!", 0.62, 1.38],
-      ["¡Pochoclo!", 1.38, 1.8],
-      ["¡Pochoclo!", 1.84, 2.62],
-    ],
-  },
-  // ── INTRO ───────────────────────────────────────────────
+  // 2. Intro: "un día a día con nosotros"
   {
     clip: "C075",
-    in: 1.35,
-    out: 3.32,
+    in: 0.9,
+    out: 12.88,
     layout: "boxed",
-    focusX: 0.5,
-    flash: true,
-    sfx: "whoosh",
-    words: [
-      ["Hola", 1.46, 1.9],
-      ["chicos,", 1.9, 2.18],
-      ["estamos", 2.18, 2.48],
-      ["aquí", 2.48, 2.78],
-      ["en", 2.78, 2.88],
-      ["un", 2.88, 2.98],
-      ["vlog", 2.98, 3.28],
-    ],
+    sceneChange: true,
+    titles: [{ at: 4.1, text: "UN DÍA A DÍA", sub: "CON NOSOTROS", dur: 3 }],
   },
-  {
-    clip: "C075",
-    in: 4.08,
-    out: 9.7,
-    layout: "boxed",
-    focusX: 0.5,
-    zoom: 1.1,
-    title: { text: "UN DÍA A DÍA", sub: "CON NOSOTROS", durationSec: 2.4 },
-    words: [
-      ["en", 4.14, 4.32],
-      ["un", 4.32, 4.52],
-      ["día", 4.52, 4.7],
-      ["a", 4.7, 4.8],
-      ["día", 4.8, 5.0],
-      ["con", 5.0, 5.28],
-      ["nosotros,", 5.28, 5.78],
-      ["y", 5.78, 6.44],
-      ["hoy", 6.44, 6.52],
-      ["vamos", 6.52, 6.74],
-      ["a", 6.74, 6.86],
-      ["iniciar", 6.86, 7.16],
-      ["en", 7.16, 7.32],
-      ["el", 7.32, 7.44],
-      ["gym,", 7.44, 7.96],
-      ["vamos", 8.54, 8.62],
-      ["a", 8.62, 8.68],
-      ["ver", 8.68, 8.76],
-      ["qué", 8.76, 8.92],
-      ["sale", 8.92, 9.14],
-      ["hoy,", 9.14, 9.4],
-      ["¿no?", 9.4, 9.62],
-    ],
-  },
+  // 3. La invitada: Valery
   {
     clip: "C076",
-    in: 10.5,
-    out: 17.1,
+    in: 0.6,
+    out: 32.5,
     layout: "boxed",
-    focusX: 0.45,
-    sfx: "pop",
-    title: { text: "INVITADA: VALERY", sub: "MODELO", durationSec: 3 },
-    words: [
-      ["la", 10.62, 11.06],
-      ["invitada", 11.06, 11.4],
-      ["es", 11.4, 11.6],
-      ["Valery,", 11.6, 11.96],
-      ["es", 11.96, 12.3],
-      ["modelo", 12.3, 12.7],
-      ["y", 12.7, 13.68],
-      ["nos", 13.68, 13.78],
-      ["está", 13.78, 13.94],
-      ["acompañando", 13.94, 14.3],
-      ["hoy", 14.3, 14.54],
-      ["en", 14.54, 14.8],
-      ["el", 14.8, 14.9],
-      ["día", 14.9, 15.02],
-      ["de", 15.02, 15.2],
-      ["espalda", 15.2, 16.0],
-      ["con", 16.0, 16.44],
-      ["bíceps", 16.44, 17.04],
-    ],
+    sceneChange: true,
+    titles: [{ at: 10.6, text: "INVITADA: VALERY", sub: "MODELO", dur: 3.5 }],
+    zooms: [{ at: 5.2, dur: 1.8, sfx: "pop" }],
   },
-  // ── GYM ─────────────────────────────────────────────────
+  // 4. Entrenando + el spoiler del chivo
   {
     clip: "C084",
-    in: 6.75,
-    out: 11.3,
+    in: 0,
+    out: 35.55,
     layout: "cover",
-    shake: true,
-    flash: true,
-    sfx: "whoosh",
-    words: [
-      ["¡Métele,", 6.84, 7.32],
-      ["métele!", 7.32, 7.8],
-      ["Métele", 8.04, 8.28],
-      ["sabroso.", 8.28, 9.16],
-      ["Como", 9.5, 9.6],
-      ["un", 9.6, 9.82],
-      ["buen", 9.82, 9.98],
-      ["empresario", 9.98, 10.38],
-      ["como", 10.38, 10.64],
-      ["sos", 10.64, 11.26],
+    sceneChange: true,
+    titles: [{ at: 21.2, text: "PEQUEÑO SPOILER", dur: 4 }],
+    zooms: [
+      { at: 6.8, dur: 2.4 },
+      { at: 13.4, dur: 1.5, sfx: "impact" },
+      { at: 25.6, dur: 3, scale: 1.15 },
+      { at: 30.0, dur: 2.2, sfx: "pop" },
     ],
   },
+  // 5. "Eso es Rocky" – dame rostro
   {
     clip: "C087",
-    in: 11.0,
-    out: 14.3,
+    in: 0,
+    out: 21.9,
     layout: "cover",
-    shake: true,
-    zoom: 1.08,
-    words: [
-      ["¡Vamos,", 11.06, 11.28],
-      ["vamos,", 11.4, 11.76],
-      ["vamos!", 11.76, 12.18],
-      ["Métele,", 12.26, 12.46],
-      ["métele,", 12.46, 13.06],
-      ["métele", 13.06, 13.38],
-      ["sabroso", 13.38, 14.24],
+    sceneChange: true,
+    zooms: [
+      { at: 11.0, dur: 3.2 },
+      { at: 17.4, dur: 2, scale: 1.15, sfx: "pop" },
     ],
   },
-  {
-    clip: "C087",
-    in: 17.4,
-    out: 19.35,
-    layout: "cover",
-    punch: true,
-    sfx: "pop",
-    words: [
-      ["¡Dame", 17.48, 17.6],
-      ["rostro,", 17.6, 17.92],
-      ["dame", 18.02, 18.14],
-      ["rostro,", 18.14, 18.38],
-      ["dame", 18.42, 18.56],
-      ["rostro!", 18.56, 19.3],
-    ],
-  },
+  // 6. 200 kilos – báilalo Rocky
   {
     clip: "C090",
-    in: 0.0,
-    out: 3.55,
+    in: 0,
+    out: 35.8,
     layout: "cover",
-    flash: true,
-    sfx: "whoosh",
-    title: { text: "200 KILOS", durationSec: 2 },
-    words: [
-      ["Sí,", 0.0, 0.3],
-      ["ganar", 0.36, 0.62],
-      ["200", 0.62, 0.98],
-      ["kilos", 0.98, 1.32],
-      ["es", 1.32, 1.5],
-      ["complicado,", 1.5, 2.38],
-      ["es", 2.52, 2.64],
-      ["muy", 2.64, 2.84],
-      ["complicado", 2.84, 3.48],
-    ],
+    sceneChange: true,
+    titles: [{ at: 0.4, text: "200 KILOS", dur: 2.6 }],
+    zooms: [{ at: 24.3, dur: 4.4 }],
   },
+  // 7. Con Valery: el baño, el piercing, espacio personal...
   {
     clip: "C094",
-    in: 62.05,
-    out: 65.6,
+    in: 0.3,
+    out: 136.5,
     layout: "cover",
-    sfx: "pop",
-    title: { text: "ESPACIO PERSONAL", sub: "2 METROS", durationSec: 3 },
-    words: [
-      ["Nadie", 62.14, 62.24],
-      ["mi", 62.24, 62.42],
-      ["cuerpito", 62.42, 62.82],
-      ["puede", 62.82, 63.02],
-      ["tocar.", 63.02, 63.6],
-      ["Espacio", 63.6, 64.02],
-      ["personal:", 64.02, 64.68],
-      ["2", 64.68, 65.06],
-      ["metros", 65.06, 65.52],
+    sceneChange: true,
+    titles: [
+      { at: 63.6, text: "ESPACIO PERSONAL", sub: "2 METROS", dur: 3.5 },
+      { at: 106.7, text: "EL MÁS BARBADO", sub: "DE COLOMBIA", dur: 3 },
+    ],
+    zooms: [
+      { at: 0.5, dur: 3.2 },
+      { at: 36.7, dur: 2.3, sfx: "pop" },
+      { at: 69.6, dur: 4, scale: 1.12, sfx: "pop" },
+      { at: 93.5, dur: 3, scale: 1.15, sfx: "impact" },
+      { at: 115.6, dur: 3 },
+      { at: 135.0, dur: 1.4, sfx: "pop" },
     ],
   },
-  {
-    clip: "C094",
-    in: 69.5,
-    out: 70.5,
-    layout: "cover",
-    punch: true,
-    words: [
-      ["¡Oh,", 69.6, 69.9],
-      ["wow!", 69.9, 70.4],
-    ],
-  },
-  {
-    clip: "C094",
-    in: 71.35,
-    out: 73.8,
-    layout: "cover",
-    zoom: 1.1,
-    words: [
-      ["Eres", 71.44, 72.36],
-      ["una", 72.36, 72.92],
-      ["chica", 72.92, 73.2],
-      ["maravillosa", 73.2, 73.66],
-    ],
-  },
-  {
-    clip: "C094",
-    in: 93.45,
-    out: 96.6,
-    layout: "cover",
-    punch: true,
-    sfx: "pop",
-    words: [
-      ["¡Oh,", 93.55, 94.27],
-      ["wow,", 94.27, 94.63],
-      ["qué", 94.63, 94.85],
-      ["fuerte", 94.85, 95.27],
-      ["eres!", 95.27, 96.47],
-    ],
-  },
+  // 8. Cantando en la máquina – "lo decimos motivando"
   {
     clip: "C099",
-    in: 28.5,
-    out: 31.8,
+    in: 0,
+    out: 42.7,
     layout: "boxed",
-    focusX: 0.55,
-    flash: true,
-    sfx: "whoosh",
-    words: [
-      ["¿Cómo", 28.58, 28.8],
-      ["así?", 28.8, 29.28],
-      ["Lo", 29.66, 29.8],
-      ["decimos", 29.8, 30.12],
-      ["motivando,", 30.12, 30.94],
-      ["chicos", 30.94, 31.74],
-    ],
+    focusX: 0.5,
+    sceneChange: true,
+    zooms: [{ at: 28.5, dur: 3.3, sfx: "pop" }],
   },
-  // ── EL CHIVO ────────────────────────────────────────────
+  // 9. Más tarde... ¡Pochoclo!
   {
-    clip: "C084",
-    in: 13.3,
-    out: 14.95,
+    clip: "C105",
+    in: 0,
+    out: 3.68,
     layout: "cover",
-    punch: true,
-    sfx: "impact",
-    words: [
-      ["Acuérdate", 13.41, 13.77],
-      ["que", 13.77, 13.93],
-      ["te", 13.93, 14.13],
-      ["compraste", 14.13, 14.37],
-      ["un", 14.37, 14.59],
-      ["chivo", 14.59, 14.83],
-    ],
+    sceneChange: true,
+    titles: [{ at: 0, text: "MÁS TARDE...", dur: 1.8 }],
   },
+  // 10. Pochoclo, la celebridad
   {
     clip: "C110",
-    in: 0.0,
-    out: 5.35,
+    in: 0,
+    out: 17.4,
     layout: "cover",
-    flash: true,
-    sfx: "whoosh",
-    title: { text: "MÁS TARDE...", durationSec: 1.6 },
-    words: [
-      ["Todo", 0.0, 0.74],
-      ["el", 0.74, 0.92],
-      ["mundo", 0.92, 1.1],
-      ["mira", 1.1, 1.42],
-      ["a", 1.42, 1.5],
-      ["Pochoclo,", 1.5, 2.7],
-      ["es", 3.0, 3.12],
-      ["como", 3.12, 3.18],
-      ["si", 3.18, 3.38],
-      ["fuera", 3.38, 3.5],
-      ["una", 3.5, 4.16],
-      ["celebridad", 4.16, 5.28],
-    ],
+    sceneChange: true,
+    titles: [{ at: 1.4, text: "POCHOCLO", sub: "LA CELEBRIDAD", dur: 3.5 }],
+    zooms: [{ at: 7.5, dur: 3 }],
   },
-  {
-    clip: "C110",
-    in: 7.5,
-    out: 10.5,
-    layout: "cover",
-    zoom: 1.1,
-    words: [
-      ["Sorprendente,", 7.6, 8.32],
-      ["increíble,", 8.94, 9.62],
-      ["diría", 9.64, 10.04],
-      ["yo", 10.04, 10.46],
-    ],
-  },
+  // 11. Pochoclo llega al gym
   {
     clip: "C113",
-    in: 0.5,
-    out: 2.4,
+    in: 0,
+    out: 15.68,
     layout: "cover",
-    shake: true,
-    flash: true,
-    sfx: "impact",
-    words: [
-      ["¡Ay,", 0.66, 1.46],
-      ["marica!", 1.52, 2.3],
-    ],
+    sceneChange: true,
+    zooms: [{ at: 0.6, dur: 1.8, sfx: "impact" }],
   },
-  {
-    clip: "C113",
-    in: 7.8,
-    out: 11.15,
-    layout: "cover",
-    zoom: 1.08,
-    words: [
-      ["¡Ay,", 7.94, 8.36],
-      ["apártate!", 8.36, 8.74],
-      ["¡Ay,", 9.84, 10.5],
-      ["no!", 10.66, 11.04],
-    ],
-  },
-  // ── CIERRE ──────────────────────────────────────────────
+  // 12. Trabajando en la página web
   {
     clip: "C115",
-    in: 0.0,
-    out: 5.75,
+    in: 0,
+    out: 15.75,
     layout: "boxed",
-    focusX: 0.42,
-    flash: true,
-    sfx: "whoosh",
-    words: [
-      ["Bueno", 0.0, 0.12],
-      ["muchachos,", 0.12, 0.98],
-      ["salimos", 1.16, 1.32],
-      ["del", 1.32, 1.5],
-      ["gym,", 1.5, 2.2],
-      ["estamos", 2.54, 2.64],
-      ["trabajando", 2.64, 4.2],
-      ["en", 4.2, 4.7],
-      ["una", 4.7, 4.88],
-      ["página", 4.88, 5.22],
-      ["web", 5.22, 5.68],
-    ],
+    sceneChange: true,
   },
-  {
-    clip: "C115",
-    in: 8.05,
-    out: 10.0,
-    layout: "boxed",
-    focusX: 0.42,
-    zoom: 1.1,
-    words: [
-      ["y", 8.05, 8.12],
-      ["les", 8.12, 8.42],
-      ["estamos", 8.42, 8.52],
-      ["metiendo", 8.52, 8.94],
-      ["duro", 8.94, 9.94],
-    ],
-  },
+  // 13. Cierre en Apolo Gastro Bar
   {
     clip: "C116",
-    in: 0.0,
-    out: 2.65,
+    in: 0,
+    out: 12.9,
     layout: "boxed",
-    focusX: 0.5,
-    flash: true,
-    sfx: "whoosh",
-    title: { text: "APOLO GASTRO BAR", durationSec: 2.6 },
-    words: [
-      ["Bueno,", 0.0, 0.32],
-      ["y", 0.32, 0.56],
-      ["ahora", 0.56, 0.86],
-      ["estamos", 0.86, 1.4],
-      ["en", 1.4, 1.76],
-      ["Apolo", 1.76, 2.1],
-      ["Gastro", 2.1, 2.48],
-      ["Bar", 2.48, 2.6],
-    ],
-  },
-  {
-    clip: "C116",
-    in: 4.6,
-    out: 7.42,
-    layout: "boxed",
-    focusX: 0.5,
-    zoom: 1.1,
-    words: [
-      ["Y", 4.64, 5.68],
-      ["vinimos", 5.68, 5.92],
-      ["bellos,", 5.92, 6.4],
-      ["preciosos", 6.46, 6.96],
-      ["como", 6.96, 7.18],
-      ["siempre", 7.18, 7.36],
-    ],
-  },
-  {
-    clip: "C116",
-    in: 8.38,
-    out: 12.4,
-    layout: "boxed",
-    focusX: 0.5,
-    sfx: "pop",
-    words: [
-      ["O", 8.42, 8.44],
-      ["sea,", 8.44, 8.76],
-      ["es", 8.76, 9.42],
-      ["manejando", 9.42, 9.92],
-      ["la", 9.92, 10.18],
-      ["tranquilidad.", 10.18, 11.04],
-      ["Eso", 11.04, 11.78],
-      ["es", 11.78, 11.96],
-      ["todo", 11.96, 12.1],
-    ],
+    sceneChange: true,
+    titles: [{ at: 1.7, text: "APOLO GASTRO BAR", dur: 3 }],
   },
 ];

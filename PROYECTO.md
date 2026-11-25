@@ -57,35 +57,41 @@ o por ID con `gdown <id>` a `media/raw/` (ignorado por git).
 
 # Blog 1 — vlog "un día a día con nosotros"
 
-Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, ~78 s.
+Composición `Blog1` (src/Blog1), vertical 1080x1920 a 30 fps, ~6:25.
+
+**Versión 2 (pedido del cliente): escenas completas, sin cortes, en el orden en
+que se grabaron, para que se entienda la trama.** Solo se recorta tiempo muerto
+al inicio/fin de cada clip. El énfasis se hace con acercamientos suaves y
+títulos dentro de la escena, no con cortes.
 
 ## Material
 
 Carpeta de Drive "Blog 1" (id `1ygcGxy_HT8DVsN_8n98HaMjpLUDk7ypA`): 13 clips de
 iPhone grabados con Blackmagic Camera, HEVC 10-bit 4:2:2 en 4K, perfil
 **Apple Log** (por eso se ven grises). `A001_11141850_C115.mov` está dos veces
-en la carpeta (mismo archivo). C074 no se usa (4 s sin audio útil).
+en la carpeta (mismo archivo).
 
 ## Flujo
 
 1. Descargar a `media/raw/blog1/` (`gdown <id> -O <nombre>.mov`).
-2. `scripts/prep-blog1.sh` → `public/blog1/Cxxx.mp4`: recorta los tramos usados,
-   aplica la LUT `scripts/applelog_709.cube` (Apple Log → Rec.709, generada con
-   `scripts/mklut.py`) y deja intermedios H.264 CRF 14 (verticales 1080x1920,
-   horizontales 3414x1920 para recortar 9:16 sin reescalar hacia arriba).
-3. Editar el corte en `src/Blog1/edl.ts` (tiempos del original + subtítulos
-   corregidos a mano a partir de la transcripción de Whisper).
-4. Render:
-   `npx remotion render Blog1 out/blog1-master.mp4 --crf=16 --x264-preset=slow --audio-bitrate=320k`
-   y normalizar a -14 LUFS:
-   `ffmpeg -i out/blog1-master.mp4 -c:v copy -af loudnorm=I=-14:TP=-1:LRA=9 -c:a aac -b:a 320k out/blog1-final.mp4`
+2. `scripts/prep-blog1.sh` → `public/blog1/Cxxx.mp4`: clips completos con la LUT
+   `scripts/applelog_709.cube` (Apple Log → Rec.709, generada con
+   `scripts/mklut.py`), H.264 CRF 14 (verticales 1080x1920, horizontales
+   3414x1920 para recortar sin reescalar hacia arriba).
+3. Subtítulos: `python3 -I scripts/captions-blog1.py scripts/blog1-transcript.json src/Blog1/captions.json`
+   (transcripción de Whisper + correcciones a mano en `FIXES`).
+4. Escenas, títulos y acercamientos: `src/Blog1/edl.ts`.
+5. Render:
+   `npx remotion render Blog1 out/blog1-master.mp4 --crf=16 --audio-bitrate=320k`
+   y normalizar a -14 LUFS con `loudnorm` en dos pasadas (video copiado sin recomprimir).
 
-## Estructura del corte
+## Escenas (orden de grabación)
 
-Gancho (spoiler del chivo + "¡Pochoclo!") → intro → invitada Valery → gym
-(métele, dame rostro, 200 kilos, espacio personal, qué fuerte eres) → "acuérdate
-que te compraste un chivo" → Pochoclo en la calle y llegada al gym → página web →
-Apolo Gastro Bar → "eso es todo".
+C074 arranque → C075 intro → C076 invitada Valery → C084 entreno + spoiler del
+chivo → C087 "eso es Rocky" → C090 200 kilos / báilalo → C094 con Valery (baño,
+piercing, espacio personal, pretty boy) → C099 cantando / "lo decimos motivando"
+→ C105 "¡Pochoclo!" → C110 Pochoclo la celebridad → C113 Pochoclo llega al gym →
+C115 página web → C116 Apolo Gastro Bar.
 
 ## Pendiente
 
