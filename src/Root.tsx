@@ -1,4 +1,5 @@
 import { Composition, Still, staticFile } from "remotion";
+import { Blog1Collage } from "./Blog1/Collage";
 import { Blog1Cover, coverSchema } from "./Blog1/Cover";
 import { Blog1, blog1Schema } from "./Blog1";
 import { FPS, totalFrames } from "./Blog1/clips";
@@ -13,6 +14,12 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Still
+        id="Blog1Collage"
+        component={Blog1Collage}
+        width={1080}
+        height={1920}
+      />
       <Still
         id="Blog1Cover"
         component={Blog1Cover}

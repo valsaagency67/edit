@@ -157,3 +157,9 @@ C115 página web → C116 Apolo Gastro Bar.
 - Música tipo gym (la envía el cliente): copiarla a `public/music/` y pasar
   `--props='{"music":"music/archivo.mp3","musicVolume":0.16}'`.
 - Confirmar nombre del chivo ("Pochoclo") y de la invitada ("Valery").
+
+## Portadas
+
+- `Blog1Collage` (src/Blog1/Collage.tsx): collage con 6 fotogramas del día en orden + título. Fotogramas en `public/blog1/collage/` (los más nítidos de cada momento, elegidos con el filtro `blurdetect` de ffmpeg).
+- `Blog1Cover` (src/Blog1/Cover.tsx): una sola foto (Pochoclo corriendo).
+- Render: `npx remotion still Blog1Collage out/blog1-portada-collage.png`
