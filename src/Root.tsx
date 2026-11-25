@@ -1,4 +1,5 @@
-import { Composition, staticFile } from "remotion";
+import { Composition, Still, staticFile } from "remotion";
+import { Blog1Cover, coverSchema } from "./Blog1/Cover";
 import { Blog1, blog1Schema } from "./Blog1";
 import { FPS, totalFrames } from "./Blog1/clips";
 import {
@@ -12,6 +13,14 @@ import {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Still
+        id="Blog1Cover"
+        component={Blog1Cover}
+        schema={coverSchema}
+        width={1080}
+        height={1920}
+        defaultProps={{ image: "blog1/cover-C105-1.8.png" }}
+      />
       <Composition
         id="Blog1"
         component={Blog1}
