@@ -9,7 +9,7 @@ const TimeBeat: React.FC = () => {
   const count = Math.round(lin(frame, 14, 50) * 10);
   const sub = prog(frame, 70, 90);
   return (
-    <SceneFade duration={135}>
+    <SceneFade duration={120}>
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 150 }}>
         {/* contador grande */}
         <div style={{ textAlign: "center", opacity: prog(frame, 0, 14) }}>
@@ -121,7 +121,7 @@ const DeductibleBeat: React.FC = () => {
     { icon: "food" as const, name: "Comidas", amt: "$432.00" },
   ];
   return (
-    <SceneFade duration={105} fadeIn={8} fadeOut={6}>
+    <SceneFade duration={120} fadeIn={8} fadeOut={6}>
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 150 }}>
         <Title
           size={96}
@@ -210,10 +210,10 @@ const DeductibleBeat: React.FC = () => {
 
 export const SceneResult: React.FC = () => (
   <AbsoluteFill>
-    <Sequence from={0} durationInFrames={135}>
+    <Sequence from={0} durationInFrames={120}>
       <TimeBeat />
     </Sequence>
-    <Sequence from={135} durationInFrames={105}>
+    <Sequence from={120} durationInFrames={120}>
       <DeductibleBeat />
     </Sequence>
   </AbsoluteFill>
