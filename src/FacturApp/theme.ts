@@ -7,16 +7,16 @@ import {
 
 // Si luego llega el brand book de FacturApp, solo hay que cambiar este archivo.
 export const theme = {
-  bg: "#03080D",
-  bg2: "#071722",
-  teal: "#19F2D8",
-  tealDeep: "#00A99D",
-  tealSoft: "rgba(25,242,216,0.14)",
+  bg: "#090D12",
+  bg2: "#0E161C",
+  teal: "#86E3CC",
+  tealDeep: "#4F6F67",
+  tealSoft: "rgba(134,227,204,0.14)",
   text: "#EAFBF8",
   muted: "#7FA6A6",
   danger: "#FF5C6C",
   amber: "#FFB547",
-  paper: "#F4F1E8",
+  paper: "#F3F3EF",
   ink: "#1A2328",
   whatsapp: "#25D366",
 };
@@ -36,14 +36,14 @@ const face = (family: string, file: string, weight: string) => {
     })
     .catch((e) => cancelRender(e));
 };
-["500", "600", "700", "800"].forEach((w) =>
-  face("Sora", `facturapp/Sora-${w}.ttf`, w),
+["400", "500", "600", "700"].forEach((w) =>
+  face("Jost", `facturapp/Jost-${w}.ttf`, w),
 );
 ["500", "700"].forEach((w) =>
   face("JetBrains Mono", `facturapp/JBMono-${w}.ttf`, w),
 );
 
-export const FONT = "Sora, sans-serif";
+export const FONT = "Jost, sans-serif";
 export const MONO = "'JetBrains Mono', monospace";
 
 export const FPS = 30;

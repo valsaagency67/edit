@@ -34,7 +34,7 @@ export const SceneOutro: React.FC = () => {
           filter: `drop-shadow(0 0 40px ${theme.teal}66)`,
         }}
       >
-        <Logo size={0.82} />
+        <Logo size={1.15} />
       </div>
       <div
         style={{
@@ -44,7 +44,7 @@ export const SceneOutro: React.FC = () => {
           padding: "20px 52px",
           borderRadius: 60,
           border: `3px solid ${theme.teal}`,
-          background: "rgba(25,242,216,0.1)",
+          background: "rgba(134,227,204,0.1)",
           fontFamily: FONT,
           fontWeight: 700,
           fontSize: 58,

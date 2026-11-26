@@ -45,7 +45,7 @@ const PhotoBeat: React.FC = () => {
             borderRadius: 74,
             border: `6px solid #1E3442`,
             background: "#050D13",
-            boxShadow: `0 0 120px rgba(25,242,216,0.18), inset 0 0 60px rgba(25,242,216,0.06)`,
+            boxShadow: `0 0 120px rgba(134,227,204,0.18), inset 0 0 60px rgba(134,227,204,0.06)`,
             overflow: "hidden",
             scale: String(0.9 + prog(frame, 0, 24) * 0.1),
             opacity: prog(frame, 0, 12),
@@ -159,7 +159,7 @@ const PhotoBeat: React.FC = () => {
               background: theme.teal,
               color: "#03141A",
               fontFamily: FONT,
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: 30,
               zIndex: 6,
             }}
@@ -197,7 +197,7 @@ const Core: React.FC<{ size?: number; pulse?: number }> = ({
           position: "absolute",
           inset: size * 0.14,
           borderRadius: "50%",
-          background: `radial-gradient(circle at 35% 30%, #7DFFEF, ${theme.teal} 35%, ${theme.tealDeep} 80%)`,
+          background: `radial-gradient(circle at 35% 30%, #C9F5EA, ${theme.teal} 35%, ${theme.tealDeep} 80%)`,
           boxShadow: `0 0 ${80 * pulse + Math.sin(frame / 5) * 20}px ${theme.teal}99`,
           display: "grid",
           placeItems: "center",
@@ -206,7 +206,7 @@ const Core: React.FC<{ size?: number; pulse?: number }> = ({
         <div
           style={{
             fontFamily: FONT,
-            fontWeight: 800,
+            fontWeight: 700,
             fontSize: size * 0.3,
             color: "#03141A",
             letterSpacing: -2,
@@ -269,7 +269,7 @@ const SendBeat: React.FC = () => {
               padding: "20px 34px",
               borderRadius: 60,
               border: `3px solid ${theme.teal}`,
-              background: "rgba(25,242,216,0.1)",
+              background: "rgba(134,227,204,0.1)",
               fontFamily: FONT,
               fontWeight: 700,
               fontSize: 40,
@@ -396,7 +396,7 @@ const AgentBeat: React.FC = () => {
                   borderRadius: 50,
                   border: `2px solid ${on ? theme.teal : "#1E3442"}`,
                   background: on
-                    ? "rgba(25,242,216,0.16)"
+                    ? "rgba(134,227,204,0.16)"
                     : "rgba(10,24,34,0.6)",
                   color: on ? theme.text : theme.muted,
                   fontFamily: FONT,
@@ -509,7 +509,7 @@ const AgentBeat: React.FC = () => {
                   width: 130,
                   height: 130,
                   borderRadius: 100,
-                  background: "rgba(25,242,216,0.14)",
+                  background: "rgba(134,227,204,0.14)",
                   display: "grid",
                   placeItems: "center",
                   boxShadow: `0 0 ${30 + Math.sin(frame / 3) * 14}px ${theme.teal}66`,
@@ -580,7 +580,7 @@ const Invoice: React.FC<{ width: number }> = ({ width }) => (
         color: "#03141A",
       }}
     >
-      <span style={{ fontWeight: 800, fontSize: 40, letterSpacing: 1 }}>
+      <span style={{ fontWeight: 700, fontSize: 40, letterSpacing: 1 }}>
         FACTURA
       </span>
       <span style={{ fontFamily: MONO, fontWeight: 700, fontSize: 24 }}>
@@ -612,7 +612,7 @@ const Invoice: React.FC<{ width: number }> = ({ width }) => (
           display: "flex",
           justifyContent: "space-between",
           marginTop: 18,
-          fontWeight: 800,
+          fontWeight: 700,
           fontSize: 36,
         }}
       >
@@ -712,7 +712,7 @@ const MorphBeat: React.FC = () => {
             background: theme.teal,
             color: "#03141A",
             fontFamily: FONT,
-            fontWeight: 800,
+            fontWeight: 700,
             fontSize: 54,
             boxShadow: `0 0 70px ${theme.teal}88`,
           }}

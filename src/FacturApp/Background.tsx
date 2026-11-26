@@ -13,7 +13,7 @@ export const Background: React.FC = () => {
       {/* resplandores */}
       <AbsoluteFill
         style={{
-          background: `radial-gradient(900px 900px at ${30 + Math.sin(frame / 120) * 8}% 18%, rgba(25,242,216,0.16), transparent 62%), radial-gradient(1000px 1000px at ${75 + Math.cos(frame / 140) * 8}% 82%, rgba(0,120,255,0.12), transparent 60%)`,
+          background: `radial-gradient(900px 900px at ${30 + Math.sin(frame / 120) * 8}% 18%, rgba(134,227,204,0.16), transparent 62%), radial-gradient(1000px 1000px at ${75 + Math.cos(frame / 140) * 8}% 82%, rgba(0,120,255,0.12), transparent 60%)`,
         }}
       />
       {/* rejilla en perspectiva */}

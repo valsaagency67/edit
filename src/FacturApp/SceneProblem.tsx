@@ -71,7 +71,7 @@ const TicketsBeat: React.FC = () => {
                     borderRadius: 40,
                     display: "grid",
                     placeItems: "center",
-                    background: "rgba(25,242,216,0.08)",
+                    background: "rgba(134,227,204,0.08)",
                     border: `2px solid ${theme.teal}66`,
                   }}
                 >
@@ -98,7 +98,7 @@ const TicketsBeat: React.FC = () => {
                       borderRadius: 12,
                       padding: "2px 16px",
                       fontFamily: FONT,
-                      fontWeight: 800,
+                      fontWeight: 700,
                       fontSize: 34,
                       background: "rgba(3,8,13,0.7)",
                     }}
@@ -306,7 +306,7 @@ const DeductBeat: React.FC = () => {
               border: `3px solid ${theme.danger}88`,
               background: "rgba(255,92,108,0.1)",
               fontFamily: FONT,
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: 86,
               color: theme.text,
               textAlign: "center",
@@ -320,7 +320,7 @@ const DeductBeat: React.FC = () => {
           <div
             style={{
               fontFamily: FONT,
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: 120,
               color: theme.teal,
               opacity: arrow,
@@ -338,7 +338,7 @@ const DeductBeat: React.FC = () => {
               border: `3px solid ${theme.muted}66`,
               background: "rgba(127,166,166,0.1)",
               fontFamily: FONT,
-              fontWeight: 800,
+              fontWeight: 700,
               fontSize: 86,
               color: theme.text,
               textAlign: "center",
