@@ -279,7 +279,9 @@ const DeductBeat: React.FC = () => {
   const frame = useCurrentFrame();
   const boxIn = prog(frame, 6, 26);
   const arrow = prog(frame, 26, 44);
-  const cross = lin(frame, 44, 58);
+  const cross = lin(frame, 40, 52);
+  const chip = prog(frame, 52, 72);
+  const pct = Math.round(lin(frame, 54, 72) * 30);
   return (
     <SceneFade duration={90}>
       <AbsoluteFill
@@ -294,20 +296,20 @@ const DeductBeat: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 36,
+            gap: 22,
           }}
         >
           <div
             style={{
               opacity: boxIn,
               scale: String(0.85 + boxIn * 0.15),
-              padding: "40px 60px",
+              padding: "30px 56px",
               borderRadius: 40,
               border: `3px solid ${theme.danger}88`,
               background: "rgba(255,92,108,0.1)",
               fontFamily: FONT,
               fontWeight: 800,
-              fontSize: 86,
+              fontSize: 76,
               color: theme.text,
               textAlign: "center",
               lineHeight: 1.1,
@@ -321,25 +323,25 @@ const DeductBeat: React.FC = () => {
             style={{
               fontFamily: FONT,
               fontWeight: 800,
-              fontSize: 120,
+              fontSize: 90,
               color: theme.teal,
               opacity: arrow,
               translate: `0px ${(1 - arrow) * -30}px`,
             }}
           >
-            =
+            ↓
           </div>
           <div
             style={{
               position: "relative",
               opacity: arrow,
-              padding: "40px 60px",
+              padding: "30px 56px",
               borderRadius: 40,
               border: `3px solid ${theme.muted}66`,
               background: "rgba(127,166,166,0.1)",
               fontFamily: FONT,
               fontWeight: 800,
-              fontSize: 86,
+              fontSize: 76,
               color: theme.text,
               textAlign: "center",
               lineHeight: 1.1,
@@ -361,6 +363,27 @@ const DeductBeat: React.FC = () => {
                 boxShadow: `0 0 30px ${theme.danger}`,
               }}
             />
+          </div>
+          <div
+            style={{
+              opacity: chip,
+              scale: String(0.8 + chip * 0.2),
+              marginTop: 36,
+              padding: "26px 64px",
+              borderRadius: 44,
+              background: theme.danger,
+              color: "#fff",
+              textAlign: "center",
+              fontFamily: FONT,
+              fontWeight: 800,
+              lineHeight: 1,
+              boxShadow: `0 0 80px ${theme.danger}88`,
+            }}
+          >
+            <div style={{ fontSize: 120 }}>hasta {pct}%</div>
+            <div style={{ fontSize: 40, fontWeight: 600, marginTop: 8 }}>
+              de impuestos extra
+            </div>
           </div>
         </div>
       </AbsoluteFill>

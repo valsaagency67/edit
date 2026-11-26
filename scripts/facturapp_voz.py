@@ -1,5 +1,5 @@
 # Genera la voz (es-MX) de cada línea del guion con edge-tts y la ajusta a su ventana de tiempo.
-import asyncio, certifi, subprocess, sys, re
+import asyncio, certifi, os, subprocess, sys, re
 certifi.where = lambda: "/root/.ccr/ca-bundle.crt"
 import edge_tts
 
@@ -13,7 +13,7 @@ async def main():
         t = t.replace("*", "")
         t = SPOKEN.get(t, t).replace("FacturApp", "Factur App").replace("IA", "I A")
         raw = f"{RAW}/vo-{i:02d}.mp3"
-        await edge_tts.Communicate(t, VOICE, rate="+8%", proxy="http://127.0.0.1:38593").save(raw)
+        await edge_tts.Communicate(t, VOICE, rate={3: "+16%", 1: "+12%"}.get(i, "+8%"), proxy=os.environ["HTTPS_PROXY"]).save(raw)
         nxt = float(caps[i + 1][0]) if i + 1 < len(caps) else 40.0
         window = min(nxt - float(a) - 0.1, 40.0 - float(a))
         dur = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", raw]))

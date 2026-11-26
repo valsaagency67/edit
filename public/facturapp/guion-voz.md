@@ -4,8 +4,8 @@
 |---|---|---|---|
 | 00 | 0.3s | 4.8s | ¿Cuántas facturas pierde tu empresa cada mes? |
 | 01 | 4.95s | 8.9s | Gasolina, casetas, comidas: tickets sin factura. |
-| 02 | 9.1s | 12.1s | Portales lentos: 10 minutos por ticket. |
-| 03 | 12.3s | 14.9s | Gasto sin factura, no se deduce. |
+| 02 | 8.95s | 11.9s | Portales lentos: 10 minutos por ticket. |
+| 03 | 12.0s | 14.95s | Sin factura, hasta 30% de impuestos extra. |
 | 04 | 15.2s | 18.8s | Toma una foto del ticket. |
 | 05 | 19.2s | 22.0s | Mándala por la app o por WhatsApp. |
 | 06 | 22.2s | 27.0s | Un agente de IA entra a portales, escribe o llama al comercio. |

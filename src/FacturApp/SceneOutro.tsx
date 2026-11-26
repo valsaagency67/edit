@@ -54,6 +54,19 @@ export const SceneOutro: React.FC = () => {
       >
         facturappmx.com
       </div>
+      <div
+        style={{
+          marginTop: 34,
+          opacity: prog(frame, 22, 38),
+          fontFamily: FONT,
+          fontWeight: 500,
+          fontSize: 34,
+          letterSpacing: 4,
+          color: theme.muted,
+        }}
+      >
+        PARA EMPRESAS Y PYMES DE MÉXICO
+      </div>
     </AbsoluteFill>
   );
 };

@@ -12,11 +12,11 @@ export const theme = {
   teal: "#19F2D8",
   tealDeep: "#00A99D",
   tealSoft: "rgba(25,242,216,0.14)",
-  text: "#EAFBF8",
+  text: "#FFFFFF",
   muted: "#7FA6A6",
   danger: "#FF5C6C",
   amber: "#FFB547",
-  paper: "#F4F1E8",
+  paper: "#F7F7F5",
   ink: "#1A2328",
   whatsapp: "#25D366",
 };
