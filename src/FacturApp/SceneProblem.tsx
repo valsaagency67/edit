@@ -71,7 +71,7 @@ const TicketsBeat: React.FC = () => {
                     borderRadius: 40,
                     display: "grid",
                     placeItems: "center",
-                    background: "rgba(134,227,204,0.08)",
+                    background: "rgba(168,197,188,0.08)",
                     border: `2px solid ${theme.teal}66`,
                   }}
                 >

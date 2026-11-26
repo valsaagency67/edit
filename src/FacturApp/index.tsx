@@ -14,7 +14,7 @@ import { SceneProblem } from "./SceneProblem";
 import { SceneSolution } from "./SceneSolution";
 import { SceneResult } from "./SceneResult";
 import { SceneOutro } from "./SceneOutro";
-import { FPS, sec } from "./theme";
+import { FPS, sec, theme, FONT } from "./theme";
 
 export const FACTURAPP_DURATION = sec(40);
 export { FPS };
@@ -53,6 +53,21 @@ export const FacturApp: React.FC = () => {
       <Sequence from={sec(38)} durationInFrames={sec(2)} name="5 · Cierre">
         <SceneOutro />
       </Sequence>
+      <div
+        style={{
+          position: "absolute",
+          top: 70,
+          width: "100%",
+          textAlign: "center",
+          fontFamily: FONT,
+          fontWeight: 500,
+          fontSize: 26,
+          letterSpacing: 8,
+          color: theme.muted,
+        }}
+      >
+        FACTURAPP · FACTURACIÓN CON IA
+      </div>
       <Captions />
     </AbsoluteFill>
   );

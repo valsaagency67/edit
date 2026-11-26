@@ -70,7 +70,7 @@ export const SceneHook: React.FC = () => {
               display: "grid",
               placeItems: "center",
               boxShadow: `0 0 ${50 + Math.sin(frame / 6) * 20}px ${theme.teal}55`,
-              background: "rgba(134,227,204,0.08)",
+              background: "rgba(168,197,188,0.08)",
             }}
           >
             <Icon kind="camera" size={84} />

@@ -44,7 +44,7 @@ export const SceneOutro: React.FC = () => {
           padding: "20px 52px",
           borderRadius: 60,
           border: `3px solid ${theme.teal}`,
-          background: "rgba(134,227,204,0.1)",
+          background: "rgba(168,197,188,0.1)",
           fontFamily: FONT,
           fontWeight: 700,
           fontSize: 58,

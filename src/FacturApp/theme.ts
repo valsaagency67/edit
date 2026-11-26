@@ -7,13 +7,13 @@ import {
 
 // Si luego llega el brand book de FacturApp, solo hay que cambiar este archivo.
 export const theme = {
-  bg: "#090D12",
+  bg: "#0A0F11",
   bg2: "#0E161C",
-  teal: "#86E3CC",
-  tealDeep: "#4F6F67",
-  tealSoft: "rgba(134,227,204,0.14)",
-  text: "#EAFBF8",
-  muted: "#7FA6A6",
+  teal: "#A8C5BC",
+  tealDeep: "#4F6360",
+  tealSoft: "rgba(168,197,188,0.14)",
+  text: "#F3F3EF",
+  muted: "#8DA19B",
   danger: "#FF5C6C",
   amber: "#FFB547",
   paper: "#F3F3EF",

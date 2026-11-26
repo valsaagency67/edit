@@ -51,7 +51,7 @@ export const CAPTIONS: Cap[] = [
 const renderText = (text: string) =>
   text.split("*").map((part, i) =>
     i % 2 === 1 ? (
-      <span key={i} style={{ color: theme.teal }}>
+      <span key={i} style={{ color: theme.tealDeep }}>
         {part}
       </span>
     ) : (
@@ -86,14 +86,14 @@ export const Captions: React.FC = () => {
           translate: `0px ${y}px`,
           padding: "26px 40px",
           borderRadius: 36,
-          background: "rgba(3,12,18,0.72)",
-          border: `2px solid rgba(134,227,204,0.28)`,
-          boxShadow: "0 0 60px rgba(134,227,204,0.12)",
+          background: "#F3F3EF",
+          border: "none",
+          boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
           fontFamily: FONT,
           fontWeight: 700,
           fontSize: 62,
           lineHeight: 1.22,
-          color: theme.text,
+          color: "#0B1013",
           textAlign: "center",
           textWrap: "balance",
         }}
