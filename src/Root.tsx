@@ -14,6 +14,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="FacturApp"
         component={FacturApp}
+        defaultProps={{ voice: "jorge" as const }}
         durationInFrames={FACTURAPP_DURATION}
         fps={FPS}
         width={1080}

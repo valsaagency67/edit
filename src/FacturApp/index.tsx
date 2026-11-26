@@ -20,7 +20,9 @@ import { VOICEOVER_ENABLED, VOICE_LINES } from "./voiceover";
 export const FACTURAPP_DURATION = sec(40);
 export { FPS };
 
-export const FacturApp: React.FC = () => {
+export type FacturAppProps = { voice: "dalia" | "jorge" };
+
+export const FacturApp: React.FC<FacturAppProps> = ({ voice }) => {
   const { durationInFrames } = useVideoConfig();
   return (
     <AbsoluteFill>
@@ -68,7 +70,7 @@ export const FacturApp: React.FC = () => {
             <Sequence key={i} from={sec(l.from)} layout="none">
               <Audio
                 src={staticFile(
-                  `facturapp/vo/vo-${i < 10 ? "0" + i : "" + i}.mp3`,
+                  `facturapp/vo-${voice}/vo-${i < 10 ? "0" + i : "" + i}.mp3`,
                 )}
               />
             </Sequence>
