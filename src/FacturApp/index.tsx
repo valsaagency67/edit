@@ -47,10 +47,14 @@ export const FacturApp: React.FC = () => {
       <Sequence from={0} durationInFrames={sec(5)} name="1 · Gancho">
         <SceneHook />
       </Sequence>
-      <Sequence from={sec(5)} durationInFrames={sec(10)} name="2 · Problema">
+      <Sequence from={sec(5)} durationInFrames={sec(10.5)} name="2 · Problema">
         <SceneProblem />
       </Sequence>
-      <Sequence from={sec(15)} durationInFrames={sec(15)} name="3 · Solución">
+      <Sequence
+        from={sec(15.5)}
+        durationInFrames={sec(14.5)}
+        name="3 · Solución"
+      >
         <SceneSolution />
       </Sequence>
       <Sequence from={sec(30)} durationInFrames={sec(8)} name="4 · Resultado">

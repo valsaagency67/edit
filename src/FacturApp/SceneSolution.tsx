@@ -18,12 +18,12 @@ const GAS = {
 /* ───────── A · Toma una foto (local 0-120) ───────── */
 const PhotoBeat: React.FC = () => {
   const frame = useCurrentFrame();
-  const flash = frame >= 62 && frame < 70 ? 1 - (frame - 62) / 8 : 0;
-  const scan = lin(frame, 18, 60);
-  const captured = prog(frame, 66, 90);
+  const flash = frame >= 46 && frame < 54 ? 1 - (frame - 46) / 8 : 0;
+  const scan = lin(frame, 12, 42);
+  const captured = prog(frame, 50, 68);
   return (
-    <SceneFade duration={120}>
-      <Sequence from={62} durationInFrames={20} layout="none">
+    <SceneFade duration={90}>
+      <Sequence from={46} durationInFrames={20} layout="none">
         <Audio src={staticFile("facturapp/shutter.mp3")} volume={0.8} />
       </Sequence>
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 140 }}>
@@ -133,8 +133,8 @@ const PhotoBeat: React.FC = () => {
           >
             <div
               style={{
-                width: 88 - (frame >= 60 && frame < 72 ? 14 : 0),
-                height: 88 - (frame >= 60 && frame < 72 ? 14 : 0),
+                width: 88 - (frame >= 44 && frame < 56 ? 14 : 0),
+                height: 88 - (frame >= 44 && frame < 56 ? 14 : 0),
                 borderRadius: 100,
                 background: theme.text,
               }}
@@ -625,12 +625,12 @@ const Invoice: React.FC<{ width: number }> = ({ width }) => (
 
 const MorphBeat: React.FC = () => {
   const frame = useCurrentFrame();
-  const sweep = prog(frame, 12, 56);
-  const done = prog(frame, 56, 72);
+  const sweep = prog(frame, 8, 48);
+  const done = prog(frame, 60, 76);
   const W = 540;
   return (
-    <SceneFade duration={90} fadeIn={6} fadeOut={8}>
-      <Sequence from={54} durationInFrames={50} layout="none">
+    <SceneFade duration={105} fadeIn={6} fadeOut={8}>
+      <Sequence from={60} durationInFrames={45} layout="none">
         <Audio src={staticFile("facturapp/success.mp3")} volume={0.7} />
       </Sequence>
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 140 }}>
@@ -640,9 +640,9 @@ const MorphBeat: React.FC = () => {
         <div
           style={{
             position: "relative",
-            marginTop: 90,
+            marginTop: 70,
             width: W,
-            height: 700,
+            height: 620,
             scale: String(1 + done * 0.04),
           }}
         >
@@ -678,7 +678,7 @@ const MorphBeat: React.FC = () => {
           ) : null}
           {/* partículas al terminar */}
           {new Array(18).fill(0).map((_, i) => {
-            const p = lin(frame, 56, 86);
+            const p = lin(frame, 60, 100);
             const a = (i / 18) * Math.PI * 2;
             const d = 280 + rand(i) * 140;
             return (
@@ -698,26 +698,53 @@ const MorphBeat: React.FC = () => {
             );
           })}
         </div>
-        {/* sello */}
-        <div
-          style={{
-            marginTop: 30,
-            opacity: done,
-            scale: String(1.5 - done * 0.5),
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            padding: "18px 40px",
-            borderRadius: 60,
-            background: theme.teal,
-            color: "#03141A",
-            fontFamily: FONT,
-            fontWeight: 800,
-            fontSize: 54,
-            boxShadow: `0 0 70px ${theme.teal}88`,
-          }}
-        >
-          <Icon kind="check" size={56} color="#03141A" /> ¡Facturado!
+        {/* seguimiento del estado de la factura */}
+        <div style={{ display: "flex", gap: 18, marginTop: 20 }}>
+          {[
+            { label: "Recibido", at: 14 },
+            { label: "En proceso", at: 38 },
+            { label: "Facturado", at: 62 },
+          ].map((st, i) => {
+            const on = prog(frame, st.at, st.at + 10);
+            return (
+              <div
+                key={st.label}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  padding: "14px 24px",
+                  borderRadius: 50,
+                  border: `2px solid ${on > 0.5 ? theme.teal : "#1E3442"}`,
+                  background:
+                    on > 0.5
+                      ? i === 2
+                        ? theme.teal
+                        : "rgba(25,242,216,0.16)"
+                      : "rgba(10,24,34,0.6)",
+                  color:
+                    on > 0.5 ? (i === 2 ? "#03141A" : theme.text) : theme.muted,
+                  fontFamily: FONT,
+                  fontWeight: 700,
+                  fontSize: 34,
+                  boxShadow: on > 0.5 ? `0 0 40px ${theme.teal}44` : "none",
+                }}
+              >
+                <Icon
+                  kind="check"
+                  size={34}
+                  color={
+                    i === 2 && on > 0.5
+                      ? "#03141A"
+                      : on > 0.5
+                        ? theme.teal
+                        : theme.muted
+                  }
+                />
+                {st.label}
+              </div>
+            );
+          })}
         </div>
       </AbsoluteFill>
     </SceneFade>
@@ -729,13 +756,13 @@ export const SceneSolution: React.FC = () => (
     <Sequence from={0} durationInFrames={120}>
       <PhotoBeat />
     </Sequence>
-    <Sequence from={120} durationInFrames={90}>
+    <Sequence from={90} durationInFrames={90}>
       <SendBeat />
     </Sequence>
-    <Sequence from={210} durationInFrames={150}>
+    <Sequence from={180} durationInFrames={150}>
       <AgentBeat />
     </Sequence>
-    <Sequence from={360} durationInFrames={90}>
+    <Sequence from={330} durationInFrames={105}>
       <MorphBeat />
     </Sequence>
   </AbsoluteFill>

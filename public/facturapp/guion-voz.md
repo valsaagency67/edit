@@ -2,14 +2,14 @@
 
 | # | Inicio | Fin | Texto |
 |---|---|---|---|
-| 00 | 0.3s | 4.8s | ¿Cuántas facturas pierde tu empresa cada mes? |
-| 01 | 4.95s | 8.9s | Gasolina, casetas, comidas: tickets sin factura. |
-| 02 | 8.95s | 11.9s | Portales lentos: 10 minutos por ticket. |
-| 03 | 12.0s | 14.95s | Sin factura, hasta 30% de impuestos extra. |
-| 04 | 15.2s | 18.8s | Toma una foto del ticket. |
-| 05 | 19.2s | 22.0s | Mándala por la app o por WhatsApp. |
-| 06 | 22.2s | 27.0s | Un agente de IA entra a portales, escribe o llama al comercio. |
-| 07 | 27.2s | 29.9s | De foto a factura, sin esfuerzo. |
-| 08 | 30.1s | 33.6s | 10 segundos en lugar de 10 minutos. |
-| 09 | 33.9s | 36.1s | Más gastos deducibles. |
+| 00 | 0.3s | 4.55s | ¿Cuántas facturas pierde tu empresa cada mes? |
+| 01 | 4.75s | 8.4s | Gasolina, Oxxo, Costco, casetas: gastos hormiga. |
+| 02 | 8.55s | 12.4s | Portales lentos, comercios sin respuesta y solo facturan en el mes. |
+| 03 | 12.5s | 15.4s | Por cada $100 sin factura, $30 de más. |
+| 04 | 15.6s | 18.4s | Toma una foto del ticket. |
+| 05 | 18.6s | 21.4s | Mándala por la app o por WhatsApp. |
+| 06 | 21.6s | 26.4s | Un agente de IA entra al portal, escribe o llama al comercio. |
+| 07 | 26.6s | 29.9s | Y te avisa el estado de cada factura. |
+| 08 | 30.1s | 33.8s | 10 segundos en lugar de 10 minutos por ticket. |
+| 09 | 34.0s | 36.2s | Más gastos deducibles. |
 | 10 | 36.3s | 39.9s | Toma una foto. FacturApp lo factura por ti. |

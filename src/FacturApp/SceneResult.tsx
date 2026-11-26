@@ -107,6 +107,16 @@ const TimeBeat: React.FC = () => {
           }}
         >
           en lugar de <Hl color={theme.amber}>10 minutos</Hl>
+          <div
+            style={{
+              fontSize: 38,
+              fontWeight: 500,
+              color: theme.muted,
+              marginTop: 10,
+            }}
+          >
+            por ticket · y son decenas o cientos al mes
+          </div>
         </div>
       </AbsoluteFill>
     </SceneFade>
@@ -115,11 +125,17 @@ const TimeBeat: React.FC = () => {
 
 const DeductibleBeat: React.FC = () => {
   const frame = useCurrentFrame();
-  const rows = [
-    { icon: "fuel" as const, name: "Gasolina", amt: "$850.00" },
-    { icon: "toll" as const, name: "Casetas", amt: "$214.00" },
-    { icon: "food" as const, name: "Comidas", amt: "$432.00" },
-  ];
+  const c1 = prog(frame, 14, 32);
+  const c2 = prog(frame, 40, 58);
+  const save = prog(frame, 70, 90);
+  const card = (bad: boolean): React.CSSProperties => ({
+    width: 900,
+    borderRadius: 40,
+    padding: "34px 44px",
+    border: `3px solid ${bad ? theme.danger + "88" : theme.teal}`,
+    background: bad ? "rgba(255,92,108,0.1)" : "rgba(25,242,216,0.12)",
+    boxShadow: bad ? "none" : `0 0 70px ${theme.teal}33`,
+  });
   return (
     <SceneFade duration={120} fadeIn={8} fadeOut={6}>
       <AbsoluteFill style={{ alignItems: "center", paddingTop: 150 }}>
@@ -136,72 +152,97 @@ const DeductibleBeat: React.FC = () => {
         </Title>
         <div
           style={{
-            marginTop: 80,
+            marginTop: 70,
             display: "flex",
             flexDirection: "column",
             gap: 28,
-            width: 900,
           }}
         >
-          {rows.map((r, i) => {
-            const s = 14 + i * 12;
-            const p = prog(frame, s, s + 18);
-            const ok = prog(frame, s + 24, s + 36);
-            return (
-              <div
-                key={r.name}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 28,
-                  padding: "28px 36px",
-                  borderRadius: 34,
-                  background: `rgba(25,242,216,${0.05 + ok * 0.1})`,
-                  border: `2px solid rgba(25,242,216,${0.2 + ok * 0.6})`,
-                  opacity: p,
-                  translate: `${(1 - p) * 200}px 0px`,
-                  boxShadow: ok > 0.5 ? `0 0 50px ${theme.teal}33` : "none",
-                }}
-              >
-                <Icon kind={r.icon} size={74} />
+          <div
+            style={{
+              ...card(true),
+              opacity: c1,
+              translate: `${(1 - c1) * 200}px 0px`,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: FONT,
+                fontWeight: 600,
+                fontSize: 36,
+                color: theme.muted,
+              }}
+            >
+              Sin FacturApp · $100,000 sin factura
+            </div>
+            <div
+              style={{
+                fontFamily: FONT,
+                fontWeight: 800,
+                fontSize: 76,
+                color: theme.danger,
+              }}
+            >
+              $30,000 de impuesto extra
+            </div>
+          </div>
+          <div
+            style={{
+              ...card(false),
+              opacity: c2,
+              translate: `${(1 - c2) * 200}px 0px`,
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+              <div style={{ flex: 1 }}>
                 <div
                   style={{
-                    flex: 1,
                     fontFamily: FONT,
-                    fontWeight: 700,
-                    fontSize: 52,
+                    fontWeight: 600,
+                    fontSize: 36,
+                    color: theme.teal,
+                  }}
+                >
+                  Con FacturApp · $100,000 facturados
+                </div>
+                <div
+                  style={{
+                    fontFamily: FONT,
+                    fontWeight: 800,
+                    fontSize: 76,
                     color: theme.text,
                   }}
                 >
-                  {r.name}
-                </div>
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontWeight: 700,
-                    fontSize: 40,
-                    color: theme.muted,
-                  }}
-                >
-                  {r.amt}
-                </div>
-                <div
-                  style={{
-                    width: 82,
-                    height: 82,
-                    borderRadius: 82,
-                    display: "grid",
-                    placeItems: "center",
-                    background: theme.teal,
-                    scale: String(ok),
-                    opacity: ok,
-                  }}
-                >
-                  <Icon kind="check" size={50} color="#03141A" />
+                  Todo deducible
                 </div>
               </div>
-            );
-          })}
+              <div
+                style={{
+                  width: 100,
+                  height: 100,
+                  borderRadius: 100,
+                  display: "grid",
+                  placeItems: "center",
+                  background: theme.teal,
+                  scale: String(prog(frame, 52, 66)),
+                }}
+              >
+                <Icon kind="check" size={62} color="#03141A" />
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              opacity: save,
+              textAlign: "center",
+              fontFamily: FONT,
+              fontWeight: 700,
+              fontSize: 46,
+              color: theme.text,
+            }}
+          >
+            Ahorras hasta <Hl>$30,000</Hl> por cada $100,000
+          </div>
         </div>
       </AbsoluteFill>
     </SceneFade>

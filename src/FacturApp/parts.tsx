@@ -24,6 +24,7 @@ export const Icon: React.FC<{
     | "fuel"
     | "toll"
     | "food"
+    | "calendar"
     | "check"
     | "bolt"
     | "globe"
@@ -63,6 +64,13 @@ export const Icon: React.FC<{
       <>
         <path d="M18 8v18a6 6 0 0 0 12 0V8M24 8v48" {...p} />
         <path d="M46 8c-6 6-8 14-8 24h8v24" {...p} />
+      </>
+    ),
+    calendar: (
+      <>
+        <rect x="8" y="14" width="48" height="42" rx="6" {...p} />
+        <path d="M8 28h48M20 8v12M44 8v12" {...p} />
+        <path d="M20 40h4M30 40h4M40 40h4M20 48h4M30 48h4" {...p} />
       </>
     ),
     check: <path d="M12 34l14 14 26-30" {...p} strokeWidth={7} />,
