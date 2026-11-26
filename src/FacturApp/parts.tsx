@@ -123,28 +123,36 @@ export const Logo: React.FC<{ size?: number }> = ({ size = 1 }) => (
     <svg width={150 * size} height={150 * size} viewBox="0 0 150 150">
       <defs>
         <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E4ECE9" />
-          <stop offset="0.45" stopColor="#7E948E" />
-          <stop offset="1" stopColor="#1F3A36" />
+          <stop offset="0" stopColor="#3DFFE6" />
+          <stop offset="1" stopColor="#00A99D" />
         </linearGradient>
       </defs>
-      <circle cx="75" cy="75" r="72" fill="url(#lg)" />
-      {/* capas apiladas */}
+      <rect x="6" y="6" width="138" height="138" rx="38" fill="url(#lg)" />
+      {/* ticket con borde dentado */}
       <path
-        d="M32 66c14-12 28-18 43-18s29 6 43 18c-14 4-29 10-43 10S46 70 32 66z"
-        fill="#fff"
+        d="M46 30h58v90l-9.7-8-9.6 8-9.7-8-9.7 8-9.6-8-9.7 8z"
+        fill="#03141A"
       />
       <path
-        d="M32 86c14 6 29 12 43 12s29-6 43-12c-6 12-24 26-43 26s-37-14-43-26z"
-        fill="#fff"
-        opacity="0.92"
+        d="M58 56h34M58 74h34M58 92h20"
+        stroke="#19F2D8"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M96 88l7 8 14-18"
+        stroke="#fff"
+        strokeWidth="9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
       />
     </svg>
     <div
       style={{
-        fontSize: 112 * size,
-        fontWeight: 500,
-        letterSpacing: -2 * size,
+        fontSize: 108 * size,
+        fontWeight: 800,
+        letterSpacing: -3 * size,
         color: theme.text,
         lineHeight: 1,
       }}
@@ -193,7 +201,7 @@ export const Ticket: React.FC<{
         <div
           style={{
             fontFamily: FONT,
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: 28,
             textAlign: "center",
             letterSpacing: 1,
@@ -244,7 +252,7 @@ export const Ticket: React.FC<{
             borderRadius: 10,
             padding: "4px 14px",
             fontFamily: FONT,
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: 30,
             background: "rgba(255,255,255,0.35)",
           }}
@@ -265,7 +273,7 @@ export const Title: React.FC<{
   <div
     style={{
       fontFamily: FONT,
-      fontWeight: 700,
+      fontWeight: 800,
       fontSize: size,
       lineHeight: 1.08,
       letterSpacing: -2,

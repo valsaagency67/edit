@@ -70,7 +70,7 @@ export const SceneHook: React.FC = () => {
               display: "grid",
               placeItems: "center",
               boxShadow: `0 0 ${50 + Math.sin(frame / 6) * 20}px ${theme.teal}55`,
-              background: "rgba(168,197,188,0.08)",
+              background: "rgba(25,242,216,0.08)",
             }}
           >
             <Icon kind="camera" size={84} />
@@ -84,7 +84,7 @@ export const SceneHook: React.FC = () => {
             columnGap: 28,
             width: 940,
             fontFamily: FONT,
-            fontWeight: 700,
+            fontWeight: 800,
             fontSize: 118,
             letterSpacing: -3,
             lineHeight: 1.08,

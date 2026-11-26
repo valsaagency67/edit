@@ -14,7 +14,8 @@ import { SceneProblem } from "./SceneProblem";
 import { SceneSolution } from "./SceneSolution";
 import { SceneResult } from "./SceneResult";
 import { SceneOutro } from "./SceneOutro";
-import { FPS, sec, theme, FONT } from "./theme";
+import { FPS, sec } from "./theme";
+import { VOICEOVER_ENABLED, VOICE_LINES } from "./voiceover";
 
 export const FACTURAPP_DURATION = sec(40);
 export { FPS };
@@ -30,7 +31,12 @@ export const FacturApp: React.FC = () => {
           interpolate(
             f,
             [0, 30, durationInFrames - 60, durationInFrames],
-            [0, 0.5, 0.5, 0],
+            [
+              0,
+              VOICEOVER_ENABLED ? 0.22 : 0.5,
+              VOICEOVER_ENABLED ? 0.22 : 0.5,
+              0,
+            ],
             {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
@@ -53,21 +59,17 @@ export const FacturApp: React.FC = () => {
       <Sequence from={sec(38)} durationInFrames={sec(2)} name="5 · Cierre">
         <SceneOutro />
       </Sequence>
-      <div
-        style={{
-          position: "absolute",
-          top: 70,
-          width: "100%",
-          textAlign: "center",
-          fontFamily: FONT,
-          fontWeight: 500,
-          fontSize: 26,
-          letterSpacing: 8,
-          color: theme.muted,
-        }}
-      >
-        FACTURAPP · FACTURACIÓN CON IA
-      </div>
+      {VOICEOVER_ENABLED
+        ? VOICE_LINES.map((l, i) => (
+            <Sequence key={i} from={sec(l.from)} layout="none">
+              <Audio
+                src={staticFile(
+                  `facturapp/vo/vo-${i < 10 ? "0" + i : "" + i}.mp3`,
+                )}
+              />
+            </Sequence>
+          ))
+        : null}
       <Captions />
     </AbsoluteFill>
   );
