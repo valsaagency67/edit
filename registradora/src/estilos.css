@@ -1,0 +1,249 @@
+/*
+ * Estilos de Registradora.
+ * Colores como "variables" (--algo) para cambiar entre tema claro y oscuro.
+ * Por defecto sigue el modo del celular; data-tema="claro|oscuro" lo fuerza.
+ */
+:root {
+  --fondo: #f6f5f1;
+  --superficie: #ffffff;
+  --texto: #1b1d1b;
+  --texto-suave: #5c625d;
+  --borde: #e2e0d8;
+  --marca: #1f7a4d;
+  --marca-texto: #ffffff;
+  --marca-suave: #e3f1e8;
+  --ingreso: #1f7a4d;
+  --gasto: #b3261e;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    --fondo: #121412;
+    --superficie: #1c1f1d;
+    --texto: #eef0ec;
+    --texto-suave: #a3aaa4;
+    --borde: #2e332f;
+    --marca: #4cc38a;
+    --marca-texto: #0b1f14;
+    --marca-suave: #1d3328;
+    --ingreso: #4cc38a;
+    --gasto: #ff8a80;
+    color-scheme: dark;
+  }
+}
+
+:root[data-tema='oscuro'] {
+  --fondo: #121412;
+  --superficie: #1c1f1d;
+  --texto: #eef0ec;
+  --texto-suave: #a3aaa4;
+  --borde: #2e332f;
+  --marca: #4cc38a;
+  --marca-texto: #0b1f14;
+  --marca-suave: #1d3328;
+  --ingreso: #4cc38a;
+  --gasto: #ff8a80;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.marco {
+  max-width: 560px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  /* Respeta la muesca y la barra de gestos del iPhone */
+  padding: env(safe-area-inset-top) 16px calc(96px + env(safe-area-inset-bottom));
+}
+
+.encabezado h1 {
+  font-size: 1.6rem;
+  margin: 20px 0 12px;
+}
+
+.tarjeta {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 18px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.tarjeta.destacada {
+  background: var(--marca-suave);
+  border-color: transparent;
+}
+
+.tarjeta.vacia {
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+.tarjeta p {
+  margin: 0 0 4px;
+}
+
+.etiqueta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--texto-suave);
+}
+
+/* Números grandes y con ancho fijo por dígito, para que no "bailen" */
+.cifra-grande {
+  font-size: 2.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 4px 0 8px !important;
+  overflow-wrap: anywhere;
+}
+
+.nota {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.pasos {
+  margin: 6px 0 0;
+  padding-left: 1.2em;
+}
+
+.pasos li {
+  margin-bottom: 6px;
+}
+
+.estado {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 10px;
+}
+
+.estado li {
+  padding: 4px 0;
+}
+
+.estado .ok span {
+  color: var(--ingreso);
+  font-weight: 700;
+}
+
+.estado .pendiente {
+  color: var(--texto-suave);
+}
+
+.selector {
+  display: flex;
+  gap: 6px;
+  background: var(--fondo);
+  border-radius: 14px;
+  padding: 4px;
+  margin-top: 8px;
+}
+
+.selector button {
+  flex: 1;
+  min-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-weight: 600;
+}
+
+.selector button.elegido {
+  background: var(--marca);
+  color: var(--marca-texto);
+}
+
+/* Barra inferior fija: todo al alcance del pulgar */
+.barra {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--superficie);
+  border-top: 1px solid var(--borde);
+  padding: 6px 16px calc(6px + env(safe-area-inset-bottom));
+}
+
+.barra-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+  min-height: 52px;
+  justify-content: center;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+.barra-item span {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.barra-item.activo {
+  color: var(--marca);
+  font-weight: 700;
+}
+
+.barra-agregar {
+  width: 64px;
+  height: 64px;
+  margin-top: -28px;
+  border-radius: 50%;
+  border: 4px solid var(--fondo);
+  background: var(--marca);
+  color: var(--marca-texto);
+  font-size: 2.2rem;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.2);
+}
+
+.aviso-actualizacion {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--marca);
+  color: var(--marca-texto);
+  font-weight: 600;
+}
+
+code {
+  font-size: 0.9em;
+  background: var(--fondo);
+  padding: 1px 5px;
+  border-radius: 6px;
+}
